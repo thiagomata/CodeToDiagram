@@ -1,6 +1,6 @@
 <?php
 
-require_once( '..\classes\_start.php' );
+require_once( '../classes/_start.php' );
 
 
 $intZoom = (integer)getArrayElement( $_POST , "zoom" , 50 );
