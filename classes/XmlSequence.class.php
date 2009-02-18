@@ -62,7 +62,7 @@ class XmlSequence
         {
             $intId = (integer)$xmlActor['id'];
             $strType = (string)$xmlActor['type'];
-            $strName = (string)$xmlActor[0];
+            $strName = (string)$xmlActor;
 
             $objActor = new XmlSequenceActor();
             $objActor->setId( $intId );
