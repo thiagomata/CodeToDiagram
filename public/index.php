@@ -1,5 +1,5 @@
 <?php
-require_once( "debug.php" );
+require_once( "../_start.php" );
 
 $intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
 $strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
@@ -113,8 +113,3 @@ $objXmlSequence->setXml( $strXml );
         </div>
     </body>
 </html>
-<pre>
-<?php
-print htmlentities( html_entity_decode( DebugRefletionReceiver::showLog() ) );
-?>
-</pre>
