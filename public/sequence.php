@@ -6,7 +6,7 @@ $strXml = getArrayElement( $_POST , "xml" , '<sequence></sequence>' );
 $strTitle = getArrayElement( $_POST , "title" , 'Sequence Diagram' );
 
 $objXmlSequence = new XmlSequence();
-$objXmlSequence->setZoom( $intZoom );
+$objXmlSequence->setZoom( $intZoom);
 $objXmlSequence->setXml( $strXml );
 
 ?>

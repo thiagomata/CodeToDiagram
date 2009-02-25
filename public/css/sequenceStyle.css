@@ -1,0 +1,366 @@
+			.row
+			{
+				float: left;
+				height: 40px;
+				text-align: center;
+				width: 20%;
+				background-repeat: no-repeat;
+				margin-left: 0px;
+				margin-right: 0px;
+
+			}
+			.actor
+			{
+				float: left;
+				width: 10px;
+			}
+			.row .message
+			{
+
+			}
+			.call .message
+			{
+				padding: 0px;
+				margin: 0px;
+				border-width: 0px;
+				border-bottom-width: 1px;
+				border-color: black;
+				border-style: solid;
+                height: 50%;
+
+			}
+			.return .message
+			{
+				padding: 0px;
+				margin: 0px;
+				border-width: 0px;
+				border-bottom-width: 1px;
+				border-color: black;
+				border-style: dashed;
+				height: 50%;
+			}
+			.call.end.regular
+			{
+				background-image: url( "../images/row_call.gif" );
+				background-position: right;
+				margin-right: 0px;
+				margin-left: 0px;
+			}
+            div.line:hover .call.end.regular
+            {
+                background-image: url( "../images/row_call_hover.gif" );
+            }
+            .return.end.regular
+            {
+				background-image: url( "../images/row_return_back.gif" );
+   				background-position: right;
+            }
+            div.line:hover .call.short
+            {
+                background-image: url( "../images/row_return_back_hover.gif" );
+            }
+			.call.line.regular.line.short.start
+			{
+				background-image: url( "../images/row_call.gif" );
+				background-position: right;
+				margin-right: 0px;
+				margin-left: 0px;
+			}
+            div.line:hover .call.line.short
+            {
+                background-image: url( "../images/row_call_hover.gif" );
+            }
+
+            /* return short not exists*/
+
+            .call.start.reverse
+            {
+				background-image: url( "../images/row_call_back.gif" );
+				background-position: left;
+            }
+            div.line:hover .call.start.reverse
+            {
+                background-image: url( "../images/row_call_back_hover.gif" );
+            }
+			.return.start.reverse
+			{
+				background-image: url( "../images/row_return.gif" );
+				background-position: left;
+			}
+            div.line:hover .return.start.reverse
+            {
+                background-image: url( "../images/row_return_hover.gif" );
+            }
+			.return.reverse.end
+			{
+				background-image: none;
+				background-position: left;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			.call.reverse.end
+			{
+				background-image: none;
+				background-position: left;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+            .return.regular.start
+            {
+				background-image: none;
+   				background-position: right;
+            }
+            .call.regular.start
+            {
+				background-image: none;
+   				background-position: right;
+            }
+            /* recursive */
+            .call.short.recursive
+            {
+                text-align: left;
+                height: 40px;
+                background-image: url( "../images/row_call_back.gif" );
+                background-repeat: no-repeat;
+                background-position: 0% 30px;
+            }
+            div.line:hover .call.short.recursive
+            {
+                background-image: url( "../images/row_call_back_hover.gif" );
+            }
+            .return.short.recursive
+            {
+                text-align: left;
+                height: 40px;
+                background-image: url( "../images/row_return.gif" );
+                background-repeat: no-repeat;
+                background-position: 0% 30px;
+            }
+            div.line:hover .return.short.recursive
+            {
+                background-image: url( "../images/row_return_hover.gif" );
+            }
+            .recursive .message
+            {
+                height: 30px;
+                border-width: 0px;
+            }
+            .recursive .message span
+            {
+                float: left;
+                margin-top: 0px;
+                height: 30px;
+                border: 1px;
+                border-left: 0px;
+                border-color: black;
+                border-style: solid;
+                height: 30px;
+                padding: 2px;
+            }
+            .return.recursive .message span
+            {
+                float: left;
+                margin-top: 0px;
+                height: 30px;
+                border: 1px;
+                border-left: 0px;
+                border-color: black;
+                border-style: dashed;
+                height: 30px;
+                padding: 2px;
+            }
+			.actor .name
+			{
+				overflow: hidden;
+				display: block;
+				width: 10px;
+				height: 100%;
+                color: #DDDDFF;
+			}
+			.actor.start .name span
+			{
+				overflow: hidden;
+				display: block;
+				width: 20px;
+				height: 100%;
+                color: blue;
+                background-color: blue;
+                border-style: none ;
+                border-width: 0px;
+			}
+	
+			.actor.after1 .name span
+			{
+				overflow: hidden;
+				display: block;
+				width: 10px;
+				height: 100%;
+                color: blue;
+                background-color: blue;
+                border-style: dashed;
+                border-width: 0px;
+			}
+			.call .name span
+			{
+				border-width: 0px;
+				border-bottom-width: 1px;
+				border-color: black;
+				border-style: solid;
+			}
+            .body .name
+            {
+				overflow: hidden;
+				display: block;
+				height: 100%;
+                border-style: none ;
+                border-width: 0px;
+                padding: 0px;
+                margin: 0px;
+                /*
+                background-image: url( "../images/line.gif" );
+                background-repeat: repeat-y;
+                background-position: 50% 50%;
+                */
+                background-color: #DDDDFF;
+                color: #DDDDFF;
+            }
+			.return .name span
+			{
+				overflow: hidden;
+				display: block;
+				height: 50%;
+                color: #DDDDFF;
+                border-color: black;
+                border-style: dashed;
+                border-width: 0px;
+                border-bottom-width: 1px;
+			}
+			.call .name span
+			{
+				overflow: hidden;
+				display: block;
+				height: 50%;
+                color: #DDDDFF;
+                border-color: black;
+                border-style: solid;
+                border-width: 0px;
+                border-bottom-width: 1px;
+			}
+			.actor .name
+			{
+				height: 40px;
+				/*background-color: blue;*/
+			}
+			.actor
+			{
+				padding: 0px;
+				background-image: none;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			.large
+			{
+				background-image: none;
+				padding: 0px;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
+			.line
+			{
+				width:100%;
+				float:left;
+
+			}
+			.head .actor .name
+			{
+				width: 100px;
+				height: 50px;
+				text-align: center;
+				position: relative;
+				left: -45px;
+			}
+			.head .system .name
+			{
+				background-color: #DDDDFF;
+				border-style:solid;
+				border-color: blue;
+				border-width: 1px;
+			}
+			.head .user .name
+			{
+				background-color: white;
+				border-style:solid;
+				border-color: blue;
+				border-width: 1px;
+				background-image: url( "../images/actor.gif" );
+				background-repeat: no-repeat;
+				background-position: center 20px;
+			}
+
+			.head .actor .name span
+			{
+				display: inherit;
+				width: 100px;
+				color: black;
+				overflow: inherit;
+			}
+			.head .actor div.name:hover
+			{
+                background-color: #ABABFF;
+                z-index: 100;
+			}
+            .head .actor div.name:hover span
+            {
+                color: green;
+            }
+			.head .actor div.name:hover span strong
+			{
+                color: #AAFFAA;
+			}
+            .parameters
+            {
+                display: none;
+                width: 200px;
+                float: left;
+                position: relative;
+                right: 40px;
+                top: 15px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: black;
+                text-align: left;
+                background-color: #DFDFFF;
+            }
+
+            div.line:hover div div span
+            {
+                border-color: orange;
+            }
+            div.call:hover div.message .parameters
+            {
+                display: block;
+            }
+            div.line:hover div div.message
+            {
+                border-color: orange;
+                 color: maroon;
+            }
+            div.line:hover div div.message span
+            {
+                border-color: orange;
+                font-weight:bold;
+                color: maroon;
+                font-size: 14px;
+            }
+            div.return:hover div.message .parameters
+            {
+                display: block;
+            }
+            div.message .parameters li
+            {
+               font-size: 14px;
+            }
+            div.recursive:hover div.message .parameters
+            {
+                display: block;
+            }

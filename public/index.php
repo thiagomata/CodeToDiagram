@@ -1,10 +1,8 @@
 <?php
+require_once( "debug.php" );
 
-require_once( '../classes/_start.php' );
-
-
-$intZoom = (integer)getArrayElement( $_POST , "zoom" , 50 );
-$strXml = getArrayElement( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
+$intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
+$strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
 
 $objXmlSequence = new XmlSequence();
 $objXmlSequence->setZoom( $intZoom);
@@ -14,6 +12,7 @@ $objXmlSequence->setXml( $strXml );
 <html>
     <head>
         <style>
+
             form label
             {
                 display: block;
@@ -77,7 +76,8 @@ $objXmlSequence->setXml( $strXml );
                 warranty. Use it at your own risk. It's not for the faint of heart.
             </p>
             <p>
-                For external use <a href="caller.php"> try this link </a> and see the HTML code.               
+                For external use <a href="caller.php"> try this link </a> and see the HTML code.
+                To internal use download from <a href="SequenceDiagram.rar">here</a>.
             </p>
             <p>
                 Special thanks to Raphael Melo and 
@@ -113,3 +113,8 @@ $objXmlSequence->setXml( $strXml );
         </div>
     </body>
 </html>
+<pre>
+<?php
+print htmlentities( html_entity_decode( DebugRefletionReceiver::showLog() ) );
+?>
+</pre>
