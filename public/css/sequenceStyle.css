@@ -71,7 +71,21 @@
                 background-image: url( "../images/row_call_hover.gif" );
             }
 
-            /* return short not exists*/
+            div.line:hover .return.short
+            {
+                background-image: url( "../images/row_return_back_hover.gif" );
+            }
+			.return.line.regular.line.short.start
+			{
+				background-image: url( "../images/row_return_back.gif" );
+				background-position: right;
+				margin-right: 0px;
+				margin-left: 0px;
+			}
+            div.line:hover .return.line.short
+            {
+                background-image: url( "../images/row_return_back_hover.gif" );
+            }
 
             .call.start.reverse
             {
