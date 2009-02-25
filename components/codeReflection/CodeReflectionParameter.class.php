@@ -10,11 +10,12 @@ class CodeReflectionParameter extends ExtendedReflectionParameter
 	public function getCode()
 	{
 		$strCode = "";
-		if( $this->getClass() != null )
+/*
+        if( $this->getClass() != null )
 		{
 			$strCode .= $this->getClass()->getClassName() . " ";
 		} 
-		
+*/
 		$strCode .= '$' . $this->getName();
 
 		if( $this->isOptional() )

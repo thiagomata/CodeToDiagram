@@ -31,6 +31,34 @@ class DebugReflectionClass extends CodeReflectionClass
             $this->strName = $strName;
     }
 
+    public function createMethodsDefinitionCode()
+    {
+        $strCode = '';
+        $boolHasConstructor = false;
+
+        foreach( $this->getMethods() as $objMethodReflection )
+        {
+            if( $objMethodReflection->getName() == '__construct' )
+            {
+                $boolHasConstructor = true;
+                break;
+            }
+        }
+        
+        $strCode = parent::createMethodsDefinitionCode();
+        if( $boolHasConstructor == false )
+        {
+            $strCode .=	' public function __construct()                                                                 ' . "\n";
+            $strCode .=	'    {                                                                                          ' . "\n";
+            $strCode .=	'       $arrArguments = func_get_args();                                                        ' . "\n";
+            $strCode .=	'       $mixReturn = null;                                                                      ' . "\n";
+            $strCode .=	'   	DebugRefletionReceiver::getInstance()->onEnterMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+            $strCode .=	'       DebugRefletionReceiver::getInstance()->onLeaveMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
+            $strCode .=	'	}                                                                                           ' . "\n";
+        }
+        return $strCode;
+    }
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new DebugReflectionClass( $objOriginalReflectionClass->getName() );

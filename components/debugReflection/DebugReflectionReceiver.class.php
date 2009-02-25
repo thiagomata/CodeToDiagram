@@ -2,6 +2,8 @@
 
 class DebugRefletionReceiver
 {
+    const IGNORE_NULL_RETURNS = true;
+
     static $objDebugReflectionReceiver;
     
 	protected $arrStack = array();
@@ -54,7 +56,7 @@ class DebugRefletionReceiver
             $this->arrClasses[ $strClass ]++;
             $objActorTo = new XmlSequenceActor();
             $objActorTo->setClassName($strClass);
-            $objActorTo->setName( $strClass . $this->arrClasses[ $strClass ] );
+            $objActorTo->setName( $strClass . '(' . $this->arrClasses[ $strClass ] . ')');
             $objActorTo->setId(sizeof( $this->arrActors ) + 1  );
             $this->arrActors[ $uid ] = $objActorTo;
             $this->objXmlSequence->addActor($objActorTo);
@@ -65,7 +67,7 @@ class DebugRefletionReceiver
         }
 
 		$objMessage = new XmlSequenceMessage();
-        $objMessage->setText( $strMethod );
+        $objMessage->setText( $strMethod . '()');
         $objMessage->setActorFrom( $objActorFrom );
         $objMessage->setActorTo( $objActorTo );
         $objMessage->setType( 'call' );
@@ -73,7 +75,7 @@ class DebugRefletionReceiver
         {
             $objValue = new XmlSequenceValue();
             $objValue->setName( '[' . $strName  . ']');
-            $objValue->setValue( $mixValue);
+            $objValue->setValue( serialize( $mixValue ) );
             $objMessage->addValue( $objValue );
         }
 
@@ -93,19 +95,26 @@ class DebugRefletionReceiver
 
         $objActorFrom = array_shift( $this->arrStack );
         $objActorTo = current( $this->arrStack );
-        
-		$objMessage = new XmlSequenceMessage();
-        $objMessage->setText( $strMethod );
-        $objMessage->setActorFrom( $objActorFrom );
-        $objMessage->setActorTo( $objActorTo );
-        $objMessage->setType( 'return' );
-        $objValue = new XmlSequenceValue();
-        $objValue->setName( "[return]" );
-        $objValue->setValue( $mixReturn );
-        $objMessage->addValue( $objValue );
 
-        $this->objXmlSequence->addMessage( $objMessage );
-        $objMessage->setTimeEnd( microtime( true ) );
+        if( $mixReturn != null or !self::IGNORE_NULL_RETURNS )
+        {
+            $objMessage = new XmlSequenceMessage();
+            $objMessage->setText( $strMethod );
+            $objMessage->setActorFrom( $objActorFrom );
+            $objMessage->setActorTo( $objActorTo );
+            $objMessage->setType( 'return' );
+
+            if( $mixReturn !== null )
+            {
+                $objValue = new XmlSequenceValue();
+                $objValue->setName( "[return]" );
+                $objValue->setValue( serialize( $mixReturn ) );
+                $objMessage->addValue( $objValue );
+            }
+
+            $this->objXmlSequence->addMessage( $objMessage );
+            $objMessage->setTimeEnd( microtime( true ) );
+        }
 	}
 	
 	public function getXmlSequence()

@@ -17,6 +17,7 @@ class CodeReflectionProperty extends ExtendedReflectionProperty
      */
     public function getDefaultValue()
     {
+        /*
         try
         {
             $objParent = $this->getDeclaringClass();
@@ -35,6 +36,9 @@ class CodeReflectionProperty extends ExtendedReflectionProperty
             // error on init object //
             return null;
         }
+         * *
+         */
+        return null;
     }
 	public function getCode()
 	{

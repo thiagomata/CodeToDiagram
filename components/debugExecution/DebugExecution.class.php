@@ -5,6 +5,8 @@ class DebugExecution
 
     protected static $booStart = false;
 
+    const RUN_IN_FILES = false;
+    
     public static function init( $strFile )
     {
         if( self::$booStart == false )
@@ -132,17 +134,31 @@ class DebugExecution
         }
 
         $strContentFile = implode( "\n" , $arrLines );
-//        file_put_contents( $strFile . "debug_before.php" , $strContentFile );
 
-        eval( '?>' . $strContentFile . '' );
+        if( self::RUN_IN_FILES )
+        {
+            file_put_contents( $strFile . "debug_before.php" , $strContentFile );
+           require_once( $strFile . "debug_before.php" );
+        }
+        else
+        {
+            eval( '?' . '>' . $strContentFile . '' );
+        }
 
         foreach( $arrNewClasses as $intKey => $strNewClassName )
         {
             $oReflectionCode = new DebugReflectionClass( $strNewClassName , $strContentFile );
             $oReflectionCode->setClassName( $arrOldClasses[ $intKey ] );
             $strNewCode = $oReflectionCode->getCode();
- //           file_put_contents( $strNewClassName . "debug.php" , '<?' . 'php ' .  $strNewCode );
-            eval( $strNewCode );
+           if( self::RUN_IN_FILES )
+           {
+               file_put_contents( $strNewClassName . "debug.php" , '<?' . 'php ' .  $strNewCode );
+               require_once( $strNewClassName . "debug.php" );
+           }
+           else
+           {
+               eval( $strNewCode );
+           }
         }
     }
 }
