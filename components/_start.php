@@ -1,12 +1,12 @@
 <?php
-# 1. Load the component exceptiop
-require_once( "CorujaComponentException.class.php" );
+define( "COMPONENTS_PATH" , str_replace( "\\" , "/" , str_replace( basename( __FILE__ ) , "" , __FILE__ ) ) );
 
-# 2. load the components manager
-require_once( PATH_CORUJA_COMPONENT . "/componentsManager/_start.php" );
-
-# 3. load the debug execution component
-CorujaComponentsManager::getInstance()->import( "library" );
-CorujaComponentsManager::getInstance()->import( "debugExecution" );
-
+require_once( COMPONENTS_PATH . "_start.php" );
+require_once( COMPONENTS_PATH . "library/_start.php" );
+//require_once( COMPONENTS_PATH . "backtrace/_start.php" );
+require_once( COMPONENTS_PATH . "extendedReflection/_start.php" );
+require_once( COMPONENTS_PATH . "codeReflection/_start.php" );
+require_once( COMPONENTS_PATH . "codeInstrumentation/_start.php" );
+require_once( COMPONENTS_PATH . "xmlSequence/_start.php" );
+require_once( COMPONENTS_PATH . "codeToDiagram/_start.php" );
 ?>
