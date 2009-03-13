@@ -6,7 +6,7 @@ class ExtendedReflectionMethod extends ReflectionMethod
         $objReflectionClass = parent::getDeclaringClass();
         return $this->createExtendedReflectionClass( $objReflectionClass );
     }
-	    
+
     public function getParameters()
     {
         $arrReflectionParameters = parent::getParameters();
@@ -18,16 +18,16 @@ class ExtendedReflectionMethod extends ReflectionMethod
 		}
  		return $arrExtendedParameters;
     }
-    
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new ExtendedReflectionClass( $objOriginalReflectionClass->getName() );
 	}
-	
+
 	protected function createExtendedReflectionParameter( ReflectionParameter $objReflectionParameter )
 	{
 		return new ExtendedReflectionParameter( Array( $this->getDeclaringClass()->getName() , $this->getName() ) , $objReflectionParameter->getName() );
 	}
-	
+
 }
 ?>

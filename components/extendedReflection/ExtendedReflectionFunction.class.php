@@ -12,11 +12,11 @@ class ExtendedReflectionFunction extends ReflectionFunction
 		}
 		return $arrExtendedParameters;
     }
-	
+
 	protected function createExtendedReflectionParameter( ReflectionParameter $objReflectionParameter )
 	{
 		return new ExtendedReflectionParameter( $this->getDeclaringClass()->getName() , $this->getName() , $objReflectionParameter->getName() );
 	}
-    
+
 }
 ?>

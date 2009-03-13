@@ -5,10 +5,10 @@ class ExtendedReflectionProperty extends ReflectionProperty
     {
         return $this->createExtendedReflectionClass( parent::getDeclaringClass() );
     }
-	
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new ExtendedReflectionClass( $objOriginalReflectionClass->getName() );
-	}	
+	}
 }
 ?>
