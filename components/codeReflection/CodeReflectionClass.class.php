@@ -5,19 +5,19 @@ class CodeReflectionClass extends ExtendedReflectionClass
 	{
 		return array_pop( explode( "::" , parent::getName() ) );
 	}
-	
+
 	public function getNamespace()
 	{
 		return array_shift( explode( "::" , parent::getName() ) );
 	}
-	
+
 	public function createClassDefinitionCode()
 	{
 		$strCode = "";
 		$strCode .= " class " . $this->getClassName();
 		if( $this->getParentClass() != "" )
 		{
-			$strCode .= " extends " . $this->getParentClass()->getClassName(); 
+			$strCode .= " extends " . $this->getParentClass()->getClassName();
 		}
 		if( sizeof( $this->getInterfaceNames() ) > 0)
 		{
@@ -25,7 +25,7 @@ class CodeReflectionClass extends ExtendedReflectionClass
 			$arrInterfaces = $this->getInterfaces();
 			foreach(  $arrInterfaces as $objInterfaces )
 			{
-				$arrInterfacesClassName[] = $objInterfaces->getClassName();	
+				$arrInterfacesClassName[] = $objInterfaces->getClassName();
 			}
 			$strCode .= " implements " . implode( ", " , $arrInterfacesClassName );
 		}
@@ -44,7 +44,7 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		}
 		return $strCode;
 	}
-	
+
 	public function createMethodsDefinitionCode()
 	{
 		$strCode = "";
@@ -56,7 +56,7 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		}
 		return $strCode;
 	}
-	
+
 	public function getCode()
 	{
 		$strCode = "";
@@ -67,17 +67,17 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		$strCode .= "\n}\n";
 		return $strCode;
 	}
-	
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
 	}
-	
+
     protected function createExtendedReflectionProperty( ReflectionProperty $objOriginalReflectionProperty )
 	{
 		return new CodeReflectionProperty( $this->getName() , $objOriginalReflectionProperty->getName() );
 	}
-	
+
 	protected function createExtendedReflectionMethod( ReflectionMethod $objOriginalReflectionMethod )
 	{
 		return new CodeReflectionMethod( $this->getName() , $objOriginalReflectionMethod->getName() );

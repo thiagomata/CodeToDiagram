@@ -5,6 +5,6 @@ class CodeReflectionFunction extends ExtendedReflectionFunction
 	{
 		return new CodeReflectionParameter( $this->getDeclaringClass()->getName() , $this->getName() , $objReflectionParameter->getName() );
 	}
-    
+
 }
 ?>

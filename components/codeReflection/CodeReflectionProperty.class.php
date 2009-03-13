@@ -65,10 +65,10 @@ class CodeReflectionProperty extends ExtendedReflectionProperty
 
         $strCode .= ' = ' . var_export( $this->getDefaultValue() , true );
 		$strCode .= ";" . "\n";
-		
+
 		return $strCode;
 	}
-	
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new CodeReflectionClass( $objOriginalReflectionClass->getName() );

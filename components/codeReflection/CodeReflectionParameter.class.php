@@ -14,7 +14,7 @@ class CodeReflectionParameter extends ExtendedReflectionParameter
         if( $this->getClass() != null )
 		{
 			$strCode .= $this->getClass()->getClassName() . " ";
-		} 
+		}
 */
 		$strCode .= '$' . $this->getName();
 
@@ -24,22 +24,22 @@ class CodeReflectionParameter extends ExtendedReflectionParameter
 		}
 		return $strCode;
 	}
-	
+
     protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
 	}
-	
+
 	protected function createExtendedReflectionMethod( ReflectionMethod $objOriginalReflectionMethod )
 	{
 		return new CodeReflectionMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
 	}
-	
+
 	protected function createExtendedReflectionFunction( ReflectionFunction $objOriginalReflectionFunction )
 	{
 		if( $objOriginalReflectionFunction instanceof ReflectionMethod )
 		{
-			return new CodeReflectionMethod( $objOriginalReflectionFunction->getName() );	
+			return new CodeReflectionMethod( $objOriginalReflectionFunction->getName() );
 		}
 		else
 		{

@@ -11,17 +11,17 @@ class CodeReflectionMethod extends ExtendedReflectionMethod
 
 		return $strCode;
 	}
-	
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
 	}
-	
+
 	protected function createExtendedReflectionParameter( ReflectionParameter $objReflectionParameter )
 	{
 		return new CodeReflectionParameter( Array( $this->getDeclaringClass()->getName() , $this->getName() ) , $objReflectionParameter->getName() );
 	}
-	
+
 	protected function createModifiersCode()
 	{
 		$strCode = "";
@@ -47,25 +47,25 @@ class CodeReflectionMethod extends ExtendedReflectionMethod
 		}
 		return $strCode;
 	}
-	
+
 	protected function createParametersCode()
 	{
 		$strCode = "";
 		$arrParameters = $this->getParameters();
 		$arrParametersName = array();
-		
+
 		foreach(  $arrParameters as $objParameter )
 		{
 			/*@var $objParameter CodeReflectionParameter */
-			$arrParametersName[] = $objParameter->getCode(); 
+			$arrParametersName[] = $objParameter->getCode();
 		}
-		
+
 		$strCode .= "(";
 		$strCode .= implode( ", " , $arrParametersName);
 		$strCode .= ")";
 		return $strCode;
 	}
-	
+
 	protected function createMethodHeaderCode()
 	{
 		$strCode = $this->getDocComment();
@@ -73,10 +73,10 @@ class CodeReflectionMethod extends ExtendedReflectionMethod
 		$strCode .= " function ";
 		$strCode .= $this->getName();
 		$strCode .= $this->createParametersCode();
-		
+
 		return CorujaStringManipulation::retab( $strCode , 1 );
 	}
-	
+
 	protected function createMethodContentCode()
 	{
 		$strCode = "";
@@ -89,11 +89,11 @@ class CodeReflectionMethod extends ExtendedReflectionMethod
 		$arrCodeReflectionFile = explode( "\n" , file_get_contents( $strFileName ) );
 		for( $intLine = $this->getStartLine(); $intLine < $this->getEndLine(); ++$intLine )
 		{
-			$strCode .= $arrCodeReflectionFile[ $intLine ] . "\n";	
+			$strCode .= $arrCodeReflectionFile[ $intLine ] . "\n";
 		}
 
 		$strCode = trim( $strCode );
-				
+
 		// remove the { }
 		if( $strCode[0] == "{" )
 		{
