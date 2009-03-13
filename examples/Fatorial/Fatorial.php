@@ -1,5 +1,4 @@
 <?php
-
 class Fatorial
 {
     public static function play( $n )
