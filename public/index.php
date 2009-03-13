@@ -80,9 +80,9 @@ $objXmlSequence->setXml( $strXml );
                 To internal use download from <a href="SequenceDiagram.rar">here</a>.
             </p>
             <p>
-                Special thanks to Raphael Melo and 
+                Special thanks to Raphael Melo and
                 <a href="http://pt-br.facebook.com/people/Igor-Moreno/678110783">
-                    Igor Moreno 
+                    Igor Moreno
                 </a>
                 for helping.
             </p>
