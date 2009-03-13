@@ -15,7 +15,7 @@ class XmlSequenceMessage
     protected $intTimeStart;
 
     protected $intTimeEnd;
-    
+
     public function setText( $strText )
     {
         $this->strText = $strText;
