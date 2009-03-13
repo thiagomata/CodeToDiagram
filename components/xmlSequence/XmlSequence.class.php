@@ -5,7 +5,7 @@
  * @date 17-02-2009
  * @link thiagomata.blogspot.com
  * @link thiagomata.com
- * 
+ *
  */
 class XmlSequence
 {
@@ -18,6 +18,93 @@ class XmlSequence
     protected $intActorBarWidth = 10;
     protected $intFont = 13;
     protected $intZoom = 100;
+
+    /**
+     * Returns a path to a folder relative from another folder. Both parameters
+     * must be absolute.
+     *
+     * - check for valid parameters
+     * - in case paths are equal return './'
+     * - explode parameters using '/'
+     * - remove similar base folders
+     * - make final address
+     *
+     * @param String $strFileFrom Base from the path. This must be an absolute path.
+     * @param String $strFileTo Destination of the path. This must be an absolute path.
+     * @param Boolean $booValidPath Use false if you don't want to check for valid folders.
+     * @throws XmlSequenceException In case of invalid values
+     *
+     * @example $path = XmlSequence::getRelativePath( "/www/folder/", "/www/another/big/" ); // "../another/big/"
+     *
+     * @assert ( "/www/folder/", "/www/another/big/", false ) == "../another/big/"
+     * @assert ( "", "" ) throws XmlSequenceException
+     * @assert ( "hello", "" ) throws XmlSequenceException
+     * @assert ( "", "hello" ) throws XmlSequenceException
+     * @assert ( "cool", "hello" ) throws XmlSequenceException
+     * @assert ( "/cool/", "hello" ) throws XmlSequenceException
+     * @assert ( "cool", "/hello/" ) throws XmlSequenceException
+     * @assert ( "/cool/", "/hello/", false ) == "../hello/"
+     * @assert ( "/cool/", "/hello/", false ) == "../hello/"
+     * @assert ( "/cool/", "/cool/", false ) == "./"
+     * @assert ( "/cool/more/", "/other/", false ) == "../../other/"
+     * @assert ( "/cool/", "/other/more/", false ) == "../other/more/"
+     */
+    public static function getRelativePath( $strFileFrom, $strFileTo, $booValidPath = true )
+    {
+        // check for valid parameters
+
+        $strFileFrom = str_replace( "\\" , "/" , $strFileFrom );
+        $strFileTo = str_replace( "\\" , "/" , $strFileTo );
+
+        if( $booValidPath
+            && ( ! is_dir( $strFileFrom ) || ! is_dir( $strFileTo ) )
+        )
+        {
+            throw new XmlSequenceException("Invalid parameter: strFileFrom: ".$strFileFrom." strFileTo: ".$strFileTo);
+        }
+
+        // special case: equal paths
+        if( $strFileFrom == $strFileTo )
+        {
+             $strReturnPath = './';
+        }
+        else
+        {
+            // explode parameters using '/'
+            $arrFileFrom = explode( '/', $strFileFrom );
+            $arrFileTo   = explode( '/', $strFileTo );
+
+            // remove similar base folders
+            while(
+                current( $arrFileFrom ) == current( $arrFileTo )
+                && count( $arrFileFrom ) > 0
+            )
+            {
+                array_shift( $arrFileFrom );
+                array_shift( $arrFileTo );
+            }
+
+            $arrReturnPath = array();
+
+            // make final address
+            foreach( $arrFileFrom as $strFolder )
+            {
+                if( $strFolder != "" ) {
+                    $arrReturnPath[] = "..";
+                }
+            }
+
+            foreach( $arrFileTo as $strFolder )
+            {
+                $arrReturnPath[] = $strFolder;
+            }
+
+            $strReturnPath = implode( '/', $arrReturnPath );
+
+        }
+
+        return $strReturnPath;
+    }
 
     public function setMessages( array $arrMessages )
     {
@@ -48,7 +135,7 @@ class XmlSequence
     {
         return $this->intZoom;
     }
-    
+
     public function setXml( $strXml )
     {
         $this->objXml = simplexml_load_string( $strXml );
@@ -137,6 +224,8 @@ class XmlSequence
 
     protected function showHeaders()
     {
+        $strPublicPath = XmlSequence::getRelativePath( CALLER_PATH, PUBLIC_PATH );
+
         $intQtdActors = sizeof( $this->arrActors );
         $intQtdMessages = $intQtdActors + 1;
         $intBodyWidth =
@@ -151,7 +240,7 @@ class XmlSequence
         $strHtmlHeaders =
 <<<HTML
             <style>
-                @import "css/sequenceStyle.css";
+                @import "{$strPublicPath}css/sequenceStyle.css";
                 .sequenceDiagram
                 {
                     width: {$intBodyWidth}px;
@@ -233,7 +322,7 @@ HTML;
         foreach( $this->arrMessages as $intKey => $objMessage )
         {
             $intPos = $intKey + 1;
-            
+
             /**
              * @var $objMessage XmlSequenceMessage
              */
@@ -262,7 +351,7 @@ HTML;
             $strReverse = $objMessage->isReverse() ? 'reverse' : 'regular';
             $strLarge = $objMessage->isLarge() ? 'large' : 'short';
             $strRecursive = $objMessage->isRecursive() ? 'recursive' : 'line';
-            
+
 
             while( $objActorActual = array_shift( $arrActors ) )
             {
