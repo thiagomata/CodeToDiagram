@@ -33,6 +33,11 @@ class CodeInstrumentationClass extends CodeReflectionClass
 
     public function createMethodsDefinitionCode()
     {
+        if( $this->isInterface() )
+        {
+            return parent::createMethodsDefinitionCode();
+        }
+        
         $strCode = '';
         $boolHasConstructor = false;
 

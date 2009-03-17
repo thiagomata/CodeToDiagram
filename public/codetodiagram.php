@@ -20,6 +20,10 @@ $arrDebugBackTrace = debug_backtrace();
 $strFile = ( $arrDebugBackTrace[0][ 'file' ] );
 define( "CALLER_PATH", str_replace( basename( $strFile ) , "" , $strFile ) );
 
-CodeToDiagram::init( basename( $strFile ) );
+if( !isset( $strCodeToDiagramOutputFile ) )
+{
+    $strCodeToDiagramOutputFile = null;
+}
+CodeToDiagram::init( basename( $strFile ) , $strCodeToDiagramOutputFile );
 
 ?>

@@ -41,7 +41,8 @@ class CodeInstrumentationReceiver
     public function onEnterMethod( $uid , $strClassDefinition , $strMethod, $arrArguments )
     {
         $strClass 		= CorujaClassManipulation::getClassNameFromClassDefinition( $strClassDefinition );
-        $strMethod 		= array_pop( explode( "::" , $strMethod ) );
+        $arrMethod      = explode( "::" , $strMethod );
+        $strMethod 		= array_pop( $arrMethod );
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
 
         if( ! array_key_exists( $strClass, $this->arrClasses ) )
@@ -90,7 +91,8 @@ class CodeInstrumentationReceiver
     public function onLeaveMethod( $uid , $strClassDefinition, $strMethod, $mixReturn )
     {
         $strClass 		= CorujaClassManipulation::getClassNameFromClassDefinition( $strClassDefinition );
-        $strMethod 		= array_pop( explode( "::" , $strMethod ) );
+        $arrMethod      = explode( "::" , $strMethod );
+        $strMethod 		= array_pop( $arrMethod );
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
 
         $objActorFrom = array_shift( $this->arrStack );

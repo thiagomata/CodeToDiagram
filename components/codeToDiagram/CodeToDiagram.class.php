@@ -5,22 +5,67 @@ class CodeToDiagram
 
     protected static $booStart = false;
 
+    protected static $strFileFrom = null;
+
     const RUN_IN_FILES = false;
 
-    public static function init( $strFile )
+    const CODE_TO_DIAGRAM_CLASS_PREFIX = "CodeToDiagram";
+    
+    /**
+     * Check if a address is relative
+     * 
+     * @assert( "c:\www\temp.php" ) == false
+     * @assert( "d:/www/temp.php" ) == false
+     * @assert( "temp.php" ) == true
+     * @assert( "./temp.php" ) == true
+     * @assert( "/www/something.php" ) == false
+     * @assert( "./www/something.php" ) == true
+     * @assert( ".\www\something.php" ) == true
+     * @assert( "..\www\something.php" ) == true
+     * @assert( "..\www\something.php" ) == true
+     * 
+     */
+    public static function isRelativePath( $strFile )
+    {
+        $strFile = str_replace( "\\", "/", $strFile);
+        if(
+            ( strpos( $strFile, "./") === 0 )
+            or
+            ( strpos( $strFile, "../") === 0 )
+         )
+        {
+            return true;
+        }
+        elseif( strpos( $strFile, "/") === false )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+   }
+
+    public static function init( $strFile , $strCodeToDiagramOutputFile )
     {
         if( self::$booStart == false )
         {
-            self::$booStart = true;
-
             $strFileFrom = __FILE__;
 
             $strFileFrom = str_replace( '/', '\\', $strFileFrom );
 
             self::loadFile( $strFile , $strFile  );
 
-            print CodeInstrumentationReceiver::getInstance()->getXmlSequence()->show();
+            $strDiagram = CodeInstrumentationReceiver::getInstance()->getXmlSequence()->show();
 
+            if( $strCodeToDiagramOutputFile == null )
+            {
+                print $strDiagram;
+            }
+            else
+            {
+                file_put_contents($strCodeToDiagramOutputFile, $strDiagram );
+            }
             exit();
         }
     }
@@ -47,43 +92,56 @@ class CodeToDiagram
         return in_array( $strFile ,  self::$arrFiles );
     }
 
-    public static function debugRequireOnce( $strFileFrom, $strFile )
+    public static function CodeToDiagramRequireOnce( $strFileFrom, $strFile )
     {
-        $arrDebugBackTrace = debug_backtrace();
+//        print "CodeToDiagramRequireOnce from: "  . $strFileFrom . "<Br/>\n";
+//        print "CodeToDiagramRequireOnce to:  " . $strFile . "<Br/>\n";
+
+        $arrCodeToDiagramBackTrace = debug_backtrace();
 
         if( !self::hasFile( $strFileFrom , $strFile ) )
         {
-            self::debugRequire( $strFileFrom, $strFile );
+            self::CodeToDiagramRequire( $strFileFrom, $strFile );
         }
     }
 
-    public static function debugIncludeOnce( $strFileFrom, $strFile )
+    public static function CodeToDiagramIncludeOnce( $strFileFrom, $strFile )
     {
         if( !self::hasFile( $strFileFrom , $strFile ) )
         {
-            self::debugIncludeOnce( $strFileFrom , $strFile );
+            self::CodeToDiagramIncludeOnce( $strFileFrom , $strFile );
         }
     }
 
-    public static function debugRequire( $strFileFrom, $strFile )
+    public static function CodeToDiagramRequire( $strFileFrom, $strFile )
     {
         self::loadFile( $strFileFrom , $strFile );
     }
 
-    public static function debugInclude( $strFileFrom, $strFile )
+    public static function CodeToDiagramInclude( $strFileFrom, $strFile )
     {
         self::loadFile( $strFileFrom , $strFile );
     }
 
     public static function loadFile( $strFileFrom, $strFile )
     {
+//        print "loadfile from: "  . $strFileFrom . "<Br/>\n";
+//        print "loadfile to:  " . $strFile . "<Br/>\n";
+
         if( basename( $strFile ) == 'CodeToDiagram.class.php' )
         {
             return;
         }
         self::addFile( $strFileFrom, $strFile );
 
-        $strFullFile = self::fixFileName( $strFileFrom, $strFile );
+        if( self::isRelativePath( $strFile ) )
+        {
+            $strFullFile = self::fixFileName( $strFileFrom, $strFile );
+        }
+        else
+        {
+            $strFullFile = $strFile;
+        }
 
         if( ! file_exists( $strFullFile ) )
         {
@@ -93,30 +151,36 @@ class CodeToDiagram
 
         $strContentFile = file_get_contents( $strFullFile );
 
+        if( self::$booStart == false )
+        {
+            self::$booStart = true;
+            $strContentFile = preg_replace('/require_once/', '//require_once', $strContentFile, 1);
+        }
+
         $strContentFile = str_replace(
             Array(
                 'require_once(' ,
                 'require(' ,
                 'include(' ,
                 'include_once(',
-                '/** DEBUG_IGNORE **/',
-                '/** END_DEBUG_IGNORE **/',
+                '__FILE__',
             ),
             Array(
-                'CodeToDiagram::debugRequireOnce("'. $strFile . '",' ,
-                'CodeToDiagram::debugRequire("'. $strFile . '",' ,
-                'CodeToDiagram::debugInclude("'. $strFile . '",' ,
-                'CodeToDiagram::debugIncludeOnce("'. $strFile . '",',
-                '/** DEBUG_IGNORE ' ,
-                'END_DEBUG_IGNORE **/',
+                'CodeToDiagram::CodeToDiagramRequireOnce("'. $strFile . '",' ,
+                'CodeToDiagram::CodeToDiagramRequire("'. $strFile . '",' ,
+                'CodeToDiagram::CodeToDiagramInclude("'. $strFile . '",' ,
+                'CodeToDiagram::CodeToDiagramIncludeOnce("'. $strFile . '",',
+                '"' . CALLER_PATH . $strFullFile . '"',
             ),
             $strContentFile
         );
 
         $arrLines = explode( "\n"  , $strContentFile );
 
-        $arrOldClasses = array();
-        $arrNewClasses = array();
+        $arrOldClasses   = array();
+        $arrNewClasses   = array();
+        $arrOldInterface = array();
+        $arrNewInterface = array();
 
         foreach( $arrLines as $intLine => $strLine )
         {
@@ -129,12 +193,32 @@ class CodeToDiagram
                 $arrWords = explode( " " , $strAfter );
 
                 $strOldClassName = $arrWords[0];
-                $strNewClassName = "Debug" . $strOldClassName;
+                $strNewClassName = self::CODE_TO_DIAGRAM_CLASS_PREFIX . $strOldClassName;
 
                 $arrOldClasses[] = $strOldClassName;
                 $arrNewClasses[] = $strNewClassName;
 
                 $arrWords[0] = $strNewClassName;
+                $strAfter = implode( " " , $arrWords );
+                $strLine = $strBefore . $strAfter;
+                $arrLines[ $intLine ] = $strLine;
+            }
+
+            $strTextSearch = "interface ";
+            if(  substr( strtolower( trim($strLine) ) , 0 , strlen( $strTextSearch ) ) == $strTextSearch )
+            {
+                //                $strLine = trim($strLine);
+                $strBefore = substr( $strLine , 0 , strlen( $strTextSearch ) );
+                $strAfter = substr( $strLine , strlen( $strTextSearch ) );
+                $arrWords = explode( " " , $strAfter );
+
+                $strOldInterfaceName = $arrWords[0];
+                $strNewInterfaceName = self::CODE_TO_DIAGRAM_CLASS_PREFIX . $strOldInterfaceName;
+
+                $arrOldInterface[] = $strOldInterfaceName;
+                $arrNewInterface[] = $strNewInterfaceName;
+
+                $arrWords[0] = $strNewInterfaceName;
                 $strAfter = implode( " " , $arrWords );
                 $strLine = $strBefore . $strAfter;
                 $arrLines[ $intLine ] = $strLine;
@@ -145,8 +229,9 @@ class CodeToDiagram
 
         if( self::RUN_IN_FILES )
         {
-            file_put_contents( $strFile . "debug_before.php" , $strContentFile );
-            require_once( $strFile . "debug_before.php" );
+            $strFileName = $strFile . "_CodeToDiagram(0).phps";
+            file_put_contents( $strFileName , $strContentFile );
+            require_once( $strFileName );
         }
         else
         {
@@ -160,14 +245,32 @@ class CodeToDiagram
             $strNewCode = $oReflectionCode->getCode();
             if( self::RUN_IN_FILES )
             {
-                file_put_contents( $strNewClassName . "debug.php" , '<?' . 'php ' .  $strNewCode );
-                require_once( $strNewClassName . "debug.php" );
+                $strFileName = $strNewClassName . "_CodeToDiagram(1).phps";
+                file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
+                require_once( $strFileName );
             }
             else
             {
                 eval( $strNewCode );
             }
         }
+        foreach( $arrNewInterface as $intKey => $strNewInterfaceName )
+        {
+            $strOldInterface = $arrOldInterface[ $intKey ];
+            /** @fixme the real codeinstrumentation of interfaces fails by mysterious reasons */
+            $strNewCode = "interface $strOldInterface {} ";
+            if( self::RUN_IN_FILES )
+            {
+                $strFileName = $strNewClassName . "_CodeToDiagram(1).phps";
+                file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
+                require_once( $strFileName );
+            }
+            else
+            {
+                eval( $strNewCode );
+            }
+        }
+
     }
 }
 ?>

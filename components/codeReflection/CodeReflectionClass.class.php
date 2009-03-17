@@ -3,13 +3,24 @@ class CodeReflectionClass extends ExtendedReflectionClass
 {
 	public function getClassName()
 	{
-		return array_pop( explode( "::" , parent::getName() ) );
+        $strName = parent::getName();
+        $arrName = explode( "::" ,$strName) ;
+		return array_pop( $arrName );
 	}
 
 	public function getNamespace()
 	{
-		return array_shift( explode( "::" , parent::getName() ) );
+        $strName = parent::getName();
+        $arrName = explode( "::" ,$strName) ;
+		return array_shift( $arrName );
 	}
+
+    public final function getRealClassName()
+    {
+        $strName = ExtendedReflectionClass::getName();
+        $arrName = explode( "::" ,$strName) ;
+		return array_pop( $arrName );
+    }
 
 	public function createClassDefinitionCode()
 	{
@@ -42,6 +53,12 @@ class CodeReflectionClass extends ExtendedReflectionClass
 			/*@var $objReflectionProperty CodeReflectionProperty */
 			$strCode .= $objReflectionProperty->getCode();
 		}
+        $arrConstants = $this->getConstants();
+		foreach( $arrConstants as $strKey => $mixValue )
+		{
+			/*@var $objReflectionProperty CodeReflectionProperty */
+			$strCode .= "const " . $strKey . ' = ' . var_export( $mixValue , true ) . ";\n";
+		}
 		return $strCode;
 	}
 
@@ -52,19 +69,42 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		foreach( $arrMethods as $objReflectionMethod )
 		{
 			/*@var $objReflectionMethod CodeReflectionMethod */
-			$strCode .= $objReflectionMethod->getCode();
+//            print __LINE__ . $this->getRealClassName() . "<br/>\n";
+//            print __LINE__ . $objReflectionMethod->getDeclaringClass()->getRealClassName() . "<br/>\n";
+            if( $objReflectionMethod->getDeclaringClass()->getRealClassName() == $this->getRealClassName())
+			{
+                if( !$this->isInterface() )
+                {
+                    $strCode .= $objReflectionMethod->getCode();
+                }
+                else
+                {
+                    $strCode .= $objReflectionMethod->createMethodHeaderCode();
+                }
+            }
 		}
 		return $strCode;
 	}
 
 	public function getCode()
 	{
-		$strCode = "";
-		$strCode .= $this->createClassDefinitionCode();
-		$strCode .= "{\n";
-		$strCode .= $this->createAttributesDefinitionCode();
-		$strCode .= $this->createMethodsDefinitionCode();
-		$strCode .= "\n}\n";
+        $strCode = "";
+        if( !$this->isInterface() )
+        {
+            $strCode .= $this->createClassDefinitionCode();
+            $strCode .= "{\n";
+            $strCode .= $this->createAttributesDefinitionCode();
+            $strCode .= $this->createMethodsDefinitionCode();
+            $strCode .= "\n}\n";
+        }
+        else
+        {
+            $strCode .= $this->createInterfaceDefinitionCode();
+            $strCode .= "{\n";
+            $strCode .= $this->createAttributesDefinitionCode();
+            $strCode .= $this->createMethodsDefinitionCode();
+            $strCode .= "\n}\n";
+        }
 		return $strCode;
 	}
 

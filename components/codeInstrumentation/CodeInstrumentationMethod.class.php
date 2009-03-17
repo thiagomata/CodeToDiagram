@@ -6,30 +6,31 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
         return "___" . $this->getName();
     }
 
-    public function getCallDebugFunctionName()
+    public function getCallCodeInstrFunctionName()
     {
         return $this->getName();
     }
 
-    protected function getCallDebugFunctionCode()
+    protected function getCallCodeInstrFunctionCode()
     {
         $strCode = "";
-        $strCode .= $this->getCallDebugFunctionHeaderCode();
+        $strCode .= $this->getCallCodeInstrFunctionHeaderCode();
         $strCode .= "{" . "\n";
-        $strCode .= $this->getCallDebugFunctionContentCode();
+        $strCode .= $this->getCallCodeInstrFunctionContentCode();
         $strCode .= "}" . "\n";
         return $strCode;
     }
 
-    protected function getCallDebugFunctionHeaderCode()
+    protected function getCallCodeInstrFunctionHeaderCode()
     {
         $strCode = CorujaStringManipulation::retab( $this->getDocComment() , 1 );
         $strCode .= $this->createModifiersCode();
-        $strCode .= " function " . $this->getCallDebugFunctionName() . "()";
+        $strCode .= " function " . $this->getCallCodeInstrFunctionName();
+        $strCode .= $this->createParametersCode();
         return $strCode;
     }
 
-    protected function getCallDebugFunctionContentCode()
+    protected function getCallCodeInstrFunctionContentCode()
     {
         $strCode = "";
         $strCode .=	'	$strMethod = "' . $this->getNewName() . '";										' . "\n";
@@ -66,13 +67,13 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
     public function getCode()
     {
         $strCode = "";
-        $strCode .= $this->getCallDebugFunctionCode();
+        $strCode .= $this->getCallCodeInstrFunctionCode();
         $strCode .= parent::getCode();
         return $strCode;
 
     }
 
-    protected function createMethodHeaderCode()
+    public function createMethodHeaderCode()
     {
         $strCode = $this->getDocComment();
         $strCode .= $this->createModifiersCode();
@@ -96,8 +97,8 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
     {
         $strCode = "";
 
-        $objDebugFile = CodeInstrumentationFile::getDebugFileName( $this->getFileName() );
-        $strCode .= $objDebugFile->getFileBit( $this->getStartLine() , $this->getEndLine() );
+        $objCodeInstrFile = CodeInstrumentationFile::getCodeInstrFileName( $this->getFileName() );
+        $strCode .= $objCodeInstrFile->getFileBit( $this->getStartLine() , $this->getEndLine() );
         $strCode = trim( $strCode );
 
         // remove the { }

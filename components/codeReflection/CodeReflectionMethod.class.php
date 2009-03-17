@@ -66,7 +66,7 @@ class CodeReflectionMethod extends ExtendedReflectionMethod
 		return $strCode;
 	}
 
-	protected function createMethodHeaderCode()
+	public function createMethodHeaderCode()
 	{
 		$strCode = $this->getDocComment();
 		$strCode .= $this->createModifiersCode();

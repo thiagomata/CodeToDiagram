@@ -30,7 +30,8 @@ class CorujaClassManipulation
 			throw new InvalidArgumentException("Invalid argument [ ". var_export($strClassDefinition) ." ]. It should be string");
 		}
 
-		return array_pop( explode( "::" , $strClassDefinition ) );
+        $arrClassDefinition = explode( "::" , $strClassDefinition );
+		return array_pop( $arrClassDefinition );
 	}
 
         /**

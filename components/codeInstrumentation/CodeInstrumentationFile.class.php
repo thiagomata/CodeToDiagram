@@ -13,7 +13,7 @@ class CodeInstrumentationFile
      * @param string $strFileName
      * @return CodeInstrumentationFile
      */
-    public static function getDebugFileName( $strFileName )
+    public static function getCodeInstrFileName( $strFileName )
     {
         if( array_key_exists( $strFileName , self::$arrInstances ) )
         {
@@ -21,7 +21,7 @@ class CodeInstrumentationFile
         }
         else
         {
-            return new DebugFile( $strFileName );
+            return new CodeInstrumentationFile( $strFileName );
         }
     }
 
