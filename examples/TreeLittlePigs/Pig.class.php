@@ -7,7 +7,7 @@ class LittlePig {
 
     public function say( $strText )
     {
-
+        print "pig say: " . $strText . "<br/>\n";
     }
     
     public function setName( $strName )
@@ -30,7 +30,7 @@ class LittlePig {
     
     public function happyEverAfter()
     {
-        
+        print "pig say: i am happy ever after!" . " <br/>\n";;
     }
 
     public function isEaten()

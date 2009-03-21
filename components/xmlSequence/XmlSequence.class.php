@@ -19,6 +19,12 @@ class XmlSequence
     protected $intFont = 13;
     protected $intZoom = 100;
 
+    public function restart()
+    {
+        $this->arrActors = array();
+        $this->arrMessages = array();
+    }
+
     /**
      * Returns a path to a folder relative from another folder. Both parameters
      * must be absolute.

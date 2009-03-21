@@ -3,7 +3,7 @@ class Wolf
 {
     public function say( $strText )
     {
-
+        print "wolf say: " . $strText . " <br/>\n";
     }
 
     public function huff()

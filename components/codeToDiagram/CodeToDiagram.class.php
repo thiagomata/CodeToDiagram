@@ -1,19 +1,94 @@
 <?php
 class CodeToDiagram
 {
-    protected static $arrFiles = array();
+    protected $arrFiles = array();
 
-    protected static $booStart = false;
+    protected $booStart = false;
 
-    protected static $strFileFrom = null;
+    protected $strFileFrom = null;
 
+    protected $strFileName = null;
+    
+    protected $strOutputType = "screen";
+
+    protected static $objInstance;
+    
     const RUN_IN_FILES = false;
 
     const CODE_TO_DIAGRAM_CLASS_PREFIX = "CodeToDiagram";
-    
+
+    public function setOutputType( $strType )
+    {
+        switch( $strType )
+        {
+            case "screen":
+            {
+                $this->strOutputType = $strType;
+                break;
+            }
+            case "file":
+            {
+                $this->strOutputType = $strType;
+                break;
+            }
+        }
+    }
+
+    public function getOutputType()
+    {
+        return $this->strOutputType;
+    }
+
+    public static function hasInstance()
+    {
+        return ( self::$objInstance !== null );
+    }
+
+    /**
+     *
+     * @return CodeToDiagram
+     */
+    public static function getInstance()
+    {
+        if( self::$objInstance === null )
+        {
+            self::$objInstance = new CodeToDiagram();
+        }
+        return self::$objInstance;
+    }
+
+    public function setStarted( $booStarted )
+    {
+        $this->booStart = $booStarted;
+    }
+
+    public function getStarted()
+    {
+        return $this->booStart;
+    }
+
+    public function setFileFrom( $strFileFrom )
+    {
+        $this->strFileFrom = $strFileFrom;
+    }
+
+    public function getFileFrom()
+    {
+        return $this->strFileFrom;
+    }
+
+    public function setFileName( $strFileName )
+    {
+        $this->strFileName = $strFileName;
+    }
+
+    public function getFileName()
+    {
+        return $this->strFileName;
+    }
     /**
      * Check if a address is relative
-     * 
+     *
      * @assert( "c:\www\temp.php" ) == false
      * @assert( "d:/www/temp.php" ) == false
      * @assert( "temp.php" ) == true
@@ -23,9 +98,9 @@ class CodeToDiagram
      * @assert( ".\www\something.php" ) == true
      * @assert( "..\www\something.php" ) == true
      * @assert( "..\www\something.php" ) == true
-     * 
+     *
      */
-    public static function isRelativePath( $strFile )
+    public function isRelativePath( $strFile )
     {
         $strFile = str_replace( "\\", "/", $strFile);
         if(
@@ -46,31 +121,54 @@ class CodeToDiagram
         }
    }
 
-    public static function init( $strFile , $strCodeToDiagramOutputFile )
+    public function start()
     {
-        if( self::$booStart == false )
+        if( $this->getStarted() )
         {
-            $strFileFrom = __FILE__;
+            return;
+        }
+        CodeInstrumentationReceiver::getInstance()->restart();
+        $this->CodeToDiagramRequireOnce($this->getFileFrom() , $this->getFileFrom() );
+        exit();
+    }
 
-            $strFileFrom = str_replace( '/', '\\', $strFileFrom );
+    public function restart()
+    {
+        CodeInstrumentationReceiver::getInstance()->restart();
+    }
 
-            self::loadFile( $strFile , $strFile  );
-
+    public function save()
+    {
+        if( $this->getStarted() )
+        {
             $strDiagram = CodeInstrumentationReceiver::getInstance()->getXmlSequence()->show();
 
-            if( $strCodeToDiagramOutputFile == null )
+            if( $this->getOutputType() == "screen")
             {
                 print $strDiagram;
             }
             else
             {
-                file_put_contents($strCodeToDiagramOutputFile, $strDiagram );
+                file_put_contents( $this->getFileName() , $strDiagram );
             }
-            exit();
+            CodeInstrumentationReceiver::getInstance()->restart();
         }
     }
 
-    public static function fixFileName( $strFileFrom, $strFile )
+    public function  __destruct() {
+
+       $this->save();
+    }
+
+    public static function init( $strFile )
+    {
+        if( self::getInstance()->getStarted() == false )
+        {
+            self::getInstance()->setFileFrom( $strFile );
+        }
+    }
+
+    public function fixFileName( $strFileFrom, $strFile )
     {
         $strFileFrom = str_replace( '/', '\\', $strFileFrom );
         $strFile = str_replace( '/', '\\', $strFile );
@@ -80,63 +178,64 @@ class CodeToDiagram
         return $strFile;
     }
 
-    public static function addFile( $strFileFrom, $strFile )
+    public function addFile( $strFileFrom, $strFile )
     {
-        $strFile = self::fixFileName( $strFileFrom, $strFile );
+        $strFile = $this->fixFileName( $strFileFrom, $strFile );
 
-        self::$arrFiles[] = $strFile;
+        $this->arrFiles[] = $strFile;
     }
 
-    public static function hasFile( $strFileFrom , $strFile )
+    public function hasFile( $strFileFrom , $strFile )
     {
-        return in_array( $strFile ,  self::$arrFiles );
+        return in_array( $strFile ,  $this->arrFiles );
     }
 
-    public static function CodeToDiagramRequireOnce( $strFileFrom, $strFile )
+    public function CodeToDiagramRequireOnce( $strFileFrom, $strFile )
     {
 //        print "CodeToDiagramRequireOnce from: "  . $strFileFrom . "<Br/>\n";
 //        print "CodeToDiagramRequireOnce to:  " . $strFile . "<Br/>\n";
 
         $arrCodeToDiagramBackTrace = debug_backtrace();
 
-        if( !self::hasFile( $strFileFrom , $strFile ) )
+        if( !$this->hasFile( $strFileFrom , $strFile ) )
         {
-            self::CodeToDiagramRequire( $strFileFrom, $strFile );
+            $this->CodeToDiagramRequire( $strFileFrom, $strFile );
         }
     }
 
-    public static function CodeToDiagramIncludeOnce( $strFileFrom, $strFile )
+    public function CodeToDiagramIncludeOnce( $strFileFrom, $strFile )
     {
-        if( !self::hasFile( $strFileFrom , $strFile ) )
+        if( !$this->hasFile( $strFileFrom , $strFile ) )
         {
-            self::CodeToDiagramIncludeOnce( $strFileFrom , $strFile );
+            $this->CodeToDiagramIncludeOnce( $strFileFrom , $strFile );
         }
     }
 
-    public static function CodeToDiagramRequire( $strFileFrom, $strFile )
+    public function CodeToDiagramRequire( $strFileFrom, $strFile )
     {
-        self::loadFile( $strFileFrom , $strFile );
+        $this->loadFile( $strFileFrom , $strFile );
     }
 
-    public static function CodeToDiagramInclude( $strFileFrom, $strFile )
+    public function CodeToDiagramInclude( $strFileFrom, $strFile )
     {
-        self::loadFile( $strFileFrom , $strFile );
+        $this->loadFile( $strFileFrom , $strFile );
     }
 
-    public static function loadFile( $strFileFrom, $strFile )
+    public function loadFile( $strFileFrom, $strFile )
     {
 //        print "loadfile from: "  . $strFileFrom . "<Br/>\n";
 //        print "loadfile to:  " . $strFile . "<Br/>\n";
-
+//        print_r( $this->arrFiles );
+        
         if( basename( $strFile ) == 'CodeToDiagram.class.php' )
         {
             return;
         }
-        self::addFile( $strFileFrom, $strFile );
+        $this->addFile( $strFileFrom, $strFile );
 
-        if( self::isRelativePath( $strFile ) )
+        if( $this->isRelativePath( $strFile ) )
         {
-            $strFullFile = self::fixFileName( $strFileFrom, $strFile );
+            $strFullFile = $this->fixFileName( $strFileFrom, $strFile );
         }
         else
         {
@@ -151,9 +250,9 @@ class CodeToDiagram
 
         $strContentFile = file_get_contents( $strFullFile );
 
-        if( self::$booStart == false )
+        if( self::getInstance()->getStarted() == false )
         {
-            self::$booStart = true;
+            self::getInstance()->setStarted( true );
             $strContentFile = preg_replace('/require_once/', '//require_once', $strContentFile, 1);
         }
 
@@ -166,10 +265,10 @@ class CodeToDiagram
                 '__FILE__',
             ),
             Array(
-                'CodeToDiagram::CodeToDiagramRequireOnce("'. $strFile . '",' ,
-                'CodeToDiagram::CodeToDiagramRequire("'. $strFile . '",' ,
-                'CodeToDiagram::CodeToDiagramInclude("'. $strFile . '",' ,
-                'CodeToDiagram::CodeToDiagramIncludeOnce("'. $strFile . '",',
+                'CodeToDiagram::getInstance()->CodeToDiagramRequireOnce("'. $strFile . '",' ,
+                'CodeToDiagram::getInstance()->CodeToDiagramRequire("'. $strFile . '",' ,
+                'CodeToDiagram::getInstance()->CodeToDiagramInclude("'. $strFile . '",' ,
+                'CodeToDiagram::getInstance()->CodeToDiagramIncludeOnce("'. $strFile . '",',
                 '"' . CALLER_PATH . $strFullFile . '"',
             ),
             $strContentFile

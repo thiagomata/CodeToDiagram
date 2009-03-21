@@ -1,8 +1,6 @@
 <?php
-/** DEBUG_IGNORE **/
 $strCodeToDiagramOutputFile="./anyname.html";
-require_once( '../../public/codetodiagram.php' );
-/** END_DEBUG_IGNORE **/
+CodeToDiagram::getInstance()->start();
 
 require_once( "Fatorial.php" );
 

@@ -123,5 +123,15 @@ class CodeInstrumentationReceiver
     {
         return $this->objXmlSequence;
     }
+
+    public function restart()
+    {
+        $this->arrActors = array();
+        $this->arrClasses = array();
+        $this->arrMessages = array();
+        $this->arrStack = array();
+        $this->objXmlSequence = null;
+        $this->__construct();
+    }
 }
 ?>
