@@ -19,12 +19,38 @@ class XmlSequence
     protected $intFont = 13;
     protected $intZoom = 100;
 
+    protected $strCallerPath;
+    protected $strPublicPath;
+
     public function restart()
     {
         $this->arrActors = array();
         $this->arrMessages = array();
+        return $this;
     }
 
+    public function setCallerPath( $strCallerPath )
+    {
+        $this->strCallerPath = $strCallerPath;
+        return $this;
+    }
+
+    public function getCallerPath()
+    {
+        return $this->strCallerPath;
+    }
+
+    public function setPublicPath( $strPublicPath )
+    {
+        $this->strPublicPath = $strPublicPath;
+        return $this;
+    }
+
+    public function getPublicPath()
+    {
+        return $this->strPublicPath;
+    }
+    
     /**
      * Returns a path to a folder relative from another folder. Both parameters
      * must be absolute.
@@ -230,7 +256,14 @@ class XmlSequence
 
     protected function showHeaders()
     {
-        $strPublicPath = XmlSequence::getRelativePath( CALLER_PATH, PUBLIC_PATH );
+        if( $this->getCallerPath() != null and $this->getPublicPath() != null )
+        {
+            $strPublicPath = XmlSequence::getRelativePath( $this->getCallerPath(), $this->getPublicPath() );
+        }
+        else
+        {
+            $strPublicPath = "./";
+        }
 
         $intQtdActors = sizeof( $this->arrActors );
         $intQtdMessages = $intQtdActors + 1;

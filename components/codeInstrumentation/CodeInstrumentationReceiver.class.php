@@ -19,6 +19,8 @@ class CodeInstrumentationReceiver
     public function __construct()
     {
         $this->objXmlSequence = new XmlSequence();
+        $this->objXmlSequence->setCallerPath( CALLER_PATH );
+        $this->objXmlSequence->setPublicPath( PUBLIC_PATH );
 
         $objActorFrom = new XmlSequenceActor();
         $objActorFrom->setType( 'user' );
