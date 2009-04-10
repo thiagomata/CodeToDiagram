@@ -13,9 +13,11 @@ class CodeToDiagram
 
     protected static $objInstance;
     
-    const RUN_IN_FILES = false;
+    const RUN_IN_FILES = true;
 
-    const CODE_TO_DIAGRAM_CLASS_PREFIX = "CodeToDiagram";
+    const REMOVE_FILES = true;
+
+    const CODE_TO_DIAGRAM_CLASS_PREFIX = "CTD";
 
     public function setOutputType( $strType )
     {
@@ -221,6 +223,12 @@ class CodeToDiagram
         $this->loadFile( $strFileFrom , $strFile );
     }
 
+    public function CodeToDiagramExit( $strFileFrom, $strMessage = '')
+    {
+        print "Exit called into $strFileFrom ($strMessage ) ";
+        exit();
+    }
+
     public function loadFile( $strFileFrom, $strFile )
     {
 //        print "loadfile from: "  . $strFileFrom . "<Br/>\n";
@@ -262,6 +270,8 @@ class CodeToDiagram
                 'require(' ,
                 'include(' ,
                 'include_once(',
+                'exit()',
+                'exit(',
                 '__FILE__',
             ),
             Array(
@@ -269,6 +279,8 @@ class CodeToDiagram
                 'CodeToDiagram::getInstance()->CodeToDiagramRequire("'. $strFile . '",' ,
                 'CodeToDiagram::getInstance()->CodeToDiagramInclude("'. $strFile . '",' ,
                 'CodeToDiagram::getInstance()->CodeToDiagramIncludeOnce("'. $strFile . '",',
+                'CodeToDiagram::getInstance()->CodeToDiagramExit("'. $strFile . '")',
+                'CodeToDiagram::getInstance()->CodeToDiagramExit("'. $strFile . '",',
                 '"' . CALLER_PATH . $strFullFile . '"',
             ),
             $strContentFile
@@ -286,7 +298,7 @@ class CodeToDiagram
             $strTextSearch = "class ";
             if(  substr( strtolower( trim($strLine) ) , 0 , strlen( $strTextSearch ) ) == $strTextSearch )
             {
-                //                $strLine = trim($strLine);
+                $strLine = trim($strLine);
                 $strBefore = substr( $strLine , 0 , strlen( $strTextSearch ) );
                 $strAfter = substr( $strLine , strlen( $strTextSearch ) );
                 $arrWords = explode( " " , $strAfter );
@@ -311,6 +323,14 @@ class CodeToDiagram
                 $strAfter = substr( $strLine , strlen( $strTextSearch ) );
                 $arrWords = explode( " " , $strAfter );
 
+                /**
+                 * @todo
+                 * Estou procurando o motivo de no caso da classe de erro ele
+                 * ter pirado o cabeca e feito um
+                 * 	classCTD CorujaError implements CorujaErrorInterface
+                 * ao invez de
+                 * 	class CTDCorujaError implements CorujaErrorInterface
+                 */
                 $strOldInterfaceName = $arrWords[0];
                 $strNewInterfaceName = self::CODE_TO_DIAGRAM_CLASS_PREFIX . $strOldInterfaceName;
 
@@ -328,9 +348,13 @@ class CodeToDiagram
 
         if( self::RUN_IN_FILES )
         {
-            $strFileName = $strFile . "_CodeToDiagram(0).phps";
+            $strFileName = $strFile . "(0).phps";
             file_put_contents( $strFileName , $strContentFile );
             require_once( $strFileName );
+            if( self::REMOVE_FILES )
+            {
+                unlink( $strFileName );
+            }
         }
         else
         {
@@ -344,9 +368,13 @@ class CodeToDiagram
             $strNewCode = $oReflectionCode->getCode();
             if( self::RUN_IN_FILES )
             {
-                $strFileName = $strNewClassName . "_CodeToDiagram(1).phps";
+                $strFileName = trim( $strNewClassName ) . "(1).phps";
                 file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
                 require_once( $strFileName );
+                if( self::REMOVE_FILES )
+                {
+                    unlink( $strFileName );
+                }
             }
             else
             {
@@ -360,9 +388,13 @@ class CodeToDiagram
             $strNewCode = "interface $strOldInterface {} ";
             if( self::RUN_IN_FILES )
             {
-                $strFileName = $strNewClassName . "_CodeToDiagram(1).phps";
+                $strFileName = trim( $strNewInterfaceName ) . "(1).phps";
                 file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
                 require_once( $strFileName );
+                if( self::REMOVE_FILES )
+                {
+                    unlink( $strFileName );
+                }
             }
             else
             {
