@@ -29,6 +29,7 @@ class CodeInstrumentationClass extends CodeReflectionClass
     public function setClassName( $strName )
     {
         $this->strName = $strName;
+        return $this;
     }
 
     public function createMethodsDefinitionCode()

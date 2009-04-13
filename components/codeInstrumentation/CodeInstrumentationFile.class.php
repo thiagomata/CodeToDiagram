@@ -36,6 +36,7 @@ class CodeInstrumentationFile
     public function setFileName( $strFileName )
     {
         $this->strFileName = $strFileName;
+        return $this;
     }
 
     public function getFileName()
@@ -46,6 +47,7 @@ class CodeInstrumentationFile
     public function setFileContent( $strFileContent )
     {
         $this->arrFileContent = explode( "\n" , $strFileContent );
+        return $this;
     }
 
     public function getFileBit( $intLineStart, $intLineEnds )

@@ -88,6 +88,7 @@ class CodeInstrumentationReceiver
         $this->arrMessages[] 	= $objMessage;
         array_unshift( $this->arrStack , $objActorTo );
 
+        return $this;
     }
 
     public function onLeaveMethod( $uid , $strClassDefinition, $strMethod, $mixReturn )
@@ -119,6 +120,7 @@ class CodeInstrumentationReceiver
             $this->objXmlSequence->addMessage( $objMessage );
             $objMessage->setTimeEnd( microtime( true ) );
         }
+        return $this;
     }
 
     public function getXmlSequence()
@@ -134,6 +136,7 @@ class CodeInstrumentationReceiver
         $this->arrStack = array();
         $this->objXmlSequence = null;
         $this->__construct();
+        return $this;
     }
 }
 ?>
