@@ -1,24 +1,92 @@
 <?php
 class CodeToDiagram
 {
+    /**
+     * Array of files already load
+     *
+     * @var <arrayList>string
+     */
     protected $arrFiles = array();
 
+    /**
+     * Flag of control if is the first load
+     *
+     * @var boolean
+     */
     protected $booStart = false;
 
+    /**
+     * File from the execution start
+     * 
+     * @var string
+     */
     protected $strFileFrom = null;
 
+    /**
+     * File of actual load
+     *
+     * @var string
+     */
     protected $strFileName = null;
-    
+
+    /**
+     * Type of output of graph
+     * 
+     * @var string
+     */
     protected $strOutputType = "screen";
 
+    /**
+     * Singleton of this class
+     *
+     * @var CodeToDiagram
+     */
     protected static $objInstance;
-    
+
+    /**
+     * Should the code instrumentation run in files
+     * If not will run into a eval function
+     *
+     * @var boolean
+     */
     const RUN_IN_FILES = true;
 
+    /**
+     * If the execution happen into files the
+     * new file will be destroy just after be
+     * executed. This will prevent the existence
+     * of garbage files.
+     *
+     * @var boolean
+     */
     const REMOVE_FILES = true;
 
+    /**
+     * Prefix of the code instrumentation classes
+     * of the code to diagram
+     */
     const CODE_TO_DIAGRAM_CLASS_PREFIX = "CTD";
 
+    /**
+     * Set the output type of the diagram
+     *
+     * @example
+     * <code>
+     *      $this->setOutputType( "screen" )->getOutputType() == "screen"
+     * </code>
+     * @example
+     * <code>
+     *      $this->setOutputType( "file" )->getOutputType() == "file"
+     * </code>
+     * @example
+     * <code>
+     *      $this->setOutputType( "somethingElse" )->getOutputType() throws CodeToDiagramException
+     * </code>
+     * @assert( "screen" )
+     * @assert( "file" )
+     * @assert( "somethingElse" ) throws CodeToDiagramException
+     * @param string $strType
+     */
     public function setOutputType( $strType )
     {
         switch( $strType )
@@ -39,20 +107,56 @@ class CodeToDiagram
                 break;
             }
         }
+        return $this;
     }
 
+    /**
+     * Get the output type of the diagram
+     *
+     * @example
+     * <code>
+     *      $this->setOutputType( "screen" )->getOutputType() == "screen"
+     * </code>
+     * @example
+     * <code>
+     *      $this->setOutputType( "file" )->getOutputType() == "file"
+     * </code>
+     * 
+     * @return string
+     */
     public function getOutputType()
     {
         return $this->strOutputType;
     }
 
+    /**
+     * Returns if the element has a instance
+     *
+     * @example
+     * <code>
+     *      self::hasInstance() == false;
+     * </code>
+     * @example
+     * <code>
+     *      self::getInstance();
+     *      self::hasInstance() == true
+     * </code>
+     *
+     * @return boolean
+     */
     public static function hasInstance()
     {
         return ( self::$objInstance !== null );
     }
 
     /**
+     * Get a singleton instance of the class
      *
+     * @example
+     * <code>
+     *      get_class( self::getInstance() ) == "CodeToDiagram"
+     * </code>
+     * 
      * @return CodeToDiagram
      */
     public static function getInstance()
@@ -64,34 +168,104 @@ class CodeToDiagram
         return self::$objInstance;
     }
 
+    /**
+     * Set if the diagram creation has started
+     *
+     * @example
+     * <code>
+     *      $this->setStarted( true )->getStarted() == true
+     * </code>
+     * @example
+     * <code>
+     *      $this->setStarted( false )->getStarted() == false
+     * </code>
+     * @assert( true )
+     * @assert( false )
+     * @param bool $booStarted
+     * @return CodeToDiagram
+     */
     public function setStarted( $booStarted )
     {
         $this->booStart = $booStarted;
         return $this;
     }
 
+    /**
+     * Get if the diagram creation has started
+     * @example
+     * <code>
+     *      $this->setStarted( true )->getStarted() == true
+     * </code>
+     * @example
+     * <code>
+     *      $this->setStarted( false )->getStarted() == false
+     * </code>
+     * @assert() == false
+     * @return boolean
+     */
     public function getStarted()
     {
         return $this->booStart;
     }
 
+    /**
+     * Set the file what the execution start from.
+     * This should be edit with very care
+     *
+     * @example
+     * <code>
+     *      $this->setFileFrom( __FILE__ )->getFileFrom() == __FILE__
+     * </code>
+     * @assert( __FILE__ );
+     * @param string $strFileFrom
+     * @return CodeToDiagram
+     */
     public function setFileFrom( $strFileFrom )
     {
         $this->strFileFrom = $strFileFrom;
         return $this;
     }
 
+    /**
+     * Get the file what the execution start from.
+     *
+     * @example
+     * <code>
+     *      $this->setFileFrom( __FILE__ )->getFileFrom() == __FILE__
+     * </code>
+     *
+     * @return string
+     */
     public function getFileFrom()
     {
         return $this->strFileFrom;
     }
 
+    /**
+     * Set the actual file in code instrumentation
+     *
+     * @example
+     * <code>
+     *  $this->setFileName( "index.php" )->getFileName() == "index.php"
+     * </code>
+     * @param string $strFileName
+     * @return CodeToDiagram
+     */
     public function setFileName( $strFileName )
     {
         $this->strFileName = $strFileName;
         return $this;
     }
 
+    /**
+     * Get the file name of the actual file in code instrumentation
+     *
+     * @example
+     * <code>
+     *  $this->setFileName( "index.php" )->getFileName() == "index.php"
+     * </code>
+     * @return string
+     */
     public function getFileName()
     {
         return $this->strFileName;
@@ -131,23 +305,61 @@ class CodeToDiagram
         }
    }
 
+   /**
+    * Start the log of the execution and restart if already have
+    *
+    * @assert()
+    *
+    * @return CodeToDiagram
+    */
     public function start()
     {
         if( $this->getStarted() )
         {
-            return;
+            return $this;
         }
         CodeInstrumentationReceiver::getInstance()->restart();
         $this->CodeToDiagramRequireOnce($this->getFileFrom() , $this->getFileFrom() );
         exit();
+
+        // just to safety //
+        return $this;
     }
 
+    /**
+     * Restart the informations inside the code instrumentation receiver
+     *
+     * @assert()
+     * 
+     * @return CodeToDiagram
+     */
     public function restart()
     {
         CodeInstrumentationReceiver::getInstance()->restart();
         return $this;
     }
 
+    /**
+     * Save the actual information from the code instrumentation into the 
+     * selected output.
+     *
+     * @example
+     * <code>
+     *  CodeToDiagram::getInstance()->restart();
+     *  // output will be a file //
+     *  CodeToDiagram::getInstance()->setOutputType( 'file' );
+     *  // name of the new file //
+     *  CodeToDiagram::getInstance()->setFileName( 'myFile.html' );
+     *  # this code will be saved {
+     *  $objWolf = new Wolf();
+     *  $objWolf->say( "i will be back " . date( "h:i:s") );
+     *  CodeToDiagram::getInstance()->save();
+     *  # } into the new file
+     * </code>
+     *
+     *
+     * @return CodeToDiagram
+     */
     public function save()
     {
         if( $this->getStarted() )
@@ -167,20 +379,38 @@ class CodeToDiagram
         return $this;
     }
 
+    /**
+     * On destruct it will save the actual diagram any way
+     */
     public function  __destruct() {
 
        $this->save();
     }
 
+    /**
+     * Init the code to diagram
+     *
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
     public static function init( $strFile )
     {
         if( self::getInstance()->getStarted() == false )
         {
             self::getInstance()->setFileFrom( $strFile );
         }
+        return self::getInstance();
     }
 
-    public function fixFileName( $strFileFrom, $strFile )
+    /**
+     * Make the link reference possible
+     *
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return string
+     */
+    protected function fixFileName( $strFileFrom, $strFile )
     {
         $strFileFrom = str_replace( '/', '\\', $strFileFrom );
         $strFile = str_replace( '/', '\\', $strFile );
@@ -190,7 +420,14 @@ class CodeToDiagram
         return $strFile;
     }
 
-    public function addFile( $strFileFrom, $strFile )
+    /**
+     * Add a file into the code instrumentation process
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
+    protected function addFile( $strFileFrom, $strFile )
     {
         $strFile = $this->fixFileName( $strFileFrom, $strFile );
 
@@ -199,11 +436,26 @@ class CodeToDiagram
         return $this;
     }
 
-    public function hasFile( $strFileFrom , $strFile )
+    /**
+     * Check if the file already was loaded
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return boolean
+     */
+    protected function hasFile( $strFileFrom , $strFile )
     {
         return in_array( $strFile ,  $this->arrFiles );
     }
 
+    /**
+     * Method what will be called in replace of the original
+     * require_once function
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
     public function CodeToDiagramRequireOnce( $strFileFrom, $strFile )
     {
         $arrCodeToDiagramBackTrace = debug_backtrace();
@@ -215,6 +467,14 @@ class CodeToDiagram
         return $this;
     }
 
+    /**
+     * Method what will be called in replace of the original
+     * include_once function
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
     public function CodeToDiagramIncludeOnce( $strFileFrom, $strFile )
     {
         if( !$this->hasFile( $strFileFrom , $strFile ) )
@@ -224,25 +484,57 @@ class CodeToDiagram
         return $this;
     }
 
+    /**
+     * Method what will be called in replace of the original
+     * require function
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
     public function CodeToDiagramRequire( $strFileFrom, $strFile )
     {
         $this->loadFile( $strFileFrom , $strFile );
         return $this;
     }
 
+    /**
+     * Method what will be called in replace of the original
+     * include function
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
     public function CodeToDiagramInclude( $strFileFrom, $strFile )
     {
         $this->loadFile( $strFileFrom , $strFile );
         return $this;
     }
 
+    /**
+     * Method what will be called in replace of the original
+     * exit function
+     *
+     * @param string $strFileFrom
+     * @param string $strMessage
+     * @return CodeToDiagram
+     */
     public function CodeToDiagramExit( $strFileFrom, $strMessage = '')
     {
         print "Exit called into $strFileFrom ($strMessage ) ";
         exit();
     }
 
-    public function convertFileContent( $strContentFile , $strFile , $strFullFile )
+    /**
+     * Replace the php function with the CodeToDiagram function
+     *
+     * @param string $strContentFile
+     * @param string $strFile
+     * @param string $strFullFile
+     * @return string
+     */
+    protected function convertFileContent( $strContentFile , $strFile , $strFullFile )
     {
         if( self::getInstance()->getStarted() == false )
         {
@@ -275,6 +567,13 @@ class CodeToDiagram
         return $strContentFile;
     }
 
+    /**
+     * Implement the code instrumentation into a code line
+     *
+     * @param string $strLine
+     * @param string $strTextSearch
+     * @return array
+     */
     public function codeInstrumentationLine( $strLine, $strTextSearch )
     {
         $arrResult = array();
@@ -301,6 +600,14 @@ class CodeToDiagram
         return $arrResult;
     }
 
+    /**
+     * Implements a code instrumentation into a class
+     *
+     * @param string $strTextSearch
+     * @param array $arrOldClasses
+     * @param array $arrNewClasses
+     * @param array $arrLines
+     */
     protected function codeInstrumentationClass( $strTextSearch, array &$arrOldClasses , array &$arrNewClasses , array &$arrLines )
     {
         foreach( $arrLines as $intLine => $strLine )
@@ -316,19 +623,8 @@ class CodeToDiagram
         }
     }
 
-    public function codeInstrumentationFile( $strFile , $strContentFile )
+    protected function preloadFile( $strFileName , $strContentFile )
     {
-        $arrLines = explode( "\n"  , $strContentFile );
-        $arrOldClasses   = array();
-        $arrNewClasses   = array();
-        $arrOldInterface = array();
-        $arrNewInterface = array();
-
-        $this->codeInstrumentationClass( "class " , $arrOldClasses , $arrNewClasses, $arrLines );
-        $this->codeInstrumentationClass( "interface " , $arrOldInterface , $arrNewInterface, $arrLines );
-
-        $strContentFile = implode( "\n" , $arrLines );
-
         if( self::RUN_IN_FILES )
         {
             $strFileName = $strFile . "(0).phps";
@@ -343,6 +639,28 @@ class CodeToDiagram
         {
             eval( '?' . '>' . $strContentFile . '' );
         }
+    }
+    
+    /**
+     * Implement a code instrumentation into a file
+     *
+     * @param string $strFile
+     * @param string $strContentFile
+     */
+    protected function codeInstrumentationFile( $strFile , $strContentFile )
+    {
+        $arrLines = explode( "\n"  , $strContentFile );
+        $arrOldClasses   = array();
+        $arrNewClasses   = array();
+        $arrOldInterface = array();
+        $arrNewInterface = array();
+
+        $this->codeInstrumentationClass( "class " , $arrOldClasses , $arrNewClasses, $arrLines );
+        $this->codeInstrumentationClass( "interface " , $arrOldInterface , $arrNewInterface, $arrLines );
+
+        $strContentFile = implode( "\n" , $arrLines );
+
+        $this->preloadFile( $strFileName , $strContentFile );
 
         foreach( $arrNewClasses as $intKey => $strNewClassName )
         {
@@ -386,7 +704,14 @@ class CodeToDiagram
         }
     }
 
-    public function loadFile( $strFileFrom, $strFile )
+    /**
+     *  Load some file implement the code instrumentation
+     *
+     * @param string $strFileFrom
+     * @param string $strFile
+     * @return CodeToDiagram
+     */
+    protected function loadFile( $strFileFrom, $strFile )
     {
         if( basename( $strFile ) == 'CodeToDiagram.class.php' )
         {
