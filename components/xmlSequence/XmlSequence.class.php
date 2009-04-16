@@ -414,7 +414,7 @@ HTML;
 
                   <div class="actor">
                     <div class="name">
-                      <span title="{$objActorActual->getName()}">{$objActorActual->getName()}</span>
+                      <span title="{$objActorActual->getName()}">&nbsp;</span>
                     </div>
                   </div>
 
@@ -432,7 +432,7 @@ HTML;
 <<<HTML
                   <div class="actor start">
                     <div class="name">
-                      <span title="{$objActorActual->getName()}">{$objActorActual->getName()}</span>
+                      <span title="{$objActorActual->getName()}">&nbsp;</span>
                     </div>
                   </div>
 
@@ -451,7 +451,7 @@ HTML;
 <<<HTML
                   <div class="actor middle {$objMessage->getType()}">
                     <div class="name">
-                      <span title="{$objActorActual->getName()}">{$objActorActual->getName()}</span>
+                      <span title="{$objActorActual->getName()}">&nbsp;</span>
                     </div>
                   </div>
 
@@ -468,7 +468,7 @@ HTML;
 <<<HTML
                   <div class="actor end {$objMessage->getType()}">
                     <div class="name">
-                      <span title="{$objActorActual->getName()}">{$objActorActual->getName()}</span>
+                      <span title="{$objActorActual->getName()}">&nbsp;</span>
                     </div>
                   </div>
 
@@ -486,7 +486,7 @@ HTML;
 <<<HTML
                   <div class="actor after{$intDif}">
                     <div class="name">
-                      <span title="{$objActorActual->getName()}">{$objActorActual->getName()}</span>
+                      <span title="{$objActorActual->getName()}">&nbsp;</span>
                     </div>
                   </div>
 

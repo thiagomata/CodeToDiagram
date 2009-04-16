@@ -198,9 +198,11 @@
 				width: 20px;
 				height: 100%;
                 color: blue;
-                background-color: blue;
-                border-style: none ;
+                background-image: url("../images/degrade.png");
+                background-repeat:repeat-y;
+                border-style: solid;
                 border-width: 0px;
+
 			}
 
 			.actor.after1 .name span
@@ -210,7 +212,8 @@
 				width: 10px;
 				height: 100%;
                 color: blue;
-                background-color: blue;
+                background-image: url("../images/degrade.png");
+                background-repeat:repeat-y;
                 border-style: dashed;
                 border-width: 0px;
 			}
@@ -292,6 +295,9 @@
 				text-align: center;
 				position: relative;
 				left: -45px;
+                border-color: blue;
+				border-width: 1px;
+                border-style:solid;
 			}
 			.head .system .name
 			{
