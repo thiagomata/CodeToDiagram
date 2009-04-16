@@ -40,11 +40,35 @@ class CodeInstrumentationReceiver
         return self::$objCodeInstrumentationReceiver;
     }
 
+    public function renameMethod( $strMethod )
+    {
+        switch( $strMethod )
+        {
+            case "__construct":
+            {
+                $strMethod = htmlentities( "<<create>>" );
+                break;
+            }
+            case "__destruct":
+            {
+                $strMethod = htmlentities( "<<destroy>>" );
+                break;
+            }
+            default:
+            {
+                $strMethod .= "()";
+                break;
+            }
+        }
+        return $strMethod;
+    }
+
     public function onEnterMethod( $uid , $strClassDefinition , $strMethod, $arrArguments )
     {
         $strClass 		= CorujaClassManipulation::getClassNameFromClassDefinition( $strClassDefinition );
         $arrMethod      = explode( "::" , $strMethod );
         $strMethod 		= array_pop( $arrMethod );
+        $strMethod      = $this->renameMethod( $strMethod );
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
 
         if( ! array_key_exists( $strClass, $this->arrClasses ) )
@@ -70,7 +94,7 @@ class CodeInstrumentationReceiver
         }
 
         $objMessage = new XmlSequenceMessage();
-        $objMessage->setText( $strMethod . '()');
+        $objMessage->setText( $strMethod );
         $objMessage->setActorFrom( $objActorFrom );
         $objMessage->setActorTo( $objActorTo );
         $objMessage->setType( 'call' );
@@ -96,6 +120,7 @@ class CodeInstrumentationReceiver
         $strClass 		= CorujaClassManipulation::getClassNameFromClassDefinition( $strClassDefinition );
         $arrMethod      = explode( "::" , $strMethod );
         $strMethod 		= array_pop( $arrMethod );
+        $strMethod      = $this->renameMethod( $strMethod );
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
 
         $objActorFrom = array_shift( $this->arrStack );

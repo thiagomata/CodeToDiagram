@@ -427,7 +427,7 @@ class CodeToDiagram
      * @param string $strFile
      * @return CodeToDiagram
      */
-    protected function addFile( $strFileFrom, $strFile )
+    public function addFile( $strFileFrom, $strFile )
     {
         $strFile = $this->fixFileName( $strFileFrom, $strFile );
 
@@ -627,7 +627,7 @@ class CodeToDiagram
     {
         if( self::RUN_IN_FILES )
         {
-            $strFileName = $strFile . "(0).phps";
+            $strFileName = $strFileName . "(0).phps";
             file_put_contents( $strFileName , $strContentFile );
             require_once( $strFileName );
             if( self::REMOVE_FILES )
@@ -647,7 +647,7 @@ class CodeToDiagram
      * @param string $strFile
      * @param string $strContentFile
      */
-    protected function codeInstrumentationFile( $strFile , $strContentFile )
+    protected function codeInstrumentationFile( $strFileName , $strContentFile )
     {
         $arrLines = explode( "\n"  , $strContentFile );
         $arrOldClasses   = array();

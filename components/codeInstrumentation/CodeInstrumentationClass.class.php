@@ -41,13 +41,17 @@ class CodeInstrumentationClass extends CodeReflectionClass
         
         $strCode = '';
         $boolHasConstructor = false;
+        $boolHasDestructor = false;
 
         foreach( $this->getMethods() as $objMethodReflection )
         {
             if( $objMethodReflection->getName() == '__construct' )
             {
                 $boolHasConstructor = true;
-                break;
+            }
+            if( $objMethodReflection->getName() == '__destruct' )
+            {
+                $boolHasDestructor = true;
             }
         }
 
@@ -55,6 +59,16 @@ class CodeInstrumentationClass extends CodeReflectionClass
         if( $boolHasConstructor == false )
         {
             $strCode .=	' public function __construct()                                                                 ' . "\n";
+            $strCode .=	'    {                                                                                          ' . "\n";
+            $strCode .=	'       $arrArguments = func_get_args();                                                        ' . "\n";
+            $strCode .=	'       $mixReturn = null;                                                                      ' . "\n";
+            $strCode .=	'   	CodeInstrumentationReceiver::getInstance()->onEnterMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+            $strCode .=	'       CodeInstrumentationReceiver::getInstance()->onLeaveMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
+            $strCode .=	'	}                                                                                           ' . "\n";
+        }
+        if( $boolHasDestructor == false )
+        {
+            $strCode .=	' public function __destruct()                                                                 ' . "\n";
             $strCode .=	'    {                                                                                          ' . "\n";
             $strCode .=	'       $arrArguments = func_get_args();                                                        ' . "\n";
             $strCode .=	'       $mixReturn = null;                                                                      ' . "\n";
