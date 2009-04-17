@@ -55,6 +55,11 @@ class ExtendedReflectionClass extends ReflectionClass
     	return $arrExtendedMethods;
     }
 
+    public final function getMethod( $strMethodName )
+    {
+        return $this->createExtendedReflectionMethod( parent::getMethod( $strMethodName ) );
+    }
+
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new ExtendedReflectionClass( $objOriginalReflectionClass->getName() );
