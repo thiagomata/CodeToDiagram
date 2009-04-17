@@ -170,7 +170,7 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
      * make the class calls return a code instrumentation class
      *
      * @see ExtendedReflectionMethod
-     * @param ReflectionClass$objOriginalReflectionClass
+     * @param ReflectionClass $objOriginalReflectionClass
      * @return CodeInstrumentationClass
      */
     protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
@@ -181,7 +181,7 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
     /**
      * make the parameters calls return a Code Instrumentation Parameter
      *
-     * @see ExtendedReflectionMethod
+     * @see ExtendedReflectionMethod::createExtendedReflectionParameter
      * @param ReflectionParameter $objReflectionParameter
      * @return CodeInstrumentationParameter
      */
