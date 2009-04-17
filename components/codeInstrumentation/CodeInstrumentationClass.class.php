@@ -40,6 +40,8 @@ class CodeInstrumentationClass extends CodeReflectionClass
      *      $this->setClassName( "something" );
      *      $this->getClassName() == "something"
      * </code>
+     * @see CodeInstrumentationClass->strName
+     * @see CodeInstrumentationClass::setClassName( string )
      * @return string
      */
     public function getClassName()
@@ -63,6 +65,8 @@ class CodeInstrumentationClass extends CodeReflectionClass
      * </code>
      * @assert( "something" )
      *
+     * @see CodeInstrumentationClass->strName
+     * @see CodeInstrumentationClass::getClassName()
      * @param string $strName
      * @return CodeInstrumentationClass
      */
@@ -132,16 +136,40 @@ class CodeInstrumentationClass extends CodeReflectionClass
         return $strCode;
     }
 
+    /**
+     * Make the recursive calls and indirectly call return the extended reflection object and not
+     * a native reflection class.
+     *
+     * @see ExtendedReflectionClass::createExtendedReflectionClass( ReflectionClass )
+     * @param ReflectionClass $objOriginalReflectionClass
+     * @return CodeInstrumentationClass
+     */
     protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
     {
         return new CodeInstrumentationClass( $objOriginalReflectionClass->getName() );
     }
 
+    /**
+     * Make the recursive calls and indirectly call return the extended reflection object and not
+     * a native reflection class.
+     *
+     * @see ExtendedReflectionClass::createExtendedReflectionProperty( ReflectionProperty )
+     * @param ReflectionClass $objOriginalReflectionClass
+     * @return CodeInstrumentationClass
+     */
     protected function createExtendedReflectionProperty( ReflectionProperty $objOriginalReflectionProperty )
     {
         return new CodeInstrumentationProperty( $this->getName() , $objOriginalReflectionProperty->getName() );
     }
 
+    /**
+     * Make the recursive calls and indirectly call return the extended reflection object and not
+     * a native reflection class.
+     *
+     * @see ExtendedReflectionClass::createExtendedReflectionMethod( ReflectionMethod )
+     * @param ReflectionClass $objOriginalReflectionClass
+     * @return CodeInstrumentationClass
+     */
     protected function createExtendedReflectionMethod( ReflectionMethod $objOriginalReflectionMethod )
     {
         return new CodeInstrumentationMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
