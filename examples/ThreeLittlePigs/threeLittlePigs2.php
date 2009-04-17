@@ -12,7 +12,7 @@
 
 require_once( '../../public/codetodiagram.php' );
 // change the output type from screen to file //
-CodeToDiagram::getInstance()->setOutputType( 'file' );
+CodeToDiagram::getInstance()->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE );
 // set the file name //
 CodeToDiagram::getInstance()->setFileName( 'threeLitlePigs.html' );
 // start the code recording //
@@ -35,12 +35,13 @@ $objPig->say( "this will to no diagram " );
 CodeToDiagram::getInstance()->restart();
 
 // output will be a file //
-CodeToDiagram::getInstance()->setOutputType( 'file' );
+CodeToDiagram::getInstance()->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE  );
 // name of the new file //
 CodeToDiagram::getInstance()->setFileName( 'threeLitlePigs2.html' );
 # this code will be saved {
 $objWolf = new Wolf();
 $objWolf->say( "i will be back " . date( "h:i:s") );
+unset( $objWolf );
 CodeToDiagram::getInstance()->save();
 # } into the new file
 ?>

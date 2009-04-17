@@ -34,7 +34,7 @@ class CodeToDiagram
      * 
      * @var string
      */
-    protected $strOutputType = "screen";
+    protected $strOutputType = self::OUTPUT_TYPE_SCREEN;
 
     /**
      * Singleton of this class
@@ -67,23 +67,34 @@ class CodeToDiagram
      */
     const CODE_TO_DIAGRAM_CLASS_PREFIX = "CTD";
 
+    const OUTPUT_TYPE_SCREEN = "screen";
+
+    const OUTPUT_TYPE_STRING = "string";
+
+    const OUTPUT_TYPE_FILE = "file";
+
     /**
      * Set the output type of the diagram
      *
      * @example
      * <code>
-     *      $this->setOutputType( "screen" )->getOutputType() == "screen"
+     *      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_SCREEN )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_SCREEN
      * </code>
      * @example
      * <code>
-     *      $this->setOutputType( "file" )->getOutputType() == "file"
+     *      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_FILE
      * </code>
      * @example
      * <code>
-     *      $this->setOutputType( "somethingElse" )->getOutputType() throws CodeToDiagramException
+     *      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_STRING )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_STRING
      * </code>
-     * @assert( "screen" )
-     * @assert( "file" )
+     * @example
+     * <code>
+     *      $this->setOutputType( "something" ) throws CodeToDiagramException
+     * </code>
+     * @assert( CodeToDiagram::OUTPUT_TYPE_SCREEN  )
+     * @assert( CodeToDiagram::OUTPUT_TYPE_FILE )
+     * @assert( CodeToDiagram::OUTPUT_TYPE_STRING )
      * @assert( "somethingElse" ) throws CodeToDiagramException
      * @param string $strType
      */
@@ -91,12 +102,9 @@ class CodeToDiagram
     {
         switch( $strType )
         {
-            case "screen":
-            {
-                $this->strOutputType = $strType;
-                break;
-            }
-            case "file":
+            case CodeToDiagram::OUTPUT_TYPE_SCREEN:
+            case CodeToDiagram::OUTPUT_TYPE_STRING:
+            case CodeToDiagram::OUTPUT_TYPE_FILE :
             {
                 $this->strOutputType = $strType;
                 break;
@@ -115,11 +123,19 @@ class CodeToDiagram
      *
      * @example
      * <code>
-     *      $this->setOutputType( "screen" )->getOutputType() == "screen"
+     *      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_SCREEN )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_SCREEN
      * </code>
      * @example
      * <code>
-     *      $this->setOutputType( "file" )->getOutputType() == "file"
+     *      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_FILE
+     * </code>
+     * @example
+     * <code>
+     *      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_STRING )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_STRING
+     * </code>
+     * @example
+     * <code>
+     *      $this->setOutputType( "something" ) throws CodeToDiagramException
      * </code>
      * 
      * @return string
@@ -357,26 +373,43 @@ class CodeToDiagram
      *  # } into the new file
      * </code>
      *
-     *
-     * @return CodeToDiagram
+     * @return string
      */
     public function save()
     {
+        $strReturn = "";
+
         if( $this->getStarted() )
         {
             $strDiagram = CodeInstrumentationReceiver::getInstance()->getXmlSequence()->show();
 
-            if( $this->getOutputType() == "screen")
+
+            switch( $this->getOutputType() )
             {
-                print $strDiagram;
-            }
-            else
-            {
-                file_put_contents( $this->getFileName() , $strDiagram );
+                case self::OUTPUT_TYPE_SCREEN:
+                {
+                    print $strDiagram;
+                    break;
+                }
+                case self::OUTPUT_TYPE_STRING:
+                {
+                    $strReturn = $strDiagram;
+                    break;
+                }
+                case self::OUTPUT_TYPE_FILE:
+                {
+                    file_put_contents( $this->getFileName() , $strDiagram );
+                    break;
+                }
+                default:
+                {
+                    throw new CodeToDiagramException( "Invalid output type ({$this->getOutputType()})" );
+                    break;
+                }
             }
             CodeInstrumentationReceiver::getInstance()->restart();
         }
-        return $this;
+        return $strReturn;
     }
 
     /**
