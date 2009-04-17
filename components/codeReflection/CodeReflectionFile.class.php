@@ -1,6 +1,6 @@
 <?php
 /**
- * Code Instrumentation File it is a class with the prupose to make possible
+ * Code Reflection File it is a class with the prupose to make possible
  * abstract the diference between code run into real files and code run into
  * eval commands.
  *
@@ -12,12 +12,12 @@
  * same method send the first line and last line of the bit of code what you
  * want to receive.
  */
-class CodeInstrumentationFile
+class CodeReflectionFile
 {
     /**
-     * array of all instances of CodeInstrumentationFile using the name as key
+     * array of all instances of CodeReflectionFile using the name as key
      * 
-     * @var CodeInstrumentationFile[]
+     * @var CodeReflectionFile[]
      */
     protected static $arrInstances = array();
 
@@ -50,9 +50,9 @@ class CodeInstrumentationFile
      * Search into all object files saved and return that one have the searched
      * name
      * 
-     * @see CodeInstrumentationFile->arrInstances
+     * @see CodeReflectionFile->arrInstances
      * @param string $strFileName
-     * @return CodeInstrumentationFile
+     * @return CodeReflectionFile
      */
     public static function getCodeInstrFileName( $strFileName )
     {
@@ -62,16 +62,16 @@ class CodeInstrumentationFile
         }
         else
         {
-            return new CodeInstrumentationFile( $strFileName );
+            return new CodeReflectionFile( $strFileName );
         }
     }
 
     /**
-     * Create the Code Instrumentation File
+     * Create the Code Reflection File
      *
-     * @see CodeInstrumentationFile::$arrInstances
-     * @see CodeInstrumentationFile::setFileName( string )
-     * @see CodeInstrumentationFile::setFileContent( string )
+     * @see CodeReflectionFile::$arrInstances
+     * @see CodeReflectionFile::setFileName( string )
+     * @see CodeReflectionFile::setFileContent( string )
      * @param string $strFileName file name
      * @param string $strFileContent file content
      * @param boolean $boolRealFile if is a real file or not
@@ -87,10 +87,10 @@ class CodeInstrumentationFile
     /**
      * Set the file name
      *
-     * @see CodeInstrumentationFile::getFileName()
-     * @see CodeInstrumentationFile->strFileName
+     * @see CodeReflectionFile::getFileName()
+     * @see CodeReflectionFile->strFileName
      * @param string $strFileName file name
-     * @return CodeInstrumentationFile me
+     * @return CodeReflectionFile me
      */
     public function setFileName( $strFileName )
     {
@@ -101,8 +101,8 @@ class CodeInstrumentationFile
     /**
      * Get the file name
      *
-     * @see CodeInstrumentationFile::setFileName( string )
-     * @see CodeInstrumentationFile->strFileName
+     * @see CodeReflectionFile::setFileName( string )
+     * @see CodeReflectionFile->strFileName
      * @return string file name
      */
     public function getFileName()
@@ -111,14 +111,14 @@ class CodeInstrumentationFile
     }
 
     /**
-     * Set the code instrumentation file content
+     * Set the code Reflection file content
      *
-     * Set the code instrumentation file content and
+     * Set the code Reflection file content and
      * return itselft.
      *
-     * @see CodeInstrumentationFile->arrFileContent
+     * @see CodeReflectionFile->arrFileContent
      * @param string $strFileContent file content
-     * @return CodeInstrumentationFile me
+     * @return CodeReflectionFile me
      */
     public function setFileContent( $strFileContent )
     {
@@ -127,12 +127,40 @@ class CodeInstrumentationFile
     }
 
     /**
+     * Get the file content
+     *
+     * @see CodeReflectionFile->arrFileContent
+     * @see CodeReflectionFile::setFileContent( string )
+     * @return string file content
+     */
+    public function getFileContent()
+    {
+        return implode( "\n" , $this->arrFileContent );
+    }
+
+    /**
+     * Get the array of lines with the code file content
+     *
+     * Set the code file content and
+     * return itselft.
+     *
+     * @see CodeReflectionFile->arrFileContent
+     * @see CodeReflectionFile::setFileContent( string )
+     * @see CodeReflectionFile::getFileContent()
+     * @return string[] array of file content
+     */
+    public function getArrFileContent()
+    {
+        return $this->arrFileContent;
+    }
+
+    /**
      * Get a slice, a streck, a bit of the content of the file
      * receiving the first and last line of the slice wish.
      *
-     * @see CodeInstrumentationFile::setFileContent( string )
-     * @see CodeInstrumentationFile->arrFileContent
-     * @see CodeInstrumentationFile->arrFileContent
+     * @see CodeReflectionFile::setFileContent( string )
+     * @see CodeReflectionFile->arrFileContent
+     * @see CodeReflectionFile->arrFileContent
      * @param integer $intLineStart first line of the content
      * @param integer $intLineEnds last line of the content
      * @return string code content
@@ -156,7 +184,7 @@ class CodeInstrumentationFile
     /**
      * Returns if the file it is a real file
      *
-     * @see CodeInstrumentationFile->boolRealFile
+     * @see CodeReflectionFile->boolRealFile
      * @return boolean <code>true</code> if is a real file <code>false</code> if not
      */
     public function isRealFile()

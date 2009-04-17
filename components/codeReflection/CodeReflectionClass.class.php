@@ -1,7 +1,25 @@
 <?php
 class CodeReflectionClass extends ExtendedReflectionClass
 {
-	public function getClassName()
+    /**
+     * Construct the Code Reflection of the class.
+     *
+     * It must receive the eval content if the class it was created into a eval
+     * command.
+     *
+     * @param string $strClassName
+     * @param string $strEvalContent
+     */
+    public function __construct( $strClassName,  $strEvalContent = "" )
+    {
+        parent::__construct( $strClassName );
+        if( $strEvalContent != "" )
+        {
+            new CodeReflectionFile( $this->getFileName() , $strEvalContent , false );
+        }
+    }
+
+    public function getClassName()
 	{
         $strName = parent::getName();
         $arrName = explode( "::" ,$strName) ;

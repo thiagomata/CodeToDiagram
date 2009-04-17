@@ -28,7 +28,7 @@ class CodeInstrumentationClass extends CodeReflectionClass
         parent::__construct( $strClassName );
         if( $strEvalContent != "" )
         {
-            new CodeInstrumentationFile( $this->getFileName() , $strEvalContent , false );
+            new CodeReflectionFile( $this->getFileName() , $strEvalContent , false );
         }
     }
 

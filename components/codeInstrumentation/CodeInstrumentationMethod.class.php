@@ -199,7 +199,7 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
     {
         $strCode = "";
 
-        $objCodeInstrFile = CodeInstrumentationFile::getCodeInstrFileName( $this->getFileName() );
+        $objCodeInstrFile = CodeReflectionFile::getCodeInstrFileName( $this->getFileName() );
         $strCode .= $objCodeInstrFile->getFileBit( $this->getStartLine() , $this->getEndLine() );
         $strCode = trim( $strCode );
 

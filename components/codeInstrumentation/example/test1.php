@@ -1,4 +1,4 @@
-<?
+<?php
 require_once( "_start.php" );
 
 /**
@@ -8,28 +8,21 @@ require_once( "_start.php" );
 
 $strBigFile = '
 
-class exampleFirst{}
-class exampleSecond{}
-interface exampleInterfaceOne{}
-interface exampleInterfaceTwo{}
+class iWillExtend{}
+class iWillParameter{}
+interface iWillInterfaceOne{}
+interface iWillInterfaceTwo{}
 
-class ExampleCodeReflecion extends exampleFirst implements exampleInterfaceOne, exampleInterfaceTwo
+class ExampleNoop extends iWillExtend implements iWillInterfaceOne, iWillInterfaceTwo
 {
-	/**
-	 * @something else
-	 *
-	 * @var string
-	 */
 	private $strName;
 	
-	static protected $arrParadas = array();
+	static protected $arrStuffs = array();
 	
 	/**
 	 * Will do something cool
-	 *
-	 * @return string
 	 */
-	final public function doSomethingCool( $strName = "hi" , exampleSecond $obSecond = null , exampleSecond $objLastOne = null  )
+	final public function doSomethingCool( $strName = "hi" , iWillParameter $obSecond = null , iWillParameter $objLastOne = null  )
 	{
 		$this->strName = $strName;
 		print "i change the name to " . $this->strName;
@@ -54,7 +47,7 @@ class ExampleCodeReflecion extends exampleFirst implements exampleInterfaceOne, 
 eval( $strBigFile );
 
 // call the debug reflection send into the second parameter the eval content //
-$oReflectionCode = new DebugReflectionClass( "ExampleCodeReflecion" , $strBigFile );
+$oReflectionCode = new CodeInstrumentationClass( "ExampleNoop" , $strBigFile );
 $strNewCode = $oReflectionCode->getCode();
-CorujaDebug::debug( $strNewCode , true , "php");
+print( $strNewCode );
 ?>

@@ -1,17 +1,23 @@
 <?php
 class CodeReflectionMethod extends ExtendedReflectionMethod
 {
+
 	public function getCode()
 	{
 		$strCode = "";
 		$strCode .= $this->createMethodHeaderCode();
 		$strCode .= "{";
 		$strCode .= $this->createMethodContentCode();
-		$strCode .= "}";
+		$strCode .= "}\n";
 
 		return $strCode;
 	}
 
+    public function getCodeContent()
+    {
+        return $this->createMethodContentCode();
+    }
+    
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
@@ -82,15 +88,10 @@ class CodeReflectionMethod extends ExtendedReflectionMethod
 		$strCode = "";
 
 		$strFileName = $this->getFileName();
-		if( !file_exists( $strFileName ) )
-		{
-			throw new WarningException( "Unabled to Create Code Method from the " . $strFileName );
-		}
-		$arrCodeReflectionFile = explode( "\n" , file_get_contents( $strFileName ) );
-		for( $intLine = $this->getStartLine(); $intLine < $this->getEndLine(); ++$intLine )
-		{
-			$strCode .= $arrCodeReflectionFile[ $intLine ] . "\n";
-		}
+
+        $objFile = CodeReflectionFile::getCodeInstrFileName( $strFileName );
+
+        $strCode = $objFile->getFileBit( $this->getStartLine() ,  $this->getEndLine() );
 
 		$strCode = trim( $strCode );
 

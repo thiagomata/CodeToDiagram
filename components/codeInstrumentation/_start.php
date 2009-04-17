@@ -1,5 +1,5 @@
 <?php
-require_once( "CodeInstrumentationFile.class.php" );
+require_once( "CodeInstrumentationException.class.php" );
 require_once( "CodeInstrumentationReceiver.class.php" );
 require_once( "CodeInstrumentationParameter.class.php" );
 require_once( "CodeInstrumentationProperty.class.php" );
