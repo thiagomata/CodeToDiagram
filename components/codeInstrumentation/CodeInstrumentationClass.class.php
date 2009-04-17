@@ -1,10 +1,28 @@
 <?php
+/**
+ * Code Instrumentation Class extends a Code Reflection Class
+ * to create not a exactly code of the original class but a
+ * changed version with some code instrumentation messages what
+ * will be send to the Code Instrumentation Receiver
+ */
 class CodeInstrumentationClass extends CodeReflectionClass
 {
-    protected $arrFileContent;
-
+    /**
+     * The editable class name
+     *
+     * @var string
+     */
     protected $strName = null;
 
+    /**
+     * Construct the Code Instrumentation of the class.
+     *
+     * It must receive the eval content if the class it was created into a eval
+     * command.
+     *
+     * @param string $strClassName
+     * @param string $strEvalContent
+     */
     public function __construct( $strClassName,  $strEvalContent = "" )
     {
         parent::__construct( $strClassName );
@@ -14,6 +32,16 @@ class CodeInstrumentationClass extends CodeReflectionClass
         }
     }
 
+    /**
+     * Returns the editable class name
+     *
+     * @example
+     * <code>
+     *      $this->setClassName( "something" );
+     *      $this->getClassName() == "something"
+     * </code>
+     * @return string
+     */
     public function getClassName()
     {
         if( $this->strName == null )
@@ -26,12 +54,37 @@ class CodeInstrumentationClass extends CodeReflectionClass
         }
     }
 
+    /**
+     * Set the editable class name
+     * 
+     * @example
+     * <code>
+     *      $this->setClassName( "something" )->getClassName() == "something"
+     * </code>
+     * @assert( "something" )
+     *
+     * @param string $strName
+     * @return CodeInstrumentationClass
+     */
     public function setClassName( $strName )
     {
         $this->strName = $strName;
         return $this;
     }
 
+    /**
+     * Create the methods definition code with code instrumentation.
+     *
+     * Create the methods of the class changed to can send the messages
+     * to the code instrumentation receive before and after each call.
+     *
+     * - Interfaces will not change
+     * - If the class dont have a constructor and a destructor force existence.
+     * - call the parent createMethodsDefinitionCode what will call the CodeInstrumentationMethod
+     *
+     * @see CodeInstrumentationMethod
+     * @return string
+     */
     public function createMethodsDefinitionCode()
     {
         if( $this->isInterface() )

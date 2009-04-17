@@ -1,18 +1,42 @@
 <?php
+/**
+ * Class what in place of create the exactily code of some method,
+ * create a version of it what send a message to the code instrumentation
+ * receiver before and after each call.
+ */
 class CodeInstrumentationMethod extends CodeReflectionMethod
 {
+    /**
+     * The original method should be renamed. This is the new prefix what will be
+     * append into it's name.
+     */
     const PREFIX_METHOD = "___";
 
+    /**
+     * Returns the new name of the original method.
+     * '
+     * @return string
+     */
     public function getNewName()
     {
         return self::PREFIX_METHOD . $this->getName();
     }
 
+    /**
+     * Returns de name of the code instrumentation method name what will be append into the class
+     *
+     * @return string
+     */
     public function getCallCodeInstrFunctionName()
     {
         return $this->getName();
     }
 
+    /**
+     * Returns the code instrumentation method content what will be append into the class
+     *
+     * @return string
+     */
     protected function getCallCodeInstrFunctionCode()
     {
         $strCode = "";
@@ -23,6 +47,12 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
         return $strCode;
     }
 
+    /**
+     * Get the code instrumentation header of the method what will be append into
+     * the class
+     *
+     * @return string
+     */
     protected function getCallCodeInstrFunctionHeaderCode()
     {
         $strCode = CorujaStringManipulation::retab( $this->getDocComment() , 1 );
@@ -32,6 +62,12 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
         return $strCode;
     }
 
+    /**
+     * Get the code instrumentation content of the method what will be append into
+     * the class
+     *
+     * @return string
+     */
     protected function getCallCodeInstrFunctionContentCode()
     {
         $strCode = "";
@@ -101,6 +137,11 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
         return $strCode;
     }
 
+    /**
+     * Get the code of the code instrumentation method
+     *
+     * @return string
+     */
     public function getCode()
     {
         $strCode = "";
@@ -110,6 +151,11 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
 
     }
 
+    /**
+     * Get the method header of the code instrumentation method 
+     *
+     * @return string
+     */
     public function createMethodHeaderCode()
     {
         $strCode = $this->getDocComment();
@@ -120,16 +166,35 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
         return CorujaStringManipulation::retab( $strCode , 1 );
     }
 
+    /**
+     * make the class calls return a code instrumentation class
+     *
+     * @see ExtendedReflectionMethod
+     * @param ReflectionClass$objOriginalReflectionClass
+     * @return CodeInstrumentationClass
+     */
     protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
     {
         return new CodeInstrumentationClass( $objOriginalReflectionClass->getName() );
     }
 
+    /**
+     * make the parameters calls return a Code Instrumentation Parameter
+     *
+     * @see ExtendedReflectionMethod
+     * @param ReflectionParameter $objReflectionParameter
+     * @return CodeInstrumentationParameter
+     */
     protected function createExtendedReflectionParameter( ReflectionParameter $objReflectionParameter )
     {
         return new CodeInstrumentationParameter( Array( $this->getDeclaringClass()->getName() , $this->getName() ) , $objReflectionParameter->getName() );
     }
 
+    /**
+     * Create the code instrumentation method content code 
+     *
+     * @return string
+     */
     protected function createMethodContentCode()
     {
         $strCode = "";
