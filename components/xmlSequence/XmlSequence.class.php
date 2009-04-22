@@ -179,6 +179,16 @@ class XmlSequence
         return $this->objXml;
     }
 
+    public function createXml()
+    {
+        $strXml = '';
+        $strXml .= $this->createXmlHeader();
+        $strXml .= $this->createXmlActors();
+        $strXml .= $this->createXmlMessages();
+        $strXml .= $this->createXmlFooter();
+        return $strXml;
+    }
+
     public function show()
     {
         $strHtml = '';
@@ -518,6 +528,72 @@ HTML;
 
         return $strHtmlMessages;
     }
+
+    public function createXmlHeader()
+    {
+        return "
+<sequence>
+        ";
+    }
+
+    public function createXmlFooter()
+    {
+        return "
+</sequence>
+        ";
+    }
+
+    public function createXmlActors()
+    {
+        $strXmlActors = "<actors>\n";
+        foreach( $this->arrActors as $objActor )
+        {
+            /** @var $objActor XmlSequenceActor */
+            $strXmlActors .= "<actor ";
+            $strXmlActors .= 'id="' . $objActor->getId() . '" ';
+            $strXmlActors .= 'type="' . $objActor->getType() . '" ';
+            $strXmlActors .= '>';
+            $strXmlActors .= $objActor->getName() . ':' . $objActor->getClassName();
+            $strXmlActors .= "</actor>\n";
+        }
+        $strXmlActors .= "</actors>\n";
+        return $strXmlActors;
+    }
+
+    public function createXmlMessages()
+    {
+        $strXmlMessages = "<messages>\n";
+        foreach( $this->arrMessages as $objMessage )
+        {
+            /** @var $objMessage XmlSequenceMessage */
+            
+            $strXmlMessages .= "<message ";
+            $strXmlMessages .= 'type="' . $objMessage->getType() . '" ';
+            $strXmlMessages .= 'from="' . $objMessage->getActorFrom()->getId() . '" ';
+            $strXmlMessages .= 'to="' . $objMessage->getActorTo()->getId() . '" ';
+            $strXmlMessages .= 'text="' . htmlentities( $objMessage->getText() ) . '" ';
+            $strXmlMessages .= '>';
+
+            $strXmlMessages .= "<values>\n";
+
+            $arrValues = $objMessage->getValues();
+            foreach($arrValues as $objValue )
+            {
+                /** @var $objValue XmlSequenceValue */
+                $strXmlMessages .= "<value ";
+                $strXmlMessages .= 'name = "' . $objValue->getName() . '" ';
+                $strXmlMessages .= 'value = "' . $objValue->getValue() . '" ';
+                $strXmlMessages .= "/>\n";
+            }
+
+            $strXmlMessages .= "</values>\n";
+
+            $strXmlMessages .= "</message>";
+        }
+        $strXmlMessages .= "</messages>\n";
+        return $strXmlMessages;
+    }
+
 }
 
 ?>

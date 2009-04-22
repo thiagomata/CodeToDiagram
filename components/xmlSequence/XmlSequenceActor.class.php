@@ -3,7 +3,7 @@ class XmlSequenceActor
 {
     protected $intId;
 
-    protected $strType;
+    protected $strType = 'system';
 
     protected $strName;
 
