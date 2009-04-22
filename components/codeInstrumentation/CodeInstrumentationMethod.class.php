@@ -3,6 +3,8 @@
  * Class what in place of create the exactily code of some method,
  * create a version of it what send a message to the code instrumentation
  * receiver before and after each call.
+ *
+ * @todo create test class of this class
  */
 class CodeInstrumentationMethod extends CodeReflectionMethod
 {

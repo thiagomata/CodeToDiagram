@@ -82,6 +82,7 @@ class CodeInstrumentationReceiver
         {
             $this->arrClasses[ $strClass ]++;
             $objActorTo = new XmlSequenceActor();
+            $objActorTo->setType( 'system' );
             $objActorTo->setClassName($strClass);
             $objActorTo->setName( $strClass . '(' . $this->arrClasses[ $strClass ] . ')');
             $objActorTo->setId(sizeof( $this->arrActors ) + 1  );

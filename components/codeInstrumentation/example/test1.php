@@ -1,53 +1,44 @@
 <?php
 require_once( "_start.php" );
 
-/**
- * This test will consist into show the code of the new class 
- * based no the original class what is into a eval command
- */
 
 $strBigFile = '
-
-class iWillExtend{}
-class iWillParameter{}
-interface iWillInterfaceOne{}
-interface iWillInterfaceTwo{}
-
-class ExampleNoop extends iWillExtend implements iWillInterfaceOne, iWillInterfaceTwo
+class fatorial
 {
-	private $strName;
-	
-	static protected $arrStuffs = array();
-	
-	/**
-	 * Will do something cool
-	 */
-	final public function doSomethingCool( $strName = "hi" , iWillParameter $obSecond = null , iWillParameter $objLastOne = null  )
-	{
-		$this->strName = $strName;
-		print "i change the name to " . $this->strName;
-		$this->doNothing();
-	}
-	
-	private static function doNothing()
-	{
-		// empty...
-	}
-	
-	public function hardWork()
-	{
-		for( $i = 0 ; $i < 20 ; $i++ )
-		{
-			$this->doSomethingCool( $i );
-		}
-	}
+    protected $n;
+
+    public function __construct( $n )
+    {
+        $this->n = $n;
+    }
+
+    public function calc()
+    {
+        if ($this->n < 2)
+        {
+            return 1;
+        }
+        else
+        {
+            $objFat = new Fatorial( $this->n - 1 );
+            return $this->n * $objFat->calc();
+        }
+    }
 };
 ';
 
+$strBigFile = str_replace( "class fatorial", "class temp_fatorial", $strBigFile );
 eval( $strBigFile );
-
 // call the debug reflection send into the second parameter the eval content //
-$oReflectionCode = new CodeInstrumentationClass( "ExampleNoop" , $strBigFile );
+$oReflectionCode = new CodeInstrumentationClass( "temp_fatorial" , $strBigFile );
+$oReflectionCode->setClassName( "fatorial" );
 $strNewCode = $oReflectionCode->getCode();
-print( $strNewCode );
+eval( $strNewCode );
+define( "PUBLIC_PATH" , str_replace( "\\" , "/" , str_replace( basename( __FILE__ ) , "" , __FILE__ ) ) );
+define( "CALLER_PATH" , str_replace( "\\" , "/" , str_replace( basename( __FILE__ ) , "" , __FILE__ ) ) );
+CodeInstrumentationReceiver::getInstance()->restart();
+$objTest = new fatorial( 2 );
+$objTest->calc();
+$objSimpleXml = simplexml_load_string( CodeInstrumentationReceiver::getInstance()->getXmlSequence()->createXml() );
+print $objSimpleXml->asXml();
 ?>
