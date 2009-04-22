@@ -1,4 +1,16 @@
 <?php
+/**
+ * Code reflection class it is a class what is a extension of the php reflection
+ * with improvments to show the php code of the reflected class
+ *
+ * With this class you can see the code of some class, method, attribute just as
+ * it is and extending this class you can create a similary class of the original
+ * one.
+ *
+ * This class can be used to debug, detail of some execution or stack and to code
+ * instrumentation.
+ * 
+ */
 class CodeReflectionClass extends ExtendedReflectionClass
 {
     /**
@@ -19,6 +31,11 @@ class CodeReflectionClass extends ExtendedReflectionClass
         }
     }
 
+    /**
+     * Get the class name
+     *
+     * @return string
+     */
     public function getClassName()
 	{
         $strName = parent::getName();
@@ -26,6 +43,11 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return array_pop( $arrName );
 	}
 
+    /**
+     * Get the namespace name
+     *
+     * @return string
+     */
 	public function getNamespace()
 	{
         $strName = parent::getName();
@@ -33,6 +55,15 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return array_shift( $arrName );
 	}
 
+    /**
+     * A version of the get class name what cannot
+     * be replaced.
+     *
+     * Should be used when the execution need
+     * the real original class name
+     *
+     * @return string
+     */
     public final function getRealClassName()
     {
         $strName = ExtendedReflectionClass::getName();
@@ -40,6 +71,11 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return array_pop( $arrName );
     }
 
+    /**
+     * Create a php class definition code
+     *
+     * @return string code of class creation
+     */
 	public function createClassDefinitionCode()
 	{
 		$strCode = "";
@@ -62,6 +98,11 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return $strCode;
 	}
 
+    /**
+     * Create a php attribute definition code
+     *
+     * @return string code of attribute
+     */
 	public function createAttributesDefinitionCode()
 	{
 		$strCode = "";
@@ -80,6 +121,11 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return $strCode;
 	}
 
+    /**
+     * Create a php method definiton code 
+     *
+     * @return string code of method
+     */
 	public function createMethodsDefinitionCode()
 	{
 		$strCode = "";
@@ -87,8 +133,6 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		foreach( $arrMethods as $objReflectionMethod )
 		{
 			/*@var $objReflectionMethod CodeReflectionMethod */
-//            print __LINE__ . $this->getRealClassName() . "<br/>\n";
-//            print __LINE__ . $objReflectionMethod->getDeclaringClass()->getRealClassName() . "<br/>\n";
             if( $objReflectionMethod->getDeclaringClass()->getRealClassName() == $this->getRealClassName())
 			{
                 if( !$this->isInterface() )
@@ -104,6 +148,15 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return $strCode;
 	}
 
+    /**
+     * Create the code of the reflected object
+     *
+     * @see CodeReflectionClass::createClassDefinitionCode
+     * @see CodeReflectionClass::createInterfaceDefinitionCode
+     * @see CodeReflectionClass::createAttributesDefinitionCode
+     * @see CodeReflectionClass::createMethodsDefinitionCode
+     * @return string code of the reflected object
+     */
 	public function getCode()
 	{
         $strCode = "";
@@ -126,16 +179,40 @@ class CodeReflectionClass extends ExtendedReflectionClass
 		return $strCode;
 	}
 
+    /**
+     * Make the recursive calls and indirectly call return the extended reflection object and not
+     * a native reflection class.
+     *
+     * @see ExtendedReflectionClass::createExtendedReflectionClass( ReflectionClass )
+     * @param ReflectionClass $objOriginalReflectionClass
+     * @return CodeReflectionClass
+     */
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
 	}
 
+    /**
+     * Make the recursive calls and indirectly call return the extended reflection object and not
+     * a native reflection property.
+     *
+     * @see ExtendedReflectionClass::createExtendedReflectionProperty( ReflectionProperty )
+     * @param ReflectionProperty $objOriginalReflectionClass
+     * @return CodeReflectionProperty
+     */
     protected function createExtendedReflectionProperty( ReflectionProperty $objOriginalReflectionProperty )
 	{
 		return new CodeReflectionProperty( $this->getName() , $objOriginalReflectionProperty->getName() );
 	}
 
+    /**
+     * Make the recursive calls and indirectly call return the extended reflection object and not
+     * a native reflection method.
+     *
+     * @see ExtendedReflectionClass::createExtendedReflectionMethod( ReflectionMethod )
+     * @param ReflectionMethod $objOriginalReflectionClass
+     * @return CodeReflectionMethod
+     */
 	protected function createExtendedReflectionMethod( ReflectionMethod $objOriginalReflectionMethod )
 	{
 		return new CodeReflectionMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
