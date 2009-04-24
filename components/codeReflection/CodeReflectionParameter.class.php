@@ -4,12 +4,15 @@ class CodeReflectionParameter extends ExtendedReflectionParameter
 	/**
 	 * Get the code from the parameter
 	 *
-	 * @fixme http://bugs.php.net/bug.php?id=33312
 	 * @return String
 	 */
 	public function getCode()
 	{
 		$strCode = "";
+		
+		/**
+		 * @fixme http://bugs.php.net/bug.php?id=33312
+		 */
 /*
         if( $this->getClass() != null )
 		{
