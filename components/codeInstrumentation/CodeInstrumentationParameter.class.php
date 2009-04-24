@@ -2,6 +2,9 @@
 /**
  * Class what make possible the code instrumentation of methods and fucntions
  * with parameters
+ * 
+ * @author Thiago Mata
+ * 
  */
 class CodeInstrumentationParameter extends CodeReflectionParameter
 {

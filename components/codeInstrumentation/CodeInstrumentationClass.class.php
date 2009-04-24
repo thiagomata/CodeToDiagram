@@ -4,6 +4,8 @@
  * to create not a exactly code of the original class but a
  * changed version with some code instrumentation messages what
  * will be send to the Code Instrumentation Receiver
+ * 
+ * @author Thiago Mata
  */
 class CodeInstrumentationClass extends CodeReflectionClass
 {

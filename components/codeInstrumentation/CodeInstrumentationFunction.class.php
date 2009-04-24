@@ -10,6 +10,8 @@
  * Today code instrumentation works only into objects
  * @question What will be the actor or object what will
  * be resposable by the functions as its methods
+ * 
+ * @author Thiago Mata
  */
 class CodeInstrumentationFunction extends CodeReflectionFunction
 {

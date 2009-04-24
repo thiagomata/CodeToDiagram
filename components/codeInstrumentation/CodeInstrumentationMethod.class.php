@@ -1,10 +1,10 @@
 <?php
 /**
- * Class what in place of create the exactily code of some method,
+ * Class what in place of create the exactly code of some method,
  * create a version of it what send a message to the code instrumentation
  * receiver before and after each call.
  *
- * @todo create test class of this class
+ * @author Thiago Mata
  */
 class CodeInstrumentationMethod extends CodeReflectionMethod
 {
@@ -68,35 +68,60 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
      * Get the code instrumentation content of the method what will be append into
      * the class
      *
+     * 1. create the method header
+     * 2. if the method is a static one
+     * 2.1 log the enter method into the code instrumentation receiver as a static call
+     * 2.2 run method
+     * 2.3 log the leave method into the code instrumentation receiver as a static call
+     * 3. else - if the method is not a static one
+     * 3.1 log the enter method into the code instrumentation receiver sending the object id
+     * 3.2 if the method is the magic method __call
+     * 3.2.1 when some undefined method be called log the call and call the original __call
+     * 3.3 else - if the method is not the magic method __call
+     * 3.3.1 save the call into the code instrumentation receiver and call the original method
+     * 3.4 log the leave method into the code instrumentation receiver sending the object id
+     * 
      * @return string
      */
     protected function getCallCodeInstrFunctionContentCode()
     {
+		// 1. create the method header //
         $strCode = "";
         $strCode .=	'	$strMethod = "' . $this->getNewName() . '";										' . "\n";
         $strCode .=	'	$arrArguments = func_get_args();												' . "\n";
         $strCode .=	'	// prepare caller //															' . "\n";
+        
+        // 2. if the method is a static one //
         if( $this->isStatic() )
         {
+		     // 2.1 log the enter method into the code instrumentation receiver as a static call
             $strCode .=	'	$arrCaller = Array( __CLASS__ , $strMethod ) ; 								' . "\n";
             $strCode .=	'	// log the enter into the real method //										' . "\n";
             $strCode .=	'	CodeInstrumentationReceiver::getInstance()->onEnterMethod( "static" , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+
+            // 2.2 run method
             $strCode .=	'	// execute the real method														' . "\n";
             $strCode .=	'	$mixReturn = call_user_func_array( $arrCaller, $arrArguments );					' . "\n";
+
+		    // 2.3 log the leave method into the code instrumentation receiver as a static call
             $strCode .=	'	// log the exit of the real method // 											' . "\n";
             $strCode .=	'	CodeInstrumentationReceiver::getInstance()->onLeaveMethod( "static" , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
             $strCode .=	'	// return the result of the method into the object  //							' . "\n";
             $strCode .=	'	return $mixReturn;																' . "\n";
         }
+        // 3. else - if the method is not a static one //
         else
         {
+        	// 3.1 log the enter method into the code instrumentation receiver sending the object id //
             $strCode .=	'	$arrCaller = Array( $this , $strMethod ) ;                                      ' . "\n";
             $strCode .=	'	// log the enter into the real method //                                        ' . "\n";
             $strCode .=	'	CodeInstrumentationReceiver::getInstance()->onEnterMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
             $strCode .=	'	// execute the real method                                                      ' . "\n";
             
+            // 3.2 if the method is the magic method __call //
             if( $this->getName() == "__call" )
             {
+            	// 3.2.1 when some undefined method be called log the call and call the original __call //
                 $strCode .=	'	// if the method exists     													' . "\n";
                 $strCode .=	'	if( method_exists( $this , $strMethod ) )										' . "\n";
                 $strCode .=	'	{                                                                               ' . "\n";
@@ -117,8 +142,10 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
                 $strCode .=	'	    }                                                                           ' . "\n";
                 $strCode .=	'	}                                                                               ' . "\n";
             }
+            // 3.3 else - if the method is not the magic method __call //
             else
             {
+            	//  3.3.1 save the call into the code instrumentation receiver and call the original method //
                 $strCode .=	'	// if the method exists     													' . "\n";
                 $strCode .=	'	if( method_exists( $this , $strMethod ) )										' . "\n";
                 $strCode .=	'	{                                                                               ' . "\n";
@@ -130,6 +157,7 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
                 $strCode .=	'       throw new CodeToDiagramException( "Unable to find the method $strMethod "); ' . "\n";
                 $strCode .=	'	}                                                                               ' . "\n";
             }
+            // 3.4 log the leave method into the code instrumentation receiver sending the object id
             $strCode .=	'	// log the exit of the real method // 											' . "\n";
             $strCode .=	'	CodeInstrumentationReceiver::getInstance()->onLeaveMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
             $strCode .=	'	// return the result of the method into the object  //							' . "\n";
