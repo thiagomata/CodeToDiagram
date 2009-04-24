@@ -37,6 +37,20 @@ class CodeToDiagram
     protected $strOutputType = self::OUTPUT_TYPE_SCREEN;
 
     /**
+     * Caller Path of the execution
+     * 
+     * @var string
+     */
+    protected $strCallerPath;
+
+    /**
+     * Public Path of the project
+     * 
+     * @var string
+     */
+    protected $strPublicPath;
+    
+    /**
      * Singleton of this class
      *
      * @var CodeToDiagram
@@ -73,6 +87,8 @@ class CodeToDiagram
 
     const OUTPUT_TYPE_FILE = "file";
 
+    const OUTPUT_TYPE_XML = "xml";
+
     /**
      * Set the output type of the diagram
      *
@@ -105,6 +121,7 @@ class CodeToDiagram
             case CodeToDiagram::OUTPUT_TYPE_SCREEN:
             case CodeToDiagram::OUTPUT_TYPE_STRING:
             case CodeToDiagram::OUTPUT_TYPE_FILE :
+            case CodeToDiagram::OUTPUT_TYPE_XML :
             {
                 $this->strOutputType = $strType;
                 break;
@@ -286,6 +303,51 @@ class CodeToDiagram
     {
         return $this->strFileName;
     }
+    
+    /**
+     * Set the caller path
+     * 
+     * @param string $strCallerPath
+     * @return CodeToDiagram me
+     */
+    public function setCallerPath( $strCallerPath )
+    {
+    	$this->strCallerPath = $strCallerPath;
+    	return $this;
+    }
+    
+    /**
+     * Get the caller path
+     * 
+     * @return string
+     */
+    public function getCallerPath()
+    {
+    	return $this->strCallerPath;
+    }
+    
+    /**
+     * Set the public path
+     * 
+     * @param string $strPublicPath
+     * @return CodeToDiagram me
+     */
+    public function setPublicPath( $strPublicPath )
+    {
+    	$this->strPublicPath = $strPublicPath;
+    	return $this;
+    }
+    
+    /**
+     * Get the public path
+     * 
+     * @return string
+     */
+    public function getPublicPath()
+    {
+    	return $this->strPublicPath;	
+    }
+    
     /**
      * Check if a address is relative
      *
@@ -330,6 +392,9 @@ class CodeToDiagram
     */
     public function start()
     {
+    	CodeInstrumentationReceiver::getInstance()->setPublicPath( $this->getPublicPath() );
+    	CodeInstrumentationReceiver::getInstance()->setCallerPath( $this->getCallerPath() );
+    	
         if( $this->getStarted() )
         {
             return $this;
@@ -381,24 +446,31 @@ class CodeToDiagram
 
         if( $this->getStarted() )
         {
-            $strDiagram = CodeInstrumentationReceiver::getInstance()->getXmlSequence()->show();
-
+        	$objXmlSequence = CodeInstrumentationReceiver::getInstance()->getXmlSequence();
 
             switch( $this->getOutputType() )
             {
                 case self::OUTPUT_TYPE_SCREEN:
                 {
+                	$strDiagram = XmlSequencePrinterDiagram::getInstance()->perform( $objXmlSequence );
                     print $strDiagram;
                     break;
                 }
                 case self::OUTPUT_TYPE_STRING:
                 {
-                    $strReturn = $strDiagram;
+                	$strDiagram = XmlSequencePrinterDiagram::getInstance()->perform( $objXmlSequence );
+                	$strReturn = $strDiagram;
                     break;
                 }
                 case self::OUTPUT_TYPE_FILE:
                 {
-                    file_put_contents( $this->getFileName() , $strDiagram );
+                	$strDiagram = XmlSequencePrinterDiagram::getInstance()->perform( $objXmlSequence );
+                	file_put_contents( $this->getFileName() , $strDiagram );
+                    break;
+                }
+                case self::OUTPUT_TYPE_XML:
+                {
+                	$strReturn = XmlSequencePrinterXml::getInstance()->perform( $objXmlSequence );
                     break;
                 }
                 default:
@@ -592,7 +664,7 @@ class CodeToDiagram
                 'CodeToDiagram::getInstance()->CodeToDiagramIncludeOnce("'. $strFile . '",',
                 'CodeToDiagram::getInstance()->CodeToDiagramExit("'. $strFile . '")',
                 'CodeToDiagram::getInstance()->CodeToDiagramExit("'. $strFile . '",',
-                '"' . CALLER_PATH . $strFullFile . '"',
+                '"' . $this->getCallerPath() . $strFullFile . '"',
             ),
             $strContentFile
         );
@@ -656,6 +728,13 @@ class CodeToDiagram
         }
     }
 
+    /**
+     * Pre load the file into is's context 
+     * 
+     * @param string $strFileName
+     * @param string $strContentFile
+     * @return CodeToDiagram
+     */
     protected function preloadFile( $strFileName , $strContentFile )
     {
         if( self::RUN_IN_FILES )
@@ -672,6 +751,7 @@ class CodeToDiagram
         {
             eval( '?' . '>' . $strContentFile . '' );
         }
+        return $this;
     }
     
     /**
