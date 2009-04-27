@@ -309,7 +309,7 @@ HTML;
                   <div class="row {$objMessage->getType()} {$strReverse} {$strLarge} {$strRecursive} start ">
                     <div class="message ">
                       <span><strong>{$intPos}</strong>. {$objMessage->getText()}</span>
-                        {$objMessage->showValues()}
+                    {$this->showValues( $objMessage )}
                     </div>
                   </div>
 HTML;
@@ -387,6 +387,32 @@ HTML;
         }
 
         return $strHtmlMessages;
+    }
+
+    public function showValues( XmlSequenceMessage $objXmlMessage )
+    {
+        $arrValues = $objXmlMessage->getValues();
+        if( sizeof( $arrValues ) > 0 )
+        {
+            $strHtml = '<div class="parameters">';
+            $strHtml .= '<ul>' . "\n";
+
+            foreach( $arrValues as $objValue )
+            {
+                $strHtml .= '<li>' . "\n";
+                $strHtml .= '   <strong>' . $objValue->getName() . '</strong>' . "\n";
+                $strHtml .= '   ' . $objValue->getValue() . ' ' . "\n";
+                $strHtml .= '</li>' . "\n";
+
+            }
+
+            $strHtml .= '</ul></div>' . "\n";
+        }
+        else
+        {
+            $strHtml = '';
+        }
+        return $strHtml;
     }
 }
 ?>

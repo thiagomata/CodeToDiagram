@@ -1,4 +1,7 @@
 <?php
+/**
+ * Interface to the factory of XmlSequence
+ */
 interface XmlSequenceFactoryInterface
 {
     /**

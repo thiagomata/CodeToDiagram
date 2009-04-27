@@ -1,5 +1,7 @@
 <?php 
-
+/**
+ * Factory what creates XmlSequence based into Xml Files
+ */
 class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
 {
 	/**
@@ -91,6 +93,10 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
         return $this->getXmlSequence();
     }
 
+    /**
+     * Load the xml file and based on it insert a list of actors into the
+     * XmlSequence Object
+     */
     protected function loadActors()
     {
     	$arrActors = $this->getXmlSequence()->getActors();
@@ -112,6 +118,10 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
         $this->getXmlSequence()->setActors( $arrActors );
     }
 
+    /**
+     * Load the xml file and based on it insert a list of messages into the
+     * XmlSequence Object
+     */
     protected function loadMessages()
     {
     	$arrMessages = $this->getXmlSequence()->getMessages();
