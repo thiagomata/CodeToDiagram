@@ -1,4 +1,7 @@
 <?php
+/**
+ * Load the Extended Reflection package
+ */
 require_once( "ExtendedReflectionParameter.class.php" );
 require_once( "ExtendedReflectionProperty.class.php" );
 require_once( "ExtendedReflectionFunction.class.php" );

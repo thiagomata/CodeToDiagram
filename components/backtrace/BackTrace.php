@@ -10,6 +10,7 @@
  * respectivas a cada um deles.
  *
  * @author Renan de Lima Barbosa <renandelima@gmail.com>
+ * @package backtrace
  */
 class BackTrace
 {

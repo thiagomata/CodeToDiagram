@@ -6,7 +6,8 @@
  * but it is necessary to extend it to create the reflections links
  * possibles keeping the code instrumentation context.
  * 
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeInstrumentation
  *
  */
 class CodeInstrumentationProperty extends CodeReflectionProperty

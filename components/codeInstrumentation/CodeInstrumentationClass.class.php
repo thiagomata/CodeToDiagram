@@ -5,7 +5,8 @@
  * changed version with some code instrumentation messages what
  * will be send to the Code Instrumentation Receiver
  * 
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeInstrumentation
  */
 class CodeInstrumentationClass extends CodeReflectionClass
 {

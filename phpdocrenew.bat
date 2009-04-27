@@ -1,0 +1,1 @@
+phpdoc -t c:\www\codetodiagram\phpdocs -o HTML:default:default -d .\  > result.txt

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Code to diagram master class
+ *
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeToDiagram
+ */
 class CodeToDiagram
 {
     /**

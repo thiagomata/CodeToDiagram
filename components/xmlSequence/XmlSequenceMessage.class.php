@@ -3,6 +3,8 @@
  * Message send between actors into the XmlSequence object as the Sequence
  * Diagram UML guidelines append of more attributes as the code context make
  * usefull
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package XmlSequence
  */
 class XmlSequenceMessage
 {

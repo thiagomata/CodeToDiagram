@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CodeReflectionFile</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CodeReflectionFile</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Code Reflection File it is a class with the prupose to make possible  abstract the diference between code run into real files and code run into  eval commands.</p>
+<p class="description"><p>In this mode this class keep the alias fake name of the alias content and  the file content, this information can be access by others classes what  will be able to interaction with the fake file.</p><p>You can get a streck of code of the memory file or the real file using the  same method send the first line and last line of the bit of code what you  want to receive.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_components---codeReflection---CodeReflectionFile.class.php.html">/components/codeReflection/CodeReflectionFile.class.php</a> (line <span class="field">17</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																				<div class="var-title">
+					static <span class="var-type">CodeReflectionFile[]</span>
+					<a href="#$arrInstances" title="details" class="var-name">$arrInstances</a>
+				</div>
+																																				<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$arrFileContent" title="details" class="var-name">$arrFileContent</a>
+				</div>
+																								<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$boolRealFile" title="details" class="var-name">$boolRealFile</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$strFileName" title="details" class="var-name">$strFileName</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																												<div class="method-definition">
+					static 						<span class="method-result"><a href="../CodeReflection/CodeReflectionFile.html">CodeReflectionFile</a></span>
+										<a href="#getCodeInstrFileName" title="details" class="method-name">getCodeInstrFileName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileName</span>)
+									</div>
+																																																								
+												<div class="method-definition">
+											<span class="method-result">CodeReflectionFile</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileContent</span> = <span class="var-default">&quot;&quot;</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$boolRealFile</span> = <span class="var-default">true</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string[]</span>
+										<a href="#getArrFileContent" title="details" class="method-name">getArrFileContent</a>
+										()
+									</div>
+																								<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFileBit" title="details" class="method-name">getFileBit</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$intLineStart</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$intLineEnds</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFileContent" title="details" class="method-name">getFileContent</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFileName" title="details" class="method-name">getFileName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isRealFile" title="details" class="method-name">isRealFile</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeReflection/CodeReflectionFile.html">CodeReflectionFile</a></span>
+										<a href="#setFileContent" title="details" class="method-name">setFileContent</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileContent</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeReflection/CodeReflectionFile.html">CodeReflectionFile</a></span>
+										<a href="#setFileName" title="details" class="method-name">setFileName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileName</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$arrInstances" id="$arrInstances"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type">CodeReflectionFile[]</span>
+			<span class="var-name">$arrInstances</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">24</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">array of all instances of CodeReflectionFile using the name as key</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$arrFileContent" id="$arrFileContent"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$arrFileContent</span>
+						(line <span class="line-number">38</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">File Content</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$boolRealFile" id="$boolRealFile"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$boolRealFile</span>
+						(line <span class="line-number">47</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Flag if the file it is a real file  <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if is a real file  <div class="src-code"><ol><li><div class="src-line"><span class="src-id">false</span></div></li>
+</ol></div> if is a not real file</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$strFileName" id="$strFileName"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$strFileName</span>
+						(line <span class="line-number">31</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">File Name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetCodeInstrFileName" id="getCodeInstrFileName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getCodeInstrFileName</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get The File by Name</p>
+<p class="description"><p>Search into all object files saved and return that one have the searched  name</p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;arrInstances</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../CodeReflection/CodeReflectionFile.html">CodeReflectionFile</a></span>
+		<span class="method-name">
+			getCodeInstrFileName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strFileName</span>			</li>
+				</ul>
+		
+			
+	</div>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">81</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the Code Reflection File</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> CodeReflectionFile::setFileContent( string )</li>
+				<li><span class="field">see:</span> CodeReflectionFile::setFileName( string )</li>
+				<li><span class="field">see:</span> <a href="../CodeReflection/CodeReflectionFile.html#var$arrInstances">CodeReflectionFile::$arrInstances</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CodeReflectionFile</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileContent</span> = <span class="var-default">&quot;&quot;</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$boolRealFile</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strFileName</span><span class="var-description">: file name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strFileContent</span><span class="var-description">: file content</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$boolRealFile</span><span class="var-description">: if is a real file or not</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetArrFileContent" id="getArrFileContent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getArrFileContent</span> (line <span class="line-number">154</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the array of lines with the code file content</p>
+<p class="description"><p>Set the code file content and  return itselft.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> array of file content</li>
+				<li><span class="field">see:</span> <a href="../CodeReflection/CodeReflectionFile.html#methodgetFileContent">CodeReflectionFile::getFileContent()</a></li>
+				<li><span class="field">see:</span> CodeReflectionFile::setFileContent( string )</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;arrFileContent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string[]</span>
+		<span class="method-name">
+			getArrFileContent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFileBit" id="getFileBit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFileBit</span> (line <span class="line-number">170</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get a slice, a streck, a bit of the content of the file  receiving the first and last line of the slice wish.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> code content</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;arrFileContent</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;arrFileContent</li>
+				<li><span class="field">see:</span> CodeReflectionFile::setFileContent( string )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFileBit
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$intLineStart</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$intLineEnds</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$intLineStart</span><span class="var-description">: first line of the content</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$intLineEnds</span><span class="var-description">: last line of the content</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFileContent" id="getFileContent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFileContent</span> (line <span class="line-number">138</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the file content</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> file content</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;arrFileContent</li>
+				<li><span class="field">see:</span> CodeReflectionFile::setFileContent( string )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFileContent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetFileName" id="getFileName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFileName</span> (line <span class="line-number">110</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the file name</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> file name</li>
+				<li><span class="field">see:</span> CodeReflectionFile::setFileName( string )</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;strFileName</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFileName
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisRealFile" id="isRealFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isRealFile</span> (line <span class="line-number">192</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns if the file it is a real file</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if is a real file <div class="src-code"><ol><li><div class="src-line"><span class="src-id">false</span></div></li>
+</ol></div> if not</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;boolRealFile</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isRealFile
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetFileContent" id="setFileContent"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFileContent</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the code Reflection file content</p>
+<p class="description"><p>Set the code Reflection file content and  return itselft.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;arrFileContent</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeReflection/CodeReflectionFile.html">CodeReflectionFile</a></span>
+		<span class="method-name">
+			setFileContent
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileContent</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strFileContent</span><span class="var-description">: file content</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetFileName" id="setFileName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setFileName</span> (line <span class="line-number">97</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the file name</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> <a href="../CodeReflection/CodeReflectionFile.html#methodgetFileName">CodeReflectionFile::getFileName()</a></li>
+				<li><span class="field">see:</span> CodeReflectionFile-&gt;strFileName</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeReflection/CodeReflectionFile.html">CodeReflectionFile</a></span>
+		<span class="method-name">
+			setFileName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strFileName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strFileName</span><span class="var-description">: file name</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 27 Apr 2009 18:15:46 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

@@ -4,7 +4,8 @@
  * create a version of it what send a message to the code instrumentation
  * receiver before and after each call.
  *
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeInstrumentation
  */
 class CodeInstrumentationMethod extends CodeReflectionMethod
 {

@@ -11,7 +11,8 @@
  * @question What will be the actor or object what will
  * be resposable by the functions as its methods
  * 
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeInstrumentation
  */
 class CodeInstrumentationFunction extends CodeReflectionFunction
 {

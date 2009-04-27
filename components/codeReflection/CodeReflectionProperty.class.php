@@ -1,4 +1,11 @@
 <?php
+/**
+ * Code Reflection Property it is a code reflection version of the
+ * reflection property
+ *
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeReflection
+ */
 class CodeReflectionProperty extends ExtendedReflectionProperty
 {
     /**

@@ -2,7 +2,8 @@
 /**
  * Generate a html diagram of the xml sequence object
  * 
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package XmlSequence
  *
  */
 class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
@@ -119,7 +120,12 @@ class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
         $strHtml .= $this->showFooter();
         return $strHtml;
     }
-	
+
+    /**
+     * Create and return the string of the header of the html sequence diagram
+     *
+     * @return string
+     */
     protected function showHeaders()
     {
         if( $this->objXmlSequence->getCallerPath() != null and $this->objXmlSequence->getPublicPath() != null )
@@ -170,10 +176,21 @@ HTML;
         return $strHtmlHeaders;
     }
 
+    /**
+     * Create and return the string of the footer of the html sequence diagram
+     *
+     * @return string
+     */
     protected function showFooter()
     {
         return ' </div> ';
     }
+
+    /**
+     * Create and return the string of the actors of the html sequence diagram
+     *
+     * @return string
+     */
     protected function showActors()
     {
         $strHtmlActors = '';
@@ -222,6 +239,12 @@ HTML;
          return $strHtmlActors;
     }
 
+    /**
+     * Create and return the string of the messages into the html sequence
+     * diagram
+     *
+     * @return string
+     */
     protected function showMessages()
     {
         $strHtmlMessages = '';
@@ -389,6 +412,13 @@ HTML;
         return $strHtmlMessages;
     }
 
+    /**
+     * Create and return the html of some values of some messages into the html
+     * sequence diagram
+     *
+     * @param XmlSequenceMessage $objXmlMessage
+     * @return string
+     */
     public function showValues( XmlSequenceMessage $objXmlMessage )
     {
         $arrValues = $objXmlMessage->getValues();

@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package examples
+ * @subpackage ThreeLittlePigs
+ *
+ * Class with the history of the three little pigs
+ */
 class History
 {
     public function __construct()

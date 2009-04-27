@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class XmlSequenceMessage</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class XmlSequenceMessage</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Message send between actors into the XmlSequence object as the Sequence</p>
+<p class="description"><p>Diagram UML guidelines append of more attributes as the code context make  usefull</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_components---xmlSequence---XmlSequenceMessage.class.php.html">/components/xmlSequence/XmlSequenceMessage.class.php</a> (line <span class="field">9</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																								<div class="var-title">
+					<span class="var-type">XmlSequenceValue[]</span>
+					<a href="#$arrValues" title="details" class="var-name">$arrValues</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$intTimeEnd" title="details" class="var-name">$intTimeEnd</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$intTimeStart" title="details" class="var-name">$intTimeStart</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+					<a href="#$objActorFrom" title="details" class="var-name">$objActorFrom</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+					<a href="#$objActorTo" title="details" class="var-name">$objActorTo</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$strText" title="details" class="var-name">$strText</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$strType" title="details" class="var-name">$strType</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																												
+												<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#addValue" title="details" class="method-name">addValue</a>
+											(<span class="var-type"><a href="../XmlSequence/XmlSequenceValue.html">XmlSequenceValue</a></span>&nbsp;<span class="var-name">$objValue</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+										<a href="#getActorFrom" title="details" class="method-name">getActorFrom</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+										<a href="#getActorTo" title="details" class="method-name">getActorTo</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getText" title="details" class="method-name">getText</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTimeDuration" title="details" class="method-name">getTimeDuration</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTimeEnd" title="details" class="method-name">getTimeEnd</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#getTimeStart" title="details" class="method-name">getTimeStart</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getType" title="details" class="method-name">getType</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">XmlSequenceValue[]</span>
+										<a href="#getValues" title="details" class="method-name">getValues</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isLarge" title="details" class="method-name">isLarge</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isRecursive" title="details" class="method-name">isRecursive</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isReverse" title="details" class="method-name">isReverse</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setActorFrom" title="details" class="method-name">setActorFrom</a>
+											(<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>&nbsp;<span class="var-name">$objActor</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setActorTo" title="details" class="method-name">setActorTo</a>
+											(<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>&nbsp;<span class="var-name">$objActor</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setText" title="details" class="method-name">setText</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strText</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setTimeEnd" title="details" class="method-name">setTimeEnd</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$intTime</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setTimeStart" title="details" class="method-name">setTimeStart</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$intTime</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setType" title="details" class="method-name">setType</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strType</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+										<a href="#setValues" title="details" class="method-name">setValues</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$arrValues</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$arrValues" id="$arrValues"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">XmlSequenceValue[]</span>
+			<span class="var-name">$arrValues</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">44</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Values of the message</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$intTimeEnd" id="$intTimeEnd"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$intTimeEnd</span>
+						(line <span class="line-number">58</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Timestamp when the message was finished</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$intTimeStart" id="$intTimeStart"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$intTimeStart</span>
+						(line <span class="line-number">51</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Timestamp when the message was received</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$objActorFrom" id="$objActorFrom"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+			<span class="var-name">$objActorFrom</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">30</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Actor what send the message</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$objActorTo" id="$objActorTo"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+			<span class="var-name">$objActorTo</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">37</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Actor what received the message</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$strText" id="$strText"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$strText</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">16</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Text of the message</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$strType" id="$strType"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$strType</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">23</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Type of the message ( call or return )</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodaddValue" id="addValue"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">addValue</span> (line <span class="line-number">210</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Append one XmlSequenceValue into the collection of Values of the  message</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceValue.html">XmlSequenceValue</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage::setValues( XmlSequenceValue[] )</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetValues">XmlSequenceMessage::getValues()</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;arrValues</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			addValue
+		</span>
+					(<span class="var-type"><a href="../XmlSequence/XmlSequenceValue.html">XmlSequenceValue</a></span>&nbsp;<span class="var-name">$objValue</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../XmlSequence/XmlSequenceValue.html">XmlSequenceValue</a></span>
+				<span class="var-name">$objValue</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetActorFrom" id="getActorFrom"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getActorFrom</span> (line <span class="line-number">139</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the actor who is the recipient of the message</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;objActorFrom</li>
+				<li><span class="field">see:</span> XmlSequenceMessage::setActorFrom( XmlSequenceActor )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+		<span class="method-name">
+			getActorFrom
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetActorTo" id="getActorTo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getActorTo</span> (line <span class="line-number">167</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the actor who is the author of the message</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;objActorTo</li>
+				<li><span class="field">see:</span> XmlSequenceMessage::setActorTo( XmlSequenceActor )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+		<span class="method-name">
+			getActorTo
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetText" id="getText"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getText</span> (line <span class="line-number">81</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the text of the message</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequenceMessage::setText( string )</li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;strText</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getText
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTimeDuration" id="getTimeDuration"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeDuration</span> (line <span class="line-number">273</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the duration in timestamp betwenn the  start end end of the message</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTimeDuration
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTimeEnd" id="getTimeEnd"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeEnd</span> (line <span class="line-number">262</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the timestamp when the message ends</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;intTimeEnd</li>
+				<li><span class="field">see:</span> XmlSequenceMessage::setTimeEnd( integer )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTimeEnd
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetTimeStart" id="getTimeStart"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getTimeStart</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the timestamp when the message started</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;intTimeStart</li>
+				<li><span class="field">see:</span> XmlSequenceMessage::setTimeStart( integer )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			getTimeStart
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetType" id="getType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getType</span> (line <span class="line-number">111</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the type of the message</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequenceMessage::setType( string )</li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;strType</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getType
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetValues" id="getValues"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getValues</span> (line <span class="line-number">195</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the array of values of the message</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceValue.html">XmlSequenceValue</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;arrValues</li>
+				<li><span class="field">see:</span> XmlSequenceMessage::setValues( XmlSequenceValue[] )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">XmlSequenceValue[]</span>
+		<span class="method-name">
+			getValues
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisLarge" id="isLarge"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isLarge</span> (line <span class="line-number">297</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if the distance between the actor from and the  actor to be bigger then 1, <div class="src-code"><ol><li><div class="src-line"><span class="src-id">false</span></div></li>
+</ol></div> otherwise</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isLarge
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisRecursive" id="isRecursive"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isRecursive</span> (line <span class="line-number">308</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if the actor from it is the actor to,  <div class="src-code"><ol><li><div class="src-line"><span class="src-id">false</span></div></li>
+</ol></div> otherwise</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isRecursive
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisReverse" id="isReverse"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isReverse</span> (line <span class="line-number">285</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if the id of the actor from is bigger then the  id of the actor to, <div class="src-code"><ol><li><div class="src-line"><span class="src-id">false</span></div></li>
+</ol></div> otherwise</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isReverse
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetActorFrom" id="setActorFrom"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setActorFrom</span> (line <span class="line-number">125</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Inform the actor who is the recipient of the message</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;objActorFrom</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetActorFrom">XmlSequenceMessage::getActorFrom()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setActorFrom
+		</span>
+					(<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>&nbsp;<span class="var-name">$objActor</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+				<span class="var-name">$objActor</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetActorTo" id="setActorTo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setActorTo</span> (line <span class="line-number">153</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Inform the actor who is the author of the message</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;objActorTo</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetActorTo">XmlSequenceMessage::getActorTo()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setActorTo
+		</span>
+					(<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>&nbsp;<span class="var-name">$objActor</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../XmlSequence/XmlSequenceActor.html">XmlSequenceActor</a></span>
+				<span class="var-name">$objActor</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetText" id="setText"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setText</span> (line <span class="line-number">68</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the text of the message</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetText">XmlSequenceMessage::getText()</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;strText</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setText
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strText</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strText</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetTimeEnd" id="setTimeEnd"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTimeEnd</span> (line <span class="line-number">249</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the timestamp when the message ends</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;intTimeEnds</li>
+				<li><span class="field">see:</span> XmlSequenceMessage::getTimeEnds()</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setTimeEnd
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$intTime</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$intTime</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetTimeStart" id="setTimeStart"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setTimeStart</span> (line <span class="line-number">223</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the timestamp when the message started</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;intTimeStart</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetTimeStart">XmlSequenceMessage::getTimeStart()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setTimeStart
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$intTime</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$intTime</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetType" id="setType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setType</span> (line <span class="line-number">94</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the type of the message</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetType">XmlSequenceMessage::getType()</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;strType</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setType
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strType</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strType</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetValues" id="setValues"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setValues</span> (line <span class="line-number">181</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the array of values of the message</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceValue.html">XmlSequenceValue</a></li>
+				<li><span class="field">see:</span> XmlSequenceMessage-&gt;arrValues</li>
+				<li><span class="field">see:</span> <a href="../XmlSequence/XmlSequenceMessage.html#methodgetValues">XmlSequenceMessage::getValues()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequenceMessage.html">XmlSequenceMessage</a></span>
+		<span class="method-name">
+			setValues
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$arrValues</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">XmlSequenceValue[]</span>
+				<span class="var-name">$arrValues</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 27 Apr 2009 18:16:03 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

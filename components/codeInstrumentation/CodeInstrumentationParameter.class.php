@@ -3,7 +3,8 @@
  * Class what make possible the code instrumentation of methods and fucntions
  * with parameters
  * 
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeInstrumentation
  * 
  */
 class CodeInstrumentationParameter extends CodeReflectionParameter

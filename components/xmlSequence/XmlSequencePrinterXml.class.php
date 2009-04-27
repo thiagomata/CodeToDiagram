@@ -2,7 +2,8 @@
 /**
  * Generate a html diagram of the xml sequence object
  * 
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package XmlSequence
  *
  */
 class XmlSequencePrinterXml implements XmlSequencePrinterInterface
@@ -50,7 +51,15 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
 		$this->objXmlSequence = $objXmlSequence;
 		return $this->createXml();	
 	}
-	
+
+    /**
+     * Create and return the xml of the sequence diagram object
+     *
+     * @see XmlSequencePrinterXml::createXmlHeader()
+     * @see XmlSequencePrinterXml::createXmlActors()
+     * @see XmlSequencePrinterXml::createXmlFooter()
+     * @return string
+     */
     public function createXml()
     {
         $strXml = '';
@@ -60,7 +69,12 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
         $strXml .= $this->createXmlFooter();
         return $strXml;
     }
-    	
+
+    /**
+     * Create and return the header slice of the xml
+     *
+     * @return string
+     */
     public function createXmlHeader()
     {
         return "
@@ -68,6 +82,11 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
         ";
     }
 
+    /**
+     * Create and return the footer slice of the xml
+     *
+     * @return string
+     */
     public function createXmlFooter()
     {
         return "
@@ -75,6 +94,11 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
         ";
     }
 
+    /**
+     * Create and return the actors slice of the xml
+     *
+     * @return string
+     */
     public function createXmlActors()
     {
     	$arrActors = $this->objXmlSequence->getActors();
@@ -94,6 +118,11 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
         return $strXmlActors;
     }
 
+    /**
+     * Create and return the messages slice of the xml
+     *
+     * @return string
+     */
     public function createXmlMessages()
     {
     	$arrMessages = $this->objXmlSequence->getMessages();

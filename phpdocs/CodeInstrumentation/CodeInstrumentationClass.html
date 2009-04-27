@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CodeInstrumentationClass</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CodeInstrumentationClass</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Code Instrumentation Class extends a Code Reflection Class</p>
+<p class="description"><p>to create not a exactly code of the original class but a  changed version with some code instrumentation messages what  will be send to the Code Instrumentation Receiver</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_components---codeInstrumentation---CodeInstrumentationClass.class.php.html">/components/codeInstrumentation/CodeInstrumentationClass.class.php</a> (line <span class="field">11</span>)
+		</p>
+		
+				
+		<pre>ReflectionClass
+   |
+   --<a href="../default/ExtendedReflectionClass.html">ExtendedReflectionClass</a>
+      |
+      --<a href="../CodeReflection/CodeReflectionClass.html">CodeReflectionClass</a>
+         |
+         --CodeInstrumentationClass</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+															<a href="#sec-consts">Constants</a>
+							
+					</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type">string</span>
+					<a href="#$strName" title="details" class="var-name">$strName</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																												
+												<div class="method-definition">
+											<span class="method-result">CodeInstrumentationClass</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strClassName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$strEvalContent</span> = <span class="var-default">&quot;&quot;</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+										<a href="#createExtendedReflectionClass" title="details" class="method-name">createExtendedReflectionClass</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+										<a href="#createExtendedReflectionMethod" title="details" class="method-name">createExtendedReflectionMethod</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionMethod</span>, <span class="var-type">ReflectionClass</span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+										<a href="#createExtendedReflectionProperty" title="details" class="method-name">createExtendedReflectionProperty</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionProperty</span>, <span class="var-type">ReflectionClass</span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createMethodsDefinitionCode" title="details" class="method-name">createMethodsDefinitionCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getClassName" title="details" class="method-name">getClassName</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+										<a href="#setClassName" title="details" class="method-name">setClassName</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strName</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$strName" id="$strName"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">string</span>
+			<span class="var-name">$strName</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">18</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">The editable class name</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname">ReflectionClass (Internal Class)</span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name">$name</span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">29</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Construct the Code Instrumentation of the class.</p>
+<p class="description"><p>It must receive the eval content if the class it was created into a eval  command.</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">CodeInstrumentationClass</span>
+		<span class="method-name">
+			__construct
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strClassName</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$strEvalContent</span> = <span class="var-default">&quot;&quot;</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strClassName</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strEvalContent</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionClass.html#method__construct">CodeReflectionClass::__construct()</a></dt>
+						<dd>Construct the Code Reflection of the class.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreateExtendedReflectionClass" id="createExtendedReflectionClass"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createExtendedReflectionClass</span> (line <span class="line-number">150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Make the recursive calls and indirectly call return the extended reflection object and not  a native reflection class.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> ExtendedReflectionClass::createExtendedReflectionClass( ReflectionClass )</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+		<span class="method-name">
+			createExtendedReflectionClass
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReflectionClass</span>
+				<span class="var-name">$objOriginalReflectionClass</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionClass.html#methodcreateExtendedReflectionClass">CodeReflectionClass::createExtendedReflectionClass()</a></dt>
+						<dd>Make the recursive calls and indirectly call return the extended reflection object and not  a native reflection class.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreateExtendedReflectionMethod" id="createExtendedReflectionMethod"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createExtendedReflectionMethod</span> (line <span class="line-number">176</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Make the recursive calls and indirectly call return the extended reflection object and not  a native reflection class.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> ExtendedReflectionClass::createExtendedReflectionMethod( ReflectionMethod )</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+		<span class="method-name">
+			createExtendedReflectionMethod
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionMethod</span>, <span class="var-type">ReflectionClass</span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReflectionClass</span>
+				<span class="var-name">$objOriginalReflectionClass</span>			</li>
+					<li>
+				<span class="var-type">ReflectionMethod</span>
+				<span class="var-name">$objOriginalReflectionMethod</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionClass.html#methodcreateExtendedReflectionMethod">CodeReflectionClass::createExtendedReflectionMethod()</a></dt>
+						<dd>Make the recursive calls and indirectly call return the extended reflection object and not  a native reflection method.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreateExtendedReflectionProperty" id="createExtendedReflectionProperty"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createExtendedReflectionProperty</span> (line <span class="line-number">163</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Make the recursive calls and indirectly call return the extended reflection object and not  a native reflection class.</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> ExtendedReflectionClass::createExtendedReflectionProperty( ReflectionProperty )</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+		<span class="method-name">
+			createExtendedReflectionProperty
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionProperty</span>, <span class="var-type">ReflectionClass</span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReflectionClass</span>
+				<span class="var-name">$objOriginalReflectionClass</span>			</li>
+					<li>
+				<span class="var-type">ReflectionProperty</span>
+				<span class="var-name">$objOriginalReflectionProperty</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionClass.html#methodcreateExtendedReflectionProperty">CodeReflectionClass::createExtendedReflectionProperty()</a></dt>
+						<dd>Make the recursive calls and indirectly call return the extended reflection object and not  a native reflection property.</dd>
+					</dl>
+			
+	</div>
+<a name="methodcreateMethodsDefinitionCode" id="createMethodsDefinitionCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createMethodsDefinitionCode</span> (line <span class="line-number">95</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the methods definition code with code instrumentation.</p>
+<p class="description"><p>Create the methods of the class changed to can send the messages  to the code instrumentation receive before and after each call.</p><p><ul><li>Interfaces will not change</li><li>If the class dont have a constructor and a destructor force existence.</li><li>call the parent createMethodsDefinitionCode what will call the CodeInstrumentationMethod</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../CodeInstrumentation/CodeInstrumentationMethod.html">CodeInstrumentationMethod</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createMethodsDefinitionCode
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionClass.html#methodcreateMethodsDefinitionCode">CodeReflectionClass::createMethodsDefinitionCode()</a></dt>
+						<dd>Create a php method definiton code</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetClassName" id="getClassName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getClassName</span> (line <span class="line-number">50</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns the editable class name</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> CodeInstrumentationClass::setClassName( string )</li>
+				<li><span class="field">see:</span> CodeInstrumentationClass-&gt;strName</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">example:</span> example not found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getClassName
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionClass.html#methodgetClassName">CodeReflectionClass::getClassName()</a></dt>
+						<dd>Get the class name</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetClassName" id="setClassName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setClassName</span> (line <span class="line-number">76</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the editable class name</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> <a href="../CodeInstrumentation/CodeInstrumentationClass.html#methodgetClassName">CodeInstrumentationClass::getClassName()</a></li>
+				<li><span class="field">see:</span> CodeInstrumentationClass-&gt;strName</li>
+				<li><span class="field">access:</span> public</li>
+				<li><span class="field">example:</span> example not found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></span>
+		<span class="method-name">
+			setClassName
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strName</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strName</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../CodeReflection/CodeReflectionClass.html">CodeReflectionClass</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#method__construct">CodeReflectionClass::__construct()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodcreateAttributesDefinitionCode">CodeReflectionClass::createAttributesDefinitionCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodcreateClassDefinitionCode">CodeReflectionClass::createClassDefinitionCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodcreateExtendedReflectionClass">CodeReflectionClass::createExtendedReflectionClass()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodcreateExtendedReflectionMethod">CodeReflectionClass::createExtendedReflectionMethod()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodcreateExtendedReflectionProperty">CodeReflectionClass::createExtendedReflectionProperty()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodcreateMethodsDefinitionCode">CodeReflectionClass::createMethodsDefinitionCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodgetClassName">CodeReflectionClass::getClassName()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodgetCode">CodeReflectionClass::getCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodgetNamespace">CodeReflectionClass::getNamespace()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionClass.html#methodgetRealClassName">CodeReflectionClass::getRealClassName()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../default/ExtendedReflectionClass.html">ExtendedReflectionClass</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodcreateExtendedReflectionClass">ExtendedReflectionClass::createExtendedReflectionClass()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodcreateExtendedReflectionMethod">ExtendedReflectionClass::createExtendedReflectionMethod()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodcreateExtendedReflectionProperty">ExtendedReflectionClass::createExtendedReflectionProperty()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodgetInterfaces">ExtendedReflectionClass::getInterfaces()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodgetMethod">ExtendedReflectionClass::getMethod()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodgetMethods">ExtendedReflectionClass::getMethods()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodgetParentClass">ExtendedReflectionClass::getParentClass()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodgetProperties">ExtendedReflectionClass::getProperties()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionClass.html#methodgetProperty">ExtendedReflectionClass::getProperty()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname">ReflectionClass (Internal Class)</span></p>
+					<blockquote>
+													<span class="method-name">constructor __construct ( $argument )</span><br>
+													<span class="method-name">export ( $argument, [$return = ] )</span><br>
+													<span class="method-name">getConstant ( $name )</span><br>
+													<span class="method-name">getConstants (  )</span><br>
+													<span class="method-name">getConstructor (  )</span><br>
+													<span class="method-name">getDefaultProperties (  )</span><br>
+													<span class="method-name">getDocComment (  )</span><br>
+													<span class="method-name">getEndLine (  )</span><br>
+													<span class="method-name">getExtension (  )</span><br>
+													<span class="method-name">getExtensionName (  )</span><br>
+													<span class="method-name">getFileName (  )</span><br>
+													<span class="method-name">getInterfaceNames (  )</span><br>
+													<span class="method-name">getInterfaces (  )</span><br>
+													<span class="method-name">getMethod ( $name )</span><br>
+													<span class="method-name">getMethods ( [$filter = ] )</span><br>
+													<span class="method-name">getModifiers (  )</span><br>
+													<span class="method-name">getName (  )</span><br>
+													<span class="method-name">getParentClass (  )</span><br>
+													<span class="method-name">getProperties ( [$filter = ] )</span><br>
+													<span class="method-name">getProperty ( $name )</span><br>
+													<span class="method-name">getStartLine (  )</span><br>
+													<span class="method-name">getStaticProperties (  )</span><br>
+													<span class="method-name">getStaticPropertyValue ( $name, [$default = ] )</span><br>
+													<span class="method-name">hasConstant ( $name )</span><br>
+													<span class="method-name">hasMethod ( $name )</span><br>
+													<span class="method-name">hasProperty ( $name )</span><br>
+													<span class="method-name">implementsInterface ( $interface )</span><br>
+													<span class="method-name">isAbstract (  )</span><br>
+													<span class="method-name">isFinal (  )</span><br>
+													<span class="method-name">isInstance ( $object )</span><br>
+													<span class="method-name">isInstantiable (  )</span><br>
+													<span class="method-name">isInterface (  )</span><br>
+													<span class="method-name">isInternal (  )</span><br>
+													<span class="method-name">isIterateable (  )</span><br>
+													<span class="method-name">isSubclassOf ( $class )</span><br>
+													<span class="method-name">isUserDefined (  )</span><br>
+													<span class="method-name">newInstance ( $args )</span><br>
+													<span class="method-name">newInstanceArgs ( [$args = ] )</span><br>
+													<span class="method-name">setStaticPropertyValue ( $name, $value )</span><br>
+													<span class="method-name">__clone (  )</span><br>
+													<span class="method-name">__toString (  )</span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname">ReflectionClass (Internal Class)</span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name">IS_EXPLICIT_ABSTRACT = 32</span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name">IS_FINAL = 64</span><br>
+							</span>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name">IS_IMPLICIT_ABSTRACT = 16</span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 27 Apr 2009 18:15:32 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

@@ -1,6 +1,8 @@
 <?php
 /**
  * Interface to the factory of XmlSequence
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package XmlSequence
  */
 interface XmlSequenceFactoryInterface
 {

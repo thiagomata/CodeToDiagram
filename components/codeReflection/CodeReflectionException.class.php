@@ -2,7 +2,8 @@
 /**
  * Code Reflection Exception
  *
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeReflection
  */
 class CodeReflectionException extends Exception {}
 ?>

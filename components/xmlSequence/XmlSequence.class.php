@@ -1,8 +1,8 @@
 <?php
 /**
  *
- * @author Thiago Henrique Ramos da Mata
- *
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package XmlSequence
  */
 class XmlSequence
 {

@@ -2,7 +2,8 @@
 /**
  * Code Instrumentation Exception
  *
- * @author Thiago Mata
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeInstrumentation
  */
 class CodeInstrumentationException extends Exception {}
 ?>

@@ -22,7 +22,10 @@ function _TRACE_FUNCTION_( psId )
     }
     else if ( window.getComputedStyle )
     {
-        lsDisplay = document.defaultView.getComputedStyle( loDiv, null ).getPropertyValue( "display" );
-    }
+    	if ( window.defaultView && document.defaultView.getComputedStyle )
+    	{
+    		lsDisplay = document.defaultView.getComputedStyle( loDiv, null ).getPropertyValue( "display" );
+    	}
+	}
     loDiv.style.display = lsDisplay == "none" ? "block" : "none";
 }

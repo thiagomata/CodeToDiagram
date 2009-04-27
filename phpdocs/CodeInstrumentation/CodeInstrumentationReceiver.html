@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CodeInstrumentationReceiver</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CodeInstrumentationReceiver</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class create to make possible the creation of code instrumentation of executions.</p>
+<p class="description"><p>It receive the messages of enter methods and leave methods, into what object, of what class  and, based into this informations, create a xmlSequence object.</p><p>The xml sequence object created, can be used for many ways, since create a xml, create a  diagram file, etc.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt;</li>
+				<li><span class="field">see:</span> <a href="../CodeInstrumentation/CodeInstrumentationClass.html">CodeInstrumentationClass</a></li>
+				<li><span class="field">see:</span> <a href="../CodeInstrumentation/CodeInstrumentationMethod.html">CodeInstrumentationMethod</a></li>
+				<li><span class="field">todo:</span> make filter methods to reduce the diagram of big executions</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_components---codeInstrumentation---CodeInstrumentationReceiver.class.php.html">/components/codeInstrumentation/CodeInstrumentationReceiver.class.php</a> (line <span class="field">19</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																				<div class="var-title">
+					static <span class="var-type"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+					<a href="#$objCodeInstrumentationReceiver" title="details" class="var-name">$objCodeInstrumentationReceiver</a>
+				</div>
+																												<div class="var-title">
+					<span class="var-type">XmlSequenceActor[]</span>
+					<a href="#$arrActors" title="details" class="var-name">$arrActors</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">String[]</span>
+					<a href="#$arrClasses" title="details" class="var-name">$arrClasses</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">XmlSequenceMessage[]</span>
+					<a href="#$arrMessages" title="details" class="var-name">$arrMessages</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">XmlSequenceActor[]</span>
+					<a href="#$arrStack" title="details" class="var-name">$arrStack</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$booIgnoreNullReturns" title="details" class="var-name">$booIgnoreNullReturns</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$booIgnoreRecursiveCalls" title="details" class="var-name">$booIgnoreRecursiveCalls</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$booMergeSameClassObjects" title="details" class="var-name">$booMergeSameClassObjects</a>
+				</div>
+																								<div class="var-title">
+					<span class="var-type"><a href="../XmlSequence/XmlSequence.html">XmlSequence</a></span>
+					<a href="#$objXmlSequence" title="details" class="var-name">$objXmlSequence</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																												<div class="method-definition">
+					static 						<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#getInstance" title="details" class="method-name">getInstance</a>
+										()
+									</div>
+																																																																																								
+												<div class="method-definition">
+											<span class="method-result">null</span>
+										<a href="#__construct" title="details" class="method-name">__construct</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCallerPath" title="details" class="method-name">getCallerPath</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIgnoreNullReturns" title="details" class="method-name">getIgnoreNullReturns</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#getIgnoreRecursiveCalls" title="details" class="method-name">getIgnoreRecursiveCalls</a>
+											(<span class="var-type">$booIgnoreNullReturns</span>&nbsp;<span class="var-name">0</span>)
+									</div>
+																								<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getPublicPath" title="details" class="method-name">getPublicPath</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../XmlSequence/XmlSequence.html">XmlSequence</a></span>
+										<a href="#getXmlSequence" title="details" class="method-name">getXmlSequence</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#onEnterMethod" title="details" class="method-name">onEnterMethod</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$uid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strClassDefinition</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strMethod</span>, <span class="var-type">Array</span>&nbsp;<span class="var-name">$arrArguments</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#onLeaveMethod" title="details" class="method-name">onLeaveMethod</a>
+											(<span class="var-type">integer</span>&nbsp;<span class="var-name">$uid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strClassDefinition</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strMethod</span>, <span class="var-type">$mixReturn</span>&nbsp;<span class="var-name">$mixReturn</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#renameMethod" title="details" class="method-name">renameMethod</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strMethod</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#restart" title="details" class="method-name">restart</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#setCallerPath" title="details" class="method-name">setCallerPath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strCallerPath</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#setIgnoreNullReturns" title="details" class="method-name">setIgnoreNullReturns</a>
+											(<span class="var-type">$booIgnoreNullReturns</span>&nbsp;<span class="var-name">$booIgnoreNullReturns</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#setIgnoreRecursiveCalls" title="details" class="method-name">setIgnoreRecursiveCalls</a>
+											(<span class="var-type">$booIgnoreNullReturns</span>&nbsp;<span class="var-name">$booIgnoreRecursiveCalls</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+										<a href="#setPublicPath" title="details" class="method-name">setPublicPath</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$strPublicPath</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$objCodeInstrumentationReceiver" id="$objCodeInstrumentationReceiver"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			static <span class="var-type"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+			<span class="var-name">$objCodeInstrumentationReceiver</span>
+						(line <span class="line-number">26</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">singletoon of the CodeInstrumentationReceiver</p>
+	
+	
+		
+		
+
+</div>
+<a name="var$arrActors" id="$arrActors"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">XmlSequenceActor[]</span>
+			<span class="var-name">$arrActors</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">66</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">array with all the actors existents into the execution</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$arrClasses" id="$arrClasses"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">String[]</span>
+			<span class="var-name">$arrClasses</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">73</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Array with the name of all the classes existents into the execution</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$arrMessages" id="$arrMessages"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">XmlSequenceMessage[]</span>
+			<span class="var-name">$arrMessages</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">80</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Array with all the messages received into the execution</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$arrStack" id="$arrStack"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">XmlSequenceActor[]</span>
+			<span class="var-name">$arrStack</span>
+			 = <span class="var-default">array()</span>			(line <span class="line-number">59</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">stack of actors into the execution pile</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$booIgnoreNullReturns" id="$booIgnoreNullReturns"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$booIgnoreNullReturns</span>
+			 = <span class="var-default"> true</span>			(line <span class="line-number">34</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">param if the null return should be saved as a message  into the xml sequence object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$booIgnoreRecursiveCalls" id="$booIgnoreRecursiveCalls"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$booIgnoreRecursiveCalls</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">param if the recursive call should be ignored into  the xml sequence object</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$booMergeSameClassObjects" id="$booMergeSameClassObjects"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$booMergeSameClassObjects</span>
+			 = <span class="var-default"> false</span>			(line <span class="line-number">52</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">param of control if the messages between objects</p>
+<p class="description"><p>of the same class should be saved into the xml  sequence object as recursive calls into the same  object</p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$objXmlSequence" id="$objXmlSequence"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../XmlSequence/XmlSequence.html">XmlSequence</a></span>
+			<span class="var-name">$objXmlSequence</span>
+			 = <span class="var-default"> null</span>			(line <span class="line-number">87</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Object of the xml sequence what will be feed into the execution</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgetInstance" id="getInstance"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static method getInstance</span> (line <span class="line-number">224</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the code instrumentation receiver singleton</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+	    static
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			getInstance
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+
+<a name="method__construct" id="__construct"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor __construct</span> (line <span class="line-number">203</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">prepare the code instrumentation receiver to start to receive the informations about  the execution.</p>
+<p class="description"><p><ol><li>create the xml sequence object</li><li>create the user actor</li></ol></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">null</span>
+		<span class="method-name">
+			__construct
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCallerPath" id="getCallerPath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCallerPath</span> (line <span class="line-number">165</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the caller path of the xml sequence of the code instrumentation receiver</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequence::getCallerPath</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCallerPath
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetIgnoreNullReturns" id="getIgnoreNullReturns"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIgnoreNullReturns</span> (line <span class="line-number">112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get the configuration paramenter if the code instrumentation should ignore the returns  messages with null value returned.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if should ignore the null returns</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver-&gt;boolIgnoreNullReturns</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver::seIgnoreNullReturns( boolean )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIgnoreNullReturns
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetIgnoreRecursiveCalls" id="getIgnoreRecursiveCalls"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getIgnoreRecursiveCalls</span> (line <span class="line-number">141</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">get the configuration paramenter if the code instrumentation should ignore the recursive  messages.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if should ignore the recursive calls</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver-&gt;booIgnoreRecursiveCalls</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean )</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			getIgnoreRecursiveCalls
+		</span>
+					(<span class="var-type">$booIgnoreNullReturns</span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$booIgnoreNullReturns</span>
+				<span class="var-name">0</span><span class="var-description">: <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if should ignore the null returns</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetPublicPath" id="getPublicPath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getPublicPath</span> (line <span class="line-number">189</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the public path of the xml sequence of the code instrumentation receiver</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> XmlSequence::getPublicPath</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getPublicPath
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetXmlSequence" id="getXmlSequence"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getXmlSequence</span> (line <span class="line-number">422</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return the Xml Sequence Object what the Code Instrumentation Receiver feeds</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../XmlSequence/XmlSequence.html">XmlSequence</a></span>
+		<span class="method-name">
+			getXmlSequence
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodonEnterMethod" id="onEnterMethod"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">onEnterMethod</span> (line <span class="line-number">290</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Receive a message of enter into some method and append it as a xml sequence message  into the xml sequence object, creating if necessary the xml sequence actor</p>
+<p class="description"><p><ol><li>get the name of method as the diagram standart</li><li>get the namespace name</li><li>get the actor what the message is bring from</li><li>get the actor what the message is bring to</li></ol> 4.1 create the actor to if he not exists  5. create the message  5.1 set the message attributes  5.2 set the message values  6. append the message</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			onEnterMethod
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$uid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strClassDefinition</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strMethod</span>, <span class="var-type">Array</span>&nbsp;<span class="var-name">$arrArguments</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$uid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strClassDefinition</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strMethod</span>			</li>
+					<li>
+				<span class="var-type">Array</span>
+				<span class="var-name">$arrArguments</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodonLeaveMethod" id="onLeaveMethod"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">onLeaveMethod</span> (line <span class="line-number">373</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Receive the message of leave some method and append it message into the xml sequence object</p>
+<p class="description"><p><ol><li>get the name of method as the diagram standart</li><li>get the namespace name</li><li>get the actor what the message is bring from</li><li>get the actor what the message is bring to</li><li>create the message</li></ol> 5.1 set the message attributes  5.2 set the message values  6. append the message</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			onLeaveMethod
+		</span>
+					(<span class="var-type">integer</span>&nbsp;<span class="var-name">$uid</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strClassDefinition</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$strMethod</span>, <span class="var-type">$mixReturn</span>&nbsp;<span class="var-name">$mixReturn</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$uid</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strClassDefinition</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strMethod</span>			</li>
+					<li>
+				<span class="var-type">$mixReturn</span>
+				<span class="var-name">$mixReturn</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrenameMethod" id="renameMethod"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">renameMethod</span> (line <span class="line-number">244</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Rename the method to which they are in accordance  with the standarts of the diagram</p>
+<p class="description"><p><ol><li>if __construct replace by create&gt;&gt;</li><li>if __destruct replace by destroy&gt;&gt;</li><li>other cases should append the &quot;()&quot;</li></ol></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> new method name</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			renameMethod
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strMethod</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strMethod</span><span class="var-description">: old method name</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrestart" id="restart"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">restart</span> (line <span class="line-number">439</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Clean the attributes of the xml sequence existing</p>
+<p class="description"><p><ol><li>clean actors</li><li>clean classes</li><li>clean messages</li><li>clean stack</li><li>clean object xml sequence</li><li>restart the receiver</li></ol></p></p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			restart
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodsetCallerPath" id="setCallerPath"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setCallerPath</span> (line <span class="line-number">153</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the caller path of the xml sequence of the code instrumentation receiver</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> XmlSequence::setCallerPath</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			setCallerPath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strCallerPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strCallerPath</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetIgnoreNullReturns" id="setIgnoreNullReturns"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setIgnoreNullReturns</span> (line <span class="line-number">98</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the configuration paramenter if the code instrumentation should ignore the returns  messages with null value returned.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver-&gt;boolIgnoreNullReturns</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver::geIgnoreNullReturns()</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			setIgnoreNullReturns
+		</span>
+					(<span class="var-type">$booIgnoreNullReturns</span>&nbsp;<span class="var-name">$booIgnoreNullReturns</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$booIgnoreNullReturns</span>
+				<span class="var-name">$booIgnoreNullReturns</span><span class="var-description">: <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if should ignore the null returns</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetIgnoreRecursiveCalls" id="setIgnoreRecursiveCalls"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setIgnoreRecursiveCalls</span> (line <span class="line-number">126</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the configuration paramenter if the code instrumentation should ignore the recursive  messages.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> CodeInstrumentationReceiver-&gt;booIgnoreRecursiveCalls</li>
+				<li><span class="field">see:</span> <a href="../CodeInstrumentation/CodeInstrumentationReceiver.html#methodgetIgnoreRecursiveCalls">CodeInstrumentationReceiver::getIgnoreRecursiveCalls()</a></li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			setIgnoreRecursiveCalls
+		</span>
+					(<span class="var-type">$booIgnoreNullReturns</span>&nbsp;<span class="var-name">$booIgnoreRecursiveCalls</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$booIgnoreNullReturns</span>
+				<span class="var-name">$booIgnoreRecursiveCalls</span><span class="var-description">: <div class="src-code"><ol><li><div class="src-line"><span class="src-id">true</span></div></li>
+</ol></div> if should ignore the recursive calls</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetPublicPath" id="setPublicPath"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPublicPath</span> (line <span class="line-number">177</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Set the public path of the xml sequence of the code instrumentation receiver</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> me</li>
+				<li><span class="field">see:</span> XmlSequence::setPublicPath</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationReceiver.html">CodeInstrumentationReceiver</a></span>
+		<span class="method-name">
+			setPublicPath
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$strPublicPath</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$strPublicPath</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 27 Apr 2009 18:15:41 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

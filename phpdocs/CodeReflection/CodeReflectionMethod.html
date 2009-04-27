@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CodeReflectionMethod</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CodeReflectionMethod</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|													<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generated the code definition of some method based into  its reflection information</p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt;</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_components---codeReflection---CodeReflectionMethod.class.php.html">/components/codeReflection/CodeReflectionMethod.class.php</a> (line <span class="field">10</span>)
+		</p>
+		
+				
+		<pre>ReflectionMethod
+   |
+   --<a href="../default/ExtendedReflectionMethod.html">ExtendedReflectionMethod</a>
+      |
+      --CodeReflectionMethod</pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../CodeInstrumentation/CodeInstrumentationMethod.html">CodeInstrumentationMethod</a></td>
+					<td>
+											Class what in place of create the exactly code of some method,  create a version of it what send a message to the code instrumentation  receiver before and after each call.
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																				
+												<div class="method-definition">
+											<span class="method-result"><a href="../CodeReflection/CodeReflectionClass.html">CodeReflectionClass</a></span>
+										<a href="#createExtendedReflectionClass" title="details" class="method-name">createExtendedReflectionClass</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result"><a href="../CodeReflection/CodeReflectionParameter.html">CodeReflectionParameter</a></span>
+										<a href="#createExtendedReflectionParameter" title="details" class="method-name">createExtendedReflectionParameter</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$objReflectionParameter</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createMethodContentCode" title="details" class="method-name">createMethodContentCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createMethodHeaderCode" title="details" class="method-name">createMethodHeaderCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createModifiersCode" title="details" class="method-name">createModifiersCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createParametersCode" title="details" class="method-name">createParametersCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCode" title="details" class="method-name">getCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getCodeContent" title="details" class="method-name">getCodeContent</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodcreateExtendedReflectionClass" id="createExtendedReflectionClass"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createExtendedReflectionClass</span> (line <span class="line-number">47</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the link between the code reflection method and its  code reflection class</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> ExtendedReflectionMethod::createExtendedReflectionClass( ReflectionClass )</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeReflection/CodeReflectionClass.html">CodeReflectionClass</a></span>
+		<span class="method-name">
+			createExtendedReflectionClass
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$objOriginalReflectionClass</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReflectionClass</span>
+				<span class="var-name">$objOriginalReflectionClass</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../default/ExtendedReflectionMethod.html#methodcreateExtendedReflectionClass">ExtendedReflectionMethod::createExtendedReflectionClass()</a></dt>
+					</dl>
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../CodeInstrumentation/CodeInstrumentationMethod.html#methodcreateExtendedReflectionClass">CodeInstrumentationMethod::createExtendedReflectionClass()</a>
+								: make the class calls return a code instrumentation class
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateExtendedReflectionParameter" id="createExtendedReflectionParameter"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createExtendedReflectionParameter</span> (line <span class="line-number">60</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the link between the code reflection method and its  code reflection parameter</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> ExtendedReflectionMethod::createExtendedReflectionParameter( ReflectionParameter )</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeReflection/CodeReflectionParameter.html">CodeReflectionParameter</a></span>
+		<span class="method-name">
+			createExtendedReflectionParameter
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$objReflectionParameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReflectionParameter</span>
+				<span class="var-name">$objReflectionParameter</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../default/ExtendedReflectionMethod.html#methodcreateExtendedReflectionParameter">ExtendedReflectionMethod::createExtendedReflectionParameter()</a></dt>
+					</dl>
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../CodeInstrumentation/CodeInstrumentationMethod.html#methodcreateExtendedReflectionParameter">CodeInstrumentationMethod::createExtendedReflectionParameter()</a>
+								: make the parameters calls return a Code Instrumentation Parameter
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateMethodContentCode" id="createMethodContentCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createMethodContentCode</span> (line <span class="line-number">140</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the method code definition content</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createMethodContentCode
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../CodeInstrumentation/CodeInstrumentationMethod.html#methodcreateMethodContentCode">CodeInstrumentationMethod::createMethodContentCode()</a>
+								: Create the code instrumentation method content code
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateMethodHeaderCode" id="createMethodHeaderCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createMethodHeaderCode</span> (line <span class="line-number">124</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the method code definition header</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createMethodHeaderCode
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../CodeInstrumentation/CodeInstrumentationMethod.html#methodcreateMethodHeaderCode">CodeInstrumentationMethod::createMethodHeaderCode()</a>
+								: Get the method header of the code instrumentation method
+							</li>
+				</ul>
+	</div>
+<a name="methodcreateModifiersCode" id="createModifiersCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createModifiersCode</span> (line <span class="line-number">70</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the modifiers code definition of the method</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createModifiersCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreateParametersCode" id="createParametersCode"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createParametersCode</span> (line <span class="line-number">101</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the parameters code definition</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createParametersCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetCode" id="getCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCode</span> (line <span class="line-number">18</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the code definition of the reflected method</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> code method definition</li>
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCode
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../CodeInstrumentation/CodeInstrumentationMethod.html#methodgetCode">CodeInstrumentationMethod::getCode()</a>
+								: Get the code of the code instrumentation method
+							</li>
+				</ul>
+	</div>
+<a name="methodgetCodeContent" id="getCodeContent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getCodeContent</span> (line <span class="line-number">34</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the code content of the method</p>
+	<ul class="tags">
+				<li><span class="field">access:</span> public</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getCodeContent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../default/ExtendedReflectionMethod.html">ExtendedReflectionMethod</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../default/ExtendedReflectionMethod.html#methodcreateExtendedReflectionClass">ExtendedReflectionMethod::createExtendedReflectionClass()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionMethod.html#methodcreateExtendedReflectionParameter">ExtendedReflectionMethod::createExtendedReflectionParameter()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionMethod.html#methodgetDeclaringClass">ExtendedReflectionMethod::getDeclaringClass()</a></span><br>
+													<span class="method-name"><a href="../default/ExtendedReflectionMethod.html#methodgetParameters">ExtendedReflectionMethod::getParameters()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Mon, 27 Apr 2009 18:15:48 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>

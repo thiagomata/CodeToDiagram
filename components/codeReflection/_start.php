@@ -1,4 +1,7 @@
 <?php
+/**
+ * Load the CodeReflection package
+ */
 require_once( "CodeReflectionException.class.php" );
 require_once( "CodeReflectionFile.class.php" );
 require_once( "CodeReflectionParameter.class.php" );

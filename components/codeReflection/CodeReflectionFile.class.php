@@ -11,6 +11,8 @@
  * You can get a streck of code of the memory file or the real file using the
  * same method send the first line and last line of the bit of code what you
  * want to receive.
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package CodeReflection
  */
 class CodeReflectionFile
 {

@@ -18,6 +18,7 @@
  * classe.
  *
  * @author Renan de Lima Barbosa <renandelima@gmail.com>
+ * @package backtrace
  */
 class BackTraceExplain
 {
