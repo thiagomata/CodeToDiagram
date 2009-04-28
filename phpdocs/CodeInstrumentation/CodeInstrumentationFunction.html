@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class CodeInstrumentationFunction</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class CodeInstrumentationFunction</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+											<a href="#sec-consts">Constants</a>
+						
+			</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Implement a code instrumentation into a function</p>
+<p class="description"><p>Make a call to some function what was apply the code  instrumentation make a message to some actor of the  code instrumentation receiver</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt;</li>
+				<li><span class="field">todo:</span> This class need to make code instrumentation.  Today code instrumentation works only into objects</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_components---codeInstrumentation---CodeInstrumentationFunction.class.php.html">/components/codeInstrumentation/CodeInstrumentationFunction.class.php</a> (line <span class="field">17</span>)
+		</p>
+		
+				
+		<pre>ReflectionFunction
+   |
+   --<a href="../ExtendedReflection/ExtendedReflectionFunction.html">ExtendedReflectionFunction</a>
+      |
+      --<a href="../CodeReflection/CodeReflectionFunction.html">CodeReflectionFunction</a>
+         |
+         --CodeInstrumentationFunction</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-consts">Constants</a>
+							
+															<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+												
+												<div class="method-definition">
+											<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationParameter.html">CodeInstrumentationParameter</a></span>
+										<a href="#createExtendedReflectionParameter" title="details" class="method-name">createExtendedReflectionParameter</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$objReflectionParameter</span>)
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-consts">Constants</a>
+							
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname">ReflectionFunction (Internal Class)</span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name">$name</span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																			<a href="#sec-consts">Constants</a>
+							
+										<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodcreateExtendedReflectionParameter" id="createExtendedReflectionParameter"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createExtendedReflectionParameter</span> (line <span class="line-number">27</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">This method is necessary to make the callers of the parameters  of the function bring CodeInstrumentationParameters</p>
+	<ul class="tags">
+				<li><span class="field">see:</span> ExtendedReflectionFunction::createExtendedReflectionParameter</li>
+				<li><span class="field">access:</span> protected</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result"><a href="../CodeInstrumentation/CodeInstrumentationParameter.html">CodeInstrumentationParameter</a></span>
+		<span class="method-name">
+			createExtendedReflectionParameter
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$objReflectionParameter</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">ReflectionParameter</span>
+				<span class="var-name">$objReflectionParameter</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../CodeReflection/CodeReflectionFunction.html#methodcreateExtendedReflectionParameter">CodeReflectionFunction::createExtendedReflectionParameter()</a></dt>
+						<dd>Make the reflection parameter link return a code reflection parameter</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../CodeReflection/CodeReflectionFunction.html">CodeReflectionFunction</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionFunction.html#methodcreateExtendedReflectionParameter">CodeReflectionFunction::createExtendedReflectionParameter()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionFunction.html#methodcreateFunctionContentCode">CodeReflectionFunction::createFunctionContentCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionFunction.html#methodcreateFunctionHeaderCode">CodeReflectionFunction::createFunctionHeaderCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionFunction.html#methodcreateParametersCode">CodeReflectionFunction::createParametersCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionFunction.html#methodgetCode">CodeReflectionFunction::getCode()</a></span><br>
+													<span class="method-name"><a href="../CodeReflection/CodeReflectionFunction.html#methodgetCodeContent">CodeReflectionFunction::getCodeContent()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../ExtendedReflection/ExtendedReflectionFunction.html">ExtendedReflectionFunction</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../ExtendedReflection/ExtendedReflectionFunction.html#methodcreateExtendedReflectionParameter">ExtendedReflectionFunction::createExtendedReflectionParameter()</a></span><br>
+													<span class="method-name"><a href="../ExtendedReflection/ExtendedReflectionFunction.html#methodgetParameters">ExtendedReflectionFunction::getParameters()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname">ReflectionFunction (Internal Class)</span></p>
+					<blockquote>
+													<span class="method-name">constructor __construct ( $name )</span><br>
+													<span class="method-name">export ( $name, [$return = ] )</span><br>
+													<span class="method-name">getDocComment (  )</span><br>
+													<span class="method-name">getEndLine (  )</span><br>
+													<span class="method-name">getExtension (  )</span><br>
+													<span class="method-name">getExtensionName (  )</span><br>
+													<span class="method-name">getFileName (  )</span><br>
+													<span class="method-name">getName (  )</span><br>
+													<span class="method-name">getNumberOfParameters (  )</span><br>
+													<span class="method-name">getNumberOfRequiredParameters (  )</span><br>
+													<span class="method-name">getParameters (  )</span><br>
+													<span class="method-name">getStartLine (  )</span><br>
+													<span class="method-name">getStaticVariables (  )</span><br>
+													<span class="method-name">invoke ( $args )</span><br>
+													<span class="method-name">invokeArgs ( $args )</span><br>
+													<span class="method-name">isDeprecated (  )</span><br>
+													<span class="method-name">isDisabled (  )</span><br>
+													<span class="method-name">isInternal (  )</span><br>
+													<span class="method-name">isUserDefined (  )</span><br>
+													<span class="method-name">returnsReference (  )</span><br>
+													<span class="method-name">__clone (  )</span><br>
+													<span class="method-name">__toString (  )</span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+	<a name="sec-consts"></a>
+	<div class="info-box">
+		<div class="info-box-title">Class Constants</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Constants</a> (<span class="disabled">details</span>)
+						
+			
+												<a href="#sec-vars">Vars</a>
+														| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+										<h4>Inherited Constants</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname">ReflectionFunction (Internal Class)</span></p>
+					<blockquote>
+													<img src="../media/images/Variable.png" />
+							<span class="const-title">
+								<span class="const-name">IS_DEPRECATED = 262144</span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+
+	<p class="notes" id="credit">
+		Documentation generated on Tue, 28 Apr 2009 10:53:48 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+	</p>
+	</div></body>
+</html>
