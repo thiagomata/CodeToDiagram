@@ -1,3 +1,16 @@
+<?php 
+/**
+ * This class it was maded to make easy to the public
+ * test the sequence.php and see how they can create
+ * a xml and send it to be process and geneare a html
+ * sequence diagram calling the sequence.php
+ * 
+ * @package public
+ * @subpackage xmlToDiagram
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * 
+ */
+?>
 <html>
     <form action="sequence.php" method="post">
         zoom: <input type="text" value="100" name="zoom"/>

@@ -1,3 +1,17 @@
+<!-- 
+/** 
+ *
+ * This sequence file it is a demostration of the xml what can be used
+ * to create sequence diagrams into the xmltodiagram tool.
+ * this show as well the kind of xml what can be generetad using the
+ * codetodiagram to into ouput xml.
+ *
+ * @package public
+ * @subpackage xmlToDiagram
+ * @subpackage CodeToDiagram
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ */
+-->
 <sequence>
 	<actors>
 		<actor id="1" type="system">objWolf:Worf</actor>

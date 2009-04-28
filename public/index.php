@@ -1,13 +1,15 @@
-<?php
-require_once( "../_start.php" );
-
-$intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
-$strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
-
-$objXmlSequence = new XmlSequence();
-$objXmlSequence->setZoom( $intZoom);
-$objXmlSequence->setXml( $strXml );
-
+<?php 
+/**
+ * This file make a little intro about what it the code to diagram and the
+ * xml to diagram, how it works and where you can find some others helps
+ * as the examples, phpdocs, web site of the project, etc.
+ * 
+ * @package public
+ * @subpackage CodeToDiagram
+ * @subpackage xmlToDiagram
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * 
+ */
 ?>
 <html>
     <head>
@@ -49,13 +51,14 @@ $objXmlSequence->setXml( $strXml );
                 The solution proposed here it is the automatic generation of sequence diagrams based on the PHP
                 code execution. One full code execution or some stretch of execution it is monitored by classes
                 of code instrumentation what, based on the in formations received, creating the diagram of that
-                code execution. This diagram can be seen as HTML, saved as HTML, soon will be possible to save
+                code execution. This diagram can be seen as HTML, saved as HTML, and also to be saved
                 as XML and in the future exported as a jpeg image.
             </p>
             <p>
                 All this process must be simple and enough to be used simply append one call, but flexible also
                 to deal with all the special cases. The big idea it is to create the diagram of the execution been
-                less invader as possible into the source code what the execution will run.
+                less invader as possible into the source code what the execution will run. You can see the runing
+                examples <a href="..\examples">here</a>.
             </p>
             <p>
                 One small component was created in the process of generation of this software what can be used separately.
@@ -152,7 +155,7 @@ $objXmlSequence->setXml( $strXml );
                     Will bring to you this:
                 </p>
                 <p>
-                    <a style="border-style:none;" href="../examples/TreeLittlePigs/treeLittlePigs.php">
+                    <a style="border-style:none;" href="../examples/ThreeLittlePigs/threeLittlePigs.php">
                         <img style="border-style:none;" src="./images/pigs_small.png" />
                     </a>
                 </p>

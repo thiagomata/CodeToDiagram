@@ -1,12 +1,20 @@
 <?php
+/**
+ * This file make a little intro about what is the xml to diagram and
+ * how it works, its projects, team, etc. After that it create a html
+ * web form what make possible the creation of real time diagrams just
+ * changing the xml and posting the form.
+ * 
+ * @package public
+ * @subpackage xmlToDiagram
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ */
 require_once( "../_start.php" );
 
 $intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
 $strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
 
-$objXmlSequence = new XmlSequence();
-$objXmlSequence->setZoom( $intZoom);
-$objXmlSequence->setXml( $strXml );
+$objXmlSequence = XmlSequenceFactoryXml::getInstance()->setXml( $strXml )->perform();
 
 ?>
 <html>
@@ -93,7 +101,7 @@ $objXmlSequence->setXml( $strXml );
         <h4>
             Three Little Pigs
         </h4>
-        <?php print $objXmlSequence->show(); ?>
+        <?php print XmlSequencePrinterDiagram::getInstance()->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
         <div style="float:left;width:100%">
             <h4>
                 Now, change and create your own sequence diagram.
