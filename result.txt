@@ -39,7 +39,9 @@ Hidden C:\www\codetodiagram\phpdocs\CodeReflection/.svn Ignored
 Hidden C:\www\codetodiagram\phpdocs\CodeToDiagram/.svn Ignored
 Hidden C:\www\codetodiagram\phpdocs\default/.svn Ignored
 Hidden C:\www\codetodiagram\phpdocs\examples/.svn Ignored
-Hidden C:\www\codetodiagram\phpdocs\examples\ThreeLittlePigs--/.svn Ignored
+Hidden C:\www\codetodiagram\phpdocs\examples\Fatorial/.svn Ignored
+Hidden C:\www\codetodiagram\phpdocs\examples\Fatorial-/.svn Ignored
+Hidden C:\www\codetodiagram\phpdocs\examples\ThreeLittlePigs/.svn Ignored
 Hidden C:\www\codetodiagram\phpdocs\ExtendedReflection/.svn Ignored
 Hidden C:\www\codetodiagram\phpdocs\media/.svn Ignored
 Hidden C:\www\codetodiagram\phpdocs\public/.svn Ignored
@@ -398,154 +400,6 @@ Reading file C:/www/codetodiagram/examples/ThreeLittlePigs/ThreeLittlePigsResult
 Reading file C:/www/codetodiagram/examples/ThreeLittlePigs/Wolf.class.php -- Parsing file
 WARNING in Wolf.class.php on line 10: DocBlock would be page-level, but precedes class "Wolf", use another DocBlock to document the file
 Reading file C:/www/codetodiagram/phpdocrenew.bat -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/backtrace/BackTrace.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/backtrace/BackTraceExplain.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/backtrace/_components---backtrace---BackTrace.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/backtrace/_components---backtrace---BackTraceExplain.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/backtrace/_components---backtrace---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/blank.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_backtrace.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_CodeInstrumentation.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_CodeReflection.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_CodeToDiagram.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_default.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_examples.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_ExtendedReflection.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_public.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/classtrees_XmlSequence.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationClass.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationException.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationFunction.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationMethod.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationParameter.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationProperty.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/CodeInstrumentationReceiver.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationClass.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationException.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationFunction.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationMethod.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationParameter.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationProperty.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---CodeInstrumentationReceiver.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeInstrumentation/_components---codeInstrumentation---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionClass.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionException.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionFile.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionFunction.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionMethod.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionParameter.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/CodeReflectionProperty.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionClass.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionException.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionFile.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionFunction.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionMethod.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionParameter.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---CodeReflectionProperty.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeReflection/_components---codeReflection---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeToDiagram/CodeToDiagram.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeToDiagram/CodeToDiagramException.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeToDiagram/_components---codeToDiagram---CodeToDiagram.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeToDiagram/_components---codeToDiagram---CodeToDiagramException.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/CodeToDiagram/_components---codeToDiagram---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/CorujaArrayManipulation.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/CorujaArrayManipulationTest.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/CorujaClassManipulation.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/CorujaClassManipulationTest.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/CorujaStringManipulation.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/CorujaStringManipulationTest.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---codeInstrumentation---example---test1.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---codeInstrumentation---example---test2.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---codeInstrumentation---example---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---codeReflection---example---test1.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---codeReflection---example---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---CorujaArrayManipulation.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---CorujaClassManipulation.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---CorujaStringManipulation.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---example---CorujaArrayManipulationExample.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---example---stringmanipulation.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---example---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---test---CorujaArrayManipulationTest.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---test---CorujaClassManipulationTest.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---test---CorujaStringManipulationTest.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---library---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/_components---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/default/__start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_backtrace.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_CodeInstrumentation.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_CodeReflection.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_CodeToDiagram.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_default.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_examples.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_ExtendedReflection.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_public.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/elementindex_XmlSequence.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/errors.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/Fatorial-/_examples---Fatorial---index.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/Fatorial/Fatorial.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/Fatorial/_examples---Fatorial---Fatorial.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/History.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/House.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/LittlePig.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/Wolf.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/_examples---ThreeLittlePigs---History.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/_examples---ThreeLittlePigs---House.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/_examples---ThreeLittlePigs---Pig.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/_examples---ThreeLittlePigs---threeLittlePigs.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/_examples---ThreeLittlePigs---threeLittlePigs2.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/_examples---ThreeLittlePigs---Wolf.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/ExtendedReflectionClass.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/ExtendedReflectionFunction.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/ExtendedReflectionMethod.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/ExtendedReflectionParameter.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/ExtendedReflectionProperty.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/_components---extendedReflection---ExtendedReflectionClass.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/_components---extendedReflection---ExtendedReflectionFunction.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/_components---extendedReflection---ExtendedReflectionMethod.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/_components---extendedReflection---ExtendedReflectionParameter.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/_components---extendedReflection---ExtendedReflectionProperty.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/ExtendedReflection/_components---extendedReflection---_start.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/index.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_backtrace.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_CodeInstrumentation.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_CodeReflection.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_CodeToDiagram.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_default.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_examples.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_ExtendedReflection.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_public.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/li_XmlSequence.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/media/banner.css -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/media/stylesheet.css -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/packages.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/public/CodeToDiagram/_public---codetodiagram.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/public/CodeToDiagram/_public---index.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/public/xmlToDiagram/_public---caller.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/public/xmlToDiagram/_public---sequence.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/public/xmlToDiagram/_public---xmlToDiagram.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/todolist.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequence.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequenceActor.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequenceException.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequenceFactoryInterface.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequenceFactoryXml.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequenceMessage.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequencePrinterDiagram.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequencePrinterInterface.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequencePrinterXml.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/XmlSequenceValue.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequence.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequenceActor.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequenceException.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequenceFactoryInterface.interface.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequenceFactoryXml.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequenceMessage.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequencePrinterDiagram.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequencePrinterInterface.interface.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequencePrinterXml.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---XmlSequenceValue.class.php.html -- File not parsed, not a php file
-Reading file C:/www/codetodiagram/phpdocs/XmlSequence/_components---xmlSequence---_start.php.html -- File not parsed, not a php file
 Reading file C:/www/codetodiagram/public/caller.php -- Parsing file
 Reading file C:/www/codetodiagram/public/codetodiagram.php -- Parsing file
 Reading file C:/www/codetodiagram/public/css/default.css -- File not parsed, not a php file
@@ -1028,9 +882,9 @@ Converting Error Log...    Writing .\phpdocs/errors.html
 To view errors and warnings, look at .\phpdocs/errors.html
 done
 
-Parsing time: 13 seconds
+Parsing time: 24 seconds
 
-Conversion time: 60 seconds
+Conversion time: 107 seconds
 
-Total Documentation Time: 73 seconds
+Total Documentation Time: 131 seconds
 done
