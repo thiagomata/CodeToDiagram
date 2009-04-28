@@ -2,6 +2,10 @@
 /**
  * Class of the math fatorial function to be used into
  * the sequence diagram
+ * 
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package examples
+ * @subpackage Fatorial
  */
 class Fatorial
 {
