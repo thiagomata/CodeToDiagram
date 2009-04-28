@@ -1,6 +1,25 @@
 <?php
+/**
+ * Class what make possible and easy extends reflection classes
+ * 
+ * Reflection classes can be a problem because the reflection
+ * methods what return objects will return the original reflection
+ * object and not the extended version of it. So it is necessary to
+ * create methods what convert the original methods to return the
+ * extended version of the objects.
+ * 
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * @package ExtendedReflection
+ *
+ */
 class ExtendedReflectionClass extends ReflectionClass
 {
+	/**
+	 * Get the reflection of the parent class if extists
+	 * and return null if not has a parent class
+	 * 
+	 * @return ExtendedReflectionClass|null
+	 */
 	public final function getParentClass()
 	{
         $objParent = parent::getParentClass();
@@ -14,6 +33,12 @@ class ExtendedReflectionClass extends ReflectionClass
         }
 	}
 
+	/**
+	 * Get the collection of the reflection class of all the interfaces
+	 * implemented by the reflected class
+	 * 
+	 * @return ExtendedReflectionClass[]
+	 */
 	public final function getInterfaces()
 	{
 		$arrOriginalInterfaces = parent::getInterfaces();
@@ -26,6 +51,13 @@ class ExtendedReflectionClass extends ReflectionClass
 		return $arrExtendedInterfaces;
 	}
 
+	/**
+	 * Get the collection of the reflection properties of the
+	 * reflected class
+	 * 
+	 * @param integer $filter
+	 * @return ReflectionProperty[]
+	 */
 	public final function getProperties( $filter = -1 )
 	{
 		$arrReflectionProperties = parent::getProperties( $filter );
@@ -38,11 +70,24 @@ class ExtendedReflectionClass extends ReflectionClass
 		return $arrExtendedProperties;
 	}
 
+	/**
+	 * Get the reflection property of some attribute of the class
+	 * searched by the property name
+	 * 
+	 * @param string $strName
+	 * @return ExtendedReflectionProperty
+	 */
     public final function getProperty( $strName )
     {
         return $this->createExtendedReflectionProperty( parent::getProperty( $strName ) );
     }
 
+    /**
+     * Get the collection of the reflected methods
+     * 
+     * @param $filter
+     * @return ReflectionMethod[]
+     */
     public final function getMethods( $filter = -1 )
     {
     	$arrReflectionMethods = parent::getMethods( $filter );
@@ -55,21 +100,54 @@ class ExtendedReflectionClass extends ReflectionClass
     	return $arrExtendedMethods;
     }
 
+    /**
+     * Return the reflection of some method of the class
+     * 
+     * @param $strMethodName
+     * @return ExtendedReflectionMethod
+     */
     public final function getMethod( $strMethodName )
     {
         return $this->createExtendedReflectionMethod( parent::getMethod( $strMethodName ) );
     }
 
+    /**
+     * Convert a reflection class into a extended reflection class
+     * 
+     * This is the method what should be replaced when this class be
+     * extended.
+     * 
+     * @param ReflectionClass $objOriginalReflectionClass
+     * @return ExtendedReflectionClass
+     */
 	protected function createExtendedReflectionClass( ReflectionClass $objOriginalReflectionClass )
 	{
 		return new ExtendedReflectionClass( $objOriginalReflectionClass->getName() );
 	}
 
-    protected function createExtendedReflectionProperty( ReflectionProperty $objOriginalReflectionProperty )
+    /**
+     * Convert a reflection property into a extended reflection property
+     * 
+     * This is the method what should be replaced when this class be
+     * extended.
+     * 
+     * @param ReflectionProperty $objOriginalReflectionProperty
+     * @return ExtendedReflectionProperty
+     */
+	protected function createExtendedReflectionProperty( ReflectionProperty $objOriginalReflectionProperty )
 	{
 		return new ExtendedReflectionProperty( $this->getName() , $objOriginalReflectionProperty->getName() );
 	}
 
+    /**
+     * Convert a reflection method into a extended reflection method
+     * 
+     * This is the method what should be replaced when this class be
+     * extended.
+     * 
+     * @param ReflectionMethod $objOriginalReflectionMethod
+     * @return ExtendedReflectionMethod
+     */
 	protected function createExtendedReflectionMethod( ReflectionMethod $objOriginalReflectionMethod )
 	{
 		return new ExtendedReflectionMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
