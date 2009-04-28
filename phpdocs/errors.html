@@ -10,7 +10,6 @@
 		<body>
 						<a href="#Post-parsing">Post-parsing</a><br>
 <a href="#BackTraceExplain.php">BackTraceExplain.php</a><br>
-<a href="#caller.php">caller.php</a><br>
 <a href="#CodeInstrumentationClass.class.php">CodeInstrumentationClass.class.php</a><br>
 <a href="#CodeInstrumentationException.class.php">CodeInstrumentationException.class.php</a><br>
 <a href="#CodeInstrumentationFunction.class.php">CodeInstrumentationFunction.class.php</a><br>
@@ -26,7 +25,6 @@
 <a href="#CodeReflectionParameter.class.php">CodeReflectionParameter.class.php</a><br>
 <a href="#CodeReflectionProperty.class.php">CodeReflectionProperty.class.php</a><br>
 <a href="#CodeToDiagram.class.php">CodeToDiagram.class.php</a><br>
-<a href="#codetodiagram.php">codetodiagram.php</a><br>
 <a href="#CodeToDiagramException.class.php">CodeToDiagramException.class.php</a><br>
 <a href="#CorujaArrayManipulation.class.php">CorujaArrayManipulation.class.php</a><br>
 <a href="#CorujaArrayManipulationExample.php">CorujaArrayManipulationExample.php</a><br>
@@ -78,10 +76,6 @@
 <h1>BackTraceExplain.php</h1>
 <h2>Warnings:</h2><br>
 <b>Warning on line 23</b> - DocBlock would be page-level, but precedes class "BackTraceExplain", use another DocBlock to document the file<br>
-<a name="caller.php"></a>
-<h1>caller.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 20</b> - File "C:\www\codetodiagram\public\caller.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 <a name="CodeInstrumentationClass.class.php"></a>
 <h1>CodeInstrumentationClass.class.php</h1>
 <h2>Warnings:</h2><br>
@@ -90,10 +84,10 @@
       $this->setClassName( "something" );
       $this->getClassName() == "something"
  </code>" does not exist<br>
-<b>Warning on line 75</b> - Unknown tag "@assert(" used<br>
 <b>Warning on line 75</b> - example file "<code>
       $this->setClassName( "something" )->getClassName() == "something"
  </code>" does not exist<br>
+<b>Warning on line 75</b> - Unknown tag "@assert(" used<br>
 <a name="CodeInstrumentationException.class.php"></a>
 <h1>CodeInstrumentationException.class.php</h1>
 <h2>Warnings:</h2><br>
@@ -153,88 +147,84 @@
 <h1>CodeToDiagram.class.php</h1>
 <h2>Warnings:</h2><br>
 <b>Warning on line 8</b> - DocBlock would be page-level, but precedes class "CodeToDiagram", use another DocBlock to document the file<br>
-<b>Warning on line 122</b> - example file "<code>
+<b>Warning on line 142</b> - example file "<code>
       $this->setOutputType( "something" ) throws CodeToDiagramException
  </code>" does not exist<br>
-<b>Warning on line 122</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 122</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 122</b> - example file "<code>
+<b>Warning on line 142</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 142</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 142</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 142</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 142</b> - example file "<code>
       $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_STRING )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_STRING
  </code>" does not exist<br>
-<b>Warning on line 122</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 122</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 122</b> - example file "<code>
-      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_FILE
- </code>" does not exist<br>
-<b>Warning on line 122</b> - example file "<code>
+<b>Warning on line 142</b> - example file "<code>
       $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_SCREEN )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_SCREEN
  </code>" does not exist<br>
-<b>Warning on line 165</b> - example file "<code>
-      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_STRING )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_STRING
- </code>" does not exist<br>
-<b>Warning on line 165</b> - example file "<code>
-      $this->setOutputType( "something" ) throws CodeToDiagramException
- </code>" does not exist<br>
-<b>Warning on line 165</b> - example file "<code>
-      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_SCREEN )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_SCREEN
- </code>" does not exist<br>
-<b>Warning on line 165</b> - example file "<code>
+<b>Warning on line 142</b> - example file "<code>
       $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_FILE
  </code>" does not exist<br>
 <b>Warning on line 185</b> - example file "<code>
+      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_FILE
+ </code>" does not exist<br>
+<b>Warning on line 185</b> - example file "<code>
+      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_STRING )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_STRING
+ </code>" does not exist<br>
+<b>Warning on line 185</b> - example file "<code>
+      $this->setOutputType( "something" ) throws CodeToDiagramException
+ </code>" does not exist<br>
+<b>Warning on line 185</b> - example file "<code>
+      $this->setOutputType( CodeToDiagram::OUTPUT_TYPE_SCREEN )->getOutputType() == CodeToDiagram::OUTPUT_TYPE_SCREEN
+ </code>" does not exist<br>
+<b>Warning on line 205</b> - example file "<code>
+      self::hasInstance() == false;
+ </code>" does not exist<br>
+<b>Warning on line 205</b> - example file "<code>
       self::getInstance();
       self::hasInstance() == true
  </code>" does not exist<br>
-<b>Warning on line 185</b> - example file "<code>
-      self::hasInstance() == false;
- </code>" does not exist<br>
-<b>Warning on line 200</b> - example file "<code>
+<b>Warning on line 220</b> - example file "<code>
       get_class( self::getInstance() ) == "CodeToDiagram"
  </code>" does not exist<br>
-<b>Warning on line 225</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 225</b> - example file "<code>
-      $this->setStarted( false )->getStarted() == false
- </code>" does not exist<br>
-<b>Warning on line 225</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 225</b> - example file "<code>
+<b>Warning on line 245</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 245</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 245</b> - example file "<code>
       $this->setStarted( true )->getStarted() == true
  </code>" does not exist<br>
-<b>Warning on line 244</b> - example file "<code>
+<b>Warning on line 245</b> - example file "<code>
       $this->setStarted( false )->getStarted() == false
  </code>" does not exist<br>
-<b>Warning on line 244</b> - Unknown tag "@assert()" used<br>
-<b>Warning on line 244</b> - example file "<code>
+<b>Warning on line 264</b> - Unknown tag "@assert()" used<br>
+<b>Warning on line 264</b> - example file "<code>
       $this->setStarted( true )->getStarted() == true
  </code>" does not exist<br>
-<b>Warning on line 261</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 261</b> - example file "<code>
+<b>Warning on line 264</b> - example file "<code>
+      $this->setStarted( false )->getStarted() == false
+ </code>" does not exist<br>
+<b>Warning on line 281</b> - example file "<code>
       $this->setFileFrom( __FILE__ )->getFileFrom() == __FILE__
  </code>" does not exist<br>
-<b>Warning on line 277</b> - example file "<code>
+<b>Warning on line 281</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 297</b> - example file "<code>
       $this->setFileFrom( __FILE__ )->getFileFrom() == __FILE__
  </code>" does not exist<br>
-<b>Warning on line 292</b> - example file "<code>
+<b>Warning on line 312</b> - example file "<code>
   $this->setFileName( "index.php" )->getFileName() == "index.php"
  </code>" does not exist<br>
-<b>Warning on line 307</b> - example file "<code>
+<b>Warning on line 327</b> - example file "<code>
   $this->setFileName( "index.php" )->getFileName() == "index.php"
  </code>" does not exist<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 370</b> - Unknown tag "@assert(" used<br>
-<b>Warning on line 398</b> - Unknown tag "@assert()" used<br>
-<b>Warning on line 422</b> - Unknown tag "@assert()" used<br>
-<b>Warning on line 448</b> - example file "  $objWolf->say( "i will be back " ." does not exist<br>
-<a name="codetodiagram.php"></a>
-<h1>codetodiagram.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 44</b> - File "C:\www\codetodiagram\public\codetodiagram.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 390</b> - Unknown tag "@assert(" used<br>
+<b>Warning on line 418</b> - Unknown tag "@assert()" used<br>
+<b>Warning on line 443</b> - Unknown tag "@assert()" used<br>
+<b>Warning on line 471</b> - example file "  $objWolf->say( "i will be back " ." does not exist<br>
 <a name="CodeToDiagramException.class.php"></a>
 <h1>CodeToDiagramException.class.php</h1>
 <h2>Warnings:</h2><br>
@@ -275,11 +265,11 @@
 <b>Warning on line 54</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 54</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 54</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 54</b> - example file "getClassNameFromClassDefinition( "myNamespace::myClass" ); // returns "myNamespace"" does not exist<br>
-<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 54</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 54</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 66</b> - File "C:\www\codetodiagram\components\library\CorujaClassManipulation.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 <a name="CorujaClassManipulationTest.php"></a>
@@ -302,8 +292,8 @@
 <b>Warning on line 32</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 32</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 32</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 32</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 32</b> - example file "strToBool("false") // returns false" does not exist<br>
+<b>Warning on line 32</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 73</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 73</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 73</b> - Unknown tag "@assert" used<br>
@@ -321,17 +311,16 @@
 <b>Warning on line 73</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 119</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
+<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 119</b> - example file "CorujaStringManipulation::caseTabUnderlineTab("nameOfTheParameter")
  // returns "NAME_OF_THE_PARAMETER"" does not exist<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 119</b> - Unknown tag "@assert" used<br>
-<b>Warning on line 182</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 182</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 182</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 182</b> - Unknown tag "@assert" used<br>
@@ -344,6 +333,7 @@
 <b>Warning on line 182</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 182</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 182</b> - example file "$path = CorujaStringManipulation::getRelativePath( "/www/folder/", "/www/another/big/" ); // "../another/big/"" does not exist<br>
+<b>Warning on line 182</b> - Unknown tag "@assert" used<br>
 <b>Warning on line 241</b> - File "C:\www\codetodiagram\components\library\CorujaStringManipulation.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 <a name="CorujaStringManipulationTest.php"></a>
 <h1>CorujaStringManipulationTest.php</h1>
@@ -368,56 +358,49 @@
 <a name="ExtendedReflectionClass.class.php"></a>
 <h1>ExtendedReflectionClass.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class ExtendedReflectionClass<br>
-<b>Warning on line 78</b> - File "C:\www\codetodiagram\components\extendedReflection\ExtendedReflectionClass.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ExtendedReflectionClass", use another DocBlock to document the file<br>
 <a name="ExtendedReflectionFunction.class.php"></a>
 <h1>ExtendedReflectionFunction.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class ExtendedReflectionFunction<br>
-<b>Warning on line 21</b> - File "C:\www\codetodiagram\components\extendedReflection\ExtendedReflectionFunction.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ExtendedReflectionFunction", use another DocBlock to document the file<br>
 <a name="ExtendedReflectionMethod.class.php"></a>
 <h1>ExtendedReflectionMethod.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class ExtendedReflectionMethod<br>
-<b>Warning on line 32</b> - File "C:\www\codetodiagram\components\extendedReflection\ExtendedReflectionMethod.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ExtendedReflectionMethod", use another DocBlock to document the file<br>
 <a name="ExtendedReflectionParameter.class.php"></a>
 <h1>ExtendedReflectionParameter.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class ExtendedReflectionParameter<br>
-<b>Warning on line 45</b> - File "C:\www\codetodiagram\components\extendedReflection\ExtendedReflectionParameter.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 15</b> - DocBlock would be page-level, but precedes class "ExtendedReflectionParameter", use another DocBlock to document the file<br>
 <a name="ExtendedReflectionProperty.class.php"></a>
 <h1>ExtendedReflectionProperty.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class ExtendedReflectionProperty<br>
-<b>Warning on line 13</b> - File "C:\www\codetodiagram\components\extendedReflection\ExtendedReflectionProperty.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 14</b> - DocBlock would be page-level, but precedes class "ExtendedReflectionProperty", use another DocBlock to document the file<br>
 <a name="Fatorial.php"></a>
 <h1>Fatorial.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 6</b> - no @package tag was used in a DocBlock for class Fatorial<br>
-<b>Warning on line 27</b> - File "C:\www\codetodiagram\examples\Fatorial\Fatorial.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "Fatorial", use another DocBlock to document the file<br>
 <a name="History.class.php"></a>
 <h1>History.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 8</b> - DocBlock would be page-level, but precedes class "History", use another DocBlock to document the file<br>
+<b>Warning on line 21</b> - DocBlock would be page-level, but precedes class "History", use another DocBlock to document the file<br>
 <a name="House.class.php"></a>
 <h1>House.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 3</b> - no @package tag was used in a DocBlock for class House<br>
-<b>Warning on line 59</b> - File "C:\www\codetodiagram\examples\ThreeLittlePigs\House.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "House", use another DocBlock to document the file<br>
 <a name="index.php"></a>
 <h1>index.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 15</b> - File "C:\www\codetodiagram\examples\Fatorial\index.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<b>Warning on line 161</b> - File "C:\www\codetodiagram\public\index.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 16</b> - Page-level DocBlock precedes "require_once '../../public/codetodiagram.php'", use another DocBlock to document the source element<br>
+<h2>Errors:</h2><br>
+<b>Error on line 13</b> - DocBlock has multiple @subpackage tags, illegal. ignoring additional tag "@subpackage xmlToDiagram"<br>
 <a name="Pig.class.php"></a>
 <h1>Pig.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class LittlePig<br>
-<b>Warning on line 51</b> - File "C:\www\codetodiagram\examples\ThreeLittlePigs\Pig.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 9</b> - DocBlock would be page-level, but precedes class "LittlePig", use another DocBlock to document the file<br>
 <a name="sequence.php"></a>
 <h1>sequence.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 21</b> - File "C:\www\codetodiagram\public\sequence.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 11</b> - Page-level DocBlock precedes "require_once '../classes/_start.php'", use another DocBlock to document the source element<br>
 <a name="stringmanipulation.php"></a>
 <h1>stringmanipulation.php</h1>
 <h2>Warnings:</h2><br>
@@ -434,16 +417,15 @@
 <a name="threeLittlePigs.php"></a>
 <h1>threeLittlePigs.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 13</b> - File "C:\www\codetodiagram\examples\ThreeLittlePigs\threeLittlePigs.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 15</b> - Page-level DocBlock precedes "require_once '../../public/codetodiagram.php'", use another DocBlock to document the source element<br>
 <a name="threeLittlePigs2.php"></a>
 <h1>threeLittlePigs2.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 46</b> - File "C:\www\codetodiagram\examples\ThreeLittlePigs\threeLittlePigs2.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 17</b> - Page-level DocBlock precedes "require_once '../../public/codetodiagram.php'", use another DocBlock to document the source element<br>
 <a name="Wolf.class.php"></a>
 <h1>Wolf.class.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 2</b> - no @package tag was used in a DocBlock for class Wolf<br>
-<b>Warning on line 33</b> - File "C:\www\codetodiagram\examples\ThreeLittlePigs\Wolf.class.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 10</b> - DocBlock would be page-level, but precedes class "Wolf", use another DocBlock to document the file<br>
 <a name="XmlSequence.class.php"></a>
 <h1>XmlSequence.class.php</h1>
 <h2>Warnings:</h2><br>
@@ -487,24 +469,24 @@
 <a name="xmlToDiagram.php"></a>
 <h1>xmlToDiagram.php</h1>
 <h2>Warnings:</h2><br>
-<b>Warning on line 117</b> - File "C:\www\codetodiagram\public\xmlToDiagram.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 11</b> - Page-level DocBlock precedes "require_once "../_start.php"", use another DocBlock to document the source element<br>
 <a name="_start.php"></a>
 <h1>_start.php</h1>
 <h2>Warnings:</h2><br>
 <b>Warning on line 2</b> - File "C:\www\codetodiagram\components\library\example\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 <b>Warning on line 4</b> - File "C:\www\codetodiagram\components\codeInstrumentation\example\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<b>Warning on line 5</b> - Page-level DocBlock precedes "require_once "Backtracephp"", use another DocBlock to document the source element<br>
-<b>Warning on line 5</b> - Page-level DocBlock precedes "require_once "CodeInstrumentationException.class.php"", use another DocBlock to document the source element<br>
-<b>Warning on line 6</b> - File "C:\www\codetodiagram\components\codeReflection\example\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 6</b> - Page-level DocBlock precedes "require_once "Backtracephp"", use another DocBlock to document the source element<br>
 <b>Warning on line 6</b> - Page-level DocBlock precedes "require_once "CodeToDiagramException.class.php"", use another DocBlock to document the source element<br>
+<b>Warning on line 6</b> - File "C:\www\codetodiagram\components\codeReflection\example\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
+<b>Warning on line 6</b> - Page-level DocBlock precedes "require_once "CodeReflectionException.class.php"", use another DocBlock to document the source element<br>
 <b>Warning on line 6</b> - Page-level DocBlock precedes "require_once 'XmlSequenceException.class.php'", use another DocBlock to document the source element<br>
+<b>Warning on line 6</b> - Page-level DocBlock precedes "require_once "ExtendedReflectionParameter.class.php"", use another DocBlock to document the source element<br>
+<b>Warning on line 7</b> - Page-level DocBlock precedes "require_once "CodeInstrumentationException.class.php"", use another DocBlock to document the source element<br>
 <b>Warning on line 7</b> - File "C:\www\codetodiagram\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 <b>Warning on line 7</b> - File "C:\www\codetodiagram\components\library\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<b>Warning on line 9</b> - File "C:\www\codetodiagram\components\extendedReflection\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 <b>Warning on line 11</b> - File "C:\www\codetodiagram\components\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<b>Warning on line 11</b> - File "C:\www\codetodiagram\components\codeReflection\_start.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
 	<p class="notes" id="credit">
-		Documentation generated on Mon, 27 Apr 2009 18:16:07 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
+		Documentation generated on Tue, 28 Apr 2009 10:15:30 -0300 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.2</a>
 	</p>
 	</body>
 </html>
