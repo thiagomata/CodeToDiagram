@@ -6,6 +6,13 @@
  */
 interface XmlSequenceFactoryInterface
 {
+	/**
+	 * Return the singleton of the XmlSequenceFactoryInterface
+	 * 
+	 * @return XmlSequenceFactoryInterface
+	 */
+	public static function getInstance();	
+		
     /**
      * set the xml sequence object
      * 

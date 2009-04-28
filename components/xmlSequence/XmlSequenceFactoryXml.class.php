@@ -30,17 +30,31 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
     protected $objXml;
 
 	/**
+	 * Return the singleton of the XmlSequenceFactoryXml
+	 * 
+	 * @return XmlSequenceFactoryXml
+	 */
+	public static function getInstance()
+	{
+		if( self::$objInstance == null )
+		{
+			self::$objInstance = new XmlSequenceFactoryXml();
+		}
+		return self::$objInstance;
+	}		
+        
+    
+	/**
 	 * Set the xml of the sequence object
 	 * 
 	 * @see XmlSequence->objXml
 	 * @see XmlSequence::getXml()
 	 * @param string $strXml
-	 * @return XmlSequence me
+	 * @return XmlSequenceFactoryXml me
 	 */
     public function setXml( $strXml )
     {
         $this->objXml = simplexml_load_string( $strXml );
-        $this->load();
         return $this;
     }
      
@@ -127,6 +141,7 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
     protected function loadMessages()
     {
     	$arrMessages = $this->getXmlSequence()->getMessages();
+    	$arrActors = $this->getXmlSequence()->getActors();
     	
     	foreach( $this->objXml->messages->message as $xmlMessage )
         {
@@ -139,17 +154,17 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
             $objMessage->setType( $strType );
             $objMessage->setText( $strText );
 
-           if( !array_key_exists( $intFrom , $this->arrActors ) )
+           if( !array_key_exists( $intFrom , $arrActors ) )
             {
                 throw new Exception( ' Actor From ' . $intFrom . ' not Found ' );
             }
-            $objMessage->setActorFrom( $this->arrActors[ $intFrom ] );
+            $objMessage->setActorFrom( $arrActors[ $intFrom ] );
 
-           if( !array_key_exists( $intTo , $this->arrActors ) )
+           if( !array_key_exists( $intTo , $arrActors ) )
             {
                 throw new Exception( ' Actor To ' . $intTo . ' not Found ' );
             }
-            $objMessage->setActorTo( $this->arrActors[ $intTo ] );
+            $objMessage->setActorTo( $arrActors[ $intTo ] );
 
             if( isset( $xmlMessage->values->value ) )
             foreach( $xmlMessage->values->value as $xmlValue )
