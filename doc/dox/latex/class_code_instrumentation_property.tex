@@ -11,16 +11,25 @@ Inheritance diagram for CodeInstrumentationProperty::\begin{figure}[H]
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_instrumentation_property_192bcd477b39d69274c9a7db05cc606d}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\hyperlink{class_code_instrumentation_property_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+class necessary to make the code instrumentation process possible
+
+the propery has not big changes of the code reflection property but it is necessary to extend it to create the reflections links possibles keeping the code instrumentation context.
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_code_instrumentation_property_192bcd477b39d69274c9a7db05cc606d}{
+\hypertarget{class_code_instrumentation_property_6b56ec198bc6a5b5a72076e4e7c19e29}{
 \index{CodeInstrumentationProperty@{CodeInstrumentationProperty}!createExtendedReflectionClass@{createExtendedReflectionClass}}
 \index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeInstrumentationProperty@{CodeInstrumentationProperty}}
-\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationProperty::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_property_192bcd477b39d69274c9a7db05cc606d}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_property_6b56ec198bc6a5b5a72076e4e7c19e29}
 
 
 Make the calls to the reflection class of the property return a Code Instrumentation class
@@ -31,7 +40,16 @@ Make the calls to the reflection class of the property return a Code Instrumenta
 CodeReflectionProperty::createExtendedReflectionClass( ReflectionClass ) \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_property_ada66f395b16622378963471801f11ad}{CodeReflectionProperty}.
+Reimplemented from \hyperlink{class_code_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeReflectionProperty}.
+
+\begin{Code}\begin{verbatim}27     {
+28         return new CodeInstrumentationClass( $objOriginalReflectionClass->getName() );
+29     }
+\end{verbatim}
+\end{Code}
+
+
+
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}
 \item 

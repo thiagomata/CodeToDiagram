@@ -11,21 +11,30 @@ Inheritance diagram for ExtendedReflectionProperty::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_extended_reflection_property_af1e7fdb7af7548692400dcad6c85c65}{getDeclaringClass} ()
+\hyperlink{class_extended_reflection_property_acff3f8d93cc250281f0f73bff3422e1}{getDeclaringClass} ()
 \end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_extended_reflection_property_05c178f6fef194d390db8312f9595d93}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\hyperlink{class_extended_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Class what make possible and easy extend reflection property
+
+Reflection classes can be a problem because the reflection methods what return objects will return the original reflection object and not the extended version of it. So it is necessary to create methods what convert the original methods to return the extended version of the objects.
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_extended_reflection_property_05c178f6fef194d390db8312f9595d93}{
+\hypertarget{class_extended_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{
 \index{ExtendedReflectionProperty@{ExtendedReflectionProperty}!createExtendedReflectionClass@{createExtendedReflectionClass}}
 \index{createExtendedReflectionClass@{createExtendedReflectionClass}!ExtendedReflectionProperty@{ExtendedReflectionProperty}}
-\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionProperty::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_extended_reflection_property_05c178f6fef194d390db8312f9595d93}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_extended_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}
 
 
 Convert a reflection class into a extended reflection class
@@ -41,17 +50,35 @@ This is the method what should be replaced when this class be extended.
 \item[Returns:]\hyperlink{class_extended_reflection_class}{ExtendedReflectionClass} \end{Desc}
 
 
-Reimplemented in \hyperlink{class_code_instrumentation_property_192bcd477b39d69274c9a7db05cc606d}{CodeInstrumentationProperty}, and \hyperlink{class_code_reflection_property_ada66f395b16622378963471801f11ad}{CodeReflectionProperty}.\hypertarget{class_extended_reflection_property_af1e7fdb7af7548692400dcad6c85c65}{
+Reimplemented in \hyperlink{class_code_instrumentation_property_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeInstrumentationProperty}, and \hyperlink{class_code_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeReflectionProperty}.
+
+\begin{Code}\begin{verbatim}40         {
+41                 return new ExtendedReflectionClass( $objOriginalReflectionClass->getName() );
+42         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_extended_reflection_property_acff3f8d93cc250281f0f73bff3422e1}{
 \index{ExtendedReflectionProperty@{ExtendedReflectionProperty}!getDeclaringClass@{getDeclaringClass}}
 \index{getDeclaringClass@{getDeclaringClass}!ExtendedReflectionProperty@{ExtendedReflectionProperty}}
-\subsubsection[{getDeclaringClass}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionProperty::getDeclaringClass ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
-\label{class_extended_reflection_property_af1e7fdb7af7548692400dcad6c85c65}
+\subsubsection[{getDeclaringClass}]{\setlength{\rightskip}{0pt plus 5cm}getDeclaringClass ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_property_acff3f8d93cc250281f0f73bff3422e1}
 
 
 Get the class owner of the reflected parameter
 
 \begin{Desc}
 \item[Returns:]\hyperlink{class_extended_reflection_class}{ExtendedReflectionClass} \end{Desc}
+
+
+\begin{Code}\begin{verbatim}26     {
+27         return $this->createExtendedReflectionClass( parent::getDeclaringClass() );
+28     }
+\end{verbatim}
+\end{Code}
+
+
 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}

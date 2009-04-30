@@ -11,6 +11,7 @@
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="BackTrace"><param name="Local" value="class_back_trace.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="BackTraceExplain"><param name="Local" value="class_back_trace_explain.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeInstrumentationClass"><param name="Local" value="class_code_instrumentation_class.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeInstrumentationException"><param name="Local" value="class_code_instrumentation_exception.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeInstrumentationFunction"><param name="Local" value="class_code_instrumentation_function.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeInstrumentationMethod"><param name="Local" value="class_code_instrumentation_method.html"><param name="ImageNumber" value="11"></OBJECT>
@@ -24,9 +25,14 @@
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionMethod"><param name="Local" value="class_code_reflection_method.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionParameter"><param name="Local" value="class_code_reflection_parameter.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionProperty"><param name="Local" value="class_code_reflection_property.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeToDiagram"><param name="Local" value="class_code_to_diagram.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeToDiagramException"><param name="Local" value="class_code_to_diagram_exception.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaArrayManipulation"><param name="Local" value="class_coruja_array_manipulation.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaArrayManipulationTest"><param name="Local" value="class_coruja_array_manipulation_test.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaClassManipulation"><param name="Local" value="class_coruja_class_manipulation.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaClassManipulationTest"><param name="Local" value="class_coruja_class_manipulation_test.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaStringManipulation"><param name="Local" value="class_coruja_string_manipulation.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaStringManipulationTest"><param name="Local" value="class_coruja_string_manipulation_test.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="ExampleCodeReflecion"><param name="Local" value="class_example_code_reflecion.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="exampleFirst"><param name="Local" value="classexample_first.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="exampleInterfaceOne"><param name="Local" value="interfaceexample_interface_one.html"><param name="ImageNumber" value="11"></OBJECT>
@@ -61,9 +67,14 @@
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeInstrumentationReceiver"><param name="Local" value="class_code_instrumentation_receiver.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionException"><param name="Local" value="class_code_reflection_exception.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionFile"><param name="Local" value="class_code_reflection_file.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeToDiagram"><param name="Local" value="class_code_to_diagram.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeToDiagramException"><param name="Local" value="class_code_to_diagram_exception.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaArrayManipulation"><param name="Local" value="class_coruja_array_manipulation.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaArrayManipulationTest"><param name="Local" value="class_coruja_array_manipulation_test.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaClassManipulation"><param name="Local" value="class_coruja_class_manipulation.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaClassManipulationTest"><param name="Local" value="class_coruja_class_manipulation_test.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaStringManipulation"><param name="Local" value="class_coruja_string_manipulation.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="CorujaStringManipulationTest"><param name="Local" value="class_coruja_string_manipulation_test.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="exampleFirst"><param name="Local" value="classexample_first.html"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="ExampleCodeReflecion"><param name="Local" value="class_example_code_reflecion.html"><param name="ImageNumber" value="11"></OBJECT>
@@ -79,7 +90,10 @@
   <LI><OBJECT type="text/sitemap"><param name="Name" value="exampleSecond"><param name="Local" value="classexample_second.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="ExtendedReflectionClass"><param name="Local" value="class_extended_reflection_class.html"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionClass"><param name="Local" value="class_code_reflection_class.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeReflectionClass"><param name="Local" value="class_code_reflection_class.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeInstrumentationClass"><param name="Local" value="class_code_instrumentation_class.html"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
     </UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="ExtendedReflectionFunction"><param name="Local" value="class_extended_reflection_function.html"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
@@ -138,6 +152,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Name" value="CodeToDiagram"><param name="Local" value="namespace_code_to_diagram.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="examples"><param name="Local" value="namespaceexamples.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="ExtendedReflection"><param name="Local" value="namespace_extended_reflection.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="library"><param name="Local" value="namespacelibrary.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="public"><param name="Local" value="namespacepublic.html"><param name="ImageNumber" value="11"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="XmlSequence"><param name="Local" value="namespace_xml_sequence.html"><param name="ImageNumber" value="11"></OBJECT>
   </UL>

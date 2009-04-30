@@ -11,91 +11,240 @@ Inheritance diagram for XmlSequencePrinterXml::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_printer_xml_7e88c479f35acfc1ce0f053c4dbadb1b}{perform} (\hyperlink{class_xml_sequence}{XmlSequence} \$objXmlSequence)
+\hyperlink{class_xml_sequence_printer_xml_7a8a4630e9f25847da0a6de87a5ab7e0}{perform} (\hyperlink{class_xml_sequence}{XmlSequence} \$objXmlSequence)
 \item 
-\hyperlink{class_xml_sequence_printer_xml_15a782830da7eeff1fc9746d223452ac}{createXml} ()
+\hyperlink{class_xml_sequence_printer_xml_f99cdc771342f41dfbecb336a90f48d2}{createXml} ()
 \item 
-\hyperlink{class_xml_sequence_printer_xml_534160e28dc8623f138311e4a73be081}{createXmlHeader} ()
+\hyperlink{class_xml_sequence_printer_xml_df4117a74e93f6f53e068d0859691cce}{createXmlHeader} ()
 \item 
-\hyperlink{class_xml_sequence_printer_xml_774ffc0433f81a35080033382a39d525}{createXmlFooter} ()
+\hyperlink{class_xml_sequence_printer_xml_c983c2020c960b39e98ed05baec4aedd}{createXmlFooter} ()
+\item 
+\hyperlink{class_xml_sequence_printer_xml_65c529c6ee2e9bbdfd1baa8a5a8fe1a5}{createXmlActors} ()
+\item 
+\hyperlink{class_xml_sequence_printer_xml_aab9daae34ba6e135b791ec3eaad7c7d}{createXmlMessages} ()
 \end{CompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{CompactItemize}
 \item 
-static \hyperlink{class_xml_sequence_printer_xml_1c628de89547bd7a6aa509748e562e67}{getInstance} ()
+static \hyperlink{class_xml_sequence_printer_xml_c93fbec81f07e5d15f80db907e63dc10}{getInstance} ()
 \end{CompactItemize}
 \subsection*{Protected Attributes}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_printer_xml_c24cec88eff41ddb99b215601cd6f5d8}{\$objXmlSequence}
+\hyperlink{class_xml_sequence_printer_xml_eefa469c1b13fe1fec040c910b720034}{\$objXmlSequence}
 \end{CompactItemize}
 \subsection*{Static Protected Attributes}
 \begin{CompactItemize}
 \item 
-static \hyperlink{class_xml_sequence_printer_xml_e633ac1e15f76e165c7a6d599de36231}{\$objInstance}
+static \hyperlink{class_xml_sequence_printer_xml_917d057900327b25608ed26c927eac3b}{\$objInstance}
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Generate a html diagram of the xml sequence object \begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_xml_sequence_printer_xml_15a782830da7eeff1fc9746d223452ac}{
+\hypertarget{class_xml_sequence_printer_xml_f99cdc771342f41dfbecb336a90f48d2}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!createXml@{createXml}}
 \index{createXml@{createXml}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{createXml}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterXml::createXml ()}}
-\label{class_xml_sequence_printer_xml_15a782830da7eeff1fc9746d223452ac}
+\subsubsection[{createXml}]{\setlength{\rightskip}{0pt plus 5cm}createXml ()}}
+\label{class_xml_sequence_printer_xml_f99cdc771342f41dfbecb336a90f48d2}
 
 
 Create and return the xml of the sequence diagram object
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_xml_sequence_printer_xml_534160e28dc8623f138311e4a73be081}{XmlSequencePrinterXml::createXmlHeader()} 
+\item[See also:]\hyperlink{class_xml_sequence_printer_xml_df4117a74e93f6f53e068d0859691cce}{XmlSequencePrinterXml::createXmlHeader()} 
 
-XmlSequencePrinterXml::createXmlActors() 
+\hyperlink{class_xml_sequence_printer_xml_65c529c6ee2e9bbdfd1baa8a5a8fe1a5}{XmlSequencePrinterXml::createXmlActors()} 
 
-\hyperlink{class_xml_sequence_printer_xml_774ffc0433f81a35080033382a39d525}{XmlSequencePrinterXml::createXmlFooter()} \end{Desc}
+\hyperlink{class_xml_sequence_printer_xml_c983c2020c960b39e98ed05baec4aedd}{XmlSequencePrinterXml::createXmlFooter()} \end{Desc}
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_xml_sequence_printer_xml_774ffc0433f81a35080033382a39d525}{
+
+
+\begin{Code}\begin{verbatim}67     {
+68         $strXml = '';
+69         $strXml .= $this->createXmlHeader();
+70         $strXml .= $this->createXmlActors();
+71         $strXml .= $this->createXmlMessages();
+72         $strXml .= $this->createXmlFooter();
+73         return $strXml;
+74     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_printer_xml_65c529c6ee2e9bbdfd1baa8a5a8fe1a5}{
+\index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!createXmlActors@{createXmlActors}}
+\index{createXmlActors@{createXmlActors}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
+\subsubsection[{createXmlActors}]{\setlength{\rightskip}{0pt plus 5cm}createXmlActors ()}}
+\label{class_xml_sequence_printer_xml_65c529c6ee2e9bbdfd1baa8a5a8fe1a5}
+
+
+Create and return the actors slice of the xml
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+\$objActor \hyperlink{class_xml_sequence_actor}{XmlSequenceActor} 
+
+\begin{Code}\begin{verbatim}106     {
+107         $arrActors = $this->objXmlSequence->getActors();
+108         
+109         $strXmlActors = "<actors>\n";
+110         foreach( $arrActors as $objActor )
+111         {
+112             /** @var $objActor XmlSequenceActor */
+113             $strXmlActors .= "<actor ";
+114             $strXmlActors .= 'id="' . $objActor->getId() . '" ';
+115             $strXmlActors .= 'type="' . $objActor->getType() . '" ';
+116             $strXmlActors .= '>';
+117             $strXmlActors .= $objActor->getName() . ':' . $objActor->getClassName();
+118             $strXmlActors .= "</actor>\n";
+119         }
+120         $strXmlActors .= "</actors>\n";
+121         return $strXmlActors;
+122     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_printer_xml_c983c2020c960b39e98ed05baec4aedd}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!createXmlFooter@{createXmlFooter}}
 \index{createXmlFooter@{createXmlFooter}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{createXmlFooter}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterXml::createXmlFooter ()}}
-\label{class_xml_sequence_printer_xml_774ffc0433f81a35080033382a39d525}
+\subsubsection[{createXmlFooter}]{\setlength{\rightskip}{0pt plus 5cm}createXmlFooter ()}}
+\label{class_xml_sequence_printer_xml_c983c2020c960b39e98ed05baec4aedd}
 
 
 Create and return the footer slice of the xml
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_xml_sequence_printer_xml_534160e28dc8623f138311e4a73be081}{
+
+
+\begin{Code}\begin{verbatim}94     {
+95         return "
+96 </sequence>
+97         ";
+98     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_printer_xml_df4117a74e93f6f53e068d0859691cce}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!createXmlHeader@{createXmlHeader}}
 \index{createXmlHeader@{createXmlHeader}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{createXmlHeader}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterXml::createXmlHeader ()}}
-\label{class_xml_sequence_printer_xml_534160e28dc8623f138311e4a73be081}
+\subsubsection[{createXmlHeader}]{\setlength{\rightskip}{0pt plus 5cm}createXmlHeader ()}}
+\label{class_xml_sequence_printer_xml_df4117a74e93f6f53e068d0859691cce}
 
 
 Create and return the header slice of the xml
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_xml_sequence_printer_xml_1c628de89547bd7a6aa509748e562e67}{
+
+
+\begin{Code}\begin{verbatim}82     {
+83         return "
+84 <sequence>
+85         ";
+86     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_printer_xml_aab9daae34ba6e135b791ec3eaad7c7d}{
+\index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!createXmlMessages@{createXmlMessages}}
+\index{createXmlMessages@{createXmlMessages}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
+\subsubsection[{createXmlMessages}]{\setlength{\rightskip}{0pt plus 5cm}createXmlMessages ()}}
+\label{class_xml_sequence_printer_xml_aab9daae34ba6e135b791ec3eaad7c7d}
+
+
+Create and return the messages slice of the xml
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+\$objMessage \hyperlink{class_xml_sequence_message}{XmlSequenceMessage}
+
+\$objValue \hyperlink{class_xml_sequence_value}{XmlSequenceValue} 
+
+\begin{Code}\begin{verbatim}130     {
+131         $arrMessages = $this->objXmlSequence->getMessages();
+132         
+133         $strXmlMessages = "<messages>\n";
+134         foreach( $arrMessages as $objMessage )
+135         {
+136             /** @var $objMessage XmlSequenceMessage */
+137             
+138             $strXmlMessages .= "<message ";
+139             $strXmlMessages .= 'type="' . $objMessage->getType() . '" ';
+140             $strXmlMessages .= 'from="' . $objMessage->getActorFrom()->getId() . '" ';
+141             $strXmlMessages .= 'to="' . $objMessage->getActorTo()->getId() . '" ';
+142             $strXmlMessages .= 'text="' . htmlentities( $objMessage->getText() ) . '" ';
+143             $strXmlMessages .= '>';
+144 
+145             $strXmlMessages .= "<values>\n";
+146 
+147             $arrValues = $objMessage->getValues();
+148             foreach($arrValues as $objValue )
+149             {
+150                 /** @var $objValue XmlSequenceValue */
+151                 $strXmlMessages .= "<value ";
+152                 $strXmlMessages .= 'name = "' . $objValue->getName() . '" ';
+153                 $strXmlMessages .= 'value = "' . $objValue->getValue() . '" ';
+154                 $strXmlMessages .= "/>\n";
+155             }
+156 
+157             $strXmlMessages .= "</values>\n";
+158 
+159             $strXmlMessages .= "</message>";
+160         }
+161         $strXmlMessages .= "</messages>\n";
+162         return $strXmlMessages;
+163     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_printer_xml_c93fbec81f07e5d15f80db907e63dc10}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!getInstance@{getInstance}}
 \index{getInstance@{getInstance}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static XmlSequencePrinterXml::getInstance ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
-\label{class_xml_sequence_printer_xml_1c628de89547bd7a6aa509748e562e67}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static getInstance ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_xml_sequence_printer_xml_c93fbec81f07e5d15f80db907e63dc10}
 
 
 Return the singleton of the \hyperlink{class_xml_sequence_printer_xml}{XmlSequencePrinterXml}
 
 \begin{Desc}
-\item[See also:]\hyperlink{interface_xml_sequence_printer_interface_d488a9fe62e4e3018e482d31497d5e99}{XmlSequencePrinterInterface::getInstance} \end{Desc}
+\item[See also:]\hyperlink{interface_xml_sequence_printer_interface_c93fbec81f07e5d15f80db907e63dc10}{XmlSequencePrinterInterface::getInstance} \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_xml_sequence_printer_xml}{XmlSequencePrinterXml} \end{Desc}
 
 
-Implements \hyperlink{interface_xml_sequence_printer_interface_d488a9fe62e4e3018e482d31497d5e99}{XmlSequencePrinterInterface}.\hypertarget{class_xml_sequence_printer_xml_7e88c479f35acfc1ce0f053c4dbadb1b}{
+Implements \hyperlink{interface_xml_sequence_printer_interface_c93fbec81f07e5d15f80db907e63dc10}{XmlSequencePrinterInterface}.
+
+\begin{Code}\begin{verbatim}37         {
+38                 if( self::$objInstance == null )
+39                 {
+40                         self::$objInstance = new XmlSequencePrinterXml();
+41                 }
+42                 return self::$objInstance;
+43         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_printer_xml_7a8a4630e9f25847da0a6de87a5ab7e0}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!perform@{perform}}
 \index{perform@{perform}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{perform}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterXml::perform ({\bf XmlSequence} \$ {\em objXmlSequence})}}
-\label{class_xml_sequence_printer_xml_7e88c479f35acfc1ce0f053c4dbadb1b}
+\subsubsection[{perform}]{\setlength{\rightskip}{0pt plus 5cm}perform ({\bf XmlSequence} \$ {\em objXmlSequence})}}
+\label{class_xml_sequence_printer_xml_7a8a4630e9f25847da0a6de87a5ab7e0}
 
 
 Perfom the print process
@@ -111,24 +260,42 @@ Perfom the print process
 \item[Returns:]mixer \end{Desc}
 
 
-Implements \hyperlink{interface_xml_sequence_printer_interface_68a8066e69c402d49dd0a16a22cfcb6b}{XmlSequencePrinterInterface}.
+Implements \hyperlink{interface_xml_sequence_printer_interface_7a8a4630e9f25847da0a6de87a5ab7e0}{XmlSequencePrinterInterface}.
+
+\begin{Code}\begin{verbatim}53         {
+54                 $this->objXmlSequence = $objXmlSequence;
+55                 return $this->createXml();      
+56         }
+\end{verbatim}
+\end{Code}
+
+
+
 
 \subsection{Member Data Documentation}
-\hypertarget{class_xml_sequence_printer_xml_e633ac1e15f76e165c7a6d599de36231}{
+\hypertarget{class_xml_sequence_printer_xml_917d057900327b25608ed26c927eac3b}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!\$objInstance@{\$objInstance}}
 \index{\$objInstance@{\$objInstance}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{\$objInstance}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterXml::\$objInstance\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
-\label{class_xml_sequence_printer_xml_e633ac1e15f76e165c7a6d599de36231}
+\subsubsection[{\$objInstance}]{\setlength{\rightskip}{0pt plus 5cm}\$objInstance\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{class_xml_sequence_printer_xml_917d057900327b25608ed26c927eac3b}
 
 
-\hypertarget{class_xml_sequence_printer_xml_c24cec88eff41ddb99b215601cd6f5d8}{
+Singleton of the \hyperlink{class_xml_sequence_printer_xml}{XmlSequencePrinterXml}
+
+\begin{Desc}
+\item[See also:]XmlSequencePrinterInterface::\$objInstance\end{Desc}
+\hyperlink{class_xml_sequence_printer_xml}{XmlSequencePrinterXml} \hypertarget{class_xml_sequence_printer_xml_eefa469c1b13fe1fec040c910b720034}{
 \index{XmlSequencePrinterXml@{XmlSequencePrinterXml}!\$objXmlSequence@{\$objXmlSequence}}
 \index{\$objXmlSequence@{\$objXmlSequence}!XmlSequencePrinterXml@{XmlSequencePrinterXml}}
-\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterXml::\$objXmlSequence\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_printer_xml_c24cec88eff41ddb99b215601cd6f5d8}
+\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}\$objXmlSequence\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_xml_eefa469c1b13fe1fec040c910b720034}
 
 
+xml sequence object what will be print
 
+\begin{Desc}
+\item[See also:]XmlSequencePrinterInterface-$>$objXmlSequence\end{Desc}
+\hyperlink{class_xml_sequence}{XmlSequence} 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}
 \item 

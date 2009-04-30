@@ -5,48 +5,65 @@
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_house_f04781e06715dc18b8508aa711464239}{setType} (\$strType)
+\hyperlink{class_house_48d409343c54e747174ffaf5911b2cd9}{setType} (\$strType)
 \item 
-\hyperlink{class_house_5da805a230c3e1d39f42d30c81a3f5b3}{getType} ()
+\hyperlink{class_house_830b5c75df72b32396701bc563fbe3c7}{getType} ()
 \item 
-\hyperlink{class_house_9f0a5688b9788b4f3bd482c97d3edfe0}{colapse} ()
+\hyperlink{class_house_cd0f1de87d37a838789035eaf58f17b0}{colapse} ()
 \item 
-\hyperlink{class_house_b1156bf34e22cdd3f365f2fa05b0cc2a}{isColapsed} ()
+\hyperlink{class_house_17f029203fb995258650c19e2616e669}{isColapsed} ()
 \item 
-\hyperlink{class_house_4e3e7de303a5afc31c94c64ba2ca01ed}{setPig} (\hyperlink{class_little_pig}{LittlePig} \$objPig)
+\hyperlink{class_house_5fbf3e8f1af77b77aba13d24cd3218e0}{setPig} (\hyperlink{class_little_pig}{LittlePig} \$objPig)
 \item 
-\hyperlink{class_house_a497d8ab1b49d9fa1839acd685060b7f}{getPig} ()
+\hyperlink{class_house_6b0a38021f87bca50710aba818be2809}{getPig} ()
 \item 
-\hyperlink{class_house_a2c980ac425350397d213cdfbda269e8}{getBlowBy} (\hyperlink{class_wolf}{Wolf} \$objWolf)
+\hyperlink{class_house_20552b3b737f2189821f0362e2bd9cee}{getBlowBy} (\hyperlink{class_wolf}{Wolf} \$objWolf)
 \end{CompactItemize}
 \subsection*{Protected Attributes}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_house_81ebefceb0669e3fe446c4008c2a9a89}{\$strType}
+\hyperlink{class_house_ac9a08cb422ab9a398d451299b054e28}{\$strType}
 \item 
-\hyperlink{class_house_93c73a3dfd04bda657112823d0e7137e}{\$objPig}
+\hyperlink{class_house_eeadc4737b5ad49aa0a56c7bbbafdffe}{\$objPig}
 \item 
-\hyperlink{class_house_34fc64c5c784bbcaf81168f9d5e051c3}{\$booIsColapsed} = false
+\hyperlink{class_house_2eaf201bec0ce5594be8a5eb8e71b5b9}{\$booIsColapsed} = false
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+\hyperlink{class_house}{House} of the little pigs to the example of the code to diagram
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_house_9f0a5688b9788b4f3bd482c97d3edfe0}{
+\hypertarget{class_house_cd0f1de87d37a838789035eaf58f17b0}{
 \index{House@{House}!colapse@{colapse}}
 \index{colapse@{colapse}!House@{House}}
-\subsubsection[{colapse}]{\setlength{\rightskip}{0pt plus 5cm}House::colapse ()}}
-\label{class_house_9f0a5688b9788b4f3bd482c97d3edfe0}
+\subsubsection[{colapse}]{\setlength{\rightskip}{0pt plus 5cm}colapse ()}}
+\label{class_house_cd0f1de87d37a838789035eaf58f17b0}
 
 
 Make the house colapse
 
 \begin{Desc}
 \item[Returns:]\hyperlink{class_house}{House} me \end{Desc}
-\hypertarget{class_house_a2c980ac425350397d213cdfbda269e8}{
+
+
+\begin{Code}\begin{verbatim}69     {
+70         $this->booIsColapsed = true;
+71         return $this;
+72     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_house_20552b3b737f2189821f0362e2bd9cee}{
 \index{House@{House}!getBlowBy@{getBlowBy}}
 \index{getBlowBy@{getBlowBy}!House@{House}}
-\subsubsection[{getBlowBy}]{\setlength{\rightskip}{0pt plus 5cm}House::getBlowBy ({\bf Wolf} \$ {\em objWolf})}}
-\label{class_house_a2c980ac425350397d213cdfbda269e8}
+\subsubsection[{getBlowBy}]{\setlength{\rightskip}{0pt plus 5cm}getBlowBy ({\bf Wolf} \$ {\em objWolf})}}
+\label{class_house_20552b3b737f2189821f0362e2bd9cee}
 
 
 Receive a blow from the wolf.
@@ -62,11 +79,28 @@ Return {\tt true} if the house is colapsed and {\tt false} if not
 \end{Desc}
 \begin{Desc}
 \item[Returns:]boolean \end{Desc}
-\hypertarget{class_house_a497d8ab1b49d9fa1839acd685060b7f}{
+
+
+\begin{Code}\begin{verbatim}128     {
+129         if( $this->getType() == "Brick" )
+130         {
+131             $this->getPig()->wakeUpBy( $objWolf );
+132         }
+133         else
+134         {
+135             $this->colapse();
+136         }
+137         return $this->isColapsed();
+138     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_house_6b0a38021f87bca50710aba818be2809}{
 \index{House@{House}!getPig@{getPig}}
 \index{getPig@{getPig}!House@{House}}
-\subsubsection[{getPig}]{\setlength{\rightskip}{0pt plus 5cm}House::getPig ()}}
-\label{class_house_a497d8ab1b49d9fa1839acd685060b7f}
+\subsubsection[{getPig}]{\setlength{\rightskip}{0pt plus 5cm}getPig ()}}
+\label{class_house_6b0a38021f87bca50710aba818be2809}
 
 
 Get the little pig onwer of the house
@@ -77,11 +111,20 @@ Get the little pig onwer of the house
 House-$>$objPig \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_little_pig}{LittlePig} \end{Desc}
-\hypertarget{class_house_5da805a230c3e1d39f42d30c81a3f5b3}{
+
+
+\begin{Code}\begin{verbatim}107     {
+108         return $this->objPig;
+109     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_house_830b5c75df72b32396701bc563fbe3c7}{
 \index{House@{House}!getType@{getType}}
 \index{getType@{getType}!House@{House}}
-\subsubsection[{getType}]{\setlength{\rightskip}{0pt plus 5cm}House::getType ()}}
-\label{class_house_5da805a230c3e1d39f42d30c81a3f5b3}
+\subsubsection[{getType}]{\setlength{\rightskip}{0pt plus 5cm}getType ()}}
+\label{class_house_830b5c75df72b32396701bc563fbe3c7}
 
 
 get the type of the house
@@ -92,28 +135,46 @@ get the type of the house
 House-$>$strType \end{Desc}
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_house_b1156bf34e22cdd3f365f2fa05b0cc2a}{
+
+
+\begin{Code}\begin{verbatim}59     {
+60         return $this->strType;
+61     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_house_17f029203fb995258650c19e2616e669}{
 \index{House@{House}!isColapsed@{isColapsed}}
 \index{isColapsed@{isColapsed}!House@{House}}
-\subsubsection[{isColapsed}]{\setlength{\rightskip}{0pt plus 5cm}House::isColapsed ()}}
-\label{class_house_b1156bf34e22cdd3f365f2fa05b0cc2a}
+\subsubsection[{isColapsed}]{\setlength{\rightskip}{0pt plus 5cm}isColapsed ()}}
+\label{class_house_17f029203fb995258650c19e2616e669}
 
 
 Return {\tt true} if the house is colapsed and {\tt false} if not
 
 \begin{Desc}
 \item[Returns:]boolean \end{Desc}
-\hypertarget{class_house_4e3e7de303a5afc31c94c64ba2ca01ed}{
+
+
+\begin{Code}\begin{verbatim}81     {
+82         return $this->booIsColapsed;
+83     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_house_5fbf3e8f1af77b77aba13d24cd3218e0}{
 \index{House@{House}!setPig@{setPig}}
 \index{setPig@{setPig}!House@{House}}
-\subsubsection[{setPig}]{\setlength{\rightskip}{0pt plus 5cm}House::setPig ({\bf LittlePig} \$ {\em objPig})}}
-\label{class_house_4e3e7de303a5afc31c94c64ba2ca01ed}
+\subsubsection[{setPig}]{\setlength{\rightskip}{0pt plus 5cm}setPig ({\bf LittlePig} \$ {\em objPig})}}
+\label{class_house_5fbf3e8f1af77b77aba13d24cd3218e0}
 
 
 Set the little pig owner of the house
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_house_a497d8ab1b49d9fa1839acd685060b7f}{House::getPig()} 
+\item[See also:]\hyperlink{class_house_6b0a38021f87bca50710aba818be2809}{House::getPig()} 
 
 House-$>$objPig \end{Desc}
 \begin{Desc}
@@ -123,17 +184,27 @@ House-$>$objPig \end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_house}{House} me \end{Desc}
-\hypertarget{class_house_f04781e06715dc18b8508aa711464239}{
+
+
+\begin{Code}\begin{verbatim}94     {
+95         $this->objPig = $objPig;
+96         return $this;
+97     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_house_48d409343c54e747174ffaf5911b2cd9}{
 \index{House@{House}!setType@{setType}}
 \index{setType@{setType}!House@{House}}
-\subsubsection[{setType}]{\setlength{\rightskip}{0pt plus 5cm}House::setType (\$ {\em strType})}}
-\label{class_house_f04781e06715dc18b8508aa711464239}
+\subsubsection[{setType}]{\setlength{\rightskip}{0pt plus 5cm}setType (\$ {\em strType})}}
+\label{class_house_48d409343c54e747174ffaf5911b2cd9}
 
 
 Set the type of the house
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_house_5da805a230c3e1d39f42d30c81a3f5b3}{House::getType()} 
+\item[See also:]\hyperlink{class_house_830b5c75df72b32396701bc563fbe3c7}{House::getType()} 
 
 House-$>$strType \end{Desc}
 \begin{Desc}
@@ -145,29 +216,45 @@ House-$>$strType \end{Desc}
 \item[Returns:]\hyperlink{class_house}{House} me \end{Desc}
 
 
+\begin{Code}\begin{verbatim}46     {
+47         $this->strType = $strType;
+48         return $this;
+49     }
+\end{verbatim}
+\end{Code}
+
+
+
+
 \subsection{Member Data Documentation}
-\hypertarget{class_house_34fc64c5c784bbcaf81168f9d5e051c3}{
+\hypertarget{class_house_2eaf201bec0ce5594be8a5eb8e71b5b9}{
 \index{House@{House}!\$booIsColapsed@{\$booIsColapsed}}
 \index{\$booIsColapsed@{\$booIsColapsed}!House@{House}}
-\subsubsection[{\$booIsColapsed}]{\setlength{\rightskip}{0pt plus 5cm}House::\$booIsColapsed = false\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_house_34fc64c5c784bbcaf81168f9d5e051c3}
+\subsubsection[{\$booIsColapsed}]{\setlength{\rightskip}{0pt plus 5cm}\$booIsColapsed = false\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_house_2eaf201bec0ce5594be8a5eb8e71b5b9}
 
 
-\hypertarget{class_house_93c73a3dfd04bda657112823d0e7137e}{
+This controlls if the house has colapsed
+
+boolean \hypertarget{class_house_eeadc4737b5ad49aa0a56c7bbbafdffe}{
 \index{House@{House}!\$objPig@{\$objPig}}
 \index{\$objPig@{\$objPig}!House@{House}}
-\subsubsection[{\$objPig}]{\setlength{\rightskip}{0pt plus 5cm}House::\$objPig\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_house_93c73a3dfd04bda657112823d0e7137e}
+\subsubsection[{\$objPig}]{\setlength{\rightskip}{0pt plus 5cm}\$objPig\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_house_eeadc4737b5ad49aa0a56c7bbbafdffe}
 
 
-\hypertarget{class_house_81ebefceb0669e3fe446c4008c2a9a89}{
+Pig owner of the house
+
+\hyperlink{class_little_pig}{LittlePig} \hypertarget{class_house_ac9a08cb422ab9a398d451299b054e28}{
 \index{House@{House}!\$strType@{\$strType}}
 \index{\$strType@{\$strType}!House@{House}}
-\subsubsection[{\$strType}]{\setlength{\rightskip}{0pt plus 5cm}House::\$strType\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_house_81ebefceb0669e3fe446c4008c2a9a89}
+\subsubsection[{\$strType}]{\setlength{\rightskip}{0pt plus 5cm}\$strType\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_house_ac9a08cb422ab9a398d451299b054e28}
 
 
+Type of the house
 
+string 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}
 \item 

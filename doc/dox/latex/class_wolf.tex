@@ -5,52 +5,100 @@
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_wolf_2f051de20068c32049b0b665b2482c46}{say} (\$strText)
+\hyperlink{class_wolf_0d2d86aa9b7de45757e2d29384b1e549}{say} (\$strText)
 \item 
-\hyperlink{class_wolf_784269c7a0366f57bd5641d6f8c33757}{huff} ()
+\hyperlink{class_wolf_5f459b17559a1eca24d746db4f77fac0}{huff} ()
 \item 
-\hyperlink{class_wolf_8ffe137382326ecef3081257c057794b}{puff} ()
+\hyperlink{class_wolf_b5eff6bb92e5551d9188160b85e5cc19}{puff} ()
 \item 
-\hyperlink{class_wolf_5143821e7add67a7b9cbfcbeed68e91d}{blowIt} (\hyperlink{class_house}{House} \$objHouse)
+\hyperlink{class_wolf_9aad8c39845a1148d9088c6c4249a5e6}{blowIt} (\hyperlink{class_house}{House} \$objHouse)
 \item 
-\hyperlink{class_wolf_0bd4604441af2204eae5db24b6665b74}{isKilled} ()
+\hyperlink{class_wolf_ec29070d2544b3cfe0447dcbc5e6c199}{isKilled} ()
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+\hyperlink{class_wolf}{Wolf} of the example of the code to diagram
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_wolf_5143821e7add67a7b9cbfcbeed68e91d}{
+\hypertarget{class_wolf_9aad8c39845a1148d9088c6c4249a5e6}{
 \index{Wolf@{Wolf}!blowIt@{blowIt}}
 \index{blowIt@{blowIt}!Wolf@{Wolf}}
-\subsubsection[{blowIt}]{\setlength{\rightskip}{0pt plus 5cm}Wolf::blowIt ({\bf House} \$ {\em objHouse})}}
-\label{class_wolf_5143821e7add67a7b9cbfcbeed68e91d}
+\subsubsection[{blowIt}]{\setlength{\rightskip}{0pt plus 5cm}blowIt ({\bf House} \$ {\em objHouse})}}
+\label{class_wolf_9aad8c39845a1148d9088c6c4249a5e6}
 
 
-\hyperlink{class_wolf}{Wolf} blow the house \hypertarget{class_wolf_784269c7a0366f57bd5641d6f8c33757}{
+\hyperlink{class_wolf}{Wolf} blow the house 
+
+\begin{Code}\begin{verbatim}48     {
+49         if( $objHouse->getBlowBy( $this ) )
+50         {
+51             $objPig = $objHouse->getPig();
+52             $objPig->isKilled();
+53             $objPig->isEaten();
+54         }
+55     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_wolf_5f459b17559a1eca24d746db4f77fac0}{
 \index{Wolf@{Wolf}!huff@{huff}}
 \index{huff@{huff}!Wolf@{Wolf}}
-\subsubsection[{huff}]{\setlength{\rightskip}{0pt plus 5cm}Wolf::huff ()}}
-\label{class_wolf_784269c7a0366f57bd5641d6f8c33757}
+\subsubsection[{huff}]{\setlength{\rightskip}{0pt plus 5cm}huff ()}}
+\label{class_wolf_5f459b17559a1eca24d746db4f77fac0}
 
 
-\hyperlink{class_wolf}{Wolf} buff \hypertarget{class_wolf_0bd4604441af2204eae5db24b6665b74}{
+\hyperlink{class_wolf}{Wolf} buff 
+
+\begin{Code}\begin{verbatim}32     {
+33 
+34     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_wolf_ec29070d2544b3cfe0447dcbc5e6c199}{
 \index{Wolf@{Wolf}!isKilled@{isKilled}}
 \index{isKilled@{isKilled}!Wolf@{Wolf}}
-\subsubsection[{isKilled}]{\setlength{\rightskip}{0pt plus 5cm}Wolf::isKilled ()}}
-\label{class_wolf_0bd4604441af2204eae5db24b6665b74}
+\subsubsection[{isKilled}]{\setlength{\rightskip}{0pt plus 5cm}isKilled ()}}
+\label{class_wolf_ec29070d2544b3cfe0447dcbc5e6c199}
 
 
-\hyperlink{class_wolf}{Wolf} is killed \hypertarget{class_wolf_8ffe137382326ecef3081257c057794b}{
+\hyperlink{class_wolf}{Wolf} is killed 
+
+\begin{Code}\begin{verbatim}61     {
+62         
+63     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_wolf_b5eff6bb92e5551d9188160b85e5cc19}{
 \index{Wolf@{Wolf}!puff@{puff}}
 \index{puff@{puff}!Wolf@{Wolf}}
-\subsubsection[{puff}]{\setlength{\rightskip}{0pt plus 5cm}Wolf::puff ()}}
-\label{class_wolf_8ffe137382326ecef3081257c057794b}
+\subsubsection[{puff}]{\setlength{\rightskip}{0pt plus 5cm}puff ()}}
+\label{class_wolf_b5eff6bb92e5551d9188160b85e5cc19}
 
 
-\hyperlink{class_wolf}{Wolf} puff \hypertarget{class_wolf_2f051de20068c32049b0b665b2482c46}{
+\hyperlink{class_wolf}{Wolf} puff 
+
+\begin{Code}\begin{verbatim}40     {
+41 
+42     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_wolf_0d2d86aa9b7de45757e2d29384b1e549}{
 \index{Wolf@{Wolf}!say@{say}}
 \index{say@{say}!Wolf@{Wolf}}
-\subsubsection[{say}]{\setlength{\rightskip}{0pt plus 5cm}Wolf::say (\$ {\em strText})}}
-\label{class_wolf_2f051de20068c32049b0b665b2482c46}
+\subsubsection[{say}]{\setlength{\rightskip}{0pt plus 5cm}say (\$ {\em strText})}}
+\label{class_wolf_0d2d86aa9b7de45757e2d29384b1e549}
 
 
 \hyperlink{class_wolf}{Wolf} say the received text
@@ -62,6 +110,16 @@
 \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_wolf}{Wolf} me \end{Desc}
+
+
+\begin{Code}\begin{verbatim}23     {
+24         print "wolf say: " . $strText . " <br/>\n";
+25         return $this;
+26     }
+\end{verbatim}
+\end{Code}
+
+
 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}

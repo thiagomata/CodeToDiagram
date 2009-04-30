@@ -11,48 +11,53 @@ Inheritance diagram for XmlSequenceFactoryXml::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_factory_xml_fcd133077830c5da893545402a045ddc}{setXml} (\$strXml)
+\hyperlink{class_xml_sequence_factory_xml_8ac34bd040fb3627c7b4ca12808d427f}{setXml} (\$strXml)
 \item 
-\hyperlink{class_xml_sequence_factory_xml_40c24f121f17fb47d4d5424db95a2f95}{getXml} ()
+\hyperlink{class_xml_sequence_factory_xml_1ff0576538bf186559839cada0449ddf}{getXml} ()
 \item 
-\hyperlink{class_xml_sequence_factory_xml_c1282bb7211c84aff732419317312152}{setXmlSequence} (\hyperlink{class_xml_sequence}{XmlSequence} \$objXmlSequence)
+\hyperlink{class_xml_sequence_factory_xml_65967fe6cc76b0c0b28aa39e9acffcab}{setXmlSequence} (\hyperlink{class_xml_sequence}{XmlSequence} \$objXmlSequence)
 \item 
-\hyperlink{class_xml_sequence_factory_xml_fba8de983895bb05857d75f9b26dd71a}{getXmlSequence} ()
+\hyperlink{class_xml_sequence_factory_xml_feb0ab0d5955fcae20ff5062fa59fd79}{getXmlSequence} ()
 \item 
-\hyperlink{class_xml_sequence_factory_xml_f9deb0d1efc6f6e726837251a5759bcc}{perform} ()
+\hyperlink{class_xml_sequence_factory_xml_469121070b5e6118f202517380558019}{perform} ()
 \end{CompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{CompactItemize}
 \item 
-static \hyperlink{class_xml_sequence_factory_xml_04cfad5bd111c3dd8f264e783ed91328}{getInstance} ()
+static \hyperlink{class_xml_sequence_factory_xml_c93fbec81f07e5d15f80db907e63dc10}{getInstance} ()
 \end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_factory_xml_7142e97b8bdea80ec8a3a72f1dbed6d8}{loadActors} ()
+\hyperlink{class_xml_sequence_factory_xml_390c089130460866b440b2f6f73dd136}{loadActors} ()
 \item 
-\hyperlink{class_xml_sequence_factory_xml_7b848e420882e9f8fd28979953f32f84}{loadMessages} ()
+\hyperlink{class_xml_sequence_factory_xml_589f548f18802f9a10d0eaca5cab970c}{loadMessages} ()
 \end{CompactItemize}
 \subsection*{Protected Attributes}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_factory_xml_1d865d45fe3869ce6fa4e04fb6abb67f}{\$objXmlSequence}
+\hyperlink{class_xml_sequence_factory_xml_eefa469c1b13fe1fec040c910b720034}{\$objXmlSequence}
 \item 
-\hyperlink{class_xml_sequence_factory_xml_f3fc8098a87d7549b61c2a8a39fdf38e}{\$objXml}
+\hyperlink{class_xml_sequence_factory_xml_bc4e6de2df0815964fa9983816b76475}{\$objXml}
 \end{CompactItemize}
 \subsection*{Static Protected Attributes}
 \begin{CompactItemize}
 \item 
-static \hyperlink{class_xml_sequence_factory_xml_9ca8b6656cdaf015c7016825782b81b1}{\$objInstance}
+static \hyperlink{class_xml_sequence_factory_xml_917d057900327b25608ed26c927eac3b}{\$objInstance}
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Factory what creates \hyperlink{class_xml_sequence}{XmlSequence} based into Xml Files \begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_xml_sequence_factory_xml_04cfad5bd111c3dd8f264e783ed91328}{
+\hypertarget{class_xml_sequence_factory_xml_c93fbec81f07e5d15f80db907e63dc10}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!getInstance@{getInstance}}
 \index{getInstance@{getInstance}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static XmlSequenceFactoryXml::getInstance ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
-\label{class_xml_sequence_factory_xml_04cfad5bd111c3dd8f264e783ed91328}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static getInstance ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_xml_sequence_factory_xml_c93fbec81f07e5d15f80db907e63dc10}
 
 
 Return the singleton of the \hyperlink{class_xml_sequence_factory_xml}{XmlSequenceFactoryXml}
@@ -61,11 +66,24 @@ Return the singleton of the \hyperlink{class_xml_sequence_factory_xml}{XmlSequen
 \item[Returns:]\hyperlink{class_xml_sequence_factory_xml}{XmlSequenceFactoryXml} \end{Desc}
 
 
-Implements \hyperlink{interface_xml_sequence_factory_interface_5ad765cdd7548f50459910554b46b015}{XmlSequenceFactoryInterface}.\hypertarget{class_xml_sequence_factory_xml_40c24f121f17fb47d4d5424db95a2f95}{
+Implements \hyperlink{interface_xml_sequence_factory_interface_c93fbec81f07e5d15f80db907e63dc10}{XmlSequenceFactoryInterface}.
+
+\begin{Code}\begin{verbatim}42         {
+43                 if( self::$objInstance == null )
+44                 {
+45                         self::$objInstance = new XmlSequenceFactoryXml();
+46                 }
+47                 return self::$objInstance;
+48         }               
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_1ff0576538bf186559839cada0449ddf}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!getXml@{getXml}}
 \index{getXml@{getXml}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{getXml}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::getXml ()}}
-\label{class_xml_sequence_factory_xml_40c24f121f17fb47d4d5424db95a2f95}
+\subsubsection[{getXml}]{\setlength{\rightskip}{0pt plus 5cm}getXml ()}}
+\label{class_xml_sequence_factory_xml_1ff0576538bf186559839cada0449ddf}
 
 
 Get the xml of the sequence object
@@ -81,55 +99,159 @@ XmlSequence::setXml( string ) \end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]SimpleXmlElement \end{Desc}
-\hypertarget{class_xml_sequence_factory_xml_fba8de983895bb05857d75f9b26dd71a}{
+
+
+\begin{Code}\begin{verbatim}74     {
+75         return $this->objXml;
+76     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_feb0ab0d5955fcae20ff5062fa59fd79}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!getXmlSequence@{getXmlSequence}}
 \index{getXmlSequence@{getXmlSequence}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{getXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::getXmlSequence ()}}
-\label{class_xml_sequence_factory_xml_fba8de983895bb05857d75f9b26dd71a}
+\subsubsection[{getXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}getXmlSequence ()}}
+\label{class_xml_sequence_factory_xml_feb0ab0d5955fcae20ff5062fa59fd79}
 
 
 get the xml sequence object
 
 \begin{Desc}
-\item[See also:]XmlSequenceFactoryInterface-$>$\hyperlink{class_xml_sequence_factory_xml_fba8de983895bb05857d75f9b26dd71a}{getXmlSequence()} \end{Desc}
+\item[See also:]XmlSequenceFactoryInterface-$>$\hyperlink{class_xml_sequence_factory_xml_feb0ab0d5955fcae20ff5062fa59fd79}{getXmlSequence()} \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_xml_sequence}{XmlSequence} \end{Desc}
 
 
-Implements \hyperlink{interface_xml_sequence_factory_interface_a6f31a5f6a768055644ddb62d101cbb6}{XmlSequenceFactoryInterface}.\hypertarget{class_xml_sequence_factory_xml_7142e97b8bdea80ec8a3a72f1dbed6d8}{
+Implements \hyperlink{interface_xml_sequence_factory_interface_feb0ab0d5955fcae20ff5062fa59fd79}{XmlSequenceFactoryInterface}.
+
+\begin{Code}\begin{verbatim}98     {
+99         return $this->objXmlSequence;   
+100     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_390c089130460866b440b2f6f73dd136}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!loadActors@{loadActors}}
 \index{loadActors@{loadActors}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{loadActors}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::loadActors ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_factory_xml_7142e97b8bdea80ec8a3a72f1dbed6d8}
+\subsubsection[{loadActors}]{\setlength{\rightskip}{0pt plus 5cm}loadActors ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_factory_xml_390c089130460866b440b2f6f73dd136}
 
 
-Load the xml file and based on it insert a list of actors into the \hyperlink{class_xml_sequence}{XmlSequence} Object \hypertarget{class_xml_sequence_factory_xml_7b848e420882e9f8fd28979953f32f84}{
+Load the xml file and based on it insert a list of actors into the \hyperlink{class_xml_sequence}{XmlSequence} Object 
+
+\begin{Code}\begin{verbatim}121     {
+122         $arrActors = $this->getXmlSequence()->getActors();
+123         
+124         foreach( $this->objXml->actors->actor as $xmlActor )
+125         {
+126             $intId = (integer)$xmlActor['id'];
+127             $strType = (string)$xmlActor['type'];
+128             $strName = (string)$xmlActor;
+129 
+130             $objActor = new XmlSequenceActor();
+131             $objActor->setId( $intId );
+132             $objActor->setType( $strType );
+133             $objActor->setName( $strName );
+134 
+135             $arrActors[ $objActor->getId() ] = $objActor;
+136         }
+137         ksort( $arrActors );
+138         $this->getXmlSequence()->setActors( $arrActors );
+139     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_589f548f18802f9a10d0eaca5cab970c}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!loadMessages@{loadMessages}}
 \index{loadMessages@{loadMessages}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{loadMessages}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::loadMessages ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_factory_xml_7b848e420882e9f8fd28979953f32f84}
+\subsubsection[{loadMessages}]{\setlength{\rightskip}{0pt plus 5cm}loadMessages ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_factory_xml_589f548f18802f9a10d0eaca5cab970c}
 
 
-Load the xml file and based on it insert a list of messages into the \hyperlink{class_xml_sequence}{XmlSequence} Object \hypertarget{class_xml_sequence_factory_xml_f9deb0d1efc6f6e726837251a5759bcc}{
+Load the xml file and based on it insert a list of messages into the \hyperlink{class_xml_sequence}{XmlSequence} Object 
+
+\begin{Code}\begin{verbatim}146     {
+147         $arrMessages = $this->getXmlSequence()->getMessages();
+148         $arrActors = $this->getXmlSequence()->getActors();
+149         
+150         foreach( $this->objXml->messages->message as $xmlMessage )
+151         {
+152             $intFrom    = (integer)$xmlMessage[ 'from' ];
+153             $intTo      = (integer)$xmlMessage[ 'to' ];
+154             $strType    = (string) $xmlMessage[ 'type' ];
+155             $strText = (string) $xmlMessage[ 'text' ];
+156 
+157             $objMessage = new XmlSequenceMessage();
+158             $objMessage->setType( $strType );
+159             $objMessage->setText( $strText );
+160 
+161            if( !array_key_exists( $intFrom , $arrActors ) )
+162             {
+163                 throw new Exception( ' Actor From ' . $intFrom . ' not Found ' );
+164             }
+165             $objMessage->setActorFrom( $arrActors[ $intFrom ] );
+166 
+167            if( !array_key_exists( $intTo , $arrActors ) )
+168             {
+169                 throw new Exception( ' Actor To ' . $intTo . ' not Found ' );
+170             }
+171             $objMessage->setActorTo( $arrActors[ $intTo ] );
+172 
+173             if( isset( $xmlMessage->values->value ) )
+174             foreach( $xmlMessage->values->value as $xmlValue )
+175             {
+176                 $strName = (string)$xmlValue['name'];
+177                 $strValue = (string)$xmlValue['value'];
+178                 $objValue = new XmlSequenceValue();
+179                 $objValue->setName( $strName );
+180                 $objValue->setValue( $strValue );
+181 
+182                 $objMessage->addValue( $objValue );
+183             }
+184 
+185             $arrMessages[] = $objMessage;
+186         }
+187         $this->getXmlSequence()->setMessages( $arrMessages );
+188     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_469121070b5e6118f202517380558019}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!perform@{perform}}
 \index{perform@{perform}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{perform}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::perform ()}}
-\label{class_xml_sequence_factory_xml_f9deb0d1efc6f6e726837251a5759bcc}
+\subsubsection[{perform}]{\setlength{\rightskip}{0pt plus 5cm}perform ()}}
+\label{class_xml_sequence_factory_xml_469121070b5e6118f202517380558019}
 
 
 create a xml sequence based into its configurations
 
 \begin{Desc}
-\item[See also:]XmlSequenceFactoryInterface-$>$\hyperlink{class_xml_sequence_factory_xml_f9deb0d1efc6f6e726837251a5759bcc}{perform()} \end{Desc}
+\item[See also:]XmlSequenceFactoryInterface-$>$\hyperlink{class_xml_sequence_factory_xml_469121070b5e6118f202517380558019}{perform()} \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_xml_sequence}{XmlSequence} \end{Desc}
 
 
-Implements \hyperlink{interface_xml_sequence_factory_interface_c06f18d6c688317b41477c315f7008f7}{XmlSequenceFactoryInterface}.\hypertarget{class_xml_sequence_factory_xml_fcd133077830c5da893545402a045ddc}{
+Implements \hyperlink{interface_xml_sequence_factory_interface_469121070b5e6118f202517380558019}{XmlSequenceFactoryInterface}.
+
+\begin{Code}\begin{verbatim}109     {
+110         $this->setXmlSequence( new XmlSequence() );
+111         $this->loadActors();
+112         $this->loadMessages();
+113         return $this->getXmlSequence();
+114     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_8ac34bd040fb3627c7b4ca12808d427f}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!setXml@{setXml}}
 \index{setXml@{setXml}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{setXml}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::setXml (\$ {\em strXml})}}
-\label{class_xml_sequence_factory_xml_fcd133077830c5da893545402a045ddc}
+\subsubsection[{setXml}]{\setlength{\rightskip}{0pt plus 5cm}setXml (\$ {\em strXml})}}
+\label{class_xml_sequence_factory_xml_8ac34bd040fb3627c7b4ca12808d427f}
 
 
 Set the xml of the sequence object
@@ -145,11 +267,21 @@ XmlSequence::getXml() \end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_xml_sequence_factory_xml}{XmlSequenceFactoryXml} me \end{Desc}
-\hypertarget{class_xml_sequence_factory_xml_c1282bb7211c84aff732419317312152}{
+
+
+\begin{Code}\begin{verbatim}60     {
+61         $this->objXml = simplexml_load_string( $strXml );
+62         return $this;
+63     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_factory_xml_65967fe6cc76b0c0b28aa39e9acffcab}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!setXmlSequence@{setXmlSequence}}
 \index{setXmlSequence@{setXmlSequence}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{setXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::setXmlSequence ({\bf XmlSequence} \$ {\em objXmlSequence})}}
-\label{class_xml_sequence_factory_xml_c1282bb7211c84aff732419317312152}
+\subsubsection[{setXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}setXmlSequence ({\bf XmlSequence} \$ {\em objXmlSequence})}}
+\label{class_xml_sequence_factory_xml_65967fe6cc76b0c0b28aa39e9acffcab}
 
 
 set the xml sequence object
@@ -165,31 +297,51 @@ set the xml sequence object
 \item[Returns:]\hyperlink{class_xml_sequence_factory_xml}{XmlSequenceFactoryXml} me \end{Desc}
 
 
-Implements \hyperlink{interface_xml_sequence_factory_interface_8fbb97bc3fbf487c357f5a255a3a2357}{XmlSequenceFactoryInterface}.
+Implements \hyperlink{interface_xml_sequence_factory_interface_65967fe6cc76b0c0b28aa39e9acffcab}{XmlSequenceFactoryInterface}.
+
+\begin{Code}\begin{verbatim}86     {
+87         $this->objXmlSequence = $objXmlSequence;        
+88         return $this;
+89     }
+\end{verbatim}
+\end{Code}
+
+
+
 
 \subsection{Member Data Documentation}
-\hypertarget{class_xml_sequence_factory_xml_9ca8b6656cdaf015c7016825782b81b1}{
+\hypertarget{class_xml_sequence_factory_xml_917d057900327b25608ed26c927eac3b}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!\$objInstance@{\$objInstance}}
 \index{\$objInstance@{\$objInstance}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{\$objInstance}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::\$objInstance\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
-\label{class_xml_sequence_factory_xml_9ca8b6656cdaf015c7016825782b81b1}
+\subsubsection[{\$objInstance}]{\setlength{\rightskip}{0pt plus 5cm}\$objInstance\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{class_xml_sequence_factory_xml_917d057900327b25608ed26c927eac3b}
 
 
-\hypertarget{class_xml_sequence_factory_xml_f3fc8098a87d7549b61c2a8a39fdf38e}{
+Singleton of the \hyperlink{class_xml_sequence_factory_xml}{XmlSequenceFactoryXml}
+
+\begin{Desc}
+\item[See also:]XmlSequenceFactoryInterface::\$objInstance\end{Desc}
+\hyperlink{class_xml_sequence_factory_xml}{XmlSequenceFactoryXml} \hypertarget{class_xml_sequence_factory_xml_bc4e6de2df0815964fa9983816b76475}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!\$objXml@{\$objXml}}
 \index{\$objXml@{\$objXml}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{\$objXml}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::\$objXml\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_factory_xml_f3fc8098a87d7549b61c2a8a39fdf38e}
+\subsubsection[{\$objXml}]{\setlength{\rightskip}{0pt plus 5cm}\$objXml\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_factory_xml_bc4e6de2df0815964fa9983816b76475}
 
 
-\hypertarget{class_xml_sequence_factory_xml_1d865d45fe3869ce6fa4e04fb6abb67f}{
+Simple Xml element used to access information from a xml
+
+SimpleXmlElement \hypertarget{class_xml_sequence_factory_xml_eefa469c1b13fe1fec040c910b720034}{
 \index{XmlSequenceFactoryXml@{XmlSequenceFactoryXml}!\$objXmlSequence@{\$objXmlSequence}}
 \index{\$objXmlSequence@{\$objXmlSequence}!XmlSequenceFactoryXml@{XmlSequenceFactoryXml}}
-\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceFactoryXml::\$objXmlSequence\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_factory_xml_1d865d45fe3869ce6fa4e04fb6abb67f}
+\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}\$objXmlSequence\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_factory_xml_eefa469c1b13fe1fec040c910b720034}
 
 
+Xml Sequence Object in factory
 
+\begin{Desc}
+\item[See also:]XmlSequenceFactoryInterface-$>$objXmlSequence\end{Desc}
+\hyperlink{class_xml_sequence}{XmlSequence} 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}
 \item 

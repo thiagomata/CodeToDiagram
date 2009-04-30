@@ -11,21 +11,30 @@ Inheritance diagram for ExtendedReflectionFunction::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_extended_reflection_function_cfebbc64ac5e1b92c4a95c44771989c2}{getParameters} ()
+\hyperlink{class_extended_reflection_function_015cb52e5774a1972d296c9694d2a3c3}{getParameters} ()
 \end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_extended_reflection_function_de07ccd452e54a7c8878fc20d215831e}{createExtendedReflectionParameter} (ReflectionParameter \$objReflectionParameter)
+\hyperlink{class_extended_reflection_function_98ceb248f2b535a3a83ac2e7990e0c1f}{createExtendedReflectionParameter} (ReflectionParameter \$objReflectionParameter)
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Class what make possible and easy extend reflection function
+
+Reflection classes can be a problem because the reflection methods what return objects will return the original reflection object and not the extended version of it. So it is necessary to create methods what convert the original methods to return the extended version of the objects.
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_extended_reflection_function_de07ccd452e54a7c8878fc20d215831e}{
+\hypertarget{class_extended_reflection_function_98ceb248f2b535a3a83ac2e7990e0c1f}{
 \index{ExtendedReflectionFunction@{ExtendedReflectionFunction}!createExtendedReflectionParameter@{createExtendedReflectionParameter}}
 \index{createExtendedReflectionParameter@{createExtendedReflectionParameter}!ExtendedReflectionFunction@{ExtendedReflectionFunction}}
-\subsubsection[{createExtendedReflectionParameter}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionFunction::createExtendedReflectionParameter (ReflectionParameter \$ {\em objReflectionParameter})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_extended_reflection_function_de07ccd452e54a7c8878fc20d215831e}
+\subsubsection[{createExtendedReflectionParameter}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionParameter (ReflectionParameter \$ {\em objReflectionParameter})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_extended_reflection_function_98ceb248f2b535a3a83ac2e7990e0c1f}
 
 
 Convert a reflection parameter into a extended reflection parameter
@@ -41,17 +50,42 @@ This is the method what should be replaced when this class be extended.
 \item[Returns:]\hyperlink{class_extended_reflection_parameter}{ExtendedReflectionParameter} \end{Desc}
 
 
-Reimplemented in \hyperlink{class_code_instrumentation_function_3d95491ac661050b8e8ecedfaf3c8359}{CodeInstrumentationFunction}, and \hyperlink{class_code_reflection_function_7ce14d3f6e8579332f226d85fb439b80}{CodeReflectionFunction}.\hypertarget{class_extended_reflection_function_cfebbc64ac5e1b92c4a95c44771989c2}{
+Reimplemented in \hyperlink{class_code_instrumentation_function_98ceb248f2b535a3a83ac2e7990e0c1f}{CodeInstrumentationFunction}, and \hyperlink{class_code_reflection_function_98ceb248f2b535a3a83ac2e7990e0c1f}{CodeReflectionFunction}.
+
+\begin{Code}\begin{verbatim}48         {
+49                 return new ExtendedReflectionParameter( $this->getDeclaringClass()->getName() , $this->getName() , $objReflectionParameter->getName() );
+50         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_extended_reflection_function_015cb52e5774a1972d296c9694d2a3c3}{
 \index{ExtendedReflectionFunction@{ExtendedReflectionFunction}!getParameters@{getParameters}}
 \index{getParameters@{getParameters}!ExtendedReflectionFunction@{ExtendedReflectionFunction}}
-\subsubsection[{getParameters}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionFunction::getParameters ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
-\label{class_extended_reflection_function_cfebbc64ac5e1b92c4a95c44771989c2}
+\subsubsection[{getParameters}]{\setlength{\rightskip}{0pt plus 5cm}getParameters ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_function_015cb52e5774a1972d296c9694d2a3c3}
 
 
 Return a list of the parameters of the reflected function
 
 \begin{Desc}
 \item[Returns:]\hyperlink{class_extended_reflection_parameter}{ExtendedReflectionParameter}\mbox{[}\mbox{]} \end{Desc}
+
+
+\begin{Code}\begin{verbatim}27     {
+28         $arrReflectionParameters = parent::getParameters();
+29         $arrExtendedParameters = array();
+30                 foreach( $arrReflectionParameters as $objReflectionParameter )
+31                 {
+32                         /*@var $objReflectionParameter ReflectionParameter */
+33                         $arrExtendedParameteres[] = $this->createExtendedReflectionParameter( $objReflectionParameter );
+34                 }
+35                 return $arrExtendedParameters;
+36     }
+\end{verbatim}
+\end{Code}
+
+
 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}

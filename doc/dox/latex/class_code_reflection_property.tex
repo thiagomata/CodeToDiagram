@@ -11,23 +11,30 @@ Inheritance diagram for CodeReflectionProperty::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_reflection_property_6f0cc1d1c9d11ca1494665d52b8322d0}{getDefaultValue} ()
+\hyperlink{class_code_reflection_property_f9b9401c63918169457fe8516324950f}{getDefaultValue} ()
 \item 
-\hyperlink{class_code_reflection_property_cb9c0d02fbb50cfe8d8b023b5b07a25c}{getCode} ()
+\hyperlink{class_code_reflection_property_b5e24da53b4a0d0848b18c1e832f47ff}{getCode} ()
 \end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_reflection_property_ada66f395b16622378963471801f11ad}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\hyperlink{class_code_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Code Reflection Property it is a code reflection version of the reflection property
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_code_reflection_property_ada66f395b16622378963471801f11ad}{
+\hypertarget{class_code_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{
 \index{CodeReflectionProperty@{CodeReflectionProperty}!createExtendedReflectionClass@{createExtendedReflectionClass}}
 \index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeReflectionProperty@{CodeReflectionProperty}}
-\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionProperty::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_reflection_property_ada66f395b16622378963471801f11ad}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}
 
 
 Convert a reflection class into a extended reflection class
@@ -43,20 +50,62 @@ This is the method what should be replaced when this class be extended.
 \item[Returns:]\hyperlink{class_extended_reflection_class}{ExtendedReflectionClass} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_extended_reflection_property_05c178f6fef194d390db8312f9595d93}{ExtendedReflectionProperty}.
+Reimplemented from \hyperlink{class_extended_reflection_property_6b56ec198bc6a5b5a72076e4e7c19e29}{ExtendedReflectionProperty}.
 
-Reimplemented in \hyperlink{class_code_instrumentation_property_192bcd477b39d69274c9a7db05cc606d}{CodeInstrumentationProperty}.\hypertarget{class_code_reflection_property_cb9c0d02fbb50cfe8d8b023b5b07a25c}{
+Reimplemented in \hyperlink{class_code_instrumentation_property_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeInstrumentationProperty}.
+
+\begin{Code}\begin{verbatim}84         {
+85                 return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
+86         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_property_b5e24da53b4a0d0848b18c1e832f47ff}{
 \index{CodeReflectionProperty@{CodeReflectionProperty}!getCode@{getCode}}
 \index{getCode@{getCode}!CodeReflectionProperty@{CodeReflectionProperty}}
-\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionProperty::getCode ()}}
-\label{class_code_reflection_property_cb9c0d02fbb50cfe8d8b023b5b07a25c}
+\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}getCode ()}}
+\label{class_code_reflection_property_b5e24da53b4a0d0848b18c1e832f47ff}
 
 
-\hypertarget{class_code_reflection_property_6f0cc1d1c9d11ca1494665d52b8322d0}{
+
+
+\begin{Code}\begin{verbatim}55         {
+56 
+57         $strCode = "";
+58                 $strCode .= CorujaStringManipulation::retab( $this->getDocComment() , 1 );
+59                 if( $this->isPrivate() )
+60                 {
+61                         $strCode .= " private ";
+62                 }
+63                 if( $this->isProtected())
+64                 {
+65                         $strCode .= " protected ";
+66                 }
+67                 if( $this->isPublic())
+68                 {
+69                         $strCode .= " public ";
+70                 }
+71                 if( $this->isStatic() )
+72                 {
+73                         $strCode .= " static ";
+74                 }
+75                 $strCode .= '$'. $this->getName();
+76 
+77         $strCode .= ' = ' . var_export( $this->getDefaultValue() , true );
+78                 $strCode .= ";" . "\n";
+79 
+80                 return $strCode;
+81         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_property_f9b9401c63918169457fe8516324950f}{
 \index{CodeReflectionProperty@{CodeReflectionProperty}!getDefaultValue@{getDefaultValue}}
 \index{getDefaultValue@{getDefaultValue}!CodeReflectionProperty@{CodeReflectionProperty}}
-\subsubsection[{getDefaultValue}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionProperty::getDefaultValue ()}}
-\label{class_code_reflection_property_6f0cc1d1c9d11ca1494665d52b8322d0}
+\subsubsection[{getDefaultValue}]{\setlength{\rightskip}{0pt plus 5cm}getDefaultValue ()}}
+\label{class_code_reflection_property_f9b9401c63918169457fe8516324950f}
 
 
 Get the default value of the property.
@@ -67,6 +116,36 @@ getDafaultValue don't exist into reflection  unable to get default value on cons
 \item[\hyperlink{todo__todo000003}{Todo}]get the default value of the attribute reading direct from the file \end{Desc}
 \begin{Desc}
 \item[Returns:]mix \end{Desc}
+
+
+\begin{Code}\begin{verbatim}30     {
+31         /*
+32         try
+33         {
+34             $objParent = $this->getDeclaringClass();
+35             $strClassName = $objParent->getClassName();
+36             $objTemp = new $strClassName();
+37             $arrTemp = (array)$objTemp;
+38             $arrNew = array();
+39             foreach( $arrTemp as $strKeyTemp => $mixValue )
+40             {
+41                 $strNewKey = substr( $strKeyTemp , 3 );
+42                 $arrNew[ $strNewKey ] = $mixValue;
+43             }
+44             return $arrNew[ $this->getName() ];
+45         }catch( Exception $objException )
+46         {
+47             // error on init object //
+48             return null;
+49         }
+50          * *
+51          */
+52         return null;
+53     }
+\end{verbatim}
+\end{Code}
+
+
 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}

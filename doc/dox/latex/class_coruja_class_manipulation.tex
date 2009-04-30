@@ -1,0 +1,119 @@
+\hypertarget{class_coruja_class_manipulation}{
+\section{CorujaClassManipulation Class Reference}
+\label{class_coruja_class_manipulation}\index{CorujaClassManipulation@{CorujaClassManipulation}}
+}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_coruja_class_manipulation_23c359d165b1c05df05d804b29f5abec}{getClassNameFromClassDefinition} (\$strClassDefinition)
+\item 
+static \hyperlink{class_coruja_class_manipulation_51aa4116399c4188565dcdc16a1d71b6}{getNamespaceFromClassDefinition} (\$strClassDefiniton)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Class for manipulation of classes 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_coruja_class_manipulation_23c359d165b1c05df05d804b29f5abec}{
+\index{CorujaClassManipulation@{CorujaClassManipulation}!getClassNameFromClassDefinition@{getClassNameFromClassDefinition}}
+\index{getClassNameFromClassDefinition@{getClassNameFromClassDefinition}!CorujaClassManipulation@{CorujaClassManipulation}}
+\subsubsection[{getClassNameFromClassDefinition}]{\setlength{\rightskip}{0pt plus 5cm}static getClassNameFromClassDefinition (\$ {\em strClassDefinition})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_coruja_class_manipulation_23c359d165b1c05df05d804b29f5abec}
+
+
+Return classe name from class definition
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em String}]\$strClassDefinition Class definition \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]String Class name \end{Desc}
+\begin{Desc}
+\item[Example:]getClassNameFromClassDefinition( \char`\"{}myNamespace::myClass\char`\"{} ); // returns \char`\"{}myClass\char`\"{}\end{Desc}
+\begin{Desc}
+\item[Assert:]( \char`\"{}myNamespace::myClass\char`\"{} ) = \char`\"{}myClass\char`\"{} \end{Desc}
+\begin{Desc}
+\item[Assert:]( \char`\"{}myClass\char`\"{} ) = \char`\"{}myClass\char`\"{} \end{Desc}
+\begin{Desc}
+\item[Assert:]( \char`\"{}\char`\"{} ) = \char`\"{}\char`\"{}\end{Desc}
+\begin{Desc}
+\item[Assert:](null) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](123) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](array()) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](new stdClass()) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](false) throws InvalidArgumentException \end{Desc}
+
+
+\begin{Code}\begin{verbatim}31         {
+32                 if(!is_string($strClassDefinition))
+33                 {
+34                         throw new InvalidArgumentException("Invalid argument [ ". var_export($strClassDefinition) ." ]. It should be string");
+35                 }
+36 
+37         $arrClassDefinition = explode( "::" , $strClassDefinition );
+38                 return array_pop( $arrClassDefinition );
+39         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_coruja_class_manipulation_51aa4116399c4188565dcdc16a1d71b6}{
+\index{CorujaClassManipulation@{CorujaClassManipulation}!getNamespaceFromClassDefinition@{getNamespaceFromClassDefinition}}
+\index{getNamespaceFromClassDefinition@{getNamespaceFromClassDefinition}!CorujaClassManipulation@{CorujaClassManipulation}}
+\subsubsection[{getNamespaceFromClassDefinition}]{\setlength{\rightskip}{0pt plus 5cm}static getNamespaceFromClassDefinition (\$ {\em strClassDefiniton})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_coruja_class_manipulation_51aa4116399c4188565dcdc16a1d71b6}
+
+
+Return namespace from class definition
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em String}]\$strClassDefinition Class definition \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]String Namespace \end{Desc}
+\begin{Desc}
+\item[Example:]getClassNameFromClassDefinition( \char`\"{}myNamespace::myClass\char`\"{} ); // returns \char`\"{}myNamespace\char`\"{}\end{Desc}
+\begin{Desc}
+\item[Assert:]( \char`\"{}myNamespace::myClass\char`\"{} ) = \char`\"{}myNamespace\char`\"{} \end{Desc}
+\begin{Desc}
+\item[Assert:]( \char`\"{}myClass\char`\"{} ) = \char`\"{}\char`\"{} \end{Desc}
+\begin{Desc}
+\item[Assert:]( \char`\"{}\char`\"{} ) = \char`\"{}\char`\"{}\end{Desc}
+\begin{Desc}
+\item[Assert:](null) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](123) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](array()) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](new stdClass()) throws InvalidArgumentException \end{Desc}
+\begin{Desc}
+\item[Assert:](false) throws InvalidArgumentException \end{Desc}
+
+
+\begin{Code}\begin{verbatim}60         {
+61                 if(!is_string($strClassDefiniton))
+62                 {
+63                         throw new InvalidArgumentException("Invalid argument [ ". var_export($strClassDefiniton) ." ]. It should be string");
+64                 }
+65 
+66                 return CorujaArrayManipulation::getArrayField( explode( "::" , $strClassDefiniton )  , 1 , "" );
+67         }
+\end{verbatim}
+\end{Code}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/library/\hyperlink{_coruja_class_manipulation_8class_8php}{CorujaClassManipulation.class.php}\end{CompactItemize}

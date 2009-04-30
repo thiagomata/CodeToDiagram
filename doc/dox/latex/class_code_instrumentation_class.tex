@@ -1,0 +1,332 @@
+\hypertarget{class_code_instrumentation_class}{
+\section{CodeInstrumentationClass Class Reference}
+\label{class_code_instrumentation_class}\index{CodeInstrumentationClass@{CodeInstrumentationClass}}
+}
+Inheritance diagram for CodeInstrumentationClass::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_code_instrumentation_class}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_instrumentation_class_4df49469648d1e8de92c18bb8ac40b1b}{\_\-\_\-construct} (\$strClassName, \$strEvalContent=\char`\"{}\char`\"{})
+\item 
+\hyperlink{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}{getClassName} ()
+\item 
+\hyperlink{class_code_instrumentation_class_6392a64e001e141c882fad5419990557}{setClassName} (\$strName)
+\item 
+\hyperlink{class_code_instrumentation_class_c2d23f8614e24561b794d5031001eaf8}{createMethodsDefinitionCode} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_instrumentation_class_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\item 
+\hyperlink{class_code_instrumentation_class_bce271bf4f7b77b8b11986404241ab5c}{createExtendedReflectionProperty} (ReflectionProperty \$objOriginalReflectionProperty)
+\item 
+\hyperlink{class_code_instrumentation_class_ec7c1d4b204b6e3a6291d3b867afb688}{createExtendedReflectionMethod} (ReflectionMethod \$objOriginalReflectionMethod)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_instrumentation_class_90edf7538a74be8ac5ce46baaf203382}{\$strName} = null
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+Code Instrumentation Class extends a Code Reflection Class to create not a exactly code of the original class but a changed version with some code instrumentation messages what will be send to the Code Instrumentation Receiver
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_code_instrumentation_class_4df49469648d1e8de92c18bb8ac40b1b}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (\$ {\em strClassName}, \/  \$ {\em strEvalContent} = {\tt \char`\"{}\char`\"{}})}}
+\label{class_code_instrumentation_class_4df49469648d1e8de92c18bb8ac40b1b}
+
+
+Construct the Code Instrumentation of the class.
+
+It must receive the eval content if the class it was created into a eval command.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strClassName \item[{\em string}]\$strEvalContent \end{description}
+\end{Desc}
+
+
+Reimplemented from \hyperlink{class_code_reflection_class_4df49469648d1e8de92c18bb8ac40b1b}{CodeReflectionClass}.
+
+\begin{Code}\begin{verbatim}33     {
+34         parent::__construct( $strClassName );
+35         if( $strEvalContent != "" )
+36         {
+37             new CodeReflectionFile( $this->getFileName() , $strEvalContent , false );
+38         }
+39     }
+\end{verbatim}
+\end{Code}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_code_instrumentation_class_6b56ec198bc6a5b5a72076e4e7c19e29}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!createExtendedReflectionClass@{createExtendedReflectionClass}}
+\index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_class_6b56ec198bc6a5b5a72076e4e7c19e29}
+
+
+Make the recursive calls and indirectly call return the extended reflection object and not a native reflection class.
+
+\begin{Desc}
+\item[See also:]ExtendedReflectionClass::createExtendedReflectionClass( ReflectionClass ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} \end{Desc}
+
+
+Reimplemented from \hyperlink{class_code_reflection_class_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeReflectionClass}.
+
+\begin{Code}\begin{verbatim}156     {
+157         return new CodeInstrumentationClass( $objOriginalReflectionClass->getName() );
+158     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_class_ec7c1d4b204b6e3a6291d3b867afb688}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!createExtendedReflectionMethod@{createExtendedReflectionMethod}}
+\index{createExtendedReflectionMethod@{createExtendedReflectionMethod}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{createExtendedReflectionMethod}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionMethod (ReflectionMethod \$ {\em objOriginalReflectionMethod})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_class_ec7c1d4b204b6e3a6291d3b867afb688}
+
+
+Make the recursive calls and indirectly call return the extended reflection object and not a native reflection class.
+
+\begin{Desc}
+\item[See also:]ExtendedReflectionClass::createExtendedReflectionMethod( ReflectionMethod ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} \end{Desc}
+
+
+Reimplemented from \hyperlink{class_code_reflection_class_ec7c1d4b204b6e3a6291d3b867afb688}{CodeReflectionClass}.
+
+\begin{Code}\begin{verbatim}182     {
+183         return new CodeInstrumentationMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
+184     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_class_bce271bf4f7b77b8b11986404241ab5c}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!createExtendedReflectionProperty@{createExtendedReflectionProperty}}
+\index{createExtendedReflectionProperty@{createExtendedReflectionProperty}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{createExtendedReflectionProperty}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionProperty (ReflectionProperty \$ {\em objOriginalReflectionProperty})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_class_bce271bf4f7b77b8b11986404241ab5c}
+
+
+Make the recursive calls and indirectly call return the extended reflection object and not a native reflection class.
+
+\begin{Desc}
+\item[See also:]ExtendedReflectionClass::createExtendedReflectionProperty( ReflectionProperty ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} \end{Desc}
+
+
+Reimplemented from \hyperlink{class_code_reflection_class_bce271bf4f7b77b8b11986404241ab5c}{CodeReflectionClass}.
+
+\begin{Code}\begin{verbatim}169     {
+170         return new CodeInstrumentationProperty( $this->getName() , $objOriginalReflectionProperty->getName() );
+171     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_class_c2d23f8614e24561b794d5031001eaf8}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!createMethodsDefinitionCode@{createMethodsDefinitionCode}}
+\index{createMethodsDefinitionCode@{createMethodsDefinitionCode}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{createMethodsDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}createMethodsDefinitionCode ()}}
+\label{class_code_instrumentation_class_c2d23f8614e24561b794d5031001eaf8}
+
+
+Create the methods definition code with code instrumentation.
+
+Create the methods of the class changed to can send the messages to the code instrumentation receive before and after each call.
+
+\begin{itemize}
+\item Interfaces will not change\item If the class dont have a constructor and a destructor force existence.\item call the parent createMethodsDefinitionCode what will call the \hyperlink{class_code_instrumentation_method}{CodeInstrumentationMethod}\end{itemize}
+
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_code_instrumentation_method}{CodeInstrumentationMethod} \end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+Reimplemented from \hyperlink{class_code_reflection_class_c2d23f8614e24561b794d5031001eaf8}{CodeReflectionClass}.
+
+\begin{Code}\begin{verbatim}101     {
+102         if( $this->isInterface() )
+103         {
+104             return parent::createMethodsDefinitionCode();
+105         }
+106         
+107         $strCode = '';
+108         $boolHasConstructor = false;
+109         $boolHasDestructor = false;
+110 
+111         foreach( $this->getMethods() as $objMethodReflection )
+112         {
+113             if( $objMethodReflection->getName() == '__construct' )
+114             {
+115                 $boolHasConstructor = true;
+116             }
+117             if( $objMethodReflection->getName() == '__destruct' )
+118             {
+119                 $boolHasDestructor = true;
+120             }
+121         }
+122 
+123         $strCode = parent::createMethodsDefinitionCode();
+124         if( $boolHasConstructor == false )
+125         {
+126             $strCode .= ' public function __construct()                                                                 ' . "\n";
+127             $strCode .= '    {                                                                                          ' . "\n";
+128             $strCode .= '       $arrArguments = func_get_args();                                                        ' . "\n";
+129             $strCode .= '       $mixReturn = null;                                                                      ' . "\n";
+130             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onEnterMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+131             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onLeaveMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
+132             $strCode .= '       }                                                                                           ' . "\n";
+133         }
+134         if( $boolHasDestructor == false )
+135         {
+136             $strCode .= ' public function __destruct()                                                                 ' . "\n";
+137             $strCode .= '    {                                                                                          ' . "\n";
+138             $strCode .= '       $arrArguments = func_get_args();                                                        ' . "\n";
+139             $strCode .= '       $mixReturn = null;                                                                      ' . "\n";
+140             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onEnterMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+141             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onLeaveMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
+142             $strCode .= '       }                                                                                           ' . "\n";
+143         }
+144         return $strCode;
+145     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!getClassName@{getClassName}}
+\index{getClassName@{getClassName}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{getClassName}]{\setlength{\rightskip}{0pt plus 5cm}getClassName ()}}
+\label{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}
+
+
+Returns the editable class name
+
+\begin{Desc}
+\item[Test:]\end{Desc}
+{\tt  \$this-$>$setClassName( \char`\"{}something\char`\"{} ); \$this-$>$\hyperlink{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}{getClassName()} == \char`\"{}something\char`\"{} }
+
+\begin{Desc}
+\item[See also:]CodeInstrumentationClass-$>$strName 
+
+CodeInstrumentationClass::setClassName( string ) \end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+Reimplemented from \hyperlink{class_code_reflection_class_b8f8ee56588ebf5091c288e44ebdfaf4}{CodeReflectionClass}.
+
+\begin{Code}\begin{verbatim}55     {
+56         if( $this->strName == null )
+57         {
+58             return parent::getClassName();
+59         }
+60         else
+61         {
+62             return $this->strName;
+63         }
+64     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_class_6392a64e001e141c882fad5419990557}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!setClassName@{setClassName}}
+\index{setClassName@{setClassName}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{setClassName}]{\setlength{\rightskip}{0pt plus 5cm}setClassName (\$ {\em strName})}}
+\label{class_code_instrumentation_class_6392a64e001e141c882fad5419990557}
+
+
+Set the editable class name
+
+\begin{Desc}
+\item[Test:]\end{Desc}
+\small\begin{alltt}{\tt 
+      $this->setClassName( "something" )->\hyperlink{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}{getClassName()} == "something"
+ }\end{alltt}
+\normalsize 
+
+
+\begin{Desc}
+\item[Assert:]( \char`\"{}something\char`\"{} )\end{Desc}
+\begin{Desc}
+\item[See also:]CodeInstrumentationClass-$>$strName 
+
+\hyperlink{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}{CodeInstrumentationClass::getClassName()} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strName \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} \end{Desc}
+
+
+\begin{Code}\begin{verbatim}82     {
+83         $this->strName = $strName;
+84         return $this;
+85     }
+\end{verbatim}
+\end{Code}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_code_instrumentation_class_90edf7538a74be8ac5ce46baaf203382}{
+\index{CodeInstrumentationClass@{CodeInstrumentationClass}!\$strName@{\$strName}}
+\index{\$strName@{\$strName}!CodeInstrumentationClass@{CodeInstrumentationClass}}
+\subsubsection[{\$strName}]{\setlength{\rightskip}{0pt plus 5cm}\$strName = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_class_90edf7538a74be8ac5ce46baaf203382}
+
+
+The editable class name
+
+string 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/codeInstrumentation/\hyperlink{_code_instrumentation_class_8class_8php}{CodeInstrumentationClass.class.php}\end{CompactItemize}

@@ -5,51 +5,19 @@
 
 
 \subsection{Detailed Description}
-Load the Code Instrumentation package
+Code Instrumentation Start
 
-Code Instrumentation Class extends a Code Reflection Class to create not a exactly code of the original class but a changed version with some code instrumentation messages what will be send to the Code Instrumentation Receiver
+\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} to create the changed version of the class code
 
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$\end{Desc}
-Code Instrumentation Exception
+\hyperlink{class_code_instrumentation_exception}{CodeInstrumentationException} to the exceptions of the component
 
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$\end{Desc}
-Implement a code instrumentation into a function
+\hyperlink{class_code_instrumentation_function}{CodeInstrumentationFunction} create the changed code version of the function
 
-Make a call to some function what was apply the code instrumentation make a message to some actor of the code instrumentation receiver
+\hyperlink{class_code_instrumentation_method}{CodeInstrumentationMethod} create the changed version of the code method
 
-\begin{Desc}
-\item[\hyperlink{todo__todo000001}{Todo}]This class need to make code instrumentation. Today code instrumentation works only into objects  What will be the actor or object what will be resposable by the functions as its methods\end{Desc}
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$\end{Desc}
-Class what in place of create the exactly code of some method, create a version of it what send a message to the code instrumentation receiver before and after each call.
+\hyperlink{class_code_instrumentation_parameter}{CodeInstrumentationParameter} create the changed version of the code parameter
 
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$\end{Desc}
-Class what make possible the code instrumentation of methods and fucntions with parameters
+\hyperlink{class_code_instrumentation_property}{CodeInstrumentationProperty} create the changed version of the code property
 
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$\end{Desc}
-class necessary to make the code instrumentation process possible
-
-the propery has not big changes of the code reflection property but it is necessary to extend it to create the reflections links possibles keeping the code instrumentation context.
-
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$\end{Desc}
-Class create to make possible the creation of code instrumentation of executions.
-
-It receive the messages of enter methods and leave methods, into what object, of what class and, based into this informations, create a xmlSequence object.
-
-The xml sequence object created, can be used for many ways, since create a xml, create a diagram file, etc.
-
-\begin{Desc}
-\item[\hyperlink{todo__todo000002}{Todo}]make filter methods to reduce the diagram of big executions\end{Desc}
-\begin{Desc}
-\item[See also:]\hyperlink{class_code_instrumentation_method}{CodeInstrumentationMethod} 
-
-CodeInstrumentationClass \end{Desc}
-\begin{Desc}
-\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
-
+\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} create the messages receive 
 

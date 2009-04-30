@@ -11,20 +11,27 @@ Inheritance diagram for CodeInstrumentationParameter::\begin{figure}[H]
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_instrumentation_parameter_4190025f9ec55f58f10b36084a8851fd}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\hyperlink{class_code_instrumentation_parameter_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
 \item 
-\hyperlink{class_code_instrumentation_parameter_e0c68e69aa93979e2e1fa3057bd39d5a}{createExtendedReflectionMethod} (ReflectionMethod \$objOriginalReflectionMethod)
+\hyperlink{class_code_instrumentation_parameter_ec7c1d4b204b6e3a6291d3b867afb688}{createExtendedReflectionMethod} (ReflectionMethod \$objOriginalReflectionMethod)
 \item 
-\hyperlink{class_code_instrumentation_parameter_e9723a389b48bdb31fc49f784692aecf}{createExtendedReflectionFunction} (ReflectionFunction \$objOriginalReflectionFunction)
+\hyperlink{class_code_instrumentation_parameter_b23ad87d3ac2f376c1a133ca6d27f031}{createExtendedReflectionFunction} (ReflectionFunction \$objOriginalReflectionFunction)
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Class what make possible the code instrumentation of methods and fucntions with parameters
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_code_instrumentation_parameter_4190025f9ec55f58f10b36084a8851fd}{
+\hypertarget{class_code_instrumentation_parameter_6b56ec198bc6a5b5a72076e4e7c19e29}{
 \index{CodeInstrumentationParameter@{CodeInstrumentationParameter}!createExtendedReflectionClass@{createExtendedReflectionClass}}
 \index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeInstrumentationParameter@{CodeInstrumentationParameter}}
-\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationParameter::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_parameter_4190025f9ec55f58f10b36084a8851fd}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_parameter_6b56ec198bc6a5b5a72076e4e7c19e29}
 
 
 Replace the original reflection class by the Code Instrumentation version of it
@@ -35,14 +42,23 @@ Replace the original reflection class by the Code Instrumentation version of it
 \item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
 \end{Desc}
 \begin{Desc}
-\item[Returns:]CodeInstrumentationClass \end{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_parameter_a2b9b21f9711afbf11791dd64dcbdd0a}{CodeReflectionParameter}.\hypertarget{class_code_instrumentation_parameter_e9723a389b48bdb31fc49f784692aecf}{
+Reimplemented from \hyperlink{class_code_reflection_parameter_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeReflectionParameter}.
+
+\begin{Code}\begin{verbatim}24     {
+25         return new CodeInstrumentationClass( $objOriginalReflectionClass->getName() );
+26     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_parameter_b23ad87d3ac2f376c1a133ca6d27f031}{
 \index{CodeInstrumentationParameter@{CodeInstrumentationParameter}!createExtendedReflectionFunction@{createExtendedReflectionFunction}}
 \index{createExtendedReflectionFunction@{createExtendedReflectionFunction}!CodeInstrumentationParameter@{CodeInstrumentationParameter}}
-\subsubsection[{createExtendedReflectionFunction}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationParameter::createExtendedReflectionFunction (ReflectionFunction \$ {\em objOriginalReflectionFunction})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_parameter_e9723a389b48bdb31fc49f784692aecf}
+\subsubsection[{createExtendedReflectionFunction}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionFunction (ReflectionFunction \$ {\em objOriginalReflectionFunction})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_parameter_b23ad87d3ac2f376c1a133ca6d27f031}
 
 
 Replace the origianl reflection function of the parameters by the code instrumentation version of it
@@ -56,11 +72,27 @@ Replace the origianl reflection function of the parameters by the code instrumen
 \item[Returns:]\hyperlink{class_code_instrumentation_function}{CodeInstrumentationFunction} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_parameter_5e6e7a1f49ff1f404342a2b2d4a15aa3}{CodeReflectionParameter}.\hypertarget{class_code_instrumentation_parameter_e0c68e69aa93979e2e1fa3057bd39d5a}{
+Reimplemented from \hyperlink{class_code_reflection_parameter_b23ad87d3ac2f376c1a133ca6d27f031}{CodeReflectionParameter}.
+
+\begin{Code}\begin{verbatim}48     {
+49         if( $objOriginalReflectionFunction instanceof ReflectionMethod )
+50         {
+51             return new CodeInstrumentationMethod( $objOriginalReflectionFunction->getName() );
+52         }
+53         else
+54         {
+55             return new CodeInstrumentationFunction( $objOriginalReflectionFunction->getName() );
+56         }
+57     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_parameter_ec7c1d4b204b6e3a6291d3b867afb688}{
 \index{CodeInstrumentationParameter@{CodeInstrumentationParameter}!createExtendedReflectionMethod@{createExtendedReflectionMethod}}
 \index{createExtendedReflectionMethod@{createExtendedReflectionMethod}!CodeInstrumentationParameter@{CodeInstrumentationParameter}}
-\subsubsection[{createExtendedReflectionMethod}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationParameter::createExtendedReflectionMethod (ReflectionMethod \$ {\em objOriginalReflectionMethod})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_parameter_e0c68e69aa93979e2e1fa3057bd39d5a}
+\subsubsection[{createExtendedReflectionMethod}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionMethod (ReflectionMethod \$ {\em objOriginalReflectionMethod})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_parameter_ec7c1d4b204b6e3a6291d3b867afb688}
 
 
 Replace the original reflection method by the Code Instrumentation version of it
@@ -74,7 +106,16 @@ Replace the original reflection method by the Code Instrumentation version of it
 \item[Returns:]\hyperlink{class_code_instrumentation_method}{CodeInstrumentationMethod} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_parameter_04d7dbd71bc943f3e267869a79bec648}{CodeReflectionParameter}.
+Reimplemented from \hyperlink{class_code_reflection_parameter_ec7c1d4b204b6e3a6291d3b867afb688}{CodeReflectionParameter}.
+
+\begin{Code}\begin{verbatim}36     {
+37         return new CodeInstrumentationMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
+38     }
+\end{verbatim}
+\end{Code}
+
+
+
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}
 \item 

@@ -5,45 +5,56 @@
 Inheritance diagram for CodeReflectionClass::\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2cm]{class_code_reflection_class}
+\includegraphics[height=3cm]{class_code_reflection_class}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_reflection_class_547ea2461cf205c8fa25418294c0980d}{\_\-\_\-construct} (\$strClassName, \$strEvalContent=\char`\"{}\char`\"{})
+\hyperlink{class_code_reflection_class_4df49469648d1e8de92c18bb8ac40b1b}{\_\-\_\-construct} (\$strClassName, \$strEvalContent=\char`\"{}\char`\"{})
 \item 
-\hyperlink{class_code_reflection_class_301551243100b6815a25631e0a51bbbd}{getClassName} ()
+\hyperlink{class_code_reflection_class_b8f8ee56588ebf5091c288e44ebdfaf4}{getClassName} ()
 \item 
-\hyperlink{class_code_reflection_class_b06f3f9c77e5de60c88b6afe05fc7ce3}{getNamespace} ()
+\hyperlink{class_code_reflection_class_2614df64646ac71b70b1e1074258052b}{getNamespace} ()
 \item 
-\hyperlink{class_code_reflection_class_d4192b5d48919ca2cd5ef72db74a8ad5}{getRealClassName} ()
+\hyperlink{class_code_reflection_class_a56c2962a9dd11f78bdafb688f9cd8fa}{getRealClassName} ()
 \item 
-\hyperlink{class_code_reflection_class_a7ab3478fc4d4d35708852357cfaddc7}{createClassDefinitionCode} ()
+\hyperlink{class_code_reflection_class_98b016c8a77c458803bb6905c89c914b}{createClassDefinitionCode} ()
 \item 
-\hyperlink{class_code_reflection_class_4bf8009246a6e2c63ff61c6c2098fbf9}{createAttributesDefinitionCode} ()
+\hyperlink{class_code_reflection_class_72b25801f6d2c909af2ee16b2b51ab8f}{createAttributesDefinitionCode} ()
 \item 
-\hyperlink{class_code_reflection_class_d5281e9b818a323b080cbc8fa9a07365}{createMethodsDefinitionCode} ()
+\hyperlink{class_code_reflection_class_c2d23f8614e24561b794d5031001eaf8}{createMethodsDefinitionCode} ()
 \item 
-\hyperlink{class_code_reflection_class_7a387d50344d14a25fbccf5e653f9312}{getCode} ()
+\hyperlink{class_code_reflection_class_b5e24da53b4a0d0848b18c1e832f47ff}{getCode} ()
 \end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_reflection_class_496631cb5814727379cdacb689e4c40a}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\hyperlink{class_code_reflection_class_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
 \item 
-\hyperlink{class_code_reflection_class_838dcd22317018c53f02dda69cd07509}{createExtendedReflectionProperty} (ReflectionProperty \$objOriginalReflectionProperty)
+\hyperlink{class_code_reflection_class_bce271bf4f7b77b8b11986404241ab5c}{createExtendedReflectionProperty} (ReflectionProperty \$objOriginalReflectionProperty)
 \item 
-\hyperlink{class_code_reflection_class_c8e58a7369660bf8f63ce39f3b9b5271}{createExtendedReflectionMethod} (ReflectionMethod \$objOriginalReflectionMethod)
+\hyperlink{class_code_reflection_class_ec7c1d4b204b6e3a6291d3b867afb688}{createExtendedReflectionMethod} (ReflectionMethod \$objOriginalReflectionMethod)
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Code reflection class it is a class what is a extension of the php reflection with improvments to show the php code of the reflected class
+
+With this class you can see the code of some class, method, attribute just as it is and extending this class you can create a similary class of the original one.
+
+This class can be used to debug, detail of some execution or stack and to code instrumentation.
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ ' $\ast$ \end{Desc}
+
+
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_code_reflection_class_547ea2461cf205c8fa25418294c0980d}{
+\hypertarget{class_code_reflection_class_4df49469648d1e8de92c18bb8ac40b1b}{
 \index{CodeReflectionClass@{CodeReflectionClass}!\_\-\_\-construct@{\_\-\_\-construct}}
 \index{\_\-\_\-construct@{\_\-\_\-construct}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::\_\-\_\-construct (\$ {\em strClassName}, \/  \$ {\em strEvalContent} = {\tt \char`\"{}\char`\"{}})}}
-\label{class_code_reflection_class_547ea2461cf205c8fa25418294c0980d}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}\_\-\_\-construct (\$ {\em strClassName}, \/  \$ {\em strEvalContent} = {\tt \char`\"{}\char`\"{}})}}
+\label{class_code_reflection_class_4df49469648d1e8de92c18bb8ac40b1b}
 
 
 Construct the Code Reflection of the class.
@@ -57,34 +68,97 @@ It must receive the eval content if the class it was created into a eval command
 \end{Desc}
 
 
+Reimplemented in \hyperlink{class_code_instrumentation_class_4df49469648d1e8de92c18bb8ac40b1b}{CodeInstrumentationClass}.
+
+\begin{Code}\begin{verbatim}33     {
+34         parent::__construct( $strClassName );
+35         if( $strEvalContent != "" )
+36         {
+37             new CodeReflectionFile( $this->getFileName() , $strEvalContent , false );
+38         }
+39     }
+\end{verbatim}
+\end{Code}
+
+
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_code_reflection_class_4bf8009246a6e2c63ff61c6c2098fbf9}{
+\hypertarget{class_code_reflection_class_72b25801f6d2c909af2ee16b2b51ab8f}{
 \index{CodeReflectionClass@{CodeReflectionClass}!createAttributesDefinitionCode@{createAttributesDefinitionCode}}
 \index{createAttributesDefinitionCode@{createAttributesDefinitionCode}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{createAttributesDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::createAttributesDefinitionCode ()}}
-\label{class_code_reflection_class_4bf8009246a6e2c63ff61c6c2098fbf9}
+\subsubsection[{createAttributesDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}createAttributesDefinitionCode ()}}
+\label{class_code_reflection_class_72b25801f6d2c909af2ee16b2b51ab8f}
 
 
 Create a php attribute definition code
 
 \begin{Desc}
 \item[Returns:]string code of attribute \end{Desc}
-\hypertarget{class_code_reflection_class_a7ab3478fc4d4d35708852357cfaddc7}{
+
+
+\begin{Code}\begin{verbatim}114         {
+115                 $strCode = "";
+116                 $arrProperties = $this->getProperties();
+117                 foreach( $arrProperties as $objReflectionProperty )
+118                 {
+119                         /*@var $objReflectionProperty CodeReflectionProperty */
+120                         $strCode .= $objReflectionProperty->getCode();
+121                 }
+122         $arrConstants = $this->getConstants();
+123                 foreach( $arrConstants as $strKey => $mixValue )
+124                 {
+125                         /*@var $objReflectionProperty CodeReflectionProperty */
+126                         $strCode .= "const " . $strKey . ' = ' . var_export( $mixValue , true ) . ";\n";
+127                 }
+128                 return $strCode;
+129         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_98b016c8a77c458803bb6905c89c914b}{
 \index{CodeReflectionClass@{CodeReflectionClass}!createClassDefinitionCode@{createClassDefinitionCode}}
 \index{createClassDefinitionCode@{createClassDefinitionCode}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{createClassDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::createClassDefinitionCode ()}}
-\label{class_code_reflection_class_a7ab3478fc4d4d35708852357cfaddc7}
+\subsubsection[{createClassDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}createClassDefinitionCode ()}}
+\label{class_code_reflection_class_98b016c8a77c458803bb6905c89c914b}
 
 
 Create a php class definition code
 
 \begin{Desc}
 \item[Returns:]string code of class creation \end{Desc}
-\hypertarget{class_code_reflection_class_496631cb5814727379cdacb689e4c40a}{
+
+
+\begin{Code}\begin{verbatim}87         {
+88                 $strCode = "";
+89                 $strCode .= " class " . $this->getClassName();
+90                 if( $this->getParentClass() != "" )
+91                 {
+92                         $strCode .= " extends " . $this->getParentClass()->getClassName();
+93                 }
+94                 if( sizeof( $this->getInterfaceNames() ) > 0)
+95                 {
+96                         $arrInterfacesClassName = array();
+97                         $arrInterfaces = $this->getInterfaces();
+98                         foreach(  $arrInterfaces as $objInterfaces )
+99                         {
+100                                 $arrInterfacesClassName[] = $objInterfaces->getClassName();
+101                         }
+102                         $strCode .= " implements " . implode( ", " , $arrInterfacesClassName );
+103                 }
+104                 $strCode .= "\n";
+105                 return $strCode;
+106         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_6b56ec198bc6a5b5a72076e4e7c19e29}{
 \index{CodeReflectionClass@{CodeReflectionClass}!createExtendedReflectionClass@{createExtendedReflectionClass}}
 \index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_reflection_class_496631cb5814727379cdacb689e4c40a}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_class_6b56ec198bc6a5b5a72076e4e7c19e29}
 
 
 Make the recursive calls and indirectly call return the extended reflection object and not a native reflection class.
@@ -100,11 +174,22 @@ Make the recursive calls and indirectly call return the extended reflection obje
 \item[Returns:]\hyperlink{class_code_reflection_class}{CodeReflectionClass} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_extended_reflection_class_851f69035820c89d0ba918a277d2a29f}{ExtendedReflectionClass}.\hypertarget{class_code_reflection_class_c8e58a7369660bf8f63ce39f3b9b5271}{
+Reimplemented from \hyperlink{class_extended_reflection_class_6b56ec198bc6a5b5a72076e4e7c19e29}{ExtendedReflectionClass}.
+
+Reimplemented in \hyperlink{class_code_instrumentation_class_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeInstrumentationClass}.
+
+\begin{Code}\begin{verbatim}198         {
+199                 return new CodeReflectionClass( $objOriginalReflectionClass->getName() );
+200         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_ec7c1d4b204b6e3a6291d3b867afb688}{
 \index{CodeReflectionClass@{CodeReflectionClass}!createExtendedReflectionMethod@{createExtendedReflectionMethod}}
 \index{createExtendedReflectionMethod@{createExtendedReflectionMethod}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{createExtendedReflectionMethod}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::createExtendedReflectionMethod (ReflectionMethod \$ {\em objOriginalReflectionMethod})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_reflection_class_c8e58a7369660bf8f63ce39f3b9b5271}
+\subsubsection[{createExtendedReflectionMethod}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionMethod (ReflectionMethod \$ {\em objOriginalReflectionMethod})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_class_ec7c1d4b204b6e3a6291d3b867afb688}
 
 
 Make the recursive calls and indirectly call return the extended reflection object and not a native reflection method.
@@ -120,11 +205,22 @@ Make the recursive calls and indirectly call return the extended reflection obje
 \item[Returns:]\hyperlink{class_code_reflection_method}{CodeReflectionMethod} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_extended_reflection_class_922598bd80a21577ccad6d4ca4138474}{ExtendedReflectionClass}.\hypertarget{class_code_reflection_class_838dcd22317018c53f02dda69cd07509}{
+Reimplemented from \hyperlink{class_extended_reflection_class_ec7c1d4b204b6e3a6291d3b867afb688}{ExtendedReflectionClass}.
+
+Reimplemented in \hyperlink{class_code_instrumentation_class_ec7c1d4b204b6e3a6291d3b867afb688}{CodeInstrumentationClass}.
+
+\begin{Code}\begin{verbatim}224         {
+225                 return new CodeReflectionMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
+226         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_bce271bf4f7b77b8b11986404241ab5c}{
 \index{CodeReflectionClass@{CodeReflectionClass}!createExtendedReflectionProperty@{createExtendedReflectionProperty}}
 \index{createExtendedReflectionProperty@{createExtendedReflectionProperty}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{createExtendedReflectionProperty}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::createExtendedReflectionProperty (ReflectionProperty \$ {\em objOriginalReflectionProperty})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_reflection_class_838dcd22317018c53f02dda69cd07509}
+\subsubsection[{createExtendedReflectionProperty}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionProperty (ReflectionProperty \$ {\em objOriginalReflectionProperty})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_class_bce271bf4f7b77b8b11986404241ab5c}
 
 
 Make the recursive calls and indirectly call return the extended reflection object and not a native reflection property.
@@ -140,63 +236,152 @@ Make the recursive calls and indirectly call return the extended reflection obje
 \item[Returns:]\hyperlink{class_code_reflection_property}{CodeReflectionProperty} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_extended_reflection_class_6259683f3d0f9583ec36ca51f6e964f9}{ExtendedReflectionClass}.\hypertarget{class_code_reflection_class_d5281e9b818a323b080cbc8fa9a07365}{
+Reimplemented from \hyperlink{class_extended_reflection_class_bce271bf4f7b77b8b11986404241ab5c}{ExtendedReflectionClass}.
+
+Reimplemented in \hyperlink{class_code_instrumentation_class_bce271bf4f7b77b8b11986404241ab5c}{CodeInstrumentationClass}.
+
+\begin{Code}\begin{verbatim}211         {
+212                 return new CodeReflectionProperty( $this->getName() , $objOriginalReflectionProperty->getName() );
+213         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_c2d23f8614e24561b794d5031001eaf8}{
 \index{CodeReflectionClass@{CodeReflectionClass}!createMethodsDefinitionCode@{createMethodsDefinitionCode}}
 \index{createMethodsDefinitionCode@{createMethodsDefinitionCode}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{createMethodsDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::createMethodsDefinitionCode ()}}
-\label{class_code_reflection_class_d5281e9b818a323b080cbc8fa9a07365}
+\subsubsection[{createMethodsDefinitionCode}]{\setlength{\rightskip}{0pt plus 5cm}createMethodsDefinitionCode ()}}
+\label{class_code_reflection_class_c2d23f8614e24561b794d5031001eaf8}
 
 
 Create a php method definiton code
 
 \begin{Desc}
 \item[Returns:]string code of method \end{Desc}
-\hypertarget{class_code_reflection_class_301551243100b6815a25631e0a51bbbd}{
+
+
+Reimplemented in \hyperlink{class_code_instrumentation_class_c2d23f8614e24561b794d5031001eaf8}{CodeInstrumentationClass}.
+
+\begin{Code}\begin{verbatim}137         {
+138                 $strCode = "";
+139                 $arrMethods = $this->getMethods();
+140                 foreach( $arrMethods as $objReflectionMethod )
+141                 {
+142                         /*@var $objReflectionMethod CodeReflectionMethod */
+143             if( $objReflectionMethod->getDeclaringClass()->getRealClassName() == $this->getRealClassName())
+144                         {
+145                 if( !$this->isInterface() )
+146                 {
+147                     $strCode .= $objReflectionMethod->getCode();
+148                 }
+149                 else
+150                 {
+151                     $strCode .= $objReflectionMethod->createMethodHeaderCode();
+152                 }
+153             }
+154                 }
+155                 return $strCode;
+156         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_b8f8ee56588ebf5091c288e44ebdfaf4}{
 \index{CodeReflectionClass@{CodeReflectionClass}!getClassName@{getClassName}}
 \index{getClassName@{getClassName}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{getClassName}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::getClassName ()}}
-\label{class_code_reflection_class_301551243100b6815a25631e0a51bbbd}
+\subsubsection[{getClassName}]{\setlength{\rightskip}{0pt plus 5cm}getClassName ()}}
+\label{class_code_reflection_class_b8f8ee56588ebf5091c288e44ebdfaf4}
 
 
 Get the class name
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_code_reflection_class_7a387d50344d14a25fbccf5e653f9312}{
+
+
+Reimplemented in \hyperlink{class_code_instrumentation_class_b8f8ee56588ebf5091c288e44ebdfaf4}{CodeInstrumentationClass}.
+
+\begin{Code}\begin{verbatim}47         {
+48         $strName = parent::getName();
+49         $arrName = explode( "::" ,$strName) ;
+50                 return array_pop( $arrName );
+51         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_b5e24da53b4a0d0848b18c1e832f47ff}{
 \index{CodeReflectionClass@{CodeReflectionClass}!getCode@{getCode}}
 \index{getCode@{getCode}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::getCode ()}}
-\label{class_code_reflection_class_7a387d50344d14a25fbccf5e653f9312}
+\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}getCode ()}}
+\label{class_code_reflection_class_b5e24da53b4a0d0848b18c1e832f47ff}
 
 
 Create the code of the reflected object
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_code_reflection_class_a7ab3478fc4d4d35708852357cfaddc7}{CodeReflectionClass::createClassDefinitionCode} 
+\item[See also:]\hyperlink{class_code_reflection_class_98b016c8a77c458803bb6905c89c914b}{CodeReflectionClass::createClassDefinitionCode} 
 
 CodeReflectionClass::createInterfaceDefinitionCode 
 
-\hyperlink{class_code_reflection_class_4bf8009246a6e2c63ff61c6c2098fbf9}{CodeReflectionClass::createAttributesDefinitionCode} 
+\hyperlink{class_code_reflection_class_72b25801f6d2c909af2ee16b2b51ab8f}{CodeReflectionClass::createAttributesDefinitionCode} 
 
-\hyperlink{class_code_reflection_class_d5281e9b818a323b080cbc8fa9a07365}{CodeReflectionClass::createMethodsDefinitionCode} \end{Desc}
+\hyperlink{class_code_reflection_class_c2d23f8614e24561b794d5031001eaf8}{CodeReflectionClass::createMethodsDefinitionCode} \end{Desc}
 \begin{Desc}
 \item[Returns:]string code of the reflected object \end{Desc}
-\hypertarget{class_code_reflection_class_b06f3f9c77e5de60c88b6afe05fc7ce3}{
+
+
+\begin{Code}\begin{verbatim}168         {
+169         $strCode = "";
+170         if( !$this->isInterface() )
+171         {
+172             $strCode .= $this->createClassDefinitionCode();
+173             $strCode .= "{\n";
+174             $strCode .= $this->createAttributesDefinitionCode();
+175             $strCode .= $this->createMethodsDefinitionCode();
+176             $strCode .= "\n}\n";
+177         }
+178         else
+179         {
+180             $strCode .= $this->createInterfaceDefinitionCode();
+181             $strCode .= "{\n";
+182             $strCode .= $this->createAttributesDefinitionCode();
+183             $strCode .= $this->createMethodsDefinitionCode();
+184             $strCode .= "\n}\n";
+185         }
+186                 return $strCode;
+187         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_2614df64646ac71b70b1e1074258052b}{
 \index{CodeReflectionClass@{CodeReflectionClass}!getNamespace@{getNamespace}}
 \index{getNamespace@{getNamespace}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{getNamespace}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::getNamespace ()}}
-\label{class_code_reflection_class_b06f3f9c77e5de60c88b6afe05fc7ce3}
+\subsubsection[{getNamespace}]{\setlength{\rightskip}{0pt plus 5cm}getNamespace ()}}
+\label{class_code_reflection_class_2614df64646ac71b70b1e1074258052b}
 
 
 Get the namespace name
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_code_reflection_class_d4192b5d48919ca2cd5ef72db74a8ad5}{
+
+
+\begin{Code}\begin{verbatim}59         {
+60         $strName = parent::getName();
+61         $arrName = explode( "::" ,$strName) ;
+62                 return array_shift( $arrName );
+63         }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_reflection_class_a56c2962a9dd11f78bdafb688f9cd8fa}{
 \index{CodeReflectionClass@{CodeReflectionClass}!getRealClassName@{getRealClassName}}
 \index{getRealClassName@{getRealClassName}!CodeReflectionClass@{CodeReflectionClass}}
-\subsubsection[{getRealClassName}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionClass::getRealClassName ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
-\label{class_code_reflection_class_d4192b5d48919ca2cd5ef72db74a8ad5}
+\subsubsection[{getRealClassName}]{\setlength{\rightskip}{0pt plus 5cm}getRealClassName ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_code_reflection_class_a56c2962a9dd11f78bdafb688f9cd8fa}
 
 
 A version of the get class name what cannot be replaced.
@@ -205,6 +390,17 @@ Should be used when the execution need the real original class name
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
+
+
+\begin{Code}\begin{verbatim}75     {
+76         $strName = ExtendedReflectionClass::getName();
+77         $arrName = explode( "::" ,$strName) ;
+78                 return array_pop( $arrName );
+79     }
+\end{verbatim}
+\end{Code}
+
+
 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}

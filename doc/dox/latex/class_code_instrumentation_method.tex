@@ -11,42 +11,49 @@ Inheritance diagram for CodeInstrumentationMethod::\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_instrumentation_method_4158b6c8a6183afecc0a9847ad3aeb53}{getNewName} ()
+\hyperlink{class_code_instrumentation_method_6e2855870a7381176413aa24a2fbfd43}{getNewName} ()
 \item 
-\hyperlink{class_code_instrumentation_method_c07a68881c058097ce6914ce9dc96e4e}{getCallCodeInstrFunctionName} ()
+\hyperlink{class_code_instrumentation_method_7f82d49e30da995729069ae9190555da}{getCallCodeInstrFunctionName} ()
 \item 
-\hyperlink{class_code_instrumentation_method_b79054196e5abf3e3464ad0551a9af71}{getCode} ()
+\hyperlink{class_code_instrumentation_method_b5e24da53b4a0d0848b18c1e832f47ff}{getCode} ()
 \item 
-\hyperlink{class_code_instrumentation_method_0eab7bf9706fa3867605f3db1822c333}{createMethodHeaderCode} ()
+\hyperlink{class_code_instrumentation_method_3d517292204047acfc6bb54cc09a38e3}{createMethodHeaderCode} ()
 \end{CompactItemize}
 \subsection*{Public Attributes}
 \begin{CompactItemize}
 \item 
-const \hyperlink{class_code_instrumentation_method_fb4c19a6fcdb8dbcaff2d8e5c4dbe9fe}{PREFIX\_\-METHOD} = \char`\"{}\_\-\_\-\_\-\char`\"{}
+const \hyperlink{class_code_instrumentation_method_459af7451a2f181e2e91e444c5a72d04}{PREFIX\_\-METHOD} = \char`\"{}\_\-\_\-\_\-\char`\"{}
 \end{CompactItemize}
 \subsection*{Protected Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_code_instrumentation_method_3442d8655a04e40edaf9626499fe9328}{getCallCodeInstrFunctionCode} ()
+\hyperlink{class_code_instrumentation_method_5df850508e727984f62860b6987991c0}{getCallCodeInstrFunctionCode} ()
 \item 
-\hyperlink{class_code_instrumentation_method_5ac76fbcfc7bfc32c63c13d9523ec5ca}{getCallCodeInstrFunctionHeaderCode} ()
+\hyperlink{class_code_instrumentation_method_bd8673f90786848f90fb3c0940c604a6}{getCallCodeInstrFunctionHeaderCode} ()
 \item 
-\hyperlink{class_code_instrumentation_method_b0506c97566930831078d8c53d1b70e4}{getCallCodeInstrFunctionContentCode} ()
+\hyperlink{class_code_instrumentation_method_ed55cb9e7235755c7fdab2dc01eb4f47}{getCallCodeInstrFunctionContentCode} ()
 \item 
-\hyperlink{class_code_instrumentation_method_7dda8c3f7ba312f14dd22d25a2b69ec1}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\hyperlink{class_code_instrumentation_method_6b56ec198bc6a5b5a72076e4e7c19e29}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
 \item 
-\hyperlink{class_code_instrumentation_method_d4a17b83d9e1fd997263bc1a9982ae3c}{createExtendedReflectionParameter} (ReflectionParameter \$objReflectionParameter)
+\hyperlink{class_code_instrumentation_method_98ceb248f2b535a3a83ac2e7990e0c1f}{createExtendedReflectionParameter} (ReflectionParameter \$objReflectionParameter)
 \item 
-\hyperlink{class_code_instrumentation_method_731590867f98da76937a4e5a93ec2023}{createMethodContentCode} ()
+\hyperlink{class_code_instrumentation_method_e38c2891dc093dabb6b363a4de9ac495}{createMethodContentCode} ()
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Class what in place of create the exactly code of some method, create a version of it what send a message to the code instrumentation receiver before and after each call.
+
+\begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_code_instrumentation_method_7dda8c3f7ba312f14dd22d25a2b69ec1}{
+\hypertarget{class_code_instrumentation_method_6b56ec198bc6a5b5a72076e4e7c19e29}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!createExtendedReflectionClass@{createExtendedReflectionClass}}
 \index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_method_7dda8c3f7ba312f14dd22d25a2b69ec1}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_method_6b56ec198bc6a5b5a72076e4e7c19e29}
 
 
 make the class calls return a code instrumentation class
@@ -59,20 +66,29 @@ make the class calls return a code instrumentation class
 \item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
 \end{Desc}
 \begin{Desc}
-\item[Returns:]CodeInstrumentationClass \end{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_class}{CodeInstrumentationClass} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_method_84c20b140478480a3bbecda5e9e13702}{CodeReflectionMethod}.\hypertarget{class_code_instrumentation_method_d4a17b83d9e1fd997263bc1a9982ae3c}{
+Reimplemented from \hyperlink{class_code_reflection_method_6b56ec198bc6a5b5a72076e4e7c19e29}{CodeReflectionMethod}.
+
+\begin{Code}\begin{verbatim}212     {
+213         return new CodeInstrumentationClass( $objOriginalReflectionClass->getName() );
+214     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_98ceb248f2b535a3a83ac2e7990e0c1f}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!createExtendedReflectionParameter@{createExtendedReflectionParameter}}
 \index{createExtendedReflectionParameter@{createExtendedReflectionParameter}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{createExtendedReflectionParameter}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::createExtendedReflectionParameter (ReflectionParameter \$ {\em objReflectionParameter})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_method_d4a17b83d9e1fd997263bc1a9982ae3c}
+\subsubsection[{createExtendedReflectionParameter}]{\setlength{\rightskip}{0pt plus 5cm}createExtendedReflectionParameter (ReflectionParameter \$ {\em objReflectionParameter})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_method_98ceb248f2b535a3a83ac2e7990e0c1f}
 
 
 make the parameters calls return a Code Instrumentation Parameter
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_extended_reflection_method_a7d2760c2914c0ad6428171c4ca61503}{ExtendedReflectionMethod::createExtendedReflectionParameter} \end{Desc}
+\item[See also:]\hyperlink{class_extended_reflection_method_98ceb248f2b535a3a83ac2e7990e0c1f}{ExtendedReflectionMethod::createExtendedReflectionParameter} \end{Desc}
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
@@ -82,11 +98,20 @@ make the parameters calls return a Code Instrumentation Parameter
 \item[Returns:]\hyperlink{class_code_instrumentation_parameter}{CodeInstrumentationParameter} \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_method_33a3dcd4331a02b37addbc2fa9281af6}{CodeReflectionMethod}.\hypertarget{class_code_instrumentation_method_731590867f98da76937a4e5a93ec2023}{
+Reimplemented from \hyperlink{class_code_reflection_method_98ceb248f2b535a3a83ac2e7990e0c1f}{CodeReflectionMethod}.
+
+\begin{Code}\begin{verbatim}224     {
+225         return new CodeInstrumentationParameter( Array( $this->getDeclaringClass()->getName() , $this->getName() ) , $objReflectionParameter->getName() );
+226     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_e38c2891dc093dabb6b363a4de9ac495}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!createMethodContentCode@{createMethodContentCode}}
 \index{createMethodContentCode@{createMethodContentCode}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{createMethodContentCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::createMethodContentCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_method_731590867f98da76937a4e5a93ec2023}
+\subsubsection[{createMethodContentCode}]{\setlength{\rightskip}{0pt plus 5cm}createMethodContentCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_method_e38c2891dc093dabb6b363a4de9ac495}
 
 
 Create the code instrumentation method content code
@@ -95,11 +120,43 @@ Create the code instrumentation method content code
 \item[Returns:]string \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_method_4aa609e822a988c2577185932cad79eb}{CodeReflectionMethod}.\hypertarget{class_code_instrumentation_method_0eab7bf9706fa3867605f3db1822c333}{
+Reimplemented from \hyperlink{class_code_reflection_method_e38c2891dc093dabb6b363a4de9ac495}{CodeReflectionMethod}.
+
+\begin{Code}\begin{verbatim}234     {
+235         $strCode = "";
+236 
+237         $objCodeInstrFile = CodeReflectionFile::getCodeInstrFileName( $this->getFileName() );
+238         $strCode .= $objCodeInstrFile->getFileBit( $this->getStartLine() , $this->getEndLine() );
+239         $strCode = trim( $strCode );
+240 
+241         if( strlen( $strCode ) == 0 )
+242         {
+243             return $strCode;
+244         }
+245         
+246         // remove the { }
+247         if( $strCode[0] == "{" )
+248         {
+249             $strCode = substr( $strCode , 1 );
+250         }
+251 
+252         $intLast = strlen( $strCode ) - 1;
+253 
+254         if( $strCode[$intLast] == "}" )
+255         {
+256             $strCode = substr( $strCode , 0     , -1);
+257         }
+258         return $strCode;
+259     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_3d517292204047acfc6bb54cc09a38e3}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!createMethodHeaderCode@{createMethodHeaderCode}}
 \index{createMethodHeaderCode@{createMethodHeaderCode}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{createMethodHeaderCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::createMethodHeaderCode ()}}
-\label{class_code_instrumentation_method_0eab7bf9706fa3867605f3db1822c333}
+\subsubsection[{createMethodHeaderCode}]{\setlength{\rightskip}{0pt plus 5cm}createMethodHeaderCode ()}}
+\label{class_code_instrumentation_method_3d517292204047acfc6bb54cc09a38e3}
 
 
 Get the method header of the code instrumentation method
@@ -108,22 +165,50 @@ Get the method header of the code instrumentation method
 \item[Returns:]string \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_method_c4b3d9a1c136135c42a66302f52c66c5}{CodeReflectionMethod}.\hypertarget{class_code_instrumentation_method_3442d8655a04e40edaf9626499fe9328}{
+Reimplemented from \hyperlink{class_code_reflection_method_3d517292204047acfc6bb54cc09a38e3}{CodeReflectionMethod}.
+
+\begin{Code}\begin{verbatim}195     {
+196         $strCode = $this->getDocComment();
+197         $strCode .= $this->createModifiersCode();
+198         $strCode .= " function ";
+199         $strCode .= $this->getNewName();
+200         $strCode .= $this->createParametersCode();
+201         return CorujaStringManipulation::retab( $strCode , 1 );
+202     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_5df850508e727984f62860b6987991c0}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!getCallCodeInstrFunctionCode@{getCallCodeInstrFunctionCode}}
 \index{getCallCodeInstrFunctionCode@{getCallCodeInstrFunctionCode}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{getCallCodeInstrFunctionCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::getCallCodeInstrFunctionCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_method_3442d8655a04e40edaf9626499fe9328}
+\subsubsection[{getCallCodeInstrFunctionCode}]{\setlength{\rightskip}{0pt plus 5cm}getCallCodeInstrFunctionCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_method_5df850508e727984f62860b6987991c0}
 
 
 Returns the code instrumentation method content what will be append into the class
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_code_instrumentation_method_b0506c97566930831078d8c53d1b70e4}{
+
+
+\begin{Code}\begin{verbatim}48     {
+49         $strCode = "";
+50         $strCode .= $this->getCallCodeInstrFunctionHeaderCode();
+51         $strCode .= "{" . "\n";
+52         $strCode .= $this->getCallCodeInstrFunctionContentCode();
+53         $strCode .= "}" . "\n";
+54         return $strCode;
+55     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_ed55cb9e7235755c7fdab2dc01eb4f47}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!getCallCodeInstrFunctionContentCode@{getCallCodeInstrFunctionContentCode}}
 \index{getCallCodeInstrFunctionContentCode@{getCallCodeInstrFunctionContentCode}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{getCallCodeInstrFunctionContentCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::getCallCodeInstrFunctionContentCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_method_b0506c97566930831078d8c53d1b70e4}
+\subsubsection[{getCallCodeInstrFunctionContentCode}]{\setlength{\rightskip}{0pt plus 5cm}getCallCodeInstrFunctionContentCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_method_ed55cb9e7235755c7fdab2dc01eb4f47}
 
 
 Get the code instrumentation content of the method what will be append into the class
@@ -132,33 +217,143 @@ Get the code instrumentation content of the method what will be append into the 
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_code_instrumentation_method_5ac76fbcfc7bfc32c63c13d9523ec5ca}{
+
+
+\begin{Code}\begin{verbatim}92     {
+93                 // 1. create the method header //
+94         $strCode = "";
+95         $strCode .=     '       $strMethod = "' . $this->getNewName() . '";                                                                             ' . "\n";
+96         $strCode .=     '       $arrArguments = func_get_args();                                                                                                ' . "\n";
+97         $strCode .=     '       // prepare caller //                                                                                                                    ' . "\n";
+98         
+99         // 2. if the method is a static one //
+100         if( $this->isStatic() )
+101         {
+102                      // 2.1 log the enter method into the code instrumentation receiver as a static call
+103             $strCode .= '       $arrCaller = Array( __CLASS__ , $strMethod ) ;                                                          ' . "\n";
+104             $strCode .= '       // log the enter into the real method //                                                                                ' . "\n";
+105             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onEnterMethod( "static" , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+106 
+107             // 2.2 run method
+108             $strCode .= '       // execute the real method                                                                                                              ' . "\n";
+109             $strCode .= '       $mixReturn = call_user_func_array( $arrCaller, $arrArguments );                                 ' . "\n";
+110 
+111                     // 2.3 log the leave method into the code instrumentation receiver as a static call
+112             $strCode .= '       // log the exit of the real method //                                                                                   ' . "\n";
+113             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onLeaveMethod( "static" , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
+114             $strCode .= '       // return the result of the method into the object  //                                                  ' . "\n";
+115             $strCode .= '       return $mixReturn;                                                                                                                              ' . "\n";
+116         }
+117         // 3. else - if the method is not a static one //
+118         else
+119         {
+120                 // 3.1 log the enter method into the code instrumentation receiver sending the object id //
+121             $strCode .= '       $arrCaller = Array( $this , $strMethod ) ;                                      ' . "\n";
+122             $strCode .= '       // log the enter into the real method //                                        ' . "\n";
+123             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onEnterMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $arrArguments );' . "\n";
+124             $strCode .= '       // execute the real method                                                      ' . "\n";
+125             
+126             // 3.2 if the method is the magic method __call //
+127             if( $this->getName() == "__call" )
+128             {
+129                 // 3.2.1 when some undefined method be called log the call and call the original __call //
+130                 $strCode .=     '       // if the method exists                                                                                                         ' . "\n";
+131                 $strCode .=     '       if( method_exists( $this , $strMethod ) )                                                                               ' . "\n";
+132                 $strCode .=     '       {                                                                               ' . "\n";
+133                 $strCode .=     '           // call the real method                                                     ' . "\n";
+134                 $strCode .=     '       $mixReturn = call_user_func_array( $arrCaller, $arrArguments );                         ' . "\n";
+135                 $strCode .=     '       }                                                                               ' . "\n";
+136                 $strCode .=     '       else                                                                            ' . "\n";
+137                 $strCode .=     '       {                                                                               ' . "\n";
+138                 $strCode .=     '           // exists in the original class a __call method //                          ' . "\n";
+139                 $strCode .=     '           if( method_exists( $this , "' . self::PREFIX_METHOD . '__call" ) )                                   ' . "\n";
+140                 $strCode .=     '           {                                                                           ' . "\n";
+141                 $strCode .=     '               // call it //                                                           ' . "\n";
+142                 $strCode .=     '               $mixReturn = $this->' . self::PREFIX_METHOD . '__call( $strMethod , $arrArguments );                          ' . "\n";
+143                 $strCode .=     '           }                                                                           ' . "\n";
+144                 $strCode .=     '           else                                                                           ' . "\n";
+145                 $strCode .=     '           {                                                                           ' . "\n";
+146                 $strCode .=     '           throw new CodeToDiagramException( "Unable to find the method $strMethod "); ' . "\n";
+147                 $strCode .=     '           }                                                                           ' . "\n";
+148                 $strCode .=     '       }                                                                               ' . "\n";
+149             }
+150             // 3.3 else - if the method is not the magic method __call //
+151             else
+152             {
+153                 //  3.3.1 save the call into the code instrumentation receiver and call the original method //
+154                 $strCode .=     '       // if the method exists                                                                                                         ' . "\n";
+155                 $strCode .=     '       if( method_exists( $this , $strMethod ) )                                                                               ' . "\n";
+156                 $strCode .=     '       {                                                                               ' . "\n";
+157                 $strCode .=     '           // call the real method                                                     ' . "\n";
+158                 $strCode .=     '       $mixReturn = call_user_func_array( $arrCaller, $arrArguments );                         ' . "\n";
+159                 $strCode .=     '       }                                                                               ' . "\n";
+160                 $strCode .=     '       else                                                                            ' . "\n";
+161                 $strCode .=     '       {                                                                               ' . "\n";
+162                 $strCode .=     '       throw new CodeToDiagramException( "Unable to find the method $strMethod "); ' . "\n";
+163                 $strCode .=     '       }                                                                               ' . "\n";
+164             }
+165             // 3.4 log the leave method into the code instrumentation receiver sending the object id
+166             $strCode .= '       // log the exit of the real method //                                                                                   ' . "\n";
+167             $strCode .= '       CodeInstrumentationReceiver::getInstance()->onLeaveMethod( spl_object_hash($this) , __CLASS__ , __METHOD__ , $mixReturn    );' . "\n";
+168             $strCode .= '       // return the result of the method into the object  //                                                  ' . "\n";
+169             $strCode .= '       return $mixReturn;                                                                                                                              ' . "\n";
+170         }
+171 
+172         return $strCode;
+173     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_bd8673f90786848f90fb3c0940c604a6}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!getCallCodeInstrFunctionHeaderCode@{getCallCodeInstrFunctionHeaderCode}}
 \index{getCallCodeInstrFunctionHeaderCode@{getCallCodeInstrFunctionHeaderCode}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{getCallCodeInstrFunctionHeaderCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::getCallCodeInstrFunctionHeaderCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_code_instrumentation_method_5ac76fbcfc7bfc32c63c13d9523ec5ca}
+\subsubsection[{getCallCodeInstrFunctionHeaderCode}]{\setlength{\rightskip}{0pt plus 5cm}getCallCodeInstrFunctionHeaderCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_method_bd8673f90786848f90fb3c0940c604a6}
 
 
 Get the code instrumentation header of the method what will be append into the class
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_code_instrumentation_method_c07a68881c058097ce6914ce9dc96e4e}{
+
+
+\begin{Code}\begin{verbatim}64     {
+65         $strCode = CorujaStringManipulation::retab( $this->getDocComment() , 1 );
+66         $strCode .= $this->createModifiersCode();
+67         $strCode .= " function " . $this->getCallCodeInstrFunctionName();
+68         $strCode .= $this->createParametersCode();
+69         return $strCode;
+70     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_7f82d49e30da995729069ae9190555da}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!getCallCodeInstrFunctionName@{getCallCodeInstrFunctionName}}
 \index{getCallCodeInstrFunctionName@{getCallCodeInstrFunctionName}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{getCallCodeInstrFunctionName}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::getCallCodeInstrFunctionName ()}}
-\label{class_code_instrumentation_method_c07a68881c058097ce6914ce9dc96e4e}
+\subsubsection[{getCallCodeInstrFunctionName}]{\setlength{\rightskip}{0pt plus 5cm}getCallCodeInstrFunctionName ()}}
+\label{class_code_instrumentation_method_7f82d49e30da995729069ae9190555da}
 
 
 Returns de name of the code instrumentation method name what will be append into the class
 
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_code_instrumentation_method_b79054196e5abf3e3464ad0551a9af71}{
+
+
+\begin{Code}\begin{verbatim}38     {
+39         return $this->getName();
+40     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_b5e24da53b4a0d0848b18c1e832f47ff}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!getCode@{getCode}}
 \index{getCode@{getCode}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::getCode ()}}
-\label{class_code_instrumentation_method_b79054196e5abf3e3464ad0551a9af71}
+\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}getCode ()}}
+\label{class_code_instrumentation_method_b5e24da53b4a0d0848b18c1e832f47ff}
 
 
 Get the code of the code instrumentation method
@@ -167,23 +362,45 @@ Get the code of the code instrumentation method
 \item[Returns:]string \end{Desc}
 
 
-Reimplemented from \hyperlink{class_code_reflection_method_9ea590fa1500f62805d106332634893e}{CodeReflectionMethod}.\hypertarget{class_code_instrumentation_method_4158b6c8a6183afecc0a9847ad3aeb53}{
+Reimplemented from \hyperlink{class_code_reflection_method_b5e24da53b4a0d0848b18c1e832f47ff}{CodeReflectionMethod}.
+
+\begin{Code}\begin{verbatim}181     {
+182         $strCode = "";
+183         $strCode .= $this->getCallCodeInstrFunctionCode();
+184         $strCode .= parent::getCode();
+185         return $strCode;
+186 
+187     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_code_instrumentation_method_6e2855870a7381176413aa24a2fbfd43}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!getNewName@{getNewName}}
 \index{getNewName@{getNewName}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{getNewName}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationMethod::getNewName ()}}
-\label{class_code_instrumentation_method_4158b6c8a6183afecc0a9847ad3aeb53}
+\subsubsection[{getNewName}]{\setlength{\rightskip}{0pt plus 5cm}getNewName ()}}
+\label{class_code_instrumentation_method_6e2855870a7381176413aa24a2fbfd43}
 
 
 Returns the new name of the original method. ' \begin{Desc}
 \item[Returns:]string \end{Desc}
 
 
+\begin{Code}\begin{verbatim}28     {
+29         return self::PREFIX_METHOD . $this->getName();
+30     }
+\end{verbatim}
+\end{Code}
+
+
+
+
 \subsection{Member Data Documentation}
-\hypertarget{class_code_instrumentation_method_fb4c19a6fcdb8dbcaff2d8e5c4dbe9fe}{
+\hypertarget{class_code_instrumentation_method_459af7451a2f181e2e91e444c5a72d04}{
 \index{CodeInstrumentationMethod@{CodeInstrumentationMethod}!PREFIX\_\-METHOD@{PREFIX\_\-METHOD}}
 \index{PREFIX\_\-METHOD@{PREFIX\_\-METHOD}!CodeInstrumentationMethod@{CodeInstrumentationMethod}}
-\subsubsection[{PREFIX\_\-METHOD}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf CodeInstrumentationMethod::PREFIX\_\-METHOD} = \char`\"{}\_\-\_\-\_\-\char`\"{}}}
-\label{class_code_instrumentation_method_fb4c19a6fcdb8dbcaff2d8e5c4dbe9fe}
+\subsubsection[{PREFIX\_\-METHOD}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf PREFIX\_\-METHOD} = \char`\"{}\_\-\_\-\_\-\char`\"{}}}
+\label{class_code_instrumentation_method_459af7451a2f181e2e91e444c5a72d04}
 
 
 The original method should be renamed. This is the new prefix what will be append into it's name. 

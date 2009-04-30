@@ -5,29 +5,34 @@
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_value_fbc33798f5add98a547e139640e700ec}{setName} (\$strName)
+\hyperlink{class_xml_sequence_value_c05d9184d52b7a34210a801767bef213}{setName} (\$strName)
 \item 
-\hyperlink{class_xml_sequence_value_79b06938543618ff0d4f88eb93032348}{getName} ()
+\hyperlink{class_xml_sequence_value_3d0963e68bb313b163a73f2803c64600}{getName} ()
 \item 
-\hyperlink{class_xml_sequence_value_2538a3f131eec1c88ee21d963ebfb011}{setValue} (\$strValue)
+\hyperlink{class_xml_sequence_value_b5d79fa8a006bc1c112844b24f3e4897}{setValue} (\$strValue)
 \item 
-\hyperlink{class_xml_sequence_value_6a7ae3d278b686a9978e02298d8a432b}{getValue} ()
+\hyperlink{class_xml_sequence_value_c0bc18784b182c89fcfd276625aef435}{getValue} ()
 \end{CompactItemize}
 \subsection*{Protected Attributes}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_xml_sequence_value_6b07f7e06d0c1d63505f55f449a5b16a}{\$strName}
+\hyperlink{class_xml_sequence_value_90edf7538a74be8ac5ce46baaf203382}{\$strName}
 \item 
-\hyperlink{class_xml_sequence_value_fc1506e7e5507c5204dbed497858204b}{\$strValue}
+\hyperlink{class_xml_sequence_value_4ca01dcd54c8197f45702984773b68a4}{\$strValue}
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+Object with the values send into the message \begin{Desc}
+\item[Author:]Thiago Henrique Ramos da Mata $<$\href{mailto:thiago.henrique.mata@gmail.com}{\tt thiago.henrique.mata@gmail.com}$>$ \end{Desc}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_xml_sequence_value_79b06938543618ff0d4f88eb93032348}{
+\hypertarget{class_xml_sequence_value_3d0963e68bb313b163a73f2803c64600}{
 \index{XmlSequenceValue@{XmlSequenceValue}!getName@{getName}}
 \index{getName@{getName}!XmlSequenceValue@{XmlSequenceValue}}
-\subsubsection[{getName}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceValue::getName ()}}
-\label{class_xml_sequence_value_79b06938543618ff0d4f88eb93032348}
+\subsubsection[{getName}]{\setlength{\rightskip}{0pt plus 5cm}getName ()}}
+\label{class_xml_sequence_value_3d0963e68bb313b163a73f2803c64600}
 
 
 set the name of the attribute value
@@ -38,11 +43,20 @@ set the name of the attribute value
 XmlSequenceValue-$>$strName \end{Desc}
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_xml_sequence_value_6a7ae3d278b686a9978e02298d8a432b}{
+
+
+\begin{Code}\begin{verbatim}49     {
+50         return $this->strName;
+51     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_value_c0bc18784b182c89fcfd276625aef435}{
 \index{XmlSequenceValue@{XmlSequenceValue}!getValue@{getValue}}
 \index{getValue@{getValue}!XmlSequenceValue@{XmlSequenceValue}}
-\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceValue::getValue ()}}
-\label{class_xml_sequence_value_6a7ae3d278b686a9978e02298d8a432b}
+\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}getValue ()}}
+\label{class_xml_sequence_value_c0bc18784b182c89fcfd276625aef435}
 
 
 set the value of the attribute
@@ -53,17 +67,26 @@ set the value of the attribute
 XmlSequenceValue-$>$strValue \end{Desc}
 \begin{Desc}
 \item[Returns:]string \end{Desc}
-\hypertarget{class_xml_sequence_value_fbc33798f5add98a547e139640e700ec}{
+
+
+\begin{Code}\begin{verbatim}75     {
+76         return $this->strValue;
+77     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_value_c05d9184d52b7a34210a801767bef213}{
 \index{XmlSequenceValue@{XmlSequenceValue}!setName@{setName}}
 \index{setName@{setName}!XmlSequenceValue@{XmlSequenceValue}}
-\subsubsection[{setName}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceValue::setName (\$ {\em strName})}}
-\label{class_xml_sequence_value_fbc33798f5add98a547e139640e700ec}
+\subsubsection[{setName}]{\setlength{\rightskip}{0pt plus 5cm}setName (\$ {\em strName})}}
+\label{class_xml_sequence_value_c05d9184d52b7a34210a801767bef213}
 
 
 Set the name of the attribute value
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_xml_sequence_value_79b06938543618ff0d4f88eb93032348}{XmlSequenceValue::getName()} 
+\item[See also:]\hyperlink{class_xml_sequence_value_3d0963e68bb313b163a73f2803c64600}{XmlSequenceValue::getName()} 
 
 XmlSequenceValue-$>$strName \end{Desc}
 \begin{Desc}
@@ -73,17 +96,27 @@ XmlSequenceValue-$>$strName \end{Desc}
 \end{Desc}
 \begin{Desc}
 \item[Returns:]\hyperlink{class_xml_sequence_value}{XmlSequenceValue} me \end{Desc}
-\hypertarget{class_xml_sequence_value_2538a3f131eec1c88ee21d963ebfb011}{
+
+
+\begin{Code}\begin{verbatim}36     {
+37         $this->strName = $strName;
+38         return $this;
+39     }
+\end{verbatim}
+\end{Code}
+
+
+\hypertarget{class_xml_sequence_value_b5d79fa8a006bc1c112844b24f3e4897}{
 \index{XmlSequenceValue@{XmlSequenceValue}!setValue@{setValue}}
 \index{setValue@{setValue}!XmlSequenceValue@{XmlSequenceValue}}
-\subsubsection[{setValue}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceValue::setValue (\$ {\em strValue})}}
-\label{class_xml_sequence_value_2538a3f131eec1c88ee21d963ebfb011}
+\subsubsection[{setValue}]{\setlength{\rightskip}{0pt plus 5cm}setValue (\$ {\em strValue})}}
+\label{class_xml_sequence_value_b5d79fa8a006bc1c112844b24f3e4897}
 
 
 Set the value of the attribute
 
 \begin{Desc}
-\item[See also:]\hyperlink{class_xml_sequence_value_6a7ae3d278b686a9978e02298d8a432b}{XmlSequenceValue::getValue()} 
+\item[See also:]\hyperlink{class_xml_sequence_value_c0bc18784b182c89fcfd276625aef435}{XmlSequenceValue::getValue()} 
 
 XmlSequenceValue-$>$strValue \end{Desc}
 \begin{Desc}
@@ -95,22 +128,36 @@ XmlSequenceValue-$>$strValue \end{Desc}
 \item[Returns:]\hyperlink{class_xml_sequence_value}{XmlSequenceValue} me \end{Desc}
 
 
+\begin{Code}\begin{verbatim}62     {
+63         $this->strValue = $strValue;
+64         return $this;
+65     }
+\end{verbatim}
+\end{Code}
+
+
+
+
 \subsection{Member Data Documentation}
-\hypertarget{class_xml_sequence_value_6b07f7e06d0c1d63505f55f449a5b16a}{
+\hypertarget{class_xml_sequence_value_90edf7538a74be8ac5ce46baaf203382}{
 \index{XmlSequenceValue@{XmlSequenceValue}!\$strName@{\$strName}}
 \index{\$strName@{\$strName}!XmlSequenceValue@{XmlSequenceValue}}
-\subsubsection[{\$strName}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceValue::\$strName\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_value_6b07f7e06d0c1d63505f55f449a5b16a}
+\subsubsection[{\$strName}]{\setlength{\rightskip}{0pt plus 5cm}\$strName\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_value_90edf7538a74be8ac5ce46baaf203382}
 
 
-\hypertarget{class_xml_sequence_value_fc1506e7e5507c5204dbed497858204b}{
+Name of the attribute
+
+string \hypertarget{class_xml_sequence_value_4ca01dcd54c8197f45702984773b68a4}{
 \index{XmlSequenceValue@{XmlSequenceValue}!\$strValue@{\$strValue}}
 \index{\$strValue@{\$strValue}!XmlSequenceValue@{XmlSequenceValue}}
-\subsubsection[{\$strValue}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceValue::\$strValue\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_xml_sequence_value_fc1506e7e5507c5204dbed497858204b}
+\subsubsection[{\$strValue}]{\setlength{\rightskip}{0pt plus 5cm}\$strValue\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_value_4ca01dcd54c8197f45702984773b68a4}
 
 
+Value of the attribute
 
+string 
 
 The documentation for this class was generated from the following file:\begin{CompactItemize}
 \item 
