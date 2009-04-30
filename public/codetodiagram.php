@@ -1,10 +1,13 @@
 <?php
 /**
+ * @package public
+ * @subpackage CodeToDiagram
+ */
+
+/**
  * This is the started file of the codetodiagram and should be used as can be
  * see into the examples
  * 
- * @package public
- * @subpackage CodeToDiagram
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 

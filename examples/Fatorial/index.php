@@ -1,11 +1,15 @@
 <?php
 /**
+ * @package examples
+ * @subpackage Fatorial
+ */
+
+/**
+ * Fatorial Example
+ *
  * Example of the CodeToDiagram into a fatorial function
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package examples
- * @subpackage Fatorial
-
  * 1. require once the code to diagram core
  * 2. start the code to diagram
  * 3. require once the necessary classes

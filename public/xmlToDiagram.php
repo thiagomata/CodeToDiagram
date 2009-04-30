@@ -1,12 +1,15 @@
 <?php
 /**
+ * @package public
+ * @subpackage xmlToDiagram
+ */
+
+/**
  * This file make a little intro about what is the xml to diagram and
  * how it works, its projects, team, etc. After that it create a html
  * web form what make possible the creation of real time diagrams just
  * changing the xml and posting the form.
  * 
- * @package public
- * @subpackage xmlToDiagram
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 require_once( "../_start.php" );

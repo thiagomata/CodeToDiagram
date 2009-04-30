@@ -1,10 +1,13 @@
-<?php 
+<?php
+/**
+ * @package public
+ * @subpackage xmlToDiagram
+ */
+
 /**
  * This file convert the http request into a sequence diagram into screen.
  * Can be used to external access, to be test, to be a remote tool, etc.
  * 
- * @package public
- * @subpackage xmlToDiagram
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  * 
  */

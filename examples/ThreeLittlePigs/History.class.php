@@ -1,10 +1,14 @@
 <?php
 /**
+ * History of the Three Little Pigs Example
+ * @package examples
+ * @subpackage ThreeLittlePigs
+ */
+
+/**
  *
  * Class with the history of the three little pigs
  * 
- * @package examples
- * @subpackage ThreeLittlePigs
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  * 
  * 1. create the first pig

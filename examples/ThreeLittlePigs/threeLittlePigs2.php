@@ -1,5 +1,13 @@
 <?php
 /**
+ * @package examples
+ * @subpackage ThreeLittlePigs
+ */
+
+/**
+ * Three Little Pigs as complex example of the code to diagram
+ *
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  * This example helps you to see how to
  * create many diagrams based into a single code execution
  * 
@@ -8,9 +16,6 @@
  *
  * The comments are just to help understand
  * not been necessary to the execution
-
- * @package examples
- * @subpackage ThreeLittlePigs
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 

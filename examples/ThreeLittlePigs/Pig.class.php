@@ -1,9 +1,13 @@
 <?php
 /**
- * Little pigs of the example of the code to diagram
- * 
+ * LittlePig of the Three Little Pigs Example
  * @package examples
  * @subpackage ThreeLittlePigs
+ */
+
+/**
+ * Little pigs of the example of the code to diagram
+ * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */

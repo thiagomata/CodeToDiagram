@@ -1,12 +1,14 @@
-<?php 
+<?php
+/**
+ * @package public
+ * @subpackage CodeToDiagram
+ */
+
 /**
  * This file make a little intro about what it the code to diagram and the
  * xml to diagram, how it works and where you can find some others helps
  * as the examples, phpdocs, web site of the project, etc.
  * 
- * @package public
- * @subpackage CodeToDiagram
- * @subpackage xmlToDiagram
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  * 
  */

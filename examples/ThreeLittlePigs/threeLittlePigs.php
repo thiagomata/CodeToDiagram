@@ -1,10 +1,12 @@
 <?php
 /**
- * Three Little Pigs as example of the code to diagram
- * 
  * @package examples
  * @subpackage ThreeLittlePigs
+ */
+
+/**
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * Three Little Pigs as simple example of the code to diagram
  *
  * 1. require once the code to diagram started
  * 2. start the code to diagram
