@@ -172,15 +172,17 @@ SEPARATE_MEMBER_PAGES  = NO
 
 TAB_SIZE               = 8
 
-# This tag can be used to specify a number of aliases that acts 
+# This tag can be used to specify a number of	 aliases that acts 
 # as commands in the documentation. An alias has the form "name=value". 
 # For example adding "sideeffect=\par Side Effects:\n" will allow you to 
 # put the command \sideeffect (or @sideeffect) in the documentation, which 
 # will result in a user-defined paragraph with heading "Side Effects:". 
 # You can put \n's in the value part of an alias to insert newlines.
 
-ALIASES                += "example=\code Example:\n" 
-ALIASES                += "assert=\code Test:\n" 
+ALIASES                += "example=\par Example:\n" 
+ALIASES                += "test=\par Test:\n" 
+ALIASES                += "assert=\par Assert:\n" 
+ALIASES                += "var=\n" 
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C 
 # sources only. Doxygen will then generate output that is more tailored for C. 
@@ -329,7 +331,7 @@ EXTRACT_LOCAL_METHODS  = YES
 # name of the file that contains the anonymous namespace. By default 
 # anonymous namespace are hidden.
 
-EXTRACT_ANON_NSPACES   = NO
+EXTRACT_ANON_NSPACES   = YES
 
 # If the HIDE_UNDOC_MEMBERS tag is set to YES, Doxygen will hide all 
 # undocumented members of documented classes, files or namespaces. 
@@ -379,7 +381,7 @@ CASE_SENSE_NAMES       = NO
 # will show members with their full class and namespace scopes in the 
 # documentation. If set to YES the scope will be hidden.
 
-HIDE_SCOPE_NAMES       = NO
+HIDE_SCOPE_NAMES       = YES
 
 # If the SHOW_INCLUDE_FILES tag is set to YES (the default) then Doxygen 
 # will put a list of the files that are included by a file in the documentation 
@@ -531,7 +533,7 @@ WARN_IF_UNDOCUMENTED   = YES
 # parameters in a documented function, or documenting parameters that 
 # don't exist or using markup commands wrongly.
 
-WARN_IF_DOC_ERROR      = YES
+WARN_IF_DOC_ERROR      = no
 
 # This WARN_NO_PARAMDOC option can be abled to get warnings for 
 # functions that are documented, but have no documentation for their parameters 
@@ -686,13 +688,13 @@ SOURCE_BROWSER         = NO
 # Setting the INLINE_SOURCES tag to YES will include the body 
 # of functions and classes directly in the documentation.
 
-INLINE_SOURCES         = NO
+INLINE_SOURCES         = YES
 
 # Setting the STRIP_CODE_COMMENTS tag to YES (the default) will instruct 
 # doxygen to hide any special comment blocks from generated source code 
 # fragments. Normal C and C++ comments will always remain visible.
 
-STRIP_CODE_COMMENTS    = YES
+STRIP_CODE_COMMENTS    = NO
 
 # If the REFERENCED_BY_RELATION tag is set to YES 
 # then for each documented function all documented 
