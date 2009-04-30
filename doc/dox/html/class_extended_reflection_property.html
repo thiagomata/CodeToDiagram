@@ -49,19 +49,23 @@ Inheritance diagram for ExtendedReflectionProperty:</div>
 <a href="class_extended_reflection_property-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_property.html#af1e7fdb7af7548692400dcad6c85c65">getDeclaringClass</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_property.html#acff3f8d93cc250281f0f73bff3422e1">getDeclaringClass</a> ()</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_property.html#05c178f6fef194d390db8312f9595d93">createExtendedReflectionClass</a> (ReflectionClass $objOriginalReflectionClass)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_property.html#6b56ec198bc6a5b5a72076e4e7c19e29">createExtendedReflectionClass</a> (ReflectionClass $objOriginalReflectionClass)</td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Class what make possible and easy extend reflection property<p>
+Reflection classes can be a problem because the reflection methods what return objects will return the original reflection object and not the extended version of it. So it is necessary to create methods what convert the original methods to return the extended version of the objects.<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt; </dd></dl>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="05c178f6fef194d390db8312f9595d93"></a><!-- doxytag: member="ExtendedReflectionProperty::createExtendedReflectionClass" ref="05c178f6fef194d390db8312f9595d93" args="(ReflectionClass $objOriginalReflectionClass)" -->
+<a class="anchor" name="6b56ec198bc6a5b5a72076e4e7c19e29"></a><!-- doxytag: member="ExtendedReflectionProperty::createExtendedReflectionClass" ref="6b56ec198bc6a5b5a72076e4e7c19e29" args="(ReflectionClass $objOriginalReflectionClass)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionProperty::createExtendedReflectionClass           </td>
+          <td class="memname">createExtendedReflectionClass           </td>
           <td>(</td>
           <td class="paramtype">ReflectionClass $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionClass</em>          </td>
@@ -82,16 +86,21 @@ This is the method what should be replaced when this class be extended.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_class.html">ExtendedReflectionClass</a> </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_code_instrumentation_property.html#192bcd477b39d69274c9a7db05cc606d">CodeInstrumentationProperty</a>, and <a class="el" href="class_code_reflection_property.html#ada66f395b16622378963471801f11ad">CodeReflectionProperty</a>.</p>
+<p>Reimplemented in <a class="el" href="class_code_instrumentation_property.html#6b56ec198bc6a5b5a72076e4e7c19e29">CodeInstrumentationProperty</a>, and <a class="el" href="class_code_reflection_property.html#6b56ec198bc6a5b5a72076e4e7c19e29">CodeReflectionProperty</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00040"></a>00040         {
+<a name="l00041"></a>00041                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_extended_reflection_class.html">ExtendedReflectionClass</a>( $objOriginalReflectionClass-&gt;getName() );
+<a name="l00042"></a>00042         }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="af1e7fdb7af7548692400dcad6c85c65"></a><!-- doxytag: member="ExtendedReflectionProperty::getDeclaringClass" ref="af1e7fdb7af7548692400dcad6c85c65" args="()" -->
+<a class="anchor" name="acff3f8d93cc250281f0f73bff3422e1"></a><!-- doxytag: member="ExtendedReflectionProperty::getDeclaringClass" ref="acff3f8d93cc250281f0f73bff3422e1" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionProperty::getDeclaringClass           </td>
+          <td class="memname">getDeclaringClass           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -104,13 +113,18 @@ This is the method what should be replaced when this class be extended.<p>
 <p>
 Get the class owner of the reflected parameter<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_class.html">ExtendedReflectionClass</a> </dd></dl>
+<div class="fragment"><pre class="fragment"><a name="l00026"></a>00026     {
+<a name="l00027"></a>00027         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_extended_reflection_property.html#6b56ec198bc6a5b5a72076e4e7c19e29">createExtendedReflectionClass</a>( parent::getDeclaringClass() );
+<a name="l00028"></a>00028     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>components/extendedReflection/<a class="el" href="_extended_reflection_property_8class_8php.html">ExtendedReflectionProperty.class.php</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 11:36:22 2009 for CodeToDiagram by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 18:15:50 2009 for CodeToDiagram by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

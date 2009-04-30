@@ -158,7 +158,23 @@ Searching for files in directory C:/www/codetodiagram/components/xmlSequence/.sv
 Searching for files in directory C:/www/codetodiagram/components/xmlSequence/.svn/tmp/props
 Searching for files in directory C:/www/codetodiagram/components/xmlSequence/.svn/tmp/text-base
 Searching for files in directory C:/www/codetodiagram/doc
+Searching for files in directory C:/www/codetodiagram/doc/.svn
+Searching for files in directory C:/www/codetodiagram/doc/.svn/prop-base
+Searching for files in directory C:/www/codetodiagram/doc/.svn/props
+Searching for files in directory C:/www/codetodiagram/doc/.svn/text-base
+Searching for files in directory C:/www/codetodiagram/doc/.svn/tmp
+Searching for files in directory C:/www/codetodiagram/doc/.svn/tmp/prop-base
+Searching for files in directory C:/www/codetodiagram/doc/.svn/tmp/props
+Searching for files in directory C:/www/codetodiagram/doc/.svn/tmp/text-base
 Searching for files in directory C:/www/codetodiagram/doc/dox
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/prop-base
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/props
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/text-base
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/tmp
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/tmp/prop-base
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/tmp/props
+Searching for files in directory C:/www/codetodiagram/doc/dox/.svn/tmp/text-base
 Searching for files in directory C:/www/codetodiagram/examples
 Searching for files in directory C:/www/codetodiagram/examples/.svn
 Searching for files in directory C:/www/codetodiagram/examples/.svn/prop-base
@@ -186,150 +202,6 @@ Searching for files in directory C:/www/codetodiagram/examples/ThreeLittlePigs/.
 Searching for files in directory C:/www/codetodiagram/examples/ThreeLittlePigs/.svn/tmp/prop-base
 Searching for files in directory C:/www/codetodiagram/examples/ThreeLittlePigs/.svn/tmp/props
 Searching for files in directory C:/www/codetodiagram/examples/ThreeLittlePigs/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/backtrace/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeInstrumentation/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeReflection/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/CodeToDiagram/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/default
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/default/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/Fatorial-/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/examples/ThreeLittlePigs/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/ExtendedReflection/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/media
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/media/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/CodeToDiagram/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/public/xmlToDiagram/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/phpdocs/XmlSequence/.svn/tmp/text-base
 Searching for files in directory C:/www/codetodiagram/public
 Searching for files in directory C:/www/codetodiagram/public/.svn
 Searching for files in directory C:/www/codetodiagram/public/.svn/prop-base
@@ -357,15 +229,6 @@ Searching for files in directory C:/www/codetodiagram/public/images/.svn/tmp
 Searching for files in directory C:/www/codetodiagram/public/images/.svn/tmp/prop-base
 Searching for files in directory C:/www/codetodiagram/public/images/.svn/tmp/props
 Searching for files in directory C:/www/codetodiagram/public/images/.svn/tmp/text-base
-Searching for files in directory C:/www/codetodiagram/snapshots
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/prop-base
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/props
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/text-base
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/tmp
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/tmp/prop-base
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/tmp/props
-Searching for files in directory C:/www/codetodiagram/snapshots/.svn/tmp/text-base
 Reading and parsing tag files
 Reading C:/www/codetodiagram/_start.php...
 Parsing file C:/www/codetodiagram/_start.php...
@@ -643,6 +506,7 @@ Generating hierarchical class index...
 Generating member index...
 Generating docs for compound BackTrace...
 Generating docs for compound BackTraceExplain...
+Generating docs for compound CodeInstrumentationClass...
 Generating docs for compound CodeInstrumentationException...
 Generating docs for compound CodeInstrumentationFunction...
 Generating docs for compound CodeInstrumentationMethod...
@@ -656,9 +520,14 @@ Generating docs for compound CodeReflectionFunction...
 Generating docs for compound CodeReflectionMethod...
 Generating docs for compound CodeReflectionParameter...
 Generating docs for compound CodeReflectionProperty...
+Generating docs for compound CodeToDiagram...
 Generating docs for compound CodeToDiagramException...
+Generating docs for compound CorujaArrayManipulation...
 Generating docs for compound CorujaArrayManipulationTest...
+Generating docs for compound CorujaClassManipulation...
 Generating docs for compound CorujaClassManipulationTest...
+Generating docs for compound CorujaStringManipulation...
+Generating docs for compound CorujaStringManipulationTest...
 Generating docs for compound ExampleCodeReflecion...
 Generating docs for compound exampleFirst...
 Generating docs for compound exampleInterfaceOne...
@@ -691,6 +560,7 @@ Generating docs for namespace CodeReflection
 Generating docs for namespace CodeToDiagram
 Generating docs for namespace examples
 Generating docs for namespace ExtendedReflection
+Generating docs for namespace library
 Generating docs for namespace public
 Generating docs for namespace XmlSequence
 Generating namespace member index...

@@ -49,20 +49,23 @@ Inheritance diagram for CodeInstrumentationParameter:</div>
 <a href="class_code_instrumentation_parameter-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_parameter.html#4190025f9ec55f58f10b36084a8851fd">createExtendedReflectionClass</a> (ReflectionClass $objOriginalReflectionClass)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">createExtendedReflectionClass</a> (ReflectionClass $objOriginalReflectionClass)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_parameter.html#e0c68e69aa93979e2e1fa3057bd39d5a">createExtendedReflectionMethod</a> (ReflectionMethod $objOriginalReflectionMethod)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_parameter.html#ec7c1d4b204b6e3a6291d3b867afb688">createExtendedReflectionMethod</a> (ReflectionMethod $objOriginalReflectionMethod)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_parameter.html#e9723a389b48bdb31fc49f784692aecf">createExtendedReflectionFunction</a> (ReflectionFunction $objOriginalReflectionFunction)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_parameter.html#b23ad87d3ac2f376c1a133ca6d27f031">createExtendedReflectionFunction</a> (ReflectionFunction $objOriginalReflectionFunction)</td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Class what make possible the code instrumentation of methods and fucntions with parameters<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt; </dd></dl>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="4190025f9ec55f58f10b36084a8851fd"></a><!-- doxytag: member="CodeInstrumentationParameter::createExtendedReflectionClass" ref="4190025f9ec55f58f10b36084a8851fd" args="(ReflectionClass $objOriginalReflectionClass)" -->
+<a class="anchor" name="6b56ec198bc6a5b5a72076e4e7c19e29"></a><!-- doxytag: member="CodeInstrumentationParameter::createExtendedReflectionClass" ref="6b56ec198bc6a5b5a72076e4e7c19e29" args="(ReflectionClass $objOriginalReflectionClass)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CodeInstrumentationParameter::createExtendedReflectionClass           </td>
+          <td class="memname">createExtendedReflectionClass           </td>
           <td>(</td>
           <td class="paramtype">ReflectionClass $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionClass</em>          </td>
@@ -80,18 +83,23 @@ Replace the original reflection class by the Code Instrumentation version of it<
     <tr><td valign="top"></td><td valign="top"><em>ReflectionClass</em>&nbsp;</td><td>$objOriginalReflectionClass </td></tr>
   </table>
 </dl>
-<dl class="return" compact><dt><b>Returns:</b></dt><dd>CodeInstrumentationClass </dd></dl>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_code_instrumentation_class.html">CodeInstrumentationClass</a> </dd></dl>
 
-<p>Reimplemented from <a class="el" href="class_code_reflection_parameter.html#a2b9b21f9711afbf11791dd64dcbdd0a">CodeReflectionParameter</a>.</p>
+<p>Reimplemented from <a class="el" href="class_code_reflection_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">CodeReflectionParameter</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00024"></a>00024     {
+<a name="l00025"></a>00025         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_code_instrumentation_class.html">CodeInstrumentationClass</a>( $objOriginalReflectionClass-&gt;getName() );
+<a name="l00026"></a>00026     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="e9723a389b48bdb31fc49f784692aecf"></a><!-- doxytag: member="CodeInstrumentationParameter::createExtendedReflectionFunction" ref="e9723a389b48bdb31fc49f784692aecf" args="(ReflectionFunction $objOriginalReflectionFunction)" -->
+<a class="anchor" name="b23ad87d3ac2f376c1a133ca6d27f031"></a><!-- doxytag: member="CodeInstrumentationParameter::createExtendedReflectionFunction" ref="b23ad87d3ac2f376c1a133ca6d27f031" args="(ReflectionFunction $objOriginalReflectionFunction)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CodeInstrumentationParameter::createExtendedReflectionFunction           </td>
+          <td class="memname">createExtendedReflectionFunction           </td>
           <td>(</td>
           <td class="paramtype">ReflectionFunction $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionFunction</em>          </td>
@@ -111,16 +119,28 @@ Replace the origianl reflection function of the parameters by the code instrumen
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_code_instrumentation_function.html">CodeInstrumentationFunction</a> </dd></dl>
 
-<p>Reimplemented from <a class="el" href="class_code_reflection_parameter.html#5e6e7a1f49ff1f404342a2b2d4a15aa3">CodeReflectionParameter</a>.</p>
+<p>Reimplemented from <a class="el" href="class_code_reflection_parameter.html#b23ad87d3ac2f376c1a133ca6d27f031">CodeReflectionParameter</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00048"></a>00048     {
+<a name="l00049"></a>00049         <span class="keywordflow">if</span>( $objOriginalReflectionFunction instanceof ReflectionMethod )
+<a name="l00050"></a>00050         {
+<a name="l00051"></a>00051             <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_code_instrumentation_method.html">CodeInstrumentationMethod</a>( $objOriginalReflectionFunction-&gt;getName() );
+<a name="l00052"></a>00052         }
+<a name="l00053"></a>00053         <span class="keywordflow">else</span>
+<a name="l00054"></a>00054         {
+<a name="l00055"></a>00055             <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_code_instrumentation_function.html">CodeInstrumentationFunction</a>( $objOriginalReflectionFunction-&gt;getName() );
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="e0c68e69aa93979e2e1fa3057bd39d5a"></a><!-- doxytag: member="CodeInstrumentationParameter::createExtendedReflectionMethod" ref="e0c68e69aa93979e2e1fa3057bd39d5a" args="(ReflectionMethod $objOriginalReflectionMethod)" -->
+<a class="anchor" name="ec7c1d4b204b6e3a6291d3b867afb688"></a><!-- doxytag: member="CodeInstrumentationParameter::createExtendedReflectionMethod" ref="ec7c1d4b204b6e3a6291d3b867afb688" args="(ReflectionMethod $objOriginalReflectionMethod)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CodeInstrumentationParameter::createExtendedReflectionMethod           </td>
+          <td class="memname">createExtendedReflectionMethod           </td>
           <td>(</td>
           <td class="paramtype">ReflectionMethod $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionMethod</em>          </td>
@@ -140,14 +160,19 @@ Replace the original reflection method by the Code Instrumentation version of it
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_code_instrumentation_method.html">CodeInstrumentationMethod</a> </dd></dl>
 
-<p>Reimplemented from <a class="el" href="class_code_reflection_parameter.html#04d7dbd71bc943f3e267869a79bec648">CodeReflectionParameter</a>.</p>
+<p>Reimplemented from <a class="el" href="class_code_reflection_parameter.html#ec7c1d4b204b6e3a6291d3b867afb688">CodeReflectionParameter</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00036"></a>00036     {
+<a name="l00037"></a>00037         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_code_instrumentation_method.html">CodeInstrumentationMethod</a>( $this-&gt;getName() , $objOriginalReflectionMethod-&gt;getName() );
+<a name="l00038"></a>00038     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>components/codeInstrumentation/<a class="el" href="_code_instrumentation_parameter_8class_8php.html">CodeInstrumentationParameter.class.php</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 11:36:18 2009 for CodeToDiagram by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 18:15:48 2009 for CodeToDiagram by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -49,16 +49,21 @@ Inheritance diagram for CodeInstrumentationFunction:</div>
 <a href="class_code_instrumentation_function-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_function.html#3d95491ac661050b8e8ecedfaf3c8359">createExtendedReflectionParameter</a> (ReflectionParameter $objReflectionParameter)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_code_instrumentation_function.html#98ceb248f2b535a3a83ac2e7990e0c1f">createExtendedReflectionParameter</a> (ReflectionParameter $objReflectionParameter)</td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Implement a code instrumentation into a function<p>
+Make a call to some function what was apply the code instrumentation make a message to some actor of the code instrumentation receiver<p>
+<dl compact><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>This class need to make code instrumentation. Today code instrumentation works only into objects  What will be the actor or object what will be resposable by the functions as its methods</dd></dl>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt; </dd></dl>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="3d95491ac661050b8e8ecedfaf3c8359"></a><!-- doxytag: member="CodeInstrumentationFunction::createExtendedReflectionParameter" ref="3d95491ac661050b8e8ecedfaf3c8359" args="(ReflectionParameter $objReflectionParameter)" -->
+<a class="anchor" name="98ceb248f2b535a3a83ac2e7990e0c1f"></a><!-- doxytag: member="CodeInstrumentationFunction::createExtendedReflectionParameter" ref="98ceb248f2b535a3a83ac2e7990e0c1f" args="(ReflectionParameter $objReflectionParameter)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CodeInstrumentationFunction::createExtendedReflectionParameter           </td>
+          <td class="memname">createExtendedReflectionParameter           </td>
           <td>(</td>
           <td class="paramtype">ReflectionParameter $&nbsp;</td>
           <td class="paramname"> <em>objReflectionParameter</em>          </td>
@@ -71,7 +76,7 @@ Inheritance diagram for CodeInstrumentationFunction:</div>
 
 <p>
 This method is necessary to make the callers of the parameters of the function bring CodeInstrumentationParameters<p>
-<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_extended_reflection_function.html#de07ccd452e54a7c8878fc20d215831e">ExtendedReflectionFunction::createExtendedReflectionParameter</a> </dd></dl>
+<dl class="see" compact><dt><b>See also:</b></dt><dd><a class="el" href="class_extended_reflection_function.html#98ceb248f2b535a3a83ac2e7990e0c1f">ExtendedReflectionFunction::createExtendedReflectionParameter</a> </dd></dl>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>ReflectionParameter</em>&nbsp;</td><td>$objReflectionParameter </td></tr>
@@ -79,14 +84,19 @@ This method is necessary to make the callers of the parameters of the function b
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_code_instrumentation_parameter.html">CodeInstrumentationParameter</a> </dd></dl>
 
-<p>Reimplemented from <a class="el" href="class_code_reflection_function.html#7ce14d3f6e8579332f226d85fb439b80">CodeReflectionFunction</a>.</p>
+<p>Reimplemented from <a class="el" href="class_code_reflection_function.html#98ceb248f2b535a3a83ac2e7990e0c1f">CodeReflectionFunction</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00034"></a>00034     {
+<a name="l00035"></a>00035         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_code_instrumentation_parameter.html">CodeInstrumentationParameter</a>( $this-&gt;getDeclaringClass()-&gt;getName() , $this-&gt;getName() , $objReflectionParameter-&gt;getName() );
+<a name="l00036"></a>00036     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>components/codeInstrumentation/<a class="el" href="_code_instrumentation_function_8class_8php.html">CodeInstrumentationFunction.class.php</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 11:36:18 2009 for CodeToDiagram by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 18:15:48 2009 for CodeToDiagram by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

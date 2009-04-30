@@ -39,16 +39,20 @@
 <a href="class_fatorial-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fatorial.html#72d167f440f3d1ac6d5d241195ea245c">play</a> ($n)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">static&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fatorial.html#c8f7f713202622f47a224466b1d41111">play</a> ($n)</td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+<a class="el" href="class_fatorial.html">Fatorial</a> Example<p>
+Class of the math fatorial function to be used into the sequence diagram<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt; </dd></dl>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="72d167f440f3d1ac6d5d241195ea245c"></a><!-- doxytag: member="Fatorial::play" ref="72d167f440f3d1ac6d5d241195ea245c" args="($n)" -->
+<a class="anchor" name="c8f7f713202622f47a224466b1d41111"></a><!-- doxytag: member="Fatorial::play" ref="c8f7f713202622f47a224466b1d41111" args="($n)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static Fatorial::play           </td>
+          <td class="memname">static play           </td>
           <td>(</td>
           <td class="paramtype">$&nbsp;</td>
           <td class="paramname"> <em>n</em>          </td>
@@ -67,13 +71,25 @@ calc the fatorial of the value received<p>
   </table>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd>integer </dd></dl>
+<div class="fragment"><pre class="fragment"><a name="l00024"></a>00024     {
+<a name="l00025"></a>00025        <span class="keywordflow">if</span> ( $n == 0 )
+<a name="l00026"></a>00026         {
+<a name="l00027"></a>00027             <span class="keywordflow">return</span> 1;
+<a name="l00028"></a>00028         }
+<a name="l00029"></a>00029         <span class="keywordflow">else</span>
+<a name="l00030"></a>00030         {
+<a name="l00031"></a>00031             <span class="keywordflow">return</span> $n * <a class="code" href="class_fatorial.html#c8f7f713202622f47a224466b1d41111">self::play</a>( $n - 1 );
+<a name="l00032"></a>00032         }
+<a name="l00033"></a>00033      }
+</pre></div>
+<p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>examples/Fatorial/<a class="el" href="_fatorial_8php.html">Fatorial.php</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 11:36:22 2009 for CodeToDiagram by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 18:15:50 2009 for CodeToDiagram by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

@@ -49,27 +49,31 @@ Inheritance diagram for ExtendedReflectionParameter:</div>
 <a href="class_extended_reflection_parameter-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#72292163fccd8a81a83af04f371e795a">getDeclaringClass</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#acff3f8d93cc250281f0f73bff3422e1">getDeclaringClass</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#9aaaf60b00d1c1cde3c86cda51402461">getClass</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#23ecbde357f7f6bde5a50f876334a74d">getClass</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#0bc8d76223b0770a40a3ab909cc5b3f0">getDeclaringFunction</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#af67f978eb2fb55cd1835c75ab86feba">getDeclaringFunction</a> ()</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#7119682d1601c3398cbad195a4d52b4a">createExtendedReflectionClass</a> (ReflectionClass $objOriginalReflectionClass)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">createExtendedReflectionClass</a> (ReflectionClass $objOriginalReflectionClass)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#fc7cab8ac6553754c4c4c62ba8be8685">createExtendedReflectionMethod</a> (ReflectionMethod $objOriginalReflectionMethod)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#ec7c1d4b204b6e3a6291d3b867afb688">createExtendedReflectionMethod</a> (ReflectionMethod $objOriginalReflectionMethod)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#8bea4c5548f8e5476b28c37b705dc25e">createExtendedReflectionFunction</a> (ReflectionFunction $objOriginalReflectionFunction)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_extended_reflection_parameter.html#b23ad87d3ac2f376c1a133ca6d27f031">createExtendedReflectionFunction</a> (ReflectionFunction $objOriginalReflectionFunction)</td></tr>
 
 </table>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+Class what make possible and easy extend reflection parameter<p>
+Reflection classes can be a problem because the reflection methods what return objects will return the original reflection object and not the extended version of it. So it is necessary to create methods what convert the original methods to return the extended version of the objects.<p>
+<dl class="author" compact><dt><b>Author:</b></dt><dd>Thiago Henrique Ramos da Mata &lt;<a href="mailto:thiago.henrique.mata@gmail.com">thiago.henrique.mata@gmail.com</a>&gt; </dd></dl>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="7119682d1601c3398cbad195a4d52b4a"></a><!-- doxytag: member="ExtendedReflectionParameter::createExtendedReflectionClass" ref="7119682d1601c3398cbad195a4d52b4a" args="(ReflectionClass $objOriginalReflectionClass)" -->
+<a class="anchor" name="6b56ec198bc6a5b5a72076e4e7c19e29"></a><!-- doxytag: member="ExtendedReflectionParameter::createExtendedReflectionClass" ref="6b56ec198bc6a5b5a72076e4e7c19e29" args="(ReflectionClass $objOriginalReflectionClass)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionParameter::createExtendedReflectionClass           </td>
+          <td class="memname">createExtendedReflectionClass           </td>
           <td>(</td>
           <td class="paramtype">ReflectionClass $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionClass</em>          </td>
@@ -90,16 +94,21 @@ This is the method what should be replaced when this class be extended.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_class.html">ExtendedReflectionClass</a> </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_code_instrumentation_parameter.html#4190025f9ec55f58f10b36084a8851fd">CodeInstrumentationParameter</a>, and <a class="el" href="class_code_reflection_parameter.html#a2b9b21f9711afbf11791dd64dcbdd0a">CodeReflectionParameter</a>.</p>
+<p>Reimplemented in <a class="el" href="class_code_instrumentation_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">CodeInstrumentationParameter</a>, and <a class="el" href="class_code_reflection_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">CodeReflectionParameter</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00065"></a>00065         {
+<a name="l00066"></a>00066                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_extended_reflection_class.html">ExtendedReflectionClass</a>( $objOriginalReflectionClass-&gt;getName() );
+<a name="l00067"></a>00067         }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="8bea4c5548f8e5476b28c37b705dc25e"></a><!-- doxytag: member="ExtendedReflectionParameter::createExtendedReflectionFunction" ref="8bea4c5548f8e5476b28c37b705dc25e" args="(ReflectionFunction $objOriginalReflectionFunction)" -->
+<a class="anchor" name="b23ad87d3ac2f376c1a133ca6d27f031"></a><!-- doxytag: member="ExtendedReflectionParameter::createExtendedReflectionFunction" ref="b23ad87d3ac2f376c1a133ca6d27f031" args="(ReflectionFunction $objOriginalReflectionFunction)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionParameter::createExtendedReflectionFunction           </td>
+          <td class="memname">createExtendedReflectionFunction           </td>
           <td>(</td>
           <td class="paramtype">ReflectionFunction $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionFunction</em>          </td>
@@ -120,16 +129,28 @@ This is the method what should be replaced when this class be extended.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_function.html">ExtendedReflectionFunction</a> </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_code_instrumentation_parameter.html#e9723a389b48bdb31fc49f784692aecf">CodeInstrumentationParameter</a>, and <a class="el" href="class_code_reflection_parameter.html#5e6e7a1f49ff1f404342a2b2d4a15aa3">CodeReflectionParameter</a>.</p>
+<p>Reimplemented in <a class="el" href="class_code_instrumentation_parameter.html#b23ad87d3ac2f376c1a133ca6d27f031">CodeInstrumentationParameter</a>, and <a class="el" href="class_code_reflection_parameter.html#b23ad87d3ac2f376c1a133ca6d27f031">CodeReflectionParameter</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00093"></a>00093         {
+<a name="l00094"></a>00094                 <span class="keywordflow">if</span>( $objOriginalReflectionFunction instanceof ReflectionMethod )
+<a name="l00095"></a>00095                 {
+<a name="l00096"></a>00096                         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_extended_reflection_method.html">ExtendedReflectionMethod</a>( $objOriginalReflectionFunction-&gt;getName() );
+<a name="l00097"></a>00097                 }
+<a name="l00098"></a>00098                 <span class="keywordflow">else</span>
+<a name="l00099"></a>00099                 {
+<a name="l00100"></a>00100                         <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_extended_reflection_function.html">ExtendedReflectionFunction</a>( $objOriginalReflectionFunction-&gt;getName() );
+<a name="l00101"></a>00101                 }
+<a name="l00102"></a>00102         }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="fc7cab8ac6553754c4c4c62ba8be8685"></a><!-- doxytag: member="ExtendedReflectionParameter::createExtendedReflectionMethod" ref="fc7cab8ac6553754c4c4c62ba8be8685" args="(ReflectionMethod $objOriginalReflectionMethod)" -->
+<a class="anchor" name="ec7c1d4b204b6e3a6291d3b867afb688"></a><!-- doxytag: member="ExtendedReflectionParameter::createExtendedReflectionMethod" ref="ec7c1d4b204b6e3a6291d3b867afb688" args="(ReflectionMethod $objOriginalReflectionMethod)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionParameter::createExtendedReflectionMethod           </td>
+          <td class="memname">createExtendedReflectionMethod           </td>
           <td>(</td>
           <td class="paramtype">ReflectionMethod $&nbsp;</td>
           <td class="paramname"> <em>objOriginalReflectionMethod</em>          </td>
@@ -150,16 +171,21 @@ This is the method what should be replaced when this class be extended.<p>
 </dl>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_method.html">ExtendedReflectionMethod</a> </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_code_instrumentation_parameter.html#e0c68e69aa93979e2e1fa3057bd39d5a">CodeInstrumentationParameter</a>, and <a class="el" href="class_code_reflection_parameter.html#04d7dbd71bc943f3e267869a79bec648">CodeReflectionParameter</a>.</p>
+<p>Reimplemented in <a class="el" href="class_code_instrumentation_parameter.html#ec7c1d4b204b6e3a6291d3b867afb688">CodeInstrumentationParameter</a>, and <a class="el" href="class_code_reflection_parameter.html#ec7c1d4b204b6e3a6291d3b867afb688">CodeReflectionParameter</a>.</p>
+<div class="fragment"><pre class="fragment"><a name="l00079"></a>00079         {
+<a name="l00080"></a>00080                 <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_extended_reflection_method.html">ExtendedReflectionMethod</a>( $this-&gt;getName() , $objOriginalReflectionMethod-&gt;getName() );
+<a name="l00081"></a>00081         }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="9aaaf60b00d1c1cde3c86cda51402461"></a><!-- doxytag: member="ExtendedReflectionParameter::getClass" ref="9aaaf60b00d1c1cde3c86cda51402461" args="()" -->
+<a class="anchor" name="23ecbde357f7f6bde5a50f876334a74d"></a><!-- doxytag: member="ExtendedReflectionParameter::getClass" ref="23ecbde357f7f6bde5a50f876334a74d" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionParameter::getClass           </td>
+          <td class="memname">getClass           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -172,15 +198,24 @@ This is the method what should be replaced when this class be extended.<p>
 <p>
 Get the class type of the reflected parameter<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_class.html">ExtendedReflectionClass</a> </dd></dl>
+<div class="fragment"><pre class="fragment"><a name="l00037"></a>00037     {
+<a name="l00038"></a>00038         <span class="keywordflow">if</span>( parent::getClass() == null )
+<a name="l00039"></a>00039         {
+<a name="l00040"></a>00040                 <span class="keywordflow">return</span> null;
+<a name="l00041"></a>00041         }
+<a name="l00042"></a>00042         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_extended_reflection_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">createExtendedReflectionClass</a>( parent::getClass() );
+<a name="l00043"></a>00043     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="72292163fccd8a81a83af04f371e795a"></a><!-- doxytag: member="ExtendedReflectionParameter::getDeclaringClass" ref="72292163fccd8a81a83af04f371e795a" args="()" -->
+<a class="anchor" name="acff3f8d93cc250281f0f73bff3422e1"></a><!-- doxytag: member="ExtendedReflectionParameter::getDeclaringClass" ref="acff3f8d93cc250281f0f73bff3422e1" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionParameter::getDeclaringClass           </td>
+          <td class="memname">getDeclaringClass           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -193,15 +228,20 @@ Get the class type of the reflected parameter<p>
 <p>
 Get the class owner of the reflected parameter<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_class.html">ExtendedReflectionClass</a> </dd></dl>
+<div class="fragment"><pre class="fragment"><a name="l00027"></a>00027     {
+<a name="l00028"></a>00028         <span class="keywordflow">return</span> $this-&gt;<a class="code" href="class_extended_reflection_parameter.html#6b56ec198bc6a5b5a72076e4e7c19e29">createExtendedReflectionClass</a>( parent::getDeclaringClass() );
+<a name="l00029"></a>00029     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
-<a class="anchor" name="0bc8d76223b0770a40a3ab909cc5b3f0"></a><!-- doxytag: member="ExtendedReflectionParameter::getDeclaringFunction" ref="0bc8d76223b0770a40a3ab909cc5b3f0" args="()" -->
+<a class="anchor" name="af67f978eb2fb55cd1835c75ab86feba"></a><!-- doxytag: member="ExtendedReflectionParameter::getDeclaringFunction" ref="af67f978eb2fb55cd1835c75ab86feba" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ExtendedReflectionParameter::getDeclaringFunction           </td>
+          <td class="memname">getDeclaringFunction           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -214,13 +254,18 @@ Get the class owner of the reflected parameter<p>
 <p>
 Get the declarion function of the reflected function<p>
 <dl class="return" compact><dt><b>Returns:</b></dt><dd><a class="el" href="class_extended_reflection_function.html">ExtendedReflectionFunction</a> </dd></dl>
+<div class="fragment"><pre class="fragment"><a name="l00051"></a>00051     {
+<a name="l00052"></a>00052         $objReflectionFunction = $this-&gt;<a class="code" href="class_extended_reflection_parameter.html#b23ad87d3ac2f376c1a133ca6d27f031">createExtendedReflectionFunction</a>( parent::getDeclaringFunction() );
+<a name="l00053"></a>00053     }
+</pre></div>
+<p>
 
 </div>
 </div><p>
 <hr>The documentation for this class was generated from the following file:<ul>
 <li>components/extendedReflection/<a class="el" href="_extended_reflection_parameter_8class_8php.html">ExtendedReflectionParameter.class.php</a></ul>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 11:36:22 2009 for CodeToDiagram by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 18:15:50 2009 for CodeToDiagram by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
