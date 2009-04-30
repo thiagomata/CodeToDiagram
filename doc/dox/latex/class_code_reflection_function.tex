@@ -1,0 +1,109 @@
+\hypertarget{class_code_reflection_function}{
+\section{CodeReflectionFunction Class Reference}
+\label{class_code_reflection_function}\index{CodeReflectionFunction@{CodeReflectionFunction}}
+}
+Inheritance diagram for CodeReflectionFunction::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_code_reflection_function}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_reflection_function_eb645ce888eda144d361ccfd14eb9878}{getCode} ()
+\item 
+\hyperlink{class_code_reflection_function_11b5048c516be3731737308e5cddef79}{getCodeContent} ()
+\item 
+\hyperlink{class_code_reflection_function_f239516580c5c5e66c02bbe6c55d2f2f}{createFunctionHeaderCode} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_reflection_function_7ce14d3f6e8579332f226d85fb439b80}{createExtendedReflectionParameter} (ReflectionParameter \$objReflectionParameter)
+\item 
+\hyperlink{class_code_reflection_function_003298f670f7915ad557ad10b777e0bb}{createParametersCode} ()
+\item 
+\hyperlink{class_code_reflection_function_3ea191f1a3ff9fa0b3505327e635d306}{createFunctionContentCode} ()
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_code_reflection_function_7ce14d3f6e8579332f226d85fb439b80}{
+\index{CodeReflectionFunction@{CodeReflectionFunction}!createExtendedReflectionParameter@{createExtendedReflectionParameter}}
+\index{createExtendedReflectionParameter@{createExtendedReflectionParameter}!CodeReflectionFunction@{CodeReflectionFunction}}
+\subsubsection[{createExtendedReflectionParameter}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFunction::createExtendedReflectionParameter (ReflectionParameter \$ {\em objReflectionParameter})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_function_7ce14d3f6e8579332f226d85fb439b80}
+
+
+Make the reflection parameter link return a code reflection parameter
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_extended_reflection_function_de07ccd452e54a7c8878fc20d215831e}{ExtendedReflectionFunction::createExtendedReflectionParameter()} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionParameter}]\$objReflectionParameter \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_reflection_parameter}{CodeReflectionParameter} \end{Desc}
+
+
+Reimplemented from \hyperlink{class_extended_reflection_function_de07ccd452e54a7c8878fc20d215831e}{ExtendedReflectionFunction}.
+
+Reimplemented in \hyperlink{class_code_instrumentation_function_3d95491ac661050b8e8ecedfaf3c8359}{CodeInstrumentationFunction}.\hypertarget{class_code_reflection_function_3ea191f1a3ff9fa0b3505327e635d306}{
+\index{CodeReflectionFunction@{CodeReflectionFunction}!createFunctionContentCode@{createFunctionContentCode}}
+\index{createFunctionContentCode@{createFunctionContentCode}!CodeReflectionFunction@{CodeReflectionFunction}}
+\subsubsection[{createFunctionContentCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFunction::createFunctionContentCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_function_3ea191f1a3ff9fa0b3505327e635d306}
+
+
+Creater the function content
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_reflection_function_f239516580c5c5e66c02bbe6c55d2f2f}{
+\index{CodeReflectionFunction@{CodeReflectionFunction}!createFunctionHeaderCode@{createFunctionHeaderCode}}
+\index{createFunctionHeaderCode@{createFunctionHeaderCode}!CodeReflectionFunction@{CodeReflectionFunction}}
+\subsubsection[{createFunctionHeaderCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFunction::createFunctionHeaderCode ()}}
+\label{class_code_reflection_function_f239516580c5c5e66c02bbe6c55d2f2f}
+
+
+Create the function header code \hypertarget{class_code_reflection_function_003298f670f7915ad557ad10b777e0bb}{
+\index{CodeReflectionFunction@{CodeReflectionFunction}!createParametersCode@{createParametersCode}}
+\index{createParametersCode@{createParametersCode}!CodeReflectionFunction@{CodeReflectionFunction}}
+\subsubsection[{createParametersCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFunction::createParametersCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_function_003298f670f7915ad557ad10b777e0bb}
+
+
+Get the code of the parameters definition
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_reflection_function_eb645ce888eda144d361ccfd14eb9878}{
+\index{CodeReflectionFunction@{CodeReflectionFunction}!getCode@{getCode}}
+\index{getCode@{getCode}!CodeReflectionFunction@{CodeReflectionFunction}}
+\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFunction::getCode ()}}
+\label{class_code_reflection_function_eb645ce888eda144d361ccfd14eb9878}
+
+
+Create the code of the function based into reflection's information
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_reflection_function_11b5048c516be3731737308e5cddef79}{
+\index{CodeReflectionFunction@{CodeReflectionFunction}!getCodeContent@{getCodeContent}}
+\index{getCodeContent@{getCodeContent}!CodeReflectionFunction@{CodeReflectionFunction}}
+\subsubsection[{getCodeContent}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFunction::getCodeContent ()}}
+\label{class_code_reflection_function_11b5048c516be3731737308e5cddef79}
+
+
+Get the code content
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/codeReflection/\hyperlink{_code_reflection_function_8class_8php}{CodeReflectionFunction.class.php}\end{CompactItemize}

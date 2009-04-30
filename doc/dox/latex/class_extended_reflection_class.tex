@@ -1,0 +1,188 @@
+\hypertarget{class_extended_reflection_class}{
+\section{ExtendedReflectionClass Class Reference}
+\label{class_extended_reflection_class}\index{ExtendedReflectionClass@{ExtendedReflectionClass}}
+}
+Inheritance diagram for ExtendedReflectionClass::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_extended_reflection_class}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_extended_reflection_class_dbce950becc27c205b461ff9c61aaec2}{getParentClass} ()
+\item 
+\hyperlink{class_extended_reflection_class_bd1fa7af7876ada7e09c2d4727201b45}{getInterfaces} ()
+\item 
+\hyperlink{class_extended_reflection_class_8f6bf6f713d03f9ffedf453e65155eab}{getProperties} (\$filter=-1)
+\item 
+\hyperlink{class_extended_reflection_class_5c58929a1f0a44664ba38d4c05d1cd47}{getProperty} (\$strName)
+\item 
+\hyperlink{class_extended_reflection_class_01f8e033ec5d82ae20394345fcb06841}{getMethods} (\$filter=-1)
+\item 
+\hyperlink{class_extended_reflection_class_87cabc3e5bca9750380f3c06cc613d0a}{getMethod} (\$strMethodName)
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_extended_reflection_class_851f69035820c89d0ba918a277d2a29f}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\item 
+\hyperlink{class_extended_reflection_class_6259683f3d0f9583ec36ca51f6e964f9}{createExtendedReflectionProperty} (ReflectionProperty \$objOriginalReflectionProperty)
+\item 
+\hyperlink{class_extended_reflection_class_922598bd80a21577ccad6d4ca4138474}{createExtendedReflectionMethod} (ReflectionMethod \$objOriginalReflectionMethod)
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_extended_reflection_class_851f69035820c89d0ba918a277d2a29f}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!createExtendedReflectionClass@{createExtendedReflectionClass}}
+\index{createExtendedReflectionClass@{createExtendedReflectionClass}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_extended_reflection_class_851f69035820c89d0ba918a277d2a29f}
+
+
+Convert a reflection class into a extended reflection class
+
+This is the method what should be replaced when this class be extended.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_extended_reflection_class}{ExtendedReflectionClass} \end{Desc}
+
+
+Reimplemented in \hyperlink{class_code_reflection_class_496631cb5814727379cdacb689e4c40a}{CodeReflectionClass}.\hypertarget{class_extended_reflection_class_922598bd80a21577ccad6d4ca4138474}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!createExtendedReflectionMethod@{createExtendedReflectionMethod}}
+\index{createExtendedReflectionMethod@{createExtendedReflectionMethod}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{createExtendedReflectionMethod}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::createExtendedReflectionMethod (ReflectionMethod \$ {\em objOriginalReflectionMethod})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_extended_reflection_class_922598bd80a21577ccad6d4ca4138474}
+
+
+Convert a reflection method into a extended reflection method
+
+This is the method what should be replaced when this class be extended.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionMethod}]\$objOriginalReflectionMethod \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_extended_reflection_method}{ExtendedReflectionMethod} \end{Desc}
+
+
+Reimplemented in \hyperlink{class_code_reflection_class_c8e58a7369660bf8f63ce39f3b9b5271}{CodeReflectionClass}.\hypertarget{class_extended_reflection_class_6259683f3d0f9583ec36ca51f6e964f9}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!createExtendedReflectionProperty@{createExtendedReflectionProperty}}
+\index{createExtendedReflectionProperty@{createExtendedReflectionProperty}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{createExtendedReflectionProperty}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::createExtendedReflectionProperty (ReflectionProperty \$ {\em objOriginalReflectionProperty})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_extended_reflection_class_6259683f3d0f9583ec36ca51f6e964f9}
+
+
+Convert a reflection property into a extended reflection property
+
+This is the method what should be replaced when this class be extended.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionProperty}]\$objOriginalReflectionProperty \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_extended_reflection_property}{ExtendedReflectionProperty} \end{Desc}
+
+
+Reimplemented in \hyperlink{class_code_reflection_class_838dcd22317018c53f02dda69cd07509}{CodeReflectionClass}.\hypertarget{class_extended_reflection_class_bd1fa7af7876ada7e09c2d4727201b45}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!getInterfaces@{getInterfaces}}
+\index{getInterfaces@{getInterfaces}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{getInterfaces}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::getInterfaces ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_class_bd1fa7af7876ada7e09c2d4727201b45}
+
+
+Get the collection of the reflection class of all the interfaces implemented by the reflected class
+
+\begin{Desc}
+\item[Returns:]\hyperlink{class_extended_reflection_class}{ExtendedReflectionClass}\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_extended_reflection_class_87cabc3e5bca9750380f3c06cc613d0a}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!getMethod@{getMethod}}
+\index{getMethod@{getMethod}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{getMethod}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::getMethod (\$ {\em strMethodName})\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_class_87cabc3e5bca9750380f3c06cc613d0a}
+
+
+Return the reflection of some method of the class
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \$strMethodName}]\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_extended_reflection_method}{ExtendedReflectionMethod} \end{Desc}
+\hypertarget{class_extended_reflection_class_01f8e033ec5d82ae20394345fcb06841}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!getMethods@{getMethods}}
+\index{getMethods@{getMethods}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{getMethods}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::getMethods (\$ {\em filter} = {\tt -1})\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_class_01f8e033ec5d82ae20394345fcb06841}
+
+
+Get the collection of the reflected methods
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \$filter}]\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]ReflectionMethod\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_extended_reflection_class_dbce950becc27c205b461ff9c61aaec2}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!getParentClass@{getParentClass}}
+\index{getParentClass@{getParentClass}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{getParentClass}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::getParentClass ()\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_class_dbce950becc27c205b461ff9c61aaec2}
+
+
+Get the reflection of the parent class if extists and return null if not has a parent class
+
+\begin{Desc}
+\item[Returns:]ExtendedReflectionClass$|$null \end{Desc}
+\hypertarget{class_extended_reflection_class_8f6bf6f713d03f9ffedf453e65155eab}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!getProperties@{getProperties}}
+\index{getProperties@{getProperties}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{getProperties}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::getProperties (\$ {\em filter} = {\tt -1})\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_class_8f6bf6f713d03f9ffedf453e65155eab}
+
+
+Get the collection of the reflection properties of the reflected class
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$filter \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]ReflectionProperty\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_extended_reflection_class_5c58929a1f0a44664ba38d4c05d1cd47}{
+\index{ExtendedReflectionClass@{ExtendedReflectionClass}!getProperty@{getProperty}}
+\index{getProperty@{getProperty}!ExtendedReflectionClass@{ExtendedReflectionClass}}
+\subsubsection[{getProperty}]{\setlength{\rightskip}{0pt plus 5cm}ExtendedReflectionClass::getProperty (\$ {\em strName})\hspace{0.3cm}{\tt  \mbox{[}final\mbox{]}}}}
+\label{class_extended_reflection_class_5c58929a1f0a44664ba38d4c05d1cd47}
+
+
+Get the reflection property of some attribute of the class searched by the property name
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strName \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_extended_reflection_property}{ExtendedReflectionProperty} \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/extendedReflection/\hyperlink{_extended_reflection_class_8class_8php}{ExtendedReflectionClass.class.php}\end{CompactItemize}

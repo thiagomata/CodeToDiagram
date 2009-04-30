@@ -1,0 +1,195 @@
+\hypertarget{class_back_trace_explain}{
+\section{BackTraceExplain Class Reference}
+\label{class_back_trace_explain}\index{BackTraceExplain@{BackTraceExplain}}
+}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_back_trace_explain_7c43123f132faff85e225130dcdff9ec}{perform} (\hyperlink{class_back_trace}{BackTrace} \$oBackTrace=null)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+const \hyperlink{class_back_trace_explain_a43a9dad0003990817f208568687ef4b}{CONTEXT\_\-LINES} = 0
+\item 
+const \hyperlink{class_back_trace_explain_c588570f668add1f67e691c222c227b8}{SHOW\_\-ARGUMENT\_\-VALUE} = false
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_back_trace_explain_bff895e7ada850dfc6a085768d3eaf7c}{\_\-\_\-construct} ()
+\item 
+\hyperlink{class_back_trace_explain_de9dbd3de5542aebcbf59e965d963b8a}{fetchArguments} ()
+\item 
+\hyperlink{class_back_trace_explain_485a5d60f6cdb95bb96f58299142e2a4}{fetchCall} ()
+\item 
+\hyperlink{class_back_trace_explain_eca7af75c0df67f42d8f8fbbc910c1f5}{fetchLevel} ()
+\item 
+\hyperlink{class_back_trace_explain_bcec7ab0fe0e54f33cdd7b5e3df5bc8c}{fetchSource} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_back_trace_explain_ec3a3d33c1d97e5e13a39d4002dd080b}{\$iStartLevel} = 0
+\item 
+\hyperlink{class_back_trace_explain_9ff2e8e9084fb38b8a436619a417e5d8}{\$oBackTrace} = null
+\item 
+\hyperlink{class_back_trace_explain_bf9c6e181f88cd54aeb6551a98fb6b7b}{\$sScriptFunctionName} = \char`\"{}\char`\"{}
+\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_back_trace_explain_bc66a959dd0c9dd7fa44b770beeccfbc}{\$aFileContent} = array()
+\item 
+static \hyperlink{class_back_trace_explain_a232cb65ebfb6fc0202bf16cf93e04c0}{\$iExplainId} = 0
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_back_trace_explain_bff895e7ada850dfc6a085768d3eaf7c}{
+\index{BackTraceExplain@{BackTraceExplain}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::\_\-\_\-construct ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_bff895e7ada850dfc6a085768d3eaf7c}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_back_trace_explain_de9dbd3de5542aebcbf59e965d963b8a}{
+\index{BackTraceExplain@{BackTraceExplain}!fetchArguments@{fetchArguments}}
+\index{fetchArguments@{fetchArguments}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{fetchArguments}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::fetchArguments ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_de9dbd3de5542aebcbf59e965d963b8a}
+
+
+Captura resumo dos argumentos do nível atual do rastreamento.
+
+Captures arguments summary of current trace level.
+
+Caso a constante \hyperlink{class_back_trace_explain_c588570f668add1f67e691c222c227b8}{BackTraceExplain::SHOW\_\-ARGUMENT\_\-VALUE} possua valor verdadeiro e o tipo do parâmetro seja string ou integer o valor do parâmetro é exibido, caso contrário apenas um resumo é apresentado.
+
+\begin{Desc}
+\item[Returns:]string\mbox{[}\mbox{]} \end{Desc}
+\begin{Desc}
+\item[See also:]\hyperlink{class_back_trace_explain_c588570f668add1f67e691c222c227b8}{BackTraceExplain::SHOW\_\-ARGUMENT\_\-VALUE} \end{Desc}
+\hypertarget{class_back_trace_explain_485a5d60f6cdb95bb96f58299142e2a4}{
+\index{BackTraceExplain@{BackTraceExplain}!fetchCall@{fetchCall}}
+\index{fetchCall@{fetchCall}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{fetchCall}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::fetchCall ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_485a5d60f6cdb95bb96f58299142e2a4}
+
+
+Constrói HTML da chamada do nível atual do rastreamento.
+
+Creates HTML of current trace level call.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_explain_eca7af75c0df67f42d8f8fbbc910c1f5}{
+\index{BackTraceExplain@{BackTraceExplain}!fetchLevel@{fetchLevel}}
+\index{fetchLevel@{fetchLevel}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{fetchLevel}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::fetchLevel ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_eca7af75c0df67f42d8f8fbbc910c1f5}
+
+
+Constrói detalhes do nível atual do rastreamento.
+
+Generates details of current trace level.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_explain_bcec7ab0fe0e54f33cdd7b5e3df5bc8c}{
+\index{BackTraceExplain@{BackTraceExplain}!fetchSource@{fetchSource}}
+\index{fetchSource@{fetchSource}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{fetchSource}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::fetchSource ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_bcec7ab0fe0e54f33cdd7b5e3df5bc8c}
+
+
+Constrói HTML com código do arquivo do nível atual do rastreamento.
+
+Creates HTML with file source code of current trace level.
+
+Caso a constante \hyperlink{class_back_trace_explain_a43a9dad0003990817f208568687ef4b}{BackTraceExplain::CONTEXT\_\-LINES} possua valor zero ou arquivo do nível atual do rastreamento não exista ou não seja legível um texto vazio é retornado. A função \hyperlink{}{highlight\_\-string()} é utilizada, qualquer modificação no formato retornado implica na necessidade de revisão desse método.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\begin{Desc}
+\item[See also:]\hyperlink{class_back_trace_explain_a43a9dad0003990817f208568687ef4b}{BackTraceExplain::CONTEXT\_\-LINES} \end{Desc}
+\hypertarget{class_back_trace_explain_7c43123f132faff85e225130dcdff9ec}{
+\index{BackTraceExplain@{BackTraceExplain}!perform@{perform}}
+\index{perform@{perform}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{perform}]{\setlength{\rightskip}{0pt plus 5cm}static BackTraceExplain::perform ({\bf BackTrace} \$ {\em oBackTrace} = {\tt null})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_back_trace_explain_7c43123f132faff85e225130dcdff9ec}
+
+
+Constrói HTML com detalhes de todos os níveis de um rastreamento.
+
+Creates HTML with details of all trace levels.
+
+Os níveis são detalhados a partir do atual. O nível do rastreamento permanece o mesmo após a execução desse método.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{class_back_trace}{BackTrace}}]\$oBackTrace rastreamento a ser detalhado \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_back_trace_explain_bc66a959dd0c9dd7fa44b770beeccfbc}{
+\index{BackTraceExplain@{BackTraceExplain}!\$aFileContent@{\$aFileContent}}
+\index{\$aFileContent@{\$aFileContent}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{\$aFileContent}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::\$aFileContent = array()\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{class_back_trace_explain_bc66a959dd0c9dd7fa44b770beeccfbc}
+
+
+\hypertarget{class_back_trace_explain_a232cb65ebfb6fc0202bf16cf93e04c0}{
+\index{BackTraceExplain@{BackTraceExplain}!\$iExplainId@{\$iExplainId}}
+\index{\$iExplainId@{\$iExplainId}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{\$iExplainId}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::\$iExplainId = 0\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{class_back_trace_explain_a232cb65ebfb6fc0202bf16cf93e04c0}
+
+
+\hypertarget{class_back_trace_explain_ec3a3d33c1d97e5e13a39d4002dd080b}{
+\index{BackTraceExplain@{BackTraceExplain}!\$iStartLevel@{\$iStartLevel}}
+\index{\$iStartLevel@{\$iStartLevel}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{\$iStartLevel}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::\$iStartLevel = 0\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_ec3a3d33c1d97e5e13a39d4002dd080b}
+
+
+\hypertarget{class_back_trace_explain_9ff2e8e9084fb38b8a436619a417e5d8}{
+\index{BackTraceExplain@{BackTraceExplain}!\$oBackTrace@{\$oBackTrace}}
+\index{\$oBackTrace@{\$oBackTrace}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{\$oBackTrace}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::\$oBackTrace = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_9ff2e8e9084fb38b8a436619a417e5d8}
+
+
+\hypertarget{class_back_trace_explain_bf9c6e181f88cd54aeb6551a98fb6b7b}{
+\index{BackTraceExplain@{BackTraceExplain}!\$sScriptFunctionName@{\$sScriptFunctionName}}
+\index{\$sScriptFunctionName@{\$sScriptFunctionName}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{\$sScriptFunctionName}]{\setlength{\rightskip}{0pt plus 5cm}BackTraceExplain::\$sScriptFunctionName = \char`\"{}\char`\"{}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_back_trace_explain_bf9c6e181f88cd54aeb6551a98fb6b7b}
+
+
+\hypertarget{class_back_trace_explain_a43a9dad0003990817f208568687ef4b}{
+\index{BackTraceExplain@{BackTraceExplain}!CONTEXT\_\-LINES@{CONTEXT\_\-LINES}}
+\index{CONTEXT\_\-LINES@{CONTEXT\_\-LINES}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{CONTEXT\_\-LINES}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BackTraceExplain::CONTEXT\_\-LINES} = 0}}
+\label{class_back_trace_explain_a43a9dad0003990817f208568687ef4b}
+
+
+\hypertarget{class_back_trace_explain_c588570f668add1f67e691c222c227b8}{
+\index{BackTraceExplain@{BackTraceExplain}!SHOW\_\-ARGUMENT\_\-VALUE@{SHOW\_\-ARGUMENT\_\-VALUE}}
+\index{SHOW\_\-ARGUMENT\_\-VALUE@{SHOW\_\-ARGUMENT\_\-VALUE}!BackTraceExplain@{BackTraceExplain}}
+\subsubsection[{SHOW\_\-ARGUMENT\_\-VALUE}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BackTraceExplain::SHOW\_\-ARGUMENT\_\-VALUE} = false}}
+\label{class_back_trace_explain_c588570f668add1f67e691c222c227b8}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/backtrace/\hyperlink{_back_trace_explain_8php}{BackTraceExplain.php}\end{CompactItemize}

@@ -1,0 +1,400 @@
+\hypertarget{class_back_trace}{
+\section{BackTrace Class Reference}
+\label{class_back_trace}\index{BackTrace@{BackTrace}}
+}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_back_trace_96ba27da4289af42f20cd0fa1366a19d}{\_\-\_\-construct} (array \$aStack=array())
+\item 
+\hyperlink{class_back_trace_4396a5a1722ae78fecd33df4f6cdd711}{explain} ()
+\item 
+\hyperlink{class_back_trace_9e5ff1a07decb6421c875cec34eaae40}{getAll} ()
+\item 
+\hyperlink{class_back_trace_30f81813bc02f2ebd1d15441c8377a36}{getArguments} ()
+\item 
+\hyperlink{class_back_trace_9a88ba19c59d874267ed2944a7fb052d}{getClass} ()
+\item 
+\hyperlink{class_back_trace_bf0335130b2625274c8bcfe2449d018e}{getCurrent} ()
+\item 
+\hyperlink{class_back_trace_d8010953ac26a66f21347a850895110d}{getFile} (\$bOnlyName=false)
+\item 
+\hyperlink{class_back_trace_03b4a4f0f94cf004b754e991db26cec7}{getFunction} ()
+\item 
+\hyperlink{class_back_trace_8d2aa767c2b033c8d2fd957582d761e8}{getLevel} ()
+\item 
+\hyperlink{class_back_trace_43a4681e6cacbba682ae3e189811f3b9}{getLine} ()
+\item 
+\hyperlink{class_back_trace_3b1b222bfb41081888742dadf70e2dfb}{getScope} ()
+\item 
+\hyperlink{class_back_trace_bd89e82b5c431300ccc0180a4cc198c8}{getType} ()
+\item 
+\hyperlink{class_back_trace_6255f13465b4c5c5824e646863945cbf}{levelBottom} ()
+\item 
+\hyperlink{class_back_trace_1ad89e49be7244f6b543c131a87dd2b7}{levelDown} (\$iDepth=1, \$bTry=false)
+\item 
+\hyperlink{class_back_trace_a81a0634c18930a823eef59269d2d992}{levelTop} ()
+\item 
+\hyperlink{class_back_trace_99b82e17be56fa564d20608296e0d994}{levelUp} (\$iDepth=1, \$bTry=false)
+\item 
+\hyperlink{class_back_trace_e6641538cbc2fbd659fe308c563bbc45}{setLevel} (\$iLevel)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+const \hyperlink{class_back_trace_9efefb3ed5ea7ee8e131f2d8a769fea5}{SCOPE\_\-FILE} = \char`\"{}file\char`\"{}
+\item 
+const \hyperlink{class_back_trace_ae456bc0b86081f2f7910c0772803224}{SCOPE\_\-FUNCTION} = \char`\"{}function\char`\"{}
+\item 
+const \hyperlink{class_back_trace_20828cf0730b25b234bd8b63614988f5}{SCOPE\_\-METHOD} = \char`\"{} $\rightarrow$ \char`\"{}
+\item 
+const \hyperlink{class_back_trace_39bb2bf7f6eedb012f02ca7a78218f4d}{SCOPE\_\-STATIC} = \char`\"{}::\char`\"{}
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_back_trace_754eafcf5d553799f22808cf6f949bd7}{\$aCurrent} = array()
+\item 
+\hyperlink{class_back_trace_dd74bae86bc7427700c1c6f76864caf8}{\$aStack} = array()
+\item 
+\hyperlink{class_back_trace_f53bd861302539bdcd96681d27501962}{\$iLevel} = 0
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_back_trace_96ba27da4289af42f20cd0fa1366a19d}{
+\index{BackTrace@{BackTrace}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!BackTrace@{BackTrace}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::\_\-\_\-construct (array \$ {\em aStack} = {\tt array()})}}
+\label{class_back_trace_96ba27da4289af42f20cd0fa1366a19d}
+
+
+Captura dados da pilha de execução.
+
+Captures execution stack data.
+
+Os dados da pilha de execução são capturados e o ponteiro é movido para o nível imediatamente inferior ao ponto de chamada deste construtor caso a pilha não seja informado pelo parâmetro, caso contrário a pilha informada é utilizada.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]}}]\$aStack \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]void \end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_back_trace_4396a5a1722ae78fecd33df4f6cdd711}{
+\index{BackTrace@{BackTrace}!explain@{explain}}
+\index{explain@{explain}!BackTrace@{BackTrace}}
+\subsubsection[{explain}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::explain ()}}
+\label{class_back_trace_4396a5a1722ae78fecd33df4f6cdd711}
+
+
+Gera HTML com detalhes do rastreamento a partir do nível atual.
+
+Creates HTML with detail of the trace.
+
+Captura todos os dados de um rastreamento a partir do nível atual da pilha.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\begin{Desc}
+\item[See also:]\hyperlink{class_back_trace_explain_7c43123f132faff85e225130dcdff9ec}{BackTraceExplain::perform()} \end{Desc}
+\hypertarget{class_back_trace_9e5ff1a07decb6421c875cec34eaae40}{
+\index{BackTrace@{BackTrace}!getAll@{getAll}}
+\index{getAll@{getAll}!BackTrace@{BackTrace}}
+\subsubsection[{getAll}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getAll ()}}
+\label{class_back_trace_9e5ff1a07decb6421c875cec34eaae40}
+
+
+Obtém todos os dados de todos os níveis.
+
+Gets all data of all levels.
+
+Retorna os dados contidos na pilha construída pelo construtor dessa classe. O formato é idêntico ao retornado pela função \hyperlink{}{debug\_\-backtrace()}.
+
+\begin{Desc}
+\item[Returns:]string\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_back_trace_30f81813bc02f2ebd1d15441c8377a36}{
+\index{BackTrace@{BackTrace}!getArguments@{getArguments}}
+\index{getArguments@{getArguments}!BackTrace@{BackTrace}}
+\subsubsection[{getArguments}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getArguments ()}}
+\label{class_back_trace_30f81813bc02f2ebd1d15441c8377a36}
+
+
+Obtém os argumentos de entrada do nível atual.
+
+Captures input arguments of current level.
+
+Se o escopo do nível corrente for uma função ou método retorna uma lista com os parâmetros de chamada. Caso contrário retorna uma lista vazia.
+
+\begin{Desc}
+\item[Returns:]string\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_back_trace_9a88ba19c59d874267ed2944a7fb052d}{
+\index{BackTrace@{BackTrace}!getClass@{getClass}}
+\index{getClass@{getClass}!BackTrace@{BackTrace}}
+\subsubsection[{getClass}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getClass ()}}
+\label{class_back_trace_9a88ba19c59d874267ed2944a7fb052d}
+
+
+Obtém o nome da classe do nível atual.
+
+Captures class name of current level.
+
+Se o escopo do nível atual for um método ou método estático o nome da classe é retornado. Caso contrário retornará um texto vazio. Para verificar se o escopo atual é um método, método estático, função ou arquivo utilize \hyperlink{class_back_trace_3b1b222bfb41081888742dadf70e2dfb}{BackTrace::getScope()}.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_bf0335130b2625274c8bcfe2449d018e}{
+\index{BackTrace@{BackTrace}!getCurrent@{getCurrent}}
+\index{getCurrent@{getCurrent}!BackTrace@{BackTrace}}
+\subsubsection[{getCurrent}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getCurrent ()}}
+\label{class_back_trace_bf0335130b2625274c8bcfe2449d018e}
+
+
+Obtém todos os dados do nível corrente.
+
+Captures all data of current level.
+
+Retorna os dados do nível corrente da pilha de execução. O formato é igual a um item da pilha retornada pela função \hyperlink{}{debug\_\-backtrace()}.
+
+\begin{Desc}
+\item[Returns:]string\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_back_trace_d8010953ac26a66f21347a850895110d}{
+\index{BackTrace@{BackTrace}!getFile@{getFile}}
+\index{getFile@{getFile}!BackTrace@{BackTrace}}
+\subsubsection[{getFile}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getFile (\$ {\em bOnlyName} = {\tt false})}}
+\label{class_back_trace_d8010953ac26a66f21347a850895110d}
+
+
+Obtém o nome do arquivo do nível corrente.
+
+Captures file of current level.
+
+Retorna o caminho completo contendo o nome do arquivo do nível atual.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em boolean}]\$bOnlyName captura somente o nome do arquivo \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_03b4a4f0f94cf004b754e991db26cec7}{
+\index{BackTrace@{BackTrace}!getFunction@{getFunction}}
+\index{getFunction@{getFunction}!BackTrace@{BackTrace}}
+\subsubsection[{getFunction}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getFunction ()}}
+\label{class_back_trace_03b4a4f0f94cf004b754e991db26cec7}
+
+
+Obtém o nome da função do nível corrente.
+
+Captures function name of current level.
+
+Se o escopo do nível atual for uma função, método ou método estático o nome desse é retornado. Caso contrário retornará um texto vazio. Para verificar se o escopo atual é uma função, método, método estático ou arquivo utilize \hyperlink{class_back_trace_3b1b222bfb41081888742dadf70e2dfb}{BackTrace::getScope()}.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_8d2aa767c2b033c8d2fd957582d761e8}{
+\index{BackTrace@{BackTrace}!getLevel@{getLevel}}
+\index{getLevel@{getLevel}!BackTrace@{BackTrace}}
+\subsubsection[{getLevel}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getLevel ()}}
+\label{class_back_trace_8d2aa767c2b033c8d2fd957582d761e8}
+
+
+Obtém a posição do nível atual do nível corrente.
+
+Captures position of current level.
+
+\begin{Desc}
+\item[Returns:]integer \end{Desc}
+\hypertarget{class_back_trace_43a4681e6cacbba682ae3e189811f3b9}{
+\index{BackTrace@{BackTrace}!getLine@{getLine}}
+\index{getLine@{getLine}!BackTrace@{BackTrace}}
+\subsubsection[{getLine}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getLine ()}}
+\label{class_back_trace_43a4681e6cacbba682ae3e189811f3b9}
+
+
+Obtém número da linha do arquivo do nível corrente.
+
+Captures file line name of current level.
+
+Caso o número da linha não esteja disponível o valor 0 é retornado.
+
+\begin{Desc}
+\item[Returns:]integer \end{Desc}
+\hypertarget{class_back_trace_3b1b222bfb41081888742dadf70e2dfb}{
+\index{BackTrace@{BackTrace}!getScope@{getScope}}
+\index{getScope@{getScope}!BackTrace@{BackTrace}}
+\subsubsection[{getScope}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getScope ()}}
+\label{class_back_trace_3b1b222bfb41081888742dadf70e2dfb}
+
+
+Obtém o escopo do nível corrente.
+
+Captures scope of current level.
+
+O tipo de escopo define o ambiente do nível atual, ele pode ser função, método (função de classe), estático (método estático) ou arquivo. Esses tipos estão definidos nessa classe pelas constantes com prefixo \char`\"{}SCOPE\_\-\char`\"{}. Os possíveis valores retornados são: \hyperlink{class_back_trace_9efefb3ed5ea7ee8e131f2d8a769fea5}{BackTrace::SCOPE\_\-FILE}, \hyperlink{class_back_trace_ae456bc0b86081f2f7910c0772803224}{BackTrace::SCOPE\_\-FUNCTION}, \hyperlink{class_back_trace_20828cf0730b25b234bd8b63614988f5}{BackTrace::SCOPE\_\-METHOD} e \hyperlink{class_back_trace_39bb2bf7f6eedb012f02ca7a78218f4d}{BackTrace::SCOPE\_\-STATIC}. Os escopos estão definidos de forma parecida com o índice \char`\"{}type\char`\"{} da lista retornada pela função \hyperlink{}{debug\_\-backtrace()}, porém existe diferenciação entre o escopo função e arquivo. Para obter o mesmo comportamento desse índice \char`\"{}type\char`\"{} utilize \hyperlink{class_back_trace_bd89e82b5c431300ccc0180a4cc198c8}{BackTrace::getType()}.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_bd89e82b5c431300ccc0180a4cc198c8}{
+\index{BackTrace@{BackTrace}!getType@{getType}}
+\index{getType@{getType}!BackTrace@{BackTrace}}
+\subsubsection[{getType}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::getType ()}}
+\label{class_back_trace_bd89e82b5c431300ccc0180a4cc198c8}
+
+
+Obtém o tipo do nível corrente.
+
+Captures type of current level.
+
+O tipo de escopo define o ambiente do nível atual, ele pode ser método (função de classe), estático (método estático) ou nenhum. Para obter um maior detalhamento do escopo utilize \hyperlink{class_back_trace_3b1b222bfb41081888742dadf70e2dfb}{BackTrace::getScope()}.
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_back_trace_6255f13465b4c5c5824e646863945cbf}{
+\index{BackTrace@{BackTrace}!levelBottom@{levelBottom}}
+\index{levelBottom@{levelBottom}!BackTrace@{BackTrace}}
+\subsubsection[{levelBottom}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::levelBottom ()}}
+\label{class_back_trace_6255f13465b4c5c5824e646863945cbf}
+
+
+Move o ponteiro de rastreamento para o nível mais baixo.
+
+Moves trace pointer to last level.
+
+\begin{Desc}
+\item[Returns:]void \end{Desc}
+\hypertarget{class_back_trace_1ad89e49be7244f6b543c131a87dd2b7}{
+\index{BackTrace@{BackTrace}!levelDown@{levelDown}}
+\index{levelDown@{levelDown}!BackTrace@{BackTrace}}
+\subsubsection[{levelDown}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::levelDown (\$ {\em iDepth} = {\tt 1}, \/  \$ {\em bTry} = {\tt false})}}
+\label{class_back_trace_1ad89e49be7244f6b543c131a87dd2b7}
+
+
+Move o ponteiro de rastreamento para baixo.
+
+Moves trace pointer to down.
+
+Quando o valor retronado é verdadeiro a classe passa a manipular as informações do nível imediatamente inferior ao atual. Caso contrário, quando o retorno é falso, o ponteiro não é alterado. A quantidade de níveis a ser abaixado é por padrão o valor 1, porém ele pode ser redefinido pelo primeiro parâmetro. Caso não seja possível descer a quantidade de níveis desejado o segundo parâmetro, que por padrão é falso, indica se é para descer até onde for possível.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$iDepth \item[{\em boolean}]\$bTry caso o nível não exista tentar até onde for possível \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]boolean \end{Desc}
+\hypertarget{class_back_trace_a81a0634c18930a823eef59269d2d992}{
+\index{BackTrace@{BackTrace}!levelTop@{levelTop}}
+\index{levelTop@{levelTop}!BackTrace@{BackTrace}}
+\subsubsection[{levelTop}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::levelTop ()}}
+\label{class_back_trace_a81a0634c18930a823eef59269d2d992}
+
+
+Move o ponteiro de rastreamento para o nível mais alto.
+
+Moves trace pointer to first level.
+
+\begin{Desc}
+\item[Returns:]void \end{Desc}
+\hypertarget{class_back_trace_99b82e17be56fa564d20608296e0d994}{
+\index{BackTrace@{BackTrace}!levelUp@{levelUp}}
+\index{levelUp@{levelUp}!BackTrace@{BackTrace}}
+\subsubsection[{levelUp}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::levelUp (\$ {\em iDepth} = {\tt 1}, \/  \$ {\em bTry} = {\tt false})}}
+\label{class_back_trace_99b82e17be56fa564d20608296e0d994}
+
+
+Move o ponteiro de rastreamento para cima.
+
+Moves trace pointer to up.
+
+Quando o valor retronado é verdadeiro a classe passa a manipular as informações do nível imediatamente superior ao atual. Caso contrário, quando o retorno é falso, o ponteiro não é alterado. A quantidade de níveis a ser subido é por padrão o valor 1, porém ele pode ser redefinido pelo primeiro parâmetro. Caso não seja possível subir a quantidade de níveis desejado o segundo parâmetro, que por padrão é falso, indica se é para subir até onde for possível.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$iDepth \item[{\em boolean}]\$bTry caso o nível não exista tentar até onde for possível \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]boolean \end{Desc}
+\hypertarget{class_back_trace_e6641538cbc2fbd659fe308c563bbc45}{
+\index{BackTrace@{BackTrace}!setLevel@{setLevel}}
+\index{setLevel@{setLevel}!BackTrace@{BackTrace}}
+\subsubsection[{setLevel}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::setLevel (\$ {\em iLevel})}}
+\label{class_back_trace_e6641538cbc2fbd659fe308c563bbc45}
+
+
+Move o ponteiro de rastreamento.
+
+Moves trace pointer.
+
+Quando o valor retronado é verdadeiro a classe passa a manipular as informações do nível indicado pelo parâmetro. Caso contrário, quando o retorno é falso, o ponteiro não é alterado.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$iLevel nível do rastreamento \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]boolean \end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_back_trace_754eafcf5d553799f22808cf6f949bd7}{
+\index{BackTrace@{BackTrace}!\$aCurrent@{\$aCurrent}}
+\index{\$aCurrent@{\$aCurrent}!BackTrace@{BackTrace}}
+\subsubsection[{\$aCurrent}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::\$aCurrent = array()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_back_trace_754eafcf5d553799f22808cf6f949bd7}
+
+
+\hypertarget{class_back_trace_dd74bae86bc7427700c1c6f76864caf8}{
+\index{BackTrace@{BackTrace}!\$aStack@{\$aStack}}
+\index{\$aStack@{\$aStack}!BackTrace@{BackTrace}}
+\subsubsection[{\$aStack}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::\$aStack = array()\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_back_trace_dd74bae86bc7427700c1c6f76864caf8}
+
+
+\hypertarget{class_back_trace_f53bd861302539bdcd96681d27501962}{
+\index{BackTrace@{BackTrace}!\$iLevel@{\$iLevel}}
+\index{\$iLevel@{\$iLevel}!BackTrace@{BackTrace}}
+\subsubsection[{\$iLevel}]{\setlength{\rightskip}{0pt plus 5cm}BackTrace::\$iLevel = 0\hspace{0.3cm}{\tt  \mbox{[}private\mbox{]}}}}
+\label{class_back_trace_f53bd861302539bdcd96681d27501962}
+
+
+\hypertarget{class_back_trace_9efefb3ed5ea7ee8e131f2d8a769fea5}{
+\index{BackTrace@{BackTrace}!SCOPE\_\-FILE@{SCOPE\_\-FILE}}
+\index{SCOPE\_\-FILE@{SCOPE\_\-FILE}!BackTrace@{BackTrace}}
+\subsubsection[{SCOPE\_\-FILE}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BackTrace::SCOPE\_\-FILE} = \char`\"{}file\char`\"{}}}
+\label{class_back_trace_9efefb3ed5ea7ee8e131f2d8a769fea5}
+
+
+\hypertarget{class_back_trace_ae456bc0b86081f2f7910c0772803224}{
+\index{BackTrace@{BackTrace}!SCOPE\_\-FUNCTION@{SCOPE\_\-FUNCTION}}
+\index{SCOPE\_\-FUNCTION@{SCOPE\_\-FUNCTION}!BackTrace@{BackTrace}}
+\subsubsection[{SCOPE\_\-FUNCTION}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BackTrace::SCOPE\_\-FUNCTION} = \char`\"{}function\char`\"{}}}
+\label{class_back_trace_ae456bc0b86081f2f7910c0772803224}
+
+
+\hypertarget{class_back_trace_20828cf0730b25b234bd8b63614988f5}{
+\index{BackTrace@{BackTrace}!SCOPE\_\-METHOD@{SCOPE\_\-METHOD}}
+\index{SCOPE\_\-METHOD@{SCOPE\_\-METHOD}!BackTrace@{BackTrace}}
+\subsubsection[{SCOPE\_\-METHOD}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BackTrace::SCOPE\_\-METHOD} = \char`\"{} $\rightarrow$ \char`\"{}}}
+\label{class_back_trace_20828cf0730b25b234bd8b63614988f5}
+
+
+\hypertarget{class_back_trace_39bb2bf7f6eedb012f02ca7a78218f4d}{
+\index{BackTrace@{BackTrace}!SCOPE\_\-STATIC@{SCOPE\_\-STATIC}}
+\index{SCOPE\_\-STATIC@{SCOPE\_\-STATIC}!BackTrace@{BackTrace}}
+\subsubsection[{SCOPE\_\-STATIC}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BackTrace::SCOPE\_\-STATIC} = \char`\"{}::\char`\"{}}}
+\label{class_back_trace_39bb2bf7f6eedb012f02ca7a78218f4d}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/backtrace/\hyperlink{_back_trace_8php}{BackTrace.php}\end{CompactItemize}

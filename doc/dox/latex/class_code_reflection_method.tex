@@ -1,0 +1,156 @@
+\hypertarget{class_code_reflection_method}{
+\section{CodeReflectionMethod Class Reference}
+\label{class_code_reflection_method}\index{CodeReflectionMethod@{CodeReflectionMethod}}
+}
+Inheritance diagram for CodeReflectionMethod::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3cm]{class_code_reflection_method}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_reflection_method_9ea590fa1500f62805d106332634893e}{getCode} ()
+\item 
+\hyperlink{class_code_reflection_method_49ef51345ba44d4a0c9242794f7a97a2}{getCodeContent} ()
+\item 
+\hyperlink{class_code_reflection_method_c4b3d9a1c136135c42a66302f52c66c5}{createMethodHeaderCode} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_reflection_method_84c20b140478480a3bbecda5e9e13702}{createExtendedReflectionClass} (ReflectionClass \$objOriginalReflectionClass)
+\item 
+\hyperlink{class_code_reflection_method_33a3dcd4331a02b37addbc2fa9281af6}{createExtendedReflectionParameter} (ReflectionParameter \$objReflectionParameter)
+\item 
+\hyperlink{class_code_reflection_method_f2457c6e356d735b29253563175d0523}{createModifiersCode} ()
+\item 
+\hyperlink{class_code_reflection_method_803892b766bfd1aba81f5e63ed248676}{createParametersCode} ()
+\item 
+\hyperlink{class_code_reflection_method_4aa609e822a988c2577185932cad79eb}{createMethodContentCode} ()
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_code_reflection_method_84c20b140478480a3bbecda5e9e13702}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!createExtendedReflectionClass@{createExtendedReflectionClass}}
+\index{createExtendedReflectionClass@{createExtendedReflectionClass}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{createExtendedReflectionClass}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::createExtendedReflectionClass (ReflectionClass \$ {\em objOriginalReflectionClass})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_method_84c20b140478480a3bbecda5e9e13702}
+
+
+Create the link between the code reflection method and its code reflection class
+
+\begin{Desc}
+\item[See also:]ExtendedReflectionMethod::createExtendedReflectionClass( ReflectionClass ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionClass}]\$objOriginalReflectionClass \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_reflection_class}{CodeReflectionClass} \end{Desc}
+
+
+Reimplemented from \hyperlink{class_extended_reflection_method_e5727cf1a1b76d84e56a5fb312989ecb}{ExtendedReflectionMethod}.
+
+Reimplemented in \hyperlink{class_code_instrumentation_method_7dda8c3f7ba312f14dd22d25a2b69ec1}{CodeInstrumentationMethod}.\hypertarget{class_code_reflection_method_33a3dcd4331a02b37addbc2fa9281af6}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!createExtendedReflectionParameter@{createExtendedReflectionParameter}}
+\index{createExtendedReflectionParameter@{createExtendedReflectionParameter}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{createExtendedReflectionParameter}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::createExtendedReflectionParameter (ReflectionParameter \$ {\em objReflectionParameter})\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_method_33a3dcd4331a02b37addbc2fa9281af6}
+
+
+Create the link between the code reflection method and its code reflection parameter
+
+\begin{Desc}
+\item[See also:]ExtendedReflectionMethod::createExtendedReflectionParameter( ReflectionParameter ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em ReflectionParameter}]\$objReflectionParameter \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_reflection_parameter}{CodeReflectionParameter} \end{Desc}
+
+
+Reimplemented from \hyperlink{class_extended_reflection_method_a7d2760c2914c0ad6428171c4ca61503}{ExtendedReflectionMethod}.
+
+Reimplemented in \hyperlink{class_code_instrumentation_method_d4a17b83d9e1fd997263bc1a9982ae3c}{CodeInstrumentationMethod}.\hypertarget{class_code_reflection_method_4aa609e822a988c2577185932cad79eb}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!createMethodContentCode@{createMethodContentCode}}
+\index{createMethodContentCode@{createMethodContentCode}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{createMethodContentCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::createMethodContentCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_method_4aa609e822a988c2577185932cad79eb}
+
+
+Create the method code definition content
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+Reimplemented in \hyperlink{class_code_instrumentation_method_731590867f98da76937a4e5a93ec2023}{CodeInstrumentationMethod}.\hypertarget{class_code_reflection_method_c4b3d9a1c136135c42a66302f52c66c5}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!createMethodHeaderCode@{createMethodHeaderCode}}
+\index{createMethodHeaderCode@{createMethodHeaderCode}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{createMethodHeaderCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::createMethodHeaderCode ()}}
+\label{class_code_reflection_method_c4b3d9a1c136135c42a66302f52c66c5}
+
+
+Create the method code definition header
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+Reimplemented in \hyperlink{class_code_instrumentation_method_0eab7bf9706fa3867605f3db1822c333}{CodeInstrumentationMethod}.\hypertarget{class_code_reflection_method_f2457c6e356d735b29253563175d0523}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!createModifiersCode@{createModifiersCode}}
+\index{createModifiersCode@{createModifiersCode}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{createModifiersCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::createModifiersCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_method_f2457c6e356d735b29253563175d0523}
+
+
+Create the modifiers code definition of the method
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_reflection_method_803892b766bfd1aba81f5e63ed248676}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!createParametersCode@{createParametersCode}}
+\index{createParametersCode@{createParametersCode}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{createParametersCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::createParametersCode ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_method_803892b766bfd1aba81f5e63ed248676}
+
+
+Create the parameters code definition
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_reflection_method_9ea590fa1500f62805d106332634893e}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!getCode@{getCode}}
+\index{getCode@{getCode}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{getCode}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::getCode ()}}
+\label{class_code_reflection_method_9ea590fa1500f62805d106332634893e}
+
+
+Create the code definition of the reflected method
+
+\begin{Desc}
+\item[Returns:]string code method definition \end{Desc}
+
+
+Reimplemented in \hyperlink{class_code_instrumentation_method_b79054196e5abf3e3464ad0551a9af71}{CodeInstrumentationMethod}.\hypertarget{class_code_reflection_method_49ef51345ba44d4a0c9242794f7a97a2}{
+\index{CodeReflectionMethod@{CodeReflectionMethod}!getCodeContent@{getCodeContent}}
+\index{getCodeContent@{getCodeContent}!CodeReflectionMethod@{CodeReflectionMethod}}
+\subsubsection[{getCodeContent}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionMethod::getCodeContent ()}}
+\label{class_code_reflection_method_49ef51345ba44d4a0c9242794f7a97a2}
+
+
+Get the code content of the method
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/codeReflection/\hyperlink{_code_reflection_method_8class_8php}{CodeReflectionMethod.class.php}\end{CompactItemize}

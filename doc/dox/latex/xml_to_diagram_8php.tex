@@ -1,0 +1,42 @@
+\hypertarget{xml_to_diagram_8php}{
+\section{public/xmlToDiagram.php File Reference}
+\label{xml_to_diagram_8php}\index{public/xmlToDiagram.php@{public/xmlToDiagram.php}}
+}
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace \hyperlink{namespacepublic}{public}
+\end{CompactItemize}
+\subsection*{Variables}
+\begin{CompactItemize}
+\item 
+\hyperlink{xml_to_diagram_8php_ba837fb08baf5fbca04d8237a589e93e}{\$intZoom} = (integer)CorujaArrayManipulation::getArrayField( \$\_\-POST , \char`\"{}zoom\char`\"{} , 50 )
+\item 
+\hyperlink{xml_to_diagram_8php_2651e3074f6303e4683f2aff16ec1fbd}{\$strXml} = CorujaArrayManipulation::getArrayField( \$\_\-POST , \char`\"{}xml\char`\"{} , file\_\-get\_\-contents( 'sequence.xml' ) )
+\item 
+\hyperlink{xml_to_diagram_8php_eefa469c1b13fe1fec040c910b720034}{\$objXmlSequence} = XmlSequenceFactoryXml::getInstance() $\rightarrow$ setXml( \$strXml ) $\rightarrow$ perform()
+\end{CompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{xml_to_diagram_8php_ba837fb08baf5fbca04d8237a589e93e}{
+\index{xmlToDiagram.php@{xmlToDiagram.php}!\$intZoom@{\$intZoom}}
+\index{\$intZoom@{\$intZoom}!xmlToDiagram.php@{xmlToDiagram.php}}
+\subsubsection[{\$intZoom}]{\setlength{\rightskip}{0pt plus 5cm}\$intZoom = (integer)CorujaArrayManipulation::getArrayField( \$\_\-POST , \char`\"{}zoom\char`\"{} , 50 )}}
+\label{xml_to_diagram_8php_ba837fb08baf5fbca04d8237a589e93e}
+
+
+\hypertarget{xml_to_diagram_8php_eefa469c1b13fe1fec040c910b720034}{
+\index{xmlToDiagram.php@{xmlToDiagram.php}!\$objXmlSequence@{\$objXmlSequence}}
+\index{\$objXmlSequence@{\$objXmlSequence}!xmlToDiagram.php@{xmlToDiagram.php}}
+\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}\$objXmlSequence = XmlSequenceFactoryXml::getInstance() $\rightarrow$ setXml( \$strXml ) $\rightarrow$ perform()}}
+\label{xml_to_diagram_8php_eefa469c1b13fe1fec040c910b720034}
+
+
+\hypertarget{xml_to_diagram_8php_2651e3074f6303e4683f2aff16ec1fbd}{
+\index{xmlToDiagram.php@{xmlToDiagram.php}!\$strXml@{\$strXml}}
+\index{\$strXml@{\$strXml}!xmlToDiagram.php@{xmlToDiagram.php}}
+\subsubsection[{\$strXml}]{\setlength{\rightskip}{0pt plus 5cm}\$strXml = CorujaArrayManipulation::getArrayField( \$\_\-POST , \char`\"{}xml\char`\"{} , file\_\-get\_\-contents( 'sequence.xml' ) )}}
+\label{xml_to_diagram_8php_2651e3074f6303e4683f2aff16ec1fbd}
+
+

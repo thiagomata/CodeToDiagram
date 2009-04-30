@@ -1,0 +1,222 @@
+\hypertarget{class_xml_sequence_printer_diagram}{
+\section{XmlSequencePrinterDiagram Class Reference}
+\label{class_xml_sequence_printer_diagram}\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+}
+Inheritance diagram for XmlSequencePrinterDiagram::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_xml_sequence_printer_diagram}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_a94b897abb072d1d895c2e63dfa066d2}{perform} (\hyperlink{class_xml_sequence}{XmlSequence} \$objXmlSequence)
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_e80bb8be07efce8abf9af54488d3c616}{setZoom} (\$intZoom)
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_71fbe6074cf81fab4eee271f16a6f189}{getZoom} ()
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_bf7cd1d36e6867cefed731112b9ed8e8}{show} ()
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_eda31caa1d4a613d270b3ca55accd2dd}{showValues} (\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} \$objXmlMessage)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_xml_sequence_printer_diagram_c11a145d18a480a3fa4d8404f9aa1649}{getInstance} ()
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_e7975e1165f4b290bc9ddaba3ae7d5c5}{showHeaders} ()
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_11f8dd9065dd384aeb6e498578cff669}{showFooter} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_4d24b76a9be3f7a080a5434e5d917912}{\$objXmlSequence}
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_342c720d4dc17c2b8fd161f3f2579b3a}{\$intMessageWidth} = 300
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_223b298c0d3af258bfe6a2631ae33ff5}{\$intActorHeaderWidth} = 100
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_97531ddc90690c05c0feecd57be48006}{\$intActorBarWidth} = 10
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_dd52069aecd62faf2c555a4dec1ad607}{\$intFont} = 13
+\item 
+\hyperlink{class_xml_sequence_printer_diagram_6feab15dfe17205a6efca8744c792477}{\$intZoom} = 100
+\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_xml_sequence_printer_diagram_bbc670b6771acaff2420cc4feb1624c8}{\$objInstance}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_xml_sequence_printer_diagram_c11a145d18a480a3fa4d8404f9aa1649}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static XmlSequencePrinterDiagram::getInstance ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_c11a145d18a480a3fa4d8404f9aa1649}
+
+
+Return the singleton of the \hyperlink{class_xml_sequence_printer_diagram}{XmlSequencePrinterDiagram}
+
+\begin{Desc}
+\item[See also:]\hyperlink{interface_xml_sequence_printer_interface_d488a9fe62e4e3018e482d31497d5e99}{XmlSequencePrinterInterface::getInstance} \end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_printer_diagram}{XmlSequencePrinterDiagram} \end{Desc}
+
+
+Implements \hyperlink{interface_xml_sequence_printer_interface_d488a9fe62e4e3018e482d31497d5e99}{XmlSequencePrinterInterface}.\hypertarget{class_xml_sequence_printer_diagram_71fbe6074cf81fab4eee271f16a6f189}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!getZoom@{getZoom}}
+\index{getZoom@{getZoom}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{getZoom}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::getZoom ()}}
+\label{class_xml_sequence_printer_diagram_71fbe6074cf81fab4eee271f16a6f189}
+
+
+Get the zoom of the diagram
+
+\begin{Desc}
+\item[Returns:]integer \end{Desc}
+\hypertarget{class_xml_sequence_printer_diagram_a94b897abb072d1d895c2e63dfa066d2}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!perform@{perform}}
+\index{perform@{perform}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{perform}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::perform ({\bf XmlSequence} \$ {\em objXmlSequence})}}
+\label{class_xml_sequence_printer_diagram_a94b897abb072d1d895c2e63dfa066d2}
+
+
+Perfom the print process
+
+\begin{Desc}
+\item[See also:]XmlSequencePrinterInterface::perform( XmlSequence ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{class_xml_sequence}{XmlSequence}}]\$objXmlSequence \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]mixer \end{Desc}
+
+
+Implements \hyperlink{interface_xml_sequence_printer_interface_68a8066e69c402d49dd0a16a22cfcb6b}{XmlSequencePrinterInterface}.\hypertarget{class_xml_sequence_printer_diagram_e80bb8be07efce8abf9af54488d3c616}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!setZoom@{setZoom}}
+\index{setZoom@{setZoom}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{setZoom}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::setZoom (\$ {\em intZoom})}}
+\label{class_xml_sequence_printer_diagram_e80bb8be07efce8abf9af54488d3c616}
+
+
+Set the zoom of the diagram
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$intZoom \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence}{XmlSequence} me \end{Desc}
+\hypertarget{class_xml_sequence_printer_diagram_bf7cd1d36e6867cefed731112b9ed8e8}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!show@{show}}
+\index{show@{show}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::show ()}}
+\label{class_xml_sequence_printer_diagram_bf7cd1d36e6867cefed731112b9ed8e8}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_11f8dd9065dd384aeb6e498578cff669}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!showFooter@{showFooter}}
+\index{showFooter@{showFooter}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{showFooter}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::showFooter ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_11f8dd9065dd384aeb6e498578cff669}
+
+
+Create and return the string of the footer of the html sequence diagram
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_xml_sequence_printer_diagram_e7975e1165f4b290bc9ddaba3ae7d5c5}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!showHeaders@{showHeaders}}
+\index{showHeaders@{showHeaders}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{showHeaders}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::showHeaders ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_e7975e1165f4b290bc9ddaba3ae7d5c5}
+
+
+Create and return the string of the header of the html sequence diagram
+
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_xml_sequence_printer_diagram_eda31caa1d4a613d270b3ca55accd2dd}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!showValues@{showValues}}
+\index{showValues@{showValues}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{showValues}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::showValues ({\bf XmlSequenceMessage} \$ {\em objXmlMessage})}}
+\label{class_xml_sequence_printer_diagram_eda31caa1d4a613d270b3ca55accd2dd}
+
+
+Create and return the html of some values of some messages into the html sequence diagram
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{class_xml_sequence_message}{XmlSequenceMessage}}]\$objXmlMessage \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_xml_sequence_printer_diagram_97531ddc90690c05c0feecd57be48006}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$intActorBarWidth@{\$intActorBarWidth}}
+\index{\$intActorBarWidth@{\$intActorBarWidth}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$intActorBarWidth}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$intActorBarWidth = 10\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_97531ddc90690c05c0feecd57be48006}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_223b298c0d3af258bfe6a2631ae33ff5}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$intActorHeaderWidth@{\$intActorHeaderWidth}}
+\index{\$intActorHeaderWidth@{\$intActorHeaderWidth}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$intActorHeaderWidth}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$intActorHeaderWidth = 100\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_223b298c0d3af258bfe6a2631ae33ff5}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_dd52069aecd62faf2c555a4dec1ad607}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$intFont@{\$intFont}}
+\index{\$intFont@{\$intFont}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$intFont}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$intFont = 13\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_dd52069aecd62faf2c555a4dec1ad607}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_342c720d4dc17c2b8fd161f3f2579b3a}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$intMessageWidth@{\$intMessageWidth}}
+\index{\$intMessageWidth@{\$intMessageWidth}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$intMessageWidth}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$intMessageWidth = 300\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_342c720d4dc17c2b8fd161f3f2579b3a}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_6feab15dfe17205a6efca8744c792477}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$intZoom@{\$intZoom}}
+\index{\$intZoom@{\$intZoom}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$intZoom}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$intZoom = 100\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_6feab15dfe17205a6efca8744c792477}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_bbc670b6771acaff2420cc4feb1624c8}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$objInstance@{\$objInstance}}
+\index{\$objInstance@{\$objInstance}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$objInstance}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$objInstance\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_bbc670b6771acaff2420cc4feb1624c8}
+
+
+\hypertarget{class_xml_sequence_printer_diagram_4d24b76a9be3f7a080a5434e5d917912}{
+\index{XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}!\$objXmlSequence@{\$objXmlSequence}}
+\index{\$objXmlSequence@{\$objXmlSequence}!XmlSequencePrinterDiagram@{XmlSequencePrinterDiagram}}
+\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequencePrinterDiagram::\$objXmlSequence\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_printer_diagram_4d24b76a9be3f7a080a5434e5d917912}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/xmlSequence/\hyperlink{_xml_sequence_printer_diagram_8class_8php}{XmlSequencePrinterDiagram.class.php}\end{CompactItemize}

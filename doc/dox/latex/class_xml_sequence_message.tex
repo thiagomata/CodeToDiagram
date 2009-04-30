@@ -1,0 +1,445 @@
+\hypertarget{class_xml_sequence_message}{
+\section{XmlSequenceMessage Class Reference}
+\label{class_xml_sequence_message}\index{XmlSequenceMessage@{XmlSequenceMessage}}
+}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_xml_sequence_message_a4d5880601982b4e882e52f657480cc5}{setText} (\$strText)
+\item 
+\hyperlink{class_xml_sequence_message_1f80c7d126fc2183c3c99a71df3f1d20}{getText} ()
+\item 
+\hyperlink{class_xml_sequence_message_a6a08c247856f2721b867676aa130214}{setType} (\$strType)
+\item 
+\hyperlink{class_xml_sequence_message_d839c7bfe476a42ddf264d019a13938b}{getType} ()
+\item 
+\hyperlink{class_xml_sequence_message_8dd8205552a1f91a32541187ff799d2f}{setActorFrom} (\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \$objActor)
+\item 
+\hyperlink{class_xml_sequence_message_d174306473bc3ba17083bd0c2c100443}{getActorFrom} ()
+\item 
+\hyperlink{class_xml_sequence_message_dd5dde3ef38d814ef76f6855b38cebc8}{setActorTo} (\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \$objActor)
+\item 
+\hyperlink{class_xml_sequence_message_d67a02882cb2602e3171f012650160f6}{getActorTo} ()
+\item 
+\hyperlink{class_xml_sequence_message_4ed3a9eceec6ce84566098813fde6101}{setValues} (Array \$arrValues)
+\item 
+\hyperlink{class_xml_sequence_message_9c2e8f8d995477aad79640ad673ab6a9}{getValues} ()
+\item 
+\hyperlink{class_xml_sequence_message_fc28193031e8ccdedf401767f7881267}{addValue} (\hyperlink{class_xml_sequence_value}{XmlSequenceValue} \$objValue)
+\item 
+\hyperlink{class_xml_sequence_message_4125b914cfa073d64b144b5607efdb3d}{setTimeStart} (\$intTime)
+\item 
+\hyperlink{class_xml_sequence_message_27b24a732d56e0b1cf7fd755d2c52983}{getTimeStart} ()
+\item 
+\hyperlink{class_xml_sequence_message_7fddd3ce13210832ec0ec73a751c332c}{setTimeEnd} (\$intTime)
+\item 
+\hyperlink{class_xml_sequence_message_a0c32ce53d9ecdff7099c221126fb58c}{getTimeEnd} ()
+\item 
+\hyperlink{class_xml_sequence_message_0f7538c36a98475fcd35cd554e7c7d05}{getTimeDuration} ()
+\item 
+\hyperlink{class_xml_sequence_message_c73e3d276fb5b60bfac84c7bda29cb1e}{isReverse} ()
+\item 
+\hyperlink{class_xml_sequence_message_c2fdfe0fd692c08d72faf1ca63fb7263}{isLarge} ()
+\item 
+\hyperlink{class_xml_sequence_message_50dd7454dfc6418b76613e6518a1fcc1}{isRecursive} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_xml_sequence_message_5191806ce342246e9febbb7188ef914f}{\$strText} = null
+\item 
+\hyperlink{class_xml_sequence_message_9cbf41c891bfaaacc0048ec4e7f54765}{\$strType} = null
+\item 
+\hyperlink{class_xml_sequence_message_677eb4ecb7493d72f3ea96d6b896f5c4}{\$objActorFrom} = null
+\item 
+\hyperlink{class_xml_sequence_message_6e35efb1112d87db5a90f660f2c7e487}{\$objActorTo} = null
+\item 
+\hyperlink{class_xml_sequence_message_97999a3267c23300fddf5d7e0ff0e87d}{\$arrValues} = Array()
+\item 
+\hyperlink{class_xml_sequence_message_3e60774808cf2fd2fe04898ca6314184}{\$intTimeStart}
+\item 
+\hyperlink{class_xml_sequence_message_5c82454b9be08a7fc94fd580932f59c1}{\$intTimeEnd}
+\end{CompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_xml_sequence_message_fc28193031e8ccdedf401767f7881267}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!addValue@{addValue}}
+\index{addValue@{addValue}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{addValue}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::addValue ({\bf XmlSequenceValue} \$ {\em objValue})}}
+\label{class_xml_sequence_message_fc28193031e8ccdedf401767f7881267}
+
+
+Append one \hyperlink{class_xml_sequence_value}{XmlSequenceValue} into the collection of Values of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_4ed3a9eceec6ce84566098813fde6101}{XmlSequenceMessage::setValues}( \hyperlink{class_xml_sequence_value}{XmlSequenceValue}\mbox{[}\mbox{]} ) 
+
+XmlSequenceMessage-$>$arrValues 
+
+\hyperlink{class_xml_sequence_message_9c2e8f8d995477aad79640ad673ab6a9}{XmlSequenceMessage::getValues()} 
+
+\hyperlink{class_xml_sequence_value}{XmlSequenceValue} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{class_xml_sequence_value}{XmlSequenceValue}}]\$objValue \end{description}
+\end{Desc}
+\hypertarget{class_xml_sequence_message_d174306473bc3ba17083bd0c2c100443}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getActorFrom@{getActorFrom}}
+\index{getActorFrom@{getActorFrom}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getActorFrom}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getActorFrom ()}}
+\label{class_xml_sequence_message_d174306473bc3ba17083bd0c2c100443}
+
+
+Returns the actor who is the recipient of the message
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage::setActorFrom( XmlSequenceActor ) 
+
+XmlSequenceMessage-$>$objActorFrom 
+
+\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \end{Desc}
+\hypertarget{class_xml_sequence_message_d67a02882cb2602e3171f012650160f6}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getActorTo@{getActorTo}}
+\index{getActorTo@{getActorTo}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getActorTo}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getActorTo ()}}
+\label{class_xml_sequence_message_d67a02882cb2602e3171f012650160f6}
+
+
+Returns the actor who is the author of the message
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage::setActorTo( XmlSequenceActor ) 
+
+XmlSequenceMessage-$>$objActorTo 
+
+\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \end{Desc}
+\hypertarget{class_xml_sequence_message_1f80c7d126fc2183c3c99a71df3f1d20}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getText@{getText}}
+\index{getText@{getText}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getText}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getText ()}}
+\label{class_xml_sequence_message_1f80c7d126fc2183c3c99a71df3f1d20}
+
+
+Get the text of the message
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage::setText( string ) 
+
+XmlSequenceMessage-$>$strText \end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_xml_sequence_message_0f7538c36a98475fcd35cd554e7c7d05}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getTimeDuration@{getTimeDuration}}
+\index{getTimeDuration@{getTimeDuration}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getTimeDuration}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getTimeDuration ()}}
+\label{class_xml_sequence_message_0f7538c36a98475fcd35cd554e7c7d05}
+
+
+Return the duration in timestamp betwenn the start end end of the message
+
+\begin{Desc}
+\item[Returns:]integer \end{Desc}
+\hypertarget{class_xml_sequence_message_a0c32ce53d9ecdff7099c221126fb58c}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getTimeEnd@{getTimeEnd}}
+\index{getTimeEnd@{getTimeEnd}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getTimeEnd}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getTimeEnd ()}}
+\label{class_xml_sequence_message_a0c32ce53d9ecdff7099c221126fb58c}
+
+
+Get the timestamp when the message ends
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage-$>$intTimeEnd 
+
+XmlSequenceMessage::setTimeEnd( integer ) \end{Desc}
+\begin{Desc}
+\item[Returns:]integer \end{Desc}
+\hypertarget{class_xml_sequence_message_27b24a732d56e0b1cf7fd755d2c52983}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getTimeStart@{getTimeStart}}
+\index{getTimeStart@{getTimeStart}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getTimeStart}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getTimeStart ()}}
+\label{class_xml_sequence_message_27b24a732d56e0b1cf7fd755d2c52983}
+
+
+Get the timestamp when the message started
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage-$>$intTimeStart 
+
+XmlSequenceMessage::setTimeStart( integer ) \end{Desc}
+\begin{Desc}
+\item[Returns:]integer \end{Desc}
+\hypertarget{class_xml_sequence_message_d839c7bfe476a42ddf264d019a13938b}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getType@{getType}}
+\index{getType@{getType}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getType}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getType ()}}
+\label{class_xml_sequence_message_d839c7bfe476a42ddf264d019a13938b}
+
+
+Get the type of the message
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage::setType( string ) 
+
+XmlSequenceMessage-$>$strType \end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_xml_sequence_message_9c2e8f8d995477aad79640ad673ab6a9}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!getValues@{getValues}}
+\index{getValues@{getValues}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{getValues}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::getValues ()}}
+\label{class_xml_sequence_message_9c2e8f8d995477aad79640ad673ab6a9}
+
+
+Get the array of values of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_4ed3a9eceec6ce84566098813fde6101}{XmlSequenceMessage::setValues}( \hyperlink{class_xml_sequence_value}{XmlSequenceValue}\mbox{[}\mbox{]} ) 
+
+XmlSequenceMessage-$>$arrValues 
+
+\hyperlink{class_xml_sequence_value}{XmlSequenceValue} \end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_value}{XmlSequenceValue}\mbox{[}\mbox{]} \end{Desc}
+\hypertarget{class_xml_sequence_message_c2fdfe0fd692c08d72faf1ca63fb7263}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!isLarge@{isLarge}}
+\index{isLarge@{isLarge}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{isLarge}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::isLarge ()}}
+\label{class_xml_sequence_message_c2fdfe0fd692c08d72faf1ca63fb7263}
+
+
+Returns {\tt true} if the distance between the actor from and the actor to be bigger then 1, {\tt false} otherwise
+
+\begin{Desc}
+\item[Returns:]boolean \end{Desc}
+\hypertarget{class_xml_sequence_message_50dd7454dfc6418b76613e6518a1fcc1}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!isRecursive@{isRecursive}}
+\index{isRecursive@{isRecursive}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{isRecursive}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::isRecursive ()}}
+\label{class_xml_sequence_message_50dd7454dfc6418b76613e6518a1fcc1}
+
+
+Returns {\tt true} if the actor from it is the actor to, {\tt false} otherwise
+
+\begin{Desc}
+\item[Returns:]boolean \end{Desc}
+\hypertarget{class_xml_sequence_message_c73e3d276fb5b60bfac84c7bda29cb1e}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!isReverse@{isReverse}}
+\index{isReverse@{isReverse}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{isReverse}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::isReverse ()}}
+\label{class_xml_sequence_message_c73e3d276fb5b60bfac84c7bda29cb1e}
+
+
+Returns {\tt true} if the id of the actor from is bigger then the id of the actor to, {\tt false} otherwise
+
+\begin{Desc}
+\item[Returns:]boolean \end{Desc}
+\hypertarget{class_xml_sequence_message_8dd8205552a1f91a32541187ff799d2f}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setActorFrom@{setActorFrom}}
+\index{setActorFrom@{setActorFrom}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setActorFrom}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setActorFrom ({\bf XmlSequenceActor} \$ {\em objActor})}}
+\label{class_xml_sequence_message_8dd8205552a1f91a32541187ff799d2f}
+
+
+Inform the actor who is the recipient of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_d174306473bc3ba17083bd0c2c100443}{XmlSequenceMessage::getActorFrom()} 
+
+XmlSequenceMessage-$>$objActorFrom 
+
+\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{class_xml_sequence_actor}{XmlSequenceActor}}]\$objActor \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} me \end{Desc}
+\hypertarget{class_xml_sequence_message_dd5dde3ef38d814ef76f6855b38cebc8}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setActorTo@{setActorTo}}
+\index{setActorTo@{setActorTo}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setActorTo}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setActorTo ({\bf XmlSequenceActor} \$ {\em objActor})}}
+\label{class_xml_sequence_message_dd5dde3ef38d814ef76f6855b38cebc8}
+
+
+Inform the actor who is the author of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_d67a02882cb2602e3171f012650160f6}{XmlSequenceMessage::getActorTo()} 
+
+XmlSequenceMessage-$>$objActorTo 
+
+\hyperlink{class_xml_sequence_actor}{XmlSequenceActor} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \hyperlink{class_xml_sequence_actor}{XmlSequenceActor}}]\$objActor \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} me \end{Desc}
+\hypertarget{class_xml_sequence_message_a4d5880601982b4e882e52f657480cc5}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setText@{setText}}
+\index{setText@{setText}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setText}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setText (\$ {\em strText})}}
+\label{class_xml_sequence_message_a4d5880601982b4e882e52f657480cc5}
+
+
+Set the text of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_1f80c7d126fc2183c3c99a71df3f1d20}{XmlSequenceMessage::getText()} 
+
+XmlSequenceMessage-$>$strText \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strText \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} me \end{Desc}
+\hypertarget{class_xml_sequence_message_7fddd3ce13210832ec0ec73a751c332c}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setTimeEnd@{setTimeEnd}}
+\index{setTimeEnd@{setTimeEnd}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setTimeEnd}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setTimeEnd (\$ {\em intTime})}}
+\label{class_xml_sequence_message_7fddd3ce13210832ec0ec73a751c332c}
+
+
+Set the timestamp when the message ends
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage-$>$intTimeEnds 
+
+XmlSequenceMessage::getTimeEnds() \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$intTime \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} \end{Desc}
+\hypertarget{class_xml_sequence_message_4125b914cfa073d64b144b5607efdb3d}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setTimeStart@{setTimeStart}}
+\index{setTimeStart@{setTimeStart}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setTimeStart}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setTimeStart (\$ {\em intTime})}}
+\label{class_xml_sequence_message_4125b914cfa073d64b144b5607efdb3d}
+
+
+Set the timestamp when the message started
+
+\begin{Desc}
+\item[See also:]XmlSequenceMessage-$>$intTimeStart 
+
+\hyperlink{class_xml_sequence_message_27b24a732d56e0b1cf7fd755d2c52983}{XmlSequenceMessage::getTimeStart()} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$intTime \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} \end{Desc}
+\hypertarget{class_xml_sequence_message_a6a08c247856f2721b867676aa130214}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setType@{setType}}
+\index{setType@{setType}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setType}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setType (\$ {\em strType})}}
+\label{class_xml_sequence_message_a6a08c247856f2721b867676aa130214}
+
+
+Set the type of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_d839c7bfe476a42ddf264d019a13938b}{XmlSequenceMessage::getType()} 
+
+XmlSequenceMessage-$>$strType \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strType \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} me \end{Desc}
+\hypertarget{class_xml_sequence_message_4ed3a9eceec6ce84566098813fde6101}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!setValues@{setValues}}
+\index{setValues@{setValues}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{setValues}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::setValues (Array \$ {\em arrValues})}}
+\label{class_xml_sequence_message_4ed3a9eceec6ce84566098813fde6101}
+
+
+Set the array of values of the message
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_message_9c2e8f8d995477aad79640ad673ab6a9}{XmlSequenceMessage::getValues()} 
+
+XmlSequenceMessage-$>$arrValues 
+
+\hyperlink{class_xml_sequence_value}{XmlSequenceValue} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em XmlSequenceValue\mbox{[}$\,$\mbox{]}}]\$arrValues \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence_message}{XmlSequenceMessage} me \end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_xml_sequence_message_97999a3267c23300fddf5d7e0ff0e87d}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$arrValues@{\$arrValues}}
+\index{\$arrValues@{\$arrValues}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$arrValues}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$arrValues = Array()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_97999a3267c23300fddf5d7e0ff0e87d}
+
+
+\hypertarget{class_xml_sequence_message_5c82454b9be08a7fc94fd580932f59c1}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$intTimeEnd@{\$intTimeEnd}}
+\index{\$intTimeEnd@{\$intTimeEnd}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$intTimeEnd}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$intTimeEnd\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_5c82454b9be08a7fc94fd580932f59c1}
+
+
+\hypertarget{class_xml_sequence_message_3e60774808cf2fd2fe04898ca6314184}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$intTimeStart@{\$intTimeStart}}
+\index{\$intTimeStart@{\$intTimeStart}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$intTimeStart}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$intTimeStart\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_3e60774808cf2fd2fe04898ca6314184}
+
+
+\hypertarget{class_xml_sequence_message_677eb4ecb7493d72f3ea96d6b896f5c4}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$objActorFrom@{\$objActorFrom}}
+\index{\$objActorFrom@{\$objActorFrom}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$objActorFrom}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$objActorFrom = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_677eb4ecb7493d72f3ea96d6b896f5c4}
+
+
+\hypertarget{class_xml_sequence_message_6e35efb1112d87db5a90f660f2c7e487}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$objActorTo@{\$objActorTo}}
+\index{\$objActorTo@{\$objActorTo}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$objActorTo}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$objActorTo = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_6e35efb1112d87db5a90f660f2c7e487}
+
+
+\hypertarget{class_xml_sequence_message_5191806ce342246e9febbb7188ef914f}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$strText@{\$strText}}
+\index{\$strText@{\$strText}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$strText}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$strText = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_5191806ce342246e9febbb7188ef914f}
+
+
+\hypertarget{class_xml_sequence_message_9cbf41c891bfaaacc0048ec4e7f54765}{
+\index{XmlSequenceMessage@{XmlSequenceMessage}!\$strType@{\$strType}}
+\index{\$strType@{\$strType}!XmlSequenceMessage@{XmlSequenceMessage}}
+\subsubsection[{\$strType}]{\setlength{\rightskip}{0pt plus 5cm}XmlSequenceMessage::\$strType = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_xml_sequence_message_9cbf41c891bfaaacc0048ec4e7f54765}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/xmlSequence/\hyperlink{_xml_sequence_message_8class_8php}{XmlSequenceMessage.class.php}\end{CompactItemize}

@@ -1,0 +1,248 @@
+\hypertarget{class_code_reflection_file}{
+\section{CodeReflectionFile Class Reference}
+\label{class_code_reflection_file}\index{CodeReflectionFile@{CodeReflectionFile}}
+}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_reflection_file_85d5cd6390afa77ea3d3e67b8ebc762d}{\_\-\_\-construct} (\$strFileName, \$strFileContent=\char`\"{}\char`\"{}, \$boolRealFile=true)
+\item 
+\hyperlink{class_code_reflection_file_17c133a6bfc041953b6054ca6137c1e9}{setFileName} (\$strFileName)
+\item 
+\hyperlink{class_code_reflection_file_fd1320273fcd2bbeada22a40d33974ae}{getFileName} ()
+\item 
+\hyperlink{class_code_reflection_file_8bd4ac0c26519528027a9f2a2840ce77}{setFileContent} (\$strFileContent)
+\item 
+\hyperlink{class_code_reflection_file_f87150d5f818f1b92d30db63dfdf966a}{getFileContent} ()
+\item 
+\hyperlink{class_code_reflection_file_1c6e129f863511fd326ccf7a13d64c5a}{getArrFileContent} ()
+\item 
+\hyperlink{class_code_reflection_file_d5d0f670cbe1798cb50ad67ae37a9164}{getFileBit} (\$intLineStart, \$intLineEnds)
+\item 
+\hyperlink{class_code_reflection_file_995a74eebd5970a3bbe99c27a231600a}{isRealFile} ()
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_code_reflection_file_43822c529c08e8f126ab454b209fc31f}{getCodeInstrFileName} (\$strFileName)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_reflection_file_47606edf90d11273c6b4a4b319bc42c7}{\$strFileName}
+\item 
+\hyperlink{class_code_reflection_file_ce8c257c3c8d9148294d0b6f3493c2ba}{\$arrFileContent}
+\item 
+\hyperlink{class_code_reflection_file_9e00721eed14d115918aaba925005394}{\$boolRealFile}
+\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_code_reflection_file_019a4ce9092e6ea5f4e51e131e3a0352}{\$arrInstances} = array()
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_code_reflection_file_85d5cd6390afa77ea3d3e67b8ebc762d}{
+\index{CodeReflectionFile@{CodeReflectionFile}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::\_\-\_\-construct (\$ {\em strFileName}, \/  \$ {\em strFileContent} = {\tt \char`\"{}\char`\"{}}, \/  \$ {\em boolRealFile} = {\tt true})}}
+\label{class_code_reflection_file_85d5cd6390afa77ea3d3e67b8ebc762d}
+
+
+Create the Code Reflection File
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_code_reflection_file_019a4ce9092e6ea5f4e51e131e3a0352}{CodeReflectionFile::\$arrInstances} 
+
+CodeReflectionFile::setFileName( string ) 
+
+CodeReflectionFile::setFileContent( string ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strFileName file name \item[{\em string}]\$strFileContent file content \item[{\em boolean}]\$boolRealFile if is a real file or not \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_code_reflection_file_1c6e129f863511fd326ccf7a13d64c5a}{
+\index{CodeReflectionFile@{CodeReflectionFile}!getArrFileContent@{getArrFileContent}}
+\index{getArrFileContent@{getArrFileContent}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{getArrFileContent}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::getArrFileContent ()}}
+\label{class_code_reflection_file_1c6e129f863511fd326ccf7a13d64c5a}
+
+
+Get the array of lines with the code file content
+
+Set the code file content and return itselft.
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile-$>$arrFileContent 
+
+CodeReflectionFile::setFileContent( string ) 
+
+\hyperlink{class_code_reflection_file_f87150d5f818f1b92d30db63dfdf966a}{CodeReflectionFile::getFileContent()} \end{Desc}
+\begin{Desc}
+\item[Returns:]string\mbox{[}\mbox{]} array of file content \end{Desc}
+\hypertarget{class_code_reflection_file_43822c529c08e8f126ab454b209fc31f}{
+\index{CodeReflectionFile@{CodeReflectionFile}!getCodeInstrFileName@{getCodeInstrFileName}}
+\index{getCodeInstrFileName@{getCodeInstrFileName}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{getCodeInstrFileName}]{\setlength{\rightskip}{0pt plus 5cm}static CodeReflectionFile::getCodeInstrFileName (\$ {\em strFileName})\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_code_reflection_file_43822c529c08e8f126ab454b209fc31f}
+
+
+Get The File by Name
+
+Search into all object files saved and return that one have the searched name
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile-$>$arrInstances \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strFileName \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_reflection_file}{CodeReflectionFile} \end{Desc}
+\hypertarget{class_code_reflection_file_d5d0f670cbe1798cb50ad67ae37a9164}{
+\index{CodeReflectionFile@{CodeReflectionFile}!getFileBit@{getFileBit}}
+\index{getFileBit@{getFileBit}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{getFileBit}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::getFileBit (\$ {\em intLineStart}, \/  \$ {\em intLineEnds})}}
+\label{class_code_reflection_file_d5d0f670cbe1798cb50ad67ae37a9164}
+
+
+Get a slice, a streck, a bit of the content of the file receiving the first and last line of the slice wish.
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile::setFileContent( string ) 
+
+CodeReflectionFile-$>$arrFileContent 
+
+CodeReflectionFile-$>$arrFileContent \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$intLineStart first line of the content \item[{\em integer}]\$intLineEnds last line of the content \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]string code content \end{Desc}
+\hypertarget{class_code_reflection_file_f87150d5f818f1b92d30db63dfdf966a}{
+\index{CodeReflectionFile@{CodeReflectionFile}!getFileContent@{getFileContent}}
+\index{getFileContent@{getFileContent}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{getFileContent}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::getFileContent ()}}
+\label{class_code_reflection_file_f87150d5f818f1b92d30db63dfdf966a}
+
+
+Get the file content
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile-$>$arrFileContent 
+
+CodeReflectionFile::setFileContent( string ) \end{Desc}
+\begin{Desc}
+\item[Returns:]string file content \end{Desc}
+\hypertarget{class_code_reflection_file_fd1320273fcd2bbeada22a40d33974ae}{
+\index{CodeReflectionFile@{CodeReflectionFile}!getFileName@{getFileName}}
+\index{getFileName@{getFileName}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{getFileName}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::getFileName ()}}
+\label{class_code_reflection_file_fd1320273fcd2bbeada22a40d33974ae}
+
+
+Get the file name
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile::setFileName( string ) 
+
+CodeReflectionFile-$>$strFileName \end{Desc}
+\begin{Desc}
+\item[Returns:]string file name \end{Desc}
+\hypertarget{class_code_reflection_file_995a74eebd5970a3bbe99c27a231600a}{
+\index{CodeReflectionFile@{CodeReflectionFile}!isRealFile@{isRealFile}}
+\index{isRealFile@{isRealFile}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{isRealFile}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::isRealFile ()}}
+\label{class_code_reflection_file_995a74eebd5970a3bbe99c27a231600a}
+
+
+Returns if the file it is a real file
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile-$>$boolRealFile \end{Desc}
+\begin{Desc}
+\item[Returns:]boolean {\tt true} if is a real file {\tt false} if not \end{Desc}
+\hypertarget{class_code_reflection_file_8bd4ac0c26519528027a9f2a2840ce77}{
+\index{CodeReflectionFile@{CodeReflectionFile}!setFileContent@{setFileContent}}
+\index{setFileContent@{setFileContent}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{setFileContent}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::setFileContent (\$ {\em strFileContent})}}
+\label{class_code_reflection_file_8bd4ac0c26519528027a9f2a2840ce77}
+
+
+Set the code Reflection file content
+
+Set the code Reflection file content and return itselft.
+
+\begin{Desc}
+\item[See also:]CodeReflectionFile-$>$arrFileContent \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strFileContent file content \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_reflection_file}{CodeReflectionFile} me \end{Desc}
+\hypertarget{class_code_reflection_file_17c133a6bfc041953b6054ca6137c1e9}{
+\index{CodeReflectionFile@{CodeReflectionFile}!setFileName@{setFileName}}
+\index{setFileName@{setFileName}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{setFileName}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::setFileName (\$ {\em strFileName})}}
+\label{class_code_reflection_file_17c133a6bfc041953b6054ca6137c1e9}
+
+
+Set the file name
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_code_reflection_file_fd1320273fcd2bbeada22a40d33974ae}{CodeReflectionFile::getFileName()} 
+
+CodeReflectionFile-$>$strFileName \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strFileName file name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_reflection_file}{CodeReflectionFile} me \end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_code_reflection_file_ce8c257c3c8d9148294d0b6f3493c2ba}{
+\index{CodeReflectionFile@{CodeReflectionFile}!\$arrFileContent@{\$arrFileContent}}
+\index{\$arrFileContent@{\$arrFileContent}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{\$arrFileContent}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::\$arrFileContent\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_file_ce8c257c3c8d9148294d0b6f3493c2ba}
+
+
+\hypertarget{class_code_reflection_file_019a4ce9092e6ea5f4e51e131e3a0352}{
+\index{CodeReflectionFile@{CodeReflectionFile}!\$arrInstances@{\$arrInstances}}
+\index{\$arrInstances@{\$arrInstances}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{\$arrInstances}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::\$arrInstances = array()\hspace{0.3cm}{\tt  \mbox{[}static, protected\mbox{]}}}}
+\label{class_code_reflection_file_019a4ce9092e6ea5f4e51e131e3a0352}
+
+
+\hypertarget{class_code_reflection_file_9e00721eed14d115918aaba925005394}{
+\index{CodeReflectionFile@{CodeReflectionFile}!\$boolRealFile@{\$boolRealFile}}
+\index{\$boolRealFile@{\$boolRealFile}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{\$boolRealFile}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::\$boolRealFile\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_file_9e00721eed14d115918aaba925005394}
+
+
+\hypertarget{class_code_reflection_file_47606edf90d11273c6b4a4b319bc42c7}{
+\index{CodeReflectionFile@{CodeReflectionFile}!\$strFileName@{\$strFileName}}
+\index{\$strFileName@{\$strFileName}!CodeReflectionFile@{CodeReflectionFile}}
+\subsubsection[{\$strFileName}]{\setlength{\rightskip}{0pt plus 5cm}CodeReflectionFile::\$strFileName\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_reflection_file_47606edf90d11273c6b4a4b319bc42c7}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/codeReflection/\hyperlink{_code_reflection_file_8class_8php}{CodeReflectionFile.class.php}\end{CompactItemize}

@@ -1,0 +1,380 @@
+\hypertarget{class_code_instrumentation_receiver}{
+\section{CodeInstrumentationReceiver Class Reference}
+\label{class_code_instrumentation_receiver}\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_instrumentation_receiver_6d6ba9a97475d3f300ec905ef3fc6d7a}{setIgnoreNullReturns} (\$booIgnoreNullReturns)
+\item 
+\hyperlink{class_code_instrumentation_receiver_659ec50b656faab0ff518cce0cbe1a43}{getIgnoreNullReturns} ()
+\item 
+\hyperlink{class_code_instrumentation_receiver_d9b3988e912a93b15037235ee4150e5a}{setIgnoreRecursiveCalls} (\$booIgnoreRecursiveCalls)
+\item 
+\hyperlink{class_code_instrumentation_receiver_f5d40f3016b4d1b289a089b24eebbbe5}{getIgnoreRecursiveCalls} ()
+\item 
+\hyperlink{class_code_instrumentation_receiver_187013c79a78480d90269bd6e66c6772}{setCallerPath} (\$strCallerPath)
+\item 
+\hyperlink{class_code_instrumentation_receiver_8e5e85fb7a58ef069788033b05ba0004}{getCallerPath} ()
+\item 
+\hyperlink{class_code_instrumentation_receiver_5a1555be1d4979c83dbdbacdfc31c679}{setPublicPath} (\$strPublicPath)
+\item 
+\hyperlink{class_code_instrumentation_receiver_7eceb6a70b026359b2428df86b7e1d5d}{getPublicPath} ()
+\item 
+\hyperlink{class_code_instrumentation_receiver_118198dd8eaf3a12e3bbc407a92a3376}{\_\-\_\-construct} ()
+\item 
+\hyperlink{class_code_instrumentation_receiver_f103bccb49a8e11c8da7d4a12bee14cc}{renameMethod} (\$strMethod)
+\item 
+\hyperlink{class_code_instrumentation_receiver_51bfc5d088d4cf97f850a64cc9b76944}{onEnterMethod} (\$uid, \$strClassDefinition, \$strMethod, \$arrArguments)
+\item 
+\hyperlink{class_code_instrumentation_receiver_dbe8202a28014f81a7c18f59f557fadc}{onLeaveMethod} (\$uid, \$strClassDefinition, \$strMethod, \$mixReturn)
+\item 
+\hyperlink{class_code_instrumentation_receiver_addf964fe411ef0c9d4caa4745d22a31}{getXmlSequence} ()
+\item 
+\hyperlink{class_code_instrumentation_receiver_7f475c5ce6f32c9ab0aac748646deaa8}{restart} ()
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_code_instrumentation_receiver_7a8b6e3e36c2e6d9fb87f11c8f0aae9b}{getInstance} ()
+\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static \hyperlink{class_code_instrumentation_receiver_58ceb69302146200d34d39e5f8054301}{\$objCodeInstrumentationReceiver}
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_code_instrumentation_receiver_9ebcf638caafb0ea92b785a30f8d5cd1}{\$booIgnoreNullReturns} = true
+\item 
+\hyperlink{class_code_instrumentation_receiver_208637de519d149d33197e681cccb395}{\$booIgnoreRecursiveCalls} = false
+\item 
+\hyperlink{class_code_instrumentation_receiver_9e8be5e4b9207833e7d3e92e25c5f797}{\$booMergeSameClassObjects} = false
+\item 
+\hyperlink{class_code_instrumentation_receiver_fb6ce3e590b5b38b793070943bca71f0}{\$arrStack} = array()
+\item 
+\hyperlink{class_code_instrumentation_receiver_5945968b33462c2a11548cf19ffa66ad}{\$arrActors} = array()
+\item 
+\hyperlink{class_code_instrumentation_receiver_3f358c2cfe75b8443ba3d0b908fbdd4c}{\$arrClasses} = array()
+\item 
+\hyperlink{class_code_instrumentation_receiver_231ad79a1ae080f3dda3388819d90247}{\$arrMessages} = array()
+\item 
+\hyperlink{class_code_instrumentation_receiver_7e81a184fa4092dd95506d434c2660ff}{\$objXmlSequence} = null
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_code_instrumentation_receiver_118198dd8eaf3a12e3bbc407a92a3376}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\_\-\_\-construct@{\_\-\_\-construct}}
+\index{\_\-\_\-construct@{\_\-\_\-construct}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\_\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\_\-\_\-construct ()}}
+\label{class_code_instrumentation_receiver_118198dd8eaf3a12e3bbc407a92a3376}
+
+
+prepare the code instrumentation receiver to start to receive the informations about the execution.
+
+1. create the xml sequence object 2. create the user actor
+
+\begin{Desc}
+\item[Returns:]null \end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_code_instrumentation_receiver_8e5e85fb7a58ef069788033b05ba0004}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!getCallerPath@{getCallerPath}}
+\index{getCallerPath@{getCallerPath}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{getCallerPath}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::getCallerPath ()}}
+\label{class_code_instrumentation_receiver_8e5e85fb7a58ef069788033b05ba0004}
+
+
+Get the caller path of the xml sequence of the code instrumentation receiver
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_197ff62ed0c4d22324218206147f25e4}{XmlSequence::getCallerPath} \end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_659ec50b656faab0ff518cce0cbe1a43}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!getIgnoreNullReturns@{getIgnoreNullReturns}}
+\index{getIgnoreNullReturns@{getIgnoreNullReturns}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{getIgnoreNullReturns}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::getIgnoreNullReturns ()}}
+\label{class_code_instrumentation_receiver_659ec50b656faab0ff518cce0cbe1a43}
+
+
+get the configuration paramenter if the code instrumentation should ignore the returns messages with null value returned.
+
+\begin{Desc}
+\item[See also:]CodeInstrumentationReceiver-$>$boolIgnoreNullReturns 
+
+CodeInstrumentationReceiver::seIgnoreNullReturns( boolean ) \end{Desc}
+\begin{Desc}
+\item[Returns:]boolean {\tt true} if should ignore the null returns \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_f5d40f3016b4d1b289a089b24eebbbe5}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!getIgnoreRecursiveCalls@{getIgnoreRecursiveCalls}}
+\index{getIgnoreRecursiveCalls@{getIgnoreRecursiveCalls}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{getIgnoreRecursiveCalls}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::getIgnoreRecursiveCalls ()}}
+\label{class_code_instrumentation_receiver_f5d40f3016b4d1b289a089b24eebbbe5}
+
+
+get the configuration paramenter if the code instrumentation should ignore the recursive messages.
+
+\begin{Desc}
+\item[See also:]CodeInstrumentationReceiver-$>$booIgnoreRecursiveCalls 
+
+CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean ) \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \$booIgnoreNullReturns}]{\tt true} if should ignore the null returns \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]boolean {\tt true} if should ignore the recursive calls \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_7a8b6e3e36c2e6d9fb87f11c8f0aae9b}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}static CodeInstrumentationReceiver::getInstance ()\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_code_instrumentation_receiver_7a8b6e3e36c2e6d9fb87f11c8f0aae9b}
+
+
+Get the code instrumentation receiver singleton
+
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_7eceb6a70b026359b2428df86b7e1d5d}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!getPublicPath@{getPublicPath}}
+\index{getPublicPath@{getPublicPath}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{getPublicPath}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::getPublicPath ()}}
+\label{class_code_instrumentation_receiver_7eceb6a70b026359b2428df86b7e1d5d}
+
+
+Get the \hyperlink{namespacepublic}{public} path of the xml sequence of the code instrumentation receiver
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_156bcaa4792dca6a381621d68052ba32}{XmlSequence::getPublicPath} \end{Desc}
+\begin{Desc}
+\item[Returns:]string \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_addf964fe411ef0c9d4caa4745d22a31}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!getXmlSequence@{getXmlSequence}}
+\index{getXmlSequence@{getXmlSequence}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{getXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::getXmlSequence ()}}
+\label{class_code_instrumentation_receiver_addf964fe411ef0c9d4caa4745d22a31}
+
+
+Return the Xml Sequence Object what the Code Instrumentation Receiver feeds
+
+\begin{Desc}
+\item[Returns:]\hyperlink{class_xml_sequence}{XmlSequence} \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_51bfc5d088d4cf97f850a64cc9b76944}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!onEnterMethod@{onEnterMethod}}
+\index{onEnterMethod@{onEnterMethod}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{onEnterMethod}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::onEnterMethod (\$ {\em uid}, \/  \$ {\em strClassDefinition}, \/  \$ {\em strMethod}, \/  \$ {\em arrArguments})}}
+\label{class_code_instrumentation_receiver_51bfc5d088d4cf97f850a64cc9b76944}
+
+
+Receive a message of enter into some method and append it as a xml sequence message into the xml sequence object, creating if necessary the xml sequence actor
+
+1. get the name of method as the diagram standart 2. get the namespace name 3. get the actor what the message is bring from 4. get the actor what the message is bring to 4.1 create the actor to if he not exists 5. create the message 5.1 set the message attributes 5.2 set the message values 6. append the message
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$uid \item[{\em string}]\$strClassDefinition \item[{\em string}]\$strMethod \item[{\em Array}]\$arrArguments \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} me \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_dbe8202a28014f81a7c18f59f557fadc}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!onLeaveMethod@{onLeaveMethod}}
+\index{onLeaveMethod@{onLeaveMethod}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{onLeaveMethod}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::onLeaveMethod (\$ {\em uid}, \/  \$ {\em strClassDefinition}, \/  \$ {\em strMethod}, \/  \$ {\em mixReturn})}}
+\label{class_code_instrumentation_receiver_dbe8202a28014f81a7c18f59f557fadc}
+
+
+Receive the message of leave some method and append it message into the xml sequence object
+
+1. get the name of method as the diagram standart 2. get the namespace name 3. get the actor what the message is bring from 4. get the actor what the message is bring to 5. create the message 5.1 set the message attributes 5.2 set the message values 6. append the message
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em integer}]\$uid \item[{\em string}]\$strClassDefinition \item[{\em string}]\$strMethod \item[{\em \$mixReturn}]\end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} me \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_f103bccb49a8e11c8da7d4a12bee14cc}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!renameMethod@{renameMethod}}
+\index{renameMethod@{renameMethod}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{renameMethod}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::renameMethod (\$ {\em strMethod})}}
+\label{class_code_instrumentation_receiver_f103bccb49a8e11c8da7d4a12bee14cc}
+
+
+Rename the method to which they are in accordance with the standarts of the diagram
+
+1. if \_\-\_\-construct replace by $<$$<$create$>$$>$ 2. if \_\-\_\-destruct replace by $<$$<$destroy$>$$>$ 3. other cases should append the \char`\"{}()\char`\"{}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strMethod old method name \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]string new method name \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_7f475c5ce6f32c9ab0aac748646deaa8}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!restart@{restart}}
+\index{restart@{restart}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{restart}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::restart ()}}
+\label{class_code_instrumentation_receiver_7f475c5ce6f32c9ab0aac748646deaa8}
+
+
+Clean the attributes of the xml sequence existing
+
+1. clean actors 2. clean classes 3. clean messages 4. clean stack 5. clean object xml sequence 6. restart the receiver
+
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_187013c79a78480d90269bd6e66c6772}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!setCallerPath@{setCallerPath}}
+\index{setCallerPath@{setCallerPath}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{setCallerPath}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::setCallerPath (\$ {\em strCallerPath})}}
+\label{class_code_instrumentation_receiver_187013c79a78480d90269bd6e66c6772}
+
+
+Set the caller path of the xml sequence of the code instrumentation receiver
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_2b5e654d8a5559dc263da2d3bdbd043e}{XmlSequence::setCallerPath} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strCallerPath \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} me \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_6d6ba9a97475d3f300ec905ef3fc6d7a}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!setIgnoreNullReturns@{setIgnoreNullReturns}}
+\index{setIgnoreNullReturns@{setIgnoreNullReturns}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{setIgnoreNullReturns}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::setIgnoreNullReturns (\$ {\em booIgnoreNullReturns})}}
+\label{class_code_instrumentation_receiver_6d6ba9a97475d3f300ec905ef3fc6d7a}
+
+
+Set the configuration paramenter if the code instrumentation should ignore the returns messages with null value returned.
+
+\begin{Desc}
+\item[See also:]CodeInstrumentationReceiver-$>$boolIgnoreNullReturns 
+
+CodeInstrumentationReceiver::geIgnoreNullReturns() \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \$booIgnoreNullReturns}]{\tt true} if should ignore the null returns \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} me \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_d9b3988e912a93b15037235ee4150e5a}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!setIgnoreRecursiveCalls@{setIgnoreRecursiveCalls}}
+\index{setIgnoreRecursiveCalls@{setIgnoreRecursiveCalls}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{setIgnoreRecursiveCalls}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::setIgnoreRecursiveCalls (\$ {\em booIgnoreRecursiveCalls})}}
+\label{class_code_instrumentation_receiver_d9b3988e912a93b15037235ee4150e5a}
+
+
+Set the configuration paramenter if the code instrumentation should ignore the recursive messages.
+
+\begin{Desc}
+\item[See also:]CodeInstrumentationReceiver-$>$booIgnoreRecursiveCalls 
+
+\hyperlink{class_code_instrumentation_receiver_f5d40f3016b4d1b289a089b24eebbbe5}{CodeInstrumentationReceiver::getIgnoreRecursiveCalls()} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em \$booIgnoreNullReturns}]{\tt true} if should ignore the recursive calls \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} me \end{Desc}
+\hypertarget{class_code_instrumentation_receiver_5a1555be1d4979c83dbdbacdfc31c679}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!setPublicPath@{setPublicPath}}
+\index{setPublicPath@{setPublicPath}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{setPublicPath}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::setPublicPath (\$ {\em strPublicPath})}}
+\label{class_code_instrumentation_receiver_5a1555be1d4979c83dbdbacdfc31c679}
+
+
+Set the \hyperlink{namespacepublic}{public} path of the xml sequence of the code instrumentation receiver
+
+\begin{Desc}
+\item[See also:]\hyperlink{class_xml_sequence_1b463d4b176c4798b8be4667262f0450}{XmlSequence::setPublicPath} \end{Desc}
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em string}]\$strPublicPath \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Returns:]\hyperlink{class_code_instrumentation_receiver}{CodeInstrumentationReceiver} me \end{Desc}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_code_instrumentation_receiver_5945968b33462c2a11548cf19ffa66ad}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$arrActors@{\$arrActors}}
+\index{\$arrActors@{\$arrActors}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$arrActors}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$arrActors = array()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_5945968b33462c2a11548cf19ffa66ad}
+
+
+\hypertarget{class_code_instrumentation_receiver_3f358c2cfe75b8443ba3d0b908fbdd4c}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$arrClasses@{\$arrClasses}}
+\index{\$arrClasses@{\$arrClasses}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$arrClasses}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$arrClasses = array()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_3f358c2cfe75b8443ba3d0b908fbdd4c}
+
+
+\hypertarget{class_code_instrumentation_receiver_231ad79a1ae080f3dda3388819d90247}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$arrMessages@{\$arrMessages}}
+\index{\$arrMessages@{\$arrMessages}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$arrMessages}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$arrMessages = array()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_231ad79a1ae080f3dda3388819d90247}
+
+
+\hypertarget{class_code_instrumentation_receiver_fb6ce3e590b5b38b793070943bca71f0}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$arrStack@{\$arrStack}}
+\index{\$arrStack@{\$arrStack}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$arrStack}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$arrStack = array()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_fb6ce3e590b5b38b793070943bca71f0}
+
+
+\hypertarget{class_code_instrumentation_receiver_9ebcf638caafb0ea92b785a30f8d5cd1}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$booIgnoreNullReturns@{\$booIgnoreNullReturns}}
+\index{\$booIgnoreNullReturns@{\$booIgnoreNullReturns}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$booIgnoreNullReturns}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$booIgnoreNullReturns = true\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_9ebcf638caafb0ea92b785a30f8d5cd1}
+
+
+\hypertarget{class_code_instrumentation_receiver_208637de519d149d33197e681cccb395}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$booIgnoreRecursiveCalls@{\$booIgnoreRecursiveCalls}}
+\index{\$booIgnoreRecursiveCalls@{\$booIgnoreRecursiveCalls}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$booIgnoreRecursiveCalls}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$booIgnoreRecursiveCalls = false\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_208637de519d149d33197e681cccb395}
+
+
+\hypertarget{class_code_instrumentation_receiver_9e8be5e4b9207833e7d3e92e25c5f797}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$booMergeSameClassObjects@{\$booMergeSameClassObjects}}
+\index{\$booMergeSameClassObjects@{\$booMergeSameClassObjects}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$booMergeSameClassObjects}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$booMergeSameClassObjects = false\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_9e8be5e4b9207833e7d3e92e25c5f797}
+
+
+\hypertarget{class_code_instrumentation_receiver_58ceb69302146200d34d39e5f8054301}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$objCodeInstrumentationReceiver@{\$objCodeInstrumentationReceiver}}
+\index{\$objCodeInstrumentationReceiver@{\$objCodeInstrumentationReceiver}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$objCodeInstrumentationReceiver}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$objCodeInstrumentationReceiver\hspace{0.3cm}{\tt  \mbox{[}static\mbox{]}}}}
+\label{class_code_instrumentation_receiver_58ceb69302146200d34d39e5f8054301}
+
+
+\hypertarget{class_code_instrumentation_receiver_7e81a184fa4092dd95506d434c2660ff}{
+\index{CodeInstrumentationReceiver@{CodeInstrumentationReceiver}!\$objXmlSequence@{\$objXmlSequence}}
+\index{\$objXmlSequence@{\$objXmlSequence}!CodeInstrumentationReceiver@{CodeInstrumentationReceiver}}
+\subsubsection[{\$objXmlSequence}]{\setlength{\rightskip}{0pt plus 5cm}CodeInstrumentationReceiver::\$objXmlSequence = null\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{class_code_instrumentation_receiver_7e81a184fa4092dd95506d434c2660ff}
+
+
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+components/codeInstrumentation/\hyperlink{_code_instrumentation_receiver_8class_8php}{CodeInstrumentationReceiver.class.php}\end{CompactItemize}
