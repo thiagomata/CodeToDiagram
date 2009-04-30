@@ -1,8 +1,12 @@
 <?php
 /**
+ * XmlSequence Start
+ * @package XmlSequence
+ */
+
+/**
  * Load the XmlSequence package
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package XmlSequence
  */
 require_once( 'XmlSequenceException.class.php' );
 require_once( 'XmlSequenceFactoryInterface.interface.php' );

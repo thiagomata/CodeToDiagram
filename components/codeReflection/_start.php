@@ -1,8 +1,12 @@
 <?php
 /**
+ * Code Reflection Start
+ * @package CodeReflection
+ */
+
+/**
  * Load the CodeReflection package
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeReflection
  */
 require_once( "CodeReflectionException.class.php" );
 require_once( "CodeReflectionFile.class.php" );

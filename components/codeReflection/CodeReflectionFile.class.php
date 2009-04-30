@@ -1,5 +1,10 @@
 <?php
 /**
+ * CodeReflectionFile - to make possible code reflection of eval classes
+ * @package CodeReflection
+ */
+
+/**
  * Code Reflection File it is a class with the prupose to make possible
  * abstract the diference between code run into real files and code run into
  * eval commands.
@@ -12,7 +17,6 @@
  * same method send the first line and last line of the bit of code what you
  * want to receive.
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeReflection
  */
 class CodeReflectionFile
 {

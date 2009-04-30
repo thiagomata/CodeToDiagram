@@ -1,10 +1,14 @@
 <?php
 /**
+ * CodeInstrumentationParameter create the changed version of the code parameter
+ * @package CodeInstrumentation
+ */
+
+/**
  * Class what make possible the code instrumentation of methods and fucntions
  * with parameters
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeInstrumentation
  * 
  */
 class CodeInstrumentationParameter extends CodeReflectionParameter
@@ -52,5 +56,3 @@ class CodeInstrumentationParameter extends CodeReflectionParameter
         }
     }
 }
-
-?>

@@ -1,9 +1,12 @@
 <?php
 /**
- * Generate a html diagram of the xml sequence object
- * 
- * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * XmlSequencePrinterXml - Convert a XmlSequence into a Xml
  * @package XmlSequence
+ */
+
+/**
+ * Generate a html diagram of the xml sequence object
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */
 class XmlSequencePrinterXml implements XmlSequencePrinterInterface

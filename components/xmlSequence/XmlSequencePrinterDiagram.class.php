@@ -1,9 +1,13 @@
 <?php
 /**
+ * XmlSequencePrinterDiagram - Generate a html diagram of the xml sequence object
+ * @package XmlSequence
+ */
+
+/**
  * Generate a html diagram of the xml sequence object
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package XmlSequence
  *
  */
 class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface

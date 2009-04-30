@@ -1,5 +1,10 @@
 <?php
 /**
+ * CodeInstrumentationReceiver create the messages receive
+ * @package CodeInstrumentation
+ */
+
+/**
  * Class create to make possible the creation of code instrumentation of executions.
  * 
  * It receive the messages of enter methods and leave methods, into what object, of what class
@@ -13,8 +18,6 @@
  * @see CodeInstrumentationMethod
  * @see CodeInstrumentationClass
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeInstrumentation
- *
  */
 class CodeInstrumentationReceiver
 {
@@ -453,4 +456,3 @@ class CodeInstrumentationReceiver
         return $this;
     }
 }
-?>

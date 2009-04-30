@@ -1,8 +1,12 @@
 <?php
 /**
+ * XmlSequenceValue - UML Object of the Sequence Diagram Message Value
+ * @package XmlSequence
+ */
+
+/**
  * Object with the values send into the message
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package XmlSequence
  */
 class XmlSequenceValue
 {

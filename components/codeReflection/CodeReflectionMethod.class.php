@@ -1,10 +1,14 @@
 <?php
 /**
+ * CodeReflectionMethod - to get the code reflection of the method
+ * @package CodeReflection
+ */
+
+/**
  * Generated the code definition of some method based into
  * its reflection information
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeReflection
  *
  */
 class CodeReflectionMethod extends ExtendedReflectionMethod

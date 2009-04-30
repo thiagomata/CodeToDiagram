@@ -1,4 +1,8 @@
 <?php
+/**
+ * CorujaStringManipulation - Class for string manipulations
+ * @package library
+ */
 
 /**
  * Class for string manipulations

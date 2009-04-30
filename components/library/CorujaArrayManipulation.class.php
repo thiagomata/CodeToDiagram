@@ -1,4 +1,8 @@
 <?php
+/**
+ * CorujaArrayManipulation - Class with methods for array manipulation
+ * @package library
+ */
 
 /**
  * Class with methods for array manipulation
@@ -35,6 +39,3 @@ class CorujaArrayManipulation
 	}
 
 }
-
-
-?>

@@ -1,11 +1,15 @@
 <?php
 /**
+ * CodeReflectionParameter - to get the code reflection of the parameter
+ * @package CodeReflection
+ */
+
+/**
  * Code Reflection Parameter
  *
  * Implements the code reflection parameters of the parameter reflection
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeReflection
  */
 class CodeReflectionParameter extends ExtendedReflectionParameter
 {

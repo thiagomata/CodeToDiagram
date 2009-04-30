@@ -1,10 +1,14 @@
 <?php
 /**
+ * XmlSequence - Uml Object of the sequence diagram
+ * @package XmlSequence
+ */
+
+/**
  * Class what represent the UML sequence diagram
  * using the object oriented strutcture to do that
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package XmlSequence
  */
 class XmlSequence
 {

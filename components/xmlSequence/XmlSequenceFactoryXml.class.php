@@ -1,8 +1,12 @@
-<?php 
+<?php
+/**
+ * XmlSequenceFactoryXml - Create a XmlSequence based on one Xml
+ * @package XmlSequence
+ */
+
 /**
  * Factory what creates XmlSequence based into Xml Files
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package XmlSequence
  */
 class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
 {

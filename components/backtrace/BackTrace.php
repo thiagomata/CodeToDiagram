@@ -1,4 +1,8 @@
 <?php
+/**
+ * BackTrace Element
+ * @package backtrace
+ */
 
 /**
  * Fornece dados da pilha de execução.
@@ -10,7 +14,6 @@
  * respectivas a cada um deles.
  *
  * @author Renan de Lima Barbosa <renandelima@gmail.com>
- * @package backtrace
  */
 class BackTrace
 {
@@ -106,7 +109,7 @@ class BackTrace
      * Contém o índice do escopo atual. O valor desta variável é um índice de
      * {@link BackTrace::$aStack}.
      *
-     * @var integer
+     * @var Integer
      */
     private $iLevel = 0;
 

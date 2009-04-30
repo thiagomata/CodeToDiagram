@@ -1,5 +1,10 @@
 <?php
 /**
+ * CodeInstrumentationProperty create the changed version of the code property
+ * @package CodeInstrumentation
+ */
+
+/**
  * class necessary to make the code instrumentation process possible
  * 
  * the propery has not big changes of the code reflection property 
@@ -7,7 +12,6 @@
  * possibles keeping the code instrumentation context.
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeInstrumentation
  *
  */
 class CodeInstrumentationProperty extends CodeReflectionProperty
@@ -25,4 +29,3 @@ class CodeInstrumentationProperty extends CodeReflectionProperty
     }
 
 }
-?>

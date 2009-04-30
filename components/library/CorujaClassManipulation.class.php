@@ -1,4 +1,8 @@
 <?php
+/**
+ * CorujaClassManipulation - Class for manipulation of classes
+ * @package library
+ */
 
 /**
  * Class for manipulation of classes
@@ -63,5 +67,3 @@ class CorujaClassManipulation
 	}
 
 }
-
-?>

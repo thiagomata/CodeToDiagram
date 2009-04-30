@@ -1,9 +1,15 @@
 <?php
 /**
- * Code to diagram master class
+ * CodeToDiagram - make the execution create a sequence diagram
+ * @package CodeToDiagram
+ */
+
+/**
+ * Code to diagram master class.
+ * Take to itself the service of include and require. Make code instrumentation
+ * of all the classes includes making this way possible to wacth some code execution.
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeToDiagram
  */
 class CodeToDiagram
 {
@@ -859,4 +865,3 @@ class CodeToDiagram
         return $this;
     }
 }
-?>

@@ -1,5 +1,12 @@
 <?php
 /**
+ * CodeInstrumentationFunction create the changed code version
+ * of the function
+ * @package CodeInstrumentation
+ *
+ */
+
+/**
  * Implement a code instrumentation into a function
  *
  * Make a call to some function what was apply the code
@@ -12,7 +19,6 @@
  * be resposable by the functions as its methods
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeInstrumentation
  */
 class CodeInstrumentationFunction extends CodeReflectionFunction
 {
@@ -30,4 +36,3 @@ class CodeInstrumentationFunction extends CodeReflectionFunction
     }
 
 }
-?>

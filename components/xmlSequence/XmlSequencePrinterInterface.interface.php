@@ -1,8 +1,12 @@
 <?php
 /**
- * Generate the xml output of the XmlSequence
- * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ * XmlSequencePrinterInterface - define the interface of XmlSequence object
  * @package XmlSequence
+ */
+
+/**
+ * Generate the interface of the printer of XmlSequence object
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 interface XmlSequencePrinterInterface
 {

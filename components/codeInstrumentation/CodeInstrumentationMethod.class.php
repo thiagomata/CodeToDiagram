@@ -1,11 +1,15 @@
 <?php
 /**
+ * CodeInstrumentationMethod create the changed version of the code method
+ * @package CodeInstrumentation
+ */
+
+/**
  * Class what in place of create the exactly code of some method,
  * create a version of it what send a message to the code instrumentation
  * receiver before and after each call.
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeInstrumentation
  */
 class CodeInstrumentationMethod extends CodeReflectionMethod
 {
@@ -255,4 +259,3 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
     }
 
 }
-?>

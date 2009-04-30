@@ -1,18 +1,21 @@
 <?php
 /**
+ * CodeInstrumentationClass to create the changed version of the class code
+ * @package CodeInstrumentation
+ */
+
+/**
  * Code Instrumentation Class extends a Code Reflection Class
  * to create not a exactly code of the original class but a
  * changed version with some code instrumentation messages what
  * will be send to the Code Instrumentation Receiver
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeInstrumentation
  */
 class CodeInstrumentationClass extends CodeReflectionClass
 {
     /**
      * The editable class name
-     *
      * @var string
      */
     protected $strName = null;
@@ -38,11 +41,12 @@ class CodeInstrumentationClass extends CodeReflectionClass
     /**
      * Returns the editable class name
      *
-     * @example
+	 * @test 
      * <code>
      *      $this->setClassName( "something" );
      *      $this->getClassName() == "something"
      * </code>
+	 *
      * @see CodeInstrumentationClass->strName
      * @see CodeInstrumentationClass::setClassName( string )
      * @return string
@@ -62,10 +66,11 @@ class CodeInstrumentationClass extends CodeReflectionClass
     /**
      * Set the editable class name
      * 
-     * @example
-     * <code>
+	 * @test
+     * <pre><code>
      *      $this->setClassName( "something" )->getClassName() == "something"
-     * </code>
+     * </code></pre>
+	 *
      * @assert( "something" )
      *
      * @see CodeInstrumentationClass->strName
@@ -178,5 +183,3 @@ class CodeInstrumentationClass extends CodeReflectionClass
         return new CodeInstrumentationMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
     }
 }
-
-?>

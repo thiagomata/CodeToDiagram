@@ -1,7 +1,11 @@
 <?php
 /**
- * Load the Code Instrumentation package
+ * Code Instrumentation Start
  * @package CodeInstrumentation
+ */
+
+/**
+ * Load the Code Instrumentation package
  */
 require_once( "CodeInstrumentationException.class.php" );
 require_once( "CodeInstrumentationReceiver.class.php" );

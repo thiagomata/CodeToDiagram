@@ -1,11 +1,15 @@
 <?php
 /**
+ * CodeReflectionFunction - code reflection of the functions
+ * @package CodeReflection
+ */
+
+/**
+ *
  * Generate the code definition of some function based into its
  * reflection information
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeReflection
- *
  */
 class CodeReflectionFunction extends ExtendedReflectionFunction
 {

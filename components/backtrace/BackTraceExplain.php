@@ -1,4 +1,8 @@
 <?php
+/**
+ * BackTraceExplain Element
+ * @package backtrace
+ */
 
 /**
  * Manipula um objeto BackTrace e monta um HTML com seus detalhes.
@@ -18,7 +22,6 @@
  * classe.
  *
  * @author Renan de Lima Barbosa <renandelima@gmail.com>
- * @package backtrace
  */
 class BackTraceExplain
 {
@@ -55,7 +58,7 @@ class BackTraceExplain
      * Source code cache.
      *
      * @see BackTraceExplain::fetchSource()
-     * @var array
+     * @var Array
      */
     protected static $aFileContent = array();
 

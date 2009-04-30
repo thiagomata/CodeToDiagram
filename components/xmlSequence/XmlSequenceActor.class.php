@@ -1,8 +1,12 @@
 <?php
 /**
+ * XmlSequenceActor - UML object of the sequence diagram actor
+ * @package XmlSequence
+ */
+
+/**
  * Actor of the object of the uml sequence diagram object
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package XmlSequence
  */
 class XmlSequenceActor
 {

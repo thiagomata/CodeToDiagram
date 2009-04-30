@@ -1,5 +1,10 @@
 <?php
 /**
+ * Library Start
+ * @package library
+ */
+
+/**
  * Load the library package
  */
 require_once( "CorujaArrayManipulation.class.php" );

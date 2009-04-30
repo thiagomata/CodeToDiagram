@@ -1,5 +1,11 @@
 <?php
 /**
+ * ExtendedReflectionClass - to make possible extends ReflectionClass
+ * @package ExtendedReflection
+ */
+
+/**
+ * 
  * Class what make possible and easy extends reflection classes
  * 
  * Reflection classes can be a problem because the reflection
@@ -9,7 +15,6 @@
  * extended version of the objects.
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package ExtendedReflection
  *
  */
 class ExtendedReflectionClass extends ReflectionClass

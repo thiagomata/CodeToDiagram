@@ -1,5 +1,10 @@
 <?php
 /**
+ * CodeReflectionClass - to get the code reflection of the class
+ * @package CodeReflection
+ */
+
+/**
  * Code reflection class it is a class what is a extension of the php reflection
  * with improvments to show the php code of the reflected class
  *
@@ -11,8 +16,7 @@
  * instrumentation.
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @package CodeReflection
- * 
+' *
  */
 class CodeReflectionClass extends ExtendedReflectionClass
 {
