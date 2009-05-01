@@ -7,11 +7,11 @@
 /**
  * Load the Code Instrumentation package
  */
-require_once( "CodeInstrumentationException.class.php" );
-require_once( "CodeInstrumentationReceiver.class.php" );
-require_once( "CodeInstrumentationParameter.class.php" );
-require_once( "CodeInstrumentationProperty.class.php" );
-require_once( "CodeInstrumentationFunction.class.php" );
-require_once( "CodeInstrumentationMethod.class.php" );
-require_once( "CodeInstrumentationClass.class.php" );
+Loader::requireOnce(  "CodeInstrumentationException.class.php" , true );
+Loader::requireOnce( "CodeInstrumentationReceiver.class.php" , true );
+Loader::requireOnce( "CodeInstrumentationParameter.class.php" , true );
+Loader::requireOnce( "CodeInstrumentationProperty.class.php" , true );
+Loader::requireOnce( "CodeInstrumentationFunction.class.php" , true );
+Loader::requireOnce( "CodeInstrumentationMethod.class.php" , true );
+Loader::requireOnce( "CodeInstrumentationClass.class.php" , true );
 ?>

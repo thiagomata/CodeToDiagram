@@ -138,5 +138,4 @@ class XmlSequenceActor
         $this->strClassName = $strClassName;
     }
 }
-
 ?>

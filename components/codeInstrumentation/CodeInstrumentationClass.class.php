@@ -183,3 +183,5 @@ class CodeInstrumentationClass extends CodeReflectionClass
         return new CodeInstrumentationMethod( $this->getName() , $objOriginalReflectionMethod->getName() );
     }
 }
+
+?>

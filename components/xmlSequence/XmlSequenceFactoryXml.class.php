@@ -187,5 +187,4 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
         $this->getXmlSequence()->setMessages( $arrMessages );
     }
 }
-
 ?>

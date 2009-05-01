@@ -23,7 +23,11 @@ if( !isset( $strPublicPath  ) )
     $strPublicPath =str_replace( "\\" , "/" , str_replace( basename( __FILE__ ) , "" , __FILE__ ) );
 
     #2. Load the components of the code to diagram
-    require_once( $strPublicPath . '../components/_start.php' );
+    require_once( $strPublicPath . "../components/library/_start.php" );
+    require_once( $strPublicPath . "../components/loader/_start.php" );
+    Loader::requireOnce( $strPublicPath . '../components/_start.php' );
+//    exit();
+//    require_once( $strPublicPath . '../components/_start.php' );
 
     #3. redefine the error handler function to the code to diagram
 
@@ -43,7 +47,7 @@ if( !isset( $strPublicPath  ) )
     $strCallerPath = ( str_replace( basename( $strFile ) , "" , $strFile ) );
 
     #5. get the relative path of the code to diagram bootstrap
-    $strPathFile = CorujaStringManipulation::getRelativePath( $strCallerPath , $strPublicPath );
+    $strPathFile = CorujaFileManipulation::getRelativePath( $strCallerPath , $strPublicPath );
 
     #6. add a instance of the code to diagram bootstrap into the load files array for the recursive call
     CodeToDiagram::getInstance()->addFile( $strPathFile . basename( __FILE__ ) , basename( __FILE__ ) );

@@ -6,6 +6,7 @@
 
 /**
  * Class with methods for array manipulation
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 class CorujaArrayManipulation
 {
@@ -37,5 +38,5 @@ class CorujaArrayManipulation
 			return $mixNotFound;
 		}
 	}
-
 }
+?>

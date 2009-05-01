@@ -76,5 +76,4 @@ class XmlSequenceValue
         return $this->strValue;
     }
 }
-
 ?>

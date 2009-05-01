@@ -360,41 +360,6 @@ class CodeToDiagram
     	return $this->strPublicPath;	
     }
     
-    /**
-     * Check if a address is relative
-     *
-     * @assert( "c:\www\temp.php" ) == false
-     * @assert( "d:/www/temp.php" ) == false
-     * @assert( "temp.php" ) == true
-     * @assert( "./temp.php" ) == true
-     * @assert( "/www/something.php" ) == false
-     * @assert( "./www/something.php" ) == true
-     * @assert( ".\www\something.php" ) == true
-     * @assert( "..\www\something.php" ) == true
-     * @assert( "..\www\something.php" ) == true
-     *
-     */
-    public function isRelativePath( $strFile )
-    {
-        $strFile = str_replace( "\\", "/", $strFile);
-        if(
-            ( strpos( $strFile, "./") === 0 )
-            or
-            ( strpos( $strFile, "../") === 0 )
-         )
-        {
-            return true;
-        }
-        elseif( strpos( $strFile, "/") === false )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-   }
-
    /**
     * Start the log of the execution and restart if already have
     *
@@ -574,7 +539,7 @@ class CodeToDiagram
      * @return CodeToDiagram
      */
     public function CodeToDiagramRequireOnce( $strFileFrom, $strFile )
-    {
+    {        
         $arrCodeToDiagramBackTrace = debug_backtrace();
 
         if( !$this->hasFile( $strFileFrom , $strFile ) )
@@ -844,7 +809,7 @@ class CodeToDiagram
         }
         $this->addFile( $strFileFrom, $strFile );
 
-        if( $this->isRelativePath( $strFile ) )
+        if( CorujaFileManipulation::isRelativePath( $strFile ) )
         {
             $strFullFile = $this->fixFileName( $strFileFrom, $strFile );
         }
@@ -864,4 +829,16 @@ class CodeToDiagram
         
         return $this;
     }
+
+    /**
+     * Set the caller path receiving the caller file
+     *
+     * @param string $strCallerFile
+     */
+    public function setCallerPathByFile( $strCallerFile )
+    {
+        $this->setCallerPath( CorujaFileManipulation::getPathOfFile( $strCallerFile ) );
+    }
 }
+
+?>

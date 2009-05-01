@@ -36,3 +36,5 @@ class CodeInstrumentationFunction extends CodeReflectionFunction
     }
 
 }
+
+?>

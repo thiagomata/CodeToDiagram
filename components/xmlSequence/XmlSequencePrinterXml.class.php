@@ -160,8 +160,6 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
         }
         $strXmlMessages .= "</messages>\n";
         return $strXmlMessages;
-    }
-    
+    }   
 }
-
 ?>

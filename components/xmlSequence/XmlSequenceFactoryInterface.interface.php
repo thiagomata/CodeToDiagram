@@ -40,7 +40,6 @@ interface XmlSequenceFactoryInterface
 	 * @see XmlSequenceFactoryInterface->perform()
      * @return XmlSequence
      */
-    public function perform();
-    
+    public function perform();  
 }
 ?>

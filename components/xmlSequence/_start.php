@@ -8,14 +8,14 @@
  * Load the XmlSequence package
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-require_once( 'XmlSequenceException.class.php' );
-require_once( 'XmlSequenceFactoryInterface.interface.php' );
-require_once( 'XmlSequencePrinterInterface.interface.php' );
-require_once( 'XmlSequenceFactoryXml.class.php' );
-require_once( 'XmlSequencePrinterXml.class.php' );
-require_once( 'XmlSequencePrinterDiagram.class.php' );
-require_once( 'XmlSequenceActor.class.php' );
-require_once( 'XmlSequenceMessage.class.php' );
-require_once( 'XmlSequenceValue.class.php' );
-require_once( 'XmlSequence.class.php' );
+Loader::requireOnce( 'XmlSequenceException.class.php' , true );
+Loader::requireOnce( 'XmlSequenceFactoryInterface.interface.php' , true );
+Loader::requireOnce( 'XmlSequencePrinterInterface.interface.php' , true );
+Loader::requireOnce( 'XmlSequenceFactoryXml.class.php' , true );
+Loader::requireOnce( 'XmlSequencePrinterXml.class.php' , true );
+Loader::requireOnce( 'XmlSequencePrinterDiagram.class.php' , true );
+Loader::requireOnce( 'XmlSequenceActor.class.php' , true );
+Loader::requireOnce( 'XmlSequenceMessage.class.php' , true );
+Loader::requireOnce( 'XmlSequenceValue.class.php' , true );
+Loader::requireOnce( 'XmlSequence.class.php' , true );
 ?>

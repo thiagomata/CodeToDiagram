@@ -450,9 +450,11 @@ class CodeInstrumentationReceiver
         // 4. clean stack //
         $this->arrStack = array();
         // 5. clean object xml sequence //
-        $this->objXmlSequence = null;
+        $this->objXmlSequence->restart();
         // 6. restart the receiver //
         $this->__construct();
         return $this;
     }
 }
+
+?>

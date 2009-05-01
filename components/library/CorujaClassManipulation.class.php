@@ -6,6 +6,7 @@
 
 /**
  * Class for manipulation of classes
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 class CorujaClassManipulation
 {
@@ -65,5 +66,5 @@ class CorujaClassManipulation
 
 		return CorujaArrayManipulation::getArrayField( explode( "::" , $strClassDefiniton )  , 1 , "" );
 	}
-
 }
+?>

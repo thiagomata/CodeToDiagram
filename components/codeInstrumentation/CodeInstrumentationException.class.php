@@ -10,3 +10,5 @@
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
 class CodeInstrumentationException extends Exception {}
+
+?>

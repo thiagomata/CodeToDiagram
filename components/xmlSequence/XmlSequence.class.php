@@ -187,7 +187,5 @@ class XmlSequence
         $this->arrActors[] = $objActor;
         return $this;
     }
-
 }
-
 ?>

@@ -134,7 +134,11 @@ class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
     {
         if( $this->objXmlSequence->getCallerPath() != null and $this->objXmlSequence->getPublicPath() != null )
         {
-            $strPublicPath = CorujaStringManipulation::getRelativePath( $this->objXmlSequence->getCallerPath(), $this->objXmlSequence->getPublicPath() );
+            $strPublicPath = CorujaFileManipulation::getRelativePath( $this->objXmlSequence->getCallerPath(), $this->objXmlSequence->getPublicPath() );
+        }
+        elseif( $this->objXmlSequence->getCallerPath() == null and $this->objXmlSequence->getPublicPath() != null )
+        {
+            $strPublicPath = $this->objXmlSequence->getPublicPath();
         }
         else
         {

@@ -259,3 +259,5 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
     }
 
 }
+
+?>
