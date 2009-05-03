@@ -1,0 +1,4 @@
+<area shape="rect" id="node3" href="$class_code_reflection_class.html#b8f8ee56588ebf5091c288e44ebdfaf4" title="getClassName" alt="" coords="299,5,403,32">
+<area shape="rect" id="node5" href="$class_extended_reflection_class.html#acd41ad982fee4953d8ad245ab7e4ec9" title="ExtendedReflectionClass::getInterfaces" alt="" coords="232,56,469,83">
+<area shape="rect" id="node9" href="$class_extended_reflection_class.html#0102234be653614459dc1588c13d6f2e" title="ExtendedReflectionClass::getParentClass" alt="" coords="225,107,476,133">
+<area shape="rect" id="node7" href="$class_extended_reflection_class.html#6b56ec198bc6a5b5a72076e4e7c19e29" title="ExtendedReflectionClass::createExtendedReflectionClass" alt="" coords="527,81,865,108">

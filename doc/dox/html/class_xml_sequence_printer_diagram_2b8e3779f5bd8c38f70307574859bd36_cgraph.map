@@ -1,0 +1,7 @@
+<area shape="rect" id="node3" href="$class_xml_sequence_printer_diagram.html#2ed8b419d64f2238d2d47beda376f1f7" title="showActors" alt="" coords="119,5,204,32">
+<area shape="rect" id="node5" href="$class_xml_sequence_printer_diagram.html#127a1d8b6c21e8271a4332b35923145b" title="showFooter" alt="" coords="119,56,204,83">
+<area shape="rect" id="node7" href="$class_xml_sequence_printer_diagram.html#82d9e10e8180da3641b19222fb093328" title="showHeaders" alt="" coords="112,107,211,133">
+<area shape="rect" id="node11" href="$class_xml_sequence_printer_diagram.html#814ab9f67831bd1af317490a9dfaa08a" title="showMessages" alt="" coords="107,157,216,184">
+<area shape="rect" id="node9" href="$class_coruja_file_manipulation.html#d93d1005c4ce820356bd2f4c0d15f6a3" title="CorujaFileManipulation::getRelativePath" alt="" coords="264,107,504,133">
+<area shape="rect" id="node13" href="$class_xml_sequence_printer_diagram.html#6562038bc417e04c0db2cd4b55403b06" title="showValues" alt="" coords="340,157,428,184">
+<area shape="rect" id="node15" href="$class_xml_sequence_message.html#70a0fe08035189260c72e32a9e20d30c" title="XmlSequenceMessage::getValues" alt="" coords="552,157,763,184">

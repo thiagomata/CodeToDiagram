@@ -1,0 +1,11 @@
+<area shape="rect" id="node3" href="$class_code_to_diagram.html#5ddaedacfee2008cacee41a47363e7fa" title="addFile" alt="" coords="207,5,268,32">
+<area shape="rect" id="node5" href="$class_code_to_diagram.html#ba72ffc8b4aeabbd33a7206c395ede18" title="fixFileName" alt="" coords="444,5,529,32">
+<area shape="rect" id="node7" href="$class_code_to_diagram.html#39823f54aa950aa83d7f0786ae2d2922" title="codeInstrumentationFile" alt="" coords="160,107,315,133">
+<area shape="rect" id="node15" href="$class_code_to_diagram.html#4ae436da9e8fe29b6ce2aa543212fa72" title="convertFileContent" alt="" coords="176,157,299,184">
+<area shape="rect" id="node24" href="$class_coruja_file_manipulation.html#56545f86fdff2e9b63465549644a1d75" title="CorujaFileManipulation::isRelativePath" alt="" coords="121,208,353,235">
+<area shape="rect" id="node9" href="$class_code_to_diagram.html#ec172f2211fc097efa89f3546c0bd308" title="codeInstrumentationClass" alt="" coords="403,56,571,83">
+<area shape="rect" id="node13" href="$class_code_to_diagram.html#5300582d74e4550799d8bc8dffb4af19" title="preloadFile" alt="" coords="445,107,528,133">
+<area shape="rect" id="node11" href="$class_code_to_diagram.html#2d9bbf465fc0ace643bef01690a3336a" title="codeInstrumentationLine" alt="" coords="620,56,777,83">
+<area shape="rect" id="node17" href="$class_code_to_diagram.html#a8c839c9d33ebad153541a31ffc7ef3e" title="getCallerPath" alt="" coords="439,157,535,184">
+<area shape="rect" id="node19" href="$class_code_to_diagram.html#c93fbec81f07e5d15f80db907e63dc10" title="getInstance" alt="" coords="444,208,529,235">
+<area shape="rect" id="node21" href="$class_code_to_diagram.html#177cc628e31a482237aed841078a122f" title="getStarted" alt="" coords="448,259,525,285">

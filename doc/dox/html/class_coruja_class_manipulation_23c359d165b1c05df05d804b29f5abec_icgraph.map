@@ -1,0 +1,5 @@
+<area shape="rect" id="node3" href="$class_code_instrumentation_receiver.html#9e9c5a8aaabb5839bd53f2a4bf8738e1" title="CodeInstrumentationReceiver::onEnterMethod" alt="" coords="419,5,693,32">
+<area shape="rect" id="node5" href="$class_code_instrumentation_receiver.html#857c9dfbe06ad7cd878585408b1c3d98" title="CodeInstrumentationReceiver::onLeaveMethod" alt="" coords="417,56,695,83">
+<area shape="rect" id="node7" href="$class_coruja_class_manipulation_test.html#796ba61d6460c6e55138f1a683f17899" title="CorujaClassManipulationTest::testGetClassNameFromClassDefinitionWithAnyString" alt="" coords="313,107,799,133">
+<area shape="rect" id="node9" href="$class_coruja_class_manipulation_test.html#f19b18a638ca93d790998e4641a03f5c" title="CorujaClassManipulationTest::testGetClassNameFromClassDefinitionWithNormalClassDefinition" alt="" coords="276,157,836,184">
+<area shape="rect" id="node11" href="$class_coruja_class_manipulation_test.html#cf31c2bf27f0eb9c156d709faae15866" title="CorujaClassManipulationTest::testGetClassNameFromClassDefinitionWithNullString" alt="" coords="312,208,800,235">

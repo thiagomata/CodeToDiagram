@@ -1,0 +1,479 @@
+todo:4: Warning: Found unknown command `\question'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:116: Warning: argument 'string' of command @param is not found in the argument list of BackTrace::__construct(array $aStack=array())
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:116: Warning: The following parameters of BackTrace::__construct(array $aStack=array()) are not documented:
+  parameter 'aStack'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:157: Warning: unable to resolve link to `debug_backtrace()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:212: Warning: unable to resolve link to `debug_backtrace()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:222: Warning: argument 'boolean' of command @param is not found in the argument list of BackTrace::getFile($bOnlyName=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:222: Warning: The following parameters of BackTrace::getFile($bOnlyName=false) are not documented:
+  parameter 'bOnlyName'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:307: Warning: unable to resolve link to `debug_backtrace()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:356: Warning: argument 'integer' of command @param is not found in the argument list of BackTrace::levelDown($iDepth=1,$bTry=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:356: Warning: argument 'boolean' of command @param is not found in the argument list of BackTrace::levelDown($iDepth=1,$bTry=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:356: Warning: The following parameters of BackTrace::levelDown($iDepth=1,$bTry=false) are not documented:
+  parameter 'iDepth'
+  parameter 'bTry'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:396: Warning: argument 'integer' of command @param is not found in the argument list of BackTrace::levelUp($iDepth=1,$bTry=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:396: Warning: argument 'boolean' of command @param is not found in the argument list of BackTrace::levelUp($iDepth=1,$bTry=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:396: Warning: The following parameters of BackTrace::levelUp($iDepth=1,$bTry=false) are not documented:
+  parameter 'iDepth'
+  parameter 'bTry'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:424: Warning: argument 'integer' of command @param is not found in the argument list of BackTrace::setLevel($iLevel)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:424: Warning: The following parameters of BackTrace::setLevel($iLevel) are not documented:
+  parameter 'iLevel'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTrace.php:97: Warning: unable to resolve link to `debug_backtrace()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:12: Warning: unable to resolve link to `var_dump()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:13: Warning: unable to resolve link to `debug_backtrace()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:14: Warning: unable to resolve link to `http://www.php.net/manual/en/function.debug-backtrace.php#47644' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:17: Warning: unable to resolve link to `http://php.net/manual/en/ref.outcontrol.php' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:19: Warning: unable to resolve link to `highlight_string()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:101: Warning: Found unknown command `\ignore'
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:239: Warning: unable to resolve link to `highlight_string()' for \link command
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:348: Warning: argument 'BackTrace' of command @param is not found in the argument list of BackTraceExplain::perform(BackTrace $oBackTrace=null)
+D:/igormoreno/comp/codetodiagram/assembla/components/backtrace/BackTraceExplain.php:348: Warning: The following parameters of BackTraceExplain::perform(BackTrace $oBackTrace=null) are not documented:
+  parameter 'oBackTrace'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationClass::__construct($strClassName,$strEvalContent="")
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationClass::__construct($strClassName,$strEvalContent="")
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:23: Warning: The following parameters of CodeInstrumentationClass::__construct($strClassName,$strEvalContent="") are not documented:
+  parameter 'strClassName'
+  parameter 'strEvalContent'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:147: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:147: Warning: The following parameters of CodeInstrumentationClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:173: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationClass::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:173: Warning: The following parameters of CodeInstrumentationClass::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
+  parameter 'objOriginalReflectionMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:160: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:160: Warning: The following parameters of CodeInstrumentationClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty) are not documented:
+  parameter 'objOriginalReflectionProperty'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:66: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationClass::setClassName($strName)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationClass.class.php:66: Warning: The following parameters of CodeInstrumentationClass::setClassName($strName) are not documented:
+  parameter 'strName'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationFunction.class.php:17: Warning: Found unknown command `\question'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationFunction.class.php:25: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeInstrumentationFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationFunction.class.php:25: Warning: The following parameters of CodeInstrumentationFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
+  parameter 'objReflectionParameter'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationMethod.class.php:204: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationMethod.class.php:204: Warning: The following parameters of CodeInstrumentationMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationMethod.class.php:216: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeInstrumentationMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationMethod.class.php:216: Warning: The following parameters of CodeInstrumentationMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
+  parameter 'objReflectionParameter'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationParameter.class.php:16: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationParameter.class.php:16: Warning: The following parameters of CodeInstrumentationParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationParameter.class.php:40: Warning: argument 'ReflectionFunction' of command @param is not found in the argument list of CodeInstrumentationParameter::createExtendedReflectionFunction(ReflectionFunction $objOriginalReflectionFunction)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationParameter.class.php:40: Warning: The following parameters of CodeInstrumentationParameter::createExtendedReflectionFunction(ReflectionFunction $objOriginalReflectionFunction) are not documented:
+  parameter 'objOriginalReflectionFunction'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationParameter.class.php:28: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of CodeInstrumentationParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationParameter.class.php:28: Warning: The following parameters of CodeInstrumentationParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
+  parameter 'objOriginalReflectionMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:135: Warning: argument 'booIgnoreNullReturns' of command @param is not found in the argument list of CodeInstrumentationReceiver::getIgnoreRecursiveCalls()
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:273: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:273: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:273: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:273: Warning: argument 'Array' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:273: Warning: The following parameters of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments) are not documented:
+  parameter 'uid'
+  parameter 'strClassDefinition'
+  parameter 'strMethod'
+  parameter 'arrArguments'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:358: Warning: argument 'integer' of command @param is not found in the argument list of CodeInstrumentationReceiver::onLeaveMethod($uid,$strClassDefinition,$strMethod,$mixReturn)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:358: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onLeaveMethod($uid,$strClassDefinition,$strMethod,$mixReturn)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:358: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onLeaveMethod($uid,$strClassDefinition,$strMethod,$mixReturn)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:358: Warning: The following parameters of CodeInstrumentationReceiver::onLeaveMethod($uid,$strClassDefinition,$strMethod,$mixReturn) are not documented:
+  parameter 'uid'
+  parameter 'strClassDefinition'
+  parameter 'strMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:239: Warning: Unsupported xml/html tag <create> found
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:240: Warning: Unsupported xml/html tag <destroy> found
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:236: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::renameMethod($strMethod)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:236: Warning: The following parameters of CodeInstrumentationReceiver::renameMethod($strMethod) are not documented:
+  parameter 'strMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:149: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::setCallerPath($strCallerPath)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:149: Warning: The following parameters of CodeInstrumentationReceiver::setCallerPath($strCallerPath) are not documented:
+  parameter 'strCallerPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:120: Warning: argument 'booIgnoreNullReturns' of command @param is not found in the argument list of CodeInstrumentationReceiver::setIgnoreRecursiveCalls($booIgnoreRecursiveCalls)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:120: Warning: The following parameters of CodeInstrumentationReceiver::setIgnoreRecursiveCalls($booIgnoreRecursiveCalls) are not documented:
+  parameter 'booIgnoreRecursiveCalls'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:173: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::setPublicPath($strPublicPath)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:173: Warning: The following parameters of CodeInstrumentationReceiver::setPublicPath($strPublicPath) are not documented:
+  parameter 'strPublicPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionClass::__construct($strClassName,$strEvalContent="")
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionClass::__construct($strClassName,$strEvalContent="")
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:23: Warning: The following parameters of CodeReflectionClass::__construct($strClassName,$strEvalContent="") are not documented:
+  parameter 'strClassName'
+  parameter 'strEvalContent'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:189: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:189: Warning: The following parameters of CodeReflectionClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:215: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of CodeReflectionClass::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:215: Warning: The following parameters of CodeReflectionClass::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
+  parameter 'objOriginalReflectionMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:202: Warning: argument 'ReflectionProperty' of command @param is not found in the argument list of CodeReflectionClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionClass.class.php:202: Warning: The following parameters of CodeReflectionClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty) are not documented:
+  parameter 'objOriginalReflectionProperty'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:75: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:75: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:75: Warning: argument 'boolean' of command @param is not found in the argument list of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:75: Warning: The following parameters of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true) are not documented:
+  parameter 'strFileName'
+  parameter 'strFileContent'
+  parameter 'boolRealFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:53: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::getCodeInstrFileName($strFileName)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:53: Warning: The following parameters of CodeReflectionFile::getCodeInstrFileName($strFileName) are not documented:
+  parameter 'strFileName'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:163: Warning: argument 'integer' of command @param is not found in the argument list of CodeReflectionFile::getFileBit($intLineStart,$intLineEnds)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:163: Warning: argument 'integer' of command @param is not found in the argument list of CodeReflectionFile::getFileBit($intLineStart,$intLineEnds)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:163: Warning: The following parameters of CodeReflectionFile::getFileBit($intLineStart,$intLineEnds) are not documented:
+  parameter 'intLineStart'
+  parameter 'intLineEnds'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:119: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::setFileContent($strFileContent)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:119: Warning: The following parameters of CodeReflectionFile::setFileContent($strFileContent) are not documented:
+  parameter 'strFileContent'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:93: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::setFileName($strFileName)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFile.class.php:93: Warning: The following parameters of CodeReflectionFile::setFileName($strFileName) are not documented:
+  parameter 'strFileName'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFunction.class.php:42: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionFunction.class.php:42: Warning: The following parameters of CodeReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
+  parameter 'objReflectionParameter'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionMethod.class.php:43: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionMethod.class.php:43: Warning: The following parameters of CodeReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionMethod.class.php:56: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionMethod.class.php:56: Warning: The following parameters of CodeReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
+  parameter 'objReflectionParameter'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionParameter.class.php:44: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) inherited from member createExtendedReflectionClass at line 55 in file D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionParameter.class.php:44: Warning: The following parameters of CodeReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionParameter.class.php:54: Warning: argument 'ReflectionFunction' of command @param is not found in the argument list of CodeReflectionParameter::createExtendedReflectionFunction(ReflectionFunction $objOriginalReflectionFunction) inherited from member createExtendedReflectionFunction at line 83 in file D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionParameter.class.php:54: Warning: The following parameters of CodeReflectionParameter::createExtendedReflectionFunction(ReflectionFunction $objOriginalReflectionFunction) are not documented:
+  parameter 'objOriginalReflectionFunction'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionParameter.class.php:49: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of CodeReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) inherited from member createExtendedReflectionMethod at line 69 in file D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionParameter.class.php:49: Warning: The following parameters of CodeReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
+  parameter 'objOriginalReflectionMethod'
+<unknown>:0: Warning: Found unknown command `\fixme'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionProperty.class.php:84: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) inherited from member createExtendedReflectionClass at line 30 in file D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionProperty.class.php
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionProperty.class.php:84: Warning: The following parameters of CodeReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionProperty.class.php:23: Warning: Found unknown command `\workaround'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/CodeReflectionProperty.class.php:24: Warning: Found unknown command `\fixme'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:505: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::addFile($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:505: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::addFile($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:505: Warning: The following parameters of CodeToDiagram::addFile($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:685: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:685: Warning: argument 'array' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:685: Warning: argument 'array' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:685: Warning: argument 'array' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:685: Warning: The following parameters of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines) are not documented:
+  parameter 'strTextSearch'
+  parameter 'arrOldClasses'
+  parameter 'arrNewClasses'
+  parameter 'arrLines'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:734: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationFile($strFileName,$strContentFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:734: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationFile($strFileName,$strContentFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:734: Warning: The following parameters of CodeToDiagram::codeInstrumentationFile($strFileName,$strContentFile) are not documented:
+  parameter 'strFileName'
+  parameter 'strContentFile'
+<unknown>:-1: Warning: Found unknown command `\fixme'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:652: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationLine($strLine,$strTextSearch)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:652: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationLine($strLine,$strTextSearch)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:652: Warning: The following parameters of CodeToDiagram::codeInstrumentationLine($strLine,$strTextSearch) are not documented:
+  parameter 'strLine'
+  parameter 'strTextSearch'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:597: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramExit($strFileFrom,$strMessage='')
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:597: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramExit($strFileFrom,$strMessage='')
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:597: Warning: The following parameters of CodeToDiagram::CodeToDiagramExit($strFileFrom,$strMessage='') are not documented:
+  parameter 'strFileFrom'
+  parameter 'strMessage'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:583: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramInclude($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:583: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramInclude($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:583: Warning: The following parameters of CodeToDiagram::CodeToDiagramInclude($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:552: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramIncludeOnce($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:552: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramIncludeOnce($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:552: Warning: The following parameters of CodeToDiagram::CodeToDiagramIncludeOnce($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:569: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramRequire($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:569: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramRequire($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:569: Warning: The following parameters of CodeToDiagram::CodeToDiagramRequire($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:533: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramRequireOnce($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:533: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::CodeToDiagramRequireOnce($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:533: Warning: The following parameters of CodeToDiagram::CodeToDiagramRequireOnce($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:611: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::convertFileContent($strContentFile,$strFile,$strFullFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:611: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::convertFileContent($strContentFile,$strFile,$strFullFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:611: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::convertFileContent($strContentFile,$strFile,$strFullFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:611: Warning: The following parameters of CodeToDiagram::convertFileContent($strContentFile,$strFile,$strFullFile) are not documented:
+  parameter 'strContentFile'
+  parameter 'strFile'
+  parameter 'strFullFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:487: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::fixFileName($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:487: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::fixFileName($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:487: Warning: The following parameters of CodeToDiagram::fixFileName($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:521: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::hasFile($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:521: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::hasFile($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:521: Warning: The following parameters of CodeToDiagram::hasFile($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:472: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::init($strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:472: Warning: The following parameters of CodeToDiagram::init($strFile) are not documented:
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:797: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::loadFile($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:797: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::loadFile($strFileFrom,$strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:797: Warning: The following parameters of CodeToDiagram::loadFile($strFileFrom,$strFile) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:708: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::preloadFile($strFileName,$strContentFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:708: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::preloadFile($strFileName,$strContentFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:708: Warning: The following parameters of CodeToDiagram::preloadFile($strFileName,$strContentFile) are not documented:
+  parameter 'strFileName'
+  parameter 'strContentFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:319: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setCallerPath($strCallerPath)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:319: Warning: The following parameters of CodeToDiagram::setCallerPath($strCallerPath) are not documented:
+  parameter 'strCallerPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:833: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setCallerPathByFile($strCallerFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:833: Warning: The following parameters of CodeToDiagram::setCallerPathByFile($strCallerFile) are not documented:
+  parameter 'strCallerFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:256: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setFileFrom($strFileFrom)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:256: Warning: The following parameters of CodeToDiagram::setFileFrom($strFileFrom) are not documented:
+  parameter 'strFileFrom'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:289: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setFileName($strFileName)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:289: Warning: The following parameters of CodeToDiagram::setFileName($strFileName) are not documented:
+  parameter 'strFileName'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:104: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setOutputType($strType)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:104: Warning: The following parameters of CodeToDiagram::setOutputType($strType) are not documented:
+  parameter 'strType'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:341: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setPublicPath($strPublicPath)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:341: Warning: The following parameters of CodeToDiagram::setPublicPath($strPublicPath) are not documented:
+  parameter 'strPublicPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:216: Warning: argument 'bool' of command @param is not found in the argument list of CodeToDiagram::setStarted($booStarted)
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:216: Warning: The following parameters of CodeToDiagram::setStarted($booStarted) are not documented:
+  parameter 'booStarted'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeToDiagram/CodeToDiagram.class.php:18: Warning: Unsupported xml/html tag <arrayList> found
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaArrayManipulation.class.php:14: Warning: argument 'Array' of command @param is not found in the argument list of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaArrayManipulation.class.php:14: Warning: argument 'unknown' of command @param is not found in the argument list of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaArrayManipulation.class.php:14: Warning: argument 'unknown' of command @param is not found in the argument list of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaArrayManipulation.class.php:14: Warning: The following parameters of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null) are not documented:
+  parameter 'arrElement'
+  parameter 'mixKey'
+  parameter 'mixNotFound'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaArrayManipulationTest.php:15: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaArrayManipulationTest.php:25: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaClassManipulation.class.php:14: Warning: argument 'String' of command @param is not found in the argument list of CorujaClassManipulation::getClassNameFromClassDefinition($strClassDefinition)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaClassManipulation.class.php:14: Warning: The following parameters of CorujaClassManipulation::getClassNameFromClassDefinition($strClassDefinition) are not documented:
+  parameter 'strClassDefinition'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaClassManipulation.class.php:42: Warning: argument 'String' of command @param is not found in the argument list of CorujaClassManipulation::getNamespaceFromClassDefinition($strClassDefiniton)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaClassManipulation.class.php:42: Warning: The following parameters of CorujaClassManipulation::getNamespaceFromClassDefinition($strClassDefiniton) are not documented:
+  parameter 'strClassDefiniton'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaClassManipulationTest.php:15: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaClassManipulationTest.php:25: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaFileManipulation.class.php:134: Warning: argument 'string' of command @param is not found in the argument list of CorujaFileManipulation::getPathOfFile($strFile)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaFileManipulation.class.php:134: Warning: The following parameters of CorujaFileManipulation::getPathOfFile($strFile) are not documented:
+  parameter 'strFile'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaFileManipulation.class.php:14: Warning: argument 'String' of command @param is not found in the argument list of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaFileManipulation.class.php:14: Warning: argument 'String' of command @param is not found in the argument list of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaFileManipulation.class.php:14: Warning: argument 'Boolean' of command @param is not found in the argument list of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaFileManipulation.class.php:14: Warning: The following parameters of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFileTo'
+  parameter 'booValidPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaStringManipulation.class.php:103: Warning: argument 'string' of command @param is not found in the argument list of CorujaStringManipulation::camelCaseToUnderlineCase($strText)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaStringManipulation.class.php:103: Warning: The following parameters of CorujaStringManipulation::camelCaseToUnderlineCase($strText) are not documented:
+  parameter 'strText'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaStringManipulation.class.php:53: Warning: argument 'string' of command @param is not found in the argument list of CorujaStringManipulation::forceInt($strText)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaStringManipulation.class.php:53: Warning: The following parameters of CorujaStringManipulation::forceInt($strText) are not documented:
+  parameter 'strText'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaStringManipulation.class.php:14: Warning: argument 'string' of command @param is not found in the argument list of CorujaStringManipulation::strToBool($strText)
+D:/igormoreno/comp/codetodiagram/assembla/components/library/CorujaStringManipulation.class.php:14: Warning: The following parameters of CorujaStringManipulation::strToBool($strText) are not documented:
+  parameter 'strText'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:21: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:32: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:391: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:355: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:364: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:373: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:382: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:255: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:264: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:273: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:282: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:291: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:129: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:138: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:147: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:111: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:120: Warning: Found unknown command `\expectedException'
+D:/igormoreno/comp/codetodiagram/assembla/components/library/test/CorujaStringManipulationTest.php:13: Warning: Found unknown command `\access'
+D:/igormoreno/comp/codetodiagram/assembla/components/codeReflection/example/test1.php:17: Warning: Found unknown command `\something'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:119: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:119: Warning: The following parameters of ExtendedReflectionClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:147: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of ExtendedReflectionClass::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:147: Warning: The following parameters of ExtendedReflectionClass::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
+  parameter 'objOriginalReflectionMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:133: Warning: argument 'ReflectionProperty' of command @param is not found in the argument list of ExtendedReflectionClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:133: Warning: The following parameters of ExtendedReflectionClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty) are not documented:
+  parameter 'objOriginalReflectionProperty'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:59: Warning: argument 'integer' of command @param is not found in the argument list of ExtendedReflectionClass::getProperties($filter=-1)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:59: Warning: The following parameters of ExtendedReflectionClass::getProperties($filter=-1) are not documented:
+  parameter 'filter'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:78: Warning: argument 'string' of command @param is not found in the argument list of ExtendedReflectionClass::getProperty($strName)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionClass.class.php:78: Warning: The following parameters of ExtendedReflectionClass::getProperty($strName) are not documented:
+  parameter 'strName'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionFunction.class.php:38: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of ExtendedReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionFunction.class.php:38: Warning: The following parameters of ExtendedReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
+  parameter 'objReflectionParameter'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionMethod.class.php:50: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionMethod.class.php:50: Warning: The following parameters of ExtendedReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionMethod.class.php:64: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of ExtendedReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionMethod.class.php:64: Warning: The following parameters of ExtendedReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
+  parameter 'objReflectionParameter'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php:55: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php:55: Warning: The following parameters of ExtendedReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php:83: Warning: argument 'ReflectionFunction' of command @param is not found in the argument list of ExtendedReflectionParameter::createExtendedReflectionFunction(ReflectionFunction $objOriginalReflectionFunction)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php:83: Warning: The following parameters of ExtendedReflectionParameter::createExtendedReflectionFunction(ReflectionFunction $objOriginalReflectionFunction) are not documented:
+  parameter 'objOriginalReflectionFunction'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php:69: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of ExtendedReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionParameter.class.php:69: Warning: The following parameters of ExtendedReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
+  parameter 'objOriginalReflectionMethod'
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionProperty.class.php:30: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
+D:/igormoreno/comp/codetodiagram/assembla/components/extendedReflection/ExtendedReflectionProperty.class.php:30: Warning: The following parameters of ExtendedReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
+  parameter 'objOriginalReflectionClass'
+D:/igormoreno/comp/codetodiagram/assembla/examples/Fatorial/Fatorial.php:17: Warning: argument 'integer' of command @param is not found in the argument list of Fatorial::play($n)
+D:/igormoreno/comp/codetodiagram/assembla/examples/Fatorial/Fatorial.php:17: Warning: The following parameters of Fatorial::play($n) are not documented:
+  parameter 'n'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/House.class.php:111: Warning: argument 'Wolf' of command @param is not found in the argument list of House::getBlowBy(Wolf $objWolf)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/House.class.php:111: Warning: The following parameters of House::getBlowBy(Wolf $objWolf) are not documented:
+  parameter 'objWolf'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/House.class.php:85: Warning: argument 'LittlePig' of command @param is not found in the argument list of House::setPig(LittlePig $objPig)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/House.class.php:85: Warning: The following parameters of House::setPig(LittlePig $objPig) are not documented:
+  parameter 'objPig'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/House.class.php:37: Warning: argument 'string' of command @param is not found in the argument list of House::setType($strType)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/House.class.php:37: Warning: The following parameters of House::setType($strType) are not documented:
+  parameter 'strType'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Pig.class.php:54: Warning: argument 'string' of command @param is not found in the argument list of LittlePig::buildHouse($strType)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Pig.class.php:54: Warning: The following parameters of LittlePig::buildHouse($strType) are not documented:
+  parameter 'strType'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Pig.class.php:30: Warning: argument 'string' of command @param is not found in the argument list of LittlePig::say($strText)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Pig.class.php:30: Warning: The following parameters of LittlePig::say($strText) are not documented:
+  parameter 'strText'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Pig.class.php:42: Warning: argument 'string' of command @param is not found in the argument list of LittlePig::setName($strName)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Pig.class.php:42: Warning: The following parameters of LittlePig::setName($strName) are not documented:
+  parameter 'strName'
+D:/igormoreno/comp/codetodiagram/assembla/components/loader/Loader.class.php:82: Warning: argument 'string' of command @param is not found in the argument list of Loader::requireOnce($strFile,$booIsClass=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/loader/Loader.class.php:82: Warning: argument 'boolean' of command @param is not found in the argument list of Loader::requireOnce($strFile,$booIsClass=false)
+D:/igormoreno/comp/codetodiagram/assembla/components/loader/Loader.class.php:82: Warning: The following parameters of Loader::requireOnce($strFile,$booIsClass=false) are not documented:
+  parameter 'strFile'
+  parameter 'booIsClass'
+D:/igormoreno/comp/codetodiagram/assembla/components/loader/Loader.class.php:58: Warning: argument 'boolean' of command @param is not found in the argument list of Loader::setExternal($booExternal)
+D:/igormoreno/comp/codetodiagram/assembla/components/loader/Loader.class.php:58: Warning: The following parameters of Loader::setExternal($booExternal) are not documented:
+  parameter 'booExternal'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:16: Warning: argument 'string' of command @param is not found in the argument list of Wolf::say($strText)
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:16: Warning: The following parameters of Wolf::say($strText) are not documented:
+  parameter 'strText'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:177: Warning: argument 'XmlSequenceActor' of command @param is not found in the argument list of XmlSequence::addActor(XmlSequenceActor $objActor)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:177: Warning: The following parameters of XmlSequence::addActor(XmlSequenceActor $objActor) are not documented:
+  parameter 'objActor'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:135: Warning: argument 'XmlSequenceMessage' of command @param is not found in the argument list of XmlSequence::addMessage(XmlSequenceMessage $objMessage)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:135: Warning: The following parameters of XmlSequence::addMessage(XmlSequenceMessage $objMessage) are not documented:
+  parameter 'objMessage'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:67: Warning: argument 'string' of command @param is not found in the argument list of XmlSequence::getCallerPath()
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:94: Warning: argument 'string' of command @param is not found in the argument list of XmlSequence::getPublicPath()
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:149: Warning: argument 'array' of command @param is not found in the argument list of XmlSequence::setActors(array $arrActors)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:149: Warning: The following parameters of XmlSequence::setActors(array $arrActors) are not documented:
+  parameter 'arrActors'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:53: Warning: argument 'string' of command @param is not found in the argument list of XmlSequence::setCallerPath($strCallerPath)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:53: Warning: The following parameters of XmlSequence::setCallerPath($strCallerPath) are not documented:
+  parameter 'strCallerPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:107: Warning: argument 'array' of command @param is not found in the argument list of XmlSequence::setMessages(array $arrMessages)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:107: Warning: The following parameters of XmlSequence::setMessages(array $arrMessages) are not documented:
+  parameter 'arrMessages'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:80: Warning: argument 'string' of command @param is not found in the argument list of XmlSequence::setPublicPath($strPublicPath)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequence.class.php:80: Warning: The following parameters of XmlSequence::setPublicPath($strPublicPath) are not documented:
+  parameter 'strPublicPath'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceFactoryXml.class.php:65: Warning: argument 'string' of command @param is not found in the argument list of XmlSequenceFactoryXml::getXml()
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceFactoryXml.class.php:51: Warning: argument 'string' of command @param is not found in the argument list of XmlSequenceFactoryXml::setXml($strXml)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceFactoryXml.class.php:51: Warning: The following parameters of XmlSequenceFactoryXml::setXml($strXml) are not documented:
+  parameter 'strXml'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:204: Warning: argument 'XmlSequenceValue' of command @param is not found in the argument list of XmlSequenceMessage::addValue(XmlSequenceValue $objValue)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:204: Warning: The following parameters of XmlSequenceMessage::addValue(XmlSequenceValue $objValue) are not documented:
+  parameter 'objValue'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:120: Warning: argument 'XmlSequenceActor' of command @param is not found in the argument list of XmlSequenceMessage::setActorFrom(XmlSequenceActor $objActor)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:120: Warning: The following parameters of XmlSequenceMessage::setActorFrom(XmlSequenceActor $objActor) are not documented:
+  parameter 'objActor'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:148: Warning: argument 'XmlSequenceActor' of command @param is not found in the argument list of XmlSequenceMessage::setActorTo(XmlSequenceActor $objActor)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:148: Warning: The following parameters of XmlSequenceMessage::setActorTo(XmlSequenceActor $objActor) are not documented:
+  parameter 'objActor'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:64: Warning: argument 'string' of command @param is not found in the argument list of XmlSequenceMessage::setText($strText)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:64: Warning: The following parameters of XmlSequenceMessage::setText($strText) are not documented:
+  parameter 'strText'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:245: Warning: argument 'integer' of command @param is not found in the argument list of XmlSequenceMessage::setTimeEnd($intTime)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:245: Warning: The following parameters of XmlSequenceMessage::setTimeEnd($intTime) are not documented:
+  parameter 'intTime'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:219: Warning: argument 'integer' of command @param is not found in the argument list of XmlSequenceMessage::setTimeStart($intTime)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:219: Warning: The following parameters of XmlSequenceMessage::setTimeStart($intTime) are not documented:
+  parameter 'intTime'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:90: Warning: argument 'string' of command @param is not found in the argument list of XmlSequenceMessage::setType($strType)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:90: Warning: The following parameters of XmlSequenceMessage::setType($strType) are not documented:
+  parameter 'strType'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:176: Warning: argument 'XmlSequenceValue' of command @param is not found in the argument list of XmlSequenceMessage::setValues(Array $arrValues)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceMessage.class.php:176: Warning: The following parameters of XmlSequenceMessage::setValues(Array $arrValues) are not documented:
+  parameter 'arrValues'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterDiagram.class.php:82: Warning: argument 'XmlSequence' of command @param is not found in the argument list of XmlSequencePrinterDiagram::perform(XmlSequence $objXmlSequence)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterDiagram.class.php:82: Warning: The following parameters of XmlSequencePrinterDiagram::perform(XmlSequence $objXmlSequence) are not documented:
+  parameter 'objXmlSequence'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterDiagram.class.php:96: Warning: argument 'integer' of command @param is not found in the argument list of XmlSequencePrinterDiagram::setZoom($intZoom)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterDiagram.class.php:96: Warning: The following parameters of XmlSequencePrinterDiagram::setZoom($intZoom) are not documented:
+  parameter 'intZoom'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterDiagram.class.php:423: Warning: argument 'XmlSequenceMessage' of command @param is not found in the argument list of XmlSequencePrinterDiagram::showValues(XmlSequenceMessage $objXmlMessage)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterDiagram.class.php:423: Warning: The following parameters of XmlSequencePrinterDiagram::showValues(XmlSequenceMessage $objXmlMessage) are not documented:
+  parameter 'objXmlMessage'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterInterface.interface.php:20: Warning: argument 'XmlSequence' of command @param is not found in the argument list of XmlSequencePrinterInterface::perform(XmlSequence $objXmlSequence)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterInterface.interface.php:20: Warning: The following parameters of XmlSequencePrinterInterface::perform(XmlSequence $objXmlSequence) are not documented:
+  parameter 'objXmlSequence'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterXml.class.php:45: Warning: argument 'XmlSequence' of command @param is not found in the argument list of XmlSequencePrinterXml::perform(XmlSequence $objXmlSequence)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequencePrinterXml.class.php:45: Warning: The following parameters of XmlSequencePrinterXml::perform(XmlSequence $objXmlSequence) are not documented:
+  parameter 'objXmlSequence'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceValue.class.php:27: Warning: argument 'string' of command @param is not found in the argument list of XmlSequenceValue::setName($strName)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceValue.class.php:27: Warning: The following parameters of XmlSequenceValue::setName($strName) are not documented:
+  parameter 'strName'
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceValue.class.php:53: Warning: argument 'string' of command @param is not found in the argument list of XmlSequenceValue::setValue($strValue)
+D:/igormoreno/comp/codetodiagram/assembla/components/xmlSequence/XmlSequenceValue.class.php:53: Warning: The following parameters of XmlSequenceValue::setValue($strValue) are not documented:
+  parameter 'strValue'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:2: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:6: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:10: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:14: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:16: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/examples/ThreeLittlePigs/Wolf.class.php:20: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/public/codetodiagram.php:2: Warning: Found unknown command `\subpackage'
+D:/igormoreno/comp/codetodiagram/assembla/public/codetodiagram.php:4: Warning: Found unknown command `\subpackage'
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!

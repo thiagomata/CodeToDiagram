@@ -1,0 +1,5 @@
+<area shape="rect" id="node3" href="$class_extended_reflection_class.html#c569f5e42707c39d576fc5cda820d233" title="getMethod" alt="" coords="260,5,337,32">
+<area shape="rect" id="node5" href="$class_extended_reflection_class.html#c747edd613c23881113d99316f12812d" title="getMethods" alt="" coords="256,56,341,83">
+<area shape="rect" id="node7" href="$class_code_reflection_class.html#c2d23f8614e24561b794d5031001eaf8" title="CodeReflectionClass::createMethodsDefinitionCode" alt="" coords="407,31,713,57">
+<area shape="rect" id="node11" href="$class_code_instrumentation_class.html#c2d23f8614e24561b794d5031001eaf8" title="CodeInstrumentationClass::createMethodsDefinitionCode" alt="" coords="391,81,729,108">
+<area shape="rect" id="node9" href="$class_code_reflection_class.html#b5e24da53b4a0d0848b18c1e832f47ff" title="CodeReflectionClass::getCode" alt="" coords="779,31,971,57">
