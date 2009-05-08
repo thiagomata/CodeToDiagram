@@ -410,7 +410,9 @@
             #detail .values strong
             {
                 display: block;
-                width: 100%;
+                width: 99%;
+                background-color: #DDDDDD;
+                padding-left: 1%;
             }
             #detail .values
             {

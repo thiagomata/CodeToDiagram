@@ -328,7 +328,6 @@ HTML;
                elseif( $objActorActual->getId() == $intStart )
                {
                    // start line //
-                   $strText = $objMessage->getText();
                    $strText = UmlSequenceDiagramPrinterToHtml::getMessageText( $intMessageId , $objMessage );
                     $strHtmlMessages .=
 <<<HTML
@@ -489,12 +488,12 @@ HTML;
             {
                 case '<<create>>':
                 {
-                    $strText .= $objMessage->getActorFrom()->getName() . ' create new ' . $objMessage->getActorTo()->getName();
+                    $strText = $objMessage->getActorFrom()->getName() . ' create new ' . $objMessage->getActorTo()->getName();
                     break;
                 }
                 case '<<destroy>>':
                 {
-                    $strText .= $objMessage->getActorFrom()->getName() . ' destroy ' . $objMessage->getActorTo()->getName();
+                    $strText = $objMessage->getActorFrom()->getName() . ' destroy ' . $objMessage->getActorTo()->getName();
                     break;
                 }
                 default:
@@ -505,7 +504,7 @@ HTML;
                     }
                     else
                     {
-                        $strText = $objMessage->getActorFrom()->getName() . ' receive from ' . $objMessage->getActorTo()->getName() . '->' . $objMessage->getText();
+                        $strText = $objMessage->getActorTo()->getName() . ' receive from ' . $objMessage->getActorFrom()->getName() . '->' . $objMessage->getText();
                     }
                     break;
                 }
@@ -595,7 +594,7 @@ HTML;
         $strText = $objMessage->getText();
         if( $objMessage->getType() != 'call' )
         {
-            return  $strText;
+            return  htmlentities( $strText );
         }
         $strClass = $objMessage->getActorTo()->getClassName();
         $strMethod = $objMessage->getMethod();
@@ -609,9 +608,9 @@ HTML;
             $arrSearch[] = $objReflectedParameter->getCode();
             $arrReplace[] = '<a class="noLink" href="#message_' . $intMessageId . '_param_' . $intPos . '">' . $objReflectedParameter->getCode() . '</a>';
         }
-        $strText = str_replace( $arrSearch , $arrReplace , $strText );
+        $strText = str_replace( $arrSearch , $arrReplace , htmlentities( $strText ) );
 
-        return $strText;
+        return ( $strText );
     }
 }
 ?>

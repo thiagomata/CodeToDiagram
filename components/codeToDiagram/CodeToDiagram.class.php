@@ -102,6 +102,79 @@ class CodeToDiagram
     const OUTPUT_TYPE_XML = "xml";
 
     /**
+     *
+     * Set If the Diagram should ignore recursive calls
+     *
+     * @see CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean )
+     * @param boolean $booIgnoreRecursiveCalls
+     * @return CodeToDiagram
+     */
+    public function setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls )
+    {
+        CodeInstrumentationReceiver::getInstance()->setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls );
+        return $this;
+    }
+
+    /**
+     * Get if the Diagram should ignore recursive calls
+     *
+     * @see CodeInstrumentationReceiver::getIgnoreRecursiveCalls()
+     * @return boolean
+     */
+    public function getIgnoreRecursiveCalls()
+    {
+        return CodeInstrumentationReceiver::getInstance()->getIgnoreRecursiveCalls();
+    }
+
+    /**
+     * Set if the diagram should merge actors of same class
+     *
+     * @see CodeInstrumentationReceiver::setMergeSameClassObjects( boolean )
+     * @param boolean $booMergeSameClassObjects
+     * @return CodeToDiagram
+     */
+    public function setMergeSameClassObjects( $booMergeSameClassObjects )
+    {
+        CodeInstrumentationReceiver::getInstance()->setMergeSameClassObjects( $booMergeSameClassObjects );
+        return $this;
+    }
+
+    /**
+     * Get if the diagram should merge actors of same class
+     *
+     * @see CodeInstrumentationReceiver::getMergeSameClassObjects()
+     * @return boolean
+     */
+    public function getMergeSameClassObjects()
+    {
+        return CodeInstrumentationReceiver::getInstance()->getMergeSameClassObjects();
+    }
+
+    /**
+     * Set if the diagram should ignore null returns
+     *
+     * @see CodeInstrumentationReceiver::setIgnoreNullReturns( boolean )
+     * @param boolean $booIgnoreNullReturns
+     * @return CodeToDiagram
+     */
+    public function setIgnoreNullReturns( $booIgnoreNullReturns )
+    {
+        CodeInstrumentationReceiver::getInstance()->setIgnoreNullReturns( $booIgnoreNullReturns );
+        return $this;
+    }
+
+    /**
+     * Get if the diagram should ignore null returns
+     *
+     * @see CodeInstrumentationReceiver::getIgnoreNullReturns()
+     * @return boolean
+     */
+    public function getIgnoreNullReturns()
+    {
+        return CodeInstrumentationReceiver::getInstance()->getIgnoreNullReturns();
+    }
+
+    /**
      * Set the output type of the diagram
      *
      * @example

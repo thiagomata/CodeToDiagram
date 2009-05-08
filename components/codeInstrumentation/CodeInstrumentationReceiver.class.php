@@ -120,7 +120,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     /**
      * Set the configuration paramenter if the code instrumentation should ignore the recursive
      * messages.
-     * 
+     *
      * @see CodeInstrumentationReceiver->booIgnoreRecursiveCalls
      * @see CodeInstrumentationReceiver::getIgnoreRecursiveCalls()
      * @param $booIgnoreNullReturns <code>true</code> if should ignore the recursive calls
@@ -131,11 +131,11 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     	$this->booIgnoreRecursiveCalls = $booIgnoreRecursiveCalls;
     	return $this;
     }
-    
+
     /**
      * get the configuration paramenter if the code instrumentation should ignore the recursive
      * messages.
-     * 	
+     *
      * @see CodeInstrumentationReceiver->booIgnoreRecursiveCalls
      * @see CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean )
      * @param $booIgnoreNullReturns <code>true</code> if should ignore the null returns
@@ -145,7 +145,36 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     {
     	return $this->booIgnoreRecursiveCalls;
     }
-   
+
+    /**
+     * Set the configuration paramenter if the code instrumentation should merge same
+     * class objects as one actor.
+     *
+     * @see CodeInstrumentationReceiver->booMergeSameClassObjects
+     * @see CodeInstrumentationReceiver::getMergeSameClassObjects()
+     * @param $booMergeSameClassObjects <code>true</code> if should should merge 
+     * same class object
+     * @return CodeInstrumentationReceiver me
+     */
+    public function setMergeSameClassObjects( $booMergeSameClassObjects )
+    {
+    	$this->booMergeSameClassObjects = $booMergeSameClassObjects;
+    	return $this;
+    }
+
+    /**
+     * get the configuration paramenter if the code instrumentation should merge same
+     * class objects as one actor.
+     *
+     * @see CodeInstrumentationReceiver->booMergeSameClassObjects
+     * @see CodeInstrumentationReceiver::setMergeSameClassObjects( boolean )
+     * @return boolean <code>true</code> if should merge same class object
+     */
+    public function getMergeSameClassObjects()
+    {
+    	return $this->booMergeSameClassObjects;
+    }
+
     /**
      * Set the caller path of the uml sequence diagram of the code instrumentation receiver
      * 
@@ -251,13 +280,13 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         	// 1. if __construct replace by <<create>> //
             case "__construct":
             {
-                $strMethod = htmlentities( "<<create>>" );
+                $strMethod = ( "<<create>>" );
                 break;
             }
             // 2. if __destruct replace by <<destroy>> //
             case "__destruct":
             {
-                $strMethod = htmlentities( "<<destroy>>" );
+                $strMethod = ( "<<destroy>>" );
                 break;
             }
             // 3. other cases should append the "()" //
@@ -321,6 +350,11 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
             return $this;
         }
 
+        if( $this->getMergeSameClassObjects() )
+        {
+            $uid = $strClass;
+        }
+
         // 4. get the actor what the message is bring to //
         if( ! array_key_exists( $uid , $this->arrActors ) )
         {
@@ -338,37 +372,44 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         {
             $objActorTo = $this->arrActors[ $uid ];
         }
-
-        // 5. create the message //
-        $objMessage = new UmlSequenceDiagramMessage();
-
-        // 5.1 set the message attributes //
-        $objMessage->setMethod( $strRealMethod );
-        $objMessage->setText( $strMethod );
-        $objMessage->setActorFrom( $objActorFrom );
-        $objMessage->setActorTo( $objActorTo );
-        $objMessage->setType( 'call' );
-
-        $objReflectedClass = new CodeReflectionClass( $strClass );
-        $objReflectedMethod = $objReflectedClass->getMethod( $strRealMethod );
-        $arrReflectedParameter = $objReflectedMethod->getParameters();
-
-        // 5.2 set the message values //
-        foreach( $arrArguments as $intPos => $mixValue )
-        {
-            $objValue = new UmlSequenceDiagramValue();
-            $objReflectedParameter = $arrReflectedParameter[ $intPos ];
-            $strName = $objReflectedParameter->getName();
-            $objValue->setName( $strName );
-            $objValue->setValue( $mixValue );
-            $objMessage->addValue( $objValue );
-        }
-        $objMessage->setTimeStart( microtime( true ) );
         
-        // 6. append the message  //
-        $this->objUmlSequence->addMessage( $objMessage );
+        if( $this->getIgnoreRecursiveCalls() && ( $objActorFrom == $objActorTo ) )
+        {
+        }
+        else
+        {
 
-        $this->arrMessages[] 	= $objMessage;
+            // 5. create the message //
+            $objMessage = new UmlSequenceDiagramMessage();
+
+            // 5.1 set the message attributes //
+            $objMessage->setMethod( $strRealMethod );
+            $objMessage->setText( $strMethod );
+            $objMessage->setActorFrom( $objActorFrom );
+            $objMessage->setActorTo( $objActorTo );
+            $objMessage->setType( 'call' );
+
+            $objReflectedClass = new CodeReflectionClass( $strClass );
+            $objReflectedMethod = $objReflectedClass->getMethod( $strRealMethod );
+            $arrReflectedParameter = $objReflectedMethod->getParameters();
+
+            // 5.2 set the message values //
+            foreach( $arrArguments as $intPos => $mixValue )
+            {
+                $objValue = new UmlSequenceDiagramValue();
+                $objReflectedParameter = $arrReflectedParameter[ $intPos ];
+                $strName = $objReflectedParameter->getName();
+                $objValue->setName( $strName );
+                $objValue->setValue( $mixValue );
+                $objMessage->addValue( $objValue );
+            }
+            $objMessage->setTimeStart( microtime( true ) );
+
+            // 6. append the message  //
+            $this->objUmlSequence->addMessage( $objMessage );
+
+            $this->arrMessages[] 	= $objMessage;
+        }
         array_unshift( $this->arrStack , $objActorTo );
 
         return $this;
@@ -409,7 +450,19 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         // 4. get the actor what the message is bring to //
         $objActorTo = current( $this->arrStack );
 
-        if( $mixReturn != null or !$this->booIgnoreNullReturns)
+        $boolCreateMessage = true;
+
+        if( $mixReturn == null and $this->getIgnoreNullReturns() )
+        {
+            $boolCreateMessage = false;
+        }
+
+        if( ( $objActorFrom == $objActorTo ) and $this->getIgnoreRecursiveCalls() )
+        {
+            $boolCreateMessage = false;
+        }
+
+        if( $boolCreateMessage )
         {
         	// 5. create the message //
             $objMessage = new UmlSequenceDiagramMessage();
