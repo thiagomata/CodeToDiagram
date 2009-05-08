@@ -1,4 +1,4 @@
-			.row
+            .row
 			{
 				float: left;
 				height: 40px;
@@ -383,4 +383,46 @@
             div.recursive:hover div.message .parameters
             {
                 display: block;
+            }
+            #detail
+            {
+                float:left;
+                width:100%;
+            }
+            #detail .message
+            {
+                width: 90%;
+                border-style: solid;
+                border-width: 1px;
+                border-color: red;
+                padding: 1%;
+                margin: 1%;
+            }
+            #detail .message li
+            {
+            }
+            #detail .values code
+            {
+                display: block;
+                width: 100%;
+                background-color: #AAAAAA;
+            }
+            #detail .values strong
+            {
+                display: block;
+                width: 100%;
+            }
+            #detail .values
+            {
+                display: block;
+                width: 98%;
+                border-style: solid;
+                border-width: 1px;
+                border-color: black;
+                margin: 1%;
+            }
+            a.noLink
+            {
+                text-decoration: none;
+                cursor: pointer;
             }
