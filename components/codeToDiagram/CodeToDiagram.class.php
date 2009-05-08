@@ -423,31 +423,31 @@ class CodeToDiagram
 
         if( $this->getStarted() )
         {
-        	$objXmlSequence = CodeInstrumentationReceiver::getInstance()->getXmlSequence();
+        	$objUmlSequenceDiagram = CodeInstrumentationReceiver::getInstance()->getUmlSequenceDiagram();
 
             switch( $this->getOutputType() )
             {
                 case self::OUTPUT_TYPE_SCREEN:
                 {
-                	$strDiagram = XmlSequencePrinterDiagram::getInstance()->perform( $objXmlSequence );
+                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
                     print $strDiagram;
                     break;
                 }
                 case self::OUTPUT_TYPE_STRING:
                 {
-                	$strDiagram = XmlSequencePrinterDiagram::getInstance()->perform( $objXmlSequence );
+                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
                 	$strReturn = $strDiagram;
                     break;
                 }
                 case self::OUTPUT_TYPE_FILE:
                 {
-                	$strDiagram = XmlSequencePrinterDiagram::getInstance()->perform( $objXmlSequence );
+                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
                 	file_put_contents( $this->getFileName() , $strDiagram );
                     break;
                 }
                 case self::OUTPUT_TYPE_XML:
                 {
-                	$strReturn = XmlSequencePrinterXml::getInstance()->perform( $objXmlSequence );
+                	$strReturn = UmlSequenceDiagramPrinterToXml::getInstance()->perform( $objUmlSequenceDiagram );
                     break;
                 }
                 default:

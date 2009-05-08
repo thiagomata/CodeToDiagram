@@ -1,16 +1,16 @@
 <?php
 /**
- * XmlSequenceMessage - Class with the UML description of the sequence diagram message
- * @package XmlSequence
+ * UmlSequenceDiagramMessage - Class with the UML description of the sequence diagram message
+ * @package UmlSequenceDiagram
  */
 
 /**
- * Message send between actors into the XmlSequence object as the Sequence
+ * Message send between actors into the UmlSequenceDiagram object as the Sequence
  * Diagram UML guidelines append of more attributes as the code context make
  * usefull
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-class XmlSequenceMessage
+class UmlSequenceDiagramMessage
 {
     /**
      * Text of the message
@@ -18,6 +18,13 @@ class XmlSequenceMessage
      * @var string
      */
     protected $strText = null;
+
+    /**
+     * Method of the message
+     *
+     * @var string
+     */
+    protected $strMethod = null;
 
     /**
      * Type of the message ( call or return )
@@ -29,21 +36,21 @@ class XmlSequenceMessage
     /**
      * Actor what send the message
      *
-     * @var XmlSequenceActor
+     * @var UmlSequenceDiagramActor
      */
     protected $objActorFrom = null;
 
     /**
      * Actor what received the message
      *
-     * @var XmlSequenceActor
+     * @var UmlSequenceDiagramActor
      */
     protected $objActorTo = null;
 
     /**
      * Values of the message
      *
-     * @var XmlSequenceValue[]
+     * @var UmlSequenceDiagramValue[]
      */
     protected $arrValues = Array();
 
@@ -64,10 +71,10 @@ class XmlSequenceMessage
     /**
      * Set the text of the message
      *
-     * @see XmlSequenceMessage::getText()
-     * @see XmlSequenceMessage->strText
+     * @see UmlSequenceDiagramMessage::getText()
+     * @see UmlSequenceDiagramMessage->strText
      * @param string $strText
-     * @return XmlSequenceMessage me
+     * @return UmlSequenceDiagramMessage me
      */
     public function setText( $strText )
     {
@@ -77,9 +84,9 @@ class XmlSequenceMessage
 
     /**
      * Get the text of the message
-     * 
-     * @see XmlSequenceMessage::setText( string )
-     * @see XmlSequenceMessage->strText
+     *
+     * @see UmlSequenceDiagramMessage::setText( string )
+     * @see UmlSequenceDiagramMessage->strText
      * @return string
      */
     public function getText()
@@ -88,12 +95,38 @@ class XmlSequenceMessage
     }
 
     /**
+     * Set the Method of the message
+     *
+     * @see UmlSequenceDiagramMessage::getMethod()
+     * @see UmlSequenceDiagramMessage->strMethod
+     * @param string $strMethod
+     * @return UmlSequenceDiagramMessage me
+     */
+    public function setMethod( $strMethod )
+    {
+        $this->strMethod = $strMethod;
+        return $this;
+    }
+
+    /**
+     * Get the Method of the message
+     *
+     * @see UmlSequenceDiagramMessage::setMethod( string )
+     * @see UmlSequenceDiagramMessage->strMethod
+     * @return string
+     */
+    public function getMethod()
+    {
+        return $this->strMethod;
+    }
+
+    /**
      * Set the type of the message
      *
-     * @see XmlSequenceMessage::getType()
-     * @see XmlSequenceMessage->strType
+     * @see UmlSequenceDiagramMessage::getType()
+     * @see UmlSequenceDiagramMessage->strType
      * @param string $strType
-     * @return XmlSequenceMessage me
+     * @return UmlSequenceDiagramMessage me
      */
     public function setType( $strType )
     {
@@ -108,8 +141,8 @@ class XmlSequenceMessage
     /**
      * Get the type of the message
      *
-     * @see XmlSequenceMessage::setType( string )
-     * @see XmlSequenceMessage->strType
+     * @see UmlSequenceDiagramMessage::setType( string )
+     * @see UmlSequenceDiagramMessage->strType
      * @return string
      */
     public function getType()
@@ -120,13 +153,13 @@ class XmlSequenceMessage
     /**
      * Inform the actor who is the recipient of the message
      *
-     * @see XmlSequenceMessage::getActorFrom()
-     * @see XmlSequenceMessage->objActorFrom
-     * @see XmlSequenceActor
-     * @param XmlSequenceActor $objActor
-     * @return XmlSequenceMessage me
+     * @see UmlSequenceDiagramMessage::getActorFrom()
+     * @see UmlSequenceDiagramMessage->objActorFrom
+     * @see UmlSequenceDiagramActor
+     * @param UmlSequenceDiagramActor $objActor
+     * @return UmlSequenceDiagramMessage me
      */
-    public function setActorFrom( XmlSequenceActor $objActor )
+    public function setActorFrom( UmlSequenceDiagramActor $objActor )
     {
         $this->objActorFrom = $objActor;
         return $this;
@@ -135,10 +168,10 @@ class XmlSequenceMessage
     /**
      * Returns the actor who is the recipient of the message
      *
-     * @see XmlSequenceMessage::setActorFrom( XmlSequenceActor )
-     * @see XmlSequenceMessage->objActorFrom
-     * @see XmlSequenceActor
-     * @return XmlSequenceActor
+     * @see UmlSequenceDiagramMessage::setActorFrom( UmlSequenceDiagramActor )
+     * @see UmlSequenceDiagramMessage->objActorFrom
+     * @see UmlSequenceDiagramActor
+     * @return UmlSequenceDiagramActor
      */
      public function getActorFrom()
     {
@@ -148,13 +181,13 @@ class XmlSequenceMessage
     /**
      * Inform the actor who is the author of the message
      *
-     * @see XmlSequenceMessage::getActorTo()
-     * @see XmlSequenceMessage->objActorTo
-     * @see XmlSequenceActor
-     * @param XmlSequenceActor $objActor
-     * @return XmlSequenceMessage me
+     * @see UmlSequenceDiagramMessage::getActorTo()
+     * @see UmlSequenceDiagramMessage->objActorTo
+     * @see UmlSequenceDiagramActor
+     * @param UmlSequenceDiagramActor $objActor
+     * @return UmlSequenceDiagramMessage me
      */
-    public function setActorTo( XmlSequenceActor $objActor )
+    public function setActorTo( UmlSequenceDiagramActor $objActor )
     {
         $this->objActorTo = $objActor;
         return $this;
@@ -163,10 +196,10 @@ class XmlSequenceMessage
    /**
      * Returns the actor who is the author of the message
      *
-     * @see XmlSequenceMessage::setActorTo( XmlSequenceActor )
-     * @see XmlSequenceMessage->objActorTo
-     * @see XmlSequenceActor
-     * @return XmlSequenceActor
+     * @see UmlSequenceDiagramMessage::setActorTo( UmlSequenceDiagramActor )
+     * @see UmlSequenceDiagramMessage->objActorTo
+     * @see UmlSequenceDiagramActor
+     * @return UmlSequenceDiagramActor
      */
      public function getActorTo()
     {
@@ -176,11 +209,11 @@ class XmlSequenceMessage
     /**
      * Set the array of values of the message
      *
-     * @see XmlSequenceMessage::getValues()
-     * @see XmlSequenceMessage->arrValues
-     * @see XmlSequenceValue
-     * @param XmlSequenceValue[] $arrValues
-     * @return XmlSequenceMessage me
+     * @see UmlSequenceDiagramMessage::getValues()
+     * @see UmlSequenceDiagramMessage->arrValues
+     * @see UmlSequenceDiagramValue
+     * @param UmlSequenceDiagramValue[] $arrValues
+     * @return UmlSequenceDiagramMessage me
      */
     public function setValues( Array $arrValues )
     {
@@ -191,10 +224,10 @@ class XmlSequenceMessage
     /**
      * Get the array of values of the message
      *
-     * @see XmlSequenceMessage::setValues( XmlSequenceValue[] )
-     * @see XmlSequenceMessage->arrValues
-     * @see XmlSequenceValue
-     * @return XmlSequenceValue[]
+     * @see UmlSequenceDiagramMessage::setValues( UmlSequenceDiagramValue[] )
+     * @see UmlSequenceDiagramMessage->arrValues
+     * @see UmlSequenceDiagramValue
+     * @return UmlSequenceDiagramValue[]
      */
     public function getValues()
     {
@@ -202,16 +235,16 @@ class XmlSequenceMessage
     }
 
     /**
-     * Append one XmlSequenceValue into the collection of Values of the
+     * Append one UmlSequenceDiagramValue into the collection of Values of the
      * message
      *
-     * @see XmlSequenceMessage::setValues( XmlSequenceValue[] )
-     * @see XmlSequenceMessage->arrValues
-     * @see XmlSequenceMessage::getValues()
-     * @see XmlSequenceValue
-     * @param XmlSequenceValue $objValue
+     * @see UmlSequenceDiagramMessage::setValues( UmlSequenceDiagramValue[] )
+     * @see UmlSequenceDiagramMessage->arrValues
+     * @see UmlSequenceDiagramMessage::getValues()
+     * @see UmlSequenceDiagramValue
+     * @param UmlSequenceDiagramValue $objValue
      */
-    public function addValue( XmlSequenceValue $objValue )
+    public function addValue( UmlSequenceDiagramValue $objValue )
     {
         $this->arrValues[] = $objValue;
     }
@@ -219,10 +252,10 @@ class XmlSequenceMessage
     /**
      * Set the timestamp when the message started
      *
-     * @see XmlSequenceMessage->intTimeStart
-     * @see XmlSequenceMessage::getTimeStart()
+     * @see UmlSequenceDiagramMessage->intTimeStart
+     * @see UmlSequenceDiagramMessage::getTimeStart()
      * @param integer $intTime
-     * @return XmlSequenceMessage
+     * @return UmlSequenceDiagramMessage
      */
    public function setTimeStart( $intTime )
     {
@@ -233,8 +266,8 @@ class XmlSequenceMessage
     /**
      * Get the timestamp when the message started
      *
-     * @see XmlSequenceMessage->intTimeStart
-     * @see XmlSequenceMessage::setTimeStart( integer )
+     * @see UmlSequenceDiagramMessage->intTimeStart
+     * @see UmlSequenceDiagramMessage::setTimeStart( integer )
      * @return integer
      */
     public function getTimeStart()
@@ -245,10 +278,10 @@ class XmlSequenceMessage
     /**
      * Set the timestamp when the message ends
      *
-     * @see XmlSequenceMessage->intTimeEnds
-     * @see XmlSequenceMessage::getTimeEnds()
+     * @see UmlSequenceDiagramMessage->intTimeEnds
+     * @see UmlSequenceDiagramMessage::getTimeEnds()
      * @param integer $intTime
-     * @return XmlSequenceMessage
+     * @return UmlSequenceDiagramMessage
      */
     public function setTimeEnd( $intTime )
     {
@@ -259,8 +292,8 @@ class XmlSequenceMessage
     /**
      * Get the timestamp when the message ends
      *
-     * @see XmlSequenceMessage->intTimeEnd
-     * @see XmlSequenceMessage::setTimeEnd( integer )
+     * @see UmlSequenceDiagramMessage->intTimeEnd
+     * @see UmlSequenceDiagramMessage::setTimeEnd( integer )
      * @return integer
      */
     public function getTimeEnd()

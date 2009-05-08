@@ -1,43 +1,43 @@
 <?php
 /**
- * XmlSequencePrinterXml - Convert a XmlSequence into a Xml
- * @package XmlSequence
+ * UmlSequenceDiagramPrinterToXml - Convert a UmlSequenceDiagram into a Xml
+ * @package UmlSequenceDiagram
  */
 
 /**
- * Generate a html diagram of the xml sequence object
+ * Generate a Xml from the Uml Sequence Diagram object
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */
-class XmlSequencePrinterXml implements XmlSequencePrinterInterface
+class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterface
 {
 	/**
-	 * xml sequence object what will be print
+	 * Uml Sequence Diagram object what will be print
 	 * 
-	 * @see XmlSequencePrinterInterface->objXmlSequence
-	 * @var XmlSequence
+	 * @see UmlSequenceDiagramPrinterInterface->objUmlSequenceDiagram
+	 * @var UmlSequenceDiagram
 	 */
-	protected $objXmlSequence;
+	protected $objUmlSequenceDiagram;
 	
 	/**
-	 * Singleton of the XmlSequencePrinterXml
+	 * Singleton of the UmlSequenceDiagramPrinterToXml
 	 * 
-	 * @see XmlSequencePrinterInterface::$objInstance
-	 * @var XmlSequencePrinterXml
+	 * @see UmlSequenceDiagramPrinterInterface::$objInstance
+	 * @var UmlSequenceDiagramPrinterToXml
 	 */
 	protected static $objInstance;	
 
 	/**
-	 * Return the singleton of the XmlSequencePrinterXml
+	 * Return the singleton of the UmlSequenceDiagramPrinterToXml
 	 * 
-	 * @see XmlSequencePrinterInterface::getInstance
-	 * @return XmlSequencePrinterXml
+	 * @see UmlSequenceDiagramPrinterInterface::getInstance
+	 * @return UmlSequenceDiagramPrinterToXml
 	 */
 	public static function getInstance()
 	{
 		if( self::$objInstance == null )
 		{
-			self::$objInstance = new XmlSequencePrinterXml();
+			self::$objInstance = new UmlSequenceDiagramPrinterToXml();
 		}
 		return self::$objInstance;
 	}
@@ -45,22 +45,22 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
 	/**
 	 * Perfom the print process
 	 *  
-	 * @see XmlSequencePrinterInterface::perform( XmlSequence )
-	 * @param XmlSequence $objXmlSequence
+	 * @see UmlSequenceDiagramPrinterInterface::perform( UmlSequenceDiagram )
+	 * @param UmlSequenceDiagram $objUmlSequenceDiagram
 	 * @return mixer
 	 */
-	public function perform( XmlSequence $objXmlSequence )
+	public function perform( UmlSequenceDiagram $objUmlSequenceDiagram )
 	{
-		$this->objXmlSequence = $objXmlSequence;
+		$this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
 		return $this->createXml();	
 	}
 
     /**
      * Create and return the xml of the sequence diagram object
      *
-     * @see XmlSequencePrinterXml::createXmlHeader()
-     * @see XmlSequencePrinterXml::createXmlActors()
-     * @see XmlSequencePrinterXml::createXmlFooter()
+     * @see UmlSequenceDiagramPrinterToXml::createXmlHeader()
+     * @see UmlSequenceDiagramPrinterToXml::createXmlActors()
+     * @see UmlSequenceDiagramPrinterToXml::createXmlFooter()
      * @return string
      */
     public function createXml()
@@ -104,12 +104,12 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
      */
     public function createXmlActors()
     {
-    	$arrActors = $this->objXmlSequence->getActors();
+    	$arrActors = $this->objUmlSequenceDiagram->getActors();
     	
         $strXmlActors = "<actors>\n";
         foreach( $arrActors as $objActor )
         {
-            /** @var $objActor XmlSequenceActor */
+            /** @var $objActor UmlSequenceDiagramActor */
             $strXmlActors .= "<actor ";
             $strXmlActors .= 'id="' . $objActor->getId() . '" ';
             $strXmlActors .= 'type="' . $objActor->getType() . '" ';
@@ -128,12 +128,12 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
      */
     public function createXmlMessages()
     {
-    	$arrMessages = $this->objXmlSequence->getMessages();
+    	$arrMessages = $this->objUmlSequenceDiagram->getMessages();
     	
     	$strXmlMessages = "<messages>\n";
         foreach( $arrMessages as $objMessage )
         {
-            /** @var $objMessage XmlSequenceMessage */
+            /** @var $objMessage UmlSequenceDiagramMessage */
             
             $strXmlMessages .= "<message ";
             $strXmlMessages .= 'type="' . $objMessage->getType() . '" ';
@@ -147,7 +147,7 @@ class XmlSequencePrinterXml implements XmlSequencePrinterInterface
             $arrValues = $objMessage->getValues();
             foreach($arrValues as $objValue )
             {
-                /** @var $objValue XmlSequenceValue */
+                /** @var $objValue UmlSequenceDiagramValue */
                 $strXmlMessages .= "<value ";
                 $strXmlMessages .= 'name = "' . $objValue->getName() . '" ';
                 $strXmlMessages .= 'value = "' . $objValue->getValue() . '" ';

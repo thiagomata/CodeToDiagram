@@ -1,72 +1,72 @@
 <?php
 /**
- * XmlSequenceFactoryXml - Create a XmlSequence based on one Xml
- * @package XmlSequence
+ * UmlSequenceDiagramFactoryFromXml - Create a UmlSequenceDiagram based into Xml Files
+ * @package UmlSequenceDiagram
  */
 
 /**
- * Factory what creates XmlSequence based into Xml Files
+ * Factory what creates UmlSequenceDiagram based into Xml Files
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
+class UmlSequenceDiagramFactoryFromXml implements UmlSequenceDiagramFactoryInterface
 {
 	/**
-	 * Singleton of the XmlSequenceFactoryXml
-	 * 
-	 * @see XmlSequenceFactoryInterface::$objInstance
-	 * @var XmlSequenceFactoryXml
+	 * Singleton of the UmlSequenceDiagramFactoryFromXml
+	 *
+	 * @see UmlSequenceDiagramFactoryInterface::$objInstance
+	 * @var UmlSequenceDiagramFactoryFromXml
 	 */
-	protected static $objInstance;	
-		
+	protected static $objInstance;
+
 	/**
 	 * Xml Sequence Object in factory
-	 * 
-	 * @see XmlSequenceFactoryInterface->objXmlSequence
-	 * @var XmlSequence
+	 *
+	 * @see UmlSequenceDiagramFactoryInterface->objUmlSequenceDiagram
+	 * @var UmlSequenceDiagram
 	 */
-	protected $objXmlSequence;
-	
+	protected $objUmlSequenceDiagram;
+
 	/**
-	 * Simple Xml element used to access information from a xml
-	 * 
+	 * Simple Xml Element used to access information from a xml
+	 *
 	 * @var SimpleXmlElement
 	 */
     protected $objXml;
 
 	/**
-	 * Return the singleton of the XmlSequenceFactoryXml
-	 * 
-	 * @return XmlSequenceFactoryXml
+	 * Return the singleton of the UmlSequenceDiagramFactoryFromXml
+	 *
+	 * @return UmlSequenceDiagramFactoryFromXml
 	 */
 	public static function getInstance()
 	{
 		if( self::$objInstance == null )
 		{
-			self::$objInstance = new XmlSequenceFactoryXml();
+			self::$objInstance = new UmlSequenceDiagramFactoryFromXml();
 		}
 		return self::$objInstance;
-	}		
-        
-    
+	}
+
+
 	/**
 	 * Set the xml of the sequence object
-	 * 
-	 * @see XmlSequence->objXml
-	 * @see XmlSequence::getXml()
+	 *
+	 * @see UmlSequenceDiagram->objXml
+	 * @see UmlSequenceDiagram::getXml()
 	 * @param string $strXml
-	 * @return XmlSequenceFactoryXml me
+	 * @return UmlSequenceDiagramFactoryFromXml me
 	 */
     public function setXml( $strXml )
     {
         $this->objXml = simplexml_load_string( $strXml );
         return $this;
     }
-     
+
 	/**
 	 * Get the xml of the sequence object
-	 * 
-	 * @see XmlSequence->objXml
-	 * @see XmlSequence::setXml( string )
+	 *
+	 * @see UmlSequenceDiagram->objXml
+	 * @see UmlSequenceDiagram::setXml( string )
 	 * @param string $strXml
 	 * @return SimpleXmlElement
 	 */
@@ -77,57 +77,57 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
 
     /**
      * set the xml sequence object
-     * 
-	 * @see XmlSequenceFactoryInterface->setXmlSequence( XmlSequence )
-     * @param $objXmlSequence
-     * @return XmlSequenceFactoryXml me
+     *
+	 * @see UmlSequenceDiagramFactoryInterface->setUmlSequenceDiagram( UmlSequenceDiagram )
+     * @param $objUmlSequenceDiagram
+     * @return UmlSequenceDiagramFactoryFromXml me
      */
-    public function setXmlSequence( XmlSequence $objXmlSequence )
+    public function setUmlSequenceDiagram( UmlSequenceDiagram $objUmlSequenceDiagram )
     {
-    	$this->objXmlSequence = $objXmlSequence;	
+    	$this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
     	return $this;
     }
-    
+
     /**
      * get the xml sequence object
-     * 
-	 * @see XmlSequenceFactoryInterface->getXmlSequence()
-     * @return XmlSequence
+     *
+	 * @see UmlSequenceDiagramFactoryInterface->getUmlSequenceDiagram()
+     * @return UmlSequenceDiagram
      */
-    public function getXmlSequence()
+    public function getUmlSequenceDiagram()
     {
-    	return $this->objXmlSequence;	
+    	return $this->objUmlSequenceDiagram;
     }
-    
+
     /**
-     * create a xml sequence based into its configurations
-     * 
-	 * @see XmlSequenceFactoryInterface->perform()
-     * @return XmlSequence
+     * create a UmlSequenceDiagram based into its configurations
+     *
+	 * @see UmlSequenceDiagramFactoryInterface->perform()
+     * @return UmlSequenceDiagram
      */
     public function perform()
     {
-    	$this->setXmlSequence( new XmlSequence() );
+    	$this->setUmlSequenceDiagram( new UmlSequenceDiagram() );
         $this->loadActors();
         $this->loadMessages();
-        return $this->getXmlSequence();
+        return $this->getUmlSequenceDiagram();
     }
 
     /**
      * Load the xml file and based on it insert a list of actors into the
-     * XmlSequence Object
+     * UmlSequenceDiagram Object
      */
     protected function loadActors()
     {
-    	$arrActors = $this->getXmlSequence()->getActors();
-    	
+    	$arrActors = $this->getUmlSequenceDiagram()->getActors();
+
       	foreach( $this->objXml->actors->actor as $xmlActor )
         {
             $intId = (integer)$xmlActor['id'];
             $strType = (string)$xmlActor['type'];
             $strName = (string)$xmlActor;
 
-            $objActor = new XmlSequenceActor();
+            $objActor = new UmlSequenceDiagramActor();
             $objActor->setId( $intId );
             $objActor->setType( $strType );
             $objActor->setName( $strName );
@@ -135,18 +135,18 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
             $arrActors[ $objActor->getId() ] = $objActor;
         }
         ksort( $arrActors );
-        $this->getXmlSequence()->setActors( $arrActors );
+        $this->getUmlSequenceDiagram()->setActors( $arrActors );
     }
 
     /**
      * Load the xml file and based on it insert a list of messages into the
-     * XmlSequence Object
+     * UmlSequenceDiagram Object
      */
     protected function loadMessages()
     {
-    	$arrMessages = $this->getXmlSequence()->getMessages();
-    	$arrActors = $this->getXmlSequence()->getActors();
-    	
+    	$arrMessages = $this->getUmlSequenceDiagram()->getMessages();
+    	$arrActors = $this->getUmlSequenceDiagram()->getActors();
+
     	foreach( $this->objXml->messages->message as $xmlMessage )
         {
             $intFrom    = (integer)$xmlMessage[ 'from' ];
@@ -154,7 +154,7 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
             $strType    = (string) $xmlMessage[ 'type' ];
             $strText = (string) $xmlMessage[ 'text' ];
 
-            $objMessage = new XmlSequenceMessage();
+            $objMessage = new UmlSequenceDiagramMessage();
             $objMessage->setType( $strType );
             $objMessage->setText( $strText );
 
@@ -175,7 +175,7 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
             {
                 $strName = (string)$xmlValue['name'];
                 $strValue = (string)$xmlValue['value'];
-                $objValue = new XmlSequenceValue();
+                $objValue = new UmlSequenceDiagramValue();
                 $objValue->setName( $strName );
                 $objValue->setValue( $strValue );
 
@@ -184,7 +184,7 @@ class XmlSequenceFactoryXml implements XmlSequenceFactoryInterface
 
             $arrMessages[] = $objMessage;
         }
-        $this->getXmlSequence()->setMessages( $arrMessages );
+        $this->getUmlSequenceDiagram()->setMessages( $arrMessages );
     }
 }
 ?>

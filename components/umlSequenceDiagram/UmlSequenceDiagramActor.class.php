@@ -1,14 +1,14 @@
 <?php
 /**
- * XmlSequenceActor - UML object of the sequence diagram actor
- * @package XmlSequence
+ * UmlSequenceDiagramActor - UML object of the sequence diagram actor
+ * @package UmlSequenceDiagram
  */
 
 /**
  * Actor of the object of the uml sequence diagram object
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-class XmlSequenceActor
+class UmlSequenceDiagramActor
 {
     /**
      * Unique Id of each actor of the sequence
@@ -41,8 +41,8 @@ class XmlSequenceActor
     /**
      * Get the id of the actor
      *
-     * @see XmlSequenceActor::setId( integer )
-     * @see XmlSequenceActor->intId
+     * @see UmlSequenceDiagramActor::setId( integer )
+     * @see UmlSequenceDiagramActor->intId
      * @return integer
      */
     public function getId()
@@ -53,9 +53,9 @@ class XmlSequenceActor
     /**
      * Set the id of the actor
      *
-     * @see XmlSequenceActor::getId()
-     * @see XmlSequenceActor->intId
-     * @return XmlSequenceActor
+     * @see UmlSequenceDiagramActor::getId()
+     * @see UmlSequenceDiagramActor->intId
+     * @return UmlSequenceDiagramActor
      */
     public function setId( $intId )
     {
@@ -66,8 +66,8 @@ class XmlSequenceActor
     /**
      * Get the type of the actor
      *
-     * @see XmlSequenceActor::setType( string )
-     * @see XmlSequenceActor->strType
+     * @see UmlSequenceDiagramActor::setType( string )
+     * @see UmlSequenceDiagramActor->strType
      * @return string
      */
     public function getType()
@@ -78,9 +78,9 @@ class XmlSequenceActor
     /**
      * Set the type of the actor
      *
-     * @see XmlSequenceActor::getType()
-     * @see XmlSequenceActor->strType
-     * @return XmlSequenceActor
+     * @see UmlSequenceDiagramActor::getType()
+     * @see UmlSequenceDiagramActor->strType
+     * @return UmlSequenceDiagramActor
      */
     public function setType($strType)
     {
@@ -95,8 +95,8 @@ class XmlSequenceActor
     /**
      * Get the name of the actor
      *
-     * @see XmlSequenceActor::setName( string )
-     * @see XmlSequenceActor->strName
+     * @see UmlSequenceDiagramActor::setName( string )
+     * @see UmlSequenceDiagramActor->strName
      * @return string
      */
     public function getName()
@@ -107,9 +107,9 @@ class XmlSequenceActor
     /**
      * Set the name of the actor
      *
-     * @see XmlSequenceActor::getName()
-     * @see XmlSequenceActor->strName
-     * @return XmlSequenceActor
+     * @see UmlSequenceDiagramActor::getName()
+     * @see UmlSequenceDiagramActor->strName
+     * @return UmlSequenceDiagramActor
      */
     public function setName( $strName )
     {
@@ -119,8 +119,8 @@ class XmlSequenceActor
     /**
      * Get the class name of the actor
      *
-     * @see XmlSequenceActor::setClassName( string )
-     * @see XmlSequenceActor->strClassName
+     * @see UmlSequenceDiagramActor::setClassName( string )
+     * @see UmlSequenceDiagramActor->strClassName
      * @return string
      */
     public function getClassName() {
@@ -130,9 +130,9 @@ class XmlSequenceActor
     /**
      * Set the class name of the actor
      *
-     * @see XmlSequenceActor::getClassName()
-     * @see XmlSequenceActor->strClassName
-     * @return XmlSequenceActor
+     * @see UmlSequenceDiagramActor::getClassName()
+     * @see UmlSequenceDiagramActor->strClassName
+     * @return UmlSequenceDiagramActor
      */
     public function setClassName($strClassName) {
         $this->strClassName = $strClassName;

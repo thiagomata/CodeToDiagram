@@ -1,33 +1,32 @@
 <?php
 /**
- * XmlSequencePrinterDiagram - Generate a html diagram of the xml sequence object
- * @package XmlSequence
+ * UmlSequenceDiagramPrinterToHtml - Generate a html diagram of the Uml Sequence Diagram object
+ * @package UmlSequenceDiagram
  */
 
 /**
- * Generate a html diagram of the xml sequence object
+ * Generate a html diagram of the Uml Sequence Diagram object
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */
-class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
+class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterface
 {
 	/**
-	 * xml sequence object what will be print
+	 * Uml Sequence Diagram object what will be print
 	 * 
-	 * @see XmlSequencePrinterInterface->objXmlSequence
-	 * @var XmlSequence
+	 * @see UmlSequenceDiagramPrinterInterface->objUmlSequenceDiagram
+	 * @var UmlSequenceDiagram
 	 */
-	protected $objXmlSequence;
+	protected $objUmlSequenceDiagram;
 	
 	/**
-	 * Singleton of the XmlSequencePrinterDiagram
+	 * Singleton of the UmlSequenceDiagramPrinterToHtml
 	 * 
-	 * @see XmlSequencePrinterInterface::$objInstance
-	 * @var XmlSequencePrinterDiagram
+	 * @see UmlSequenceDiagramPrinterInterface::$objInstance
+	 * @var UmlSequenceDiagramPrinterToHtml
 	 */
 	protected static $objInstance;
-	
 	
     /**
      * width ( in pixels ) for each message
@@ -65,16 +64,16 @@ class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
     protected $intZoom = 100;
 
 	/**
-	 * Return the singleton of the XmlSequencePrinterDiagram
+	 * Return the singleton of the UmlSequenceDiagramPrinterToHtml
 	 * 
-	 * @see XmlSequencePrinterInterface::getInstance
-	 * @return XmlSequencePrinterDiagram
+	 * @see UmlSequenceDiagramPrinterInterface::getInstance
+	 * @return UmlSequenceDiagramPrinterToHtml
 	 */
 	public static function getInstance()
 	{
 		if( self::$objInstance == null )
 		{
-			self::$objInstance = new XmlSequencePrinterDiagram();
+			self::$objInstance = new UmlSequenceDiagramPrinterToHtml();
 		}
 		return self::$objInstance;
 	}
@@ -82,22 +81,21 @@ class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
 	/**
 	 * Perfom the print process
 	 *  
-	 * @see XmlSequencePrinterInterface::perform( XmlSequence )
-	 * @param XmlSequence $objXmlSequence
+	 * @see UmlSequenceDiagramPrinterInterface::perform( UmlSequenceDiagram )
+	 * @param UmlSequenceDiagram $objUmlSequenceDiagram
 	 * @return mixer
 	 */
-	public function perform( XmlSequence $objXmlSequence )
+	public function perform( UmlSequenceDiagram $objUmlSequenceDiagram )
 	{
-		$this->objXmlSequence = $objXmlSequence;
+		$this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
 		return $this->show();	
 	}
-
 
     /**
      * Set the zoom of the diagram
      * 
      * @param integer $intZoom
-     * @return XmlSequence me
+     * @return UmlSequenceDiagram me
      */
     public function setZoom( $intZoom )
     {
@@ -122,6 +120,7 @@ class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
         $strHtml .= $this->showActors();
         $strHtml .= $this->showMessages();
         $strHtml .= $this->showFooter();
+        $strHtml .= $this->showDetails();
         return $strHtml;
     }
 
@@ -132,20 +131,20 @@ class XmlSequencePrinterDiagram implements XmlSequencePrinterInterface
      */
     protected function showHeaders()
     {
-        if( $this->objXmlSequence->getCallerPath() != null and $this->objXmlSequence->getPublicPath() != null )
+        if( $this->objUmlSequenceDiagram->getCallerPath() != null and $this->objUmlSequenceDiagram->getPublicPath() != null )
         {
-            $strPublicPath = CorujaFileManipulation::getRelativePath( $this->objXmlSequence->getCallerPath(), $this->objXmlSequence->getPublicPath() );
+            $strPublicPath = CorujaFileManipulation::getRelativePath( $this->objUmlSequenceDiagram->getCallerPath(), $this->objUmlSequenceDiagram->getPublicPath() );
         }
-        elseif( $this->objXmlSequence->getCallerPath() == null and $this->objXmlSequence->getPublicPath() != null )
+        elseif( $this->objUmlSequenceDiagram->getCallerPath() == null and $this->objUmlSequenceDiagram->getPublicPath() != null )
         {
-            $strPublicPath = $this->objXmlSequence->getPublicPath();
+            $strPublicPath = $this->objUmlSequenceDiagram->getPublicPath();
         }
         else
         {
             $strPublicPath = "./";
         }
 
-        $intQtdActors = sizeof( $this->objXmlSequence->getActors() );
+        $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
         $intQtdMessages = $intQtdActors + 1;
         $intBodyWidth =
             ( $this->intMessageWidth * $intQtdMessages * $this->intZoom / 100 )
@@ -209,12 +208,12 @@ HTML;
     <div class="line head">
 HTML;
 
-        $arrActors = $this->objXmlSequence->getActors();
+        $arrActors = $this->objUmlSequenceDiagram->getActors();
         
         foreach( $arrActors as $objActor )
         {
             /**
-             * @var $objActor XmlSequenceActor
+             * @var $objActor UmlSequenceDiagramActor
              */
 
             $arrActorName = explode( ":" , $objActor->getName() );
@@ -257,14 +256,14 @@ HTML;
     {
         $strHtmlMessages = '';
 
-        $arrMessages = $this->objXmlSequence->getMessages();
+        $arrMessages = $this->objUmlSequenceDiagram->getMessages();
         
-        foreach( $arrMessages as $intKey => $objMessage )
+        foreach( $arrMessages as $intMessageId => $objMessage )
         {
-            $intPos = $intKey + 1;
+            $intPos = $intMessageId + 1;
 
             /**
-             * @var $objMessage XmlSequenceMessage
+             * @var $objMessage UmlSequenceDiagramMessage
              */
             if( $objMessage->isReverse() )
             {
@@ -286,7 +285,7 @@ $strHtmlMessages .=
                     </div>
                   </div>
 HTML;
-            $arrActors = $this->objXmlSequence->getActors();
+            $arrActors = $this->objUmlSequenceDiagram->getActors();
 
             $strReverse = $objMessage->isReverse() ? 'reverse' : 'regular';
             $strLarge = $objMessage->isLarge() ? 'large' : 'short';
@@ -299,12 +298,12 @@ HTML;
 
                 if( $objActorNext == false )
                 {
-                    $objActorNext = new XmlSequenceActor();
+                    $objActorNext = new UmlSequenceDiagramActor();
                     $objActorNext->setId( $objActorActual->getId() + 1 );
                 }
                 /**
-                 * @var $objActorNext XmlSequenceActor
-                 * @var $objActorActual XmlSequenceActor
+                 * @var $objActorNext UmlSequenceDiagramActor
+                 * @var $objActorActual UmlSequenceDiagramActor
                  */
 
                if( $objActorActual->getId() < $intStart )
@@ -329,6 +328,8 @@ HTML;
                elseif( $objActorActual->getId() == $intStart )
                {
                    // start line //
+                   $strText = $objMessage->getText();
+                   $strText = UmlSequenceDiagramPrinterToHtml::getMessageText( $intMessageId , $objMessage );
                     $strHtmlMessages .=
 <<<HTML
                   <div class="actor start">
@@ -339,7 +340,9 @@ HTML;
 
                   <div class="row {$objMessage->getType()} {$strReverse} {$strLarge} {$strRecursive} start ">
                     <div class="message ">
-                      <span><strong>{$intPos}</strong>. {$objMessage->getText()}</span>
+                        <a href="#message_$intMessageId" class="noLink">
+                        <span><strong>{$intPos}</strong>. {$strText}</span>
+                        </a>
                     {$this->showValues( $objMessage )}
                     </div>
                   </div>
@@ -424,10 +427,10 @@ HTML;
      * Create and return the html of some values of some messages into the html
      * sequence diagram
      *
-     * @param XmlSequenceMessage $objXmlMessage
+     * @param UmlSequenceDiagramMessage $objXmlMessage
      * @return string
      */
-    public function showValues( XmlSequenceMessage $objXmlMessage )
+    public function showValues( UmlSequenceDiagramMessage $objXmlMessage )
     {
         $arrValues = $objXmlMessage->getValues();
         if( sizeof( $arrValues ) > 0 )
@@ -438,8 +441,22 @@ HTML;
             foreach( $arrValues as $objValue )
             {
                 $strHtml .= '<li>' . "\n";
-                $strHtml .= '   <strong>' . $objValue->getName() . '</strong>' . "\n";
-                $strHtml .= '   ' . $objValue->getValue() . ' ' . "\n";
+                if( $objXmlMessage->getType() != 'return' )
+                {
+                    $strHtml .= '   <strong> $' . $objValue->getName() . '</strong>' . "\n";
+                }
+                else
+                {
+                    $strHtml .= '   <strong> ' . $objValue->getName() . '</strong>' . "\n";
+                }
+                if( is_object( $objValue->getValue()  ) )
+                {
+                    $strHtml .= '   <span> object ' . get_class( $objValue->getValue() ). ' </span>' . "\n";
+                }
+                else
+                {
+                    $strHtml .= '   <span>' . gettype( $objValue->getValue() ) . ' ' . var_export( $objValue->getValue() , true ). ' </span>' . "\n";
+                }
                 $strHtml .= '</li>' . "\n";
 
             }
@@ -451,6 +468,150 @@ HTML;
             $strHtml = '';
         }
         return $strHtml;
+    }
+
+    public function showDetails()
+    {
+        $strHtml = '';
+        $strHtml .= '<div id="detail"><ol>' . "\n";
+
+        $arrMessages = $this->objUmlSequenceDiagram->getMessages();
+        foreach( $arrMessages as $intMessageId => $objMessage )
+        {
+            /**
+             * @var $objMessage UmlSequenceDiagramMessage
+             **/
+            $strHtml .= '<div class="message" id="message_' . $intMessageId . '">' . "\n";
+
+            $strText = html_entity_decode( $objMessage->getText() );
+
+            switch( $strText )
+            {
+                case '<<create>>':
+                {
+                    $strText .= $objMessage->getActorFrom()->getName() . ' create new ' . $objMessage->getActorTo()->getName();
+                    break;
+                }
+                case '<<destroy>>':
+                {
+                    $strText .= $objMessage->getActorFrom()->getName() . ' destroy ' . $objMessage->getActorTo()->getName();
+                    break;
+                }
+                default:
+                {
+                    if( $objMessage->getType() == 'call' )
+                    {
+                        $strText = $objMessage->getActorFrom()->getName() . ' ' . $objMessage->getType() . ' ' . $objMessage->getActorTo()->getName() . '->' . self::getMessageText( $intMessageId , $objMessage );
+                    }
+                    else
+                    {
+                        $strText = $objMessage->getActorFrom()->getName() . ' receive from ' . $objMessage->getActorTo()->getName() . '->' . $objMessage->getText();
+                    }
+                    break;
+                }
+            }
+
+            $strHtml .= '<li><a name="message_' . $intMessageId . '">' . $strText . '</a></li>' . "\n";
+            $arrValues = $objMessage->getValues();
+
+
+            $strHtml .= '<div class="values" >' . "\n";
+            foreach( $arrValues as $intValueId => $objValue )
+            {
+                if( $objMessage->getType() != 'return' )
+                {
+                    $strHtml .= '<strong><a class="noLink" name="message_' . $intMessageId . '_param_' . $intValueId . '" > $' . $objValue->getName() . ' </a></strong>' . "\n";
+                }
+                else
+                {
+                    $strHtml .= '<strong> ' . $objValue->getName() . ' </strong>' . "\n";
+                }
+                $strHtml .= '   <div>' .  self::showVar( $objValue->getValue() ). '</div>' . "\n";
+            }
+
+            $strHtml .= '</div></div>' . "\n";
+        }
+
+        $strHtml .= '</ol></div>' . "\n";
+        return $strHtml;
+    }
+
+    private static function showVar( $mixVar )
+    {
+        $strHtml = highlight_string( '<?php ' .
+            self::removeRecursiveProblem(
+                    $mixVar
+            ),
+            true
+        );
+        $strHtml = str_replace( '&lt;?php&nbsp;', '', $strHtml );
+        return $strHtml;
+    
+    }
+    /**
+     * When objects with recursive are export to string one error happen. This
+     * code it is a work around to recusive object can be see. They recursive
+     * call are replace to string with the "recursive" value
+     *
+     * @param object $mixExpression
+     */
+    private static function removeRecursiveProblem( $mixExpression )
+    {
+        $mixExpression = serialize( $mixExpression );
+        $arrExpression = explode( ";" , $mixExpression );
+        foreach( $arrExpression as $intKey => $strExpression )
+        {
+            $arrElement = explode( ":" , $strExpression );
+            if( $arrElement[0] == "r" )
+            {
+                $arrElement[0] = "s";
+                $arrElement[2] = '"*recursive*"';
+                $arrElement[1] = strlen( $arrElement[2] ) - 2;
+            }
+            $arrExpression[ $intKey ] = implode( ":" , $arrElement );
+        }
+
+        $mixExpression = implode( ";" , $arrExpression );
+        $mixExpression = unserialize( $mixExpression );
+
+        $mixExpression = ( var_export( $mixExpression , true )  );
+        $arrClasses = explode( "::" , $mixExpression );
+
+        foreach( $arrClasses as $intKey => $strClass )
+        {
+            $arrClass = explode( " " , $strClass );
+            $intLast =  sizeof( $arrClass ) - 1;
+            $arrClass[ $intLast ] = ''. $arrClass[ $intLast ] . '';
+            $strClass = implode( " " , $arrClass );
+            $arrClasses[ $intKey ] = $strClass;
+        }
+
+        $mixExpression = implode( "::" , $arrClasses );
+        return $mixExpression;
+    }
+
+    private static function getMessageText( $intMessageId , UmlSequenceDiagramMessage $objMessage )
+    {
+        $strText = $objMessage->getText();
+        if( $objMessage->getType() != 'call' )
+        {
+            return  $strText;
+        }
+        $strClass = $objMessage->getActorTo()->getClassName();
+        $strMethod = $objMessage->getMethod();
+        $objReflectedClass = new CodeReflectionClass( $strClass );
+        $objReflectedMethod = $objReflectedClass->getMethod( $strMethod );
+        $arrReflectedParameter = $objReflectedMethod->getParameters();
+        $arrSearch = array();
+        $arrReplace = array();
+        foreach( $arrReflectedParameter as $intPos => $objReflectedParameter )
+        {
+            $arrSearch[] = $objReflectedParameter->getCode();
+            $arrReplace[] = '<a class="noLink" href="#message_' . $intMessageId . '_param_' . $intPos . '">' . $objReflectedParameter->getCode() . '</a>';
+        }
+        $strText = str_replace( $arrSearch , $arrReplace , $strText );
+
+        return $strText;
     }
 }
 ?>

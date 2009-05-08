@@ -41,12 +41,9 @@ class CodeInstrumentationClass extends CodeReflectionClass
     /**
      * Returns the editable class name
      *
-	 * @test 
-     * <code>
-     *      $this->setClassName( "something" );
-     *      $this->getClassName() == "something"
-     * </code>
-	 *
+     * @example{
+     *  $this->setClassName( "new_class" )->getClassName() == "new_class"
+     * }
      * @see CodeInstrumentationClass->strName
      * @see CodeInstrumentationClass::setClassName( string )
      * @return string
@@ -65,11 +62,10 @@ class CodeInstrumentationClass extends CodeReflectionClass
 
     /**
      * Set the editable class name
-     * 
-	 * @test
-     * <pre><code>
-     *      $this->setClassName( "something" )->getClassName() == "something"
-     * </code></pre>
+     *
+     * @example{
+     *  $this->setClassName( "new_class" )->getClassName() == "new_class"
+     * }
 	 *
      * @assert( "something" )
      *

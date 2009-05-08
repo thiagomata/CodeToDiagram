@@ -8,10 +8,10 @@
  * Class create to make possible the creation of code instrumentation of executions.
  * 
  * It receive the messages of enter methods and leave methods, into what object, of what class
- * and, based into this informations, create a xmlSequence object.
+ * and, based into this informations, create a UmlSequenceDiagram object.
  * 
- * The xml sequence object created, can be used for many ways, since create a xml, create a 
- * diagram file, etc.
+ * The uml sequence diagram object created, can be used for many ways, since create a xml, create a
+ * diagram file, etc. as the printers avaliable of it.
  * 
  * @todo make filter methods to reduce the diagram of big executions
  * 
@@ -19,7 +19,7 @@
  * @see CodeInstrumentationClass
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-class CodeInstrumentationReceiver
+class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
 {
 	/**
 	 * singletoon of the CodeInstrumentationReceiver
@@ -30,7 +30,7 @@ class CodeInstrumentationReceiver
 
     /**
      * param if the null return should be saved as a message
-     * into the xml sequence object
+     * into the uml sequence diagram object
      * 
      * @var boolean
      */
@@ -38,7 +38,7 @@ class CodeInstrumentationReceiver
     
     /**
      * param if the recursive call should be ignored into
-     * the xml sequence object
+     * the uml sequence diagram object
      * 
      * @var boolean
      */
@@ -46,9 +46,9 @@ class CodeInstrumentationReceiver
     
     /**
      * param of control if the messages between objects
-     * of the same class should be saved into the xml
-     * sequence object as recursive calls into the same
-     * object
+     * of the same class should be saved into the uml
+     * sequence diagram object as recursive calls into
+     * the same object
      * 
      * @var boolean
      */
@@ -57,14 +57,14 @@ class CodeInstrumentationReceiver
     /**
      * stack of actors into the execution pile
      * 
-     * @var XmlSequenceActor[]
+     * @var UmlSequenceActor[]
      */
     protected $arrStack = array();
 
     /**
      * array with all the actors existents into the execution
      * 
-     * @var XmlSequenceActor[]
+     * @var UmlSequenceActor[]
      */
     protected $arrActors = array();
 
@@ -78,16 +78,16 @@ class CodeInstrumentationReceiver
     /**
      * Array with all the messages received into the execution
      * 
-     * @var XmlSequenceMessage[]
+     * @var UmlSequenceMessage[]
      */
     protected $arrMessages = array();
 
     /**
-     * Object of the xml sequence what will be feed into the execution
+     * Object of the uml sequence diagram what will be feed into the execution
      * 
-     * @var XmlSequence
+     * @var UmlSequenceDiagram
      */
-    protected $objXmlSequence = null;
+    protected $objUmlSequence = null;
 
     /**
      * Set the configuration paramenter if the code instrumentation should ignore the returns
@@ -147,75 +147,75 @@ class CodeInstrumentationReceiver
     }
    
     /**
-     * Set the caller path of the xml sequence of the code instrumentation receiver
+     * Set the caller path of the uml sequence diagram of the code instrumentation receiver
      * 
-     * @see XmlSequence::setCallerPath
+     * @see UmlSequenceDiagram::setCallerPath
      * @param string $strCallerPath
      * @return CodeInstrumentationReceiver me
      */
     public function setCallerPath( $strCallerPath )
     {
-    	$this->objXmlSequence->setCallerPath( $strCallerPath );
+    	$this->objUmlSequence->setCallerPath( $strCallerPath );
     	return $this;
     }
     
     /**
-     * Get the caller path of the xml sequence of the code instrumentation receiver
+     * Get the caller path of the uml sequence diagram of the code instrumentation receiver
      * 
-     * @see XmlSequence::getCallerPath
+     * @see UmlSequenceDiagram::getCallerPath
      * @return string
      */
     public function getCallerPath()
     {
-    	return $this->objXmlSequence->getCallerPath();	
+    	return $this->objUmlSequence->getCallerPath();
     }
     
     /**
-     * Set the public path of the xml sequence of the code instrumentation receiver
+     * Set the public path of the uml sequence diagram of the code instrumentation receiver
      * 
-     * @see XmlSequence::setPublicPath
+     * @see UmlSequenceDiagram::setPublicPath
      * @param string $strPublicPath
      * @return CodeInstrumentationReceiver me
      */
     public function setPublicPath( $strPublicPath )
     {
-    	$this->objXmlSequence->setPublicPath( $strPublicPath );
+    	$this->objUmlSequence->setPublicPath( $strPublicPath );
     	return $this;
     }
     
     /**
-     * Get the public path of the xml sequence of the code instrumentation receiver
+     * Get the public path of the uml sequence diagram of the code instrumentation receiver
      * 
-     * @see XmlSequence::getPublicPath
+     * @see UmlSequenceDiagram::getPublicPath
      * @return string
      */
     public function getPublicPath()
     {
-    	return $this->objXmlSequence->getPublicPath();	
+    	return $this->objUmlSequence->getPublicPath();
     }
     
     /**
      * prepare the code instrumentation receiver to start to receive the informations about
      * the execution.
      * 
-     * 1. create the xml sequence object
+     * 1. create the uml sequence diagram object
      * 2. create the user actor
      * 
      * @return null
      */
     public function __construct()
     {
-    	// 1. create the xml sequence object //
-        $this->objXmlSequence = new XmlSequence();
+    	// 1. create the uml sequence diagram object //
+        $this->objUmlSequence = new UmlSequenceDiagram();
 
         // 2. create the user actor //	
-        $objActorFrom = new XmlSequenceActor();
+        $objActorFrom = new UmlSequenceDiagramActor();
         $objActorFrom->setType( 'user' );
         $objActorFrom->setName( "user" );
         $objActorFrom->setId( sizeof( $this->arrActors ) + 1 );
         $this->arrActors[] = $objActorFrom;
         $this->arrStack[] = $objActorFrom;
-        $this->objXmlSequence->addActor($objActorFrom);
+        $this->objUmlSequence->addActor($objActorFrom);
     }
 
     /**
@@ -244,7 +244,7 @@ class CodeInstrumentationReceiver
      * @param string $strMethod old method name
      * @return string new method name
      */
-    public function renameMethod( $strMethod )
+    public function renameMethod( $strMethod , $strClass )
     {
         switch( $strMethod )
         {
@@ -263,7 +263,15 @@ class CodeInstrumentationReceiver
             // 3. other cases should append the "()" //
             default:
             {
-                $strMethod .= "()";
+                $objReflectedClass = new CodeReflectionClass( $strClass );
+                $objReflectedMethod = $objReflectedClass->getMethod( $strMethod );
+                $arrReflectedParameter = $objReflectedMethod->getParameters();
+                $arrParams = array();
+                foreach( $arrReflectedParameter as $objReflectedParameter )
+                {
+                    $arrParams[] = $objReflectedParameter->getCode();
+                }
+                $strMethod .= "( " . implode( " , " , $arrParams ) . " )";
                 break;
             }
         }
@@ -271,8 +279,8 @@ class CodeInstrumentationReceiver
     }
 
     /**
-     * Receive a message of enter into some method and append it as a xml sequence message
-     * into the xml sequence object, creating if necessary the xml sequence actor
+     * Receive a message of enter into some method and append it as a uml sequence diagram message
+     * into the uml sequence diagram object, creating if necessary the uml sequence diagram actor
      * 
      * 1. get the name of method as the diagram standart
      * 2. get the namespace name
@@ -295,8 +303,8 @@ class CodeInstrumentationReceiver
     	// 1. get the name of method as the diagram standart //
         $strClass 		= CorujaClassManipulation::getClassNameFromClassDefinition( $strClassDefinition );
         $arrMethod      = explode( "::" , $strMethod );
-        $strMethod 		= array_pop( $arrMethod );
-        $strMethod      = $this->renameMethod( $strMethod );
+        $strRealMethod 	= array_pop( $arrMethod );
+        $strMethod      = $this->renameMethod( $strRealMethod , $strClass);
 
         // 2. get the namespace name //
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
@@ -308,19 +316,23 @@ class CodeInstrumentationReceiver
 
         // 3. get the actor what the message is bring from  //
         $objActorFrom = current( $this->arrStack );
+        if( $objActorFrom  === false )
+        {
+            return $this;
+        }
 
         // 4. get the actor what the message is bring to //
         if( ! array_key_exists( $uid , $this->arrActors ) )
         {
         	// 4.1 create the actor to if he not exists //
             $this->arrClasses[ $strClass ]++;
-            $objActorTo = new XmlSequenceActor();
+            $objActorTo = new UmlSequenceDiagramActor();
             $objActorTo->setType( 'system' );
             $objActorTo->setClassName($strClass);
             $objActorTo->setName( $strClass . '(' . $this->arrClasses[ $strClass ] . ')');
             $objActorTo->setId(sizeof( $this->arrActors ) + 1  );
             $this->arrActors[ $uid ] = $objActorTo;
-            $this->objXmlSequence->addActor($objActorTo);
+            $this->objUmlSequence->addActor($objActorTo);
         }
         else
         {
@@ -328,26 +340,33 @@ class CodeInstrumentationReceiver
         }
 
         // 5. create the message //
-        $objMessage = new XmlSequenceMessage();
+        $objMessage = new UmlSequenceDiagramMessage();
 
         // 5.1 set the message attributes //
+        $objMessage->setMethod( $strRealMethod );
         $objMessage->setText( $strMethod );
         $objMessage->setActorFrom( $objActorFrom );
         $objMessage->setActorTo( $objActorTo );
         $objMessage->setType( 'call' );
-        
+
+        $objReflectedClass = new CodeReflectionClass( $strClass );
+        $objReflectedMethod = $objReflectedClass->getMethod( $strRealMethod );
+        $arrReflectedParameter = $objReflectedMethod->getParameters();
+
         // 5.2 set the message values //
-        foreach( $arrArguments as $strName => $mixValue )
+        foreach( $arrArguments as $intPos => $mixValue )
         {
-            $objValue = new XmlSequenceValue();
-            $objValue->setName( '[' . $strName  . ']');
-            $objValue->setValue( serialize( $mixValue ) );
+            $objValue = new UmlSequenceDiagramValue();
+            $objReflectedParameter = $arrReflectedParameter[ $intPos ];
+            $strName = $objReflectedParameter->getName();
+            $objValue->setName( $strName );
+            $objValue->setValue( $mixValue );
             $objMessage->addValue( $objValue );
         }
         $objMessage->setTimeStart( microtime( true ) );
         
         // 6. append the message  //
-        $this->objXmlSequence->addMessage( $objMessage );
+        $this->objUmlSequence->addMessage( $objMessage );
 
         $this->arrMessages[] 	= $objMessage;
         array_unshift( $this->arrStack , $objActorTo );
@@ -356,7 +375,7 @@ class CodeInstrumentationReceiver
     }
 
     /**
-     * Receive the message of leave some method and append it message into the xml sequence object
+     * Receive the message of leave some method and append it message into the uml sequence diagram object
      * 
      * 1. get the name of method as the diagram standart
      * 2. get the namespace name
@@ -378,8 +397,8 @@ class CodeInstrumentationReceiver
     	// 1. get the name of method as the diagram standart //
         $strClass 		= CorujaClassManipulation::getClassNameFromClassDefinition( $strClassDefinition );
         $arrMethod      = explode( "::" , $strMethod );
-        $strMethod 		= array_pop( $arrMethod );
-        $strMethod      = $this->renameMethod( $strMethod );
+        $strRealMethod	= array_pop( $arrMethod );
+        $strMethod      = $this->renameMethod( $strRealMethod , $strClass );
         
         // 2. get the namespace name //
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
@@ -393,9 +412,10 @@ class CodeInstrumentationReceiver
         if( $mixReturn != null or !$this->booIgnoreNullReturns)
         {
         	// 5. create the message //
-            $objMessage = new XmlSequenceMessage();
+            $objMessage = new UmlSequenceDiagramMessage();
             
             // 5.1 set the message attributes //
+            $objMessage->setMethod( $strRealMethod );
             $objMessage->setText( $strMethod );
             $objMessage->setActorFrom( $objActorFrom );
             $objMessage->setActorTo( $objActorTo );
@@ -404,37 +424,53 @@ class CodeInstrumentationReceiver
             // 5.2 set the message values //
             if( $mixReturn !== null )
             {
-                $objValue = new XmlSequenceValue();
-                $objValue->setName( "[return]" );
-                $objValue->setValue( serialize( $mixReturn ) );
+                $objValue = new UmlSequenceDiagramValue();
+                $objValue->setName( "return" );
+                $objValue->setValue( $mixReturn );
                 $objMessage->addValue( $objValue );
             }
 
             // 6. append the message  //
-            $this->objXmlSequence->addMessage( $objMessage );
+            $this->objUmlSequence->addMessage( $objMessage );
             $objMessage->setTimeEnd( microtime( true ) );
         }
         return $this;
     }
 
     /**
-     * Return the Xml Sequence Object what the Code Instrumentation Receiver feeds
-     * 
-     * @return XmlSequence
+     * Return the uml sequence diagram Object what the Code Instrumentation Receiver feeds
+     *
+     * @see CodeInstrumentationReceiver->objUmlSequence
+     * @see CodeInstrumentationReceiver::setUmlSequenceDiagram( UmlSequenceDiagram )
+     * @return UmlSequenceDiagram
      */
-    public function getXmlSequence()
+    public function getUmlSequenceDiagram()
     {
-        return $this->objXmlSequence;
+        return $this->objUmlSequence;
     }
 
     /**
-     * Clean the attributes of the xml sequence existing
+     * Set the uml sequence diagram Object what the Code Instrumentation Receiver feeds
+     *
+     * @param UmlSequenceDiagram
+     * @see CodeInstrumentationReceiver->objUmlSequence
+     * @see CodeInstrumentationReceiver::getUmlSequenceDiagram()
+     * @return CodeInstrumentationReceiver me
+     */
+    public function setUmlSequenceDiagram( UmlSequenceDiagram $objUmlSequence )
+    {
+        $this->objUmlSequence = $objUmlSequence;
+        return $this;
+    }
+
+    /**
+     * Clean the attributes of the uml sequence diagram existing
      * 
      * 1. clean actors
      * 2. clean classes
      * 3. clean messages
      * 4. clean stack
-     * 5. clean object xml sequence
+     * 5. clean object uml sequence diagram
      * 6. restart the receiver
      * 
      * @return CodeInstrumentationReceiver
@@ -449,11 +485,21 @@ class CodeInstrumentationReceiver
         $this->arrMessages = array();
         // 4. clean stack //
         $this->arrStack = array();
-        // 5. clean object xml sequence //
-        $this->objXmlSequence->restart();
+        // 5. clean object uml sequence diagram //
+        $this->objUmlSequence->restart();
         // 6. restart the receiver //
         $this->__construct();
         return $this;
+    }
+
+    /**
+     * Return the UmlSequenceDiagram created by this factory
+     *
+     * @return UmlSequenceDiagram
+     */
+    public function perform()
+    {
+        return $this->getUmlSequenceDiagram();
     }
 }
 

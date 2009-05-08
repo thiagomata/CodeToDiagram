@@ -1,14 +1,16 @@
 <?php
 /**
- * XmlSequenceValue - UML Object of the Sequence Diagram Message Value
- * @package XmlSequence
+ * UmlSequenceDiagramValue - UML Object of the Sequence Diagram Message Value
+ *
+ * Uml Sequence Diagramas have messages what have values
+ * @package UmlSequenceDiagram
  */
 
 /**
  * Object with the values send into the message
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-class XmlSequenceValue
+class UmlSequenceDiagramValue
 {
     /**
      * Name of the attribute
@@ -27,10 +29,10 @@ class XmlSequenceValue
     /**
      * Set the name of the attribute value
      *
-     * @see XmlSequenceValue::getName()
-     * @see XmlSequenceValue->strName
+     * @see UmlSequenceDiagramValue::getName()
+     * @see UmlSequenceDiagramValue->strName
      * @param string $strName
-     * @return XmlSequenceValue me
+     * @return UmlSequenceDiagramValue me
      */
     public function setName( $strName )
     {
@@ -41,8 +43,8 @@ class XmlSequenceValue
     /**
      * set the name of the attribute value
      *
-     * @see XmlSequenceValue::setName( string )
-     * @see XmlSequenceValue->strName
+     * @see UmlSequenceDiagramValue::setName( string )
+     * @see UmlSequenceDiagramValue->strName
      * @return string
      */
     public function getName()
@@ -53,10 +55,10 @@ class XmlSequenceValue
     /**
      * Set the value of the attribute 
      *
-     * @see XmlSequenceValue::getValue()
-     * @see XmlSequenceValue->strValue
+     * @see UmlSequenceDiagramValue::getValue()
+     * @see UmlSequenceDiagramValue->strValue
      * @param string $strValue
-     * @return XmlSequenceValue me
+     * @return UmlSequenceDiagramValue me
      */
     public function setValue( $strValue )
     {
@@ -67,8 +69,8 @@ class XmlSequenceValue
     /**
      * set the value of the attribute 
      *
-     * @see XmlSequenceValue::setValue( string )
-     * @see XmlSequenceValue->strValue
+     * @see UmlSequenceDiagramValue::setValue( string )
+     * @see UmlSequenceDiagramValue->strValue
      * @return string
      */
     public function getValue()
