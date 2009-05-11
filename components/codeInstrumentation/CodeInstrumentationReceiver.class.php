@@ -176,54 +176,6 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
 
     /**
-     * Set the caller path of the uml sequence diagram of the code instrumentation receiver
-     * 
-     * @see UmlSequenceDiagram::setCallerPath
-     * @param string $strCallerPath
-     * @return CodeInstrumentationReceiver me
-     */
-    public function setCallerPath( $strCallerPath )
-    {
-    	$this->objUmlSequence->setCallerPath( $strCallerPath );
-    	return $this;
-    }
-    
-    /**
-     * Get the caller path of the uml sequence diagram of the code instrumentation receiver
-     * 
-     * @see UmlSequenceDiagram::getCallerPath
-     * @return string
-     */
-    public function getCallerPath()
-    {
-    	return $this->objUmlSequence->getCallerPath();
-    }
-    
-    /**
-     * Set the public path of the uml sequence diagram of the code instrumentation receiver
-     * 
-     * @see UmlSequenceDiagram::setPublicPath
-     * @param string $strPublicPath
-     * @return CodeInstrumentationReceiver me
-     */
-    public function setPublicPath( $strPublicPath )
-    {
-    	$this->objUmlSequence->setPublicPath( $strPublicPath );
-    	return $this;
-    }
-    
-    /**
-     * Get the public path of the uml sequence diagram of the code instrumentation receiver
-     * 
-     * @see UmlSequenceDiagram::getPublicPath
-     * @return string
-     */
-    public function getPublicPath()
-    {
-    	return $this->objUmlSequence->getPublicPath();
-    }
-    
-    /**
      * prepare the code instrumentation receiver to start to receive the informations about
      * the execution.
      * 

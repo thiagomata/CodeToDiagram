@@ -63,6 +63,39 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      */
     protected $intZoom = 100;
 
+    /**
+     * Flag to control if access it is as a external call
+     *
+     * @var boolean 
+     */
+    protected $booExternalAccess;
+
+    /**
+     * Set if the acess it is as a external call
+     *
+     * @see CodeToDiagram::getExternalAcess()
+     * @see CodeToDiagram->boolExternalAccess
+     * @param boolean $booExternalAccess
+     * @return CodeToDiagram me
+     */
+    public function setExternalAcess( $booExternalAccess )
+    {
+        $this->booExternalAccess = (boolean)$booExternalAccess;
+        return $this;
+    }
+
+    /**
+     * Get if the acess it is as a external call
+     *
+     * @see CodeToDiagram::setExternalAcess( boolean )
+     * @see CodeToDiagram->boolExternalAccess
+     * @return boolean
+     */
+    public function getExternalAcess()
+    {
+        return $this->booExternalAccess;
+    }
+
 	/**
 	 * Return the singleton of the UmlSequenceDiagramPrinterToHtml
 	 * 
@@ -112,7 +145,86 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
     {
         return $this->intZoom;
     }
-    	
+
+    /**
+     * Path of the caller file
+     * @var string
+     */
+    protected $strCallerPath;
+
+    /**
+     * Path of the public folder
+     * @var string
+     */
+    protected $strPublicPath;
+
+    /**
+     * Set the caller path
+     *
+     * @see UmlSequenceDiagram::getCallerPath()
+     * @see UmlSequenceDiagram->strCallerPath
+     * @param string $strCallerPath
+     * @return UmlSequenceDiagram me
+     */
+    public function setCallerPath( $strCallerPath )
+    {
+        $this->strCallerPath = $strCallerPath;
+        return $this;
+    }
+
+    /**
+     * Get the caller path
+     *
+     * @see UmlSequenceDiagram::setCallerPath( string )
+     * @see UmlSequenceDiagram->strCallerPath
+     * @param string $strCallerPath
+     * @return string
+     */
+    public function getCallerPath()
+    {
+        return $this->strCallerPath;
+    }
+
+    /**
+     * Set the public path
+     *
+     * @see UmlSequenceDiagram::getPublicPath()
+     * @see UmlSequenceDiagram->strPublicPath
+     * @param string $strPublicPath
+     * @return UmlSequenceDiagram me
+     */
+    public function setPublicPath( $strPublicPath )
+    {
+        $this->strPublicPath = $strPublicPath;
+        return $this;
+    }
+
+    /**
+     * Get the public path
+     *
+     * @see UmlSequenceDiagram::setPublicPath( string )
+     * @see UmlSequenceDiagram->strPublicPath
+     * @param string $strPublicPath
+     * @return string
+     */
+    public function getPublicPath()
+    {
+        return $this->strPublicPath;
+    }
+
+    /**
+     * Get the header of the html printer type
+     */
+    public function getHeader()
+    {
+        header( "Content-type: text/html" );
+    }
+
+    /**
+     * Create the html ouput of the diagram
+     *
+     * @return string
+     */
     public function show()
     {
         $strHtml = '';
@@ -124,6 +236,30 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $strHtml;
     }
 
+    protected function getPublicFolderPath()
+    {
+        if( $this->getExternalAcess() )
+        {
+            $strPublicPath = $this->getPublicPath();
+        }
+        else
+        {
+            if( $this->getCallerPath() != null and $this->getPublicPath() != null )
+            {
+                $strPublicPath = CorujaFileManipulation::getRelativePath( $this->getCallerPath(), $this->getPublicPath() );
+            }
+            elseif( $this->getCallerPath() == null and $this->getPublicPath() != null )
+            {
+                $strPublicPath = $this->getPublicPath();
+            }
+            else
+            {
+                $strPublicPath = "./";
+            }
+        }
+        return $strPublicPath;
+    }
+
     /**
      * Create and return the string of the header of the html sequence diagram
      *
@@ -131,19 +267,19 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      */
     protected function showHeaders()
     {
-        if( $this->objUmlSequenceDiagram->getCallerPath() != null and $this->objUmlSequenceDiagram->getPublicPath() != null )
+        $strPublicPath = $this->getPublicFolderPath();
+
+        $strCssFile = "{$strPublicPath}css/sequenceStyle.css";
+        
+        if( $this->getExternalAcess() )
         {
-            $strPublicPath = CorujaFileManipulation::getRelativePath( $this->objUmlSequenceDiagram->getCallerPath(), $this->objUmlSequenceDiagram->getPublicPath() );
-        }
-        elseif( $this->objUmlSequenceDiagram->getCallerPath() == null and $this->objUmlSequenceDiagram->getPublicPath() != null )
-        {
-            $strPublicPath = $this->objUmlSequenceDiagram->getPublicPath();
+            $strCssImport = file_get_contents( $strCssFile  );
+            $strCssImport = str_replace( 'url( "' , 'url( "' . $strPublicPath . "css/" ,  $strCssImport );
         }
         else
         {
-            $strPublicPath = "./";
+            $strCssImport = "@import \"$strCssFile \"";
         }
-
         $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
         $intQtdMessages = $intQtdActors + 1;
         $intBodyWidth =
@@ -158,7 +294,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $strHtmlHeaders =
 <<<HTML
             <style>
-                @import "{$strPublicPath}css/sequenceStyle.css";
+                {$strCssImport}
                 .sequenceDiagram
                 {
                     width: {$intBodyWidth}px;

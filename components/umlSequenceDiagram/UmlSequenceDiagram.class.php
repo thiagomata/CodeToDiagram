@@ -27,18 +27,6 @@ class UmlSequenceDiagram
     protected $arrMessages = Array();
 
     /**
-     * Path of the caller file
-     * @var string
-     */
-    protected $strCallerPath;
-    
-    /**
-     * Path of the public folder
-     * @var string
-     */
-    protected $strPublicPath;
-
-    /**
      * Restart Uml Sequence Object.
      * Clean all the old actors and messages
      * 
@@ -49,60 +37,6 @@ class UmlSequenceDiagram
         $this->arrActors = array();
         $this->arrMessages = array();
         return $this;
-    }
-
-    /**
-     * Set the caller path
-     * 
-     * @see UmlSequenceDiagram::getCallerPath()
-     * @see UmlSequenceDiagram->strCallerPath
-     * @param string $strCallerPath
-     * @return UmlSequenceDiagram me
-     */
-    public function setCallerPath( $strCallerPath )
-    {
-        $this->strCallerPath = $strCallerPath;
-        return $this;
-    }
-
-    /**
-     * Get the caller path
-     * 
-     * @see UmlSequenceDiagram::setCallerPath( string )
-     * @see UmlSequenceDiagram->strCallerPath
-     * @param string $strCallerPath
-     * @return string
-     */
-    public function getCallerPath()
-    {
-        return $this->strCallerPath;
-    }
-
-    /**
-     * Set the public path
-     * 
-     * @see UmlSequenceDiagram::getPublicrPath()
-     * @see UmlSequenceDiagram->strPublicPath
-     * @param string $strPublicPath
-     * @return UmlSequenceDiagram me
-     */
-    public function setPublicPath( $strPublicPath )
-    {
-        $this->strPublicPath = $strPublicPath;
-        return $this;
-    }
-
-    /**
-     * Get the public path
-     * 
-     * @see UmlSequenceDiagram::setPublicPath( string )
-     * @see UmlSequenceDiagram->strPublicPath
-     * @param string $strPublicPath
-     * @return string
-     */
-    public function getPublicPath()
-    {
-        return $this->strPublicPath;
     }
 
     /**

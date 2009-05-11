@@ -41,7 +41,15 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
 		}
 		return self::$objInstance;
 	}
-		
+
+    /**
+     * Get the header of the xml printer type
+     */
+    public function getHeader()
+    {
+        header( "Content-type: text/xml" );
+    }
+
 	/**
 	 * Perfom the print process
 	 *  
@@ -80,9 +88,7 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
      */
     public function createXmlHeader()
     {
-        return "
-<sequence>
-        ";
+        return "<sequence>\n";
     }
 
     /**
@@ -92,9 +98,7 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
      */
     public function createXmlFooter()
     {
-        return "
-</sequence>
-        ";
+        return "</sequence>\n";
     }
 
     /**
@@ -106,10 +110,11 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
     {
     	$arrActors = $this->objUmlSequenceDiagram->getActors();
     	
-        $strXmlActors = "<actors>\n";
+        $strXmlActors = "\t<actors>\n";
         foreach( $arrActors as $objActor )
         {
             /** @var $objActor UmlSequenceDiagramActor */
+            $strXmlActors .= "\t\t";
             $strXmlActors .= "<actor ";
             $strXmlActors .= 'id="' . $objActor->getId() . '" ';
             $strXmlActors .= 'type="' . $objActor->getType() . '" ';
@@ -117,7 +122,7 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
             $strXmlActors .= $objActor->getName() . ':' . $objActor->getClassName();
             $strXmlActors .= "</actor>\n";
         }
-        $strXmlActors .= "</actors>\n";
+        $strXmlActors .= "\t</actors>\n";
         return $strXmlActors;
     }
 
@@ -130,35 +135,40 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
     {
     	$arrMessages = $this->objUmlSequenceDiagram->getMessages();
     	
-    	$strXmlMessages = "<messages>\n";
+    	$strXmlMessages = "\t<messages>\n";
         foreach( $arrMessages as $objMessage )
         {
             /** @var $objMessage UmlSequenceDiagramMessage */
-            
+
+            $strXmlMessages .= "\t\t";
             $strXmlMessages .= "<message ";
             $strXmlMessages .= 'type="' . $objMessage->getType() . '" ';
             $strXmlMessages .= 'from="' . $objMessage->getActorFrom()->getId() . '" ';
             $strXmlMessages .= 'to="' . $objMessage->getActorTo()->getId() . '" ';
             $strXmlMessages .= 'text="' . htmlentities( $objMessage->getText() ) . '" ';
-            $strXmlMessages .= '>';
+            $strXmlMessages .= '>' . "\n";
 
+            $strXmlMessages .= "\t\t\t";
             $strXmlMessages .= "<values>\n";
 
             $arrValues = $objMessage->getValues();
             foreach($arrValues as $objValue )
             {
                 /** @var $objValue UmlSequenceDiagramValue */
+                $strXmlMessages .= "\t\t\t\t";
                 $strXmlMessages .= "<value ";
                 $strXmlMessages .= 'name = "' . $objValue->getName() . '" ';
                 $strXmlMessages .= 'value = "' . $objValue->getValue() . '" ';
                 $strXmlMessages .= "/>\n";
             }
 
+            $strXmlMessages .= "\t\t\t";
             $strXmlMessages .= "</values>\n";
 
-            $strXmlMessages .= "</message>";
+            $strXmlMessages .= "\t\t";
+            $strXmlMessages .= "</message>\n";
         }
-        $strXmlMessages .= "</messages>\n";
+        $strXmlMessages .= "\t</messages>\n";
         return $strXmlMessages;
     }   
 }

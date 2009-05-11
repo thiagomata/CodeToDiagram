@@ -16,7 +16,7 @@ class CodeToDiagram
     /**
      * Array of files already load
      *
-     * @var <arrayList>string
+     * @var string[]
      */
     protected $arrFiles = array();
 
@@ -42,11 +42,20 @@ class CodeToDiagram
     protected $strFileName = null;
 
     /**
-     * Type of output of graph
-     * 
+     * Diagram output type
+     *
+     * @default CodeToDiagram::::OUTPUT_TYPE_SCREEN
      * @var string
      */
     protected $strOutputType = self::OUTPUT_TYPE_SCREEN;
+
+    /**
+     * Diagram printer type
+     *
+     * @default CodeToDiagram::::PRINTER_TYPE_HTML
+     * @var string
+     */
+    protected $strPrinterType = self::PRINTER_TYPE_HTML;
 
     /**
      * Caller Path of the execution
@@ -62,6 +71,13 @@ class CodeToDiagram
      */
     protected $strPublicPath;
     
+    /**
+     * Controls if the access it is been maded by a external link call
+     * 
+     * @var boolean
+     * @default false
+     */
+    protected $booExternalAccess = false;
     /**
      * Singleton of this class
      *
@@ -93,13 +109,44 @@ class CodeToDiagram
      */
     const CODE_TO_DIAGRAM_CLASS_PREFIX = "CTD";
 
-    const OUTPUT_TYPE_SCREEN = "screen";
-
+    /**
+     * The CodeToDiagram don't print anything into screen
+     * and returns the string generetad by the printer
+     *
+     * Ouputput type string
+     */
     const OUTPUT_TYPE_STRING = "string";
 
+    /**
+     * The CodeToDiagram don't print anything into screen
+     * and save into a file the string generetad by the
+     * printer
+     *
+     * Ouputput type file
+     */
     const OUTPUT_TYPE_FILE = "file";
 
-    const OUTPUT_TYPE_XML = "xml";
+    /**
+     * The CodeToDiagram print into screen the string
+     * generetad by the printer, returning it too
+     */
+    const OUTPUT_TYPE_SCREEN = "screen";
+
+    /**
+     * Printer type xml.
+     *
+     * Convert the UmlSequenceDiagram into a xml file
+     *
+     */
+    const PRINTER_TYPE_XML = "xml";
+
+    /**
+     * Printer type html.
+     *
+     * Convert the UmlSequenceDiagram into a html file
+     *
+     */
+    const PRINTER_TYPE_HTML = "html";
 
     /**
      *
@@ -175,7 +222,9 @@ class CodeToDiagram
     }
 
     /**
-     * Set the output type of the diagram
+     * Set the output type of the diagram.;
+     *
+     * The output type it is how the class should deal with the result of the printer
      *
      * @example
      * <code>
@@ -206,7 +255,6 @@ class CodeToDiagram
             case CodeToDiagram::OUTPUT_TYPE_SCREEN:
             case CodeToDiagram::OUTPUT_TYPE_STRING:
             case CodeToDiagram::OUTPUT_TYPE_FILE :
-            case CodeToDiagram::OUTPUT_TYPE_XML :
             {
                 $this->strOutputType = $strType;
                 break;
@@ -239,12 +287,103 @@ class CodeToDiagram
      * <code>
      *      $this->setOutputType( "something" ) throws CodeToDiagramException
      * </code>
-     * 
+     *
      * @return string
      */
     public function getOutputType()
     {
         return $this->strOutputType;
+    }
+
+    /**
+     * Set the printer type of the diagram.
+     *
+     * Set the printer what will deal with the UmlSequenceDiagram Object
+     *
+     * @example{
+     * <code>
+     *      $this->setPrinterType( CodeToDiagram::PRINTER_TYPE_XML )->getPrinterType() == CodeToDiagram::PRINTER_TYPE_XML
+     * </code>}
+     * @example{
+     * <code>
+     *      $this->setPrinterType( CodeToDiagram::PRINTER_TYPE_HTML )->getPrinterType() == CodeToDiagram::PRINTER_TYPE_HTML
+     * </code>}
+     * @example{
+     * <code>
+     *      $this->setPrinterType( "something" ) throws CodeToDiagramException
+     * </code>}
+     *
+     * @assert( CodeToDiagram::PRINTER_TYPE_HTML )
+     * @assert( CodeToDiagram::PRINTER_TYPE_XML )
+     * @assert( "somethingElse" ) throws CodeToDiagramException
+     * @param string $strType
+     */
+    public function setPrinterType( $strType )
+    {
+        switch( $strType )
+        {
+            case CodeToDiagram::PRINTER_TYPE_HTML:
+            case CodeToDiagram::PRINTER_TYPE_XML:
+            {
+                $this->strPrinterType = $strType;
+                break;
+            }
+            default:
+            {
+                throw new CodeToDiagramException( "Invalid printer type. ('" . $strType . "')" );
+                break;
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * Get the printer type of the diagram
+     *
+     * @example{
+     * <code>
+     *      $this->setPrinterType( CodeToDiagram::PRINTER_TYPE_XML )->getPrinterType() == CodeToDiagram::PRINTER_TYPE_XML
+     * </code>}
+     * @example{
+     * <code>
+     *      $this->setPrinterType( CodeToDiagram::PRINTER_TYPE_HTML )->getPrinterType() == CodeToDiagram::PRINTER_TYPE_HTML
+     * </code>}
+     * @example{
+     * <code>
+     *      $this->setPrinterType( "something" ) throws CodeToDiagramException
+     * </code>}
+     *
+     * @return string
+     */
+    public function getPrinterType()
+    {
+        return $this->strPrinterType;
+    }
+
+    /**
+     * Set if the acess it is as a external call
+     *
+     * @see CodeToDiagram::getExternalAcess()
+     * @see CodeToDiagram->boolExternalAccess
+     * @param boolean $booExternalAccess
+     * @return CodeToDiagram me
+     */
+    public function setExternalAcess( $booExternalAccess )
+    {
+        $this->booExternalAccess = (boolean)$booExternalAccess;
+        return $this;
+    }
+
+    /**
+     * Get if the acess it is as a external call
+     *
+     * @see CodeToDiagram::setExternalAcess( boolean )
+     * @see CodeToDiagram->boolExternalAccess
+     * @return boolean
+     */
+    public function getExternalAcess()
+    {
+        return $this->booExternalAccess;
     }
 
     /**
@@ -419,7 +558,7 @@ class CodeToDiagram
      */
     public function setPublicPath( $strPublicPath )
     {
-    	$this->strPublicPath = $strPublicPath;
+     	$this->strPublicPath = $strPublicPath;
     	return $this;
     }
     
@@ -442,19 +581,19 @@ class CodeToDiagram
     */
     public function start()
     {
-    	CodeInstrumentationReceiver::getInstance()->setPublicPath( $this->getPublicPath() );
-    	CodeInstrumentationReceiver::getInstance()->setCallerPath( $this->getCallerPath() );
-    	
         if( $this->getStarted() )
         {
             return $this;
         }
-        CodeInstrumentationReceiver::getInstance()->restart();
-        $this->CodeToDiagramRequireOnce($this->getFileFrom() , $this->getFileFrom() );
-        exit();
+        else
+        {
+            CodeInstrumentationReceiver::getInstance()->restart();
+            $this->CodeToDiagramRequireOnce($this->getFileFrom() , $this->getFileFrom() );
+            exit();
 
-        // just to safety //
-        return $this;
+            // just to safety //
+            return $this;
+        }
     }
 
     /**
@@ -493,34 +632,52 @@ class CodeToDiagram
     public function save()
     {
         $strReturn = "";
-
+        $strDiagram = "";
+        
         if( $this->getStarted() )
         {
         	$objUmlSequenceDiagram = CodeInstrumentationReceiver::getInstance()->getUmlSequenceDiagram();
 
+            switch( $this->getPrinterType() )
+            {
+                case self::PRINTER_TYPE_HTML:
+                {
+                    $objPrinter = UmlSequenceDiagramPrinterToHtml::getInstance();
+                    UmlSequenceDiagramPrinterToHtml::getInstance()->setPublicPath( $this->getPublicPath() );
+                    UmlSequenceDiagramPrinterToHtml::getInstance()->setCallerPath( $this->getCallerPath() );
+                    UmlSequenceDiagramPrinterToHtml::getInstance()->setExternalAcess( $this->getExternalAcess() );
+                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
+                    break;
+                }
+                case self::PRINTER_TYPE_XML:
+                {
+                    $objPrinter = UmlSequenceDiagramPrinterToXml::getInstance();
+                	$strDiagram = UmlSequenceDiagramPrinterToXml::getInstance()->perform( $objUmlSequenceDiagram );
+                    break;
+                }
+                default:
+                {
+                    throw new CodeToDiagramException( "Invalid printer type ({$this->getPrinterType()})" );
+                    break;
+                }
+            }
             switch( $this->getOutputType() )
             {
                 case self::OUTPUT_TYPE_SCREEN:
                 {
-                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
+                    $objPrinter->getHeader();
                     print $strDiagram;
                     break;
                 }
                 case self::OUTPUT_TYPE_STRING:
                 {
-                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
                 	$strReturn = $strDiagram;
                     break;
                 }
                 case self::OUTPUT_TYPE_FILE:
                 {
-                	$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
                 	file_put_contents( $this->getFileName() , $strDiagram );
-                    break;
-                }
-                case self::OUTPUT_TYPE_XML:
-                {
-                	$strReturn = UmlSequenceDiagramPrinterToXml::getInstance()->perform( $objUmlSequenceDiagram );
+                	$strReturn = $strDiagram;
                     break;
                 }
                 default:

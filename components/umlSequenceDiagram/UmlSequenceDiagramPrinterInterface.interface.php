@@ -24,5 +24,10 @@ interface UmlSequenceDiagramPrinterInterface
 	 * @return mixer
 	 */
 	public function perform( UmlSequenceDiagram $objUmlSequenceDiagram );
+
+    /**
+     * Create the php header to the printer type
+     */
+    public function getHeader();
 }
 ?>
