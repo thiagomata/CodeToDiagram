@@ -43,8 +43,9 @@ if( !isset( $strPublicPath  ) )
     #4. get the caller path
     $arrDebugBackTrace = debug_backtrace();
 
-    $strPublicPath = "http:\\" . $_SERVER[ "HTTP_HOST" ] . $_SERVER[ "REQUEST_URI" ];
+    $strPublicPath = "http://" . $_SERVER[ "HTTP_HOST" ] . $_SERVER[ "REQUEST_URI" ];
     $strPublicPath = str_replace( "\\" , "/" , $strPublicPath );
+    $strPublicPath = str_replace( basename( __FILE__ ) , "" , $strPublicPath );
 
     #7. init the code to diagram
 //    print highlight_string( Loader::getInstance()->getClassContent() );
