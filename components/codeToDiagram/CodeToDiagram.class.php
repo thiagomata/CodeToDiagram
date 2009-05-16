@@ -154,7 +154,7 @@ class CodeToDiagram
      *
      * @see CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean )
      * @param boolean $booIgnoreRecursiveCalls
-     * @return CodeToDiagram
+     * @return CodeToDiagram me
      */
     public function setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls )
     {
@@ -178,7 +178,7 @@ class CodeToDiagram
      *
      * @see CodeInstrumentationReceiver::setMergeSameClassObjects( boolean )
      * @param boolean $booMergeSameClassObjects
-     * @return CodeToDiagram
+     * @return CodeToDiagram me
      */
     public function setMergeSameClassObjects( $booMergeSameClassObjects )
     {
@@ -202,7 +202,7 @@ class CodeToDiagram
      *
      * @see CodeInstrumentationReceiver::setIgnoreNullReturns( boolean )
      * @param boolean $booIgnoreNullReturns
-     * @return CodeToDiagram
+     * @return CodeToDiagram me
      */
     public function setIgnoreNullReturns( $booIgnoreNullReturns )
     {
@@ -214,12 +214,97 @@ class CodeToDiagram
      * Get if the diagram should ignore null returns
      *
      * @see CodeInstrumentationReceiver::getIgnoreNullReturns()
-     * @return boolean
+     * @return CodeToDiagram me
      */
     public function getIgnoreNullReturns()
     {
-        return CodeInstrumentationReceiver::getInstance()->getIgnoreNullReturns();
+         CodeInstrumentationReceiver::getInstance()->getIgnoreNullReturns();
+         return $this;
     }
+
+    /**
+     * Set the ignored classes of the diagram
+     *
+     * @see CodeToDiagram::getIgnoredClasses()
+     * @see CodeInstrumentationReceiver::setIgnoredClasses( String[] )
+     * @param String[] $arrIgnoredClasses
+     * @return CodeToDiagram me
+     */
+    public function setIgnoredClasses( array $arrIgnoredClasses )
+    {
+        CodeInstrumentationReceiver::getInstance()->setIgnoredClasses( $arrIgnoredClasses );
+        return $this;
+     }
+
+     /**
+      * Get the ignored classes of the diagram
+      *
+      * @see CodeToDiagram::setIgnoredClasses( String[] )
+      * @see CodeInstrumentationReceiver::getIgnoredClasses()
+      * @return String[] $arrIgnoredClasses
+      */
+     public function getIgnoredClasses()
+     {
+         return CodeInstrumentationReceiver::getInstance()->getIgnoredClasses();
+     }
+
+    /**
+     * Add some ignored classes into the ignore classes diagram list
+     *
+     * @see CodeToDiagram::setIgnoredClasses( String[] )
+     * @see CodeToDiagram::getIgnoredClasses()
+     * @see CodeInstrumentationReceiver::setIgnoredClasses( String[] )
+     * @see CodeInstrumentationReceiver::getIgnoredClasses()
+     * @param String $strIgnoredClasses
+     * @return CodeToDiagram me
+     */
+    public function addIgnoredClasses( $strIgnoredClasses )
+    {
+        CodeInstrumentationReceiver::getInstance()->addIgnoredClasses( $strIgnoredClasses );
+        return $this;
+     }
+
+    /**
+     * Set the exclusive classes of the diagram
+     *
+     * @see CodeToDiagram::setExclusiveClasses( String[] )
+     * @see CodeInstrumentationReceiver::setExclusiveClasses( String[] )
+     * @param String[] $arrExclusiveClasses
+     * @return CodeToDiagram me
+     */
+    public function setExclusiveClasses( array $arrExclusiveClasses )
+    {
+        CodeInstrumentationReceiver::getInstance()->setExclusiveClasses( $arrExclusiveClasses );
+        return $this;
+     }
+
+     /**
+      * Get the exclusive classes of the diagram
+      *
+      * @see CodeToDiagram::setExclusiveClasses( String[] )
+      * @see CodeInstrumentationReceiver::getExclusiveClasses()
+      * @return String[] $arrExclusiveClasses
+      */
+     public function getExclusiveClasses()
+     {
+         return CodeInstrumentationReceiver::getInstance()->getExclusiveClasses();
+     }
+
+    /**
+     * Add some exclusive classes into the exclusive classes diagram list
+     *
+     * @see CodeToDiagram::setExclusiveClasses( String[] )
+     * @see CodeToDiagram::getExclusiveClasses()
+     * @see CodeInstrumentationReceiver::setExclusiveClasses( String[] )
+     * @see CodeInstrumentationReceiver::getExclusiveClasses()
+     * @param String $strExclusiveClass
+     * @return CodeToDiagram me
+     */
+    public function addExclusiveClass( $strExclusiveClass )
+    {
+        CodeInstrumentationReceiver::getInstance()->addExclusiveClass( $strExclusiveClass );
+        return $this;
+     }
 
     /**
      * Set the output type of the diagram.;

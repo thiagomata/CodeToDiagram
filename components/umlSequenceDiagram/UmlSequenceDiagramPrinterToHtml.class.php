@@ -278,7 +278,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         }
         else
         {
-            $strCssImport = "@import \"$strCssFile \"";
+            $strCssImport = "@import url( \"$strCssFile\" ); ";
         }
         $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
         $intQtdMessages = $intQtdActors + 1;
@@ -735,8 +735,16 @@ HTML;
         $strClass = $objMessage->getActorTo()->getClassName();
         $strMethod = $objMessage->getMethod();
         $objReflectedClass = new CodeReflectionClass( $strClass );
-        $objReflectedMethod = $objReflectedClass->getMethod( $strMethod );
-        $arrReflectedParameter = $objReflectedMethod->getParameters();
+        if( method_exists( $strClass , $strMethod ) )
+        {
+            $objReflectedMethod = $objReflectedClass->getMethod( $strMethod );
+            $arrReflectedParameter = $objReflectedMethod->getParameters();
+        }
+        else
+        {
+ //           $objReflectedMethod = null;
+            $arrReflectedParameter = array();
+        }
         $arrSearch = array();
         $arrReplace = array();
         foreach( $arrReflectedParameter as $intPos => $objReflectedParameter )
