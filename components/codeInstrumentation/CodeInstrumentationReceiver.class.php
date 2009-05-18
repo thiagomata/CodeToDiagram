@@ -85,7 +85,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     /**
      * Array with the name of the classes what should NOT enter into the diagram
      * 
-     * If this array is empty, not class will be ignored to the diagram
+     * If this array is empty, no class will be ignored to the diagram
      * 
      * @var String[]
      */
@@ -99,6 +99,28 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      * @var String[]
      */
     protected $arrExclusiveClasses = array();
+    
+    /**
+     * Array with the name of the methods what should NOT enter into the diagram
+     * 
+     * If this array is empty, no methods will be ignored to the diagram
+     * The value can be just the "<method name>" or "<class name>.<method name>",
+     * in this last case just in the informed class the method it is considered
+     * 
+     * @var String[]
+     */
+    protected $arrIgnoredMethods = array();
+    
+    /**
+     * Array with the exclusive methods name what should be into the diagram
+     * 
+     * If this array is empty, any method can enter into the diagram.
+     * The value can be just the "<method name>" or "<class name>.<method name>",
+     * in this last case just in the informed class the method it is considered
+     * 
+     * @var String[]
+     */
+    protected $arrExclusiveMethods = array();
     
     /**
      * Object of the uml sequence diagram what will be feed into the execution
@@ -204,6 +226,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     public function setIgnoredClasses( array $arrIgnoredClasses )
     {
     	$this->arrIgnoredClasses = $arrIgnoredClasses;
+    	return $this;
     }
 
     /**
@@ -229,7 +252,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      */
     public function addIgnoredClass( $strIgnoredClass )
     {
-    	$this->arrExclusiveClasses[] = $strExclusiveClass;
+    	$this->arrIgnoredClasses[] = $strIgnoredClass;
     	return $this;
     }    
     
@@ -244,6 +267,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     public function setExclusiveClasses( $arrExclusiveClasses )
     {
     	$this->arrExclusiveClasses = $arrExclusiveClasses;
+    	return $this;
     }
     
     /**
@@ -270,7 +294,91 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     public function addExclusiveClass( $strExclusiveClass )
     {
     	$this->arrExclusiveClasses[] = $strExclusiveClass;
+    	return $this;
     }
+    
+    /**
+     * Set the array with the exclusive class into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrExclusiveMethods
+     * @see CodeInstrumentationReceiver::getExclusiveMethods()
+     * @param String[] $arrExclusiveMethods
+     * @return CodeInstrumentationReceiver me
+     */
+    public function setExclusiveMethods( $arrExclusiveMethods )
+    {
+    	$this->arrExclusiveMethods = $arrExclusiveMethods;
+    	return $this;
+    }
+    
+    /**
+     * get the array with the exclusive method into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrExclusiveMethods
+     * @see CodeInstrumentationReceiver::setExclusiveMethods( String[] )
+     * @return String[] $arrExclusiveMethods
+     */    
+    public function getExclusiveMethods()
+    {
+    	return $this->arrExclusiveMethods;
+    }
+       
+    /**
+     * Add a class name into the exclusive method list
+     * 
+     * @see CodeInstrumentationReceiver->arrExclusiveMethods
+     * @see CodeInstrumentationReceiver::setExclusiveMethods( String[] )
+     * @see CodeInstrumentationReceiver::getExclusiveMethod()
+     * @param string $strExclusiveMethod
+     * @return CodeInstrumentationReceiver me
+     */
+    public function addExclusiveMethod( $strExclusiveMethod )
+    {
+    	$this->arrExclusiveMethods[] = $strExclusiveMethod;
+    	return $this;
+    }
+    
+
+    /**
+     * Set the array with the ignored methods list into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrIgnoredMethods
+     * @see CodeInstrumentationReceiver::getIgnoredMethods()
+     * @param String[] $arrIgnoredMethods
+     * @return CodeInstrumentationReceiver me
+     */
+    public function setIgnoredMethods( array $arrIgnoredMethods )
+    {
+    	$this->arrIgnoredMethods = $arrIgnoredMethods;
+    	return $this;
+    }
+
+    /**
+     * get the array with the ignored methods into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrIgnoredMethods
+     * @see CodeInstrumentationReceiver::setIgnoredMethods( String[] )
+     * @see CodeInstrumentationReceiver::getIgnoredMethods()
+     * @return String[] $arrIgnoredMethods
+     */    
+    public function getIgnoredMethods()
+    {
+    	return $this->arrIgnoredMethods;
+    }
+    
+    /**
+     * Add a class name into the ignored methods list
+     * 
+     * @see CodeInstrumentationReceiver->arrIgnoredMethods
+     * @see CodeInstrumentationReceiver::setIgnoredMethods( String[] )
+     * @param string $strIgnoredMethod
+     * @return CodeInstrumentationReceiver me
+     */
+    public function addIgnoredMethod( $strIgnoredMethod )
+    {
+    	$this->arrIgnoredMethods[] = $strIgnoredMethod;
+    	return $this;
+    }    
     
     /**
      * prepare the code instrumentation receiver to start to receive the informations about
@@ -357,6 +465,56 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
 
     /**
+     * Check if the method should be loged into the uml sequence diagram
+     * 
+     * @param String $strClass
+     * @param String $strMethod
+     * @return boolean
+     */
+    protected function shouldBeLog( $strClass , $strMethod )
+    {
+    	// returns if it is into ignore list
+        if(
+            ( count( $this->getIgnoredClasses() ) > 0 )
+             and
+             ( in_array( $strClass , $this->getIgnoredClasses() ) )
+           )
+        {
+            return false;
+        }
+
+        // returns if it is into ignore list
+        if(
+            ( count( $this->getIgnoredMethods() ) > 0 )
+             and
+             (
+             	( in_array( $strMethod , $this->getIgnoredMethods() ) )
+             	||
+             	( in_array( $strClass . '.' . $strMethod , $this->getIgnoredMethods() ) )
+             )
+          )
+        {
+            return false;
+        }
+
+        // returns of it is not into the exclusive list
+        if(
+             ( count( $this->arrExclusiveClasses ) > 0 )
+             and
+             (
+             	( in_array( $strMethod, $this->getExclusiveClasses() ) )
+             	||
+             	( in_array( $strClass . '.' . $strMethod, $this->getExclusiveClasses() ) )
+             )
+           )
+        {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
      * Receive a message of enter into some method and append it as a uml sequence diagram message
      * into the uml sequence diagram object, creating if necessary the uml sequence diagram actor
      * 
@@ -391,36 +549,21 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         {
             $this->arrClasses[ $strClass ] = 0;
         }
-
-        // 3. get the actor what the message is bring from  //
-        $objActorFrom = current( $this->arrStack );
-        if( $objActorFrom  === false )
-        {
-            return $this;
-        }
-
-        // apply receiver configurations
+        
+         // apply receiver configurations
         if( $this->getMergeSameClassObjects() )
         {
             $uid = $strClass;
-        }
+        }        
 
-        // returns if it is into ignore list
-        if(
-            ( count( $this->getIgnoredClasses() ) > 0 )
-             and
-             ( in_array( $strClass , $this->getIgnoredClasses() ) )
-           )
+        if( ! $this->shouldBeLog( $strClass , $strRealMethod ) )
         {
-            return $this;
+        	return $this;
         }
-
-        // returns of it is not into the exclusive list
-        if(
-             ( count( $this->arrExclusiveClasses ) > 0 )
-             and
-             ( !in_array( $strClass , $this->getExclusiveClasses() ) )
-           )
+        
+        // 3. get the actor what the message is bring from  //
+        $objActorFrom = current( $this->arrStack );
+        if( $objActorFrom  === false )
         {
             return $this;
         }
@@ -454,12 +597,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
             $objActorTo = $this->arrActors[ $uid ];
         }
         
-        if( $this->getIgnoreRecursiveCalls() && ( $objActorFrom == $objActorTo ) )
+        if( !$this->getIgnoreRecursiveCalls() || ( $objActorFrom != $objActorTo ) )
         {
-        }
-        else
-        {
-
             // 5. create the message //
             $objMessage = new UmlSequenceDiagramMessage();
 
@@ -488,11 +627,10 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
 
             // 6. append the message  //
             $this->objUmlSequence->addMessage( $objMessage );
-
             $this->arrMessages[] 	= $objMessage;
         }
+        
         array_unshift( $this->arrStack , $objActorTo );
-
         return $this;
     }
 
@@ -525,27 +663,11 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         // 2. get the namespace name //
         $strNamespace 	= CorujaClassManipulation::getNamespaceFromClassDefinition( $strClassDefinition );
 
-        // returns if it is into ignore list
-        if(
-            ( count( $this->getIgnoredClasses() ) > 0 )
-             and
-             ( in_array( $strClass , $this->getIgnoredClasses() ) )
-           )
+            if( ! $this->shouldBeLog( $strClass , $strRealMethod ) )
         {
-            return $this;
+        	return $this;
         }
-
-        // returns of it is not into the exclusive list
-        if(
-             ( count( $this->arrExclusiveClasses ) > 0 )
-             and
-             ( !in_array( $strClass , $this->getExclusiveClasses() ) )
-           )
-        {
-            return $this;
-        }
-
-
+                
         // 3. get the actor what the message is bring from //
         $objActorFrom = array_shift( $this->arrStack );
         
