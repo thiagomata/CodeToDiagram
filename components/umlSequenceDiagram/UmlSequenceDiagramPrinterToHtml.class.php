@@ -734,26 +734,28 @@ HTML;
         }
         $strClass = $objMessage->getActorTo()->getClassName();
         $strMethod = $objMessage->getMethod();
-        $objReflectedClass = new CodeReflectionClass( $strClass );
-        if( method_exists( $strClass , $strMethod ) )
+        if( class_exists( $strClass ) )
         {
-            $objReflectedMethod = $objReflectedClass->getMethod( $strMethod );
-            $arrReflectedParameter = $objReflectedMethod->getParameters();
+	        $objReflectedClass = new CodeReflectionClass( $strClass );
+	        if( method_exists( $strClass , $strMethod ) )
+	        {
+	            $objReflectedMethod = $objReflectedClass->getMethod( $strMethod );
+	            $arrReflectedParameter = $objReflectedMethod->getParameters();
+	        }
+	        else
+	        {
+	 //           $objReflectedMethod = null;
+	            $arrReflectedParameter = array();
+	        }
+	        $arrSearch = array();
+	        $arrReplace = array();
+	        foreach( $arrReflectedParameter as $intPos => $objReflectedParameter )
+	        {
+	            $arrSearch[] = $objReflectedParameter->getCode();
+	            $arrReplace[] = '<a class="noLink" href="#message_' . $intMessageId . '_param_' . $intPos . '">' . $objReflectedParameter->getCode() . '</a>';
+	        }
+	        $strText = str_replace( $arrSearch , $arrReplace , htmlentities( $strText ) );
         }
-        else
-        {
- //           $objReflectedMethod = null;
-            $arrReflectedParameter = array();
-        }
-        $arrSearch = array();
-        $arrReplace = array();
-        foreach( $arrReflectedParameter as $intPos => $objReflectedParameter )
-        {
-            $arrSearch[] = $objReflectedParameter->getCode();
-            $arrReplace[] = '<a class="noLink" href="#message_' . $intMessageId . '_param_' . $intPos . '">' . $objReflectedParameter->getCode() . '</a>';
-        }
-        $strText = str_replace( $arrSearch , $arrReplace , htmlentities( $strText ) );
-
         return ( $strText );
     }
 }

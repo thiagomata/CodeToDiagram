@@ -12,12 +12,12 @@
  * 
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-require_once( "../_start.php" );
+require_once( "../public/codetodiagram.php" );
 
 $intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
 $strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
 
-$objXmlSequence = XmlSequenceFactoryXml::getInstance()->setXml( $strXml )->perform();
+$objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strXml )->perform();
 
 ?>
 <html>
@@ -104,7 +104,7 @@ $objXmlSequence = XmlSequenceFactoryXml::getInstance()->setXml( $strXml )->perfo
         <h4>
             Three Little Pigs
         </h4>
-        <?php print XmlSequencePrinterDiagram::getInstance()->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
+        <?php print UmlSequenceDiagramPrinterToHtml::getInstance()->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
         <div style="float:left;width:100%">
             <h4>
                 Now, change and create your own sequence diagram.
