@@ -25,10 +25,10 @@ CodeToDiagram::getInstance()->setMergeSameClassObjects( false);
 // the class history should be ignored //
 CodeToDiagram::getInstance()->setIgnoredClasses( array( "History" ) );
 // all the gets and sets should be ignored //
-CodeToDiagram::getInstance()->setIgnoredMethodsRegex( array( "^(get(.*)|set(.*))$" ) );
+CodeToDiagram::getInstance()->addIgnoredMethodRegex( "^(get(.*)|set(.*))$" );
 // an alternative way to remove the class house //
 // just to show how to regular expression can be flexibe //
-CodeToDiagram::getInstance()->setIgnoredMethodsRegex( array( "^House::(.*)$" ) );
+CodeToDiagram::getInstance()->addIgnoredMethodRegex( "^House::(.*)$" );
 
 // 3. load the necessary classes
 require_once( 'Wolf.class.php' );
