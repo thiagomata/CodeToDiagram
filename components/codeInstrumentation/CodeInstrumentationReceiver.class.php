@@ -102,26 +102,48 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     
     /**
      * Array with the name of the methods what should NOT enter into the diagram
-     * 
+     *
      * If this array is empty, no methods will be ignored to the diagram
-     * The value can be just the "<method name>" or "<class name>.<method name>",
+     * The value can be just the "<method name>" or "<class name>::<method name>",
      * in this last case just in the informed class the method it is considered
-     * 
+     *
      * @var String[]
      */
     protected $arrIgnoredMethods = array();
-    
+
+    /**
+     * Array with the Regex of the methods what should NOT enter into the diagram
+     *
+     * If this array is empty, no methods will be ignored to the diagram
+     * The value can be any regular expression what will be match with the
+     * "<method name>" or "<class name>::<method name>",
+     *
+     * @var String[]
+     */
+    protected $arrIgnoredMethodsRegex = array();
+
     /**
      * Array with the exclusive methods name what should be into the diagram
-     * 
+     *
      * If this array is empty, any method can enter into the diagram.
-     * The value can be just the "<method name>" or "<class name>.<method name>",
+     * The value can be just the "<method name>" or "<class name>::<method name>",
      * in this last case just in the informed class the method it is considered
-     * 
+     *
      * @var String[]
      */
     protected $arrExclusiveMethods = array();
-    
+
+    /**
+     * Array with the exclusive methods regex what should be into the diagram
+     *
+     * If this array is empty, any method can enter into the diagram.
+     * The value can be any regular expression what will be match with
+     * the "<method name>" or "<class name>::<method name>"
+     *
+     * @var String[]
+     */
+    protected $arrExclusiveMethodsRegex = array();
+
     /**
      * Object of the uml sequence diagram what will be feed into the execution
      * 
@@ -298,7 +320,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
     
     /**
-     * Set the array with the exclusive class into the diagram
+     * Set the array with the exclusive methods into the diagram
      *
      * @see CodeInstrumentationReceiver->arrExclusiveMethods
      * @see CodeInstrumentationReceiver::getExclusiveMethods()
@@ -310,22 +332,22 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     	$this->arrExclusiveMethods = $arrExclusiveMethods;
     	return $this;
     }
-    
+
     /**
      * get the array with the exclusive method into the diagram
      *
      * @see CodeInstrumentationReceiver->arrExclusiveMethods
      * @see CodeInstrumentationReceiver::setExclusiveMethods( String[] )
      * @return String[] $arrExclusiveMethods
-     */    
+     */
     public function getExclusiveMethods()
     {
     	return $this->arrExclusiveMethods;
     }
-       
+
     /**
-     * Add a class name into the exclusive method list
-     * 
+     * Add a class method into the exclusive method list
+     *
      * @see CodeInstrumentationReceiver->arrExclusiveMethods
      * @see CodeInstrumentationReceiver::setExclusiveMethods( String[] )
      * @see CodeInstrumentationReceiver::getExclusiveMethod()
@@ -337,7 +359,52 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     	$this->arrExclusiveMethods[] = $strExclusiveMethod;
     	return $this;
     }
-    
+
+
+    /**
+     * Set the array with the regular expression of the
+     * exclusive methods into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrExclusiveMethodsRegex
+     * @see CodeInstrumentationReceiver::getExclusiveMethodsRegex()
+     * @param String[] $arrExclusiveMethodsRegex
+     * @return CodeInstrumentationReceiver me
+     */
+    public function setExclusiveMethodsRegex( $arrExclusiveMethodsRegex )
+    {
+    	$this->arrExclusiveMethodsRegex = $arrExclusiveMethodsRegex;
+    	return $this;
+    }
+
+    /**
+     * get the array with the regular expressions of the
+     * exclusive method into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrExclusiveMethodsRegex
+     * @see CodeInstrumentationReceiver::setExclusiveMethodsRegex( String[] )
+     * @return String[] $arrExclusiveMethodsRegex
+     */
+    public function getExclusiveMethodsRegex()
+    {
+    	return $this->arrExclusiveMethodsRegex;
+    }
+
+    /**
+     * Add a regular expression into the
+     * exclusive method regular expression list
+     *
+     * @see CodeInstrumentationReceiver->arrExclusiveMethodsRegex
+     * @see CodeInstrumentationReceiver::setExclusiveMethodsRegex( String[] )
+     * @see CodeInstrumentationReceiver::getExclusiveMethodRegex()
+     * @param string $strExclusiveMethodRegex
+     * @return CodeInstrumentationReceiver me
+     */
+    public function addExclusiveMethodRegex( $strExclusiveMethodRegex )
+    {
+    	$this->arrExclusiveMethodsRegex[] = $strExclusiveMethodRegex;
+    	return $this;
+    }
+
 
     /**
      * Set the array with the ignored methods list into the diagram
@@ -367,7 +434,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
     
     /**
-     * Add a class name into the ignored methods list
+     * Add a class method into the ignored methods list
      * 
      * @see CodeInstrumentationReceiver->arrIgnoredMethods
      * @see CodeInstrumentationReceiver::setIgnoredMethods( String[] )
@@ -380,6 +447,48 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     	return $this;
     }    
     
+    /**
+     * Set the array with the ignored regular expressions
+     * methods list into the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrIgnoredMethodsRegex
+     * @see CodeInstrumentationReceiver::getIgnoredMethodsRegex()
+     * @param String[] $arrIgnoredMethodsRegex
+     * @return CodeInstrumentationReceiver me
+     */
+    public function setIgnoredMethodsRegex( array $arrIgnoredMethodsRegex )
+    {
+    	$this->arrIgnoredMethodsRegex = $arrIgnoredMethodsRegex;
+    	return $this;
+    }
+
+    /**
+     * get the array with the ignored methods regex list of the diagram
+     *
+     * @see CodeInstrumentationReceiver->arrIgnoredMethodsRegex
+     * @see CodeInstrumentationReceiver::setIgnoredMethodsRegex( String[] )
+     * @see CodeInstrumentationReceiver::getIgnoredMethodsRegex()
+     * @return String[] $arrIgnoredMethodsRegex
+     */
+    public function getIgnoredMethodsRegex()
+    {
+    	return $this->arrIgnoredMethodsRegex;
+    }
+
+    /**
+     * Add a regex into the ignored methods regex list
+     *
+     * @see CodeInstrumentationReceiver->arrIgnoredMethodsRegex
+     * @see CodeInstrumentationReceiver::setIgnoredMethodsRegex( String[] )
+     * @param string $strIgnoredMethodRegex
+     * @return CodeInstrumentationReceiver me
+     */
+    public function addIgnoredMethodRegex( $strIgnoredMethodRegex )
+    {
+    	$this->arrIgnoredMethodsRegex[] = $strIgnoredMethodRegex;
+    	return $this;
+    }
+
     /**
      * prepare the code instrumentation receiver to start to receive the informations about
      * the execution.
@@ -465,13 +574,11 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
 
     /**
-     * Check if the method should be loged into the uml sequence diagram
-     * 
+     * Return if the class should be ignored
+     *
      * @param String $strClass
-     * @param String $strMethod
-     * @return boolean
      */
-    protected function shouldBeLog( $strClass , $strMethod )
+    protected function isIgnoredClass( $strClass )
     {
     	// returns if it is into ignore list
         if(
@@ -480,9 +587,26 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
              ( in_array( $strClass , $this->getIgnoredClasses() ) )
            )
         {
-            return false;
+            return true;
         }
 
+        // returns if it is not into the exclusive class
+        if(
+            ( count( $this->getExclusiveClasses() ) > 0 )
+             and
+             ( !in_array( $strClass , $this->getExclusiveClasses() ) )
+           )
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    protected function isIgnoredMethod( $strClass , $strMethod )
+    {
+        $strFullName = $strClass . '::' . $strMethod;
+        
         // returns if it is into ignore list
         if(
             ( count( $this->getIgnoredMethods() ) > 0 )
@@ -490,23 +614,76 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
              (
              	( in_array( $strMethod , $this->getIgnoredMethods() ) )
              	||
-             	( in_array( $strClass . '.' . $strMethod , $this->getIgnoredMethods() ) )
+             	( in_array( $strFullName , $this->getIgnoredMethods() ) )
              )
           )
+        {
+            return true;
+        }
+
+        // returns if it is not into the exclusive list
+        if(
+            ( count( $this->getExclusiveMethods() ) > 0 )
+             and
+             (
+             	( ! in_array( $strMethod , $this->getExclusiveMethods() ) )
+             	&&
+             	( ! in_array( $strFullName , $this->getExclusiveMethods() ) )
+             )
+          )
+        {
+            return true;
+        }
+
+        // exists a ignore methods regular expression list //
+        if( count( $this->getIgnoredMethodsRegex() ) > 0 )
+        {
+            foreach( $this->getIgnoredMethodsRegex() as $strRegex )
+            {
+                if( ereg( $strRegex , $strMethod ) || ereg( $strRegex , $strFullName ) )
+                {
+                    // and the method match into //
+                    return true;
+                }
+            }
+        }
+
+        // exists a exclusive methods regular expression list //
+        if( count( $this->getExclusiveMethodsRegex() ) > 0 )
+        {
+            foreach( $this->getExclusiveMethodsRegex() as $strRegex )
+            {
+                if( ereg( $strRegex , $strMethod ) || ereg( $strRegex , $strFullName ) )
+                {
+                    // and the method match into //
+                    return false;
+                }
+            }
+            // and the method not match into //
+            return true;
+        }
+
+        // not reasons was founded to ignore this class //
+        return false;
+    }
+
+    /**
+     * Check if the method should be loged into the uml sequence diagram
+     * 
+     * @param String $strClass
+     * @param String $strMethod
+     * @return boolean
+     */
+    protected function shouldBeLog( $strClass , $strMethod )
+    {
+    	// returns if is a ignored class
+        if( $this->isIgnoredClass( $strClass ) )
         {
             return false;
         }
 
-        // returns of it is not into the exclusive list
-        if(
-             ( count( $this->arrExclusiveClasses ) > 0 )
-             and
-             (
-             	( in_array( $strMethod, $this->getExclusiveClasses() ) )
-             	||
-             	( in_array( $strClass . '.' . $strMethod, $this->getExclusiveClasses() ) )
-             )
-           )
+        // returns of it is a ignored method
+        if( $this->isIgnoredMethod( $strClass , $strMethod ) )
         {
             return false;
         }
