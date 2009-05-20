@@ -60,7 +60,7 @@
                 All this process must be simple and enough to be used simply append one call, but flexible also
                 to deal with all the special cases. The big idea it is to create the diagram of the execution been
                 less invader as possible into the source code what the execution will run. You can see the runing
-                examples <a href="..\examples">here</a>.
+                examples <a href="../examples">here</a>.
             </p>
             <p>
                 One small component was created in the process of generation of this software what can be used separately.
