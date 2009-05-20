@@ -17,7 +17,7 @@ class CodeInstrumentationMethod extends CodeReflectionMethod
      * The original method should be renamed. This is the new prefix what will be
      * append into it's name.
      */
-    const PREFIX_METHOD = "___";
+    const PREFIX_METHOD = "CODETODIAGRAM_";
 
     /**
      * Returns the new name of the original method.
