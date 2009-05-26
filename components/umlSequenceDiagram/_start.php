@@ -14,6 +14,7 @@ Loader::requireOnce( 'UmlSequenceDiagramPrinterInterface.interface.php' , true )
 Loader::requireOnce( 'UmlSequenceDiagramFactoryFromXml.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramPrinterToXml.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramPrinterToHtml.class.php' , true );
+Loader::requireOnce( 'UmlSequenceDiagramStereotype.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramActor.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramMessage.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramValue.class.php' , true );

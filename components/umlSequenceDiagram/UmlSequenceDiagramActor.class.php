@@ -20,9 +20,9 @@ class UmlSequenceDiagramActor
     /**
      * Type of the actor
      *
-     * @var string
+     * @var UmlSequenceDiagramStereotype
      */
-    protected $strType = 'system';
+    protected $objStereotype = null;
 
     /**
      * Name of the actor
@@ -38,6 +38,10 @@ class UmlSequenceDiagramActor
      */
     protected $strClassName;
 
+    public function __construct()
+    {
+        $this->setType( "system" );
+    }
     /**
      * Get the id of the actor
      *
@@ -67,29 +71,35 @@ class UmlSequenceDiagramActor
      * Get the type of the actor
      *
      * @see UmlSequenceDiagramActor::setType( string )
-     * @see UmlSequenceDiagramActor->strType
+     * @see UmlSequenceDiagramActor->objStereotype
      * @return string
      */
     public function getType()
     {
-        return $this->strType;
+        return $this->objType->getName();
     }
 
     /**
      * Set the type of the actor
      *
      * @see UmlSequenceDiagramActor::getType()
-     * @see UmlSequenceDiagramActor->strType
+     * @see UmlSequenceDiagramActor->objType
      * @return UmlSequenceDiagramActor
+     * @throws UmlSequenceDiagramException
      */
-    public function setType($strType)
+    public function setType( $strType )
     {
-        if( !in_array( $strType, Array( 'user' , 'system' ) ) )
-        {
-            throw new Exception( "Invalid type of user " . $strType );
-        }
+        $this->objType = UmlSequenceDiagramStereotype::getStereotypeByName( $strType );
+    }
 
-        $this->strType = $strType;
+    /**
+     * Get the stereotype of the actor
+     *
+     * @return UmlSequenceDiagramStereotype
+     */
+    public function getStereotype()
+    {
+        return $this->objType;
     }
 
     /**

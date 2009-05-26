@@ -148,6 +148,32 @@ class CodeToDiagram
 	 */
 	const PRINTER_TYPE_HTML = "html";
 
+    /**
+     * array with the name of the default stereotypes
+     *
+     * @var string[]
+     */
+    protected static $arrDefaultStereotypes = array( 'system' , 'user' , 'entity' , 'controller' , 'bondary' );
+
+    public function __construct()
+    {
+        $this->loadDefaultsStereotypes();
+    }
+
+    /**
+     * Load the default stereotype list
+     */
+    protected function loadDefaultsStereotypes()
+    {
+        foreach( self::$arrDefaultStereotypes as $strDefaultStereotype )
+        {
+            $objStereotype = new UmlSequenceDiagramStereotype();
+            $objStereotype->setName( $strDefaultStereotype  )->setDefault( true );
+            UmlSequenceDiagramStereotype::addStereotype( $objStereotype );
+        }
+
+    }
+
 	/**
 	 *
 	 * Set If the Diagram should ignore recursive calls
