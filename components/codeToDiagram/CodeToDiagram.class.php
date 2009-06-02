@@ -889,6 +889,46 @@ class CodeToDiagram
 		return $this;
 	}
 
+    /**
+     * Check if the user has permission to write into the file folder.
+     *
+     * @throws CodeToDiagramException
+     * @param string $strFileName
+     * @return boolean
+     */
+    private function checkPermissionToWrite( $strFileName )
+    {
+        $strPath = CorujaFileManipulation::getPathOfFile( $strFileName );
+
+        if( $strPath == "" )
+        {
+            $strPath = $this->getPublicPath();
+        }
+
+        if( file_exists( $strFileName ) )
+        {
+            if( !is_writable( $strFileName ) )
+            {
+                throw new CodeToDiagramException( " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false." );
+            }
+            return TRUE;
+        }
+
+        if( is_dir( $strPath ) )
+        {
+            if( !is_writable( $strFileName ) )
+            {
+                throw new CodeToDiagramException( " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false." );
+            }
+        }
+
+        if( !mkdir( $strPath , 0777, TRUE ) )
+        {
+            throw new CodeToDiagramException( " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false." );
+        }
+        return TRUE;
+    }
+
 	/**
 	 * Save the actual information from the code instrumentation into the 
 	 * selected output.
@@ -956,6 +996,7 @@ class CodeToDiagram
 				}
 				case self::OUTPUT_TYPE_FILE:
 				{
+                    $this->checkPermissionToWrite( $this->getFileName() );
 					file_put_contents( $this->getFileName() , $strDiagram );
 					$strReturn = $strDiagram;
 					break;
@@ -1227,6 +1268,8 @@ class CodeToDiagram
 		if( self::RUN_IN_FILES )
 		{
 			$strFileName = $strFileName . "(0).phps";
+            print $strFileName;
+            $this->checkPermissionToWrite( $strFileName );
 			file_put_contents( $strFileName , $strContentFile );
 			require_once( $strFileName );
 			if( self::REMOVE_FILES )
@@ -1236,7 +1279,7 @@ class CodeToDiagram
 		}
 		else
 		{
-			eval( '?' . '>' . $strContentFile . '' );
+			eval( '?' . '>' . $strContentFile );
 		}
 		return $this;
 	}
@@ -1270,7 +1313,8 @@ class CodeToDiagram
 			if( self::RUN_IN_FILES )
 			{
 				$strFileName = trim( $strNewClassName ) . "(1).phps";
-				file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
+                $this->checkPermissionToWrite( $strFileName );
+                file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
 				require_once( $strFileName );
 				if( self::REMOVE_FILES )
 				{
@@ -1290,6 +1334,7 @@ class CodeToDiagram
 			if( self::RUN_IN_FILES )
 			{
 				$strFileName = trim( $strNewInterfaceName ) . "(1).phps";
+                $this->checkPermissionToWrite( $strFileName );
 				file_put_contents( $strFileName , '<?' . 'php ' .  $strNewCode );
 				require_once( $strFileName );
 				if( self::REMOVE_FILES )
