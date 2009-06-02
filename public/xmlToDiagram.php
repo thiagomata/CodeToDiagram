@@ -16,7 +16,8 @@ require_once( "../public/codetodiagram.php" );
 
 $intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
 $strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
-
+$strXml =  html_entity_decode( $strXml );
+$strXml = stripslashes( $strXml );
 $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strXml )->perform();
 
 ?>
@@ -117,7 +118,7 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
                 <label>
                     <span> Xml: </span>
                     <textarea name="xml">
-                    <?php print $strXml ?>
+                    <?php print htmlentities( $strXml ) ?>
                     </textarea>
                 </label>
                 <label>

@@ -1,5 +1,5 @@
-<!-- 
-/** 
+                                                                                <!--
+/**
  *
  * This sequence file it is a demostration of the xml what can be used
  * to create sequence diagrams into the xmltodiagram tool.
@@ -14,13 +14,13 @@
 -->
 <sequence>
 	<actors>
-		<actor id="1" type="system">objWolf:Worf</actor>
-		<actor id="2" type="system">firstLittlePig:Pig</actor>
-		<actor id="3" type="system">secondLittlePig:Pig</actor>
-		<actor id="4" type="system">thirdLittlePig:Pig</actor>
-		<actor id="5" type="system">StrawHouse:House</actor>
-		<actor id="6" type="system">StickHouse:House</actor>
-		<actor id="7" type="system">BrickHouse:House</actor>
+		<actor id="1" type="user">objWolf:Worf</actor>
+		<actor id="2" type="controller">firstLittlePig:Pig</actor>
+		<actor id="3" type="controller">secondLittlePig:Pig</actor>
+		<actor id="4" type="controller">thirdLittlePig:Pig</actor>
+		<actor id="5" type="entity">StrawHouse:House</actor>
+		<actor id="6" type="entity">StickHouse:House</actor>
+		<actor id="7" type="entity">BrickHouse:House</actor>
 		<actor id="8" type="system">:Chimney</actor>
 		<actor id="9" type="system">:PotOfWater</actor>
 	</actors>
@@ -107,4 +107,4 @@
   		<message type="call" from="4" to="4" text="happyEverAfter()"/>
 
     </messages>
-</sequence>
+</sequence>                                                                                

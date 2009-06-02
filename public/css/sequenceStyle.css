@@ -326,7 +326,7 @@
 				height: 100px;
 			}
 			.head .controller .name ,
-			.head .bondary .name ,
+			.head .boundary .name ,
             .head .entity .name
 			{
 				background-color: white;
@@ -337,9 +337,9 @@
 				background-repeat: no-repeat;
 				background-position: center 20px;
 			}
-			.head .bondary .name
+			.head .boundary .name
 			{
-				background-image: url( "../images/bondary.gif" );
+				background-image: url( "../images/boundary.gif" );
 			}
 			.head .entity .name
 			{
