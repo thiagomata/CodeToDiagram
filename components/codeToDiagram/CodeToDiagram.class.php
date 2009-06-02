@@ -91,7 +91,7 @@ class CodeToDiagram
 	 *
 	 * @var boolean
 	 */
-	const RUN_IN_FILES = true;
+	const RUN_IN_FILES = false;
 
 	/**
 	 * If the execution happen into files the
