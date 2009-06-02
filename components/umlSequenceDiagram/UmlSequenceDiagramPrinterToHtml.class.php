@@ -359,6 +359,16 @@ HTML;
 
             $strActorName = implode( " : " , $arrActorName );
 
+            $objStereotype = $objActor->getStereotype();
+            
+            if( $objStereotype->getDefault())
+            {
+            	$strStyle = '';
+            }
+            else
+            {
+            	$strStyle = 'style=\'background-image: url( "' . $objStereotype->getImage() . '" );\'';            	
+            }
             $strHtmlActors .=
 <<<HTML
             <div class="row">
@@ -366,7 +376,7 @@ HTML;
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor {$objActor->getType()}">
+            <div class="actor {$objStereotype->getName()}" {$strStyle} >
                 <div class="name">
                     <span title="{$objActor->getName()}">{$strActorName}</span>
                 </div>
