@@ -861,6 +861,7 @@ class CodeToDiagram
 	*/
 	public function start()
 	{
+        ob_start();
 		if( $this->getStarted() )
 		{
 			return $this;
@@ -956,7 +957,10 @@ class CodeToDiagram
 		
 		if( $this->getStarted() )
 		{
+            $strContent = ob_get_contents();
+            ob_end_clean();
 			$objUmlSequenceDiagram = CodeInstrumentationReceiver::getInstance()->getUmlSequenceDiagram();
+            $objUmlSequenceDiagram->setOutput( $strContent );
 
 			switch( $this->getPrinterType() )
 			{
@@ -986,6 +990,8 @@ class CodeToDiagram
 				case self::OUTPUT_TYPE_SCREEN:
 				{
 					$objPrinter->getHeader();
+                    ob_flush();
+                    flush();
 					print $strDiagram;
 					break;
 				}

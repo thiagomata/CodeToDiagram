@@ -27,6 +27,13 @@ class UmlSequenceDiagram
     protected $arrMessages = Array();
 
     /**
+     * Execution output
+     * 
+     * @var string 
+     */
+    protected $strOutput = "";
+
+    /**
      * Restart Uml Sequence Object.
      * Clean all the old actors and messages
      * 
@@ -34,6 +41,7 @@ class UmlSequenceDiagram
      */
     public function restart()
     {
+        $this->strOutput = "";
         $this->arrActors = array();
         $this->arrMessages = array();
         return $this;
@@ -121,6 +129,32 @@ class UmlSequenceDiagram
     {
         $this->arrActors[] = $objActor;
         return $this;
+    }
+
+    /**
+     * set the output of the execution
+     *
+     * @see UmlSequenceDiagram->strOutput
+     * @see UmlSequenceDiagram::getOutput()
+     * @param string $strOutput
+     * @return UmlSequenceDiagram
+     */
+    public function setOutput( $strOutput )
+    {
+        $this->strOutput = $strOutput;
+        return $this;
+    }
+
+    /**
+     * get the output of the execution
+     *
+     * @see UmlSequenceDiagram->strOutput
+     * @see UmlSequenceDiagram::setOutput( string )
+     * @return string
+     */
+    public function getOutput()
+    {
+        return $this->strOutput;
     }
 }
 ?>
