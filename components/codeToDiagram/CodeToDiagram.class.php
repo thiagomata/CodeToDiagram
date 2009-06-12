@@ -153,7 +153,7 @@ class CodeToDiagram
      *
      * @var string[]
      */
-    protected static $arrDefaultStereotypes = array( 'user' , 'system' , 'user' , 'entity' , 'controller' , 'boundary' );
+    protected static $arrDefaultStereotypes = array( 'user' , 'system' , 'user' , 'entity' , 'controller' , 'boundary' , 'database');
 
     public function __construct()
     {

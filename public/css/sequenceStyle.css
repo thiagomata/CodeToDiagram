@@ -327,6 +327,7 @@
 			}
 			.head .controller .name ,
 			.head .boundary .name ,
+			.head .database .name ,
             .head .entity .name
 			{
 				background-color: white;
@@ -344,6 +345,10 @@
 			.head .entity .name
 			{
 				background-image: url( "../images/entity.gif" );
+			}
+			.head .database .name
+			{
+				background-image: url( "../images/database.gif" );
 			}
 			.head .actor .name span
 			{

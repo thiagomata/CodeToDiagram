@@ -22,6 +22,11 @@ class Fatorial
      */
     public static function play( $n )
     {
+        if(  $n < 0 )
+        {
+            throw new Exception( "invalid factorial value" );
+        }
+
        if ( $n == 0 )
         {
             return 1;
