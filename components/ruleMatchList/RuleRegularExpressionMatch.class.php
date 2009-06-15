@@ -110,20 +110,32 @@ class RuleRegularExpressionMatch
      * Search the element into the array and returns true if founded
      * and false if not
      *
-     * @param string $strRegularExpression
+     * @param string $strName
      * @return boolean
      */
-    public function found( $strRegularExpression )
+    public function found( $strName )
     {
-        if ( in_array( $strRegularExpression , $this->arrRegularExpressionList ) )
+        foreach( $this->arrRegularExpressionList  as $intRegularExpressionKey => $strRegularExpression )
         {
-            return TRUE;
+            if( ereg( $strRegularExpression , $strName ) )
+            {
+                return TRUE;
+            }
         }
-        else
-        {
-            return FALSE;
-        }
+
+        return FALSE;
     }
+
+    /**
+     * Returns if the rule is empty
+     *
+     * @return boolean
+     */
+    public function isEmpty()
+    {
+        return ( sizeof( $this->arrRegularExpressionList ) == 0 );
+    }
+
 
     /**
      * Match the string RegularExpression

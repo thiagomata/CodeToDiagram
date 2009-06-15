@@ -13,287 +13,163 @@ class RuleMatchList
 {
     /**
      *
-     * @var RuleNameMatch
+     * @var RuleMatch
      */
-    protected $objIgnoredNameList = null;
+    protected $objIgnoredRuleMatch = null;
 
     /**
      *
-     * @var RuleNameMatch
+     * @var RuleMatch
      */
-    protected $objNameList = null;
+    protected $objExclusiveRuleMatch = null;
 
     /**
-     * Array with the string name values what should be not
-     * be added into this match
      *
-     * If is empty, no one will be ignored
-     *
-     * @var string[]
+     * @var mixer 
      */
-    protected $arrIgnoredNameList = array();
+    protected $mixNotFoundValue = TRUE;
 
-    /**
-     * Array with the regular expressions of the values
-     * what should be not be added into this match
-     *
-     * If is empty, no one will be ignored
-     *
-     * @var string[]
-     */
-    protected $arrIgnoredRegularExpressionList = array();
+    public function __construct()
+    {
+        $this->objIgnoredRuleMatch = new RuleMatch();
+        $this->objExclusiveRuleMatch = new ruleMatch();
+    }
 
-    /**
-     * Array with the string name list of the exclusive
-     * names what should be match
+    /*
      *
-     * If is empty, anyone can enter.
-     *
-     * @var string[]
-     */
-    protected $arrExclusiveNameList = array();
-
-    /**
-     * Array with the string list name of the exclusive
-     * regular expressions what should be match
-     *
-     * If is empty, anyone can enter.
-     *
-     * @var string[]
-     */
-    protected $arrExclusiveRegularExpressionList = array();
-
-    /**
-     * Set the array with the ignored list name of the match
-     *
-     * @see RuleMatchList->arrIgnoredNameList
-     * @see RuleMatchList::getIgnoredNameList()
-     * @param String[] $arrIgnoredNameList
+     * @param RuleMatch $objIgnoredRuleMatch
      * @return RuleMatchList me
      */
-    public function setIgnoredNameList( array $arrIgnoredNameList )
+    public function setIgnoredRuleMatch( RuleMatch $objIgnoredRuleMatch )
     {
-    	$this->arrIgnoredNameList = $arrIgnoredNameList;
-    	return $this;
+        $this->objIgnoredRuleMatch = $objIgnoredRuleMatch;
+        return $this;
     }
 
     /**
-     * get the array with the ignored list name of the match
      *
-     * @see RuleMatchList->arrIgnoredNameList
-     * @see RuleMatchList::setIgnoredNameList( String[] )
-     * @return String[] $arrIgnoredNameList
+     * @return RuleMatch
      */
-    public function getIgnoredNameList()
+    public function getIgnoredMatchList()
     {
-    	return $this->arrIgnoredNameList;
+        return $this->objIgnoredRuleMatch;
     }
 
     /**
-     * Add a string element name into the ignore list string
      *
-     * @see RuleMatchList->arrIgnoredNametString
-     * @see RuleMatchList::setIgnoredListString( String[] )
-     * @see RuleMatchList::getIgnoredListString()
+     * @see RuleMatch::addName( string , mixer )
      * @param string $strIgnoredName
      * @return RuleMatchList me
      */
     public function addIgnoredName( $strIgnoredName )
     {
-    	$this->arrIgnoredNameList[] = $strIgnoredName;
-    	return $this;
+        $this->getIgnoredMatchList()->addName( $strIgnoredName , TRUE );
+        return $this;
     }
 
     /**
-     * Set the array with the exclusive name into the match
      *
-     * @see RuleMatchList->arrExclusiveNameList
-     * @see RuleMatchList::getExclusiveNameList()
-     * @param String[] $arrExclusiveNameList
+     * @see RuleMatch::addRegularExpression( string , mixer )
+     * @param string $strIgnoreName
      * @return RuleMatchList me
      */
-    public function setExclusiveNameList( $arrExclusiveNameList )
+    public function addIgnoredRegularExpression( $strIgnoredRegex)
     {
-    	$this->arrExclusiveNameList = $arrExclusiveNameList;
-    	return $this;
+        $this->getIgnoredMatchList()->addRegularExpression( $strIgnoredRegex, TRUE );
+        return $this;
     }
 
+
     /**
-     * get the array with the exclusive name into the match
      *
-     * @see RuleMatchList->arrExclusiveNameList
-     * @see RuleMatchList::setExclusiveNameList( String[] )
-     * @return String[] $arrExclusiveNameList
+     * @param RuleMatch $objExclusiveRuleMatch
+     * @return RuleMatchList me
      */
-    public function getExclusiveNameList()
+    public function setExclusiveRuleMatch( RuleMatch $objExclusiveRuleMatch )
     {
-    	return $this->arrExclusiveNameList;
+        $this->objExclusiveRuleMatch = $objExclusiveRuleMatch;
+        return $this;
     }
 
     /**
-     * Add a class name into the exclusive name list
      *
-     * @see RuleMatchList->arrExclusiveNameList
-     * @see RuleMatchList::setExclusiveNameList( String[] )
-     * @see RuleMatchList::getExclusiveClasses()
+     * @return RuleMatch
+     */
+    public function getExclusiveMatchList()
+    {
+        return $this->objExclusiveRuleMatch;
+    }
+
+    /**
+     * add a exclusive name into the rule
+     *
+     * @see RuleMatch::addName( string , mixer )
      * @param string $strExclusiveName
+     * @param mixer $mixValue value of the element. Beware!
      * @return RuleMatchList me
      */
-    public function addExclusiveName( $strExclusiveName )
+    public function addExclusiveName( $strExclusiveName , $mixValue = TRUE )
     {
-    	$this->arrExclusiveNameList[] = $strExclusiveName;
-    	return $this;
+        $this->getExclusiveMatchList()->addName( $strExclusiveName , $mixValue);
+        return $this;
     }
 
     /**
-     * Set the array with the Ignored Regular Expression into the match
      *
-     * @see RuleMatchList->arrIgnoredRegularExpressionList
-     * @see RuleMatchList::getIgnoredRegularExpressionList()
-     * @param String[] $arrIgnoredRegularExpressionList
+     * @see RuleMatch::addRegularExpression( string , mixer )
+     * @param string $strIgnoreName
      * @return RuleMatchList me
      */
-    public function setIgnoredRegularExpressionList( $arrIgnoredRegularExpressionList )
+    public function addExclusiveRegularExpression( $strExclusiveRegex )
     {
-    	$this->arrIgnoredRegularExpressionList = $arrIgnoredRegularExpressionList;
-    	return $this;
+        return $this;
     }
 
     /**
-     * get the array with the Ignored Regular Expression into the match
+     * Set the value what should be return when the name
+     * not be found into any list
      *
-     * @see RuleMatchList->arrIgnoredRegularExpressionList
-     * @see RuleMatchList::setIgnoredRegularExpressionList( String[] )
-     * @return String[] $arrIgnoredRegularExpressionList
+     * @param mixer $mixValue
      */
-    public function getIgnoredRegularExpressionList()
+    public function setNotFoundValue( $mixValue )
     {
-    	return $this->arrIgnoredRegularExpressionList;
+        $this->mixNotFoundValue = $mixValue;
     }
 
     /**
-     * Add a class Regular Expression into the Ignored Regular Expression list
+     * Get the value what shoul be return when the name
+     * not be found into any list
      *
-     * @see RuleMatchList->arrIgnoredRegularExpressionList
-     * @see RuleMatchList::setIgnoredRegularExpressionList( String[] )
-     * @see RuleMatchList::getIgnoredClasses()
-     * @param string $strIgnoredRegularExpression
-     * @return RuleMatchList me
+     * @return mixer
      */
-    public function addIgnoredRegularExpression( $strIgnoredRegularExpression )
+    public function getNotFoundValue()
     {
-    	$this->arrIgnoredRegularExpressionList[] = $strIgnoredRegularExpression;
-    	return $this;
+        return $this->mixNotFoundValue;
     }
 
     /**
-     * Set the array with the exclusive Regular Expression into the match
-     *
-     * @see RuleMatchList->arrExclusiveRegularExpressionList
-     * @see RuleMatchList::getExclusiveRegularExpressionList()
-     * @param String[] $arrExclusiveRegularExpressionList
-     * @return RuleMatchList me
-     */
-    public function setExclusiveRegularExpressionList( $arrExclusiveRegularExpressionList )
-    {
-    	$this->arrExclusiveRegularExpressionList = $arrExclusiveRegularExpressionList;
-    	return $this;
-    }
-
-    /**
-     * get the array with the exclusive Regular Expression into the match
-     *
-     * @see RuleMatchList->arrExclusiveRegularExpressionList
-     * @see RuleMatchList::setExclusiveRegularExpressionList( String[] )
-     * @return String[] $arrExclusiveRegularExpressionList
-     */
-    public function getExclusiveRegularExpressionList()
-    {
-    	return $this->arrExclusiveRegularExpressionList;
-    }
-
-    /**
-     * Add a class Regular Expression into the exclusive Regular Expression list
-     *
-     * @see RuleMatchList->arrExclusiveRegularExpressionList
-     * @see RuleMatchList::setExclusiveRegularExpressionList( String[] )
-     * @see RuleMatchList::getExclusiveClasses()
-     * @param string $strExclusiveRegularExpression
-     * @return RuleMatchList me
-     */
-    public function addExclusiveRegularExpression( $strExclusiveRegularExpression )
-    {
-    	$this->arrExclusiveRegularExpressionList[] = $strExclusiveRegularExpression;
-    	return $this;
-    }
-
-    /**
-     * Validate the string name by the rules into the match and returns true
-     * if should be considered and false if should not
-     *
+     * Match the string name
+     *  
      * @param string $strName
-     * @return boolean
+     * @return mixer 
      */
-    public function validate( $strName , $strFullName = '' )
+    public function match( $strName )
     {
-        // returns if it is into ignore list
-        if(
-            ( count( $this->getIgnoredNameList() ) > 0 )
-             and
-             (
-             	( in_array( $strName , $this->getIgnoredNameList() ) )
-                ||
-             	( in_array( $strFullName , $this->getIgnoredNameList() ) )
-             )
-          )
+        if( $this->getExclusiveMatchList()->isEmpty() == FALSE )
         {
-            return false;
+            return ( $this->getExclusiveMatchList()->match( $strName ) );
         }
-
-        // returns if it is not into the exclusive list
-        if(
-            ( count( $this->getExclusiveNameList() ) > 0 )
-             and
-             (
-             	( ! in_array( $strName , $this->getExclusiveNameList() ) )
-             	&&
-             	( ! in_array( $strFullName , $this->getExclusiveNameList() ) )
-             )
-          )
+        else
         {
-            return false;
-        }
-
-        // exists a ignore regular expression list //
-        if( count( $this->getIgnoredRegularExpressionList() ) > 0 )
-        {
-            foreach( $this->getIgnoredRegularExpressionList() as $strRegex )
+            if( $this->getIgnoredMatchList()->isEmpty() == FALSE )
             {
-                if( ereg( $strRegex , $strMethod ) || ereg( $strRegex , $strFullName ) )
+                if( $this->getIgnoredMatchList()->found( $strName ) )
                 {
-                    // and the method match into //
-                    return false;
+                    return FALSE;
                 }
             }
         }
-
-        // exists a exclusive methods regular expression list //
-        if( count( $this->getExclusiveRegularExpressionList() ) > 0 )
-        {
-            foreach( $this->getExclusiveRegularExpressionList() as $strRegex )
-            {
-                if( ereg( $strRegex , $strName ) || ereg( $strRegex , $strFullName ) )
-                {
-                    // and the element match into //
-                    return true;
-                }
-            }
-            // and the element not match into //
-            return false;
-        }
-
-        // not reasons was founded to ignore this element //
-        return true;
+        return $this->getNotFoundValue();
     }
 }
 ?>

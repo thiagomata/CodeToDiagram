@@ -47,7 +47,7 @@ class RuleMatch
      */
     public function setNameList( $arrNameList )
     {
-        $this->setNameList( $arrNameList );
+        $this->objNameRuleList->setNameList( $arrNameList );
         return $this;
     }
 
@@ -57,7 +57,7 @@ class RuleMatch
      */
     public function getNameList()
     {
-        return $this->getNameList();
+        return $this->objNameRuleList->getNameList();
     }
 
 
@@ -119,6 +119,37 @@ class RuleMatch
     }
 
     /**
+     * Search the element into the array and returns true if founded
+     * and false if not
+     *
+     * @param string $strName
+     * @return boolean
+     */
+    public function found( $strName )
+    {
+        if ( $this->objNameRuleList->found( $strName ) )
+        {
+            return TRUE;
+        }
+        else
+        {
+            return $this->objRegexRuleList->found( $strName );
+        }
+    }
+
+    /**
+     * Returns if the rule is empty
+     *
+     * @return boolean
+     */
+    public function isEmpty()
+    {
+        return ( $this->objNameRuleList->isEmpty() && $this->objRegexRuleList->isEmpty() );
+    }
+
+    /**
+     * Match the string name
+     * 
      * @see RuleNameMatch::match( string )
      * @see RuleRegularExpressionMatch::match( string )
      * @return mixer

@@ -126,6 +126,16 @@ class RuleNameMatch
     }
 
     /**
+     * Returns if the rule is empty
+     *
+     * @return boolean
+     */
+    public function isEmpty()
+    {
+        return ( sizeof( $this->arrNameList ) == 0 );
+    }
+
+    /**
      * Match the string name
      *
      * @param string $strName
