@@ -1,3 +1,3 @@
 <?php
-require_once( "../RuleMatchList.class.php");
+require_once( "../_start.php");
 ?>

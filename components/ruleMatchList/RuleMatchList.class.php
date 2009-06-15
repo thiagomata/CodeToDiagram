@@ -12,6 +12,18 @@
 class RuleMatchList
 {
     /**
+     *
+     * @var RuleNameMatch
+     */
+    protected $objIgnoredNameList = null;
+
+    /**
+     *
+     * @var RuleNameMatch
+     */
+    protected $objNameList = null;
+
+    /**
      * Array with the string name values what should be not
      * be added into this match
      *
