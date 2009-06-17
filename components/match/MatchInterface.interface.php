@@ -8,7 +8,6 @@
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  * @since 2009-06-16
- * @package Match
  *
  * Define the behavior of one match
  *
