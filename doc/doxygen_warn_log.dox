@@ -1,216 +1,3 @@
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:66: Warning: Example /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:554: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:583: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:623: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:672: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:692: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:711: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:732: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:-1: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:752: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:769: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:784: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:800: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:937: Warning: Example /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:47: Warning: Example getClassNameFromClassDefinition was already documented. Ignoring documentation found here.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:29: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:44: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:59: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:74: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:87: Warning: documented function `& string[]' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:100: Warning: documented function `string[][]' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTrace.php:112: Warning: documented function `Integer' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:39: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:51: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:61: Warning: documented function `Array' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:70: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:79: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:88: Warning: documented function `BackTrace' was not declared or defined.
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:97: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:19: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:27: Warning: documented function `CodeInstrumentationReceiver' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:35: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:43: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:53: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:60: Warning: documented function `UmlSequenceActor[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:67: Warning: documented function `UmlSequenceActor[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:74: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:81: Warning: documented function `UmlSequenceMessage[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:90: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:99: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:110: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:121: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:132: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:143: Warning: documented function `String[]' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:150: Warning: documented function `UmlSequenceDiagram' was not declared or defined.
-/var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:26: Warning: documented function `CodeReflectionFile[]' was not declared or defined.
-/var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:33: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:40: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:49: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeReflection/example/test1.php:20: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:19: Warning: documented function `string[]' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:26: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:33: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:40: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:48: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:56: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:63: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:70: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:77: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:84: Warning: documented function `CodeToDiagram' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:92: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:102: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:154: Warning: documented function `string[]' was not declared or defined.
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:13: Warning: documented function `CorujaStringManipulation' was not declared or defined.
-/var/www/codetodiagram/components/loader/Loader.class.php:20: Warning: documented function `Loader' was not declared or defined.
-/var/www/codetodiagram/components/loader/Loader.class.php:26: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/loader/Loader.class.php:33: Warning: documented function `string[]' was not declared or defined.
-/var/www/codetodiagram/components/loader/Loader.class.php:40: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/match/MatchName.class.php:22: Warning: documented function `< value/> object' was not declared or defined.
-/var/www/codetodiagram/components/match/MatchName.class.php:28: Warning: documented function `< value/> object' was not declared or defined.
-/var/www/codetodiagram/components/match/MatchName.class.php:35: Warning: documented function `string[]' was not declared or defined.
-/var/www/codetodiagram/components/match/MatchName.class.php:41: Warning: member with no name found.
-/var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:14: Warning: documented function `RuleNameMatch' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:20: Warning: documented function `RuleRegularExpressionMatch' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:16: Warning: documented function `RuleMatch' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:22: Warning: documented function `RuleMatch' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:28: Warning: documented function `mixer' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:20: Warning: documented function `string[]' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:27: Warning: documented function `array' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:36: Warning: documented function `mixer' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:20: Warning: documented function `string[]' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:27: Warning: documented function `array' was not declared or defined.
-/var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:36: Warning: documented function `mixer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagram.class.php:18: Warning: documented function `UmlSequenceDiagramActor[]' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagram.class.php:25: Warning: documented function `UmlSequenceDiagramMessage[]' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagram.class.php:32: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActor.class.php:16: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActor.class.php:23: Warning: documented function `UmlSequenceDiagramStereotype' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActor.class.php:30: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActor.class.php:37: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramFactoryFromXml.class.php:17: Warning: documented function `UmlSequenceDiagramFactoryFromXml' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramFactoryFromXml.class.php:25: Warning: documented function `UmlSequenceDiagram' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramFactoryFromXml.class.php:32: Warning: documented function `SimpleXmlElement' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:18: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:25: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:32: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:39: Warning: documented function `UmlSequenceDiagramActor' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:46: Warning: documented function `UmlSequenceDiagramActor' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:53: Warning: documented function `UmlSequenceDiagramValue[]' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:60: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:67: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:19: Warning: documented function `UmlSequenceDiagram' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:27: Warning: documented function `UmlSequenceDiagramPrinterToHtml' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:34: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:41: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:48: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:55: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:62: Warning: documented function `integer' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:69: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:151: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:157: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:352: Warning: documented function `showActors' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:412: Warning: documented function `showMessages' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:451: Warning: documented function `$objMessage UmlSequenceDiagramMessage' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:-1: Warning: documented function `$objActorNext UmlSequenceDiagramActor' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:627: Warning: documented function `showDetails' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:18: Warning: documented function `UmlSequenceDiagram' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:26: Warning: documented function `UmlSequenceDiagramPrinterToXml' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:116: Warning: documented function `createXmlActors' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:141: Warning: documented function `createXmlMessages' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:157: Warning: member with no name found.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:21: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:28: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:36: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:44: Warning: documented function `UmlSequenceDiagramStereotype[]' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramValue.class.php:18: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramValue.class.php:25: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/examples/ThreeLittlePigs/House.class.php:19: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/examples/ThreeLittlePigs/House.class.php:26: Warning: documented function `LittlePig' was not declared or defined.
-/var/www/codetodiagram/examples/ThreeLittlePigs/House.class.php:33: Warning: documented function `boolean' was not declared or defined.
-/var/www/codetodiagram/examples/ThreeLittlePigs/Pig.class.php:19: Warning: documented function `string' was not declared or defined.
-/var/www/codetodiagram/examples/ThreeLittlePigs/Pig.class.php:26: Warning: documented function `House' was not declared or defined.
-/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:53: Warning: included file /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:518: Warning: included file /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:118: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:119: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:120: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:121: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:122: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:124: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:125: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:126: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:127: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:128: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:130: Warning: included file /var/www/codetodiagram/components/library/CorujaStringManipulation.class.php is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:31: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:32: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:33: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:34: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:35: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:37: Warning: included file arrEx is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:66: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:67: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:68: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:69: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:70: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:71: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:73: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:74: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:75: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:77: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:78: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:79: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:80: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:81: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:83: Warning: included file forceInt is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:25: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:26: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:27: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:29: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:30: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:31: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:32: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:33: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:35: Warning: included file getClassNameFromClassDefinition is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:45: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:46: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:47: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:48: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:49: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:50: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:51: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:52: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:53: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:54: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:55: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:56: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:58: Warning: included file path is not found. Check your EXAMPLE_PATH
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:27: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:28: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:29: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:30: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:32: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:33: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:34: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:36: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:37: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:38: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:39: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:40: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:42: Warning: included file strToBool is not found. Check your EXAMPLE_PATH
 todo:4: Warning: Found unknown command `\question'
 /var/www/codetodiagram/components/backtrace/BackTrace.php:116: Warning: argument 'string' of command @param is not found in the argument list of BackTrace::__construct(array $aStack=array())
 /var/www/codetodiagram/components/backtrace/BackTrace.php:116: Warning: The following parameters of BackTrace::__construct(array $aStack=array()) are not documented:
@@ -234,16 +21,17 @@ todo:4: Warning: Found unknown command `\question'
 /var/www/codetodiagram/components/backtrace/BackTrace.php:424: Warning: argument 'integer' of command @param is not found in the argument list of BackTrace::setLevel($iLevel)
 /var/www/codetodiagram/components/backtrace/BackTrace.php:424: Warning: The following parameters of BackTrace::setLevel($iLevel) are not documented:
   parameter 'iLevel'
+/var/www/codetodiagram/components/backtrace/BackTrace.php:97: Warning: unable to resolve link to `debug_backtrace()' for \link command
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:12: Warning: unable to resolve link to `var_dump()' for \link command
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:13: Warning: unable to resolve link to `debug_backtrace()' for \link command
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:14: Warning: unable to resolve link to `http://www.php.net/manual/en/function.debug-backtrace.php#47644' for \link command
-/var/www/codetodiagram/components/backtrace/BackTraceExplain.php:17: Warning: unable to resolve link to `http://php.net/manual/en/ref.outcontrol.php' for \link command
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:19: Warning: unable to resolve link to `highlight_string()' for \link command
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:101: Warning: Found unknown command `\ignore'
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:239: Warning: unable to resolve link to `highlight_string()' for \link command
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:348: Warning: argument 'BackTrace' of command @param is not found in the argument list of BackTraceExplain::perform(BackTrace $oBackTrace=null)
 /var/www/codetodiagram/components/backtrace/BackTraceExplain.php:348: Warning: The following parameters of BackTraceExplain::perform(BackTrace $oBackTrace=null) are not documented:
   parameter 'oBackTrace'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationClass::__construct($strClassName,$strEvalContent="")
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationClass::__construct($strClassName,$strEvalContent="")
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:23: Warning: The following parameters of CodeInstrumentationClass::__construct($strClassName,$strEvalContent="") are not documented:
@@ -258,16 +46,23 @@ todo:4: Warning: Found unknown command `\question'
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:156: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:156: Warning: The following parameters of CodeInstrumentationClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty) are not documented:
   parameter 'objOriginalReflectionProperty'
+/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:63: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationClass::setClassName($strName)
+/var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationClass.class.php:63: Warning: The following parameters of CodeInstrumentationClass::setClassName($strName) are not documented:
+  parameter 'strName'
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationFunction.class.php:17: Warning: Found unknown command `\question'
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationFunction.class.php:25: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeInstrumentationFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationFunction.class.php:25: Warning: The following parameters of CodeInstrumentationFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
   parameter 'objReflectionParameter'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationMethod.class.php:204: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationMethod.class.php:204: Warning: The following parameters of CodeInstrumentationMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationMethod.class.php:216: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeInstrumentationMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationMethod.class.php:216: Warning: The following parameters of CodeInstrumentationMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
   parameter 'objReflectionParameter'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationParameter.class.php:16: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeInstrumentationParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationParameter.class.php:16: Warning: The following parameters of CodeInstrumentationParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
@@ -277,7 +72,8 @@ todo:4: Warning: Found unknown command `\question'
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationParameter.class.php:28: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of CodeInstrumentationParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationParameter.class.php:28: Warning: The following parameters of CodeInstrumentationParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
   parameter 'objOriginalReflectionMethod'
-Error opening map file class_code_instrumentation_receiver__inherit__graph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:307: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::addExclusiveClass($strExclusiveClass)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:307: Warning: The following parameters of CodeInstrumentationReceiver::addExclusiveClass($strExclusiveClass) are not documented:
   parameter 'strExclusiveClass'
@@ -296,24 +92,10 @@ Error opening map file class_code_instrumentation_receiver__inherit__graph.map f
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:478: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::addIgnoredMethodRegex($strIgnoredMethodRegex)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:478: Warning: The following parameters of CodeInstrumentationReceiver::addIgnoredMethodRegex($strIgnoredMethodRegex) are not documented:
   parameter 'strIgnoredMethodRegex'
-Error opening map file class_code_instrumentation_receiver_48461c8d4af783ea4c70ff76bac7344e_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_b16785ae220f9f419a054bfedf288e04_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_24ceca527d671f3fbe427e27beafd409_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_dabd049f25a517f1460892a32caa1d5f_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_6778f82d33335fe6a49ab86d5b6beb2f_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_2c25926269e16faa3a626b4d351180e1_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_c9ab1942c4647d400e7af7145f29faf7_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:197: Warning: argument 'booIgnoreNullReturns' of command @param is not found in the argument list of CodeInstrumentationReceiver::getIgnoreRecursiveCalls()
-Error opening map file class_code_instrumentation_receiver_9827f39df527b013a3d967215cac31d1_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_77c9bb4bf3fdaa0cbff95ac096638599_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_acba29cfd76bf42bfdeaf39424590958_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:576: Warning: argument 'String' of command @param is not found in the argument list of CodeInstrumentationReceiver::isIgnoredClass($strClass)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:576: Warning: The following parameters of CodeInstrumentationReceiver::isIgnoredClass($strClass) are not documented:
   parameter 'strClass'
-Error opening map file class_code_instrumentation_receiver_a943ccb70820eb910c008ffb29f439bb_cgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_a943ccb70820eb910c008ffb29f439bb_icgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_48d02981f465411dffdd9f86963efe5f_cgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_48d02981f465411dffdd9f86963efe5f_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:694: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:694: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:694: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::onEnterMethod($uid,$strClassDefinition,$strMethod,$arrArguments)
@@ -330,14 +112,12 @@ Error opening map file class_code_instrumentation_receiver_48d02981f465411dffdd9
   parameter 'uid'
   parameter 'strClassDefinition'
   parameter 'strMethod'
-Error opening map file class_code_instrumentation_receiver_469121070b5e6118f202517380558019_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:534: Warning: Unsupported xml/html tag <create> found
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:535: Warning: Unsupported xml/html tag <destroy> found
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:531: Warning: argument 'string' of command @param is not found in the argument list of CodeInstrumentationReceiver::renameMethod($strMethod,$strClass)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:531: Warning: The following parameters of CodeInstrumentationReceiver::renameMethod($strMethod,$strClass) are not documented:
   parameter 'strMethod'
   parameter 'strClass'
-Error opening map file class_code_instrumentation_receiver_6ff705c86b6f606cc652f90140b50003_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:281: Warning: argument 'String' of command @param is not found in the argument list of CodeInstrumentationReceiver::setExclusiveClasses($arrExclusiveClasses)
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:281: Warning: The following parameters of CodeInstrumentationReceiver::setExclusiveClasses($arrExclusiveClasses) are not documented:
   parameter 'arrExclusiveClasses'
@@ -367,8 +147,7 @@ Error opening map file class_code_instrumentation_receiver_6ff705c86b6f606cc652f
 /var/www/codetodiagram/components/codeInstrumentation/CodeInstrumentationReceiver.class.php:670: Warning: The following parameters of CodeInstrumentationReceiver::shouldBeLog($strClass,$strMethod) are not documented:
   parameter 'strClass'
   parameter 'strMethod'
-Error opening map file class_code_instrumentation_receiver_ce4ced6f13df653dd3a23a1a14ec4e0c_cgraph.map for inclusion in the docs!
-Error opening map file class_code_instrumentation_receiver_ce4ced6f13df653dd3a23a1a14ec4e0c_icgraph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeReflection/CodeReflectionClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionClass::__construct($strClassName,$strEvalContent="")
 /var/www/codetodiagram/components/codeReflection/CodeReflectionClass.class.php:23: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionClass::__construct($strClassName,$strEvalContent="")
 /var/www/codetodiagram/components/codeReflection/CodeReflectionClass.class.php:23: Warning: The following parameters of CodeReflectionClass::__construct($strClassName,$strEvalContent="") are not documented:
@@ -383,6 +162,7 @@ Error opening map file class_code_instrumentation_receiver_ce4ced6f13df653dd3a23
 /var/www/codetodiagram/components/codeReflection/CodeReflectionClass.class.php:202: Warning: argument 'ReflectionProperty' of command @param is not found in the argument list of CodeReflectionClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionClass.class.php:202: Warning: The following parameters of CodeReflectionClass::createExtendedReflectionProperty(ReflectionProperty $objOriginalReflectionProperty) are not documented:
   parameter 'objOriginalReflectionProperty'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:75: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:75: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:75: Warning: argument 'boolean' of command @param is not found in the argument list of CodeReflectionFile::__construct($strFileName,$strFileContent="",$boolRealFile=true)
@@ -404,15 +184,18 @@ Error opening map file class_code_instrumentation_receiver_ce4ced6f13df653dd3a23
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:93: Warning: argument 'string' of command @param is not found in the argument list of CodeReflectionFile::setFileName($strFileName)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFile.class.php:93: Warning: The following parameters of CodeReflectionFile::setFileName($strFileName) are not documented:
   parameter 'strFileName'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFunction.class.php:42: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionFunction.class.php:42: Warning: The following parameters of CodeReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
   parameter 'objReflectionParameter'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeReflection/CodeReflectionMethod.class.php:43: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionMethod.class.php:43: Warning: The following parameters of CodeReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
 /var/www/codetodiagram/components/codeReflection/CodeReflectionMethod.class.php:56: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of CodeReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
 /var/www/codetodiagram/components/codeReflection/CodeReflectionMethod.class.php:56: Warning: The following parameters of CodeReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
   parameter 'objReflectionParameter'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeReflection/CodeReflectionParameter.class.php:44: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) inherited from member createExtendedReflectionClass at line 55 in file /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionParameter.class.php
 /var/www/codetodiagram/components/codeReflection/CodeReflectionParameter.class.php:44: Warning: The following parameters of CodeReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
@@ -422,25 +205,20 @@ Error opening map file class_code_instrumentation_receiver_ce4ced6f13df653dd3a23
 /var/www/codetodiagram/components/codeReflection/CodeReflectionParameter.class.php:49: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of CodeReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) inherited from member createExtendedReflectionMethod at line 69 in file /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionParameter.class.php
 /var/www/codetodiagram/components/codeReflection/CodeReflectionParameter.class.php:49: Warning: The following parameters of CodeReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
   parameter 'objOriginalReflectionMethod'
-<unknown>:0: Warning: Found unknown command `\fixme'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/codeReflection/CodeReflectionProperty.class.php:84: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of CodeReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) inherited from member createExtendedReflectionClass at line 30 in file /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionProperty.class.php
 /var/www/codetodiagram/components/codeReflection/CodeReflectionProperty.class.php:84: Warning: The following parameters of CodeReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
 /var/www/codetodiagram/components/codeReflection/CodeReflectionProperty.class.php:23: Warning: Found unknown command `\workaround'
-/var/www/codetodiagram/components/codeReflection/CodeReflectionProperty.class.php:24: Warning: Found unknown command `\fixme'
-Error opening map file class_code_to_diagram_095c5d389db211932136b53f25f39685_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:403: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::addExclusiveClass($strExclusiveClass)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:403: Warning: The following parameters of CodeToDiagram::addExclusiveClass($strExclusiveClass) are not documented:
   parameter 'strExclusiveClass'
-Error opening map file class_code_to_diagram_82ec49596c214b8238523f54b38b7d81_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:446: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::addExclusiveMethod($strExclusiveMethod)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:446: Warning: The following parameters of CodeToDiagram::addExclusiveMethod($strExclusiveMethod) are not documented:
   parameter 'strExclusiveMethod'
-Error opening map file class_code_to_diagram_77ea1a3703105659109c52b29592e3a3_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:488: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::addExclusiveMethodRegex($strExclusiveMethodRegex)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:488: Warning: The following parameters of CodeToDiagram::addExclusiveMethodRegex($strExclusiveMethodRegex) are not documented:
   parameter 'strExclusiveMethodRegex'
-Error opening map file class_code_to_diagram_2f03839f858462b72276a74f86d438e1_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1062: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::addFile($strFileFrom,$strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1062: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::addFile($strFileFrom,$strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1062: Warning: The following parameters of CodeToDiagram::addFile($strFileFrom,$strFile) are not documented:
@@ -449,20 +227,15 @@ Error opening map file class_code_to_diagram_2f03839f858462b72276a74f86d438e1_cg
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:277: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::addIgnoredClass($strIgnoredClass)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:277: Warning: The following parameters of CodeToDiagram::addIgnoredClass($strIgnoredClass) are not documented:
   parameter 'strIgnoredClass'
-Error opening map file class_code_to_diagram_b886b9aa1697f0532c5f56305c7f839b_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:319: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::addIgnoredMethod($strIgnoredMethod)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:319: Warning: The following parameters of CodeToDiagram::addIgnoredMethod($strIgnoredMethod) are not documented:
   parameter 'strIgnoredMethod'
-Error opening map file class_code_to_diagram_7d8ee5825ab6d904570dc02a411517f2_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:361: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::addIgnoredMethodRegex($strIgnoredMethodRegex)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:361: Warning: The following parameters of CodeToDiagram::addIgnoredMethodRegex($strIgnoredMethodRegex) are not documented:
   parameter 'strIgnoredMethodRegex'
-Error opening map file class_code_to_diagram_19758289413d6880735ab8bca03275cc_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:893: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::checkPermissionToWrite($strFileName)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:893: Warning: The following parameters of CodeToDiagram::checkPermissionToWrite($strFileName) are not documented:
   parameter 'strFileName'
-Error opening map file class_code_to_diagram_c4a52acea6236464757416acfd4c266c_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_c4a52acea6236464757416acfd4c266c_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1242: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1242: Warning: argument 'array' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1242: Warning: argument 'array' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationClass($strTextSearch, array &$arrOldClasses, array &$arrNewClasses, array &$arrLines)
@@ -477,7 +250,6 @@ Error opening map file class_code_to_diagram_c4a52acea6236464757416acfd4c266c_ic
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1293: Warning: The following parameters of CodeToDiagram::codeInstrumentationFile($strFileName,$strContentFile) are not documented:
   parameter 'strFileName'
   parameter 'strContentFile'
-<unknown>:-1: Warning: Found unknown command `\fixme'
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1209: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationLine($strLine,$strTextSearch)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1209: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::codeInstrumentationLine($strLine,$strTextSearch)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1209: Warning: The following parameters of CodeToDiagram::codeInstrumentationLine($strLine,$strTextSearch) are not documented:
@@ -520,17 +292,6 @@ Error opening map file class_code_to_diagram_c4a52acea6236464757416acfd4c266c_ic
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1044: Warning: The following parameters of CodeToDiagram::fixFileName($strFileFrom,$strFile) are not documented:
   parameter 'strFileFrom'
   parameter 'strFile'
-Error opening map file class_code_to_diagram_48461c8d4af783ea4c70ff76bac7344e_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_b16785ae220f9f419a054bfedf288e04_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_24ceca527d671f3fbe427e27beafd409_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_37a320fe2d2a3543e9d96a11b7820456_icgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_dabd049f25a517f1460892a32caa1d5f_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_6778f82d33335fe6a49ab86d5b6beb2f_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_2c25926269e16faa3a626b4d351180e1_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_c9ab1942c4647d400e7af7145f29faf7_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_9827f39df527b013a3d967215cac31d1_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_77c9bb4bf3fdaa0cbff95ac096638599_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_49cc8b0d5265fa1bc0f254908aa87885_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1078: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::hasFile($strFileFrom,$strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1078: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::hasFile($strFileFrom,$strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1078: Warning: The following parameters of CodeToDiagram::hasFile($strFileFrom,$strFile) are not documented:
@@ -539,8 +300,6 @@ Error opening map file class_code_to_diagram_49cc8b0d5265fa1bc0f254908aa87885_ic
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1029: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::init($strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1029: Warning: The following parameters of CodeToDiagram::init($strFile) are not documented:
   parameter 'strFile'
-Error opening map file class_code_to_diagram_10e239695a21af1414e6b61df51383b5_cgraph.map for inclusion in the docs!
-Error opening map file class_code_to_diagram_10e239695a21af1414e6b61df51383b5_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1358: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::loadFile($strFileFrom,$strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1358: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::loadFile($strFileFrom,$strFile)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1358: Warning: The following parameters of CodeToDiagram::loadFile($strFileFrom,$strFile) are not documented:
@@ -551,8 +310,6 @@ Error opening map file class_code_to_diagram_10e239695a21af1414e6b61df51383b5_ic
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:1265: Warning: The following parameters of CodeToDiagram::preloadFile($strFileName,$strContentFile) are not documented:
   parameter 'strFileName'
   parameter 'strContentFile'
-Error opening map file class_code_to_diagram_5300582d74e4550799d8bc8dffb4af19_cgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:882: Warning: Found unknown command `\assert'
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:811: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setCallerPath($strCallerPath)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:811: Warning: The following parameters of CodeToDiagram::setCallerPath($strCallerPath) are not documented:
   parameter 'strCallerPath'
@@ -562,115 +319,116 @@ Error opening map file class_code_to_diagram_5300582d74e4550799d8bc8dffb4af19_cg
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:377: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::setExclusiveClasses(array $arrExclusiveClasses)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:377: Warning: The following parameters of CodeToDiagram::setExclusiveClasses(array $arrExclusiveClasses) are not documented:
   parameter 'arrExclusiveClasses'
-Error opening map file class_code_to_diagram_99e71275c3453348359f5446c05845f8_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:420: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::setExclusiveMethods(array $arrExclusiveMethods)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:420: Warning: The following parameters of CodeToDiagram::setExclusiveMethods(array $arrExclusiveMethods) are not documented:
   parameter 'arrExclusiveMethods'
-Error opening map file class_code_to_diagram_889a4c8efe061ef1bf0f6f8403f5b554_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:462: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::setExclusiveMethodsRegex(array $arrExclusiveMethodsRegex)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:462: Warning: The following parameters of CodeToDiagram::setExclusiveMethodsRegex(array $arrExclusiveMethodsRegex) are not documented:
   parameter 'arrExclusiveMethodsRegex'
-Error opening map file class_code_to_diagram_704d0676a664b30c96839b7953369ed0_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:643: Warning: argument 'boolean' of command @param is not found in the argument list of CodeToDiagram::setExternalAcess($booExternalAccess)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:643: Warning: The following parameters of CodeToDiagram::setExternalAcess($booExternalAccess) are not documented:
   parameter 'booExternalAccess'
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:748: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setFileFrom($strFileFrom)
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:748: Warning: The following parameters of CodeToDiagram::setFileFrom($strFileFrom) are not documented:
+  parameter 'strFileFrom'
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:781: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setFileName($strFileName)
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:781: Warning: The following parameters of CodeToDiagram::setFileName($strFileName) are not documented:
+  parameter 'strFileName'
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:251: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::setIgnoredClasses(array $arrIgnoredClasses)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:251: Warning: The following parameters of CodeToDiagram::setIgnoredClasses(array $arrIgnoredClasses) are not documented:
   parameter 'arrIgnoredClasses'
-Error opening map file class_code_to_diagram_bf57b9f30f8b558de15334ab225749b0_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:293: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::setIgnoredMethods(array $arrIgnoredMethods)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:293: Warning: The following parameters of CodeToDiagram::setIgnoredMethods(array $arrIgnoredMethods) are not documented:
   parameter 'arrIgnoredMethods'
-Error opening map file class_code_to_diagram_cb784bdfbaa504df276645be6b04bce3_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:335: Warning: argument 'String' of command @param is not found in the argument list of CodeToDiagram::setIgnoredMethodsRegex(array $arrIgnoredMethodsRegex)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:335: Warning: The following parameters of CodeToDiagram::setIgnoredMethodsRegex(array $arrIgnoredMethodsRegex) are not documented:
   parameter 'arrIgnoredMethodsRegex'
-Error opening map file class_code_to_diagram_400542503d7a622c6e9a2ff43bbfb5ea_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:226: Warning: argument 'boolean' of command @param is not found in the argument list of CodeToDiagram::setIgnoreNullReturns($booIgnoreNullReturns)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:226: Warning: The following parameters of CodeToDiagram::setIgnoreNullReturns($booIgnoreNullReturns) are not documented:
   parameter 'booIgnoreNullReturns'
-Error opening map file class_code_to_diagram_57b10b692e4fa48f22b1586376108f1b_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:177: Warning: argument 'boolean' of command @param is not found in the argument list of CodeToDiagram::setIgnoreRecursiveCalls($booIgnoreRecursiveCalls)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:177: Warning: The following parameters of CodeToDiagram::setIgnoreRecursiveCalls($booIgnoreRecursiveCalls) are not documented:
   parameter 'booIgnoreRecursiveCalls'
-Error opening map file class_code_to_diagram_9d58160ec1e8b7bb322fb4ee60f47998_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:202: Warning: argument 'boolean' of command @param is not found in the argument list of CodeToDiagram::setMergeSameClassObjects($booMergeSameClassObjects)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:202: Warning: The following parameters of CodeToDiagram::setMergeSameClassObjects($booMergeSameClassObjects) are not documented:
   parameter 'booMergeSameClassObjects'
-Error opening map file class_code_to_diagram_4f6a4a643847b5bae552b0527c4e87d9_cgraph.map for inclusion in the docs!
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:504: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setOutputType($strType)
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:504: Warning: The following parameters of CodeToDiagram::setOutputType($strType) are not documented:
+  parameter 'strType'
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:578: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setPrinterType($strType)
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:578: Warning: The following parameters of CodeToDiagram::setPrinterType($strType) are not documented:
+  parameter 'strType'
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:833: Warning: argument 'string' of command @param is not found in the argument list of CodeToDiagram::setPublicPath($strPublicPath)
 /var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:833: Warning: The following parameters of CodeToDiagram::setPublicPath($strPublicPath) are not documented:
   parameter 'strPublicPath'
-/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:857: Warning: Found unknown command `\assert'
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:708: Warning: argument 'bool' of command @param is not found in the argument list of CodeToDiagram::setStarted($booStarted)
+/var/www/codetodiagram/components/codeToDiagram/CodeToDiagram.class.php:708: Warning: The following parameters of CodeToDiagram::setStarted($booStarted) are not documented:
+  parameter 'booStarted'
+Error: Problems running epstopdf. Check your TeX installation!
+/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:14: Warning: argument 'Array' of command @param is not found in the argument list of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null)
+/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:14: Warning: argument 'unknown' of command @param is not found in the argument list of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null)
+/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:14: Warning: argument 'unknown' of command @param is not found in the argument list of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null)
+/var/www/codetodiagram/components/library/CorujaArrayManipulation.class.php:14: Warning: The following parameters of CorujaArrayManipulation::getArrayField(array $arrElement,$mixKey,$mixNotFound=null) are not documented:
+  parameter 'arrElement'
+  parameter 'mixKey'
+  parameter 'mixNotFound'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/library/test/CorujaArrayManipulationTest.php:15: Warning: Found unknown command `\access'
 /var/www/codetodiagram/components/library/test/CorujaArrayManipulationTest.php:25: Warning: Found unknown command `\access'
+/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:14: Warning: argument 'String' of command @param is not found in the argument list of CorujaClassManipulation::getClassNameFromClassDefinition($strClassDefinition)
+/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:14: Warning: The following parameters of CorujaClassManipulation::getClassNameFromClassDefinition($strClassDefinition) are not documented:
+  parameter 'strClassDefinition'
+/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:42: Warning: argument 'String' of command @param is not found in the argument list of CorujaClassManipulation::getNamespaceFromClassDefinition($strClassDefiniton)
+/var/www/codetodiagram/components/library/CorujaClassManipulation.class.php:42: Warning: The following parameters of CorujaClassManipulation::getNamespaceFromClassDefinition($strClassDefiniton) are not documented:
+  parameter 'strClassDefiniton'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/library/test/CorujaClassManipulationTest.php:15: Warning: Found unknown command `\access'
 /var/www/codetodiagram/components/library/test/CorujaClassManipulationTest.php:25: Warning: Found unknown command `\access'
 /var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:134: Warning: argument 'string' of command @param is not found in the argument list of CorujaFileManipulation::getPathOfFile($strFile)
 /var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:134: Warning: The following parameters of CorujaFileManipulation::getPathOfFile($strFile) are not documented:
   parameter 'strFile'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:101: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:102: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:103: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:104: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:105: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:106: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:107: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:108: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:109: Warning: Found unknown command `\assert'
+/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:14: Warning: argument 'String' of command @param is not found in the argument list of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true)
+/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:14: Warning: argument 'String' of command @param is not found in the argument list of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true)
+/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:14: Warning: argument 'Boolean' of command @param is not found in the argument list of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true)
+/var/www/codetodiagram/components/library/CorujaFileManipulation.class.php:14: Warning: The following parameters of CorujaFileManipulation::getRelativePath($strFileFrom,$strFileTo,$booValidPath=true) are not documented:
+  parameter 'strFileFrom'
+  parameter 'strFileTo'
+  parameter 'booValidPath'
+/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:103: Warning: argument 'string' of command @param is not found in the argument list of CorujaStringManipulation::camelCaseToUnderlineCase($strText)
+/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:103: Warning: The following parameters of CorujaStringManipulation::camelCaseToUnderlineCase($strText) are not documented:
+  parameter 'strText'
+/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:53: Warning: argument 'string' of command @param is not found in the argument list of CorujaStringManipulation::forceInt($strText)
+/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:53: Warning: The following parameters of CorujaStringManipulation::forceInt($strText) are not documented:
+  parameter 'strText'
+/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:14: Warning: argument 'string' of command @param is not found in the argument list of CorujaStringManipulation::strToBool($strText)
+/var/www/codetodiagram/components/library/CorujaStringManipulation.class.php:14: Warning: The following parameters of CorujaStringManipulation::strToBool($strText) are not documented:
+  parameter 'strText'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:21: Warning: Found unknown command `\access'
 /var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:32: Warning: Found unknown command `\access'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:298: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:389: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:390: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:309: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:320: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:331: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:342: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:353: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:354: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:362: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:363: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:371: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:372: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:380: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:381: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:154: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:253: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:254: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:262: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:263: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:271: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:272: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:280: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:281: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:289: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:290: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:165: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:176: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:187: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:198: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:209: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:220: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:231: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:242: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:39: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:127: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:128: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:136: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:137: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:145: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:146: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:49: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:59: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:69: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:79: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:89: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:99: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:109: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:110: Warning: Found unknown command `\expectedException'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:118: Warning: Found unknown command `\assert'
-/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:119: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:391: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:355: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:364: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:373: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:382: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:255: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:264: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:273: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:282: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:291: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:129: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:138: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:147: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:111: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:120: Warning: Found unknown command `\expectedException'
+/var/www/codetodiagram/components/library/test/CorujaStringManipulationTest.php:13: Warning: Found unknown command `\access'
+Error: Problems running epstopdf. Check your TeX installation!
+/var/www/codetodiagram/components/codeReflection/example/test1.php:17: Warning: Found unknown command `\something'
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionClass.class.php:119: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionClass.class.php:119: Warning: The following parameters of ExtendedReflectionClass::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
@@ -686,15 +444,18 @@ Error opening map file class_code_to_diagram_4f6a4a643847b5bae552b0527c4e87d9_cg
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionClass.class.php:78: Warning: argument 'string' of command @param is not found in the argument list of ExtendedReflectionClass::getProperty($strName)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionClass.class.php:78: Warning: The following parameters of ExtendedReflectionClass::getProperty($strName) are not documented:
   parameter 'strName'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionFunction.class.php:38: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of ExtendedReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionFunction.class.php:38: Warning: The following parameters of ExtendedReflectionFunction::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
   parameter 'objReflectionParameter'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionMethod.class.php:50: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionMethod.class.php:50: Warning: The following parameters of ExtendedReflectionMethod::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionMethod.class.php:64: Warning: argument 'ReflectionParameter' of command @param is not found in the argument list of ExtendedReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionMethod.class.php:64: Warning: The following parameters of ExtendedReflectionMethod::createExtendedReflectionParameter(ReflectionParameter $objReflectionParameter) are not documented:
   parameter 'objReflectionParameter'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionParameter.class.php:55: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionParameter.class.php:55: Warning: The following parameters of ExtendedReflectionParameter::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
@@ -704,6 +465,7 @@ Error opening map file class_code_to_diagram_4f6a4a643847b5bae552b0527c4e87d9_cg
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionParameter.class.php:69: Warning: argument 'ReflectionMethod' of command @param is not found in the argument list of ExtendedReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionParameter.class.php:69: Warning: The following parameters of ExtendedReflectionParameter::createExtendedReflectionMethod(ReflectionMethod $objOriginalReflectionMethod) are not documented:
   parameter 'objOriginalReflectionMethod'
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionProperty.class.php:30: Warning: argument 'ReflectionClass' of command @param is not found in the argument list of ExtendedReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass)
 /var/www/codetodiagram/components/extendedReflection/ExtendedReflectionProperty.class.php:30: Warning: The following parameters of ExtendedReflectionProperty::createExtendedReflectionClass(ReflectionClass $objOriginalReflectionClass) are not documented:
   parameter 'objOriginalReflectionClass'
@@ -736,20 +498,19 @@ Error opening map file class_code_to_diagram_4f6a4a643847b5bae552b0527c4e87d9_cg
 /var/www/codetodiagram/components/loader/Loader.class.php:58: Warning: argument 'boolean' of command @param is not found in the argument list of Loader::setExternal($booExternal)
 /var/www/codetodiagram/components/loader/Loader.class.php:58: Warning: The following parameters of Loader::setExternal($booExternal) are not documented:
   parameter 'booExternal'
-Error opening map file interface_match_interface__inherit__graph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:122: Warning: argument 'object' of command @param is not found in the argument list of MatchInterface::addItem($objItem,$objValue=null)
-/var/www/codetodiagram/components/match/MatchInterface.interface.php:127: Warning: lonely <item> tag found
+/var/www/codetodiagram/components/match/MatchInterface.interface.php:128: Warning: lonely <item> tag found
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:122: Warning: argument 'object' of command @param is not found in the argument list of MatchInterface::addItem($objItem,$objValue=null)
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:122: Warning: The following parameters of MatchInterface::addItem($objItem,$objValue=null) are not documented:
   parameter 'objItem'
   parameter 'objValue'
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:150: Warning: argument 'object' of command @param is not found in the argument list of MatchInterface::found($objName)
-/var/www/codetodiagram/components/match/MatchInterface.interface.php:162: Warning: Unsupported xml/html tag <name> found
+/var/www/codetodiagram/components/match/MatchInterface.interface.php:163: Warning: Unsupported xml/html tag <name> found
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:150: Warning: The following parameters of MatchInterface::found($objName) are not documented:
   parameter 'objName'
-/var/www/codetodiagram/components/match/MatchInterface.interface.php:117: Warning: lonely <item> tag found
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:168: Warning: argument 'object' of command @param is not found in the argument list of MatchInterface::match($objName)
-/var/www/codetodiagram/components/match/MatchInterface.interface.php:182: Warning: Unsupported xml/html tag <name> found
+/var/www/codetodiagram/components/match/MatchInterface.interface.php:183: Warning: Unsupported xml/html tag <name> found
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:168: Warning: The following parameters of MatchInterface::match($objName) are not documented:
   parameter 'objName'
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:75: Warning: argument 'object' of command @param is not found in the argument list of MatchInterface::setDefaultItemValue($objDefaultItemValue)
@@ -763,59 +524,40 @@ Error opening map file interface_match_interface__inherit__graph.map for inclusi
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:48: Warning: argument 'object' of command @param is not found in the argument list of MatchInterface::setNotFoundValue($objNotFoundValue)
 /var/www/codetodiagram/components/match/MatchInterface.interface.php:48: Warning: The following parameters of MatchInterface::setNotFoundValue($objNotFoundValue) are not documented:
   parameter 'objNotFoundValue'
-Error opening map file class_match_name__inherit__graph.map for inclusion in the docs!
-Error opening map file class_match_name__coll__graph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:9: Warning: lonely <item> tag found
-/var/www/codetodiagram/components/match/MatchName.class.php:9: Warning: Unsupported xml/html tag <name> found
-/var/www/codetodiagram/components/match/MatchName.class.php:160: Warning: lonely <item> tag found
-/var/www/codetodiagram/components/match/MatchName.class.php:161: Warning: lonely <item> tag found
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/match/MatchName.class.php:158: Warning: argument 'string' of command @param is not found in the argument list of MatchName::addItem($objItem,$objValue=null)
-/var/www/codetodiagram/components/match/MatchName.class.php:163: Warning: lonely <item> tag found
+/var/www/codetodiagram/components/match/MatchName.class.php:164: Warning: lonely <item> tag found
 /var/www/codetodiagram/components/match/MatchName.class.php:158: Warning: argument 'value' of command @param is not found in the argument list of MatchName::addItem($objItem,$objValue=null)
 /var/www/codetodiagram/components/match/MatchName.class.php:158: Warning: The following parameters of MatchName::addItem($objItem,$objValue=null) are not documented:
   parameter 'objItem'
   parameter 'objValue'
-Error opening map file class_match_name_884d02857aec1c529f563ce71745c224_cgraph.map for inclusion in the docs!
-Error opening map file class_match_name_884d02857aec1c529f563ce71745c224_icgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:209: Warning: Unsupported xml/html tag <name> found
 /var/www/codetodiagram/components/match/MatchName.class.php:198: Warning: argument 'string' of command @param is not found in the argument list of MatchName::found($objName)
-/var/www/codetodiagram/components/match/MatchName.class.php:210: Warning: Unsupported xml/html tag <name> found
+/var/www/codetodiagram/components/match/MatchName.class.php:211: Warning: Unsupported xml/html tag <name> found
 /var/www/codetodiagram/components/match/MatchName.class.php:198: Warning: The following parameters of MatchName::found($objName) are not documented:
   parameter 'objName'
-Error opening map file class_match_name_3e313acd896736d183d5a5adb7afc720_cgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:99: Warning: lonely <item> tag found
-Error opening map file class_match_name_cdc3de6366599e3abc7419fbf75fa048_icgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:150: Warning: lonely <item> tag found
-Error opening map file class_match_name_72c1264f490b6d6e5e7ba32d10fb782d_icgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:69: Warning: Unsupported xml/html tag <name> found
-/var/www/codetodiagram/components/match/MatchName.class.php:70: Warning: Unsupported xml/html tag <name> found
-Error opening map file class_match_name_edfa00cc089524675dfbddc6db762e88_icgraph.map for inclusion in the docs!
-Error opening map file class_match_name_edcc52b3673b8df9425e52f13accb2a1_cgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:220: Warning: Unsupported xml/html tag <name> found
-/var/www/codetodiagram/components/match/MatchName.class.php:220: Warning: lonely <item> tag found
-/var/www/codetodiagram/components/match/MatchName.class.php:231: Warning: Unsupported xml/html tag <name> found
+/var/www/codetodiagram/components/match/MatchName.class.php:151: Warning: lonely <item> tag found
 /var/www/codetodiagram/components/match/MatchName.class.php:220: Warning: argument 'object' of command @param is not found in the argument list of MatchName::match($objName)
-/var/www/codetodiagram/components/match/MatchName.class.php:234: Warning: Unsupported xml/html tag <name> found
+/var/www/codetodiagram/components/match/MatchName.class.php:235: Warning: Unsupported xml/html tag <name> found
 /var/www/codetodiagram/components/match/MatchName.class.php:220: Warning: The following parameters of MatchName::match($objName) are not documented:
   parameter 'objName'
-Error opening map file class_match_name_13ef3d7063e4ec326ad4268f427c07ad_cgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:81: Warning: lonely <item> tag found
-/var/www/codetodiagram/components/match/MatchName.class.php:85: Warning: lonely <item> tag found
-/var/www/codetodiagram/components/match/MatchName.class.php:86: Warning: lonely <item> tag found
 /var/www/codetodiagram/components/match/MatchName.class.php:79: Warning: argument 'object' of command @param is not found in the argument list of MatchName::setDefaultItemValue($objDefaultItemValue)
 /var/www/codetodiagram/components/match/MatchName.class.php:79: Warning: The following parameters of MatchName::setDefaultItemValue($objDefaultItemValue) are not documented:
   parameter 'objDefaultItemValue'
-/var/www/codetodiagram/components/match/MatchName.class.php:116: Warning: lonely <item> tag found
-/var/www/codetodiagram/components/match/MatchName.class.php:111: Warning: argument 'item' of command @param is not found in the argument list of MatchName::setItemList(array $arrItemList,$arrValues=null)
+/var/www/codetodiagram/components/match/MatchName.class.php:111: Warning: argument 'string' of command @param is not found in the argument list of MatchName::setItemList(array $arrItemList,$arrValues=null)
+/var/www/codetodiagram/components/match/MatchName.class.php:119: Warning: lonely <item> tag found
 /var/www/codetodiagram/components/match/MatchName.class.php:111: Warning: argument 'value' of command @param is not found in the argument list of MatchName::setItemList(array $arrItemList,$arrValues=null)
 /var/www/codetodiagram/components/match/MatchName.class.php:111: Warning: The following parameters of MatchName::setItemList(array $arrItemList,$arrValues=null) are not documented:
   parameter 'arrItemList'
   parameter 'arrValues'
-Error opening map file class_match_name_9a4b047e9776193bb100abc8d15687bf_cgraph.map for inclusion in the docs!
-/var/www/codetodiagram/components/match/MatchName.class.php:51: Warning: Unsupported xml/html tag <name> found
 /var/www/codetodiagram/components/match/MatchName.class.php:45: Warning: argument 'object' of command @param is not found in the argument list of MatchName::setNotFoundValue($objNotFoundValue)
 /var/www/codetodiagram/components/match/MatchName.class.php:45: Warning: The following parameters of MatchName::setNotFoundValue($objNotFoundValue) are not documented:
   parameter 'objNotFoundValue'
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:30: Warning: argument 'string' of command @param is not found in the argument list of RuleMatch::addName($strName,$mixValue=TRUE)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:30: Warning: argument 'mixer' of command @param is not found in the argument list of RuleMatch::addName($strName,$mixValue=TRUE)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:30: Warning: The following parameters of RuleMatch::addName($strName,$mixValue=TRUE) are not documented:
@@ -829,8 +571,6 @@ Error opening map file class_match_name_9a4b047e9776193bb100abc8d15687bf_cgraph.
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:121: Warning: argument 'string' of command @param is not found in the argument list of RuleMatch::found($strName)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:121: Warning: The following parameters of RuleMatch::found($strName) are not documented:
   parameter 'strName'
-Error opening map file class_rule_match_edfa00cc089524675dfbddc6db762e88_icgraph.map for inclusion in the docs!
-Error opening map file class_rule_match_06883c8f7beafb9293e23eacc86b7b69_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:43: Warning: argument 'array' of command @param is not found in the argument list of RuleMatch::setNameList($arrNameList)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatch.class.php:43: Warning: The following parameters of RuleMatch::setNameList($arrNameList) are not documented:
   parameter 'arrNameList'
@@ -842,25 +582,18 @@ Error opening map file class_rule_match_06883c8f7beafb9293e23eacc86b7b69_cgraph.
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:103: Warning: The following parameters of RuleMatchList::addExclusiveName($strExclusiveName,$mixValue=TRUE) are not documented:
   parameter 'strExclusiveName'
   parameter 'mixValue'
-Error opening map file class_rule_match_list_2eb6b5e92df799fb3fa1068483dd90b7_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:117: Warning: argument 'string' of command @param is not found in the argument list of RuleMatchList::addExclusiveRegularExpression($strExclusiveRegex)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:117: Warning: The following parameters of RuleMatchList::addExclusiveRegularExpression($strExclusiveRegex) are not documented:
   parameter 'strExclusiveRegex'
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:58: Warning: argument 'string' of command @param is not found in the argument list of RuleMatchList::addIgnoredName($strIgnoredName)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:58: Warning: The following parameters of RuleMatchList::addIgnoredName($strIgnoredName) are not documented:
   parameter 'strIgnoredName'
-Error opening map file class_rule_match_list_8d82420dcdea1e09b86e6c7d664e7dc1_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:70: Warning: argument 'string' of command @param is not found in the argument list of RuleMatchList::addIgnoredRegularExpression($strIgnoredRegex)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:70: Warning: The following parameters of RuleMatchList::addIgnoredRegularExpression($strIgnoredRegex) are not documented:
   parameter 'strIgnoredRegex'
-Error opening map file class_rule_match_list_c9dad3ff675c56843b7f9111c9ec5da6_cgraph.map for inclusion in the docs!
-Error opening map file class_rule_match_list_9c08901c492aaa7a988348796805cc64_icgraph.map for inclusion in the docs!
-Error opening map file class_rule_match_list_f7c8ebecf3f9fc2f8afb3b9ea412ec7f_icgraph.map for inclusion in the docs!
-Error opening map file class_rule_match_list_edfa00cc089524675dfbddc6db762e88_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:150: Warning: argument 'string' of command @param is not found in the argument list of RuleMatchList::match($strName)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:150: Warning: The following parameters of RuleMatchList::match($strName) are not documented:
   parameter 'strName'
-Error opening map file class_rule_match_list_06883c8f7beafb9293e23eacc86b7b69_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:83: Warning: argument 'RuleMatch' of command @param is not found in the argument list of RuleMatchList::setExclusiveRuleMatch(RuleMatch $objExclusiveRuleMatch)
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:83: Warning: The following parameters of RuleMatchList::setExclusiveRuleMatch(RuleMatch $objExclusiveRuleMatch) are not documented:
   parameter 'objExclusiveRuleMatch'
@@ -874,11 +607,9 @@ Error opening map file class_rule_match_list_06883c8f7beafb9293e23eacc86b7b69_cg
 /var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:109: Warning: argument 'string' of command @param is not found in the argument list of RuleNameMatch::found($strName)
 /var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:109: Warning: The following parameters of RuleNameMatch::found($strName) are not documented:
   parameter 'strName'
-Error opening map file class_rule_name_match_686f388614dc7778847e6c3b84a9962a_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:138: Warning: argument 'string' of command @param is not found in the argument list of RuleNameMatch::match($strName)
 /var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:138: Warning: The following parameters of RuleNameMatch::match($strName) are not documented:
   parameter 'strName'
-Error opening map file class_rule_name_match_06883c8f7beafb9293e23eacc86b7b69_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:66: Warning: argument 'String' of command @param is not found in the argument list of RuleNameMatch::setNameList($arrNameList)
 /var/www/codetodiagram/components/ruleMatchList/RuleNameMatch.class.php:66: Warning: The following parameters of RuleNameMatch::setNameList($arrNameList) are not documented:
   parameter 'arrNameList'
@@ -892,11 +623,9 @@ Error opening map file class_rule_name_match_06883c8f7beafb9293e23eacc86b7b69_cg
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:109: Warning: argument 'string' of command @param is not found in the argument list of RuleRegularExpressionMatch::found($strName)
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:109: Warning: The following parameters of RuleRegularExpressionMatch::found($strName) are not documented:
   parameter 'strName'
-Error opening map file class_rule_regular_expression_match_686f388614dc7778847e6c3b84a9962a_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:140: Warning: argument 'string' of command @param is not found in the argument list of RuleRegularExpressionMatch::match($strName)
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:140: Warning: The following parameters of RuleRegularExpressionMatch::match($strName) are not documented:
   parameter 'strName'
-Error opening map file class_rule_regular_expression_match_06883c8f7beafb9293e23eacc86b7b69_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:40: Warning: argument 'mixer' of command @param is not found in the argument list of RuleRegularExpressionMatch::setNotFoundValue($mixNotFoundedValue)
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:40: Warning: The following parameters of RuleRegularExpressionMatch::setNotFoundValue($mixNotFoundedValue) are not documented:
   parameter 'mixNotFoundedValue'
@@ -918,33 +647,16 @@ Error opening map file class_rule_regular_expression_match_06883c8f7beafb9293e23
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagram.class.php:134: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagram::setOutput($strOutput)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagram.class.php:134: Warning: The following parameters of UmlSequenceDiagram::setOutput($strOutput) are not documented:
   parameter 'strOutput'
-Error opening map file class_uml_sequence_diagram_actor_095c5d389db211932136b53f25f39685_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_actor_48d409343c54e747174ffaf5911b2cd9_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_actor_48d409343c54e747174ffaf5911b2cd9_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_exception__inherit__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_exception__coll__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml__inherit__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml__coll__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml_acba29cfd76bf42bfdeaf39424590958_icgraph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramFactoryFromXml.class.php:65: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramFactoryFromXml::getXml()
-Error opening map file class_uml_sequence_diagram_factory_from_xml_390c089130460866b440b2f6f73dd136_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml_390c089130460866b440b2f6f73dd136_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml_589f548f18802f9a10d0eaca5cab970c_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml_589f548f18802f9a10d0eaca5cab970c_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml_469121070b5e6118f202517380558019_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_factory_from_xml_a5fe682434d434584f886cf9147c2059_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramFactoryFromXml.class.php:51: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramFactoryFromXml::setXml($strXml)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramFactoryFromXml.class.php:51: Warning: The following parameters of UmlSequenceDiagramFactoryFromXml::setXml($strXml) are not documented:
   parameter 'strXml'
-Error opening map file interface_uml_sequence_diagram_factory_interface__inherit__graph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:237: Warning: argument 'UmlSequenceDiagramValue' of command @param is not found in the argument list of UmlSequenceDiagramMessage::addValue(UmlSequenceDiagramValue $objValue)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:237: Warning: The following parameters of UmlSequenceDiagramMessage::addValue(UmlSequenceDiagramValue $objValue) are not documented:
   parameter 'objValue'
-Error opening map file class_uml_sequence_diagram_message_63824a7a88f53de045b4d2d641594e7e_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_message_f3e37e1a6ed9b8c87f86f659873a83b7_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_message_8a2999b1d846c0a7bc77187e28facd99_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_message_830b5c75df72b32396701bc563fbe3c7_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_message_70a0fe08035189260c72e32a9e20d30c_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:153: Warning: argument 'UmlSequenceDiagramActor' of command @param is not found in the argument list of UmlSequenceDiagramMessage::setActorFrom(UmlSequenceDiagramActor $objActor)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:153: Warning: The following parameters of UmlSequenceDiagramMessage::setActorFrom(UmlSequenceDiagramActor $objActor) are not documented:
   parameter 'objActor'
@@ -969,24 +681,16 @@ Error opening map file class_uml_sequence_diagram_message_70a0fe08035189260c72e3
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:209: Warning: argument 'UmlSequenceDiagramValue' of command @param is not found in the argument list of UmlSequenceDiagramMessage::setValues(Array $arrValues)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramMessage.class.php:209: Warning: The following parameters of UmlSequenceDiagramMessage::setValues(Array $arrValues) are not documented:
   parameter 'arrValues'
-Error opening map file interface_uml_sequence_diagram_printer_interface__inherit__graph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterInterface.interface.php:20: Warning: argument 'UmlSequenceDiagram' of command @param is not found in the argument list of UmlSequenceDiagramPrinterInterface::perform(UmlSequenceDiagram $objUmlSequenceDiagram)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterInterface.interface.php:20: Warning: The following parameters of UmlSequenceDiagramPrinterInterface::perform(UmlSequenceDiagram $objUmlSequenceDiagram) are not documented:
   parameter 'objUmlSequenceDiagram'
-Error opening map file class_uml_sequence_diagram_printer_to_html__inherit__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html__coll__graph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:175: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToHtml::getCallerPath()
-Error opening map file class_uml_sequence_diagram_printer_to_html_a8c839c9d33ebad153541a31ffc7ef3e_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_37a320fe2d2a3543e9d96a11b7820456_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_be512e44d79164559fae31e06ad9fbab_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_5fd69684ecb26510546c0ad35031ced4_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_5fd69684ecb26510546c0ad35031ced4_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:202: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToHtml::getPublicPath()
-Error opening map file class_uml_sequence_diagram_printer_to_html_74df99a19bc54d630a15e1778144eb31_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:114: Warning: argument 'UmlSequenceDiagram' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToHtml::perform(UmlSequenceDiagram $objUmlSequenceDiagram)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:114: Warning: The following parameters of UmlSequenceDiagramPrinterToHtml::perform(UmlSequenceDiagram $objUmlSequenceDiagram) are not documented:
   parameter 'objUmlSequenceDiagram'
-Error opening map file class_uml_sequence_diagram_printer_to_html_8054ded14dfc4ebe6be966128538078f_cgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:696: Warning: argument 'object' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToHtml::removeRecursiveProblem($mixExpression)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:696: Warning: The following parameters of UmlSequenceDiagramPrinterToHtml::removeRecursiveProblem($mixExpression) are not documented:
   parameter 'mixExpression'
@@ -1002,33 +706,16 @@ Error opening map file class_uml_sequence_diagram_printer_to_html_8054ded14dfc4e
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:127: Warning: argument 'integer' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToHtml::setZoom($intZoom)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:127: Warning: The following parameters of UmlSequenceDiagramPrinterToHtml::setZoom($intZoom) are not documented:
   parameter 'intZoom'
-Error opening map file class_uml_sequence_diagram_printer_to_html_2b8e3779f5bd8c38f70307574859bd36_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_2b8e3779f5bd8c38f70307574859bd36_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_127a1d8b6c21e8271a4332b35923145b_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_82d9e10e8180da3641b19222fb093328_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_html_82d9e10e8180da3641b19222fb093328_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:571: Warning: argument 'UmlSequenceDiagramMessage' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToHtml::showValues(UmlSequenceDiagramMessage $objXmlMessage)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToHtml.class.php:571: Warning: The following parameters of UmlSequenceDiagramPrinterToHtml::showValues(UmlSequenceDiagramMessage $objXmlMessage) are not documented:
   parameter 'objXmlMessage'
-Error opening map file class_uml_sequence_diagram_printer_to_html_4db05a5ff503626efb4f8045bcd30fc9_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_xml__inherit__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_xml__coll__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_xml_f99cdc771342f41dfbecb336a90f48d2_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_xml_f99cdc771342f41dfbecb336a90f48d2_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_xml_c983c2020c960b39e98ed05baec4aedd_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_printer_to_xml_df4117a74e93f6f53e068d0859691cce_icgraph.map for inclusion in the docs!
+Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:53: Warning: argument 'UmlSequenceDiagram' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToXml::perform(UmlSequenceDiagram $objUmlSequenceDiagram)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:53: Warning: The following parameters of UmlSequenceDiagramPrinterToXml::perform(UmlSequenceDiagram $objUmlSequenceDiagram) are not documented:
   parameter 'objUmlSequenceDiagram'
-Error opening map file class_uml_sequence_diagram_printer_to_xml_8054ded14dfc4ebe6be966128538078f_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_stereotype__coll__graph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_stereotype_d413bb8e674c34cea8c8a77f7e20cafe_cgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_stereotype_d413bb8e674c34cea8c8a77f7e20cafe_icgraph.map for inclusion in the docs!
-Error opening map file class_uml_sequence_diagram_stereotype_3d0963e68bb313b163a73f2803c64600_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:54: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramStereotype::getStereotypeByName($strName)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:54: Warning: The following parameters of UmlSequenceDiagramStereotype::getStereotypeByName($strName) are not documented:
   parameter 'strName'
-Error opening map file class_uml_sequence_diagram_stereotype_e605a259fb3d6a7b3f8007e6d805f99c_icgraph.map for inclusion in the docs!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:69: Warning: argument 'boolean' of command @param is not found in the argument list of UmlSequenceDiagramStereotype::setDefault($booDefault)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:69: Warning: The following parameters of UmlSequenceDiagramStereotype::setDefault($booDefault) are not documented:
   parameter 'booDefault'
@@ -1047,7 +734,6 @@ Error opening map file class_uml_sequence_diagram_stereotype_e605a259fb3d6a7b3f8
 /var/www/codetodiagram/examples/ThreeLittlePigs/Wolf.class.php:16: Warning: argument 'string' of command @param is not found in the argument list of Wolf::say($strText)
 /var/www/codetodiagram/examples/ThreeLittlePigs/Wolf.class.php:16: Warning: The following parameters of Wolf::say($strText) are not documented:
   parameter 'strText'
-Problems running dot: exit code=127, command='dot', arguments='"inherit__graph__10.dot" -Tpng:gd -o "inherit__graph__10.png"'
 /var/www/codetodiagram/examples/ThreeLittlePigs/Wolf.class.php:2: Warning: Found unknown command `\subpackage'
 /var/www/codetodiagram/examples/ThreeLittlePigs/Wolf.class.php:6: Warning: Found unknown command `\subpackage'
 /var/www/codetodiagram/examples/ThreeLittlePigs/Wolf.class.php:10: Warning: Found unknown command `\subpackage'
@@ -1060,28 +746,3 @@ Problems running dot: exit code=127, command='dot', arguments='"inherit__graph__
 /var/www/codetodiagram/components/ruleMatchList/RuleRegularExpressionMatch.class.php:14: Warning: Found unknown command `\autor'
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:5: Warning: Found unknown command `\autor'
 /var/www/codetodiagram/components/ruleMatchList/RuleMatchList.class.php:11: Warning: Found unknown command `\autor'
-Problems running dot: exit code=127, command='dot', arguments='"graph_legend.dot" -Tpng:gd -o "graph_legend.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_e01c6e73238d3481735e6bc7c8e7a6b3_dep.dot" -Tpng:gd -o "dir_e01c6e73238d3481735e6bc7c8e7a6b3_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_909400e9416c34148f6290328905331b_dep.dot" -Tpng:gd -o "dir_909400e9416c34148f6290328905331b_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_cefdc13e16f59d6166d519ccc59371f9_dep.dot" -Tpng:gd -o "dir_cefdc13e16f59d6166d519ccc59371f9_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_aa1e93dd4a8810448601a405428ffc70_dep.dot" -Tpng:gd -o "dir_aa1e93dd4a8810448601a405428ffc70_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_0674270a6cd51a73d593411db53033ba_dep.dot" -Tpng:gd -o "dir_0674270a6cd51a73d593411db53033ba_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_4e37925334f096086ed5364445e01486_dep.dot" -Tpng:gd -o "dir_4e37925334f096086ed5364445e01486_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_d69fe60634bb76bb9cd9bc97932e7e35_dep.dot" -Tpng:gd -o "dir_d69fe60634bb76bb9cd9bc97932e7e35_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_f9a2ef072e2f9a2270cb2d3f60069f28_dep.dot" -Tpng:gd -o "dir_f9a2ef072e2f9a2270cb2d3f60069f28_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_6ca548f39e0ce04017fa734e7c8fc730_dep.dot" -Tpng:gd -o "dir_6ca548f39e0ce04017fa734e7c8fc730_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_8acb0459e35e1f3a6ffef20ffa2d8dfc_dep.dot" -Tpng:gd -o "dir_8acb0459e35e1f3a6ffef20ffa2d8dfc_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_ae8cff069db0477318b5d2e94dbded21_dep.dot" -Tpng:gd -o "dir_ae8cff069db0477318b5d2e94dbded21_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_3b20dcdb83bf79f217678448ba8d608c_dep.dot" -Tpng:gd -o "dir_3b20dcdb83bf79f217678448ba8d608c_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_172a54d5b215f30bc609b5123baa0e5a_dep.dot" -Tpng:gd -o "dir_172a54d5b215f30bc609b5123baa0e5a_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_506e123c4be5e076c56c963e5606f591_dep.dot" -Tpng:gd -o "dir_506e123c4be5e076c56c963e5606f591_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_919bedb17c479481e393a691ca2d2e83_dep.dot" -Tpng:gd -o "dir_919bedb17c479481e393a691ca2d2e83_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_f592cc763599d7b80ffec8ccc3f63b68_dep.dot" -Tpng:gd -o "dir_f592cc763599d7b80ffec8ccc3f63b68_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_bb3e04fde3e19075b6eddcd1f5b2ace1_dep.dot" -Tpng:gd -o "dir_bb3e04fde3e19075b6eddcd1f5b2ace1_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_a7bb245542057995d39aaa9b7171ac0c_dep.dot" -Tpng:gd -o "dir_a7bb245542057995d39aaa9b7171ac0c_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_6334883b11e8c82b0828076bcddbb191_dep.dot" -Tpng:gd -o "dir_6334883b11e8c82b0828076bcddbb191_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_f4cfab8d52655160b473ba19dc7b383d_dep.dot" -Tpng:gd -o "dir_f4cfab8d52655160b473ba19dc7b383d_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_350363ffc9bd19cefef09f949762a0ad_dep.dot" -Tpng:gd -o "dir_350363ffc9bd19cefef09f949762a0ad_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_7912743dbe6a205206ba2b971f66224a_dep.dot" -Tpng:gd -o "dir_7912743dbe6a205206ba2b971f66224a_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_2d402fa29e6cd3b6ca13957b8f90c436_dep.dot" -Tpng:gd -o "dir_2d402fa29e6cd3b6ca13957b8f90c436_dep.png"'
-Problems running dot: exit code=127, command='dot', arguments='"dir_cbe856ff790c9ba5208811309bdf168b_dep.dot" -Tpng:gd -o "dir_cbe856ff790c9ba5208811309bdf168b_dep.png"'

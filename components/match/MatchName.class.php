@@ -1,31 +1,31 @@
 <?php
 /**
- * MathName - Math the string name with a string list
- * @package Match
+ * MatchName - Match the string name with a string list
+ * @package Match1
  */
 
 /**
  * Math the string name with a string list
  *
- * The itens <item> are strings elements and the name <name> is a string.
+ * The string itens are strings elements and the string name is a string.
  * The compare item and name returns true when the string it is equal the name.
  *
- * The values <value> start will boolean values, but is not restrict to it.
- * The not found value <value> by default is false.
- * The default found value <value> it is by default true.
+ * The values \<value\> start will boolean values, but is not restrict to it.
+ * The not found value \<value\> by default is false.
+ * The default found value \<value\> it is by default true.
  * 
  */
 class MatchName implements MatchInterface
 {
     /**
      * @default false
-     * @var <value> object
+     * @var \<value\> object
      */
     protected $objNotFoundValue = false;
 
     /**
      * @default true
-     * @var <value> object
+     * @var \<value\> object
      */
     protected $objDefaultItemValue = true;
 
@@ -38,7 +38,7 @@ class MatchName implements MatchInterface
 
     /**
      *
-     * @var <value>[]
+     * @var \<value\>[]
      */
     protected $arrValues;
 
@@ -49,8 +49,8 @@ class MatchName implements MatchInterface
      * of the match() method when not item match with
      * the received name
      *
-     * @implements MatchInterface::match( <name> object )
-     * @see MatchInterface::setNotFoundValue( <value> object )
+     * @implements MatchInterface::match( \<name\> object )
+     * @see MatchInterface::setNotFoundValue( \<value\> object )
      * @param object <value> $objNotFoundValue
      * @return MatchName me
      */
@@ -67,9 +67,9 @@ class MatchName implements MatchInterface
      * the match() method
      *
      * @implements MatchInterface::getNotFoundValue()
-     * @see MatchInterface::match( <name> object )
-     * @see MatchName::match( <name> object )
-     * @return object <value>
+     * @see MatchInterface::match( \<name\> object )
+     * @see MatchName::match( string object )
+     * @return object \<value\>
      */
     public function getNotFoundValue()
     {
@@ -79,12 +79,12 @@ class MatchName implements MatchInterface
     /**
      * Set the default item value.
      *
-     * Changing this element will change how the value of the itens <item> what
+     * Changing this element will change how the value of the itens string[] what
      * not informed they values into the setItemList() and addItem()
      *
-     * @implements MatchInterface::setDefaultItemValue( <value> object )
-     * @see MatchInterface::setItemList( <item>array [, <value>array ] )
-     * @see MatchName::setItemList( <item>array [, <value>array ] )
+     * @implements MatchInterface::setDefaultItemValue( \<value\> object )
+     * @see MatchInterface::setItemList( \<item\>[] [, \<value\>[] ] )
+     * @see MatchName::setItemList( string[] [, \<value\>[] ] )
      * @param object <value> $objNotFoundValue
      * @return MatchName me
      */
@@ -97,11 +97,11 @@ class MatchName implements MatchInterface
     /**
      * Get the default item value.
      *
-     * This value <value> what will be saved on some item <item> when
+     * This value \<value\> what will be saved on some string item when
      * this setter dont inform its value
      *
      * @implements MatchInterface::getDefaultItemValue()
-     * @return object <value>
+     * @return object \<value\>
      */
     public function getDefaultItemValue()
     {
@@ -114,9 +114,9 @@ class MatchName implements MatchInterface
      * If the array with values not received, the default value to the itens
      * will be <code> true </code>
      *
-     * @implements MatchInterface::setItemList( <item>[] [ , <value>[] ])
+     * @implements MatchInterface::setItemList( \<item\>[] [ , \<value\>[] ])
      * @see MatchInterface::getItemList()
-     * @param <item>[] $arrItemList
+     * @param string[] <item>[] $arrItemList
      * @param <value>[] $arrValues
      * @return MatchInterface me
      * @throws MatchException
@@ -148,7 +148,7 @@ class MatchName implements MatchInterface
      * Get the array with the item list into the match
      *
      * @implements MatchInterface::getItemList()
-     * @return <item>[] $arrItemList
+     * @return string[] <item>[] $arrItemList
      */
     public function getItemList()
     {
@@ -158,10 +158,10 @@ class MatchName implements MatchInterface
     /**
      * Add a item into the item list
      *
-     * @implements MatchInterface::addItem( <item> object [, <value> object ])
-     * @see MatchInterface::setItemList( <item>[] )
+     * @implements MatchInterface::addItem( \<item\> object [, \<value\> object ])
+     * @see MatchInterface::setItemList( string[] )
      * @see MatchInterface::getItemList()
-     * @param string <item> $objItem
+     * @param <item> string $objItem
      * @param <value> $objValue
      * @return MatchInterface me
      */
@@ -207,7 +207,7 @@ class MatchName implements MatchInterface
      * 2.1.1 if match returns true
      * 3. if no item match, returns false
      *
-     * @implements MatchInterface::found( <name> object )
+     * @implements MatchInterface::found( \<name\> object )
      * @param string <name> $objName
      * @return boolean
      */
@@ -218,8 +218,8 @@ class MatchName implements MatchInterface
     }
 
     /**
-     * Match the name <name> with the list item <item>
-     * return the value <value> of the first item what
+     * Match the string name with the list string item 
+     * return the value \<value\> of the first item what
      * match or the not found value when no
      * item match.
      *
@@ -229,11 +229,11 @@ class MatchName implements MatchInterface
      * 2.1.1 if match returns the value of the item
      * 3. if no item match, returns the not found value
      *
-     * @implements MatchInterface::match( <name> object )
+     * @implements MatchInterface::match( \<name\> object )
      * @see MatchInterface::getNotFoundValue()
      * @see MatchInterface::getItemList()
      * @param object string <name> $objName
-     * @return object <value>
+     * @return object \<value\> 
      */
     public function match( $objName )
     {
