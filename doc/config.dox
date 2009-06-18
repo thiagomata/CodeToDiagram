@@ -207,7 +207,8 @@ ALIASES                = "example=\par Example:\n" \
                          example="\par Example: \n \code \1 \endcode  \n \b returns \n \code true \endcode ...." \
                          example{3}="\par Example: \n \code \1 \endcode \n \b \2 \n \code \2 \endcode " \
                          example{2}="\par Example: \n \code \1 \endcode \n \b equals \n \code \2 \endcode " \
-                         example{1}="\par Example: \n \code return \1 \endcode \n \b returns \n \code true \endcode "			
+                         example{1}="\par Example: \n \code \1 \endcode \n \b returns \n \code true \endcode " \
+                         plan{1}="\par Execution Plan: \n \htmlonly \1 \endhtmlonly \n "
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C 
 # sources only. Doxygen will then generate output that is more tailored for C. 

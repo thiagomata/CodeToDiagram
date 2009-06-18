@@ -1,7 +1,7 @@
 <?php
 /**
  * MatchName - Match the string name with a string list
- * @package Match1
+ * @package Match
  */
 
 /**
@@ -13,6 +13,20 @@
  * The values \<value\> start will boolean values, but is not restrict to it.
  * The not found value \<value\> by default is false.
  * The default found value \<value\> it is by default true.
+ *
+ *
+ * @example{
+ *      $objMatchName = new MatchName();
+ *      $objMatchName->addItem( "Molly" );
+ *      $objMatchName->addItem( "Armitage" );
+ *      $objMatchName->addItem( "Wintermute" \, "machine" );
+ *      $objMatchName->addItem( "Case" \, "hacker" );
+ *      if ( $objMatchName->found( "Molly" ) !== true ) return false;
+ *      if ( $objMatchName->match( "Molly" ) !== true ) return false;
+ *      if( $objMatchName->match( "Wintermute" ) !== "machine" ) return false;
+ *      if( $objMatchName->match( "Jackson" ) !== false ) return false;
+ *      return true;
+ * }
  * 
  */
 class MatchName implements MatchInterface
@@ -51,6 +65,7 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::match( \<name\> object )
      * @see MatchInterface::setNotFoundValue( \<value\> object )
+     * @see MatchName::setNotFoundValue( \<value\> object )
      * @param object <value> $objNotFoundValue
      * @return MatchName me
      */
@@ -68,7 +83,7 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::getNotFoundValue()
      * @see MatchInterface::match( \<name\> object )
-     * @see MatchName::match( string object )
+     * @see MatchName::match( string )
      * @return object \<value\>
      */
     public function getNotFoundValue()
@@ -116,7 +131,8 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::setItemList( \<item\>[] [ , \<value\>[] ])
      * @see MatchInterface::getItemList()
-     * @param string[] <item>[] $arrItemList
+     * @see MatchName::getItemList()
+     * @param string[] $arrItemList
      * @param <value>[] $arrValues
      * @return MatchInterface me
      * @throws MatchException
@@ -148,7 +164,7 @@ class MatchName implements MatchInterface
      * Get the array with the item list into the match
      *
      * @implements MatchInterface::getItemList()
-     * @return string[] <item>[] $arrItemList
+     * @return string[] $arrItemList
      */
     public function getItemList()
     {
@@ -160,8 +176,10 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::addItem( \<item\> object [, \<value\> object ])
      * @see MatchInterface::setItemList( string[] )
+     * @see MatchName::setItemList( string[] )
      * @see MatchInterface::getItemList()
-     * @param <item> string $objItem
+     * @see MatchName::getItemList()
+     * @param string $objItem
      * @param <value> $objValue
      * @return MatchInterface me
      */
@@ -182,10 +200,18 @@ class MatchName implements MatchInterface
      *
      * If is empty the match allways will return the not found value
      *
-     * 1. read the list itens.
-     * 2. check if the list is empty
-     * 2.1 returns true if the list is empty
-     * 2.2 returns false if the list is not empty
+     * @plan{
+     * <ul>
+     *     <li> read the list itens.</li>
+     *     <li> 
+     *         check if the list is empty
+     *         <ul> 
+     *             <li> returns true if the list is empty </li>
+     *             <li> returns false if the list is not empty </li>
+     *         </ul> 
+     *     </li> 
+     * </ul>
+     * }
      *
      * @implements MatchInterface::isEmpty()
      * @return boolean
@@ -201,14 +227,22 @@ class MatchName implements MatchInterface
      * successfully match or <code> false </code>
      * if not
      *
-     * 1. get the item list
-     * 2. for each item into the list
-     * 2.1 try match the item with the name
-     * 2.1.1 if match returns true
-     * 3. if no item match, returns false
+     * @plan{
+     * <ul>
+     *     <li> get the item list </li>
+     *     <li> for each item into the list </li>
+     *     <li> 
+     *         try match the item with the name
+     *         <ul>  
+     *             <li> if match returns true  </li>
+     *             <li> if no item match\, returns false </li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     * }     
      *
      * @implements MatchInterface::found( \<name\> object )
-     * @param string <name> $objName
+     * @param string $objName
      * @return boolean
      */
     public function found( $objName )
@@ -223,16 +257,26 @@ class MatchName implements MatchInterface
      * match or the not found value when no
      * item match.
      *
-     * 1. get the item list
-     * 2. for each item into the list
-     * 2.1 try match the item with the name
-     * 2.1.1 if match returns the value of the item
-     * 3. if no item match, returns the not found value
+     * @plan{
+     * <ul>
+     *     <li> get the item list </li>
+     *     <li> for each item into the list </li>
+     *     <li> 
+     *         try match the item with the name
+     *         <ul>  
+     *             <li> if match returns the value of the item  </li>
+     *             <li> if no item match\, returns the not found value </li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     * }   
      *
      * @implements MatchInterface::match( \<name\> object )
      * @see MatchInterface::getNotFoundValue()
+     * @see MatchName::getNotFoundValue()
      * @see MatchInterface::getItemList()
-     * @param object string <name> $objName
+     * @see MatchName::getItemList()
+     * @param string $objName
      * @return object \<value\> 
      */
     public function match( $objName )
