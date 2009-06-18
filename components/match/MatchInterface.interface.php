@@ -137,10 +137,18 @@ interface MatchInterface
      *
      * If is empty the match allways will return the not found value
      *
-     * 1. read the list itens.
-     * 2. check if the list is empty
-     * 2.1 returns true if the list is empty
-     * 2.2 returns false if the list is not empty
+     * @plan{
+     * <ul>
+     *     <li> read the list itens.</li>
+     *     <li> 
+     *         check if the list is empty
+     *         <ul> 
+     *             <li> returns true if the list is empty </li>
+     *             <li> returns false if the list is not empty </li>
+     *         </ul> 
+     *     </li> 
+     * </ul>
+     * }
      *
      * @implements MatchInterface::isEmpty()
      * @return boolean
@@ -153,11 +161,19 @@ interface MatchInterface
      * successfully match or <code> false </code>
      * if not
      * 
-     * 1. get the item list
-     * 2. for each item into the list
-     * 2.1 try match the item with the name
-     * 2.1.1 if match returns true
-     * 3. if no item match, returns false
+     * @plan{
+     * <ul>
+     *     <li> get the item list </li>
+     *     <li> for each item into the list </li>
+     *     <li> 
+     *         try match the item with the name
+     *         <ul>  
+     *             <li> if match returns true  </li>
+     *             <li> if no item match, returns false </li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     * }   
      *
      * @implements MatchInterface::found( \<name\> object )
      * @param object <name> $objName
@@ -171,11 +187,19 @@ interface MatchInterface
      * match or the not found value when no
      * item match.
      *
-     * 1. get the item list
-     * 2. for each item into the list
-     * 2.1 try match the item with the name
-     * 2.1.1 if match returns the value of the item
-     * 3. if no item match, returns the not found value
+     * @plan{
+     * <ul>
+     *     <li> get the item list </li>
+     *     <li> for each item into the list </li>
+     *     <li> 
+     *         try match the item with the name
+     *         <ul>  
+     *             <li> if match returns the value of the item  </li>
+     *             <li> if no item match\, returns the not found value </li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     * }   
      *
      * @implements MatchInterface::match( \<name\> object )
      * @see MatchInterface::getNotFoundValue()
