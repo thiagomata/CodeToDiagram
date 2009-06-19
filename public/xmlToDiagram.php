@@ -126,5 +126,6 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
                 </label>
             </form>
         </div>
+        <?php require_once( "footer.php" ); ?>
     </body>
 </html>

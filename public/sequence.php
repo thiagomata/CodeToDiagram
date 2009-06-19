@@ -30,5 +30,6 @@ $strTitle = CorujaArrayManipulation::getArrayField( $_POST , "title" , 'Sequence
     </head>
     <body>
             <?php print UmlSequenceDiagramPrinterToHtml::getInstance()->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
+            <?php require_once( "footer.php" ); ?>
     </body>
 </html>

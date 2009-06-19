@@ -15,6 +15,7 @@
  */
 ?>
 <html>
+    <body>
     <form action="sequence.php" method="post">
         zoom: <input type="text" value="100" name="zoom"/>
         title: <input type="text" value="just talk" name="title"/>
@@ -34,4 +35,6 @@
         </textarea>
         <input type="submit" value="send"/>
     </form>
+    <?php require_once( "footer.php" ); ?>
+    </body>
 </html>
