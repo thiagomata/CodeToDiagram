@@ -23,11 +23,15 @@
         </title>
     </head>
     <body>
-    <h3>
-        Code To Diagram
-    </h3>
+	<center>
+    		<img src="./images/codetodiagramheader.jpg"/>
+    		<h3>
+		        Code To Diagram
+    		</h3>
+	</center>
     <h4> Sequence Diagram Generator Of Code Execution - PHP => HTML  </h4>
         <div class="intro">
+	    
             <p>
                 The sequence diagram it is probably the must intuitive way to understand some code execution.
             </p>

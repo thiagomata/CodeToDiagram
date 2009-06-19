@@ -12,15 +12,14 @@
  * 
  */
 
-require_once( '../classes/_start.php' );
+require_once( "../public/codetodiagram.php" );
 
-$intZoom = (integer)getArrayElement( $_POST , "zoom" , 50 );
-$strXml = getArrayElement( $_POST , "xml" , '<sequence></sequence>' );
-$strTitle = getArrayElement( $_POST , "title" , 'Sequence Diagram' );
-
-$objXmlSequence = new XmlSequence();
-$objXmlSequence->setZoom( $intZoom);
-$objXmlSequence->setXml( $strXml );
+$intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
+$strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
+$strXml =  html_entity_decode( $strXml );
+$strXml = stripslashes( $strXml );
+$objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strXml )->perform();
+$strTitle = CorujaArrayManipulation::getArrayField( $_POST , "title" , 'Sequence Diagram' );
 
 ?>
 <html>
@@ -30,6 +29,6 @@ $objXmlSequence->setXml( $strXml );
         </title>
     </head>
     <body>
-            <?php print $objXmlSequence->show(); ?>
+            <?php print UmlSequenceDiagramPrinterToHtml::getInstance()->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
     </body>
 </html>
