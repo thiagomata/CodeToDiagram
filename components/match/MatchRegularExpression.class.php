@@ -1,17 +1,18 @@
 <?php
 /**
- * MatchName - Match the string name with a string list
+ * MatchRegularExpression - Match the string name with a regular expression list
  * @package Match
  */
 
 /**
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
- * @since 2009-06-16
+ * @since 2009-06-19
  *
  * Math the string name with a string list
  *
- * The string itens are strings elements and the string name is a string.
- * The compare item and name returns true when the string it is equal the name.
+ * The itens are strings with regular expression and the name is a string.
+ * The compare item and name returns true when the regular expression item match 
+ * with the name by the ereg() native php function.
  *
  * The values \<value\> start will boolean values, but is not restrict to it.
  * The not found value \<value\> by default is false.
@@ -19,20 +20,20 @@
  *
  *
  * @example{
- *      $objMatchName = new MatchName();
- *      $objMatchName->addItem( "Molly" );
- *      $objMatchName->addItem( "Armitage" );
- *      $objMatchName->addItem( "Wintermute" \, "machine" );
- *      $objMatchName->addItem( "Case" \, "hacker" );
- *      if ( $objMatchName->found( "Molly" ) !== true ) return false;
- *      if ( $objMatchName->match( "Molly" ) !== true ) return false;
- *      if( $objMatchName->match( "Wintermute" ) !== "machine" ) return false;
- *      if( $objMatchName->match( "Jackson" ) !== false ) return false;
+ *      $objMatchRegularExpression = new MatchRegularExpression();
+ *      $objMatchRegularExpression->addItem( "M(.*)y" );
+ *      $objMatchRegularExpression->addItem( "A(.*)e" );
+ *      $objMatchRegularExpression->addItem( "Winter(.*)" \, "machine" );
+ *      $objMatchRegularExpression->addItem( "^Case$" \, "hacker" );
+ *      if ( $objMatchRegularExpression->found( "Molly" ) !== true ) return false;
+ *      if ( $objMatchRegularExpression->match( "Molly" ) !== true ) return false;
+ *      if( $objMatchRegularExpression->match( "Wintermute" ) !== "machine" ) return false;
+ *      if( $objMatchRegularExpression->match( "Flatline" ) !== false ) return false;
  *      return true;
  * }
  * 
  */
-class MatchName implements MatchInterface
+class MatchRegularExpression implements MatchInterface
 {
     /**
      * @default false
@@ -68,9 +69,9 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::match( \<name\> object )
      * @see MatchInterface::setNotFoundValue( \<value\> object )
-     * @see MatchName::setNotFoundValue( \<value\> object )
+     * @see MatchRegularExpression::setNotFoundValue( \<value\> object )
      * @param object <value> $objNotFoundValue
-     * @return MatchName me
+     * @return MatchRegularExpression me
      */
     public function setNotFoundValue( $objNotFoundValue )
     {
@@ -86,7 +87,7 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::getNotFoundValue()
      * @see MatchInterface::match( \<name\> object )
-     * @see MatchName::match( string )
+     * @see MatchRegularExpression::match( string )
      * @return object \<value\>
      */
     public function getNotFoundValue()
@@ -102,9 +103,9 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::setDefaultItemValue( \<value\> object )
      * @see MatchInterface::setItemList( \<item\>[] [, \<value\>[] ] )
-     * @see MatchName::setItemList( string[] [, \<value\>[] ] )
+     * @see MatchRegularExpression::setItemList( string[] [, \<value\>[] ] )
      * @param object <value> $objNotFoundValue
-     * @return MatchName me
+     * @return MatchRegularExpression me
      */
     public function setDefaultItemValue( $objDefaultItemValue )
     {
@@ -134,7 +135,7 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::setItemList( \<item\>[] [ , \<value\>[] ])
      * @see MatchInterface::getItemList()
-     * @see MatchName::getItemList()
+     * @see MatchRegularExpression::getItemList()
      * @param string[] $arrItemList
      * @param <value>[] $arrValues
      * @return MatchInterface me
@@ -179,16 +180,16 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::addItem( \<item\> object [, \<value\> object ])
      * @see MatchInterface::setItemList( string[] )
-     * @see MatchName::setItemList( string[] )
+     * @see MatchRegularExpression::setItemList( string[] )
      * @see MatchInterface::getItemList()
-     * @see MatchName::getItemList()
+     * @see MatchRegularExpression::getItemList()
      * @param string $objItem
      * @param <value> $objValue
      * @return MatchInterface me
      */
     public function addItem( $objItem , $objValue = null )
     {
-        if( $objValue == null )
+        if( $objValue === null )
         {
             $objValue = $this->getDefaultItemValue();
         }
@@ -251,7 +252,14 @@ class MatchName implements MatchInterface
     public function found( $objName )
     {
         $strName = (string) $objName;
-        return in_array( $strName , $this->getItemList() );
+		foreach( $this->getItemList() as $strItemRegex )
+		{
+			if( ereg( $strItemRegex , $strName ) )
+			{
+				return true;
+			} 
+		}
+        return false;
     }
 
     /**
@@ -276,21 +284,30 @@ class MatchName implements MatchInterface
      *
      * @implements MatchInterface::match( \<name\> object )
      * @see MatchInterface::getNotFoundValue()
-     * @see MatchName::getNotFoundValue()
+     * @see MatchRegularExpression::getNotFoundValue()
      * @see MatchInterface::getItemList()
-     * @see MatchName::getItemList()
+     * @see MatchRegularExpression::getItemList()
      * @param string $objName
      * @return object \<value\> 
      */
     public function match( $objName )
     {
+    	//print_r( $this->arrValues );
         $strName = (string) $objName;
+        $intKeyValue = false;
 
         // for each item into the list //
-        // try match the item with the name //
-        $intKey = array_search( $strName , $this->arrItemList );
+        foreach( $this->getItemList() as $intKeyItem => $strItemRegex )
+    	{
+            // try match the item with the name //
+    	    if( ereg( $strItemRegex , $strName ) )
+        	{
+            	$intKeyValue = $intKeyItem;
+            	break;
+        	} 
+    	}
         
-        if( $intKey === false )
+        if( $intKeyValue === false )
         {
             // if no item match, returns the not found value //
             return $this->getNotFoundValue();
@@ -298,7 +315,7 @@ class MatchName implements MatchInterface
         else
         {
             // if match returns the value of the item //
-            return $this->arrValues[ $intKey ];
+            return $this->arrValues[ $intKeyValue ];
         }
     }
 }

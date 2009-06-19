@@ -7,12 +7,26 @@
 
 require_once( "_start.php" );
 
-$objRule = new MatchName();
-$objRule->addItem( "something" );
-print serialize( $objRule->match( "else" ) ) ; // 0
-print serialize( $objRule->match( "something" ) ) ;  // 1
-$objRule->addItem( "noop" , ":D");
-print serialize( $objRule->match( "else" ) ) ; // 0
-print serialize( $objRule->match( "noop" ) ) ;  // :D
+function MatchNameExample1()
+{
+	$objMatchName = new MatchName();
+	$objMatchName->addItem( "Molly" );
+	$objMatchName->addItem( "Armitage" );
+	$objMatchName->addItem( "Wintermute" , "machine" );
+	$objMatchName->addItem( "Case" , "hacker" );
+	if ( $objMatchName->found( "Molly" ) !== true ) return false;
+	if ( $objMatchName->match( "Molly" ) !== true ) return false;
+	if( $objMatchName->match( "Wintermute" ) !== "machine" ) return false;
+	if( $objMatchName->match( "Jackson" ) !== false ) return false;
+	return true;
+}
 
+if( MatchNameExample1() )
+{
+	print "ok!";
+}
+else
+{
+	print "fail!";
+}
 ?>

@@ -11,11 +11,13 @@
 if ( class_exists( "Loader" ) )
 {
     Loader::requireOnce( "MatchInterface.interface.php" , true );
-    Loader::requireOnce( "MatchName.class.php" , true );
+	Loader::requireOnce( "MatchName.class.php" , true );
+    Loader::requireOnce( "MatchRegularExpression.class.php" , true );
 }
 else
 {
     require_once( "MatchInterface.interface.php" );
     require_once( "MatchName.class.php" );
+    require_once( "MatchRegularExpression.class.php" );
 }
 ?>

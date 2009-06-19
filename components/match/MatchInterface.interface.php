@@ -169,7 +169,7 @@ interface MatchInterface
      *         try match the item with the name
      *         <ul>  
      *             <li> if match returns true  </li>
-     *             <li> if no item match, returns false </li>
+     *             <li> if no item match\, returns false </li>
      *         </ul>
      *     </li>
      * </ul>
