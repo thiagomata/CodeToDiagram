@@ -382,8 +382,8 @@
                 border-style: solid;
                 border-color: black;
                 text-align: left;
-                background-color: #DFDFFF;
-            }
+/*              background-color: #DFDFFF;
+*/            }
 
             div.line:hover div div span
             {
@@ -427,25 +427,28 @@
                 width: 90%;
                 border-style: solid;
                 border-width: 1px;
-                border-color: red;
+                border-color: #DDDDFF;
                 padding: 1%;
                 margin: 1%;
             }
-            #detail .message li
+            #detail .message li .detail_actor
             {
+                color: blue;
             }
             #detail .values code
             {
                 display: block;
                 width: 100%;
-                background-color: #AAAAAA;
+                background-color: #EEEEFF;
             }
             #detail .values strong
             {
                 display: block;
                 width: 99%;
-                background-color: #DDDDDD;
+                color: #001188;
+                background-color: #FEFEFF;
                 padding-left: 1%;
+                font-weight:normal;
             }
             #detail .values
             {

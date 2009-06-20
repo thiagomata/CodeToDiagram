@@ -15,8 +15,23 @@
 require_once( "../public/codetodiagram.php" );
 
 $intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
-$strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( 'sequence.xml' ) );
-$strXml =  html_entity_decode( $strXml );
+$strFile = (string)CorujaArrayManipulation::getArrayField( $_REQUEST , "file" , "threeLittlePigs");
+
+switch( $strFile )
+{
+    case "mvc":
+    {
+        $strXmlFile = '../examples/xmls/mvc.xml';
+        break;
+    }
+    case "threeLitlePigs":
+    default:
+    {
+        $strXmlFile = '../examples/ThreeLittlePigs/threeLittlePigs.xml';
+    }
+}
+$strXml = CorujaArrayManipulation::getArrayField( $_POST , "xml" , file_get_contents( $strXmlFile ) );
+$strXml =  html_entity_decode( trim( $strXml ) );
 $strXml = stripslashes( $strXml );
 $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strXml )->perform();
 
@@ -34,44 +49,67 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
         <h3>
             Code To Diagram
         </h3>
-        <h4> Sequence Diagram Generator From XML - XML => HTML  </h4>
+        <h4> Interpreting XML into Sequence Diagrams  </h4>
+        <h5> Sequence Diagrams </h5>
         <div class="intro">
             <p>
                 Sequence diagrams are simple and easy to understand.
-                However, keeping them up-to-date during the development
-                phase of a project can be onerous, sometimes even impeditive.
+                However, create sequence diagrams automatically can
+                be very complex by XMI interpratation, image generation
+                and still very restrict to some kind language or output.
+            </p>
+            <h5> Code to Diagram Proposal </h5>
+                <div style="width:50%; float:left">
+            <p>
+                To make this process easier, We've developed an automatic
+                diagram generator that factory the diagram object from
+                many different factory as XML and
+                <a href="index.php">Code Execution</a>
+                ( yeahhh )
+                then it can be sent to one of the printers that have the
+                most diverse output types as XML, HTML, Jpeg, etc..
             </p>
             <p>
-                To make this process easier, I've developed an automatic
-                diagram generator that receives XML as input and ouputs
-                an HTML page with the diagram.
+                Some printers need to be maded yet. And, if you have some
+                special case, when any of the avaliable printers and factorys
+                solve your problem, everthing it is extremly well 
+                <a href="http://www.thiagomata.com/codetodiagram/svn/doc/dox/html/">doc</a>
+                to help
+                to you create new classes and append new functionalitys.
             </p>
+                </div>
+                <div style="text-align: center;width:50%; float:left">
+                    <img src="./images/flow_codetodiagram.png"/>
+                </div>
+            <h5> Limitations </h5>
             <p>
                 While still not fully working on Internet Explorer, the generator
                 already makes life easier for those responsible in maintaining
                 this kind of diagrams. We welcome anyone with the patience
                 and desire to make the CSS changes need for it to work on IE.
             </p>
+            <h5> Under Development </h5>
             <p>
                 Also, fully compliance with UML 2.0 is still under development.
                 Anyone interested in working in these fields is more than welcome
                 to join the team. And if you have a patch on add-on to send, feel
-                free to do so. Just send an e-mail to thiago.henrique.mata@gmail.com
+                free to do so. Just send an e-mail to me thiago.henrique.mata@gmail.com .
             </p>
             <p>
-                The example I posted is the <a href="http://www.shol.com/agita/pigs.htm" > story </a> of <a href="http://en.wikipedia.org/wiki/The_Three_Little_Pigs"> "Three Little Pigs"</a>.
-                It should give you a view of how the generator works and also entertain you
-                a little bit. Change the XML as you please to generate other
-                diagrams of your own.
-
-            </p>
-            <p>
-                And remember, this is free software, and as such, I can give you no
+                And remember, this is free software, in development, and as such, I can give you no
                 warranty. Use it at your own risk. It's not for the faint of heart.
             </p>
             <p>
-                For external use <a href="caller.php"> try this link </a> and see the HTML code.
+                Tag names can and should change. New tags can be add anytime. Stay tunned for more news.
             </p>
+            <h5> Code to Diagram can do more ? </h5>
+            <p>
+                This look nice ? And if the diagram was created by a
+                <a href="index.php" title="PHP to Diagram">
+                    code execution
+                </a>?
+            </p>
+            <h5> Download </h5>
             <p>
                 This software can be download by the SVN into the
                 <a href="http://www.assembla.com/spaces/codetodiagram" title="Code To Diagram Project">
@@ -89,17 +127,35 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
                 the project
             </p>
             <p>
+                For external use <a href="caller.php"> try this link </a> and see the HTML code.
+            </p>
+            <h5> Examples </h5>
+            <p>
+                The example I posted is the <a href="http://www.shol.com/agita/pigs.htm" > story </a> of <a href="http://en.wikipedia.org/wiki/The_Three_Little_Pigs"> "Three Little Pigs"</a>.
+                It should give you a view of how the generator works and also entertain you
+                a little bit. Change the XML as you please to generate other
+                diagrams of your own.
+            </p>
+            <p>
+                <ul>
+                    <li><a href="?file=threeLittlePigs">Three Little Pigs</a></li>
+                    <li><a href="?file=mvc">Model View Controller</a></li>
+                </ul>
+            </p>
+            <h5> Team </h5>
+            <p>
                 Special thanks to Raphael Melo and
                 <a href="http://pt-br.facebook.com/people/Igor-Moreno/678110783">
                     Igor Moreno
                 </a>
                 for helping.
             </p>
-            <p>
-                This look nice ? And if the diagram was created by a 
-                <a href="index.php" title=="PHP to Diagram">
-                    code execution 
-                </a>?
+            <p >
+                Click
+                <a href="http://www.assembla.com/wiki/show/codetodiagram/Team" title="Code to Diagram - Team">
+                    here
+                </a>
+                to see the team responsible for the development of these projects
             </p>
          </div>
         <h4>
@@ -117,8 +173,7 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
                 </label>
                 <label>
                     <span> Xml: </span>
-                    <textarea name="xml">
-                    <?php print htmlentities( $strXml ) ?>
+                    <textarea name="xml"><?php print htmlentities( $strXml ) ?>
                     </textarea>
                 </label>
                 <label>

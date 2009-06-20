@@ -13,9 +13,16 @@ class UmlSequenceDiagramActor
     /**
      * Unique Id of each actor of the sequence
      *
+     * @var string
+     */
+    protected $strId;
+
+    /**
+     * Unique Position of each actor of the sequence
+     *
      * @var integer
      */
-    protected $intId;
+    protected $intPosition;
 
     /**
      * Type of the actor
@@ -42,28 +49,54 @@ class UmlSequenceDiagramActor
     {
         $this->setType( "system" );
     }
+
     /**
      * Get the id of the actor
      *
-     * @see UmlSequenceDiagramActor::setId( integer )
-     * @see UmlSequenceDiagramActor->intId
-     * @return integer
+     * @see UmlSequenceDiagramActor::setId( string )
+     * @see UmlSequenceDiagramActor->strId
+     * @return string
      */
     public function getId()
     {
-        return $this->intId;
+        return $this->strId;
     }
 
     /**
      * Set the id of the actor
      *
      * @see UmlSequenceDiagramActor::getId()
-     * @see UmlSequenceDiagramActor->intId
+     * @see UmlSequenceDiagramActor->strId
      * @return UmlSequenceDiagramActor
      */
-    public function setId( $intId )
+    public function setId( $strId )
     {
-        $this->intId = $intId;
+        $this->strId = $strId;
+        return $this;
+    }
+
+    /**
+     * Get the position of the actor
+     *
+     * @see UmlSequenceDiagramActor::setPosition( integer )
+     * @see UmlSequenceDiagramActor->intPosition
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->intPosition;
+    }
+
+    /**
+     * Set the position of the actor
+     *
+     * @see UmlSequenceDiagramActor::getPosition()
+     * @see UmlSequenceDiagramActor->intPosition
+     * @return UmlSequenceDiagramActor
+     */
+    public function setPosition( $intPosition )
+    {
+        $this->intPosition = $intPosition;
         return $this;
     }
 

@@ -403,7 +403,7 @@ HTML;
         $strHtmlMessages = '';
 
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
-        
+
         foreach( $arrMessages as $intMessageId => $objMessage )
         {
             $intPos = $intMessageId + 1;
@@ -413,13 +413,13 @@ HTML;
              */
             if( $objMessage->isReverse() )
             {
-                $intStart = $objMessage->getActorTo()->getId();
-                $intEnd = $objMessage->getActorFrom()->getId();
+                $intStart = $objMessage->getActorTo()->getPosition();
+                $intEnd = $objMessage->getActorFrom()->getPosition();
             }
             else
             {
-                $intEnd = $objMessage->getActorTo()->getId();
-                $intStart = $objMessage->getActorFrom()->getId();
+                $intEnd = $objMessage->getActorTo()->getPosition();
+                $intStart = $objMessage->getActorFrom()->getPosition();
             }
 
 $strHtmlMessages .=
@@ -442,17 +442,14 @@ HTML;
             {
                 $objActorNext = current( $arrActors );
 
-                if( $objActorNext == false )
-                {
-                    $objActorNext = new UmlSequenceDiagramActor();
-                    $objActorNext->setId( $objActorActual->getId() + 1 );
-                }
+                $intNextPosition =  $objActorActual->getPosition() + 1;
+
                 /**
                  * @var $objActorNext UmlSequenceDiagramActor
                  * @var $objActorActual UmlSequenceDiagramActor
                  */
 
-               if( $objActorActual->getId() < $intStart )
+               if( $objActorActual->getPosition() < $intStart )
                {
                    // before line //
                     $strHtmlMessages .=
@@ -471,7 +468,7 @@ HTML;
                   </div>
 HTML;
                }
-               elseif( $objActorActual->getId() == $intStart )
+               elseif( $objActorActual->getPosition() == $intStart )
                {
                    // start line //
                    $strText = UmlSequenceDiagramPrinterToHtml::getMessageText( $intMessageId , $objMessage );
@@ -493,7 +490,7 @@ HTML;
                   </div>
 HTML;
                }
-               elseif( ( $objActorActual->getId() > $intStart ) and ($objActorNext->getId() < $intEnd ) )
+               elseif( ( $objActorActual->getPosition() > $intStart ) and ($intNextPosition  < $intEnd ) )
                {
                    // inside line //
                     $strHtmlMessages .=
@@ -511,7 +508,7 @@ HTML;
                   </div>
 HTML;
                }
-               elseif( $objActorNext->getId() == $intEnd )
+               elseif( $intNextPosition == $intEnd )
                {
                     $strHtmlMessages .=
 <<<HTML
@@ -528,9 +525,9 @@ HTML;
                   </div>
 HTML;
                }
-               elseif( $objActorNext->getId() > $intEnd )
+               elseif( $intNextPosition > $intEnd )
                {
-                   $intDif = $objActorNext->getId() - $intEnd;
+                   $intDif = $intNextPosition - $intEnd;
                     $strHtmlMessages .=
 <<<HTML
                   <div class="actor after{$intDif}">
@@ -549,9 +546,9 @@ HTML;
                else
                {
                    $strMessage = '';
-                   $strMessage .= ' Invalid Id ' . "\n" ;
-                   $strMessage .= ' Actual Actor ' . $objActorActual->getId() ;
-                   $strMessage .= ' Next Actor ' . $objActorNext->getId() ;
+                   $strMessage .= ' Invalid Position ' . "\n" ;
+                   $strMessage .= ' Actual Actor ' . $objActorActual->getPosition() ;
+                   $strMessage .= ' Next Actor ' . $objActorNext->getPosition() ;
                    $strMessage .= ' Message Start ' . $intStart ;
                    $strMessage .= ' Message End' . $intEnd ;
                    throw new Exception( $strMessage );
@@ -634,23 +631,23 @@ HTML;
             {
                 case '<<create>>':
                 {
-                    $strText = $objMessage->getActorFrom()->getName() . ' create new ' . $objMessage->getActorTo()->getName();
+                    $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() . '</span> create new ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>';
                     break;
                 }
                 case '<<destroy>>':
                 {
-                    $strText = $objMessage->getActorFrom()->getName() . ' destroy ' . $objMessage->getActorTo()->getName();
+                    $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() . '</span>' .  ' destroy ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>';
                     break;
                 }
                 default:
                 {
                     if( $objMessage->getType() == 'call' )
                     {
-                        $strText = $objMessage->getActorFrom()->getName() . ' ' . $objMessage->getType() . ' ' . $objMessage->getActorTo()->getName() . '->' . self::getMessageText( $intMessageId , $objMessage );
+                        $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() .  '</span>' .  ' ' . $objMessage->getType() . ' ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>' .  '->' . self::getMessageText( $intMessageId , $objMessage );
                     }
                     else
                     {
-                        $strText = $objMessage->getActorTo()->getName() . ' receive from ' . $objMessage->getActorFrom()->getName() . '->' . $objMessage->getText();
+                        $strText = '<span class="detail_actor from">' . $objMessage->getActorTo()->getName() .  '</span>' .  ' receive from ' . '<span class="detail_actor to">' . $objMessage->getActorFrom()->getName() .  '</span>' .  '->' . $objMessage->getText();
                     }
                     break;
                 }

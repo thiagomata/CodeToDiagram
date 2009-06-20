@@ -58,7 +58,10 @@ class UmlSequenceDiagram
      */
     public function setMessages( array $arrMessages )
     {
-        $this->arrMessages = $arrMessages;
+        foreach( $arrMessages as $objMessage )
+        {
+            $this->addMessage( $objMessage );
+        }
         return $this;
     }
 
@@ -100,7 +103,10 @@ class UmlSequenceDiagram
      */
     public function setActors( array $arrActors )
     {
-        $this->arrActors = $arrActors;
+        foreach( $arrActors as $objActor )
+        {
+            $this->addActor( $objActor );
+        }
         return $this;
     }
 
@@ -127,7 +133,8 @@ class UmlSequenceDiagram
      */    
     public function addActor( UmlSequenceDiagramActor $objActor )
     {
-        $this->arrActors[] = $objActor;
+        $this->arrActors[ $objActor->getId() ] = $objActor;
+        $objActor->setPosition( sizeof( $this->arrActors ) );
         return $this;
     }
 

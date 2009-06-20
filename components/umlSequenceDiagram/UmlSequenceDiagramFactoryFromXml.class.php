@@ -123,18 +123,17 @@ class UmlSequenceDiagramFactoryFromXml implements UmlSequenceDiagramFactoryInter
 
       	foreach( $this->objXml->actors->actor as $xmlActor )
         {
-            $intId = (integer)$xmlActor['id'];
+            $strId = (string)$xmlActor['id'];
             $strType = (string)$xmlActor['type'];
             $strName = (string)$xmlActor;
 
             $objActor = new UmlSequenceDiagramActor();
-            $objActor->setId( $intId );
+            $objActor->setId( $strId );
             $objActor->setType( $strType );
             $objActor->setName( $strName );
 
             $arrActors[ $objActor->getId() ] = $objActor;
         }
-        ksort( $arrActors );
         $this->getUmlSequenceDiagram()->setActors( $arrActors );
     }
 
@@ -149,8 +148,8 @@ class UmlSequenceDiagramFactoryFromXml implements UmlSequenceDiagramFactoryInter
 
     	foreach( $this->objXml->messages->message as $xmlMessage )
         {
-            $intFrom    = (integer)$xmlMessage[ 'from' ];
-            $intTo      = (integer)$xmlMessage[ 'to' ];
+            $strFrom    = (string)$xmlMessage[ 'from' ];
+            $strTo      = (string)$xmlMessage[ 'to' ];
             $strType    = (string) $xmlMessage[ 'type' ];
             $strText = (string) $xmlMessage[ 'text' ];
 
@@ -158,17 +157,17 @@ class UmlSequenceDiagramFactoryFromXml implements UmlSequenceDiagramFactoryInter
             $objMessage->setType( $strType );
             $objMessage->setText( $strText );
 
-           if( !array_key_exists( $intFrom , $arrActors ) )
+           if( !array_key_exists( $strFrom , $arrActors ) )
             {
-                throw new Exception( ' Actor From ' . $intFrom . ' not Found ' );
+                throw new Exception( ' Actor From ' . $strFrom . ' not Found ' );
             }
-            $objMessage->setActorFrom( $arrActors[ $intFrom ] );
+            $objMessage->setActorFrom( $arrActors[ $strFrom ] );
 
-           if( !array_key_exists( $intTo , $arrActors ) )
+           if( !array_key_exists( $strTo , $arrActors ) )
             {
-                throw new Exception( ' Actor To ' . $intTo . ' not Found ' );
+                throw new Exception( ' Actor To ' . $strTo . ' not Found ' );
             }
-            $objMessage->setActorTo( $arrActors[ $intTo ] );
+            $objMessage->setActorTo( $arrActors[ $strTo ] );
 
             if( isset( $xmlMessage->values->value ) )
             foreach( $xmlMessage->values->value as $xmlValue )

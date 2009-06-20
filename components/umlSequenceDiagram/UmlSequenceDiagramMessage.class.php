@@ -314,14 +314,14 @@ class UmlSequenceDiagramMessage
 
 
     /**
-     * Returns <code>true</code> if the id of the actor from is bigger then the
-     * id of the actor to, <code>false</code> otherwise
+     * Returns <code>true</code> if the position of the actor from is bigger then the
+     * position of the actor to, <code>false</code> otherwise
      *
      * @return boolean
      */
     public function isReverse()
     {
-        return ( $this->objActorFrom->getId() > $this->objActorTo->getId() );
+        return ( $this->objActorFrom->getPosition() > $this->objActorTo->getPosition() );
     }
 
 
@@ -333,7 +333,7 @@ class UmlSequenceDiagramMessage
      */
     public function isLarge()
     {
-        return ( abs( $this->objActorFrom->getId() - $this->objActorTo->getId() ) > 1 );
+        return ( abs( $this->objActorFrom->getPosition() - $this->objActorTo->getPosition() ) > 1 );
     }
 
     /**
@@ -344,7 +344,7 @@ class UmlSequenceDiagramMessage
      */
     public function isRecursive()
     {
-        return( $this->objActorFrom->getId() == $this->objActorTo->getId() );
+        return( $this->objActorFrom->getPosition() == $this->objActorTo->getPosition() );
     }
 }
 ?>

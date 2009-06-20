@@ -9,4 +9,5 @@ Loader::requireOnce( COMPONENTS_PATH . "extendedReflection/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "codeReflection/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "codeInstrumentation/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "codeToDiagram/_start.php" );
+Loader::requireOnce( COMPONENTS_PATH . "debug/_start.php" );
 ?>
