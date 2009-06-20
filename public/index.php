@@ -58,13 +58,33 @@ require_once( "../public/codetodiagram.php" );
                 of some method name or attribute name will require a change into all diagrams what involve it.
             </p>
             <h5> Code to Diagram Propose </h5>
-            <p>
-                The solution proposed here it is the automatic generation of sequence diagrams based on the PHP
-                code execution. One full code execution or some stretch of execution it is monitored by classes
-                of code instrumentation what, based on the in formations received, creating the diagram of that
-                code execution. This diagram can be seen as HTML, saved as HTML, and also to be saved
-                as XML and in the future exported as a jpeg image.
-            </p>
+            <div style="float:left">
+             <div style="width:50%; float:left">
+                <p>
+                    The solution proposed here it is the automatic generation of sequence diagrams based on the PHP
+                    code execution. One full code execution or some stretch of execution it is monitored by classes
+                    of code instrumentation what, based on the in formations received, creating the diagram of that
+                    code execution. This diagram can be seen as HTML, saved as HTML, and also to be saved
+                    as XML and in the future exported as a jpeg image.
+                </p>
+                <p>
+                    The pattern used here was the factorys and printers. There is many factorys what builds uml sequence
+                    diagram objects and many options of printers what create a different result based on the uml sequence
+                    diagram object received.
+                </p>
+                <p>
+                    if you have some
+                special case, when any of the avaliable printers and factorys
+                solve your problem, everthing it is extremly well
+                <a href="http://www.thiagomata.com/codetodiagram/svn/doc/dox/html/">doc</a>
+                to help
+                to you create new classes and append new features.
+                </p>
+            </div>
+            <div style="text-align: center;width:50%; float:left">
+                <img src="./images/flow_codetodiagram.png"/>
+            </div>
+            </div>
             <h5> How it Works ? </h5>
             <p>
                 All this process must be simple and enough to be used simply append one call, but flexible also

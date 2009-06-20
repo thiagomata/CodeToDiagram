@@ -75,7 +75,7 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
                 solve your problem, everthing it is extremly well 
                 <a href="http://www.thiagomata.com/codetodiagram/svn/doc/dox/html/">doc</a>
                 to help
-                to you create new classes and append new functionalitys.
+                to you create new classes and append new features.
             </p>
                 </div>
                 <div style="text-align: center;width:50%; float:left">
