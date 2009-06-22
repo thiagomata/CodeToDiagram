@@ -1,8 +1,8 @@
 <?php
 /* 
- * Examples using the rule match list.
+ * Examples using the match name list.
  *
- * @package RuleMatchList
+ * @package Match
  */
 
 require_once( "_start.php" );

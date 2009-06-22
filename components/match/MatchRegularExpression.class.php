@@ -33,7 +33,7 @@
  * }
  * 
  */
-class MatchRegularExpression implements MatchInterface
+class MatchRegularExpression implements MatchListInterface
 {
     /**
      * @default false
@@ -52,13 +52,13 @@ class MatchRegularExpression implements MatchInterface
      *
      * @var string[]
      */
-    protected $arrItemList;
+    protected $arrItemList = array();
 
     /**
      *
      * @var \<value\>[]
      */
-    protected $arrValues;
+    protected $arrValues = array();
 
     /**
      * Set the not found value.
@@ -67,8 +67,8 @@ class MatchRegularExpression implements MatchInterface
      * of the match() method when not item match with
      * the received name
      *
-     * @implements MatchInterface::match( \<name\> object )
-     * @see MatchInterface::setNotFoundValue( \<value\> object )
+     * @implements MatchListInterface::match( \<name\> object )
+     * @see MatchListInterface::setNotFoundValue( \<value\> object )
      * @see MatchRegularExpression::setNotFoundValue( \<value\> object )
      * @param object <value> $objNotFoundValue
      * @return MatchRegularExpression me
@@ -85,8 +85,8 @@ class MatchRegularExpression implements MatchInterface
      * don't match with any element into the item list in
      * the match() method
      *
-     * @implements MatchInterface::getNotFoundValue()
-     * @see MatchInterface::match( \<name\> object )
+     * @implements MatchListInterface::getNotFoundValue()
+     * @see MatchListInterface::match( \<name\> object )
      * @see MatchRegularExpression::match( string )
      * @return object \<value\>
      */
@@ -101,8 +101,8 @@ class MatchRegularExpression implements MatchInterface
      * Changing this element will change how the value of the itens string[] what
      * not informed they values into the setItemList() and addItem()
      *
-     * @implements MatchInterface::setDefaultItemValue( \<value\> object )
-     * @see MatchInterface::setItemList( \<item\>[] [, \<value\>[] ] )
+     * @implements MatchListInterface::setDefaultItemValue( \<value\> object )
+     * @see MatchListInterface::setItemList( \<item\>[] [, \<value\>[] ] )
      * @see MatchRegularExpression::setItemList( string[] [, \<value\>[] ] )
      * @param object <value> $objNotFoundValue
      * @return MatchRegularExpression me
@@ -119,7 +119,7 @@ class MatchRegularExpression implements MatchInterface
      * This value \<value\> what will be saved on some string item when
      * this setter dont inform its value
      *
-     * @implements MatchInterface::getDefaultItemValue()
+     * @implements MatchListInterface::getDefaultItemValue()
      * @return object \<value\>
      */
     public function getDefaultItemValue()
@@ -133,12 +133,12 @@ class MatchRegularExpression implements MatchInterface
      * If the array with values not received, the default value to the itens
      * will be <code> true </code>
      *
-     * @implements MatchInterface::setItemList( \<item\>[] [ , \<value\>[] ])
-     * @see MatchInterface::getItemList()
+     * @implements MatchListInterface::setItemList( \<item\>[] [ , \<value\>[] ])
+     * @see MatchListInterface::getItemList()
      * @see MatchRegularExpression::getItemList()
      * @param string[] $arrItemList
      * @param <value>[] $arrValues
-     * @return MatchInterface me
+     * @return MatchListInterface me
      * @throws MatchException
      */
     public function setItemList( array $arrItemList , $arrValues = null )
@@ -167,7 +167,7 @@ class MatchRegularExpression implements MatchInterface
     /**
      * Get the array with the item list into the match
      *
-     * @implements MatchInterface::getItemList()
+     * @implements MatchListInterface::getItemList()
      * @return string[] $arrItemList
      */
     public function getItemList()
@@ -178,14 +178,14 @@ class MatchRegularExpression implements MatchInterface
     /**
      * Add a item into the item list
      *
-     * @implements MatchInterface::addItem( \<item\> object [, \<value\> object ])
-     * @see MatchInterface::setItemList( string[] )
+     * @implements MatchListInterface::addItem( \<item\> object [, \<value\> object ])
+     * @see MatchListInterface::setItemList( string[] )
      * @see MatchRegularExpression::setItemList( string[] )
-     * @see MatchInterface::getItemList()
+     * @see MatchListInterface::getItemList()
      * @see MatchRegularExpression::getItemList()
      * @param string $objItem
      * @param <value> $objValue
-     * @return MatchInterface me
+     * @return MatchListInterface me
      */
     public function addItem( $objItem , $objValue = null )
     {
@@ -217,7 +217,7 @@ class MatchRegularExpression implements MatchInterface
      * </ul>
      * }
      *
-     * @implements MatchInterface::isEmpty()
+     * @implements MatchListInterface::isEmpty()
      * @return boolean
      */
     public function isEmpty()
@@ -245,7 +245,7 @@ class MatchRegularExpression implements MatchInterface
      * </ul>
      * }     
      *
-     * @implements MatchInterface::found( \<name\> object )
+     * @implements MatchListInterface::found( \<name\> object )
      * @param string $objName
      * @return boolean
      */
@@ -282,10 +282,10 @@ class MatchRegularExpression implements MatchInterface
      * </ul>
      * }   
      *
-     * @implements MatchInterface::match( \<name\> object )
-     * @see MatchInterface::getNotFoundValue()
+     * @implements MatchListInterface::match( \<name\> object )
+     * @see MatchListInterface::getNotFoundValue()
      * @see MatchRegularExpression::getNotFoundValue()
-     * @see MatchInterface::getItemList()
+     * @see MatchListInterface::getItemList()
      * @see MatchRegularExpression::getItemList()
      * @param string $objName
      * @return object \<value\> 

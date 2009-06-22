@@ -11,13 +11,19 @@
 if ( class_exists( "Loader" ) )
 {
     Loader::requireOnce( "MatchInterface.interface.php" , true );
+    Loader::requireOnce( "MatchListInterface.interface.php" , true );
 	Loader::requireOnce( "MatchName.class.php" , true );
     Loader::requireOnce( "MatchRegularExpression.class.php" , true );
+    Loader::requireOnce( "MatchGroup.class.php" , true );
+    Loader::requireOnce( "MatchGateOpener.class.php" , true );
 }
 else
 {
     require_once( "MatchInterface.interface.php" );
+    require_once( "MatchListInterface.interface.php" );
     require_once( "MatchName.class.php" );
     require_once( "MatchRegularExpression.class.php" );
+    require_once( "MatchGroup.class.php" );
+    require_once( "MatchGateOpener.class.php" );
 }
 ?>
