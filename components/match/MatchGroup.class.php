@@ -10,6 +10,24 @@
  * @autor Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  * @since 2009-06-12
  *
+ * @example{
+ *    $objMatch = new MatchGroup();
+ *    $objMatch->addItemName( "Flatline" );
+ *    $objMatch->addItemName( "Matrix" );
+ *    $objMatch->addItemName( "Wintermute" , "artificial" );
+ *    $objMatch->addItemName( "Case" , "hacker" );
+ *    $objMatch->addItemRegularExpression( "M(.*)y" );
+ *    $objMatch->addItemRegularExpression( "A(.*)e" );
+ *    $objMatch->addItemRegularExpression( "Winter(.*)" , "machine" );
+ *    $objMatch->addItemRegularExpression( "^Case$" , "cowboy" );
+ *    if ( $objMatch->found( "Molly" ) !== true ) return false;
+ *    if ( $objMatch->match( "Molly" ) !== true ) return false;
+ *    if ( $objMatch->match( "Wintermute" ) !== "artificial" ) return false;
+ *    if ( $objMatch->match( "Wintertime" ) !== "machine" ) return false;
+ *    if ( $objMatch->match( "Case" ) !== "hacker" ) return false;
+ *    if ( $objMatch->match( "Jackson" ) !== false ) return false;
+ *    return true;
+ * }
  */
 class MatchGroup implements MatchInterface
 {

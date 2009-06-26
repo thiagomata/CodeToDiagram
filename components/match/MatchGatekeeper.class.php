@@ -1,6 +1,6 @@
 <?php
 /**
- * MatchGateOpener - Gate opener make a match using white list and black list.
+ * MatchGateKeeper - Gate opener make a match using white list and black list.
  * @package Match
  */
 
@@ -11,18 +11,40 @@
  * Gate opener make a match using white list , with the allowed names
  * and black list, with the forbiden names.
  *
+ * @example{
+ *   $objMatch = new MatchGateKeeper();
+ *   $objMatch->getAllowedMatch()->addItemName( "just" );
+ *   $objMatch->getAllowedMatch()->addItemName( "us" );
+ * 	 if ( $objMatch->match( "other" ) !== false ) return false;
+ *   return true;
+ * }
+ *
+ * @example{
+ *   $objMatch = new MatchGateKeeper();
+ *   $objMatch->getForbiddenMatch()->addItemRegularExpression("^set*");
+ *   $objMatch->getForbiddenMatch()->addItemRegularExpression("^get*");
+ *   $objMatch->getForbiddenMatch()->addItemName( "play" );
+ *	 if ( $objMatch->match( "setSomething" ) !== false ) return false;
+ *	 if ( $objMatch->match( "getSomething" ) !== false ) return false;
+ *	 if ( $objMatch->match( "play" ) !== false ) return false;
+ *	 if ( $objMatch->match( "other" ) !== true) return false;
+ *   return true;
+ * }
+ *
  */
-class MatchGateOpener implements MatchInterface
+class MatchGateKeeper implements MatchInterface
 {
     /**
+     * Match Group of the Forbidden List
      *
-     * @var Match
+     * @var MatchGroup
      */
     protected $objForbidenMatch;
 
     /**
+     * Match Group of the Allowed List
      *
-     * @var Match
+     * @var MatchGroup
      */
     protected $objAllowedMatch;
 
@@ -53,7 +75,7 @@ class MatchGateOpener implements MatchInterface
      * set the forbiden list match
      *
      * @param Match $objForbidenMatch
-     * @return MatchGateOpener me
+     * @return MatchGateKeeper me
      */
     public function setForbidenMatch( Match $objForbidenMatch )
     {
@@ -75,7 +97,7 @@ class MatchGateOpener implements MatchInterface
      * Set the allowed list match
      *
      * @param Match $objAllowedMatch
-     * @return MatchGateOpener me
+     * @return MatchGateKeeper me
      */
     public function setAllowedMatch( Match $objAllowedMatch )
     {
@@ -98,7 +120,7 @@ class MatchGateOpener implements MatchInterface
      * not be found into any list
      *
      * @param object <value> $objValue
-     * @return MatchGateOpener
+     * @return MatchGateKeeper
      */
     public function setNotFoundValue( $objValue )
     {
@@ -123,7 +145,7 @@ class MatchGateOpener implements MatchInterface
      * Set the value of a name into the forbidden list
      *
      * @param object <value> $objValue
-     * @return MatchGateOpener
+     * @return MatchGateKeeper
      */
     public function setDeniedValue( $objValue )
     {
@@ -187,20 +209,27 @@ class MatchGateOpener implements MatchInterface
      */
     public function found( $strName )
     {
+         // if forbidden list exists //
         if( $this->getForbiddenMatch()->isEmpty() == false )
         {
+            // if is forbidden //
             if( $this->getForbiddenMatch()->found( $strName ) )
             {
+                // return false //
                 return false;
             }
         }
+        // if allowed restriction list exists //
         if( $this->getAllowedMatch()->isEmpty() == false )
         {
+            // if is allowed //
             if( $this->getAllowedMatch()->found( $strName ) )
             {
+                // return true //
                 return true;
             }
         }
+        // the element was not founded in any list //
         return false;
     }
 

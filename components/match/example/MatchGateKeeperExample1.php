@@ -7,14 +7,14 @@
 
 require_once( "_start.php" );
 
-function MatchGateOpenerExample1()
+function MatchGateKeeperExample1()
 {
-    $objMatch = new MatchGateOpener();
+    $objMatch = new MatchGateKeeper();
     $objMatch->getAllowedMatch()->addItemName( "just" );
     $objMatch->getAllowedMatch()->addItemName( "us" );
 	if ( $objMatch->match( "other" ) !== false ) return false;
 
-    $objMatch = new MatchGateOpener();
+    $objMatch = new MatchGateKeeper();
     $objMatch->getForbiddenMatch()->addItemRegularExpression("^set*");
     $objMatch->getForbiddenMatch()->addItemRegularExpression("^get*");
     $objMatch->getForbiddenMatch()->addItemName( "play" );
@@ -26,7 +26,7 @@ function MatchGateOpenerExample1()
     return true;
 }
 
-if( MatchGateOpenerExample1() === TRUE )
+if( MatchGateKeeperExample1() === TRUE )
 {
 	print "ok!";
 }
