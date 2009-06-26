@@ -4,8 +4,7 @@
                 width: 100%;
             }
             form textarea
-            {
-                width: 100%;
+            {                width: 100%;
                 height: 400px;
             }
             .intro
@@ -29,4 +28,88 @@
             {
                 float: left;
                 width: 49%;
+            }
+            .diagram_flow
+            {
+                text-align: center;
+                width:50%;
+                float:left;
+            }
+            img
+            {
+                border-style:none;
+            }
+            .php
+            {
+                border-style: solid;
+                border-color: black;
+                border-width: 1px;
+            }
+            .php *
+            {
+                font-family: monospace;
+            }
+            .php p
+            {
+                background-color: rgb( 240 , 240, 240 );
+                padding: 2px;
+                margin: 0px;
+            }
+            .php span
+            {
+                padding: 0px;
+                margin: 0px;
+            }
+            .php .tag
+            {
+                color: black;
+                font-weight: bold;
+            }
+            .php .function , .php .method
+            {
+                color: green;
+            }
+            .php .string
+            {
+                color: orange;
+            }
+            .php .new
+            {
+                color: blue;
+            }
+            .php .parenthesis
+            {
+                color: red;
+            }
+            .start_tag
+            {
+                color:olive;
+            }
+            .name_tag
+            {
+                color:olive;
+            }
+            .out_tag
+            {
+
+            }
+            .inside_tag
+            {
+                color:black;
+            }
+            .next_tag
+            {
+                color:navy;
+            }
+            .value_tag
+            {
+                color:red;
+            }
+            .none_tag
+            {
+                display:none;
+            }
+            .xml
+            {
+                white-space: pre;
             }

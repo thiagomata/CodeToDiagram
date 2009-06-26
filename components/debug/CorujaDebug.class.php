@@ -67,19 +67,36 @@ class CorujaDebug
 
     }
 
-    private static function highlightXml( $strXmlContent )
+    private static function highlightXml( $strXmlContent , $booCssInLine = true )
     {
+        $booHasHeader = ( ( strpos( $strXmlContent , "<" . "?" . "xml" ) ) !== false );
         $strXmlContent = htmlentities( $strXmlContent , true );
 
         // the css must be on style attribute to not be lose into the //
         // e-mail send or something like                              //
-        
-        $strStartTagStyle   = "color:olive;";
-        $strNameTagStyle    = "color:olive";
-        $strOutTagStyle     = "";
-        $strInsideTagStyle  = "color:black";
-        $strNextStyle       = "color:navy";
-        $strValueTagStyle   = "color:red";
+
+        if( $booCssInLine )
+        {
+            $strStartTagStyle   = "color:olive;";
+            $strNameTagStyle    = "color:olive";
+            $strOutTagStyle     = "";
+            $strInsideTagStyle  = "color:black";
+            $strNextStyle       = "color:navy";
+            $strValueTagStyle   = "color:red";
+            $strNone            = "display:none";
+            $strAttribute       = "span style=";
+        }
+        else
+        {
+            $strStartTagStyle   = "start_tag";
+            $strNameTagStyle    = "name_tag";
+            $strOutTagStyle     = "out_tag";
+            $strInsideTagStyle  = "inside_tag";
+            $strNextStyle       = "next_tag";
+            $strValueTagStyle   = "value_tag";
+            $strNone            = "none_tag";
+            $strAttribute       = "span class=";
+        }
 
         $strXmlContent = str_replace(
                 Array(
@@ -91,17 +108,28 @@ class CorujaDebug
                     "span_style",
                ),
                 Array(
-                    "</span></span><span_style'$strStartTagStyle'>&lt;<span_style'$strNameTagStyle'><span_style'display:none'>...</span><span>" ,
+                    // -2 +3 = +1 //
+                    "</span></span><span_style'$strStartTagStyle'>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>...</span><span>" ,
+                    // -2 +1 = -1 //
                     "</span>/&gt;</span><span_style'$strOutTagStyle'>",
+                    // -1 +1 = 0//
                     "</span>&gt;<span_style'$strInsideTagStyle'>",
+                    // -1 +1 = 0//
                     "</span> <span_style'$strNextStyle'>",
+                    // -1 +1 = 0//
                     "</span>=<span_style'$strValueTagStyle'>",
-                    "span style=",
+                    $strAttribute,
                 ),
             $strXmlContent
         );
 
-        $strXmlContent = "<div>" . $strXmlContent . "</div>";
+        $strXmlContent = "<div class='xml'><span><span>" . $strXmlContent;
+
+        if( $booHasHeader )
+        {
+            $strXmlContent .= '</span></span>';
+        }
+        $strXmlContent .= "</span></span></div>";
         return $strXmlContent;
         
     }
@@ -183,10 +211,10 @@ class CorujaDebug
      * @param string $strXmlExpression
      * @param boolean $boolExit
      */
-    public static function printXmlCode( $strXmlExpression, $boolExit = FALSE )
+    public static function printXmlCode( $strXmlExpression, $boolCssInLine = FALSE, $boolExit = FALSE )
     {
         $strXmlExpression = preg_replace('/[^\x09\x0A\x0D\x20-\x7F]/e', 'CorujaDebug::privateXMLEntities("$0")', $strXmlExpression);
-        self::prints( self::highlightXml( $strXmlExpression ) , $boolExit );
+        self::prints( self::highlightXml( $strXmlExpression , $boolCssInLine ) , $boolExit );
     }
 
     /**
@@ -242,12 +270,10 @@ class CorujaDebug
      */
 	public static function prints( $mixExpression , $boolExit = FALSE)
 	{
-		$strMessage = "<pre>";
-        $strMessage .= "<div style='background-color: #F0F0F0; float:left'>";
+		$strMessage = "";
 		$strMessage .= $mixExpression;
-        $strMessage .= "</div>";
 
-		$strMessage .= "</pre>";
+		$strMessage .= "";
 
         print $strMessage;
 

@@ -21,8 +21,8 @@
  *
  * @example{
  *   $objMatch = new MatchGateKeeper();
- *   $objMatch->getForbiddenMatch()->addItemRegularExpression("^set*");
- *   $objMatch->getForbiddenMatch()->addItemRegularExpression("^get*");
+ *   $objMatch->getForbiddenMatch()->addItemRegularExpression( "^set*" );
+ *   $objMatch->getForbiddenMatch()->addItemRegularExpression( "^get*" );
  *   $objMatch->getForbiddenMatch()->addItemName( "play" );
  *	 if ( $objMatch->match( "setSomething" ) !== false ) return false;
  *	 if ( $objMatch->match( "getSomething" ) !== false ) return false;

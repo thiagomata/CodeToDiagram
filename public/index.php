@@ -16,10 +16,16 @@
 require_once( "../public/codetodiagram.php" );
 
 ?>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <style >
+        <?php require_once( "header.php" ) ?>
+        <style type="text/css">
+/*<![CDATA[*/
+
             @import url("css/default.css");
+/*]]>*/
         </style>
         <title>
             Code To Diagram - Automatic Sequence Diagram
@@ -27,7 +33,7 @@ require_once( "../public/codetodiagram.php" );
     </head>
     <body>
 	<center>
-    		<img src="./images/codetodiagramheader.jpg"/>
+    		<img src="./images/codetodiagramheader.jpg" alt="code to diagram logo" title="code to diagram"/>
     		<h3>
 		        Code To Diagram
     		</h3>
@@ -81,8 +87,10 @@ require_once( "../public/codetodiagram.php" );
                 to you create new classes and append new features.
                 </p>
             </div>
-            <div style="text-align: center;width:50%; float:left">
-                <img src="./images/flow_codetodiagram.png"/>
+            <div class="diagram_flow">
+                <img src="./images/flow_codetodiagram.png"
+                alt="code to diagram flow"
+                longdesc="./images/flow_codetodiagram.txt"/>
             </div>
             </div>
             <h5> How it Works ? </h5>
@@ -90,7 +98,7 @@ require_once( "../public/codetodiagram.php" );
                 All this process must be simple and enough to be used simply append one call, but flexible also
                 to deal with all the special cases. The big idea it is to create the diagram of the execution been
                 less invader as possible into the source code what the execution will run. You can see the runing
-                examples <a href="../examples">here</a>.
+                examples <a href="../examples" title="click here to see the examples">here</a>.
             </p>
             <h5> Preview of Diagram from Code Execution </h5>
             <div>
@@ -98,23 +106,66 @@ require_once( "../public/codetodiagram.php" );
                     <p>
                         In a short preview this code:
                     </p>
-                    <p>
-                        <?php highlight_string(
-        "
-        <?php
-            require_once( '../../public/codetodiagram.php' );
-            CodeToDiagram::getInstance()->start();
-
-            require_once( 'Wolf.class.php' );
-            require_once( 'Pig.class.php' );
-            require_once( 'House.class.php' );
-            require_once( 'History.class.php' );
-
-            new History();
-        ?>
-        "
-                        );?>
-                    </p>
+                    <div class="php">
+                        <p class="line">
+                            <span class="tag">&lt;?php</span>
+                        </p>
+                        <p class="line"><span
+                            class="function">require_once</span><span
+                            class="parenthesis">(</span><span
+                            class="string">'../../public/codetodiagram.php'</span><span
+                            class="parenthesis">)</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span 
+                            class="php_class">CodeToDiagram</span><span
+                            class="static_operator">::</span><span
+                            class="method">getInstance</span><span
+                            class="parenthesis">()</span><span
+                            class="caller">-></span><span
+                            class="method">start</span><span
+                            class="parenthesis">()</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span
+                            class="function">require_once</span><span
+                            class="parenthesis">(</span><span
+                            class="string">'Wolf.class.php'</span><span
+                            class="parenthesis">)</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span
+                            class="function">require_once</span><span
+                            class="parenthesis">(</span><span
+                            class="string">'House.class.php'</span><span
+                            class="parenthesis">)</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span
+                            class="function">require_once</span><span
+                            class="parenthesis">(</span><span
+                            class="string">'Pig.class.php'</span><span
+                            class="parenthesis">)</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span
+                            class="function">require_once</span><span
+                            class="parenthesis">(</span><span
+                            class="string">'History.class.php'</span><span
+                            class="parenthesis">)</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span
+                            class="new">new</span><span
+                            class="space"> </span><span
+                            class="object">History</span><span
+                            class="parenthesis">()</span><span
+                            class="semicolon">;</span>
+                        </p>
+                        <p class="line"><span
+                            class="tag">?&gt;</span>
+                        </p>
+                    </div>
                 </div>
                 <div>
                     <p>
@@ -122,7 +173,12 @@ require_once( "../public/codetodiagram.php" );
                     </p>
                     <p>
                         <a style="border-style:none;" href="../examples/ThreeLittlePigs/threeLittlePigs.php">
-                            <img style="border-style:none;" src="./images/pigs_small.png" />
+                            <img
+                                style="border-style:none;"
+                                src="./images/pigs_small.png"
+                                alt="three little pigs diagram automatically generated"
+                                longdesc="./images/pigs_small.txt"
+                            />
                         </a>
                     </p>
                 </div>
@@ -153,11 +209,9 @@ require_once( "../public/codetodiagram.php" );
                     <p>
                         In a short preview this xml:
                     </p>
-                    <p>
-                        <?php CorujaDebug::printXmlCode(
-                            file_get_contents ( '../examples/xmls/mvc.xml' )
-                        );?>
-                    </p>
+                    <?php CorujaDebug::printXmlCode(
+                        file_get_contents ( '../examples/xmls/mvc.xml' )
+                    );?>
                 </div>
                 <div style="width:100%;float:left">
                     <p>
@@ -165,7 +219,11 @@ require_once( "../public/codetodiagram.php" );
                     </p>
                     <p>
                         <a style="border-style:none;" href="xmlToDiagram.php?file=mvc">
-                            <img style="border-style:none;" src="./images/mvc_codetodiagram.jpg" />
+                            <img 
+                                src="./images/mvc_codetodiagram.jpg" 
+                                longdesc="./images/mvc_codetodiagram.txt"
+                                alt="model view controoler diagram automatically generated"
+                            />
                         </a>
                     </p>
                 </div>
@@ -226,6 +284,7 @@ require_once( "../public/codetodiagram.php" );
                    </a>
                 to know more about code instrumentation.
             </p>
+        </div>
         <?php require_once( "footer.php" ); ?>
     </body>
 </html>

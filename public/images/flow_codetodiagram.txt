@@ -1,0 +1,3 @@
+The imagem describe how the Uml Sequence Diagram Object can be created by various types of factories.
+After created, this object can be send to one or more printers.
+Each printer, when receive the Um Sequence Diagram Object, will create a different ouput result based on it.

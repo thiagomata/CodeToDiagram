@@ -26,8 +26,6 @@ if( !isset( $strPublicPath  ) )
     require_once( $strPublicPath . "../components/library/_start.php" );
     require_once( $strPublicPath . "../components/loader/_start.php" );
     Loader::requireOnce( $strPublicPath . '../components/_start.php' );
-//    exit();
-//    require_once( $strPublicPath . '../components/_start.php' );
 
     #3. redefine the error handler function to the code to diagram
 

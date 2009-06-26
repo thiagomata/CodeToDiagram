@@ -48,7 +48,6 @@ if( !isset( $strPublicPath  ) )
     $strPublicPath = str_replace( basename( __FILE__ ) , "" , $strPublicPath );
 
     #7. init the code to diagram
-//    print highlight_string( Loader::getInstance()->getClassContent() );
     print ( Loader::getInstance()->getClassContent() );
     print "
 <?php
