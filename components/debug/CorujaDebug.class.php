@@ -100,6 +100,8 @@ class CorujaDebug
 
         $strXmlContent = str_replace(
                 Array(
+                    "&gt;?" ,       //  < ?  start xml tag
+                    "?&gt;" ,       //  ? >  out xml tag
                     "&lt;" ,        //  <   start tag
                     "/&gt;" ,       //  />  out tag
                     "&gt;" ,        //   >   content tag
@@ -108,10 +110,12 @@ class CorujaDebug
                     "span_style",
                ),
                 Array(
+                    "</span></span><span_style'$strStartTagStyle'\n>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>&nbsp;</span>" ,
+                    "</span>?&gt;</span><span_style'$strOutTagStyle'\n>",
                     // -2 +3 = +1 //
-                    "</span></span><span_style'$strStartTagStyle'>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>...</span><span>" ,
+                    "</span></span><span_style'$strStartTagStyle'\n>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>&nbsp;</span><span>" ,
                     // -2 +1 = -1 //
-                    "</span>/&gt;</span><span_style'$strOutTagStyle'>",
+                    "</span>/&gt;</span></span></span\n><span_style'$strOutTagStyle'\n>",
                     // -1 +1 = 0//
                     "</span>&gt;<span_style'$strInsideTagStyle'>",
                     // -1 +1 = 0//
