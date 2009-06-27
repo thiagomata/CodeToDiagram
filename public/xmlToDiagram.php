@@ -22,11 +22,13 @@ switch( $strFile )
     case "mvc":
     {
         $strXmlFile = '../examples/xmls/mvc.xml';
+        $strTitle = "Model View Controller";
         break;
     }
-    case "threeLitlePigs":
+    case "threeLittlePigs":
     default:
     {
+        $strTitle = "Three Little Pigs";
         $strXmlFile = '../examples/ThreeLittlePigs/threeLittlePigs.xml';
     }
 }
@@ -165,7 +167,7 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
             </p>
          </div>
         <h4>
-            Three Little Pigs
+            <?php print $strTitle ?>
         </h4>
         <?php print UmlSequenceDiagramPrinterToHtml::getInstance()->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
         <div style="float:left;width:100%">
