@@ -291,31 +291,67 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $intMessageWidth = round( $this->intMessageWidth * $this->intZoom / 100 );
 
         $intMessageHeight = max( 40 ,  round( 40 * $this->intZoom / 100 ) );
+        $strCSS =
+<<<CSS
+{$strCssImport}
+    .sequenceDiagram
+    {
+        width: {$intBodyWidth}px;
+    }
+    .row
+    {
+        height:{$intMessageHeight}px;
+        width: {$intMessageWidth}px;
+        font-size: {$intFont};
+    }
+    .row span
+    {
+        height: 50%;
+    }
+    .actor .name
+    {
+        height:{$intMessageHeight}px;
+    }
+CSS;
+        $strCSS64 = "data:text/css;charset=utf-8;base64," . base64_encode( $strCSS );
+        $strCSSInLine = str_replace( array( "\n" , "\\" , "\"" ) , array( "" , "\\\\" , "\\\"" ) , $strCSS );
+        $strCSSInLine = str_replace( array( chr(13) ,  chr(10) ) , array( "" , ""  ) , $strCSSInLine );
+        
+        $strJavascriptHeaders =
+<<<JAVASCRIPT
+        <script type="text/javascript">
+/*<![CDATA[*/
+            try
+            {
+                var objHead = document.getElementsByTagName("head")[0];
+                var objStyle= document.createElement( "style" );
+                objStyle.type = "text/css";
+                objStyle.rel = "stylesheet";
+                objStyle.media = "screen";
+                objStyle.innerHTML = "{$strCSSInLine}";
+                objHead.appendChild( objStyle );
+            }
+            catch( e )
+            {
+                try
+                {
+                    var objBody = document.body;
+                    objBody.innerHTML += "<style type='text/css' media='screen' >{$strCSSInLine}<\/style>";
+                }
+                catch( e )
+                {
+                }
+            }
+/*]]>*/
+        </script>
+JAVASCRIPT;
+
         $strHtmlHeaders =
 <<<HTML
-            <style type="text/css">
-                {$strCssImport}
-                .sequenceDiagram
-                {
-                    width: {$intBodyWidth}px;
-                }
-                .row
-                {
-                    height:{$intMessageHeight}px;
-                    width: {$intMessageWidth}px;
-                    font-size: {$intFont};
-                }
-                .row span
-                { 
-                    height: 50%;
-                }
-                .actor .name
-                {
-                    height:{$intMessageHeight}px;
-                }
-            </style>
-            <div class='sequenceDiagram'>
+        {$strJavascriptHeaders}
+        <div class='sequenceDiagram'>
 HTML;
+
         return $strHtmlHeaders;
     }
 
@@ -623,7 +659,7 @@ HTML;
             /**
              * @var $objMessage UmlSequenceDiagramMessage
              **/
-            $strHtml .= '<li><div class="message" id="message_' . $intMessageId . '">' . "\n";
+            $strHtml .= '<li><div class="message" id="div_message_' . $intMessageId . '">' . "\n";
 
             $strText = html_entity_decode( $objMessage->getText() );
 
