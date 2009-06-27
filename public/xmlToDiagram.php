@@ -144,12 +144,10 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
                 a little bit. Change the XML as you please to generate other
                 diagrams of your own.
             </p>
-            <p>
-                <ul>
-                    <li><a href="?file=threeLittlePigs">Three Little Pigs</a></li>
-                    <li><a href="?file=mvc">Model View Controller</a></li>
-                </ul>
-            </p>
+            <ul>
+                <li><a href="?file=threeLittlePigs">Three Little Pigs</a></li>
+                <li><a href="?file=mvc">Model View Controller</a></li>
+            </ul>
             <h5> Team </h5>
             <p>
                 Special thanks to Raphael Melo and

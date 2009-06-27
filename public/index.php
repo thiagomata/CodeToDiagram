@@ -157,7 +157,7 @@ require_once( "../public/codetodiagram.php" );
                         </p>
                         <p class="line"><span
                             class="new">new</span><span
-                            class="space"> </span><span
+                            class="space">&nbsp;</span><span
                             class="object">History</span><span
                             class="parenthesis">()</span><span
                             class="semicolon">;</span>

@@ -111,29 +111,30 @@ class CorujaDebug
                ),
                 Array(
                     "</span></span><span_style'$strStartTagStyle'\n>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>&nbsp;</span>" ,
-                    "</span>?&gt;</span><span_style'$strOutTagStyle'\n>",
+                    "</span>?&gt;</span><span_style'$strOutTagStyle'\n><span_style'$strNone'>&nbsp;</span>",
                     // -2 +3 = +1 //
-                    "</span></span><span_style'$strStartTagStyle'\n>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>&nbsp;</span><span>" ,
+                    "</span></span><span_style'$strStartTagStyle'\n>&lt;<span_style'$strNameTagStyle'><span_style'$strNone'>&nbsp;</span><span><span_style'$strNone'>&nbsp;</span>" ,
                     // -2 +1 = -1 //
-                    "</span>/&gt;</span></span></span\n><span_style'$strOutTagStyle'\n>",
+                    "</span>/&gt;</span></span></span\n><span_style'$strOutTagStyle'\n><span_style'$strNone'>&nbsp;</span>",
                     // -1 +1 = 0//
-                    "</span>&gt;<span_style'$strInsideTagStyle'>",
+                    "</span>&gt;<span_style'$strInsideTagStyle'><span_style'$strNone'>&nbsp;</span>",
                     // -1 +1 = 0//
-                    "</span> <span_style'$strNextStyle'>",
+                    "</span> <span_style'$strNextStyle'><span_style'$strNone'>&nbsp;</span>",
                     // -1 +1 = 0//
-                    "</span>=<span_style'$strValueTagStyle'>",
+                    "</span>=<span_style'$strValueTagStyle'><span_style'$strNone'>&nbsp;</span>",
                     $strAttribute,
                 ),
             $strXmlContent
         );
 
-        $strXmlContent = "<div class='xml'><span><span>" . $strXmlContent;
+        $strXmlContent = "<div class='xml'><span><$strAttribute'$strNone'>&nbsp;</span><span><$strAttribute'$strNone'>&nbsp;</span>" . $strXmlContent;
 
         if( $booHasHeader )
         {
             $strXmlContent .= '</span></span>';
         }
         $strXmlContent .= "</span></span></div>";
+
         return $strXmlContent;
         
     }
