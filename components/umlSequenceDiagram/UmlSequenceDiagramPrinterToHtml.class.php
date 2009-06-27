@@ -293,7 +293,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $intMessageHeight = max( 40 ,  round( 40 * $this->intZoom / 100 ) );
         $strHtmlHeaders =
 <<<HTML
-            <style>
+            <style type="text/css">
                 {$strCssImport}
                 .sequenceDiagram
                 {
@@ -306,7 +306,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                     font-size: {$intFont};
                 }
                 .row span
-                {
+                { 
                     height: 50%;
                 }
                 .actor .name
@@ -623,7 +623,7 @@ HTML;
             /**
              * @var $objMessage UmlSequenceDiagramMessage
              **/
-            $strHtml .= '<div class="message" id="message_' . $intMessageId . '">' . "\n";
+            $strHtml .= '<li><div class="message" id="message_' . $intMessageId . '">' . "\n";
 
             $strText = html_entity_decode( $objMessage->getText() );
 
@@ -653,7 +653,7 @@ HTML;
                 }
             }
 
-            $strHtml .= '<li><a name="message_' . $intMessageId . '">' . $strText . '</a></li>' . "\n";
+            $strHtml .= '<a name="message_' . $intMessageId . '">' . $strText . '</a>' . "\n";
             $arrValues = $objMessage->getValues();
 
 
@@ -671,7 +671,7 @@ HTML;
                 $strHtml .= '   <div>' .  self::showVar( $objValue->getValue() ). '</div>' . "\n";
             }
 
-            $strHtml .= '</div></div>' . "\n";
+            $strHtml .= '</div></div></li>' . "\n";
         }
 
         $strHtml .= '</ol></div>' . "\n";

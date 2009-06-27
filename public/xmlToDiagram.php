@@ -172,14 +172,14 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
             <h4>
                 Now, change and create your own sequence diagram.
             </h4>
-            <form method="post">
+            <form method="post" action="">
                 <label>
                     <span> Zoom: </span>
                     <span> <input type="text" name="zoom" value="<?php print $intZoom ?>" style="width:50px"/> % </span>
                 </label>
                 <label>
                     <span> Xml: </span>
-                    <textarea name="xml"><?php print htmlentities( $strXml ) ?>
+                    <textarea name="xml" rows="20" cols="20"><?php print htmlentities( $strXml ) ?>
                     </textarea>
                 </label>
                 <label>
