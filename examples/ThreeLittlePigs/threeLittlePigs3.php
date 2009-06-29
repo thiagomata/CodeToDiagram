@@ -23,6 +23,14 @@ CodeToDiagram::getInstance()->setIgnoreRecursiveCalls( true );
 CodeToDiagram::getInstance()->setMergeSameClassObjects( true );
 CodeToDiagram::getInstance()->setIgnoreNullReturns( true );
 
+CodeToDiagram::getInstance()->getMatchGroupStereotypes()
+    ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
+    ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
+    ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
+    ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
+;
+
+
 // 3. load the necessary classes
 require_once( 'Wolf.class.php' );
 require_once( 'Pig.class.php' );

@@ -126,6 +126,16 @@ class UmlSequenceDiagramActor
     }
 
     /**
+     * Set the stereotype of the actor
+     *
+     * @return UmlSequenceDiagramStereotype
+     */
+    public function setStereotype( UmlSequenceDiagramStereotype $objStereotype )
+    {
+        return $this->objType = $objStereotype;
+    }
+
+    /**
      * Get the stereotype of the actor
      *
      * @return UmlSequenceDiagramStereotype

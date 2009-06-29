@@ -300,6 +300,28 @@ class CodeToDiagram
 		return $this;
 	 }
 
+    /**
+     * Set the match group to the stereotype definition
+     *
+     * @param MatchGroup $objMatchGroupStereotypes
+     * @return CodeToDiagram
+     */
+    public function setMatchGroupStereotypes( MatchGroup $objMatchGroupStereotypes )
+    {
+        CodeInstrumentationReceiver::getInstance()->setMatchGroupStereotypes( $objMatchGroupStereotypes );
+        return $this;
+    }
+
+    /**
+     * Get the match group to the stereotype definition
+     *
+     * @return MatchGroup
+     */
+    public function getMatchGroupStereotypes()
+    {
+        return CodeInstrumentationReceiver::getInstance()->getMatchGroupStereotypes();
+    }
+    
 	 /**
 	 * Set the output type of the diagram.;
 	 *

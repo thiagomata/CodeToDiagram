@@ -19,6 +19,12 @@ require_once( '../../public/codetodiagram.php' );
 
 // 2. start the code to diagram
 CodeToDiagram::getInstance()->start();
+CodeToDiagram::getInstance()->getMatchGroupStereotypes()
+    ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
+    ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
+    ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
+    ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
+;
 
 // 3. load the necessary classes
 require_once( 'Wolf.class.php' );

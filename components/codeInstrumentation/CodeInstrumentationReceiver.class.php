@@ -97,6 +97,13 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     protected $objGatekeeperMethods;
 
     /**
+     * Match Group to define the stereotypes of the classes
+     *
+     * @var MatchGroup
+     */
+    protected $objMatchGroupStereotypes;
+
+    /**
      * Object of the uml sequence diagram what will be feed into the execution
      * 
      * @var UmlSequenceDiagram
@@ -230,6 +237,27 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
 
     /**
+     * Set the match group to the stereotype definition
+     *
+     * @param MatchGroup $objMatchGroupStereotypes
+     */
+    public function setMatchGroupStereotypes( MatchGroup $objMatchGroupStereotypes )
+    {
+        $this->objMatchGroupStereotypes = $objMatchGroupStereotypes;
+        return $this;
+    }
+
+    /**
+     * Get the match group to the stereotype definition
+     *
+     * @return MatchGroup
+     */
+    public function getMatchGroupStereotypes()
+    {
+        return $this->objMatchGroupStereotypes;
+    }
+    
+    /**
      * prepare the code instrumentation receiver to start to receive the informations about
      * the execution.
      * 
@@ -252,7 +280,12 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         $objGatekeeperMethods = new MatchGatekeeper();
         $this->setGatekeeperMethods( $objGatekeeperMethods );
 
-    	// create the uml sequence diagram object //
+        $objMatchGroupStereotypes = new MatchGroup();
+        $objDefaultStereotype = UmlSequenceDiagramStereotype::getStereotypeByName( "system" );
+        $objMatchGroupStereotypes->setNotFoundValue( $objDefaultStereotype );
+        $this->setMatchGroupStereotypes( $objMatchGroupStereotypes );
+
+        // create the uml sequence diagram object //
         $this->objUmlSequence = new UmlSequenceDiagram();
 
         // create the user actor //	
@@ -422,8 +455,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         	// create the actor to if he not exists //
             $this->arrClasses[ $strClass ]++;
             $objActorTo = new UmlSequenceDiagramActor();
-            $objActorTo->setType( 'system' );
-            $objActorTo->setClassName($strClass);
+            $objActorTo->setStereotype( $this->getMatchGroupStereotypes()->match( $strClass ) );
+            $objActorTo->setClassName( $strClass );
 
             // object counter by class only make sence when has more the one
             // object of the same class

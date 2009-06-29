@@ -1,30 +1,34 @@
-            <style>
-                @import "../../public/css/sequenceStyle.css";
-                .sequenceDiagram
+                <script type="text/javascript">
+/*<![CDATA[*/
+            try
+            {
+                var objHead = document.getElementsByTagName("head")[0];
+                var objStyle= document.createElement( "style" );
+                objStyle.type = "text/css";
+                objStyle.rel = "stylesheet";
+                objStyle.media = "screen";
+                objStyle.innerHTML = "@import url( \"../../public/css/sequenceStyle.css\" );     .sequenceDiagram    {        width: 1100px;    }    .row    {        height:40px;        width: 300px;        font-size: 13;    }    .row span    {        height: 50%;    }    .actor .name    {        height:40px;    }";
+                objHead.appendChild( objStyle );
+            }
+            catch( e )
+            {
+                try
                 {
-                    width: 1100px;
+                    var objBody = document.body;
+                    objBody.innerHTML += "<style type='text/css' media='screen' >@import url( \"../../public/css/sequenceStyle.css\" );     .sequenceDiagram    {        width: 1100px;    }    .row    {        height:40px;        width: 300px;        font-size: 13;    }    .row span    {        height: 50%;    }    .actor .name    {        height:40px;    }<\/style>";
                 }
-                .row
+                catch( e )
                 {
-                    height:40px;
-                    width: 300px;
-                    font-size: 13;
                 }
-                .row span
-                {
-                    height: 50%;
-                }
-                .actor .name
-                {
-                    height:40px;
-                }
-            </style>
-            <div class='sequenceDiagram'>    <div class="line head">            <div class="row">
+            }
+/*]]>*/
+        </script>
+        <div class='sequenceDiagram'>    <div class="line head">            <div class="row">
                 <div class="message">
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor user">
+            <div class="actor user"  >
                 <div class="name">
                     <span title="user"><strong>user</strong></span>
                 </div>
@@ -33,7 +37,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor system"  >
                 <div class="name">
                     <span title="Wolf(1)"><strong>Wolf(1)</strong></span>
                 </div>
@@ -50,7 +54,9 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>1</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_0" class="noLink">
+                        <span><strong>1</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after1">
@@ -76,11 +82,13 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>2</strong>. say()</span>
+                        <a href="#message_1" class="noLink">
+                        <span><strong>2</strong>. say( <a class="noLink" href="#message_1_param_0">$strText</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:23:"i will be back 01:42:50"; 
+   <strong> $strText</strong>
+   <span>string 'i will be back 04:01:47' </span>
 </li>
 </ul></div>
 
@@ -108,11 +116,13 @@
 
                   <div class="row return reverse short line start ">
                     <div class="message ">
-                      <span><strong>3</strong>. say()</span>
+                        <a href="#message_2" class="noLink">
+                        <span><strong>3</strong>. say( $strText )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:4:"Wolf":0:{} 
+   <strong> return</strong>
+   <span> object Wolf </span>
 </li>
 </ul></div>
 
@@ -127,30 +137,27 @@
                     <div class="message">
                       <span>&nbsp;</span>
                     </div>
-                  </div>            </div>            <div class="line body">
-                  <div class="row " >
-                    <div class="message ">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor start">
-                    <div class="name">
-                      <span title="user">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular short line start ">
-                    <div class="message ">
-                      <span><strong>4</strong>. &lt;&lt;destroy&gt;&gt;</span>
-                    
-                    </div>
-                  </div>                  <div class="actor after1">
-                    <div class="name">
-                      <span title="Wolf(1)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>            </div> </div> 
+                  </div>            </div> </div> <div id="detail"><ol>
+<li><div class="message" id="div_message_0">
+<a name="message_0"><span class="detail_actor from">user</span> create new <span class="detail_actor to">Wolf(1)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_1">
+<a name="message_1"><span class="detail_actor from">user</span> call <span class="detail_actor to">Wolf(1)</span>->say( <a class="noLink" href="#message_1_param_0">$strText</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_1_param_0" > $strText </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'i&nbsp;will&nbsp;be&nbsp;back&nbsp;04:01:47'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_2">
+<a name="message_2"><span class="detail_actor from">user</span> receive from <span class="detail_actor to">Wolf(1)</span>->say( $strText )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+</ol></div>

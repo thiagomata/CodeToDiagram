@@ -22,6 +22,13 @@
 // load the start of the code to diagram //
 require_once( '../../public/codetodiagram.php' );
 
+CodeToDiagram::getInstance()->getMatchGroupStereotypes()
+    ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
+    ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
+    ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
+    ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
+;
+
 # create the diagram of the history and save it into some file {
 
 	// change the output type from screen to file //

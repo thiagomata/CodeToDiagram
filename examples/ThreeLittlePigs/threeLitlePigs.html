@@ -1,30 +1,34 @@
-            <style>
-                @import "../../public/css/sequenceStyle.css";
-                .sequenceDiagram
+                <script type="text/javascript">
+/*<![CDATA[*/
+            try
+            {
+                var objHead = document.getElementsByTagName("head")[0];
+                var objStyle= document.createElement( "style" );
+                objStyle.type = "text/css";
+                objStyle.rel = "stylesheet";
+                objStyle.media = "screen";
+                objStyle.innerHTML = "@import url( \"../../public/css/sequenceStyle.css\" );     .sequenceDiagram    {        width: 3900px;    }    .row    {        height:40px;        width: 300px;        font-size: 13;    }    .row span    {        height: 50%;    }    .actor .name    {        height:40px;    }";
+                objHead.appendChild( objStyle );
+            }
+            catch( e )
+            {
+                try
                 {
-                    width: 3900px;
+                    var objBody = document.body;
+                    objBody.innerHTML += "<style type='text/css' media='screen' >@import url( \"../../public/css/sequenceStyle.css\" );     .sequenceDiagram    {        width: 3900px;    }    .row    {        height:40px;        width: 300px;        font-size: 13;    }    .row span    {        height: 50%;    }    .actor .name    {        height:40px;    }<\/style>";
                 }
-                .row
+                catch( e )
                 {
-                    height:40px;
-                    width: 300px;
-                    font-size: 13;
                 }
-                .row span
-                {
-                    height: 50%;
-                }
-                .actor .name
-                {
-                    height:40px;
-                }
-            </style>
-            <div class='sequenceDiagram'>    <div class="line head">            <div class="row">
+            }
+/*]]>*/
+        </script>
+        <div class='sequenceDiagram'>    <div class="line head">            <div class="row">
                 <div class="message">
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor user">
+            <div class="actor user"  >
                 <div class="name">
                     <span title="user"><strong>user</strong></span>
                 </div>
@@ -33,7 +37,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor boundary"  >
                 <div class="name">
                     <span title="History(1)"><strong>History(1)</strong></span>
                 </div>
@@ -42,7 +46,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor controller"  >
                 <div class="name">
                     <span title="LittlePig(1)"><strong>LittlePig(1)</strong></span>
                 </div>
@@ -51,7 +55,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor controller"  >
                 <div class="name">
                     <span title="LittlePig(2)"><strong>LittlePig(2)</strong></span>
                 </div>
@@ -60,7 +64,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor controller"  >
                 <div class="name">
                     <span title="LittlePig(3)"><strong>LittlePig(3)</strong></span>
                 </div>
@@ -69,7 +73,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor entity"  >
                 <div class="name">
                     <span title="House(1)"><strong>House(1)</strong></span>
                 </div>
@@ -78,7 +82,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor entity"  >
                 <div class="name">
                     <span title="House(2)"><strong>House(2)</strong></span>
                 </div>
@@ -87,7 +91,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor entity"  >
                 <div class="name">
                     <span title="House(3)"><strong>House(3)</strong></span>
                 </div>
@@ -96,7 +100,7 @@
                     <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="actor system">
+            <div class="actor user"  >
                 <div class="name">
                     <span title="Wolf(1)"><strong>Wolf(1)</strong></span>
                 </div>
@@ -113,7 +117,9 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>1</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_0" class="noLink">
+                        <span><strong>1</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after1">
@@ -220,7 +226,9 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>2</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_1" class="noLink">
+                        <span><strong>2</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after1">
@@ -317,7 +325,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>3</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_2" class="noLink">
+                        <span><strong>3</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor end call">
@@ -414,7 +424,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>4</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_3" class="noLink">
+                        <span><strong>4</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -511,11 +523,13 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>5</strong>. buildHouse()</span>
+                        <a href="#message_4" class="noLink">
+                        <span><strong>5</strong>. buildHouse( <a class="noLink" href="#message_4_param_0">$strType</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:5:"Straw"; 
+   <strong> $strType</strong>
+   <span>string 'Straw' </span>
 </li>
 </ul></div>
 
@@ -625,7 +639,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>6</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_5" class="noLink">
+                        <span><strong>6</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -723,11 +739,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>7</strong>. setType()</span>
+                        <a href="#message_6" class="noLink">
+                        <span><strong>7</strong>. setType( <a class="noLink" href="#message_6_param_0">$strType</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:5:"Straw"; 
+   <strong> $strType</strong>
+   <span>string 'Straw' </span>
 </li>
 </ul></div>
 
@@ -827,11 +845,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>8</strong>. setType()</span>
+                        <a href="#message_7" class="noLink">
+                        <span><strong>8</strong>. setType( $strType )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";N;s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -931,11 +951,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>9</strong>. setPig()</span>
+                        <a href="#message_8" class="noLink">
+                        <span><strong>9</strong>. setPig( <a class="noLink" href="#message_8_param_0">$objPig</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";N;s:16:" * booIsColapsed";N;}} 
+   <strong> $objPig</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -1035,11 +1057,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>10</strong>. setPig()</span>
+                        <a href="#message_9" class="noLink">
+                        <span><strong>10</strong>. setPig( $objPig )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -1128,11 +1152,13 @@
 
                   <div class="row return reverse short line start ">
                     <div class="message ">
-                      <span><strong>11</strong>. buildHouse()</span>
+                        <a href="#message_10" class="noLink">
+                        <span><strong>11</strong>. buildHouse( $strType )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";r:1;s:16:" * booIsColapsed";N;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -1231,11 +1257,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>12</strong>. buildHouse()</span>
+                        <a href="#message_11" class="noLink">
+                        <span><strong>12</strong>. buildHouse( <a class="noLink" href="#message_11_param_0">$strType</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:5:"Stick"; 
+   <strong> $strType</strong>
+   <span>string 'Stick' </span>
 </li>
 </ul></div>
 
@@ -1356,7 +1384,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>13</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_12" class="noLink">
+                        <span><strong>13</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -1455,11 +1485,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>14</strong>. setType()</span>
+                        <a href="#message_13" class="noLink">
+                        <span><strong>14</strong>. setType( <a class="noLink" href="#message_13_param_0">$strType</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:5:"Stick"; 
+   <strong> $strType</strong>
+   <span>string 'Stick' </span>
 </li>
 </ul></div>
 
@@ -1560,11 +1592,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>15</strong>. setType()</span>
+                        <a href="#message_14" class="noLink">
+                        <span><strong>15</strong>. setType( $strType )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";N;s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -1665,11 +1699,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>16</strong>. setPig()</span>
+                        <a href="#message_15" class="noLink">
+                        <span><strong>16</strong>. setPig( <a class="noLink" href="#message_15_param_0">$objPig</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";N;s:16:" * booIsColapsed";N;}} 
+   <strong> $objPig</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -1770,11 +1806,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>17</strong>. setPig()</span>
+                        <a href="#message_16" class="noLink">
+                        <span><strong>17</strong>. setPig( $objPig )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -1853,11 +1891,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>18</strong>. buildHouse()</span>
+                        <a href="#message_17" class="noLink">
+                        <span><strong>18</strong>. buildHouse( $strType )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";r:1;s:16:" * booIsColapsed";N;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -1956,11 +1996,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>19</strong>. buildHouse()</span>
+                        <a href="#message_18" class="noLink">
+                        <span><strong>19</strong>. buildHouse( <a class="noLink" href="#message_18_param_0">$strType</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:5:"Brick"; 
+   <strong> $strType</strong>
+   <span>string 'Brick' </span>
 </li>
 </ul></div>
 
@@ -2092,7 +2134,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>20</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_19" class="noLink">
+                        <span><strong>20</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -2192,11 +2236,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>21</strong>. setType()</span>
+                        <a href="#message_20" class="noLink">
+                        <span><strong>21</strong>. setType( <a class="noLink" href="#message_20_param_0">$strType</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:5:"Brick"; 
+   <strong> $strType</strong>
+   <span>string 'Brick' </span>
 </li>
 </ul></div>
 
@@ -2298,11 +2344,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>22</strong>. setType()</span>
+                        <a href="#message_21" class="noLink">
+                        <span><strong>22</strong>. setType( $strType )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";N;s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -2404,11 +2452,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>23</strong>. setPig()</span>
+                        <a href="#message_22" class="noLink">
+                        <span><strong>23</strong>. setPig( <a class="noLink" href="#message_22_param_0">$objPig</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";N;s:16:" * booIsColapsed";N;}} 
+   <strong> $objPig</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -2510,11 +2560,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>24</strong>. setPig()</span>
+                        <a href="#message_23" class="noLink">
+                        <span><strong>24</strong>. setPig( $objPig )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -2583,11 +2635,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>25</strong>. buildHouse()</span>
+                        <a href="#message_24" class="noLink">
+                        <span><strong>25</strong>. buildHouse( $strType )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";r:1;s:16:" * booIsColapsed";N;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -2686,7 +2740,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>26</strong>. &lt;&lt;create&gt;&gt;</span>
+                        <a href="#message_25" class="noLink">
+                        <span><strong>26</strong>. &lt;&lt;create&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -2783,7 +2839,9 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>27</strong>. getHouse()</span>
+                        <a href="#message_26" class="noLink">
+                        <span><strong>27</strong>. getHouse(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after1">
@@ -2880,11 +2938,13 @@
 
                   <div class="row return reverse short line start ">
                     <div class="message ">
-                      <span><strong>28</strong>. getHouse()</span>
+                        <a href="#message_27" class="noLink">
+                        <span><strong>28</strong>. getHouse(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -2983,11 +3043,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>29</strong>. blowIt()</span>
+                        <a href="#message_28" class="noLink">
+                        <span><strong>29</strong>. blowIt( <a class="noLink" href="#message_28_param_0">$objHouse</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> $objHouse</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -3130,11 +3192,13 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>30</strong>. getBlowBy()</span>
+                        <a href="#message_29" class="noLink">
+                        <span><strong>30</strong>. getBlowBy( <a class="noLink" href="#message_29_param_0">$objWolf</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:4:"Wolf":0:{} 
+   <strong> $objWolf</strong>
+   <span> object Wolf </span>
 </li>
 </ul></div>
 
@@ -3237,7 +3301,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>31</strong>. getType()</span>
+                        <a href="#message_30" class="noLink">
+                        <span><strong>31</strong>. getType(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -3338,11 +3404,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>32</strong>. getType()</span>
+                        <a href="#message_31" class="noLink">
+                        <span><strong>32</strong>. getType(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   s:5:"Straw"; 
+   <strong> return</strong>
+   <span>string 'Straw' </span>
 </li>
 </ul></div>
 
@@ -3445,7 +3513,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>33</strong>. colapse()</span>
+                        <a href="#message_32" class="noLink">
+                        <span><strong>33</strong>. colapse(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -3546,11 +3616,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>34</strong>. colapse()</span>
+                        <a href="#message_33" class="noLink">
+                        <span><strong>34</strong>. colapse(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";b:1;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -3653,7 +3725,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>35</strong>. isColapsed()</span>
+                        <a href="#message_34" class="noLink">
+                        <span><strong>35</strong>. isColapsed(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -3754,11 +3828,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>36</strong>. isColapsed()</span>
+                        <a href="#message_35" class="noLink">
+                        <span><strong>36</strong>. isColapsed(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   b:1; 
+   <strong> return</strong>
+   <span>boolean true </span>
 </li>
 </ul></div>
 
@@ -3861,11 +3937,13 @@
 
                   <div class="row return regular large line start ">
                     <div class="message ">
-                      <span><strong>37</strong>. getBlowBy()</span>
+                        <a href="#message_36" class="noLink">
+                        <span><strong>37</strong>. getBlowBy( $objWolf )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   b:1; 
+   <strong> return</strong>
+   <span>boolean true </span>
 </li>
 </ul></div>
 
@@ -3968,7 +4046,9 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>38</strong>. getPig()</span>
+                        <a href="#message_37" class="noLink">
+                        <span><strong>38</strong>. getPig(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -4069,11 +4149,13 @@
 
                   <div class="row return regular large line start ">
                     <div class="message ">
-                      <span><strong>39</strong>. getPig()</span>
+                        <a href="#message_38" class="noLink">
+                        <span><strong>39</strong>. getPig(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Straw";s:9:" * objPig";r:1;s:16:" * booIsColapsed";b:1;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -4143,7 +4225,9 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>40</strong>. isKilled()</span>
+                        <a href="#message_39" class="noLink">
+                        <span><strong>40</strong>. isKilled(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -4241,7 +4325,9 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>41</strong>. isEaten()</span>
+                        <a href="#message_40" class="noLink">
+                        <span><strong>41</strong>. isEaten(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -4328,7 +4414,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>42</strong>. getHouse()</span>
+                        <a href="#message_41" class="noLink">
+                        <span><strong>42</strong>. getHouse(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor end call">
@@ -4425,11 +4513,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>43</strong>. getHouse()</span>
+                        <a href="#message_42" class="noLink">
+                        <span><strong>43</strong>. getHouse(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -4528,11 +4618,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>44</strong>. blowIt()</span>
+                        <a href="#message_43" class="noLink">
+                        <span><strong>44</strong>. blowIt( <a class="noLink" href="#message_43_param_0">$objHouse</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> $objHouse</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -4686,11 +4778,13 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>45</strong>. getBlowBy()</span>
+                        <a href="#message_44" class="noLink">
+                        <span><strong>45</strong>. getBlowBy( <a class="noLink" href="#message_44_param_0">$objWolf</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:4:"Wolf":0:{} 
+   <strong> $objWolf</strong>
+   <span> object Wolf </span>
 </li>
 </ul></div>
 
@@ -4794,7 +4888,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>46</strong>. getType()</span>
+                        <a href="#message_45" class="noLink">
+                        <span><strong>46</strong>. getType(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -4896,11 +4992,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>47</strong>. getType()</span>
+                        <a href="#message_46" class="noLink">
+                        <span><strong>47</strong>. getType(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   s:5:"Stick"; 
+   <strong> return</strong>
+   <span>string 'Stick' </span>
 </li>
 </ul></div>
 
@@ -5004,7 +5102,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>48</strong>. colapse()</span>
+                        <a href="#message_47" class="noLink">
+                        <span><strong>48</strong>. colapse(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -5106,11 +5206,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>49</strong>. colapse()</span>
+                        <a href="#message_48" class="noLink">
+                        <span><strong>49</strong>. colapse(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";b:1;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -5214,7 +5316,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>50</strong>. isColapsed()</span>
+                        <a href="#message_49" class="noLink">
+                        <span><strong>50</strong>. isColapsed(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -5316,11 +5420,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>51</strong>. isColapsed()</span>
+                        <a href="#message_50" class="noLink">
+                        <span><strong>51</strong>. isColapsed(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   b:1; 
+   <strong> return</strong>
+   <span>boolean true </span>
 </li>
 </ul></div>
 
@@ -5424,11 +5530,13 @@
 
                   <div class="row return regular large line start ">
                     <div class="message ">
-                      <span><strong>52</strong>. getBlowBy()</span>
+                        <a href="#message_51" class="noLink">
+                        <span><strong>52</strong>. getBlowBy( $objWolf )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   b:1; 
+   <strong> return</strong>
+   <span>boolean true </span>
 </li>
 </ul></div>
 
@@ -5532,7 +5640,9 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>53</strong>. getPig()</span>
+                        <a href="#message_52" class="noLink">
+                        <span><strong>53</strong>. getPig(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor end call">
@@ -5634,11 +5744,13 @@
 
                   <div class="row return regular large line start ">
                     <div class="message ">
-                      <span><strong>54</strong>. getPig()</span>
+                        <a href="#message_53" class="noLink">
+                        <span><strong>54</strong>. getPig(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Stick";s:9:" * objPig";r:1;s:16:" * booIsColapsed";b:1;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -5709,7 +5821,9 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>55</strong>. isKilled()</span>
+                        <a href="#message_54" class="noLink">
+                        <span><strong>55</strong>. isKilled(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -5808,7 +5922,9 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>56</strong>. isEaten()</span>
+                        <a href="#message_55" class="noLink">
+                        <span><strong>56</strong>. isEaten(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -5885,7 +6001,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>57</strong>. getHouse()</span>
+                        <a href="#message_56" class="noLink">
+                        <span><strong>57</strong>. getHouse(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -5982,11 +6100,13 @@
 
                   <div class="row return reverse large line start ">
                     <div class="message ">
-                      <span><strong>58</strong>. getHouse()</span>
+                        <a href="#message_57" class="noLink">
+                        <span><strong>58</strong>. getHouse(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> return</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -6085,11 +6205,13 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>59</strong>. blowIt()</span>
+                        <a href="#message_58" class="noLink">
+                        <span><strong>59</strong>. blowIt( <a class="noLink" href="#message_58_param_0">$objHouse</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";r:1;}s:16:" * booIsColapsed";N;} 
+   <strong> $objHouse</strong>
+   <span> object House </span>
 </li>
 </ul></div>
 
@@ -6254,11 +6376,13 @@
 
                   <div class="row call reverse short line start ">
                     <div class="message ">
-                      <span><strong>60</strong>. getBlowBy()</span>
+                        <a href="#message_59" class="noLink">
+                        <span><strong>60</strong>. getBlowBy( <a class="noLink" href="#message_59_param_0">$objWolf</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:4:"Wolf":0:{} 
+   <strong> $objWolf</strong>
+   <span> object Wolf </span>
 </li>
 </ul></div>
 
@@ -6363,7 +6487,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>61</strong>. getType()</span>
+                        <a href="#message_60" class="noLink">
+                        <span><strong>61</strong>. getType(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -6466,11 +6592,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>62</strong>. getType()</span>
+                        <a href="#message_61" class="noLink">
+                        <span><strong>62</strong>. getType(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   s:5:"Brick"; 
+   <strong> return</strong>
+   <span>string 'Brick' </span>
 </li>
 </ul></div>
 
@@ -6575,7 +6703,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>63</strong>. getPig()</span>
+                        <a href="#message_62" class="noLink">
+                        <span><strong>63</strong>. getPig(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -6678,11 +6808,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>64</strong>. getPig()</span>
+                        <a href="#message_63" class="noLink">
+                        <span><strong>64</strong>. getPig(  )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";r:1;s:16:" * booIsColapsed";N;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -6754,11 +6886,13 @@
 
                   <div class="row call reverse large line start ">
                     <div class="message ">
-                      <span><strong>65</strong>. wakeUpBy()</span>
+                        <a href="#message_64" class="noLink">
+                        <span><strong>65</strong>. wakeUpBy( <a class="noLink" href="#message_64_param_0">$objWolf</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   O:4:"Wolf":0:{} 
+   <strong> $objWolf</strong>
+   <span> object Wolf </span>
 </li>
 </ul></div>
 
@@ -6860,7 +6994,9 @@
 
                   <div class="row call regular large line start ">
                     <div class="message ">
-                      <span><strong>66</strong>. isKilled()</span>
+                        <a href="#message_65" class="noLink">
+                        <span><strong>66</strong>. isKilled(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor middle call">
@@ -6960,7 +7096,9 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>67</strong>. happyEverAfter()</span>
+                        <a href="#message_66" class="noLink">
+                        <span><strong>67</strong>. happyEverAfter(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
@@ -7060,11 +7198,13 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>68</strong>. say()</span>
+                        <a href="#message_67" class="noLink">
+                        <span><strong>68</strong>. say( <a class="noLink" href="#message_67_param_0">$strText</a> )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[0]</strong>
-   s:22:"i am happy ever after!"; 
+   <strong> $strText</strong>
+   <span>string 'i am happy ever after!' </span>
 </li>
 </ul></div>
 
@@ -7166,11 +7306,13 @@
 
                   <div class="row return regular short recursive start ">
                     <div class="message ">
-                      <span><strong>69</strong>. say()</span>
+                        <a href="#message_68" class="noLink">
+                        <span><strong>69</strong>. say( $strText )</span>
+                        </a>
                     <div class="parameters"><ul>
 <li>
-   <strong>[return]</strong>
-   O:9:"LittlePig":2:{s:10:" * strName";N;s:11:" * objHouse";O:5:"House":3:{s:10:" * strType";s:5:"Brick";s:9:" * objPig";r:1;s:16:" * booIsColapsed";N;}} 
+   <strong> return</strong>
+   <span> object LittlePig </span>
 </li>
 </ul></div>
 
@@ -7305,107 +7447,12 @@
 
                   <div class="row call regular short recursive start ">
                     <div class="message ">
-                      <span><strong>70</strong>. isColapsed()</span>
+                        <a href="#message_69" class="noLink">
+                        <span><strong>70</strong>. isColapsed(  )</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after2">
-                    <div class="name">
-                      <span title="Wolf(1)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>            </div>            <div class="line body">
-                  <div class="row " >
-                    <div class="message ">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>
-                  <div class="actor">
-                    <div class="name">
-                      <span title="user">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor start">
-                    <div class="name">
-                      <span title="History(1)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular large line start ">
-                    <div class="message ">
-                      <span><strong>71</strong>. &lt;&lt;destroy&gt;&gt;</span>
-                    
-                    </div>
-                  </div>                  <div class="actor middle call">
-                    <div class="name">
-                      <span title="LittlePig(1)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular large middle ">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor middle call">
-                    <div class="name">
-                      <span title="LittlePig(2)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular large middle ">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor middle call">
-                    <div class="name">
-                      <span title="LittlePig(3)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular large middle ">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor middle call">
-                    <div class="name">
-                      <span title="House(1)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular large middle ">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor middle call">
-                    <div class="name">
-                      <span title="House(2)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular large middle ">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor end call">
-                    <div class="name">
-                      <span title="House(3)">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row call regular  end ">
-                    <div class="message ">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>                  <div class="actor after1">
                     <div class="name">
                       <span title="Wolf(1)">&nbsp;</span>
                     </div>
@@ -7428,7 +7475,9 @@
 
                   <div class="row call regular short line start ">
                     <div class="message ">
-                      <span><strong>72</strong>. &lt;&lt;destroy&gt;&gt;</span>
+                        <a href="#message_70" class="noLink">
+                        <span><strong>71</strong>. &lt;&lt;destroy&gt;&gt;</span>
+                        </a>
                     
                     </div>
                   </div>                  <div class="actor after1">
@@ -7511,4 +7560,499 @@
                     <div class="message">
                       <span>&nbsp;</span>
                     </div>
-                  </div>            </div> </div> 
+                  </div>            </div> </div> <div id="detail"><ol>
+<li><div class="message" id="div_message_0">
+<a name="message_0"><span class="detail_actor from">user</span> create new <span class="detail_actor to">History(1)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_1">
+<a name="message_1"><span class="detail_actor from">History(1)</span> create new <span class="detail_actor to">LittlePig(1)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_2">
+<a name="message_2"><span class="detail_actor from">History(1)</span> create new <span class="detail_actor to">LittlePig(2)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_3">
+<a name="message_3"><span class="detail_actor from">History(1)</span> create new <span class="detail_actor to">LittlePig(3)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_4">
+<a name="message_4"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(1)</span>->buildHouse( <a class="noLink" href="#message_4_param_0">$strType</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_4_param_0" > $strType </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Straw'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_5">
+<a name="message_5"><span class="detail_actor from">LittlePig(1)</span> create new <span class="detail_actor to">House(1)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_6">
+<a name="message_6"><span class="detail_actor from">LittlePig(1)</span> call <span class="detail_actor to">House(1)</span>->setType( <a class="noLink" href="#message_6_param_0">$strType</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_6_param_0" > $strType </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Straw'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_7">
+<a name="message_7"><span class="detail_actor from">LittlePig(1)</span> receive from <span class="detail_actor to">House(1)</span>->setType( $strType )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_8">
+<a name="message_8"><span class="detail_actor from">LittlePig(1)</span> call <span class="detail_actor to">House(1)</span>->setPig( <a class="noLink" href="#message_8_param_0">$objPig</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_8_param_0" > $objPig </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_9">
+<a name="message_9"><span class="detail_actor from">LittlePig(1)</span> receive from <span class="detail_actor to">House(1)</span>->setPig( $objPig )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_10">
+<a name="message_10"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(1)</span>->buildHouse( $strType )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_11">
+<a name="message_11"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(2)</span>->buildHouse( <a class="noLink" href="#message_11_param_0">$strType</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_11_param_0" > $strType </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Stick'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_12">
+<a name="message_12"><span class="detail_actor from">LittlePig(2)</span> create new <span class="detail_actor to">House(2)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_13">
+<a name="message_13"><span class="detail_actor from">LittlePig(2)</span> call <span class="detail_actor to">House(2)</span>->setType( <a class="noLink" href="#message_13_param_0">$strType</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_13_param_0" > $strType </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Stick'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_14">
+<a name="message_14"><span class="detail_actor from">LittlePig(2)</span> receive from <span class="detail_actor to">House(2)</span>->setType( $strType )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_15">
+<a name="message_15"><span class="detail_actor from">LittlePig(2)</span> call <span class="detail_actor to">House(2)</span>->setPig( <a class="noLink" href="#message_15_param_0">$objPig</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_15_param_0" > $objPig </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_16">
+<a name="message_16"><span class="detail_actor from">LittlePig(2)</span> receive from <span class="detail_actor to">House(2)</span>->setPig( $objPig )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_17">
+<a name="message_17"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(2)</span>->buildHouse( $strType )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_18">
+<a name="message_18"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(3)</span>->buildHouse( <a class="noLink" href="#message_18_param_0">$strType</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_18_param_0" > $strType </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Brick'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_19">
+<a name="message_19"><span class="detail_actor from">LittlePig(3)</span> create new <span class="detail_actor to">House(3)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_20">
+<a name="message_20"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">House(3)</span>->setType( <a class="noLink" href="#message_20_param_0">$strType</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_20_param_0" > $strType </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Brick'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_21">
+<a name="message_21"><span class="detail_actor from">LittlePig(3)</span> receive from <span class="detail_actor to">House(3)</span>->setType( $strType )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_22">
+<a name="message_22"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">House(3)</span>->setPig( <a class="noLink" href="#message_22_param_0">$objPig</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_22_param_0" > $objPig </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_23">
+<a name="message_23"><span class="detail_actor from">LittlePig(3)</span> receive from <span class="detail_actor to">House(3)</span>->setPig( $objPig )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_24">
+<a name="message_24"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(3)</span>->buildHouse( $strType )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_25">
+<a name="message_25"><span class="detail_actor from">History(1)</span> create new <span class="detail_actor to">Wolf(1)</span></a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_26">
+<a name="message_26"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(1)</span>->getHouse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_27">
+<a name="message_27"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(1)</span>->getHouse(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_28">
+<a name="message_28"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>->blowIt( <a class="noLink" href="#message_28_param_0">$objHouse</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_28_param_0" > $objHouse </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_29">
+<a name="message_29"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(1)</span>->getBlowBy( <a class="noLink" href="#message_29_param_0">$objWolf</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_29_param_0" > $objWolf </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_30">
+<a name="message_30"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>->getType(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_31">
+<a name="message_31"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>->getType(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Straw'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_32">
+<a name="message_32"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>->colapse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_33">
+<a name="message_33"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>->colapse(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_34">
+<a name="message_34"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>->isColapsed(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_35">
+<a name="message_35"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>->isColapsed(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_36">
+<a name="message_36"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(1)</span>->getBlowBy( $objWolf )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_37">
+<a name="message_37"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(1)</span>->getPig(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_38">
+<a name="message_38"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(1)</span>->getPig(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_39">
+<a name="message_39"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(1)</span>->isKilled(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_40">
+<a name="message_40"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(1)</span>->isEaten(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_41">
+<a name="message_41"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(2)</span>->getHouse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_42">
+<a name="message_42"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(2)</span>->getHouse(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_43">
+<a name="message_43"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>->blowIt( <a class="noLink" href="#message_43_param_0">$objHouse</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_43_param_0" > $objHouse </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_44">
+<a name="message_44"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(2)</span>->getBlowBy( <a class="noLink" href="#message_44_param_0">$objWolf</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_44_param_0" > $objWolf </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_45">
+<a name="message_45"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>->getType(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_46">
+<a name="message_46"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>->getType(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Stick'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_47">
+<a name="message_47"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>->colapse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_48">
+<a name="message_48"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>->colapse(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_49">
+<a name="message_49"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>->isColapsed(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_50">
+<a name="message_50"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>->isColapsed(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_51">
+<a name="message_51"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(2)</span>->getBlowBy( $objWolf )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_52">
+<a name="message_52"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(2)</span>->getPig(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_53">
+<a name="message_53"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(2)</span>->getPig(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_54">
+<a name="message_54"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(2)</span>->isKilled(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_55">
+<a name="message_55"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(2)</span>->isEaten(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_56">
+<a name="message_56"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(3)</span>->getHouse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_57">
+<a name="message_57"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(3)</span>->getHouse(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_58">
+<a name="message_58"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>->blowIt( <a class="noLink" href="#message_58_param_0">$objHouse</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_58_param_0" > $objHouse </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_59">
+<a name="message_59"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(3)</span>->getBlowBy( <a class="noLink" href="#message_59_param_0">$objWolf</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_59_param_0" > $objWolf </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_60">
+<a name="message_60"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>->getType(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_61">
+<a name="message_61"><span class="detail_actor from">House(3)</span> receive from <span class="detail_actor to">House(3)</span>->getType(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'Brick'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_62">
+<a name="message_62"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>->getPig(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_63">
+<a name="message_63"><span class="detail_actor from">House(3)</span> receive from <span class="detail_actor to">House(3)</span>->getPig(  )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_64">
+<a name="message_64"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">LittlePig(3)</span>->wakeUpBy( <a class="noLink" href="#message_64_param_0">$objWolf</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_64_param_0" > $objWolf </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_65">
+<a name="message_65"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">Wolf(1)</span>->isKilled(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_66">
+<a name="message_66"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">LittlePig(3)</span>->happyEverAfter(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_67">
+<a name="message_67"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">LittlePig(3)</span>->say( <a class="noLink" href="#message_67_param_0">$strText</a> )</a>
+<div class="values" >
+<strong><a class="noLink" name="message_67_param_0" > $strText </a></strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'i&nbsp;am&nbsp;happy&nbsp;ever&nbsp;after!'</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_68">
+<a name="message_68"><span class="detail_actor from">LittlePig(3)</span> receive from <span class="detail_actor to">LittlePig(3)</span>->say( $strText )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Brick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_69">
+<a name="message_69"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>->isColapsed(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_70">
+<a name="message_70"><span class="detail_actor from">user</span> destroy <span class="detail_actor to">History(1)</span></a>
+<div class="values" >
+</div></div></li>
+</ol></div>
