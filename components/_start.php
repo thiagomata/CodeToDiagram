@@ -3,6 +3,7 @@ define( "COMPONENTS_PATH" , str_replace( "\\" , "/" , str_replace( basename( __F
 
 Loader::requireOnce( COMPONENTS_PATH . "_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "library/_start.php" );
+Loader::requireOnce( COMPONENTS_PATH . "match/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "umlSequenceDiagram/_start.php" );
 //Loader::requireOnce( COMPONENTS_PATH . "backtrace/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "extendedReflection/_start.php" );

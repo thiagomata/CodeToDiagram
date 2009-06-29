@@ -15,7 +15,7 @@ if ( class_exists( "Loader" ) )
 	Loader::requireOnce( "MatchName.class.php" , true );
     Loader::requireOnce( "MatchRegularExpression.class.php" , true );
     Loader::requireOnce( "MatchGroup.class.php" , true );
-    Loader::requireOnce( "MatchGateOpener.class.php" , true );
+    Loader::requireOnce( "MatchGatekeeper.class.php" , true );
 }
 else
 {
@@ -24,6 +24,6 @@ else
     require_once( "MatchName.class.php" );
     require_once( "MatchRegularExpression.class.php" );
     require_once( "MatchGroup.class.php" );
-    require_once( "MatchGateOpener.class.php" );
+    require_once( "MatchGatekeeper.class.php" );
 }
 ?>

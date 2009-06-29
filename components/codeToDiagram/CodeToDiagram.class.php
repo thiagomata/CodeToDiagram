@@ -249,255 +249,54 @@ class CodeToDiagram
 	}
 
 	/**
-	 * Set the ignored classes of the diagram
+	 * Set the gate keeper classes
 	 *
-	 * @see CodeToDiagram::getIgnoredClasses()
-	 * @see CodeInstrumentationReceiver::setIgnoredClasses( String[] )
-	 * @param String[] $arrIgnoredClasses
+	 * @see CodeToDiagram::getGatekeeperClasses()
+	 * @see CodeInstrumentationReceiver::setGatekeeperClasses( MatchGatekeeper )
+	 * @param MatchGatekeeper $objGatekeeperClasses
 	 * @return CodeToDiagram me
 	 */
-	public function setIgnoredClasses( array $arrIgnoredClasses )
+	public function setGatekeeperClasses( MatchGatekeeper $objGatekeeperClasses )
 	{
-		CodeInstrumentationReceiver::getInstance()->setIgnoredClasses( $arrIgnoredClasses );
+        CodeInstrumentationReceiver::getInstance()->setGatekeeperClasses( $objGatekeeperClasses );
 		return $this;
 	 }
 
 	 /**
-	  * Get the ignored classes of the diagram
+	  * Get the gate keeper classes
 	  *
-	  * @see CodeToDiagram::setIgnoredClasses( String[] )
-	  * @see CodeInstrumentationReceiver::getIgnoredClasses()
-	  * @return String[] $arrIgnoredClasses
+	  * @see CodeToDiagram::setGatekeeperClasses( MatchGatekeeper )
+	  * @see CodeInstrumentationReceiver::setGatekeeperClasses()
+	  * @return MatchGatekeeper
 	  */
-	 public function getIgnoredClasses()
+	 public function getGatekeeperClasses()
 	 {
-		 return CodeInstrumentationReceiver::getInstance()->getIgnoredClasses();
-	 }
-
-	/**
-	 * Add some ignored classes into the ignore classes diagram list
-	 *
-	 * @see CodeToDiagram::setIgnoredClasses( String[] )
-	 * @see CodeToDiagram::getIgnoredClasses()
-	 * @see CodeInstrumentationReceiver::setIgnoredClasses( String[] )
-	 * @see CodeInstrumentationReceiver::getIgnoredClasses()
-	 * @param String $strIgnoredClasses
-	 * @return CodeToDiagram me
-	 */
-	public function addIgnoredClass( $strIgnoredClass )
-	{
-		CodeInstrumentationReceiver::getInstance()->addIgnoredClass( $strIgnoredClass );
-		return $this;
-	 }
-
-	/**
-	 * Set the ignored methods of the diagram
-	 *
-	 * @see CodeToDiagram::getIgnoredMethods()
-	 * @see CodeInstrumentationReceiver::setIgnoredMethods( String[] )
-	 * @param String[] $arrIgnoredMethods
-	 * @return CodeToDiagram me
-	 */
-	public function setIgnoredMethods( array $arrIgnoredMethods )
-	{
-		CodeInstrumentationReceiver::getInstance()->setIgnoredMethods( $arrIgnoredMethods );
-		return $this;
+		 return CodeInstrumentationReceiver::getInstance()->getGatekeeperClasses();
 	 }
 
 	 /**
-	  * Get the ignored methods of the diagram
+	  * Get the gate keeper methods
 	  *
-	  * @see CodeToDiagram::setIgnoredMethods( String[] )
-	  * @see CodeInstrumentationReceiver::getIgnoredMethods()
-	  * @return String[] $arrIgnoredMethods
+	  * @see CodeToDiagram::setGatekeeperMethods( MatchGatekeeper )
+	  * @see CodeInstrumentationReceiver::getGatekeeperMethods()
+	  * @return MatchGatekeeper
 	  */
-	 public function getIgnoredMethods()
+	 public function getGatekeeperMethods()
 	 {
-		 return CodeInstrumentationReceiver::getInstance()->getIgnoredMethods();
-	 }
-
-	/**
-	 * Add some ignored methods into the ignore methods diagram list
-	 *
-	 * @see CodeToDiagram::setIgnoredMethods( String[] )
-	 * @see CodeToDiagram::getIgnoredMethods()
-	 * @see CodeInstrumentationReceiver::setIgnoredMethods( String[] )
-	 * @see CodeInstrumentationReceiver::getIgnoredMethods()
-	 * @param String $strIgnoredMethods
-	 * @return CodeToDiagram me
-	 */
-	public function addIgnoredMethod( $strIgnoredMethod )
-	{
-		CodeInstrumentationReceiver::getInstance()->addIgnoredMethod( $strIgnoredMethod );
-		return $this;
-	}
-
-	/**
-	 * Set the ignored methods Regex of the diagram
-	 *
-	 * @see CodeToDiagram::getIgnoredMethodsRegex()
-	 * @see CodeInstrumentationReceiver::setIgnoredMethodsRegex( String[] )
-	 * @param String[] $arrIgnoredMethodsRegex
-	 * @return CodeToDiagram me
-	 */
-	public function setIgnoredMethodsRegex( array $arrIgnoredMethodsRegex )
-	{
-		CodeInstrumentationReceiver::getInstance()->setIgnoredMethodsRegex( $arrIgnoredMethodsRegex );
-		return $this;
+         return CodeInstrumentationReceiver::getInstance()->getGatekeeperMethods();
 	 }
 
 	 /**
-	  * Get the ignored methods Regex of the diagram
+	  * Set the gate keeper methods
 	  *
-	  * @see CodeToDiagram::setIgnoredMethodsRegex( String[] )
-	  * @see CodeInstrumentationReceiver::getIgnoredMethodsRegex()
-	  * @return String[] $arrIgnoredMethodsRegex
+	  * @see CodeToDiagram::getGatekeeperMethods()
+	  * @see CodeInstrumentationReceiver::setGatekeeperMethods( MatchGatekeeper )
+	  * @param MatchGatekeeper $objGatekeeperMethods
+	  * @return CodeToDiagram me
 	  */
-	 public function getIgnoredMethodsRegex()
-	 {
-		 return CodeInstrumentationReceiver::getInstance()->getIgnoredMethodsRegex();
-	 }
-
-	/**
-	 * Add some ignored methods Regex into the ignore methods diagram list
-	 *
-	 * @see CodeToDiagram::setIgnoredMethodsRegex( String[] )
-	 * @see CodeToDiagram::getIgnoredMethodsRegex()
-	 * @see CodeInstrumentationReceiver::setIgnoredMethodsRegex( String[] )
-	 * @see CodeInstrumentationReceiver::getIgnoredMethodsRegex()
-	 * @param String $strIgnoredMethodsRegex
-	 * @return CodeToDiagram me
-	 */
-	public function addIgnoredMethodRegex( $strIgnoredMethodRegex )
-	{
-		CodeInstrumentationReceiver::getInstance()->addIgnoredMethodRegex( $strIgnoredMethodRegex );
-		return $this;
-	}
-
-	 /**
-	 * Set the exclusive classes of the diagram
-	 *
-	 * @see CodeToDiagram::setExclusiveClasses( String[] )
-	 * @see CodeInstrumentationReceiver::setExclusiveClasses( String[] )
-	 * @param String[] $arrExclusiveClasses
-	 * @return CodeToDiagram me
-	 */
-	public function setExclusiveClasses( array $arrExclusiveClasses )
-	{
-		CodeInstrumentationReceiver::getInstance()->setExclusiveClasses( $arrExclusiveClasses );
-		return $this;
-	 }
-
-	 /**
-	  * Get the exclusive classes of the diagram
-	  *
-	  * @see CodeToDiagram::setExclusiveClasses( String[] )
-	  * @see CodeInstrumentationReceiver::getExclusiveClasses()
-	  * @return String[] $arrExclusiveClasses
-	  */
-	 public function getExclusiveClasses()
-	 {
-		 return CodeInstrumentationReceiver::getInstance()->getExclusiveClasses();
-	 }
-
-	/**
-	 * Add some exclusive classes into the exclusive classes diagram list
-	 *
-	 * @see CodeToDiagram::setExclusiveClasses( String[] )
-	 * @see CodeToDiagram::getExclusiveClasses()
-	 * @see CodeInstrumentationReceiver::setExclusiveClasses( String[] )
-	 * @see CodeInstrumentationReceiver::getExclusiveClasses()
-	 * @param String $strExclusiveClass
-	 * @return CodeToDiagram me
-	 */
-	public function addExclusiveClass( $strExclusiveClass )
-	{
-		CodeInstrumentationReceiver::getInstance()->addExclusiveClass( $strExclusiveClass );
-		return $this;
-	 }
-
-
-	 /**
-	 * Set the exclusive methods of the diagram
-	 *
-	 * @see CodeToDiagram::setExclusiveMethods( String[] )
-	 * @see CodeInstrumentationReceiver::setExclusiveMethods( String[] )
-	 * @param String[] $arrExclusiveMethods
-	 * @return CodeToDiagram me
-	 */
-	public function setExclusiveMethods( array $arrExclusiveMethods )
-	{
-		CodeInstrumentationReceiver::getInstance()->setExclusiveMethods( $arrExclusiveMethods );
-		return $this;
-	 }
-
-	 /**
-	  * Get the exclusive methods of the diagram
-	  *
-	  * @see CodeToDiagram::setExclusiveMethods( String[] )
-	  * @see CodeInstrumentationReceiver::getExclusiveMethods()
-	  * @return String[] $arrExclusiveMethods
-	  */
-	 public function getExclusiveMethods()
-	 {
-		 return CodeInstrumentationReceiver::getInstance()->getExclusiveMethods();
-	 }
-
-	/**
-	 * Add some exclusive methods into the exclusive methods diagram list
-	 *
-	 * @see CodeToDiagram::setExclusiveMethods( String[] )
-	 * @see CodeToDiagram::getExclusiveMethods()
-	 * @see CodeInstrumentationReceiver::setExclusiveMethods( String[] )
-	 * @see CodeInstrumentationReceiver::getExclusiveMethods()
-	 * @param String $strExclusiveMethod
-	 * @return CodeToDiagram me
-	 */
-	public function addExclusiveMethod( $strExclusiveMethod )
-	{
-		CodeInstrumentationReceiver::getInstance()->addExclusiveMethod( $strExclusiveMethod );
-		return $this;
-	 }
-
-	 /**
-	 * Set the exclusive methods Regex of the diagram
-	 *
-	 * @see CodeToDiagram::setExclusiveMethodsRegex( String[] )
-	 * @see CodeInstrumentationReceiver::setExclusiveMethodsRegex( String[] )
-	 * @param String[] $arrExclusiveMethodsRegex
-	 * @return CodeToDiagram me
-	 */
-	public function setExclusiveMethodsRegex( array $arrExclusiveMethodsRegex )
-	{
-		CodeInstrumentationReceiver::getInstance()->setExclusiveMethodsRegex( $arrExclusiveMethodsRegex );
-		return $this;
-	 }
-
-	 /**
-	  * Get the exclusive methods Regex of the diagram
-	  *
-	  * @see CodeToDiagram::setExclusiveMethodsRegex( String[] )
-	  * @see CodeInstrumentationReceiver::getExclusiveMethodsRegex()
-	  * @return String[] $arrExclusiveMethodsRegex
-	  */
-	 public function getExclusiveMethodsRegex()
-	 {
-		 return CodeInstrumentationReceiver::getInstance()->getExclusiveMethodsRegex();
-	 }
-
-	/**
-	 * Add some exclusive methods Regex into the exclusive methods diagram list
-	 *
-	 * @see CodeToDiagram::setExclusiveMethodsRegex( String[] )
-	 * @see CodeToDiagram::getExclusiveMethodsRegex()
-	 * @see CodeInstrumentationReceiver::setExclusiveMethodsRegex( String[] )
-	 * @see CodeInstrumentationReceiver::getExclusiveMethodsRegex()
-	 * @param String $strExclusiveMethodRegex
-	 * @return CodeToDiagram me
-	 */
-	public function addExclusiveMethodRegex( $strExclusiveMethodRegex )
-	{
-		CodeInstrumentationReceiver::getInstance()->addExclusiveMethodRegex( $strExclusiveMethodRegex );
+	 public function setGatekeeperMethods( MatchGatekeeper $objGatekeeperMethods )
+ 	 {
+        CodeInstrumentationReceiver::getInstance()->setGatekeeperMethods( $objGatekeeperMethods );
 		return $this;
 	 }
 

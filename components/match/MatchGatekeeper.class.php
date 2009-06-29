@@ -1,6 +1,6 @@
 <?php
 /**
- * MatchGateKeeper - Gate opener make a match using white list and black list.
+ * MatchGatekeeper - Gate opener make a match using white list and black list.
  * @package Match
  */
 
@@ -12,7 +12,7 @@
  * and black list, with the forbiden names.
  *
  * @example{
- *   $objMatch = new MatchGateKeeper();
+ *   $objMatch = new MatchGatekeeper();
  *   $objMatch->getAllowedMatch()->addItemName( "just" );
  *   $objMatch->getAllowedMatch()->addItemName( "us" );
  * 	 if ( $objMatch->match( "other" ) !== false ) return false;
@@ -20,7 +20,7 @@
  * }
  *
  * @example{
- *   $objMatch = new MatchGateKeeper();
+ *   $objMatch = new MatchGatekeeper();
  *   $objMatch->getForbiddenMatch()->addItemRegularExpression( "^set*" );
  *   $objMatch->getForbiddenMatch()->addItemRegularExpression( "^get*" );
  *   $objMatch->getForbiddenMatch()->addItemName( "play" );
@@ -32,7 +32,7 @@
  * }
  *
  */
-class MatchGateKeeper implements MatchInterface
+class MatchGatekeeper implements MatchInterface
 {
     /**
      * Match Group of the Forbidden List
@@ -75,7 +75,7 @@ class MatchGateKeeper implements MatchInterface
      * set the forbiden list match
      *
      * @param Match $objForbidenMatch
-     * @return MatchGateKeeper me
+     * @return MatchGatekeeper me
      */
     public function setForbidenMatch( Match $objForbidenMatch )
     {
@@ -97,7 +97,7 @@ class MatchGateKeeper implements MatchInterface
      * Set the allowed list match
      *
      * @param Match $objAllowedMatch
-     * @return MatchGateKeeper me
+     * @return MatchGatekeeper me
      */
     public function setAllowedMatch( Match $objAllowedMatch )
     {
@@ -120,7 +120,7 @@ class MatchGateKeeper implements MatchInterface
      * not be found into any list
      *
      * @param object <value> $objValue
-     * @return MatchGateKeeper
+     * @return MatchGatekeeper
      */
     public function setNotFoundValue( $objValue )
     {
@@ -145,7 +145,7 @@ class MatchGateKeeper implements MatchInterface
      * Set the value of a name into the forbidden list
      *
      * @param object <value> $objValue
-     * @return MatchGateKeeper
+     * @return MatchGatekeeper
      */
     public function setDeniedValue( $objValue )
     {
