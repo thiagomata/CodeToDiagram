@@ -137,7 +137,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
     /**
      * Set the zoom of the diagram
-     * 
+     *
      * @param integer $intZoom
      * @return UmlSequenceDiagram me
      */
@@ -149,12 +149,34 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
     /**
      * Get the zoom of the diagram
-     * 
+     *
      * @return integer
      */
     public function getZoom()
     {
         return $this->intZoom;
+    }
+
+    /**
+     * Set if the diagram is embeded
+     *
+     * @param integer $booEmbeded
+     * @return UmlSequenceDiagram me
+     */
+    public function setEmbeded( $booEmbeded )
+    {
+        $this->booEmbeded = $booEmbeded;
+        return $this;
+    }
+
+    /**
+     * Get if the diagram is embeded
+     *
+     * @return integer
+     */
+    public function getEmbeded()
+    {
+        return $this->booEmbeded;
     }
 
     /**
