@@ -29,8 +29,9 @@ CodeToDiagram::getInstance()->getMatchGroupStereotypes()
 ;
 
 // recursive calls should be ignored into this diagram //
-CodeToDiagram::getInstance()->setIgnoreRecursiveCalls( true );
-CodeToDiagram::getInstance()->setMergeSameClassObjects( false);
+CodeToDiagram::getInstance()
+    ->setIgnoreRecursiveCalls( true )
+    ->setMergeSameClassObjects( false);
 
 // the class history should be ignored //
 // all the gets and sets should be ignored //
