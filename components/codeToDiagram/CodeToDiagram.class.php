@@ -39,7 +39,7 @@ class CodeToDiagram
 	 *
 	 * @var string
 	 */
-	protected $strFileName = null;
+	protected $strFileName = "diagram.html";
 
 	/**
 	 * Diagram output type
@@ -148,6 +148,8 @@ class CodeToDiagram
 	 */
 	const PRINTER_TYPE_HTML = "html";
 
+    const MSG_NO_WRITE_PERMISSION = " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false and save your files into a allowed folder.";
+
     /**
      * array with the name of the default stereotypes
      *
@@ -175,153 +177,16 @@ class CodeToDiagram
     }
 
 	/**
+	 * Get if the configuration of the factory
 	 *
-	 * Set If the Diagram should ignore recursive calls
-	 *
-	 * @see CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean )
-	 * @param boolean $booIgnoreRecursiveCalls
-	 * @return CodeToDiagram me
+	 * @see CodeInstrumentationReceiver::getConfiguration()
+	 * @return CodeInstrumentationReceiverConfiguration
 	 */
-	public function setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls )
+	public function getConfiguration()
 	{
-		CodeInstrumentationReceiver::getInstance()->setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls );
-		return $this;
+		return CodeInstrumentationReceiver::getInstance()->getConfiguration();
 	}
 
-	/**
-	 * Get if the Diagram should ignore recursive calls
-	 *
-	 * @see CodeInstrumentationReceiver::getIgnoreRecursiveCalls()
-	 * @return boolean
-	 */
-	public function getIgnoreRecursiveCalls()
-	{
-		return CodeInstrumentationReceiver::getInstance()->getIgnoreRecursiveCalls();
-	}
-
-	/**
-	 * Set if the diagram should merge actors of same class
-	 *
-	 * @see CodeInstrumentationReceiver::setMergeSameClassObjects( boolean )
-	 * @param boolean $booMergeSameClassObjects
-	 * @return CodeToDiagram me
-	 */
-	public function setMergeSameClassObjects( $booMergeSameClassObjects )
-	{
-		CodeInstrumentationReceiver::getInstance()->setMergeSameClassObjects( $booMergeSameClassObjects );
-		return $this;
-	}
-
-	/**
-	 * Get if the diagram should merge actors of same class
-	 *
-	 * @see CodeInstrumentationReceiver::getMergeSameClassObjects()
-	 * @return boolean
-	 */
-	public function getMergeSameClassObjects()
-	{
-		return CodeInstrumentationReceiver::getInstance()->getMergeSameClassObjects();
-	}
-
-	/**
-	 * Set if the diagram should ignore null returns
-	 *
-	 * @see CodeInstrumentationReceiver::setIgnoreNullReturns( boolean )
-	 * @param boolean $booIgnoreNullReturns
-	 * @return CodeToDiagram me
-	 */
-	public function setIgnoreNullReturns( $booIgnoreNullReturns )
-	{
-		CodeInstrumentationReceiver::getInstance()->setIgnoreNullReturns( $booIgnoreNullReturns );
-		return $this;
-	}
-
-	/**
-	 * Get if the diagram should ignore null returns
-	 *
-	 * @see CodeInstrumentationReceiver::getIgnoreNullReturns()
-	 * @return CodeToDiagram me
-	 */
-	public function getIgnoreNullReturns()
-	{
-		 CodeInstrumentationReceiver::getInstance()->getIgnoreNullReturns();
-		 return $this;
-	}
-
-	/**
-	 * Set the gate keeper classes
-	 *
-	 * @see CodeToDiagram::getGatekeeperClasses()
-	 * @see CodeInstrumentationReceiver::setGatekeeperClasses( MatchGatekeeper )
-	 * @param MatchGatekeeper $objGatekeeperClasses
-	 * @return CodeToDiagram me
-	 */
-	public function setGatekeeperClasses( MatchGatekeeper $objGatekeeperClasses )
-	{
-        CodeInstrumentationReceiver::getInstance()->setGatekeeperClasses( $objGatekeeperClasses );
-		return $this;
-	 }
-
-	 /**
-	  * Get the gate keeper classes
-	  *
-	  * @see CodeToDiagram::setGatekeeperClasses( MatchGatekeeper )
-	  * @see CodeInstrumentationReceiver::setGatekeeperClasses()
-	  * @return MatchGatekeeper
-	  */
-	 public function getGatekeeperClasses()
-	 {
-		 return CodeInstrumentationReceiver::getInstance()->getGatekeeperClasses();
-	 }
-
-	 /**
-	  * Get the gate keeper methods
-	  *
-	  * @see CodeToDiagram::setGatekeeperMethods( MatchGatekeeper )
-	  * @see CodeInstrumentationReceiver::getGatekeeperMethods()
-	  * @return MatchGatekeeper
-	  */
-	 public function getGatekeeperMethods()
-	 {
-         return CodeInstrumentationReceiver::getInstance()->getGatekeeperMethods();
-	 }
-
-	 /**
-	  * Set the gate keeper methods
-	  *
-	  * @see CodeToDiagram::getGatekeeperMethods()
-	  * @see CodeInstrumentationReceiver::setGatekeeperMethods( MatchGatekeeper )
-	  * @param MatchGatekeeper $objGatekeeperMethods
-	  * @return CodeToDiagram me
-	  */
-	 public function setGatekeeperMethods( MatchGatekeeper $objGatekeeperMethods )
- 	 {
-        CodeInstrumentationReceiver::getInstance()->setGatekeeperMethods( $objGatekeeperMethods );
-		return $this;
-	 }
-
-    /**
-     * Set the match group to the stereotype definition
-     *
-     * @param MatchGroup $objMatchGroupStereotypes
-     * @return CodeToDiagram
-     */
-    public function setMatchGroupStereotypes( MatchGroup $objMatchGroupStereotypes )
-    {
-        CodeInstrumentationReceiver::getInstance()->setMatchGroupStereotypes( $objMatchGroupStereotypes );
-        return $this;
-    }
-
-    /**
-     * Get the match group to the stereotype definition
-     *
-     * @return MatchGroup
-     */
-    public function getMatchGroupStereotypes()
-    {
-        return CodeInstrumentationReceiver::getInstance()->getMatchGroupStereotypes();
-    }
-    
 	 /**
 	 * Set the output type of the diagram.;
 	 *
@@ -731,7 +596,7 @@ class CodeToDiagram
         {
             if( !is_writable( $strFileName ) )
             {
-                throw new CodeToDiagramException( " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false." );
+                throw new CodeToDiagramException( 1 .  self::MSG_NO_WRITE_PERMISSION );
             }
             return TRUE;
         }
@@ -740,13 +605,13 @@ class CodeToDiagram
         {
             if( !is_writable( $strFileName ) )
             {
-                throw new CodeToDiagramException( " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false." );
+                throw new CodeToDiagramException(2 . self::MSG_NO_WRITE_PERMISSION );
             }
         }
 
         if( !mkdir( $strPath , 0777, TRUE ) )
         {
-            throw new CodeToDiagramException( " The user of the system does not have permission to write the code to diagram files. Change the RUN_IN_FILES to false." );
+                throw new CodeToDiagramException(3 . self::MSG_NO_WRITE_PERMISSION );
         }
         return TRUE;
     }
@@ -806,7 +671,7 @@ class CodeToDiagram
 					break;
 				}
 			}
-			switch( $this->getOutputType() )
+ 			switch( $this->getOutputType() )
 			{
 				case self::OUTPUT_TYPE_SCREEN:
 				{
@@ -980,10 +845,9 @@ class CodeToDiagram
 	 * @param string $strMessage
 	 * @return CodeToDiagram
 	 */
-	public function CodeToDiagramExit( $strFileFrom, $strMessage = '')
+	public function CodeToDiagramExit( $strFileFrom = '', $strMessage = '')
 	{
 		print "Exit called into $strFileFrom ($strMessage ) ";
-		exit();
 	}
 
 	/**
@@ -1221,6 +1085,11 @@ class CodeToDiagram
 	{
 		$this->setCallerPath( CorujaFileManipulation::getPathOfFile( $strCallerFile ) );
 	}
+
+    public function __call( $strMethod , $arrArguments )
+    {
+        throw new CodeToDiagramException( "unknow method " . $strMethod . " in " . get_class( $this ) );
+    }
 }
 
 ?>

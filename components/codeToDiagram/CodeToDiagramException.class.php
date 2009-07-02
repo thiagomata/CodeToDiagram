@@ -12,6 +12,11 @@
  */
 class CodeToDiagramException extends Exception
 {
-
+    public function __construct( $strMessage )
+    {
+        print $strMessage . " on " . $this->getFile() . " line " . $this->getLine() . " <br/>\n<pre> ";
+        print_r( $this->getTrace() );
+        exit();
+    }
 }
 ?>

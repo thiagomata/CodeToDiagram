@@ -22,21 +22,22 @@
 // load the start of the code to diagram //
 require_once( '../../public/codetodiagram.php' );
 
-CodeToDiagram::getInstance()->getMatchGroupStereotypes()
+CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
     ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
     ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
     ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
     ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
 ;
-
 # create the diagram of the history and save it into some file {
 
 	// change the output type from screen to file //
 	CodeToDiagram::getInstance()->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE );
 
+/*
 	// set the file name //
 	CodeToDiagram::getInstance()->setFileName( 'threeLitlePigs.html' );
 
+*/
 	// start the code recording //
 	CodeToDiagram::getInstance()->start();
 
@@ -48,9 +49,9 @@ CodeToDiagram::getInstance()->getMatchGroupStereotypes()
     	new History();
 		# } using the file with the specified name
 
+/*
     // save it into the file //
     CodeToDiagram::getInstance()->save();
-
 # } the file is saved //
 
 # this code will not be into any diagram {
@@ -77,5 +78,7 @@ CodeToDiagram::getInstance()->restart();
 		CodeToDiagram::getInstance()->save();
 	# } into the new file
 		
-# } the file is saved 		
+# } the file is saved
+ *
+ */
 ?>

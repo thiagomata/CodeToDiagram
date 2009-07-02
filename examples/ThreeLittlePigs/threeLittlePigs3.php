@@ -19,15 +19,15 @@ require_once( '../../public/codetodiagram.php' );
 
 // 2. start the code to diagram
 CodeToDiagram::getInstance()->start();
-CodeToDiagram::getInstance()->setIgnoreRecursiveCalls( true );
-CodeToDiagram::getInstance()->setMergeSameClassObjects( true );
-CodeToDiagram::getInstance()->setIgnoreNullReturns( true );
-
-CodeToDiagram::getInstance()->getMatchGroupStereotypes()
-    ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
-    ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
-    ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
-    ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
+CodeToDiagram::getInstance()->getConfiguration()
+    ->setIgnoreRecursiveCalls( true )
+    ->setMergeSameClassObjects( true )
+    ->setIgnoreNullReturns( true )
+    ->getMatchGroupStereotypes()
+        ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
+        ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
+        ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
+        ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
 ;
 
 

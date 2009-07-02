@@ -21,7 +21,7 @@ require_once( '../../public/codetodiagram.php' );
 
 CodeToDiagram::getInstance()->start();
 
-CodeToDiagram::getInstance()->getMatchGroupStereotypes()
+CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
     ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
     ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
     ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
@@ -29,15 +29,16 @@ CodeToDiagram::getInstance()->getMatchGroupStereotypes()
 ;
 
 // recursive calls should be ignored into this diagram //
-CodeToDiagram::getInstance()
+CodeToDiagram::getInstance()->getConfiguration()
     ->setIgnoreRecursiveCalls( true )
     ->setMergeSameClassObjects( false);
 
 // the class history should be ignored //
 // all the gets and sets should be ignored //
-CodeToDiagram::getInstance()->getGatekeeperClasses()->getForbiddenMatch()
-    ->addItemName( "History" )
-    ->addItemRegularExpression( "^(get(.*)|set(.*))$" )
+CodeToDiagram::getInstance()->getConfiguration()
+    ->getGatekeeperClasses()->getForbiddenMatch()
+        ->addItemName( "History" )
+        ->addItemRegularExpression( "^(get(.*)|set(.*))$" )
 ;
 
 // an alternative way to remove the class house //

@@ -26,34 +26,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
 	 * 
 	 * @var CodeInstrumentationReceiver
 	 */
-    static $objCodeInstrumentationReceiver;
+    protected static $objCodeInstrumentationReceiver;
 
-    /**
-     * param if the null return should be saved as a message
-     * into the uml sequence diagram object
-     * 
-     * @var boolean
-     */
-    protected $booIgnoreNullReturns = true;
-    
-    /**
-     * param if the recursive call should be ignored into
-     * the uml sequence diagram object
-     * 
-     * @var boolean
-     */
-    protected $booIgnoreRecursiveCalls = false;
-    
-    /**
-     * param of control if the messages between objects
-     * of the same class should be saved into the uml
-     * sequence diagram object as recursive calls into
-     * the same object
-     * 
-     * @var boolean
-     */
-    protected $booMergeSameClassObjects = false;
-    
     /**
      * stack of actors into the execution pile
      * 
@@ -83,27 +57,6 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     protected $arrMessages = array();
 
     /**
-     * Gate keeper of the classes into the diagram
-     *
-     * @var MatchGatekeeper
-     */
-    protected $objGatekeeperClasses;
-
-    /**
-     * Gate keeper of the methods into the diagram
-     *
-     * @var MatchGatekeeper
-     */
-    protected $objGatekeeperMethods;
-
-    /**
-     * Match Group to define the stereotypes of the classes
-     *
-     * @var MatchGroup
-     */
-    protected $objMatchGroupStereotypes;
-
-    /**
      * Object of the uml sequence diagram what will be feed into the execution
      * 
      * @var UmlSequenceDiagram
@@ -111,152 +64,32 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     protected $objUmlSequence = null;
 
     /**
-     * Set the configuration paramenter if the code instrumentation should ignore the returns
-     * messages with null value returned.
-     * 
-     * @see CodeInstrumentationReceiver->boolIgnoreNullReturns
-     * @see CodeInstrumentationReceiver::geIgnoreNullReturns()
-     * @param $booIgnoreNullReturns <code>true</code> if should ignore the null returns
-     * @return CodeInstrumentationReceiver me
-     */
-    public function setIgnoreNullReturns( $booIgnoreNullReturns )
-    {
-    	$this->booIgnoreNullReturns = $booIgnoreNullReturns;
-    	return $this;
-    }
-    
-    /**
-     * get the configuration paramenter if the code instrumentation should ignore the returns
-     * messages with null value returned.
-     * 
-     * @see CodeInstrumentationReceiver->boolIgnoreNullReturns
-     * @see CodeInstrumentationReceiver::seIgnoreNullReturns( boolean )
-     * @return boolean <code>true</code> if should ignore the null returns
-     */
-    public function getIgnoreNullReturns()
-    {
-    	return $this->booIgnoreNullReturns;
-    }
-    
-    /**
-     * Set the configuration paramenter if the code instrumentation should ignore the recursive
-     * messages.
+     * Configuration of this printer
      *
-     * @see CodeInstrumentationReceiver->booIgnoreRecursiveCalls
-     * @see CodeInstrumentationReceiver::getIgnoreRecursiveCalls()
-     * @param $booIgnoreNullReturns <code>true</code> if should ignore the recursive calls
-     * @return CodeInstrumentationReceiver me
+     * @var CodeInstrumentationReceiverConfiguration
      */
-    public function setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls )
-    {
-    	$this->booIgnoreRecursiveCalls = $booIgnoreRecursiveCalls;
-    	return $this;
-    }
+    protected $objConfiguration;
 
     /**
-     * get the configuration paramenter if the code instrumentation should ignore the recursive
-     * messages.
      *
-     * @see CodeInstrumentationReceiver->booIgnoreRecursiveCalls
-     * @see CodeInstrumentationReceiver::setIgnoreRecursiveCalls( boolean )
-     * @param $booIgnoreNullReturns <code>true</code> if should ignore the null returns
-     * @return boolean <code>true</code> if should ignore the recursive calls
+     * @param CodeInstrumentationReceiverConfiguration $objConfiguration
+     * @return CodeInstrumentationReceiver
      */
-    public function getIgnoreRecursiveCalls()
+    public function setConfiguration( CodeInstrumentationReceiverConfiguration $objConfiguration )
     {
-    	return $this->booIgnoreRecursiveCalls;
-    }
-
-    /**
-     * Set the configuration paramenter if the code instrumentation should merge same
-     * class objects as one actor.
-     *
-     * @see CodeInstrumentationReceiver->booMergeSameClassObjects
-     * @see CodeInstrumentationReceiver::getMergeSameClassObjects()
-     * @param $booMergeSameClassObjects <code>true</code> if should should merge 
-     * same class object
-     * @return CodeInstrumentationReceiver me
-     */
-    public function setMergeSameClassObjects( $booMergeSameClassObjects )
-    {
-    	$this->booMergeSameClassObjects = $booMergeSameClassObjects;
-    	return $this;
-    }
-
-    /**
-     * get the configuration paramenter if the code instrumentation should merge same
-     * class objects as one actor.
-     *
-     * @see CodeInstrumentationReceiver->booMergeSameClassObjects
-     * @see CodeInstrumentationReceiver::setMergeSameClassObjects( boolean )
-     * @return boolean <code>true</code> if should merge same class object
-     */
-    public function getMergeSameClassObjects()
-    {
-    	return $this->booMergeSameClassObjects;
-    }
-
-    /**
-     * Set the gate keeper to the classes into the diagram
-     * 
-     * @param MatchGatekeeper $objGatekeeperClasses
-     */
-    public function setGatekeeperClasses( MatchGatekeeper $objGatekeeperClasses )
-    {
-        $this->objGatekeeperClasses = $objGatekeeperClasses;
-    }
-
-    /**
-     * Get the gate keeper to the classes into the diagram
-     *
-     * @return MatchGatekeeper
-     */
-    public function getGatekeeperClasses()
-    {
-        return $this->objGatekeeperClasses;
-    }
-
-    /**
-     * Set the gate keeper to the classes into the method
-     *
-     * @param MatchGatekeeper $objGatekeeperMethods
-     */
-    public function setGatekeeperMethods( MatchGatekeeper $objGatekeeperMethods )
-    {
-        $this->objGatekeeperMethods = $objGatekeeperMethods;
-    }
-
-    /**
-     * Get the gate keeper to the classes into the method
-     *
-     * @return MatchGatekeeper $objGatekeeperMethods
-     */
-    public function getGatekeeperMethods()
-    {
-        return $this->objGatekeeperMethods;
-    }
-
-    /**
-     * Set the match group to the stereotype definition
-     *
-     * @param MatchGroup $objMatchGroupStereotypes
-     */
-    public function setMatchGroupStereotypes( MatchGroup $objMatchGroupStereotypes )
-    {
-        $this->objMatchGroupStereotypes = $objMatchGroupStereotypes;
+        $this->objConfiguration = $objConfiguration;
         return $this;
     }
 
     /**
-     * Get the match group to the stereotype definition
      *
-     * @return MatchGroup
+     * @return <type>
      */
-    public function getMatchGroupStereotypes()
+    public function getConfiguration()
     {
-        return $this->objMatchGroupStereotypes;
+        return $this->objConfiguration;
     }
-    
+
     /**
      * prepare the code instrumentation receiver to start to receive the informations about
      * the execution.
@@ -273,17 +106,9 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      */
     public function __construct()
     {
-        // create the internal objects //
-        $objGatekeeperClasses = new MatchGatekeeper();
-        $this->setGatekeeperClasses( $objGatekeeperClasses );
-
-        $objGatekeeperMethods = new MatchGatekeeper();
-        $this->setGatekeeperMethods( $objGatekeeperMethods );
-
-        $objMatchGroupStereotypes = new MatchGroup();
-        $objDefaultStereotype = UmlSequenceDiagramStereotype::getStereotypeByName( "system" );
-        $objMatchGroupStereotypes->setNotFoundValue( $objDefaultStereotype );
-        $this->setMatchGroupStereotypes( $objMatchGroupStereotypes );
+        // set the configuration file //
+        $objConfiguration = new CodeInstrumentationReceiverConfiguration();
+        $this->setConfiguration( $objConfiguration );
 
         // create the uml sequence diagram object //
         $this->objUmlSequence = new UmlSequenceDiagram();
@@ -371,13 +196,13 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      */
     protected function shouldBeLog( $strClass , $strMethod )
     {
-        if( $this->getGatekeeperClasses()->match( $strClass ) == false )
+        if( $this->getConfiguration()->getGatekeeperClasses()->match( $strClass ) == false )
         {
             return false;
         }
 
         // returns of it is a ignored method
-        if( $this->getGatekeeperMethods()->match( $strMethod ) == false )
+        if( $this->getConfiguration()->getGatekeeperMethods()->match( $strMethod ) == false )
         {
             return false;
         }
@@ -432,7 +257,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         }
         
          // apply receiver configurations
-        if( $this->getMergeSameClassObjects() )
+        if( $this->getConfiguration()->getMergeSameClassObjects() )
         {
             $uid = $strClass;
         }        
@@ -455,12 +280,12 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         	// create the actor to if he not exists //
             $this->arrClasses[ $strClass ]++;
             $objActorTo = new UmlSequenceDiagramActor();
-            $objActorTo->setStereotype( $this->getMatchGroupStereotypes()->match( $strClass ) );
+            $objActorTo->setStereotype( $this->getConfiguration()->getMatchGroupStereotypes()->match( $strClass ) );
             $objActorTo->setClassName( $strClass );
 
             // object counter by class only make sence when has more the one
             // object of the same class
-            if( $this->getMergeSameClassObjects() )
+            if( $this->getConfiguration()->getMergeSameClassObjects() )
             {
 	            $objActorTo->setName( $strClass );
             }
@@ -478,7 +303,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
             $objActorTo = $this->arrActors[ $uid ];
         }
         
-        if( !$this->getIgnoreRecursiveCalls() || ( $objActorFrom != $objActorTo ) )
+        if( !$this->getConfiguration()->getIgnoreRecursiveCalls() || ( $objActorFrom != $objActorTo ) )
         {
             // create the message //
             $objMessage = new UmlSequenceDiagramMessage();
@@ -565,12 +390,12 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
 
         $boolCreateMessage = true;
 
-        if( $mixReturn == null and $this->getIgnoreNullReturns() )
+        if( $mixReturn == null and $this->getConfiguration()->getIgnoreNullReturns() )
         {
             $boolCreateMessage = false;
         }
 
-        if( ( $objActorFrom == $objActorTo ) and $this->getIgnoreRecursiveCalls() )
+        if( ( $objActorFrom == $objActorTo ) and $this->getConfiguration()->getIgnoreRecursiveCalls() )
         {
             $boolCreateMessage = false;
         }
