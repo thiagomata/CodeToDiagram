@@ -1,6 +1,7 @@
 <?php
 /**
- * UmlSequenceDiagramPrinterInterface - define the interface of UmlSequenceDiagram object
+ * UmlSequenceDiagramPrinterInterface - define the interface of Uml Sequence
+ * Diagram Printer object
  * @package UmlSequenceDiagram
  */
 
