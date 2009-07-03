@@ -67,7 +67,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
     public function getExternalAccess();
 
     /**
-     * Set the width in pixels of the diagram
+     * Set the width in pixels of the diagram in the regular ( 100 ) zoom
      *
      * @see UmlSequenceDiagramPrinterInterface::setWidth( integer )
      * @param integer $intWidth
@@ -76,7 +76,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
     public function setWidth( $intWidth );
 
     /**
-     * Get the width in pixels of the diagram
+     * Get the width in pixels of the diagram in the regular ( 100 ) zoom
      *
      * @see UmlSequenceDiagramPrinterInterface::getWidth()
      * @return integer $intWidth
@@ -85,7 +85,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
 
     /**
      * Set the height in pixels of each line
-     * of the diagram
+     * of the diagram in the regular ( 100 ) zoom
      * 
      * @see UmlSequenceDiagramPrinterInterface::setLineHeight( integer )
      * @param integer $intHeight
@@ -95,12 +95,37 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
 
     /**
      * Set the height in pixels of each line
-     * of the diagram
+     * of the diagram in the regular ( 100 ) zoom
      *
      * @see UmlSequenceDiagramPrinterInterface::getLineHeight()
      * @return integer;
      */
     public function getLineHeight();
+
+    /**
+     * Set the zoom of the diagram
+     *
+     * The zoom reduce / enlarge the diagram
+     * keeping the proportion beteewn the dimension
+     * and images
+     *
+     * @see UmlSequenceDiagramPrinterInterface::setZoom( $intZoom )
+     * @param integer $intZoom
+     * @return UmlSequenceDiagramPrinterInterface
+     */
+    public function setZoom( $intZoom );
+
+    /**
+     * Get the zoom of the diagram
+     *
+     * The zoom reduce / enlarge the diagram
+     * keeping the proportion beteewn the dimension
+     * and images
+     * 
+     * @see UmlSequenceDiagramPrinterInterface::getZoom()
+     * @return integer $intZoom
+     */
+    public function getZoom( $intZoom );
 
 }
 ?>

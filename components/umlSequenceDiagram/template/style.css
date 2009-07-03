@@ -1,0 +1,18 @@
+    @import url( "codetodiagram_sequencestyleurl" );
+
+    codetodiagram_styleinline
+    
+    .sequenceDiagram
+    {
+        width: codetodiagram:body_width;
+    }
+    .row
+    {
+        height: codetodiagram:message_height;
+        width: codetodiagram:message_width;
+        font-size: codetodiagram:body_font;
+    }
+    .actor .name
+    {
+        height:codetodiagram:actor_height;
+    }
