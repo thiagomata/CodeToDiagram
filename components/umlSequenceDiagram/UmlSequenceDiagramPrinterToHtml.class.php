@@ -6,110 +6,38 @@
 
 /**
  * Generate a html diagram of the Uml Sequence Diagram object
- * 
+ *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */
 class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterface
 {
 	/**
-	 * Uml Sequence Diagram object what will be print
-	 * 
-	 * @see UmlSequenceDiagramPrinterInterface->objUmlSequenceDiagram
-	 * @var UmlSequenceDiagram
-	 */
-	protected $objUmlSequenceDiagram;
-	
-	/**
 	 * Singleton of the UmlSequenceDiagramPrinterToHtml
-	 * 
+	 *
 	 * @see UmlSequenceDiagramPrinterInterface::$objInstance
 	 * @var UmlSequenceDiagramPrinterToHtml
 	 */
 	protected static $objInstance;
-	
-    /**
-     * If embeded the script will not create the html header tags
-     * but just paste a script with the diagram element.
-     *
-     * If not embeded the script will create the full html with all
-     * the header needed.
-     *
-     * @var boolean
-     */
-    protected $booEmbeded = false;
+
+	/**
+	 * Uml Sequence Diagram object what will be print
+	 *
+	 * @see UmlSequenceDiagramPrinterInterface->objUmlSequenceDiagram
+	 * @var UmlSequenceDiagram
+	 */
+	protected $objUmlSequenceDiagram;
 
     /**
-     * width ( in pixels ) for each message
-     * 
-     * @var integer
-     */
-    protected $intMessageWidth = 300;
-    
-    /**
-     * width ( in pixels ) for each actor header
-     * 
-     * @var integer
-     */
-    protected $intActorHeaderWidth = 100;
-    
-    /**
-     * width ( in pixels ) for each actor bar
-     * 
-     * @var integer
-     */
-    protected $intActorBarWidth = 10;
-    
-    /**
-     * size ( in pixels ) of text font
-     * 
-     * @var integer
-     */
-    protected $intFont = 13;
-    
-    /**
-     * zoom in % of the diagram
-     * 
-     * @var integer
-     */
-    protected $intZoom = 100;
-
-    /**
-     * Flag to control if access it is as a external call
+     * Configuration of this printer
      *
-     * @var boolean 
+     * @var UmlSequenceDiagramPrinterConfigurationToHtml
      */
-    protected $booExternalAccess;
-
-    /**
-     * Set if the acess it is as a external call
-     *
-     * @see CodeToDiagram::getExternalAcess()
-     * @see CodeToDiagram->boolExternalAccess
-     * @param boolean $booExternalAccess
-     * @return CodeToDiagram me
-     */
-    public function setExternalAcess( $booExternalAccess )
-    {
-        $this->booExternalAccess = (boolean)$booExternalAccess;
-        return $this;
-    }
-
-    /**
-     * Get if the acess it is as a external call
-     *
-     * @see CodeToDiagram::setExternalAcess( boolean )
-     * @see CodeToDiagram->boolExternalAccess
-     * @return boolean
-     */
-    public function getExternalAcess()
-    {
-        return $this->booExternalAccess;
-    }
+    protected $objConfiguration;
 
 	/**
 	 * Return the singleton of the UmlSequenceDiagramPrinterToHtml
-	 * 
+	 *
 	 * @see UmlSequenceDiagramPrinterInterface::getInstance
 	 * @return UmlSequenceDiagramPrinterToHtml
 	 */
@@ -121,129 +49,41 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 		}
 		return self::$objInstance;
 	}
-	
+
+    /**
+     * Set the configuration of this printer
+     *
+     * @param UmlSequenceDiagramPrinterConfigurationToHtml $objConfiguration
+     * @return UmlSequenceDiagramPrinterToHtml me
+     */
+    public function setConfiguration( UmlSequenceDiagramPrinterConfigurationToHtml $objConfiguration )
+    {
+        $this->objConfiguration = $objConfiguration;
+        return $this;
+    }
+
+    /**
+     * Get the configuration of this printer
+     *
+     * @return UmlSequenceDiagramPrinterConfigurationToHtml
+     */
+    public function getConfiguration()
+    {
+        return $this->objConfiguration;
+    }
+
 	/**
 	 * Perfom the print process
-	 *  
+	 *
 	 * @see UmlSequenceDiagramPrinterInterface::perform( UmlSequenceDiagram )
 	 * @param UmlSequenceDiagram $objUmlSequenceDiagram
-	 * @return mixer
+	 * @return string
 	 */
 	public function perform( UmlSequenceDiagram $objUmlSequenceDiagram )
 	{
 		$this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
-		return $this->show();	
+		return $this->show();
 	}
-
-    /**
-     * Set the zoom of the diagram
-     *
-     * @param integer $intZoom
-     * @return UmlSequenceDiagram me
-     */
-    public function setZoom( $intZoom )
-    {
-        $this->intZoom = $intZoom;
-        return $this;
-    }
-
-    /**
-     * Get the zoom of the diagram
-     *
-     * @return integer
-     */
-    public function getZoom()
-    {
-        return $this->intZoom;
-    }
-
-    /**
-     * Set if the diagram is embeded
-     *
-     * @param integer $booEmbeded
-     * @return UmlSequenceDiagram me
-     */
-    public function setEmbeded( $booEmbeded )
-    {
-        $this->booEmbeded = $booEmbeded;
-        return $this;
-    }
-
-    /**
-     * Get if the diagram is embeded
-     *
-     * @return integer
-     */
-    public function getEmbeded()
-    {
-        return $this->booEmbeded;
-    }
-
-    /**
-     * Path of the caller file
-     * @var string
-     */
-    protected $strCallerPath;
-
-    /**
-     * Path of the public folder
-     * @var string
-     */
-    protected $strPublicPath;
-
-    /**
-     * Set the caller path
-     *
-     * @see UmlSequenceDiagram::getCallerPath()
-     * @see UmlSequenceDiagram->strCallerPath
-     * @param string $strCallerPath
-     * @return UmlSequenceDiagram me
-     */
-    public function setCallerPath( $strCallerPath )
-    {
-        $this->strCallerPath = $strCallerPath;
-        return $this;
-    }
-
-    /**
-     * Get the caller path
-     *
-     * @see UmlSequenceDiagram::setCallerPath( string )
-     * @see UmlSequenceDiagram->strCallerPath
-     * @param string $strCallerPath
-     * @return string
-     */
-    public function getCallerPath()
-    {
-        return $this->strCallerPath;
-    }
-
-    /**
-     * Set the public path
-     *
-     * @see UmlSequenceDiagram::getPublicPath()
-     * @see UmlSequenceDiagram->strPublicPath
-     * @param string $strPublicPath
-     * @return UmlSequenceDiagram me
-     */
-    public function setPublicPath( $strPublicPath )
-    {
-        $this->strPublicPath = $strPublicPath;
-        return $this;
-    }
-
-    /**
-     * Get the public path
-     *
-     * @see UmlSequenceDiagram::setPublicPath( string )
-     * @see UmlSequenceDiagram->strPublicPath
-     * @param string $strPublicPath
-     * @return string
-     */
-    public function getPublicPath()
-    {
-        return $this->strPublicPath;
-    }
 
     /**
      * Get the header of the html printer type
@@ -251,6 +91,17 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
     public function getHeader()
     {
         header( "Content-type: text/html" );
+    }
+
+    public function getTemplate( $strTemplateFile , $arrReplace )
+    {
+        $strTemplateContent = require( "./template/" . $strTemplateFile );
+        $strTemplateContent = str_replace(
+            array_keys( $arrReplace ),
+            array_values( $arrReplace ),
+            $strTemplateContent
+        );
+        return $strTemplateContent;
     }
 
     /**
@@ -264,33 +115,20 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $strHtml .= $this->showHeaders();
         $strHtml .= $this->showActors();
         $strHtml .= $this->showMessages();
-        $strHtml .= $this->showDetails();
+
+        if( $this->getConfiguration()->getShowDetails() )
+        {
+            $strHtml .= $this->showDetails();
+        }
+
         $strHtml .= $this->showFooter();
+
         return $strHtml;
     }
 
-    protected function getPublicFolderPath()
+    protected function getSequenceStyleFile()
     {
-        if( $this->getExternalAcess() )
-        {
-            $strPublicPath = $this->getPublicPath();
-        }
-        else
-        {
-            if( $this->getCallerPath() != null and $this->getPublicPath() != null )
-            {
-                $strPublicPath = CorujaFileManipulation::getRelativePath( $this->getCallerPath(), $this->getPublicPath() );
-            }
-            elseif( $this->getCallerPath() == null and $this->getPublicPath() != null )
-            {
-                $strPublicPath = $this->getPublicPath();
-            }
-            else
-            {
-                $strPublicPath = "./";
-            }
-        }
-        return $strPublicPath;
+        return $this->getConfiguration()->getPublicFolderPath() . "css/sequenceStyle.css";
     }
 
     /**
@@ -298,142 +136,65 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      *
      * @return string
      */
-    protected function showHeaders()
+    protected function getStyle()
     {
-        $strPublicPath = $this->getPublicFolderPath();
-
-        $strCssFile = "{$strPublicPath}css/sequenceStyle.css";
-        
-        if( $this->getExternalAcess() )
+        if( $this->getConfiguration()->getExternalAcess() )
         {
-            $strCssImport = file_get_contents( $strCssFile  );
-            $strCssImport = str_replace( 'url( "' , 'url( "' . $strPublicPath . "css/" ,  $strCssImport );
+            $strStyleInLine = file_get_contents( $strCssFile  );
+
+            $strStyleInLine = str_replace(
+                'url( "' ,
+                'url( "' . $this->getConfiguration()->getPublicFolderPath() . "css/" ,
+                $strCssImport
+            );
+
+            $strSequenceStyleUrl = "";
         }
         else
         {
-            $strCssImport = "@import url( \"$strCssFile\" ); ";
+            $strStyleInLine = "";
+            $strSequenceStyleUrl = "@import url( \"$strCssFile\" ); ";
         }
-        $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
-        $intQtdMessages = $intQtdActors + 1;
-        $intBodyWidth =
-            ( $this->intMessageWidth * $intQtdMessages * $this->intZoom / 100 )
-            +
-            ( 100 * $intQtdActors * $this->intZoom / 100 );
 
-        $intFont = ( $this->intFont + round( $this->intFont * $this->intZoom / 100 ) ) / 2;
-        $intMessageWidth = round( $this->intMessageWidth * $this->intZoom / 100 );
+        $intMessageWidth = round(
+                $this->getConfiguration()->getWidth() /
+                count( $this->objUmlSequenceDiagram->getActors() )
+        );
 
-        $intMessageHeight = max( 40 ,  round( 40 * $this->intZoom / 100 ) );
-        $strCSS =
-<<<CSS
-{$strCssImport}
-    .sequenceDiagram
-    {
-        width: {$intBodyWidth}px;
-    }
-    .row
-    {
-        height:{$intMessageHeight}px;
-        width: {$intMessageWidth}px;
-        font-size: {$intFont};
-    }
-    .row span
-    {
-        height: 50%;
-    }
-    .actor .name
-    {
-        height:{$intMessageHeight}px;
-    }
-CSS;
-        $strCSS64 = "data:text/css;charset=utf-8;base64," . base64_encode( $strCSS );
-        $strCSSInLine = str_replace( array( "\n" , "\\" , "\"" ) , array( "" , "\\\\" , "\\\"" ) , $strCSS );
-        $strCSSInLine = str_replace( array( chr(13) ,  chr(10) ) , array( "" , ""  ) , $strCSSInLine );
-        
-        $strJavascriptHeaders =
-<<<JAVASCRIPT
-        <script type="text/javascript">
-/*<![CDATA[*/
-            try
-            {
-                var objHead = document.getElementsByTagName("head")[0];
-                var objStyle= document.createElement( "style" );
-                objStyle.type = "text/css";
-                objStyle.rel = "stylesheet";
-                objStyle.media = "screen";
-                objStyle.innerHTML = "{$strCSSInLine}";
-                objHead.appendChild( objStyle );
-            }
-            catch( e )
-            {
-                try
-                {
-                    var objBody = document.body;
-                    objBody.innerHTML += "<style type='text/css' media='screen' >{$strCSSInLine}<\/style>";
-                }
-                catch( e )
-                {
-                }
-            }
-/*]]>*/
-        </script>
-JAVASCRIPT;
+        $intFontWidth = round(
+                $this->getConfiguration()->getWidth() /
+                $this->getConfiguration()->getPercentFont()
+        );
 
-        if( $this->booEmbeded )
+        $arrReplace = array();
+        $arrReplace[ "codetodiagram_sequencestyleurl" ] = $strSequenceStyleUrl;
+        $arrReplace[ "codetodiagram:body_width" ] = $this->getConfiguration()->getWidth() . "px";
+        $arrReplace[ "codetodiagram:body_font" ] = $intFontWidth . "px";
+        $arrReplace[ "codetodiagram:message_height" ] = $this->getConfiguration()->getLinePercentHeight() . "%";
+        $arrReplace[ "codetodiagram:message_width" ] =$intMessageWidth . "px";
+        $arrReplace[ "codetodiagram:actor_height" ] = $this->getConfiguration()->getLinePercentHeight() . "%";
+
+        return $this->getTemplate( "style.css" , $arrReplace );
+    }
+
+    protected function showActor( UmlSequenceDiagramActor $objActor )
+    {
+        $objStereotype = $objActor->getStereotype();
+        if( $objStereotype->getDefault())
         {
-            $strHtmlHeaders =
-<<<HTML
-                {$strJavascriptHeaders}
-                <div class='sequenceDiagram'>
-HTML;
+            $strStyle = '';
         }
         else
         {
-            $strHtmlHeaders =
-<<<HTML
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="author" content="Code To Diagram"/>
-        <meta http-equiv="content-language" content="en-US"/>
-        <meta name="description" content="Uml Sequence Diagram automatically generated by Code To Diagram"/>
-        <meta name="keywords" content="php uml diagram"/>
-        <meta name="robots" content="Follow"/>
-        <title> Code to Diagram - Sequence Diagram </title>
-		<style type="text/css">
-            /*<![CDATA[*/
-			 {$strCSS}
-            /*]]>*/
-		</style>
-	</head>
-	<body lang="en-US">
-        <div class='sequenceDiagram'>
-HTML;
-
+            $strStyle = 'style=\'background-image: url( "' . $objStereotype->getImage() . '" );\'';
         }
 
-        return $strHtmlHeaders;
-    }
+        $arrReplace = array();
+        $arrReplace[ "codetodiagram:actor_stereotype" ] = $objStereotype->getName();
+        $arrReplace[ "codetodiagram:actor_style" ] = $strStyle;
+        $arrReplace[ "codetodiagram:actor_name" ] = $objActor->getName();
 
-    /**
-     * Create and return the string of the footer of the html sequence diagram
-     *
-     * @return string
-     */
-    protected function showFooter()
-    {
-        if( $this->booEmbeded )
-        {
-            return ' </div> ';
-        }
-        else
-        {
-            return
-        '</div>
-    </body>
-</html>' ;
-        }
+        return $this->getTemplate( "actor.html" , $arrReplace );
     }
 
     /**
@@ -443,60 +204,107 @@ HTML;
      */
     protected function showActors()
     {
-        $strHtmlActors = '';
-
-
-        $strHtmlActors .=
-<<<HTML
-    <div class="line head">
-HTML;
-
         $arrActors = $this->objUmlSequenceDiagram->getActors();
-        
+        $strActorCollection = '';
+
         foreach( $arrActors as $objActor )
         {
+            $strActorCollection .= $this->showActor( $objActor );
+        }
+
+        $arrReplace[ 'codetodiagram:actor_collection' ] = $strActorCollection;
+
+        return $this->getTemplate( "actors.html" , $arrReplace );
+    }
+
+    /**
+     * Return the html of some message
+     *
+     * @param UmlSequenceDiagramMessage $objMessage
+     * @return string HTML of each message
+     */
+    protected function showMessage( UmlSequenceDiagramMessage $objMessage )
+    {
+        if( $objMessage->isReverse() )
+        {
+            $intStart = $objMessage->getActorTo()->getPosition();
+            $intEnd = $objMessage->getActorFrom()->getPosition();
+        }
+        else
+        {
+            $intEnd = $objMessage->getActorTo()->getPosition();
+            $intStart = $objMessage->getActorFrom()->getPosition();
+        }
+
+        $strReverse = $objMessage->isReverse() ? 'reverse' : 'regular';
+        $strLarge = $objMessage->isLarge() ? 'large' : 'short';
+        $strRecursive = $objMessage->isRecursive() ? 'recursive' : 'line';
+
+        $arrActors = $this->objUmlSequenceDiagram->getActors();
+
+        $arrReplace = array();
+        $arrReplace[ "codetodiagram:reverse" ] = $strReverse;
+        $arrReplace[ "codetodiagram:large" ] = $strLarge;
+        $arrReplace[ "codetodiagram:recursive" ] = $strRecursive;
+        $arrReplace[ "codetodiagram:message_type" ] = $objMessage->getType();
+        $arrReplace[ "codetodiagram:message_text" ] =  UmlSequenceDiagramPrinterToHtml::getMessageText( $intMessageId , $objMessage );
+        $arrReplace[ "codetodiagram:message_id" ] = $objMessage->getPosition();
+        $arrReplace[ "codetodiagram:message_position" ] = $objMessage->getPosition();
+        $arrReplace[ "codetodiagram:actoractual_name" ] = "";
+        $arrReplace[ "codetodiagram:message_dif" ] = "";
+        $arrReplace[ "codetodiagram:message_values" ] = $this->showValues( $objMessage );
+
+        while( $objActorActual = array_shift( $arrActors ) )
+        {
+
+            $objActorNext = current( $arrActors );
+            $intNextPosition =  $objActorActual->getPosition() + 1;
+
             /**
-             * @var $objActor UmlSequenceDiagramActor
-             */
+            * @var $objActorNext UmlSequenceDiagramActor
+            * @var $objActorActual UmlSequenceDiagramActor
+            */
 
-            $arrActorName = explode( ":" , $objActor->getName() );
+            $arrReplace[ "codetodiagram:actoractual_name" ] = $objActorActual->getName();
+            $arrReplace[ "codetodiagram:message_dif" ] = $intNextPosition - $intEnd;;
+            $arrReplace[ "codetodiagram:message_values" ] = "";
 
-            $strClass = array_pop( $arrActorName );
-            array_push( $arrActorName , '<strong>' . $strClass . '</strong>' );
-
-            $strActorName = implode( " : " , $arrActorName );
-
-            $objStereotype = $objActor->getStereotype();
-            
-            if( $objStereotype->getDefault())
+            if( $objActorActual->getPosition() < $intStart )
             {
-            	$strStyle = '';
+                return $this->getTemplate( "line_before.html" , $arrReplace );
+            }
+            elseif( $objActorActual->getPosition() == $intStart )
+            {
+                // start line //
+                return $this->getTemplate( "line_start.html" , $arrReplace );
+            }
+            elseif( ( $objActorActual->getPosition() > $intStart ) and ($intNextPosition  < $intEnd ) )
+            {
+                // inside line //
+                return $this->getTemplate( "line_inside.html" , $arrReplace );
+
+            }
+            elseif( $intNextPosition == $intEnd )
+            {
+                // last line //
+                return $this->getTemplate( "line_end.html" , $arrReplace );
+            }
+            elseif( $intNextPosition > $intEnd )
+            {
+                // after line //
+                return $this->getTemplate( "line_after.html" , $arrReplace );
             }
             else
             {
-            	$strStyle = 'style=\'background-image: url( "' . $objStereotype->getImage() . '" );\'';            	
+                $strMessage = '';
+                $strMessage .= ' Invalid Position ' . "\n" ;
+                $strMessage .= ' Actual Actor ' . $objActorActual->getPosition() ;
+                $strMessage .= ' Next Actor ' . $objActorNext->getPosition() ;
+                $strMessage .= ' Message Start ' . $intStart ;
+                $strMessage .= ' Message End' . $intEnd ;
+                throw new Exception( $strMessage );
             }
-            $strHtmlActors .=
-<<<HTML
-            <div class="row">
-                <div class="message">
-                    <span>&nbsp;</span>
-                </div>
-            </div>
-            <div class="actor {$objStereotype->getName()}" {$strStyle} >
-                <div class="name">
-                    <span title="{$objActor->getName()}">{$strActorName}</span>
-                </div>
-            </div>
-HTML;
-         }
-
-        $strHtmlActors .=
-<<<HTML
-    </div>
-HTML;
-
-         return $strHtmlActors;
+        }
     }
 
     /**
@@ -507,171 +315,42 @@ HTML;
      */
     protected function showMessages()
     {
-        $strHtmlMessages = '';
-
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
+        $strMessageCollection = '';
 
-        foreach( $arrMessages as $intMessageId => $objMessage )
+        foreach( $arrMessages as $objMessage )
         {
-            $intPos = $intMessageId + 1;
+            $strMessageCollection .= $this->showMessage( $objMessage );
+        }
+        
+        $arrReplace = array();
+        $arrReplace[ '<codetodiagram:message_collection/>' ] = $strMessageCollection;
 
-            /**
-             * @var $objMessage UmlSequenceDiagramMessage
-             */
-            if( $objMessage->isReverse() )
-            {
-                $intStart = $objMessage->getActorTo()->getPosition();
-                $intEnd = $objMessage->getActorFrom()->getPosition();
-            }
-            else
-            {
-                $intEnd = $objMessage->getActorTo()->getPosition();
-                $intStart = $objMessage->getActorFrom()->getPosition();
-            }
+        return $this->getTemplate( "messsages.html" , $arrReplace );
+    }
 
-$strHtmlMessages .=
-<<<HTML
-            <div class="line body">
-                  <div class="row " >
-                    <div class="message ">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>
-HTML;
-            $arrActors = $this->objUmlSequenceDiagram->getActors();
+    public function showValue( UmlSequenceDiagramValue $objValue )
+    {
+        $strMark = ( $objXmlMessage->getType() != 'return' ) ? '' : '$';
 
-            $strReverse = $objMessage->isReverse() ? 'reverse' : 'regular';
-            $strLarge = $objMessage->isLarge() ? 'large' : 'short';
-            $strRecursive = $objMessage->isRecursive() ? 'recursive' : 'line';
-
-
-            while( $objActorActual = array_shift( $arrActors ) )
-            {
-                $objActorNext = current( $arrActors );
-
-                $intNextPosition =  $objActorActual->getPosition() + 1;
-
-                /**
-                 * @var $objActorNext UmlSequenceDiagramActor
-                 * @var $objActorActual UmlSequenceDiagramActor
-                 */
-
-               if( $objActorActual->getPosition() < $intStart )
-               {
-                   // before line //
-                    $strHtmlMessages .=
-<<<HTML
-
-                  <div class="actor">
-                    <div class="name">
-                      <span title="{$objActorActual->getName()}">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>
-HTML;
-               }
-               elseif( $objActorActual->getPosition() == $intStart )
-               {
-                   // start line //
-                   $strText = UmlSequenceDiagramPrinterToHtml::getMessageText( $intMessageId , $objMessage );
-                    $strHtmlMessages .=
-<<<HTML
-                  <div class="actor start">
-                    <div class="name">
-                      <span title="{$objActorActual->getName()}">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row {$objMessage->getType()} {$strReverse} {$strLarge} {$strRecursive} start ">
-                    <div class="message ">
-                        <span>
-                            <a href="#message_$intMessageId" class="noLink">
-                                <strong>{$intPos}</strong>. {$strText}
-                            </a>
-                        </span>
-                    {$this->showValues( $objMessage )}
-                    </div>
-                  </div>
-HTML;
-               }
-               elseif( ( $objActorActual->getPosition() > $intStart ) and ($intNextPosition  < $intEnd ) )
-               {
-                   // inside line //
-                    $strHtmlMessages .=
-<<<HTML
-                  <div class="actor middle {$objMessage->getType()}">
-                    <div class="name">
-                      <span title="{$objActorActual->getName()}">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row {$objMessage->getType()} {$strReverse} {$strLarge} middle ">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>
-HTML;
-               }
-               elseif( $intNextPosition == $intEnd )
-               {
-                    $strHtmlMessages .=
-<<<HTML
-                  <div class="actor end {$objMessage->getType()}">
-                    <div class="name">
-                      <span title="{$objActorActual->getName()}">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row {$objMessage->getType()} {$strReverse}  end ">
-                    <div class="message ">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>
-HTML;
-               }
-               elseif( $intNextPosition > $intEnd )
-               {
-                   $intDif = $intNextPosition - $intEnd;
-                    $strHtmlMessages .=
-<<<HTML
-                  <div class="actor after{$intDif}">
-                    <div class="name">
-                      <span title="{$objActorActual->getName()}">&nbsp;</span>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="message">
-                      <span>&nbsp;</span>
-                    </div>
-                  </div>
-HTML;
-               }
-               else
-               {
-                   $strMessage = '';
-                   $strMessage .= ' Invalid Position ' . "\n" ;
-                   $strMessage .= ' Actual Actor ' . $objActorActual->getPosition() ;
-                   $strMessage .= ' Next Actor ' . $objActorNext->getPosition() ;
-                   $strMessage .= ' Message Start ' . $intStart ;
-                   $strMessage .= ' Message End' . $intEnd ;
-                   throw new Exception( $strMessage );
-               }
-            }
-
-        $strHtmlMessages .=
-<<<HTML
-            </div>
-HTML;
-
+        if( is_object( $objValue->getValue()  ) )
+        {
+            $strType = 'object';
+            $strClass = get_lass( $objValue->getValue() );
+        }
+        else
+        {
+            $strType = gettype( $objValue->getValue() );
+            $strClass = '';
         }
 
-        return $strHtmlMessages;
+        $arrReplace[ '<codetodiagram:attribute_mark/>' ] = $strMark;
+        $arrReplace[ '<codetodiagram:attribute_name/>' ] = $objValue->getName() ;
+        $arrReplace[ '<codetodiagram:attribute_type/>' ] = $strType;
+        $arrReplace[ '<codetodiagram:attribute_class/>' ] = $strClass;
+        $arrReplace[ '<codetodiagram:attribute_varexport/>' ] = $this->showVar( $objValue->getValue() );
+
+        return $this->getTemplate( "value.html" , $arrReplace );
     }
 
     /**
@@ -683,44 +362,18 @@ HTML;
      */
     public function showValues( UmlSequenceDiagramMessage $objXmlMessage )
     {
+        $strValuesCollection = '';
+
         $arrValues = $objXmlMessage->getValues();
-        if( sizeof( $arrValues ) > 0 )
+        foreach( $arrValues as $objValue )
         {
-            $strHtml = '<div class="parameters">';
-            $strHtml .= '<ul>' . "\n";
-
-            foreach( $arrValues as $objValue )
-            {
-                $strHtml .= '<li>' . "\n";
-                if( $objXmlMessage->getType() != 'return' )
-                {
-                    $strHtml .= '   <strong> $' . $objValue->getName() . '</strong>' . "\n";
-                }
-                else
-                {
-                    $strHtml .= '   <strong> ' . $objValue->getName() . '</strong>' . "\n";
-                }
-                if( is_object( $objValue->getValue()  ) )
-                {
-                    $strHtml .= '   <span> object ' . get_class( $objValue->getValue() ). ' </span>' . "\n";
-                }
-                else
-                {
-                    $strVar = var_export( $objValue->getValue() , true );
-                    $strVar = str_replace( '<span style="color: #0000BB"></span>' , '' , $strVar );
-                    $strHtml .= '   <span>' . gettype( $objValue->getValue() ) . ' ' . $strVar . ' </span>' . "\n";
-                }
-                $strHtml .= '</li>' . "\n";
-
-            }
-
-            $strHtml .= '</ul></div>' . "\n";
+            $strValueCollection .= $this->showValue( $objValue );
         }
-        else
-        {
-            $strHtml = '';
-        }
-        return $strHtml;
+        
+        $arrReplace = array();
+        $arrReplace[ '<codetodiagram:value_collection/>' ] = $strValueCollection;
+
+        return $this->getTemplate( "line_values.html" , $arrReplace );
     }
 
     public function showDetails()
@@ -731,7 +384,7 @@ HTML;
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
         foreach( $arrMessages as $intMessageId => $objMessage )
         {
-            /**
+            /** 
              * @var $objMessage UmlSequenceDiagramMessage
              **/
             $strHtml .= '<li><div class="message" id="div_message_' . $intMessageId . '">' . "\n";
@@ -790,7 +443,7 @@ HTML;
         return $strHtml;
     }
 
-    private static function showVar( $mixVar )
+        private static function showVar( $mixVar )
     {
         $strHtml = highlight_string( '<?php ' .
             self::removeRecursiveProblem(
@@ -801,7 +454,7 @@ HTML;
         $strHtml = str_replace( '&lt;?php&nbsp;', '', $strHtml );
         $strHtml = str_replace( '<span style="color: #0000BB"></span>', '', $strHtml );
         return $strHtml;
-    
+
     }
     /**
      * When objects with recursive are export to string one error happen. This

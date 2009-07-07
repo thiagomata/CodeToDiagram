@@ -69,6 +69,15 @@ class UmlSequenceDiagramMessage
     protected $intTimeEnd;
 
     /**
+     * Unique Position of each message of the sequence
+     * diagram
+     *
+     * @var integer
+     */
+    protected $intPosition;
+
+
+    /**
      * Set the text of the message
      *
      * @see UmlSequenceDiagramMessage::getText()
@@ -150,6 +159,31 @@ class UmlSequenceDiagramMessage
         return $this->strType;
     }
 
+    /**
+     * Get the position of the message
+     *
+     * @see UmlSequenceDiagramMessage::setPosition( integer )
+     * @see UmlSequenceDiagramMessage->intPosition
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->intPosition;
+    }
+
+    /**
+     * Set the position of the message
+     *
+     * @see UmlSequenceDiagramMessage::getPosition()
+     * @see UmlSequenceDiagramMessage->intPosition
+     * @return UmlSequenceDiagramMessage
+     */
+    public function setPosition( $intPosition )
+    {
+        $this->intPosition = $intPosition;
+        return $this;
+    }
+    
     /**
      * Inform the actor who is the recipient of the message
      *

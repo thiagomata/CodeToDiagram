@@ -89,6 +89,7 @@ class UmlSequenceDiagram
     public function addMessage( UmlSequenceDiagramMessage $objMessage )
     {
         $this->arrMessages[] = $objMessage;
+        $objMessage->setPosition( sizeof( $this->arrMessages ) );
         return $this;
     }
 

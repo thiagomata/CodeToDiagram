@@ -464,3 +464,7 @@
                 text-decoration: none;
                 cursor: pointer;
             }
+            .row span
+            {
+                height: 50%;
+            }
