@@ -86,7 +86,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intPercentFont = 10;
+    protected $intPercentFont = 2;
     
     /**
      * If embeded the script will not create the html header tags
@@ -397,9 +397,9 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @return string
      */
-    protected function getPublicFolderPath()
+    public function getPublicFolderPath()
     {
-        if( $this->getExternalAcess() )
+        if( $this->getExternalAccess() )
         {
             $strPublicPath = $this->getPublicPath();
         }
