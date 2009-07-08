@@ -174,8 +174,6 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         if( $this->getConfiguration()->getExternalAccess() )
         {
             $strStyleInLine = file_get_contents( $strCssFile  );
-
-
             $strSequenceStyleUrl = "";
         }
         else
@@ -367,7 +365,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         if( is_object( $objValue->getValue()  ) )
         {
             $strType = 'object';
-            $strClass = get_lass( $objValue->getValue() );
+            $strClass = get_class( $objValue->getValue() );
         }
         else
         {
