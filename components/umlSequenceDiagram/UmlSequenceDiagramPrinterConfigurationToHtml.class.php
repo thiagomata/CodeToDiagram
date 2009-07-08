@@ -330,7 +330,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      */
     public function setPercentFont( $intPercentFont )
     {
-        $this->$intPercentFont = (integer)$intPercentFont;
+        $this->intPercentFont = (integer)$intPercentFont;
     }
 
     /**
@@ -345,7 +345,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      */
     public function getPercentFont()
     {
-        return $this->$intPercentFont;
+        return $this->intPercentFont;
     }
 
     /**

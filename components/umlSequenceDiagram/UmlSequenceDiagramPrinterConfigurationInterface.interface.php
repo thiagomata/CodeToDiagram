@@ -81,7 +81,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
      * @see UmlSequenceDiagramPrinterInterface::getWidth()
      * @return integer $intWidth
      */
-    public function getWidth( $intWidth );
+    public function getWidth();
 
     /**
      * Set the height in pixels of each line
@@ -91,7 +91,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
      * @param integer $intHeight
      * @return UmlSequenceDiagramPrinterInterface
      */
-    public function setLineHeight( $intHeight );
+    public function setLinePercentHeight( $intHeight );
 
     /**
      * Set the height in pixels of each line
@@ -100,7 +100,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
      * @see UmlSequenceDiagramPrinterInterface::getLineHeight()
      * @return integer;
      */
-    public function getLineHeight();
+    public function getLinePercentHeight();
 
     /**
      * Set the zoom of the diagram
@@ -125,7 +125,7 @@ interface UmlSequenceDiagramPrinterConfigurationInterface
      * @see UmlSequenceDiagramPrinterInterface::getZoom()
      * @return integer $intZoom
      */
-    public function getZoom( $intZoom );
+    public function getZoom();
 
 }
 ?>

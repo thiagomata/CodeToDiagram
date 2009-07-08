@@ -653,9 +653,9 @@ class CodeToDiagram
 				case self::PRINTER_TYPE_HTML:
 				{
 					$objPrinter = UmlSequenceDiagramPrinterToHtml::getInstance();
-					UmlSequenceDiagramPrinterToHtml::getInstance()->setPublicPath( $this->getPublicPath() );
-					UmlSequenceDiagramPrinterToHtml::getInstance()->setCallerPath( $this->getCallerPath() );
-					UmlSequenceDiagramPrinterToHtml::getInstance()->setExternalAcess( $this->getExternalAcess() );
+                    UmlSequenceDiagramPrinterToHtml::getInstance()->getConfiguration()->setPublicPath( $this->getPublicPath() );
+					UmlSequenceDiagramPrinterToHtml::getInstance()->getConfiguration()->setCallerPath( $this->getCallerPath() );
+					UmlSequenceDiagramPrinterToHtml::getInstance()->getConfiguration()->setExternalAccess( $this->getExternalAcess() );
 					$strDiagram = UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
 					break;
 				}

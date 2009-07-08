@@ -11,8 +11,10 @@
 Loader::requireOnce( 'UmlSequenceDiagramException.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramFactoryInterface.interface.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramPrinterInterface.interface.php' , true );
+Loader::requireOnce( 'UmlSequenceDiagramPrinterConfigurationInterface.interface.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramFactoryFromXml.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramPrinterToXml.class.php' , true );
+Loader::requireOnce( 'UmlSequenceDiagramPrinterConfigurationToHtml.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramPrinterToHtml.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramStereotype.class.php' , true );
 Loader::requireOnce( 'UmlSequenceDiagramActor.class.php' , true );

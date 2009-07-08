@@ -50,6 +50,11 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 		return self::$objInstance;
 	}
 
+    public function __construct()
+    {
+        $objConfiguration = new UmlSequenceDiagramPrinterConfigurationToHtml();
+        $this->setConfiguration( $objConfiguration );
+    }
     /**
      * Set the configuration of this printer
      *
@@ -82,7 +87,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 	public function perform( UmlSequenceDiagram $objUmlSequenceDiagram )
 	{
 		$this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
-		return $this->show();
+		return $this->getPage();
 	}
 
     /**
@@ -95,7 +100,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
     public function getTemplate( $strTemplateFile , $arrReplace )
     {
-        $strTemplateContent = require( "./template/" . $strTemplateFile );
+        $strTemplateContent = file_get_contents( "template/" . $strTemplateFile , true );
         $strTemplateContent = str_replace(
             array_keys( $arrReplace ),
             array_values( $arrReplace ),
@@ -104,26 +109,51 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $strTemplateContent;
     }
 
+    public function getDiagram()
+    {
+        $arrReplace = array();
+        $arrReplace[ '<codetodiagram:actors/>' ] = $this->getActors();
+        $arrReplace[ '<codetodiagram:messages/>' ] = $this->getMessages();
+        $arrReplace[ '<codetodiagram:embededscript/>' ] = $this->getEmbededScript();
+
+        if( $this->getConfiguration()->getShowDetails() )
+        {
+            $arrReplace[ '<codetodiagram:details/>' ] = $this->getDetails();
+        }
+        else
+        {
+            $arrReplace[ '<codetodiagram:details/>' ] = '';
+        }
+        
+        return $this->getTemplate( "diagram.html" , $arrReplace );
+    }
+
+    public function getEmbededScript()
+    {
+        if( $this->getConfiguration()->getEmbeded() )
+        {
+            return $this->getStyle();
+        }
+    }
+    
     /**
      * Create the html ouput of the diagram
      *
      * @return string
      */
-    public function show()
+    public function getPage()
     {
-        $strHtml = '';
-        $strHtml .= $this->showHeaders();
-        $strHtml .= $this->showActors();
-        $strHtml .= $this->showMessages();
-
-        if( $this->getConfiguration()->getShowDetails() )
+        if( $this->getConfiguration()->getEmbeded() )
         {
-            $strHtml .= $this->showDetails();
+            return $this->getDiagram();
         }
-
-        $strHtml .= $this->showFooter();
-
-        return $strHtml;
+        else
+        {
+            $arrReplace = array();
+            $arrReplace[ '<codetodiagram:diagram/>' ] = $this->getDiagram();
+            $arrReplace[ '<codetodiagram:style/>' ] = $this->getStyle();
+            return $this->getTemplate( "page.html" , $arrReplace );
+        }
     }
 
     protected function getSequenceStyleFile()
@@ -138,7 +168,10 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      */
     protected function getStyle()
     {
-        if( $this->getConfiguration()->getExternalAcess() )
+        $strPublicPath = $this->getConfiguration()->getPublicPath();
+        $strCssFile = "{$strPublicPath}css/sequenceStyle.css";
+
+        if( $this->getConfiguration()->getExternalAccess() )
         {
             $strStyleInLine = file_get_contents( $strCssFile  );
 
@@ -177,7 +210,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $this->getTemplate( "style.css" , $arrReplace );
     }
 
-    protected function showActor( UmlSequenceDiagramActor $objActor )
+    protected function getActor( UmlSequenceDiagramActor $objActor )
     {
         $objStereotype = $objActor->getStereotype();
         if( $objStereotype->getDefault())
@@ -202,14 +235,14 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      *
      * @return string
      */
-    protected function showActors()
+    protected function getActors()
     {
         $arrActors = $this->objUmlSequenceDiagram->getActors();
         $strActorCollection = '';
 
         foreach( $arrActors as $objActor )
         {
-            $strActorCollection .= $this->showActor( $objActor );
+            $strActorCollection .= $this->getActor( $objActor );
         }
 
         $arrReplace[ 'codetodiagram:actor_collection' ] = $strActorCollection;
@@ -223,7 +256,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      * @param UmlSequenceDiagramMessage $objMessage
      * @return string HTML of each message
      */
-    protected function showMessage( UmlSequenceDiagramMessage $objMessage )
+    protected function getMessage( UmlSequenceDiagramMessage $objMessage )
     {
         if( $objMessage->isReverse() )
         {
@@ -247,12 +280,12 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "codetodiagram:large" ] = $strLarge;
         $arrReplace[ "codetodiagram:recursive" ] = $strRecursive;
         $arrReplace[ "codetodiagram:message_type" ] = $objMessage->getType();
-        $arrReplace[ "codetodiagram:message_text" ] =  UmlSequenceDiagramPrinterToHtml::getMessageText( $intMessageId , $objMessage );
+        $arrReplace[ "codetodiagram:message_text" ] =  UmlSequenceDiagramPrinterToHtml::getMessageText( $objMessage );
         $arrReplace[ "codetodiagram:message_id" ] = $objMessage->getPosition();
         $arrReplace[ "codetodiagram:message_position" ] = $objMessage->getPosition();
         $arrReplace[ "codetodiagram:actoractual_name" ] = "";
         $arrReplace[ "codetodiagram:message_dif" ] = "";
-        $arrReplace[ "codetodiagram:message_values" ] = $this->showValues( $objMessage );
+        $arrReplace[ "codetodiagram:message_values" ] = $this->getValues( $objMessage );
 
         while( $objActorActual = array_shift( $arrActors ) )
         {
@@ -313,25 +346,25 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      *
      * @return string
      */
-    protected function showMessages()
+    protected function getMessages()
     {
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
         $strMessageCollection = '';
 
         foreach( $arrMessages as $objMessage )
         {
-            $strMessageCollection .= $this->showMessage( $objMessage );
+            $strMessageCollection .= $this->getMessage( $objMessage );
         }
         
         $arrReplace = array();
         $arrReplace[ '<codetodiagram:message_collection/>' ] = $strMessageCollection;
 
-        return $this->getTemplate( "messsages.html" , $arrReplace );
+        return $this->getTemplate( "messages.html" , $arrReplace );
     }
 
-    public function showValue( UmlSequenceDiagramValue $objValue )
+    public function getValue( UmlSequenceDiagramValue $objValue , UmlSequenceDiagramMessage $objMessage )
     {
-        $strMark = ( $objXmlMessage->getType() != 'return' ) ? '' : '$';
+        $strMark = ( $objMessage->getType() != 'return' ) ? '' : '$';
 
         if( is_object( $objValue->getValue()  ) )
         {
@@ -348,7 +381,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ '<codetodiagram:attribute_name/>' ] = $objValue->getName() ;
         $arrReplace[ '<codetodiagram:attribute_type/>' ] = $strType;
         $arrReplace[ '<codetodiagram:attribute_class/>' ] = $strClass;
-        $arrReplace[ '<codetodiagram:attribute_varexport/>' ] = $this->showVar( $objValue->getValue() );
+        $arrReplace[ '<codetodiagram:attribute_varexport/>' ] = $this->getVar( $objValue->getValue() );
 
         return $this->getTemplate( "value.html" , $arrReplace );
     }
@@ -357,17 +390,18 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      * Create and return the html of some values of some messages into the html
      * sequence diagram
      *
-     * @param UmlSequenceDiagramMessage $objXmlMessage
+     * @param UmlSequenceDiagramMessage $objMessage
      * @return string
      */
-    public function showValues( UmlSequenceDiagramMessage $objXmlMessage )
+    public function getValues( UmlSequenceDiagramMessage $objMessage )
     {
         $strValuesCollection = '';
 
-        $arrValues = $objXmlMessage->getValues();
+        $arrValues = $objMessage->getValues();
+        $strValueCollection = '';
         foreach( $arrValues as $objValue )
         {
-            $strValueCollection .= $this->showValue( $objValue );
+            $strValueCollection .= $this->getValue( $objValue , $objMessage );
         }
         
         $arrReplace = array();
@@ -376,18 +410,18 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $this->getTemplate( "line_values.html" , $arrReplace );
     }
 
-    public function showDetails()
+    public function getDetails()
     {
         $strHtml = '';
         $strHtml .= '<div id="detail"><ol>' . "\n";
 
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
-        foreach( $arrMessages as $intMessageId => $objMessage )
+        foreach( $arrMessages as $objMessage )
         {
             /** 
              * @var $objMessage UmlSequenceDiagramMessage
              **/
-            $strHtml .= '<li><div class="message" id="div_message_' . $intMessageId . '">' . "\n";
+            $strHtml .= '<li><div class="message" id="div_message_' . $objMessage->getPosition() . '">' . "\n";
 
             $strText = html_entity_decode( $objMessage->getText() );
 
@@ -407,7 +441,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 {
                     if( $objMessage->getType() == 'call' )
                     {
-                        $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() .  '</span>' .  ' ' . $objMessage->getType() . ' ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>' .  '-&gt;' . self::getMessageText( $intMessageId , $objMessage );
+                        $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() .  '</span>' .  ' ' . $objMessage->getType() . ' ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>' .  '-&gt;' . self::getMessageText( $objMessage );
                     }
                     else
                     {
@@ -417,7 +451,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 }
             }
 
-            $strHtml .= '<a name="message_' . $intMessageId . '">' . $strText . '</a>' . "\n";
+            $strHtml .= '<a name="message_' . $objMessage->getPosition() . '">' . $strText . '</a>' . "\n";
             $arrValues = $objMessage->getValues();
 
 
@@ -433,7 +467,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 {
                     $strHtml .= '<strong> ' . $objValue->getName() . ' </strong>' . "\n";
                 }
-                $strHtml .= '   <div>' .  self::showVar( $objValue->getValue() ). '</div>' . "\n";
+                $strHtml .= '   <div>' .  self::getVar( $objValue->getValue() ). '</div>' . "\n";
             }
 
             $strHtml .= '</div></div></li>' . "\n";
@@ -443,7 +477,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $strHtml;
     }
 
-        private static function showVar( $mixVar )
+        private static function getVar( $mixVar )
     {
         $strHtml = highlight_string( '<?php ' .
             self::removeRecursiveProblem(
@@ -499,7 +533,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $mixExpression;
     }
 
-    private static function getMessageText( $intMessageId , UmlSequenceDiagramMessage $objMessage )
+    private static function getMessageText( UmlSequenceDiagramMessage $objMessage )
     {
         $strText = $objMessage->getText();
         if( $objMessage->getType() != 'call' )
