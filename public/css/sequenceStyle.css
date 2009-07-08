@@ -392,11 +392,14 @@
             div.call:hover div.message .parameters
             {
                 display: block;
+                background-color: white;
             }
             div.line:hover div div.message
             {
                 border-color: orange;
-                 color: maroon;
+                color: maroon;
+                background-color: white;
+                z-index: 100;
             }
             div.line:hover div div.message span
             {
@@ -405,9 +408,15 @@
                 color: maroon;
                 font-size: 14px;
             }
+            div.line:hover div div.message .parameters span
+            {
+                border-width: 0px;
+            }
+
             div.return:hover div.message .parameters
             {
                 display: block;
+                background-color: white;
             }
             div.message .parameters li
             {

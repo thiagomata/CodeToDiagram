@@ -161,6 +161,10 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $this->getConfiguration()->getPublicFolderPath() . "css/sequenceStyle.css";
     }
 
+    protected function getProportion()
+    {
+        return $this->getConfiguration()->getZoom() / 100 ;
+    }
     /**
      * Create and return the string of the header of the html sequence diagram
      *
@@ -182,13 +186,30 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             $strSequenceStyleUrl = $strCssFile;
         }
 
-        $intMessageWidth = round(
-                $this->getConfiguration()->getWidth() /
-                count( $this->objUmlSequenceDiagram->getActors() )
+        $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
+        $intQtdMessageLine = $intQtdActors + 1;
+
+        $intMessageWidth = round
+        (
+            $this->getProportion() *
+            (
+                $this->getConfiguration()->getWidth() -
+                (
+                    ( $this->getConfiguration()->getWidth() / 100 )
+                    *
+                    ( $intQtdActors * $this->getConfiguration()->getActorBarPercentWidth() )
+                )
+            )
+            /
+            (
+                $intQtdMessageLine
+            )
         );
 
+
+
         $intFontWidth = round(
-                ( $this->getConfiguration()->getWidth() * $this->getConfiguration()->getPercentFont() )
+                ( $this->getProportion() * $this->getConfiguration()->getWidth() * $this->getConfiguration()->getPercentFont() )
                 /
                 100
                 
@@ -196,12 +217,14 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
         $arrReplace = array();
         $arrReplace[ "codetodiagram_sequencestyleurl" ] = $strSequenceStyleUrl;
-        $arrReplace[ "codetodiagram:body_width" ] = $this->getConfiguration()->getWidth() . "px";
-        $arrReplace[ "codetodiagram:body_font" ] = $intFontWidth . "px";
-        $arrReplace[ "codetodiagram:message_height" ] = $this->getConfiguration()->getLinePercentHeight() . "%";
-        $arrReplace[ "codetodiagram:message_width" ] =$intMessageWidth . "px";
-        $arrReplace[ "codetodiagram:actor_height" ] = $this->getConfiguration()->getLinePercentHeight() . "%";
-        $arrReplace[ "codetodiagram_styleinline" ] = $strStyleInLine;
+        $arrReplace[ "codetodiagram:body_width" ]       = round( $this->getProportion() * $this->getConfiguration()->getWidth() ) . "px";
+        $arrReplace[ "codetodiagram:body_font" ]        = round( $this->getProportion() * $intFontWidth ). "px";
+        $arrReplace[ "codetodiagram:message_height" ]   = round( $this->getProportion() * $this->getConfiguration()->getLinePercentHeight() * $this->getConfiguration()->getWidth() / 100 ) . "px";
+        $arrReplace[ "codetodiagram:message_width" ]    = $intMessageWidth . "px";
+        $arrReplace[ "codetodiagram:actor_width" ]      = round( $intMessageWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 ) . "px";
+        $arrReplace[ "codetodiagram:actor_height" ]     = round( $this->getProportion() * $this->getConfiguration()->getLinePercentHeight() * $this->getConfiguration()->getWidth() / 100 ) . "px";
+        $arrReplace[ "codetodiagram:line_height" ]   = round( $this->getProportion() * ( $this->getConfiguration()->getLinePercentHeight() + 1 ) * $this->getConfiguration()->getWidth() / 100 ) . "px";
+        $arrReplace[ "codetodiagram_styleinline" ]      = $strStyleInLine;
 
         return $this->getTemplate( "style.css" , $arrReplace );
     }
@@ -283,6 +306,8 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "codetodiagram:message_dif" ] = "";
         $arrReplace[ "<codetodiagram:message_values/>" ] = $this->getValues( $objMessage );
 
+        $strResult = '';
+
         while( $objActorActual = array_shift( $arrActors ) )
         {
 
@@ -300,28 +325,28 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
             if( $objActorActual->getPosition() < $intStart )
             {
-                return $this->getTemplate( "line_before.html" , $arrReplace );
+                $strResult .= $this->getTemplate( "line_before.html" , $arrReplace );
             }
             elseif( $objActorActual->getPosition() == $intStart )
             {
                 // start line //
-                return $this->getTemplate( "line_start.html" , $arrReplace );
+                $strResult .=  $this->getTemplate( "line_start.html" , $arrReplace );
             }
             elseif( ( $objActorActual->getPosition() > $intStart ) and ($intNextPosition  < $intEnd ) )
             {
                 // inside line //
-                return $this->getTemplate( "line_inside.html" , $arrReplace );
+                $strResult .=  $this->getTemplate( "line_inside.html" , $arrReplace );
 
             }
             elseif( $intNextPosition == $intEnd )
             {
                 // last line //
-                return $this->getTemplate( "line_end.html" , $arrReplace );
+                $strResult .=  $this->getTemplate( "line_end.html" , $arrReplace );
             }
             elseif( $intNextPosition > $intEnd )
             {
                 // after line //
-                return $this->getTemplate( "line_after.html" , $arrReplace );
+                $strResult .=  $this->getTemplate( "line_after.html" , $arrReplace );
             }
             else
             {
@@ -334,6 +359,11 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 throw new Exception( $strMessage );
             }
         }
+
+        $arrReplace = array();
+        $arrReplace[ '<codetodiagram:message_collection/>' ] = $strResult;
+
+        return $this->getTemplate( "messages.html" , $arrReplace );
     }
 
     /**
@@ -351,16 +381,13 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         {
             $strMessageCollection .= $this->getMessage( $objMessage );
         }
-        
-        $arrReplace = array();
-        $arrReplace[ '<codetodiagram:message_collection/>' ] = $strMessageCollection;
 
-        return $this->getTemplate( "messages.html" , $arrReplace );
+        return $strMessageCollection;
     }
 
     public function getValue( UmlSequenceDiagramValue $objValue , UmlSequenceDiagramMessage $objMessage )
     {
-        $strMark = ( $objMessage->getType() != 'return' ) ? '' : '$';
+        $strMark = ( $objMessage->getType() == 'return' ) ? '' : '$';
 
         if( is_object( $objValue->getValue()  ) )
         {

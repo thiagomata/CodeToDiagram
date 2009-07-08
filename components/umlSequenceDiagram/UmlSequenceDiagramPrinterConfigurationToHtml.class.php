@@ -49,7 +49,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intLinePercentHeight = 10;
+    protected $intLinePercentHeight = 5;
 
     /**
      * The zoom reduce / enlarge the diagram
@@ -68,7 +68,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intActorHeaderPercentWidth = 10;
+    protected $intActorHeaderPercentWidth = 30;
 
     /**
      * width ( in percent ) for each actor bar
@@ -220,6 +220,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     public function setZoom( $intZoom )
     {
         $this->intZoom = (integer)$intZoom;
+        return $this;
     }
 
     /**
@@ -247,6 +248,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     public function setLinePercentHeight( $intPercentHeight )
     {
         $this->intLinePercentHeight = (integer)$intPercentHeight;
+        return $this;
     }
 
     /**
@@ -273,6 +275,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     public function setActorHeaderPercentWidth( $intActorHeaderPercentWidth )
     {
         $this->intActorHeaderPercentWidth = (integer)$intActorHeaderPercentWidth;
+        return $this;
     }
 
     /**
@@ -302,6 +305,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     public function setActorBarPercentWidth( $intActorBarPercentWidth )
     {
         $this->intActorBarPercentWidth = (integer)$intActorBarPercentWidth;
+        return $this;
     }
 
     /**
@@ -331,6 +335,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     public function setPercentFont( $intPercentFont )
     {
         $this->intPercentFont = (integer)$intPercentFont;
+        return $this;
     }
 
     /**
@@ -431,6 +436,16 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
             }
         }
         return $strPublicPath;
+    }
+
+    /**
+     *
+     * @param UmlSequenceDiagram $objUmlSequenceDiagram
+     * @return string
+     */
+    public function perform( $objUmlSequenceDiagram )
+    {
+        return UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
     }
 }
 ?>

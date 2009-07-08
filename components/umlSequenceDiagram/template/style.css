@@ -10,9 +10,23 @@
         width: codetodiagram:message_width;
         font-size: codetodiagram:body_font;
     }
+    .line.body
+    {
+        height: codetodiagram:message_height;
+    }
     .actor .name
     {
         height:codetodiagram:actor_height;
     }
+    .head .actor .name
+    {
+        width:codetodiagram:actor_width  !important;
+    }
 
+    .row .message
+    {
+        border-style: solid;
+        border-color: red;
+        border-width: 1px;
+    }
     codetodiagram_styleinline

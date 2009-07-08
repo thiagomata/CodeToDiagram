@@ -169,7 +169,7 @@ $objXmlSequence = UmlSequenceDiagramFactoryFromXml::getInstance()->setXml( $strX
         <h4>
             <?php print $strTitle ?>
         </h4>
-        <?php print UmlSequenceDiagramPrinterToHtml::getInstance()->setEmbeded( true )->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
+        <?php print UmlSequenceDiagramPrinterToHtml::getInstance()->getConfiguration()->setEmbeded( true )->setZoom( $intZoom )->perform( $objXmlSequence ) ?>
         <div style="float:left;width:100%">
             <h4>
                 Now, change and create your own sequence diagram.
