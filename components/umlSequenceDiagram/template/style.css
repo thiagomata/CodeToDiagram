@@ -1,27 +1,150 @@
-    @import url( "codetodiagram_sequencestyleurl" );
- 
-    .sequenceDiagram
-    {
-        width: codetodiagram:body_width;
-    }
-    .row
-    {
-        height: codetodiagram:message_height;
-        width: codetodiagram:message_width;
-        font-size: codetodiagram:body_font;
-    }
-    .line.body
-    {
-        height: codetodiagram:message_height;
-    }
-    .actor .name
-    {
-        height:codetodiagram:actor_height;
-    }
-    .head .actor .name
-    {
-        width:codetodiagram:actor_width  !important;
-    }
+.sequenceDiagram
+{
+    width: codetodiagram:body_width;
+}
+.sequenceDiagram .line
+{
+    width: 100%;
+    float: left;
+}
+.sequenceDiagram .parameters
+{
+    display: none;
+}
+.sequenceDiagram .head .slice
+{
+    float: left;
+    width: codetodiagram:slice_width;
+    /*height: codetodiagram:slice_height;*/
+    text-align: center;
+    height: 20px;
+}
+.sequenceDiagram .head .actor
+{
+    float: left;
+}
+.sequenceDiagram .head .actor span
+{
+    width: 100%;
+    text-align: center;
+}
+.sequenceDiagram .message
+{
+    float: left;
+}
+.sequenceDiagram .head .actor
+{
+    width: codetodiagram:actor_header_width;
+    height: 20px;
+    text-align: center;
+    height: codetodiagram:line_height;
+   float: left;
+}
+.sequenceDiagram .head .actor div
+{
+    background-color: #DDDDFF;
+    margin-left: codetodiagram:actor_logo_border;
+    margin-right: codetodiagram:actor_logo_border;
+    width: codetodiagram:actor_logo_width;
+    height: codetodiagram:line_height;
+   float: left;
+   border-style: solid;
+   border-color: blue;
+   border-width: 1px;
+}
+.sequenceDiagram .line.body .slice
+{
+    width: codetodiagram:message_bar_width;
+    float: left;
+    height: 100%;
+}
+.sequenceDiagram .line.body .message_header , .line.body .slice.final
+{
+    width: codetodiagram:line_margin;
+   float: left;
+}
+.sequenceDiagram .line.body .slice .actor
+{
+    width: 5px;
+    background-color: blue;
+   float: left;
+   height: 100%;
+}
+.sequenceDiagram .detail li
+{
+    float: left;
+    width: 100%;
+}
+.sequenceDiagram .line.body .message
+{
+    text-align: center;
+    width: 80%;
+}
+.sequenceDiagram .line.body .message a
+{
+    text-decoration: none;
+}
+.line
+{
+    display: block;
+    float: left;
+    width: 100%;
+    height: 50px;
+}
+.slice , .row , .actor
+{
+    width: 100%;
+}
+.sequenceDiagram .line.body .call
+{
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.sequenceDiagram .line.body .return
+{
+    border-width: 0px;
+    border-bottom-width: 1px;
+    border-style: dashed;
+    border-color: black;
+}
+.sequenceDiagram .line.body .recursive
+{
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-color: black;
+}
+.row
+{
+    float: left;
+    display: block;
+    width: 95%;
+    overflow: hidden;
+}
+.call.end.regular
+{
+        background-image: url( "codetodiagram:public_path/images/row_call.gif" );
+        background-position: right;
+        margin-right: 0px;
+        margin-left: 0px;
+        background-repeat: no-repeat;
+}
+.call.regular.short.start
+{
+        background-repeat: no-repeat;
+        background-image: url( "codetodiagram:public_path/images/row_call.gif" );
+        background-position: right bottom;
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-bottom: 10px;
+}
+.return.regular.short.start
+{
+        background-image: url( "codetodiagram:public_path/images/row_return_back.gif" );
+        background-position: right;
+        margin-right: 0px;
+        margin-left: 0px;
+}
 
-
-    codetodiagram_styleinline

@@ -14,7 +14,7 @@
  */
 require_once( "../public/codetodiagram.php" );
 
-$intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 50 );
+$intZoom = (integer)CorujaArrayManipulation::getArrayField( $_POST , "zoom" , 100 );
 $strFile = (string)CorujaArrayManipulation::getArrayField( $_REQUEST , "file" , "threeLittlePigs");
 
 switch( $strFile )

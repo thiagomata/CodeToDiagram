@@ -10,6 +10,14 @@
  */
 class UmlSequenceDiagramActor
 {
+
+    /**
+     * Uml Sequence Diagram parent of this message
+     *
+     * @var UmlSequenceDiagram
+     */
+    protected $objUmlSequenceDiagram;
+
     /**
      * Unique Id of each actor of the sequence
      *
@@ -48,6 +56,34 @@ class UmlSequenceDiagramActor
     public function __construct()
     {
         $this->setType( "system" );
+    }
+
+    /**
+     * Inform the uml sequence diagram parent of the actor
+     *
+     * @see UmlSequenceDiagramActor::getUmlSequenceDiagram()
+     * @see UmlSequenceDiagramActor->objUmlSequenceDiagram
+     * @see UmlSequenceDiagram
+     * @param UmlSequenceDiagram $objUmlSequenceDiagram
+     * @return UmlSequenceDiagramActor me
+     */
+    public function setUmlSequenceDiagram( UmlSequenceDiagram $objUmlSequenceDiagram )
+    {
+        $this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
+        return $this;
+    }
+
+   /**
+     * Returns the uml sequence diagram parent of the actor
+     *
+     * @see UmlSequenceDiagramActor::setUmlSequenceDiagram( UmlSequenceDiagram )
+     * @see UmlSequenceDiagramActor->objUmlSequenceDiagram
+     * @see UmlSequenceDiagram
+     * @return UmlSequenceDiagram
+     */
+     public function getUmlSequenceDiagram()
+    {
+        return $this->objUmlSequenceDiagram;
     }
 
     /**

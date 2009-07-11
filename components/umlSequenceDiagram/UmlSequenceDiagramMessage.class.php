@@ -76,6 +76,12 @@ class UmlSequenceDiagramMessage
      */
     protected $intPosition;
 
+    /**
+     * Uml Sequence Diagram parent of this message
+     *
+     * @var UmlSequenceDiagram 
+     */
+    protected $objUmlSequenceDiagram;
 
     /**
      * Set the text of the message
@@ -238,6 +244,35 @@ class UmlSequenceDiagramMessage
      public function getActorTo()
     {
         return $this->objActorTo;
+    }
+
+
+    /**
+     * Inform the uml sequence diagram parent of the message
+     *
+     * @see UmlSequenceDiagramMessage::getUmlSequenceDiagram()
+     * @see UmlSequenceDiagramMessage->objUmlSequenceDiagram
+     * @see UmlSequenceDiagram
+     * @param UmlSequenceDiagram $objUmlSequenceDiagram
+     * @return UmlSequenceDiagramMessage me
+     */
+    public function setUmlSequenceDiagram( UmlSequenceDiagram $objUmlSequenceDiagram )
+    {
+        $this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
+        return $this;
+    }
+
+   /**
+     * Returns the uml sequence diagram parent of the message
+     *
+     * @see UmlSequenceDiagramMessage::setUmlSequenceDiagram( UmlSequenceDiagram )
+     * @see UmlSequenceDiagramMessage->objUmlSequenceDiagram
+     * @see UmlSequenceDiagram
+     * @return UmlSequenceDiagram
+     */
+     public function getUmlSequenceDiagram()
+    {
+        return $this->objUmlSequenceDiagram;
     }
 
     /**

@@ -187,46 +187,70 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         }
 
         $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
-        $intQtdMessageLine = $intQtdActors + 1;
+        $intQtdMessageLine = $intQtdActors - 1;
 
-        $intMessageWidth = round
-        (
-            $this->getProportion() *
-            (
-                $this->getConfiguration()->getWidth() -
-                (
-                    ( $this->getConfiguration()->getWidth() / 100 )
-                    *
-                    ( $intQtdActors * $this->getConfiguration()->getActorBarPercentWidth() )
-                )
-            )
+/*        print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>\n";
+
+        foreach( $this->objUmlSequenceDiagram->getActors()  as $objActor )
+        {
+            print $objActor->getPosition() . " - " . $objActor->getId() . "<br/>\n";
+        }
+ *
+ *
+ *
+*/
+
+        $intSlice =
+        round(
+            ( $this->getProportion()  * $this->getConfiguration()->getWidth() )
             /
-            (
-                $intQtdMessageLine
-            )
+            ( $intQtdMessageLine )
         );
 
+        $intActorHeaderWidth =
+        round(
+            ( $this->getProportion()  * $this->getConfiguration()->getWidth() )
+            /
+            ( $intQtdActors )
+        );
 
+        $intSlice = $intActorHeaderWidth * 2;
 
-        $intFontWidth = round(
+        $intActorBarWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorBarPercentWidth() / 100 );
+        $intActorLogoWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 );
+        $intActorLogoBorder = round( ( $intActorHeaderWidth - $intActorLogoWidth ) / 2 );
+
+        $intMessageHeaderWidth = round( $intSlice - $intActorHeaderWidth );
+        $intMessageBarWidth = round( ( $intSlice - $intActorBarWidth ) / 2 ) ;
+
+        $intFontWidth =
+        round(
                 ( $this->getProportion() * $this->getConfiguration()->getWidth() * $this->getConfiguration()->getPercentFont() )
                 /
-                100
-                
+                100        
         );
 
+        $intLineMargin = round( $intMessageBarWidth / 2);
+        
         $arrReplace = array();
-        $arrReplace[ "codetodiagram_sequencestyleurl" ] = $strSequenceStyleUrl;
-        $arrReplace[ "codetodiagram:body_width" ]       = round( $this->getProportion() * $this->getConfiguration()->getWidth() ) . "px";
-        $arrReplace[ "codetodiagram:body_font" ]        = round( $this->getProportion() * $intFontWidth ). "px";
-        $arrReplace[ "codetodiagram:message_height" ]   = round( $this->getProportion() * $this->getConfiguration()->getLinePercentHeight() * $this->getConfiguration()->getWidth() / 100 ) . "px";
-        $arrReplace[ "codetodiagram:message_width" ]    = $intMessageWidth . "px";
-        $arrReplace[ "codetodiagram:actor_width" ]      = round( $intMessageWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 ) . "px";
-        $arrReplace[ "codetodiagram:actor_height" ]     = round( $this->getProportion() * $this->getConfiguration()->getLinePercentHeight() * $this->getConfiguration()->getWidth() / 100 ) . "px";
-        $arrReplace[ "codetodiagram:line_height" ]   = round( $this->getProportion() * ( $this->getConfiguration()->getLinePercentHeight() + 1 ) * $this->getConfiguration()->getWidth() / 100 ) . "px";
-        $arrReplace[ "codetodiagram_styleinline" ]      = $strStyleInLine;
+        $arrReplace[ "codetodiagram_sequencestyleurl" ]         = $strSequenceStyleUrl;
+        $arrReplace[ "codetodiagram:body_width" ]               = round( $this->getProportion() * $this->getConfiguration()->getWidth() ) . "px";
+        $arrReplace[ "codetodiagram:body_font" ]                = round( $this->getProportion() * $intFontWidth ). "px";
+        $arrReplace[ "codetodiagram:slice_width" ]              = $intSlice . "px";
+        $arrReplace[ "codetodiagram:message_header_width" ]     = $intMessageHeaderWidth . "px";
+        $arrReplace[ "codetodiagram:message_bar_width" ]        = $intMessageBarWidth. "px";
+        $arrReplace[ "codetodiagram:message_row_width" ]        = round( $intMessageBarWidth - 2 *  $intActorBarWidth ). "px";
+        $arrReplace[ "codetodiagram:message_row_short_width" ]  = round( $intLineMargin - 2 *  $intActorBarWidth ). "px";
+        $arrReplace[ "codetodiagram:actor_header_width" ]       = $intActorHeaderWidth . "px";
+        $arrReplace[ "codetodiagram:actor_bar_width" ]          = $intActorBarWidth . "px";
+        $arrReplace[ "codetodiagram:actor_logo_width" ]         = $intActorLogoWidth . "px";
+        $arrReplace[ "codetodiagram:actor_logo_border" ]        = $intActorLogoBorder . "px";
+        $arrReplace[ "codetodiagram:line_height" ]              = round( $this->getProportion() * ( $this->getConfiguration()->getLinePercentHeight() + 1 ) * $this->getConfiguration()->getWidth() / 100 ) . "px";
+        $arrReplace[ "codetodiagram_styleinline" ]              = $strStyleInLine;
+        $arrReplace[ "codetodiagram:line_margin" ]              = $intLineMargin . "px";
+        $arrReplace[ "codetodiagram:public_path" ]              = $strPublicPath;
 
-        return $this->getTemplate( "style.css" , $arrReplace );
+        return "*/" . $this->getTemplate( "style.css" , $arrReplace ) . "/*";
     }
 
     protected function getActor( UmlSequenceDiagramActor $objActor )
@@ -288,11 +312,12 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             $intStart = $objMessage->getActorFrom()->getPosition();
         }
 
+        $arrActors = $objMessage->getUmlSequenceDiagram()->getActors();
+        $intQtdActors = sizeof( $arrActors );
+
         $strReverse = $objMessage->isReverse() ? 'reverse' : 'regular';
         $strLarge = $objMessage->isLarge() ? 'large' : 'short';
-        $strRecursive = $objMessage->isRecursive() ? 'recursive' : 'line';
-
-        $arrActors = $this->objUmlSequenceDiagram->getActors();
+        $strRecursive = $objMessage->isRecursive() ? 'recursive' : '';
 
         $arrReplace = array();
         $arrReplace[ "codetodiagram:reverse" ] = $strReverse;
@@ -302,23 +327,22 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "<codetodiagram:message_text/>" ] =  UmlSequenceDiagramPrinterToHtml::getMessageText( $objMessage );
         $arrReplace[ "codetodiagram:message_id" ] = $objMessage->getPosition();
         $arrReplace[ "<codetodiagram:message_position/>" ] = $objMessage->getPosition();
-        $arrReplace[ "codetodiagram:actoractual_name" ] = "";
-        $arrReplace[ "codetodiagram:message_dif" ] = "";
+        $arrReplace[ "codetodiagram:actor_from" ] = "actor" . $intStart;
+        $arrReplace[ "codetodiagram:message_dif" ] = "dif" . ( $intStart - $intEnd );
         $arrReplace[ "<codetodiagram:message_values/>" ] = $this->getValues( $objMessage );
 
         $strResult = '';
 
         while( $objActorActual = array_shift( $arrActors ) )
         {
-
-            $objActorNext = current( $arrActors );
             $intNextPosition =  $objActorActual->getPosition() + 1;
+            $strFinal = ( $objActorActual->getPosition() == $intQtdActors ) ? "final" : "regular";
 
             /**
-            * @var $objActorNext UmlSequenceDiagramActor
             * @var $objActorActual UmlSequenceDiagramActor
             */
 
+            $arrReplace[ "codetodiagram:message_final" ] = $strFinal;
             $arrReplace[ "codetodiagram:actoractual_name" ] = $objActorActual->getName();
             $arrReplace[ "codetodiagram:message_dif" ] = $intNextPosition - $intEnd;;
             $arrReplace[ "codetodiagram:message_values" ] = "";
@@ -353,7 +377,6 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 $strMessage = '';
                 $strMessage .= ' Invalid Position ' . "\n" ;
                 $strMessage .= ' Actual Actor ' . $objActorActual->getPosition() ;
-                $strMessage .= ' Next Actor ' . $objActorNext->getPosition() ;
                 $strMessage .= ' Message Start ' . $intStart ;
                 $strMessage .= ' Message End' . $intEnd ;
                 throw new Exception( $strMessage );
@@ -436,7 +459,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
     public function getDetails()
     {
         $strHtml = '';
-        $strHtml .= '<div id="detail"><ol>' . "\n";
+        $strHtml .= '<div class="detail"><ol>' . "\n";
 
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
         foreach( $arrMessages as $objMessage )

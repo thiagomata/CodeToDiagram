@@ -68,7 +68,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intActorHeaderPercentWidth = 30;
+    protected $intActorHeaderPercentWidth = 25;
 
     /**
      * width ( in percent ) for each actor bar

@@ -90,6 +90,7 @@ class UmlSequenceDiagram
     {
         $this->arrMessages[] = $objMessage;
         $objMessage->setPosition( sizeof( $this->arrMessages ) );
+        $objMessage->setUmlSequenceDiagram( $this );
         return $this;
     }
 
@@ -136,6 +137,7 @@ class UmlSequenceDiagram
     {
         $this->arrActors[ $objActor->getId() ] = $objActor;
         $objActor->setPosition( sizeof( $this->arrActors ) );
+        $objActor->setUmlSequenceDiagram( $this );
         return $this;
     }
 
