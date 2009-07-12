@@ -49,7 +49,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intLinePercentHeight = 5;
+    protected $intLinePercentHeight = 25;
 
     /**
      * The zoom reduce / enlarge the diagram
@@ -86,7 +86,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intPercentFont = 2;
+    protected $intPercentFont = 30;
     
     /**
      * If embeded the script will not create the html header tags

@@ -222,10 +222,11 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
         $intMessageHeaderWidth = round( $intSlice - $intActorHeaderWidth );
         $intMessageBarWidth = round( ( $intSlice - $intActorBarWidth ) / 2 ) ;
+        $intMessageBarHeight = ceil( $intMessageBarWidth * $this->getConfiguration()->getLinePercentHeight() / 100 );
 
         $intFontWidth =
         round(
-                ( $this->getProportion() * $this->getConfiguration()->getWidth() * $this->getConfiguration()->getPercentFont() )
+                ( $intMessageBarHeight * $this->getConfiguration()->getPercentFont() )
                 /
                 100        
         );
@@ -239,13 +240,14 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "codetodiagram:slice_width" ]              = $intSlice . "px";
         $arrReplace[ "codetodiagram:message_header_width" ]     = $intMessageHeaderWidth . "px";
         $arrReplace[ "codetodiagram:message_bar_width" ]        = $intMessageBarWidth. "px";
+        $arrReplace[ "codetodiagram:message_bar_height" ]       = $intMessageBarHeight. "px";
         $arrReplace[ "codetodiagram:message_row_width" ]        = round( $intMessageBarWidth - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:message_row_short_width" ]  = round( $intLineMargin - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:actor_header_width" ]       = $intActorHeaderWidth . "px";
         $arrReplace[ "codetodiagram:actor_bar_width" ]          = $intActorBarWidth . "px";
         $arrReplace[ "codetodiagram:actor_logo_width" ]         = $intActorLogoWidth . "px";
         $arrReplace[ "codetodiagram:actor_logo_border" ]        = $intActorLogoBorder . "px";
-        $arrReplace[ "codetodiagram:line_height" ]              = round( $this->getProportion() * ( $this->getConfiguration()->getLinePercentHeight() + 1 ) * $this->getConfiguration()->getWidth() / 100 ) . "px";
+        $arrReplace[ "codetodiagram:line_height" ]              = $intMessageBarHeight . "px";
         $arrReplace[ "codetodiagram_styleinline" ]              = $strStyleInLine;
         $arrReplace[ "codetodiagram:line_margin" ]              = $intLineMargin . "px";
         $arrReplace[ "codetodiagram:public_path" ]              = $strPublicPath;

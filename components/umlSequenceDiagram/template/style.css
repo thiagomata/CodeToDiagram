@@ -1,6 +1,15 @@
 .sequenceDiagram
 {
+    float: left;
     width: codetodiagram:body_width;
+}
+.sequenceDiagram *
+{
+    font-size: codetodiagram:body_font;
+}
+.sequenceDiagram .detail *
+{
+    font-size: 13px;
 }
 .sequenceDiagram .line
 {
@@ -17,7 +26,7 @@
     width: codetodiagram:slice_width;
     /*height: codetodiagram:slice_height;*/
     text-align: center;
-    height: 20px;
+    height: 10%;
 }
 .sequenceDiagram .head .actor
 {
@@ -35,10 +44,10 @@
 .sequenceDiagram .head .actor
 {
     width: codetodiagram:actor_header_width;
-    height: 20px;
+    height: 20%;
     text-align: center;
-    height: codetodiagram:line_height;
-   float: left;
+    height: codetodiagram:message_bar_height;
+    float: left;
 }
 .sequenceDiagram .head .actor div
 {
@@ -46,11 +55,11 @@
     margin-left: codetodiagram:actor_logo_border;
     margin-right: codetodiagram:actor_logo_border;
     width: codetodiagram:actor_logo_width;
-    height: codetodiagram:line_height;
-   float: left;
-   border-style: solid;
-   border-color: blue;
-   border-width: 1px;
+    height: codetodiagram:message_bar_height;
+    float: left;
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
 }
 .sequenceDiagram .line.body .slice
 {
@@ -61,24 +70,54 @@
 .sequenceDiagram .line.body .message_header , .line.body .slice.final
 {
     width: codetodiagram:line_margin;
-   float: left;
+    float: left;
 }
 .sequenceDiagram .line.body .slice .actor
 {
-    width: 5px;
+    width: 5%;
     background-color: blue;
-   float: left;
-   height: 100%;
+    float: left;
+    height: 100%;
+}
+.sequenceDiagram .line.body .slice.final .actor
+{
+    width: 10%;
 }
 .sequenceDiagram .detail li
 {
     float: left;
     width: 100%;
+
 }
-.sequenceDiagram .line.body .message
+.sequenceDiagram .line.body
+{
+    height: codetodiagram:line_height;
+}
+.sequenceDiagram .line.body .row
 {
     text-align: center;
+    width: 95%;
+    height: 100%;
+    overflow: hidden;
+}
+.sequenceDiagram .line.body .row.recursive
+{
+    width: 85%;
+}
+.sequenceDiagram .line.body .slice.final .row
+{
+    width: 90%;
+}
+.sequenceDiagram .line.body .slice.final .row.recursive
+{
     width: 80%;
+}
+.sequenceDiagram .line.body .row *
+{
+    padding: 0px;
+    text-align: center;
+    width: 99%;
+    height: 50%;
 }
 .sequenceDiagram .line.body .message a
 {
@@ -89,27 +128,27 @@
     display: block;
     float: left;
     width: 100%;
-    height: 50px;
+    height: 100%;
 }
 .slice , .row , .actor
 {
     width: 100%;
 }
-.sequenceDiagram .line.body .call
+.sequenceDiagram .line.body .call .message
 {
     border-width: 0px;
     border-bottom-width: 1px;
     border-style: solid;
     border-color: black;
 }
-.sequenceDiagram .line.body .return
+.sequenceDiagram .line.body .return .message
 {
     border-width: 0px;
     border-bottom-width: 1px;
     border-style: dashed;
     border-color: black;
 }
-.sequenceDiagram .line.body .recursive
+.sequenceDiagram .line.body .recursive .message
 {
     border-top-width: 1px;
     border-right-width: 1px;
@@ -123,28 +162,41 @@
     width: 95%;
     overflow: hidden;
 }
-.call.end.regular
+.call , .return
 {
-        background-image: url( "codetodiagram:public_path/images/row_call.gif" );
-        background-position: right;
-        margin-right: 0px;
-        margin-left: 0px;
-        background-repeat: no-repeat;
+    background-position: right center;
+    margin-right: 0px;
+    margin-left: 0px;
+    background-repeat: no-repeat;
 }
-.call.regular.short.start
+.row.reverse
 {
-        background-repeat: no-repeat;
-        background-image: url( "codetodiagram:public_path/images/row_call.gif" );
-        background-position: right bottom;
-        margin-right: 0px;
-        margin-left: 0px;
-        padding-bottom: 10px;
+    background-position: left center;
 }
-.return.regular.short.start
+.row.call
 {
-        background-image: url( "codetodiagram:public_path/images/row_return_back.gif" );
-        background-position: right;
-        margin-right: 0px;
-        margin-left: 0px;
+    background-image: url( "codetodiagram:public_path/images/row_call.gif" );
 }
-
+.actor.middle.call
+{
+    
+}
+.actor.middle.return
+{
+    
+}
+.row.return ,
+.row.return.reverse.start.large
+{
+    background-image: url( "codetodiagram:public_path/images/row_return.gif" );
+}
+.row.call.recursive
+{
+    background-image: url( "codetodiagram:public_path/images/row_call_back.gif" );
+    background-position: left center;
+}
+.row.large ,
+.row.return.reverse.end
+{
+    background-image: none;
+}
