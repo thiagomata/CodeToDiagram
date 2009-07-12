@@ -46,16 +46,16 @@
     width: codetodiagram:actor_header_width;
     height: 20%;
     text-align: center;
-    height: codetodiagram:message_bar_height;
+    height: codetodiagram:actor_header_height;
     float: left;
 }
-.sequenceDiagram .head .actor div
+.sequenceDiagram .head .actor .name
 {
     background-color: #DDDDFF;
     margin-left: codetodiagram:actor_logo_border;
     margin-right: codetodiagram:actor_logo_border;
     width: codetodiagram:actor_logo_width;
-    height: codetodiagram:message_bar_height;
+    height: 50%;
     float: left;
     border-style: solid;
     border-color: blue;
@@ -199,4 +199,9 @@
 .row.return.reverse.end
 {
     background-image: none;
+}
+.actor .logo img
+{
+    height: codetodiagram:actor_logo_height;
+    width: codetodiagram:actor_logo_height;
 }

@@ -219,6 +219,8 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $intActorBarWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorBarPercentWidth() / 100 );
         $intActorLogoWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 );
         $intActorLogoBorder = round( ( $intActorHeaderWidth - $intActorLogoWidth ) / 2 );
+        $intActorHeaderHeight = ceil( $intActorHeaderWidth * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
+        $intActorLogoHeight = round( $intActorHeaderHeight * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
 
         $intMessageHeaderWidth = round( $intSlice - $intActorHeaderWidth );
         $intMessageBarWidth = round( ( $intSlice - $intActorBarWidth ) / 2 ) ;
@@ -244,32 +246,37 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "codetodiagram:message_row_width" ]        = round( $intMessageBarWidth - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:message_row_short_width" ]  = round( $intLineMargin - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:actor_header_width" ]       = $intActorHeaderWidth . "px";
+        $arrReplace[ "codetodiagram:actor_header_height" ]       = $intActorHeaderHeight . "px";
         $arrReplace[ "codetodiagram:actor_bar_width" ]          = $intActorBarWidth . "px";
         $arrReplace[ "codetodiagram:actor_logo_width" ]         = $intActorLogoWidth . "px";
+        $arrReplace[ "codetodiagram:actor_logo_height" ]         = $intActorLogoHeight . "px";
         $arrReplace[ "codetodiagram:actor_logo_border" ]        = $intActorLogoBorder . "px";
         $arrReplace[ "codetodiagram:line_height" ]              = $intMessageBarHeight . "px";
         $arrReplace[ "codetodiagram_styleinline" ]              = $strStyleInLine;
         $arrReplace[ "codetodiagram:line_margin" ]              = $intLineMargin . "px";
         $arrReplace[ "codetodiagram:public_path" ]              = $strPublicPath;
 
+//        print_r( $arrReplace );
+//        exit();
         return "*/" . $this->getTemplate( "style.css" , $arrReplace ) . "/*";
     }
 
     protected function getActor( UmlSequenceDiagramActor $objActor )
     {
         $objStereotype = $objActor->getStereotype();
-        if( $objStereotype->getDefault())
+
+        if( $objStereotype->getDefault() )
         {
-            $strStyle = '';
+            $strImage = '<img src="' . $this->getConfiguration()->getPublicFolderPath() . 'images/' . $objStereotype->getName() . '.gif"/>';
         }
         else
         {
-            $strStyle = 'style=\'background-image: url( "' . $objStereotype->getImage() . '" );\'';
+            $strImage = '<img src="' . $objStereotype->getImage() . '"/>';
         }
 
         $arrReplace = array();
         $arrReplace[ "codetodiagram:actor_stereotype" ] = $objStereotype->getName();
-        $arrReplace[ "codetodiagram:actor_style" ] = $strStyle;
+        $arrReplace[ "codetodiagram:actor_image" ] = $strImage;
         $arrReplace[ "codetodiagram:actor_name" ] = $objActor->getName();
 
         return $this->getTemplate( "actor.html" , $arrReplace );

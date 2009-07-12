@@ -52,6 +52,14 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     protected $intLinePercentHeight = 25;
 
     /**
+     * Height of each line in relative proporsion to the width
+     *
+     * @var integer
+     * @default 10
+     */
+    protected $intLineActorPercentHeight = 40;
+
+    /**
      * The zoom reduce / enlarge the diagram
      * keeping the proportion beteewn the dimension
      * and images
@@ -68,7 +76,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * @var integer
      * @default 10
      */
-    protected $intActorHeaderPercentWidth = 25;
+    protected $intActorHeaderPercentWidth = 75;
 
     /**
      * width ( in percent ) for each actor bar
@@ -260,6 +268,30 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     public function getLinePercentHeight()
     {
         return $this->intLinePercentHeight;
+    }
+
+    /**
+     * Set the height of each line in relative proporsion to the width
+     *
+     * @see UmlSequenceDiagramPrinterInterface::setLineActorPercentHeight( integer )
+     * @param integer $intActorPercentHeight
+     * @return UmlSequenceDiagramPrinterInterface
+     */
+    public function setLineActorPercentHeight( $intActorPercentHeight )
+    {
+        $this->intLineActorPercentHeight = (integer)$intActorPercentHeight;
+        return $this;
+    }
+
+    /**
+     * Get the height of the actor line in relative proporsion to the width
+     *
+     * @see UmlSequenceDiagramPrinterInterface::getLineActorPercentHeight()
+     * @return integer;
+     */
+    public function getLineActorPercentHeight()
+    {
+        return $this->intLineActorPercentHeight;
     }
 
     /**
