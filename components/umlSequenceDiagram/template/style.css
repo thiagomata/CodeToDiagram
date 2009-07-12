@@ -173,9 +173,13 @@
 {
     background-position: left center;
 }
-.row.call
+.row.call.regular
 {
     background-image: url( "codetodiagram:public_path/images/row_call.gif" );
+}
+.row.call.reverse
+{
+    background-image: url( "codetodiagram:public_path/images/row_call_back.gif" );
 }
 .actor.middle.call
 {
@@ -185,10 +189,15 @@
 {
     
 }
-.row.return ,
+.row.return.reverse ,
 .row.return.reverse.start.large
 {
     background-image: url( "codetodiagram:public_path/images/row_return.gif" );
+}
+.row.return.regular ,
+.row.return.regular.start.large
+{
+    background-image: url( "codetodiagram:public_path/images/row_return_back.gif" );
 }
 .row.call.recursive
 {
@@ -196,7 +205,11 @@
     background-position: left center;
 }
 .row.large ,
-.row.return.reverse.end
+.row.return.reverse.end ,
+.row.call.large.middle ,
+.row.return.large.middle ,
+.row.call.reverse.end ,
+.row.call.regular.start 
 {
     background-image: none;
 }
