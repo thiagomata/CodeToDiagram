@@ -14,6 +14,22 @@
 class CodeInstrumentationReceiverConfiguration
 {
     /**
+     * param to control if the code instrumentation is active.
+     * Can be changed in execution time to ignore some slice
+     * of the execution.
+     * 
+     * @example{
+     *  // logged code //
+     *  $this->setActive( false );
+     *  // not logged code //
+     *  $this->setActive( true );
+     *  // logged code //
+     * }
+     * @var boolean 
+     */
+    protected $booActive = true;
+
+    /**
      * param if the null return should be saved as a message
      * into the uml sequence diagram object
      *
@@ -61,6 +77,31 @@ class CodeInstrumentationReceiverConfiguration
      */
     protected $objMatchGroupStereotypes;
 
+    /**
+     * Set if the code instrumentation is active.
+     *
+     * @see CodeInstrumentationReceiverConfiguration->booActive
+     * @see CodeInstrumentationReceiverConfiguration::getActive()
+     * @param boolean $booActive <code> true </code> to be active
+     * @return CodeInstrumentationReceiverConfiguration me
+     */
+    public function setActive( $booActive )
+    {
+        $this->booActive = $booActive;
+        return $this;
+    }
+
+    /**
+     * Get if the code instrumentation is active
+     *
+     * @see CodeInstrumentationReceiverConfiguration->booActive
+     * @see CodeInstrumentationReceiverConfiguration::setActive( boolean )
+     * @return boolean <code> true </code> if is active
+     */
+    public function getActive()
+    {
+        return $this->booActive;
+    }
 
     /**
      * Set the configuration paramenter if the code instrumentation should ignore the returns
@@ -68,7 +109,7 @@ class CodeInstrumentationReceiverConfiguration
      *
      * @see CodeInstrumentationReceiverConfiguration->boolIgnoreNullReturns
      * @see CodeInstrumentationReceiverConfiguration::geIgnoreNullReturns()
-     * @param $booIgnoreNullReturns <code>true</code> if should ignore the null returns
+     * @param boolean $booIgnoreNullReturns <code>true</code> if should ignore the null returns
      * @return CodeInstrumentationReceiverConfiguration me
      */
     public function setIgnoreNullReturns( $booIgnoreNullReturns )
@@ -96,7 +137,7 @@ class CodeInstrumentationReceiverConfiguration
      *
      * @see CodeInstrumentationReceiverConfiguration->booIgnoreRecursiveCalls
      * @see CodeInstrumentationReceiverConfiguration::getIgnoreRecursiveCalls()
-     * @param $booIgnoreNullReturns <code>true</code> if should ignore the recursive calls
+     * @param boolean $booIgnoreNullReturns <code>true</code> if should ignore the recursive calls
      * @return CodeInstrumentationReceiverConfiguration me
      */
     public function setIgnoreRecursiveCalls( $booIgnoreRecursiveCalls )
@@ -111,7 +152,6 @@ class CodeInstrumentationReceiverConfiguration
      *
      * @see CodeInstrumentationReceiverConfiguration->booIgnoreRecursiveCalls
      * @see CodeInstrumentationReceiverConfiguration::setIgnoreRecursiveCalls( boolean )
-     * @param $booIgnoreNullReturns <code>true</code> if should ignore the null returns
      * @return boolean <code>true</code> if should ignore the recursive calls
      */
     public function getIgnoreRecursiveCalls()
@@ -125,7 +165,7 @@ class CodeInstrumentationReceiverConfiguration
      *
      * @see CodeInstrumentationReceiverConfiguration->booMergeSameClassObjects
      * @see CodeInstrumentationReceiverConfiguration::getMergeSameClassObjects()
-     * @param $booMergeSameClassObjects <code>true</code> if should should merge
+     * @param boolean $booMergeSameClassObjects <code>true</code> if should should merge
      * same class object
      * @return CodeInstrumentationReceiverConfiguration me
      */
@@ -209,6 +249,11 @@ class CodeInstrumentationReceiverConfiguration
         return $this->objMatchGroupStereotypes;
     }
 
+    /**
+     * Constructor of the Configuration.
+     * Create the internal objects.
+     *
+     */
     public function __construct()
     {
         // create the internal objects //

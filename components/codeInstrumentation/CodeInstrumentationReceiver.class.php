@@ -71,7 +71,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     protected $objConfiguration;
 
     /**
-     *
+     * Set the code instrumentation receiver configuration
+     * 
      * @param CodeInstrumentationReceiverConfiguration $objConfiguration
      * @return CodeInstrumentationReceiver
      */
@@ -82,8 +83,9 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     }
 
     /**
+     * Get the code instrumentation receiver configuration
      *
-     * @return <type>
+     * @return CodeInstrumentationReceiverConfiguration
      */
     public function getConfiguration()
     {
@@ -196,6 +198,11 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      */
     protected function shouldBeLog( $strClass , $strMethod )
     {
+        if( ! $this->getConfiguration()->getActive() )
+        {
+            return false;
+        }
+        
         if( $this->getConfiguration()->getGatekeeperClasses()->match( $strClass ) == false )
         {
             return false;

@@ -187,7 +187,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         }
 
         $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
-        
+
         if( $intQtdActors > 1 )
         {
             $intQtdMessageLine = $intQtdActors - 1;
@@ -218,39 +218,39 @@ print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>
             ( $this->getProportion()  * $this->getConfiguration()->getWidth() )
             /
             ( $intQtdActors )
-        );
+        ) - 1;
 
         $intSlice = $intActorHeaderWidth * 2;
 
-        $intActorBarWidth = ceil( $intActorHeaderWidth * $this->getConfiguration()->getActorBarPercentWidth() / 100 );
-        $intActorLogoWidth = ceil( $intActorHeaderWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 );
-        $intActorLogoBorder = ceil( ( $intActorHeaderWidth - $intActorLogoWidth ) / 2 );
-        $intActorHeaderHeight = ceil( $intActorHeaderWidth * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
-        $intActorLogoHeight = ceil( $intActorHeaderHeight * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
+        $intActorBarWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorBarPercentWidth() / 100 );
+        $intActorLogoWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 );
+        $intActorLogoBorder = round( ( $intActorHeaderWidth - $intActorLogoWidth ) / 2 );
+        $intActorHeaderHeight = round( $intActorHeaderWidth * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
+        $intActorLogoHeight = round( $intActorHeaderHeight * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
 
-        $intMessageHeaderWidth = ceil( $intSlice - $intActorHeaderWidth );
-        $intMessageBarWidth = ceil( ( $intSlice - $intActorBarWidth ) / 2 ) ;
-        $intMessageBarHeight = ceil( $intMessageBarWidth * $this->getConfiguration()->getLinePercentHeight() / 100 );
+        $intMessageHeaderWidth = round( $intSlice - $intActorHeaderWidth );
+        $intMessageBarWidth = round( ( $intSlice - $intActorBarWidth ) / 2 ) + 1 ;
+        $intMessageBarHeight = round( $intMessageBarWidth * $this->getConfiguration()->getLinePercentHeight() / 100 );
 
         $intFontWidth =
-        ceil(
+        round(
                 ( $intMessageBarHeight * $this->getConfiguration()->getPercentFont() )
                 /
                 100        
         );
 
-        $intLineMargin = ceil( $intMessageBarWidth / 2);
+        $intLineMargin = round( $intMessageBarWidth / 2);
         
         $arrReplace = array();
         $arrReplace[ "codetodiagram_sequencestyleurl" ]         = $strSequenceStyleUrl;
-        $arrReplace[ "codetodiagram:body_width" ]               = ceil( $this->getProportion() * $this->getConfiguration()->getWidth() ) . "px";
-        $arrReplace[ "codetodiagram:body_font" ]                = ceil( $this->getProportion() * $intFontWidth ). "px";
+        $arrReplace[ "codetodiagram:body_width" ]               = round( $this->getProportion() * $this->getConfiguration()->getWidth() ) . "px";
+        $arrReplace[ "codetodiagram:body_font" ]                = round( $this->getProportion() * $intFontWidth ). "px";
         $arrReplace[ "codetodiagram:slice_width" ]              = $intSlice . "px";
         $arrReplace[ "codetodiagram:message_header_width" ]     = $intMessageHeaderWidth . "px";
         $arrReplace[ "codetodiagram:message_bar_width" ]        = $intMessageBarWidth. "px";
         $arrReplace[ "codetodiagram:message_bar_height" ]       = $intMessageBarHeight. "px";
-        $arrReplace[ "codetodiagram:message_row_width" ]        = ceil( $intMessageBarWidth - 2 *  $intActorBarWidth ). "px";
-        $arrReplace[ "codetodiagram:message_row_short_width" ]  = ceil( $intLineMargin - 2 *  $intActorBarWidth ). "px";
+        $arrReplace[ "codetodiagram:message_row_width" ]        = round( $intMessageBarWidth - 2 *  $intActorBarWidth ). "px";
+        $arrReplace[ "codetodiagram:message_row_short_width" ]  = round( $intLineMargin - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:actor_header_width" ]       = $intActorHeaderWidth . "px";
         $arrReplace[ "codetodiagram:actor_header_height" ]       = $intActorHeaderHeight . "px";
         $arrReplace[ "codetodiagram:actor_bar_width" ]          = $intActorBarWidth . "px";
@@ -560,6 +560,9 @@ print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>
      */
     private static function removeRecursiveProblem( $mixExpression )
     {
+        $booActive = CodeInstrumentationReceiver::getInstance()->getConfiguration()->getActive();
+        CodeInstrumentationReceiver::getInstance()->getConfiguration()->setActive( false );
+
         $mixExpression = serialize( $mixExpression );
         $arrExpression = explode( ";" , $mixExpression );
         foreach( $arrExpression as $intKey => $strExpression )
@@ -591,6 +594,8 @@ print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>
         }
 
         $mixExpression = implode( "::" , $arrClasses );
+
+        CodeInstrumentationReceiver::getInstance()->getConfiguration()->setActive( $booActive );
         return $mixExpression;
     }
 
