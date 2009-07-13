@@ -57,7 +57,7 @@
 .sequenceDiagram .head .actor .name
 {
     background-color: rgb( 100 , 100 , 230 );
-    color: rgb( 255 , 193, 143 );
+    color: white;
     margin-left: codetodiagram:actor_logo_border;
     margin-right: codetodiagram:actor_logo_border;
     width: codetodiagram:actor_logo_width;
