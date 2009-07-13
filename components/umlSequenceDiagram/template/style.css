@@ -81,12 +81,16 @@
 .sequenceDiagram .line.body .slice .actor
 {
     width: 5%;
-    /*background-color: blue;*/
-    background-image: url( "codetodiagram:public_path/images/degrade.png" );
+    background-color: #EEEEFF;
     background-repeat: repeat-y;
     background-position: center center;
     float: left;
     height: 100%;
+}
+.sequenceDiagram .line.body .slice .actor.start,
+.sequenceDiagram .line.body .slice .actor.after1
+{
+    background-image: url( "codetodiagram:public_path/images/degrade.png" );
 }
 .sequenceDiagram .line.body .slice.final .actor
 {
