@@ -57,6 +57,13 @@ class CodeToDiagram
 	 */
 	protected $strPrinterType = self::PRINTER_TYPE_HTML;
 
+    /**
+     * Printer of the diagram
+     *
+     * @var UmlSequenceDiagramPrinterInterface
+     */
+    protected $objPrinter;
+
 	/**
 	 * Caller Path of the execution
 	 * 
@@ -157,9 +164,16 @@ class CodeToDiagram
      */
     protected static $arrDefaultStereotypes = array( 'user' , 'system' , 'user' , 'entity' , 'controller' , 'boundary' , 'database');
 
+    /**
+     * Constructor of the CodetoDiagram
+     *
+     * Create the child objects
+     * 
+     */
     public function __construct()
     {
         $this->loadDefaultsStereotypes();
+        $this->setPrinterType( $this->getPrinterType() );
     }
 
     /**
@@ -186,6 +200,55 @@ class CodeToDiagram
 	{
 		return CodeInstrumentationReceiver::getInstance()->getConfiguration();
 	}
+
+    /**
+     * Set the printer of the code to diagram
+     *
+     * @param UmlSequenceDiagramPrinterInterface $objPrinter
+     * @return CodeToDiagram me
+     */
+    public function setPrinter( UmlSequenceDiagramPrinterInterface $objPrinter )
+    {
+        $this->objPrinter = $objPrinter;
+        return $this;
+    }
+
+    /**
+     * Get the printer of the code to diagram
+     *
+     * @return UmlSequenceDiagramPrinterInterface
+     */
+    public function getPrinter()
+    {
+        return $this->objPrinter;
+    }
+
+    /**
+     * Set the printer configuration
+     *
+     * @param UmlSequenceDiagramPrinterConfigurationInterface $objPrinterConfiguration
+     * @return CodeToDiagram me
+     * @throws CodeToDiagramException
+     */
+    public function setPrinterConfiguration( UmlSequenceDiagramPrinterConfigurationInterface $objPrinterConfiguration )
+    {
+        if( get_class( $objPrinterConfiguration ) != get_class( $this->getPrinterConfiguration() ) )
+        {
+            throw new CodeToDiagramException( "Invalid Printer Configuration" );
+        }
+        $this->getPrinter()->setConfiguration( $objPrinterConfiguration );
+        return $this;
+    }
+
+    /**
+     * Get the printer configuration
+     *
+     * @return UmlSequenceDiagramPrinterConfigurationInterface
+     */
+    public function getPrinterConfiguration()
+    {
+        return $this->getPrinter()->getConfiguration();
+    }
 
 	 /**
 	 * Set the output type of the diagram.;
@@ -289,8 +352,14 @@ class CodeToDiagram
 		switch( $strType )
 		{
 			case CodeToDiagram::PRINTER_TYPE_HTML:
+            {
+                $this->setPrinter( UmlSequenceDiagramPrinterToHtml::getInstance() );
+				$this->strPrinterType = $strType;
+				break;
+            }
 			case CodeToDiagram::PRINTER_TYPE_XML:
 			{
+                $this->setPrinter( UmlSequenceDiagramPrinterToXml::getInstance() );
 				$this->strPrinterType = $strType;
 				break;
 			}
@@ -603,10 +672,10 @@ class CodeToDiagram
 
         if( is_dir( $strPath ) )
         {
-            if( !is_writable( $strFileName ) )
-            {
-                throw new CodeToDiagramException(2 . self::MSG_NO_WRITE_PERMISSION );
-            }
+            /**
+             * @todo deal with write permission into dirs..
+             */
+            return true;
         }
 
         if( !mkdir( $strPath , 0777, TRUE ) )

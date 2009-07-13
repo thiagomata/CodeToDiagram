@@ -61,7 +61,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      * @param UmlSequenceDiagramPrinterConfigurationToHtml $objConfiguration
      * @return UmlSequenceDiagramPrinterToHtml me
      */
-    public function setConfiguration( UmlSequenceDiagramPrinterConfigurationToHtml $objConfiguration )
+    public function setConfiguration( UmlSequenceDiagramPrinterConfigurationInterface $objConfiguration )
     {
         $this->objConfiguration = $objConfiguration;
         return $this;
@@ -172,9 +172,13 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      */
     protected function getStyle()
     {
+        # get the public folder
         $strPublicPath = $this->getConfiguration()->getPublicFolderPath();
+
+        # get the url of the static style file
         $strCssFile = "{$strPublicPath}css/sequenceStyle.css";
 
+        # if is external access, all the style should be in line
         if( $this->getConfiguration()->getExternalAccess() )
         {
             $strStyleInLine = file_get_contents( $strCssFile  );
@@ -186,8 +190,8 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             $strSequenceStyleUrl = $strCssFile;
         }
 
+        # calc the number of actors and messages 
         $intQtdActors = sizeof( $this->objUmlSequenceDiagram->getActors() );
-
         if( $intQtdActors > 1 )
         {
             $intQtdMessageLine = $intQtdActors - 1;
@@ -196,23 +200,8 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         {
             $intQtdMessageLine = 1;
         }
-/*
-print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>\n";
 
-        foreach( $this->objUmlSequenceDiagram->getActors()  as $objActor )
-        {
-            print $objActor->getPosition() . " - " . $objActor->getId() . "<br/>\n";
-        }
-
-        exit();
-*/
-        $intSlice =
-        round(
-            ( $this->getProportion()  * $this->getConfiguration()->getWidth() )
-            /
-            ( $intQtdMessageLine )
-        );
-
+        # calc the size of the header of each actor
         $intActorHeaderWidth =
         round(
             ( $this->getProportion()  * $this->getConfiguration()->getWidth() )
@@ -220,27 +209,36 @@ print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>
             ( $intQtdActors )
         ) - 1;
 
+        # calc the width of one slice of each actor
         $intSlice = $intActorHeaderWidth * 2;
 
-        $intActorBarWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorBarPercentWidth() / 100 );
-        $intActorLogoWidth = round( $intActorHeaderWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 );
-        $intActorLogoBorder = round( ( $intActorHeaderWidth - $intActorLogoWidth ) / 2 );
-        $intActorHeaderHeight = round( $intActorHeaderWidth * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
-        $intActorLogoHeight = round( $intActorHeaderHeight * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
+        # calc the actor sizes
+        $intActorBarWidth = floor( $intActorHeaderWidth * $this->getConfiguration()->getActorBarPercentWidth() / 100 );
+        $intActorLogoWidth = floor( $intActorHeaderWidth * $this->getConfiguration()->getActorHeaderPercentWidth() / 100 );
+        $intActorLogoBorder = floor( ( $intActorHeaderWidth - $intActorLogoWidth ) / 2 );
+        $intActorHeaderHeight = floor( $intActorHeaderWidth * $this->getConfiguration()->getLineActorPercentHeight() / 100 );
+        $intActorLogoHeight = floor( $intActorHeaderHeight * $this->getConfiguration()->getActorLogoPercentWidth() / 100 );
+        $intActorMarginLogo = 1;
+        $intActorLogoPercentHeight = floor( $this->getConfiguration()->getActorLogoPercentWidth() ) - $intActorMarginLogo;
+        $intActorBoxPercentHeight = floor( 100 -  $this->getConfiguration()->getActorLogoPercentWidth() ) - $intActorMarginLogo;
 
-        $intMessageHeaderWidth = round( $intSlice - $intActorHeaderWidth );
-        $intMessageBarWidth = round( ( $intSlice - $intActorBarWidth ) / 2 ) + 1 ;
-        $intMessageBarHeight = round( $intMessageBarWidth * $this->getConfiguration()->getLinePercentHeight() / 100 );
+        # calc the messages sizes
+        $intMessageHeaderWidth = floor( $intSlice - $intActorHeaderWidth );
+        $intMessageBarWidth = floor( ( $intSlice - $intActorBarWidth ) / 2 ) + 1 ;
+        $intMessageBarHeight = floor( $intMessageBarWidth * $this->getConfiguration()->getLinePercentHeight() / 100 );
 
+        # calc the font size
         $intFontWidth =
-        round(
+        floor(
                 ( $intMessageBarHeight * $this->getConfiguration()->getPercentFont() )
                 /
                 100        
         );
 
+        # calc the line margin
         $intLineMargin = round( $intMessageBarWidth / 2);
-        
+
+        # put the data into the replace container
         $arrReplace = array();
         $arrReplace[ "codetodiagram_sequencestyleurl" ]         = $strSequenceStyleUrl;
         $arrReplace[ "codetodiagram:body_width" ]               = round( $this->getProportion() * $this->getConfiguration()->getWidth() ) . "px";
@@ -252,18 +250,19 @@ print "sizeof = " . sizeof( $this->objUmlSequenceDiagram->getActors() ) . "<br/>
         $arrReplace[ "codetodiagram:message_row_width" ]        = round( $intMessageBarWidth - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:message_row_short_width" ]  = round( $intLineMargin - 2 *  $intActorBarWidth ). "px";
         $arrReplace[ "codetodiagram:actor_header_width" ]       = $intActorHeaderWidth . "px";
-        $arrReplace[ "codetodiagram:actor_header_height" ]       = $intActorHeaderHeight . "px";
+        $arrReplace[ "codetodiagram:actor_header_height" ]      = $intActorHeaderHeight . "px";
         $arrReplace[ "codetodiagram:actor_bar_width" ]          = $intActorBarWidth . "px";
         $arrReplace[ "codetodiagram:actor_logo_width" ]         = $intActorLogoWidth . "px";
-        $arrReplace[ "codetodiagram:actor_logo_height" ]         = $intActorLogoHeight . "px";
+        $arrReplace[ "codetodiagram:actor_logo_height" ]        = $intActorLogoHeight . "px";
+        $arrReplace[ "codetodiagram:actor_logo_percent_height" ]= $intActorLogoPercentHeight . "%";
+        $arrReplace[ "codetodiagram:actor_box_percent_height" ] = $intActorBoxPercentHeight . "%";
         $arrReplace[ "codetodiagram:actor_logo_border" ]        = $intActorLogoBorder . "px";
         $arrReplace[ "codetodiagram:line_height" ]              = $intMessageBarHeight . "px";
         $arrReplace[ "codetodiagram_styleinline" ]              = $strStyleInLine;
         $arrReplace[ "codetodiagram:line_margin" ]              = $intLineMargin . "px";
         $arrReplace[ "codetodiagram:public_path" ]              = $strPublicPath;
 
-//        print_r( $arrReplace );
-//        exit();
+        # feed the style template with the received data
         return "*/" . $this->getTemplate( "style.css" , $arrReplace ) . "/*";
     }
 

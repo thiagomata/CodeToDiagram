@@ -1,17 +1,17 @@
 <?php
 /**
- * UmlSequenceDiagramPrinterConfigurationToHtml - Configuration object to the
- * UmlSequenceDiagramPrinterToHtml
+ * UmlSequenceDiagramPrinterConfigurationToXml - Configuration object to the
+ * UmlSequenceDiagramPrinterToXml
  * @package UmlSequenceDiagram
  */
 
 /**
- * Configuration object to the UmlSequenceDiagramPrinterToHtml
+ * Configuration object to the UmlSequenceDiagramPrinterToXml
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */
-class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagramPrinterConfigurationInterface
+class UmlSequenceDiagramPrinterConfigurationToXml implements UmlSequenceDiagramPrinterConfigurationInterface
 {
     /**
      * public path of the code execution
@@ -106,10 +106,10 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
     protected $intPercentFont = 30;
     
     /**
-     * If embeded the script will not create the html header tags
+     * If embeded the script will not create the Xml header tags
      * but just paste a script with the diagram element.
      *
-     * If not embeded the script will create the full html with all
+     * If not embeded the script will create the full Xml with all
      * the header needed.
      *
      * @var boolean
@@ -131,7 +131,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setPublicPath( string )
      * @param string $strPublicPath
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setPublicPath( $strPublicPath )
     {
@@ -155,7 +155,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setCallerPath( string )
      * @param string $strCallerPath
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setCallerPath( $strCallerPath )
     {
@@ -180,7 +180,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setExternalAccess( boolean )
      * @param boolean $booExternalPath
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setExternalAccess( $booExternalAccess )
     {
@@ -205,7 +205,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setWidth( integer )
      * @param integer $intWidth
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setWidth( $intWidth )
     {
@@ -233,7 +233,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setZoom( $intZoom )
      * @param integer $intZoom
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setZoom( $intZoom )
     {
@@ -261,7 +261,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setLinePercentHeight( integer )
      * @param integer $intPercentHeight
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setLinePercentHeight( $intPercentHeight )
     {
@@ -285,7 +285,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setLineActorPercentHeight( integer )
      * @param integer $intActorPercentHeight
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setLineActorPercentHeight( $intActorPercentHeight )
     {
@@ -312,7 +312,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setActorHeaderPercentWidth( $intActorHeaderPercentWidth )
      * @param integer $intActorHeaderPercentWidth
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setActorHeaderPercentWidth( $intActorHeaderPercentWidth )
     {
@@ -339,7 +339,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setActorLogoPercentWidth( $intActorLogoPercentWidth )
      * @param integer $intActorLogoPercentWidth
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setActorLogoPercentWidth( $intActorLogoPercentWidth )
     {
@@ -366,7 +366,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setActorBarPercentWidth( $intActorBarPercentWidth )
      * @param integer $intActorBarPercentWidth
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setActorBarPercentWidth( $intActorBarPercentWidth )
     {
@@ -396,7 +396,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      *
      * @see UmlSequenceDiagramPrinterInterface::setPercentFont( $intPercentFont )
      * @param integer $intPercentFont
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setPercentFont( $intPercentFont )
     {
@@ -423,7 +423,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * Set if the diagram is embeded
      *
      * @param integer $booEmbeded
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setEmbeded( $booEmbeded )
     {
@@ -445,7 +445,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      * Set if the diagram should show the details
      *
      * @param integer $booShowDetails
-     * @return UmlSequenceDiagramPrinterConfigurationToHtml me
+     * @return UmlSequenceDiagramPrinterConfigurationToXml me
      */
     public function setShowDetails( $booShowDetails )
     {
@@ -511,7 +511,7 @@ class UmlSequenceDiagramPrinterConfigurationToHtml implements UmlSequenceDiagram
      */
     public function perform( $objUmlSequenceDiagram )
     {
-        return UmlSequenceDiagramPrinterToHtml::getInstance()->perform( $objUmlSequenceDiagram );
+        return UmlSequenceDiagramPrinterToXml::getInstance()->perform( $objUmlSequenceDiagram );
     }
 }
 ?>

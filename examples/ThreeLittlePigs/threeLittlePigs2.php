@@ -33,11 +33,12 @@ CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
 	// change the output type from screen to file //
 	CodeToDiagram::getInstance()->setOutputType( CodeToDiagram::OUTPUT_TYPE_FILE );
 
-/*
-	// set the file name //
-	CodeToDiagram::getInstance()->setFileName( 'threeLitlePigs.html' );
 
-*/
+CodeToDiagram::getInstance()->getPrinterConfiguration()->setWidth( 2000 );
+
+	// set the file name //
+    CodeToDiagram::getInstance()->setFileName( 'threeLitlePigs.html' );
+
 	// start the code recording //
 	CodeToDiagram::getInstance()->start();
 
@@ -49,11 +50,11 @@ CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
     	new History();
 		# } using the file with the specified name
 
-/*
     // save it into the file //
     CodeToDiagram::getInstance()->save();
 # } the file is saved //
 
+/*
 # this code will not be into any diagram {
 	$objPig = new LittlePig();
 	$objPig->setName( "GreenPig" );

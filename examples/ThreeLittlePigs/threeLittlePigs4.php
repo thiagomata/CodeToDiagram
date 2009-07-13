@@ -41,6 +41,10 @@ CodeToDiagram::getInstance()->getConfiguration()
         ->addItemRegularExpression( "^(get(.*)|set(.*))$" )
 ;
 
+CodeToDiagram::getInstance()
+    ->getPrinterConfiguration()
+        ->setWidth( 1000 );
+
 // an alternative way to remove the class house //
 // just to show how to regular expression can be flexibe //
 //CodeToDiagram::getInstance()->addIgnoredMethodRegex( "^House::(.*)$" );

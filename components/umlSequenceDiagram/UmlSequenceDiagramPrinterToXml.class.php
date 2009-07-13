@@ -18,7 +18,15 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
 	 * @var UmlSequenceDiagram
 	 */
 	protected $objUmlSequenceDiagram;
-	
+
+    /**
+     * Uml Sequence Diagram Printer Configuration To Xml
+     *
+     * @todo Create the class configuration to the xml
+     * @var UmlSequenceDiagramPrinterConfigurationToXml
+     */
+    protected $objConfiguration;
+
 	/**
 	 * Singleton of the UmlSequenceDiagramPrinterToXml
 	 * 
@@ -170,6 +178,24 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
         }
         $strXmlMessages .= "\t</messages>\n";
         return $strXmlMessages;
-    }   
+    }
+
+    /**
+     * @todo Create the configuration class to the xml printer
+     * @todo use the configuration class of the xml printer
+     */
+    public function setConfiguration( UmlSequenceDiagramPrinterConfigurationInterface $objConfiguration )
+    {
+        $this->objConfiguration = $objConfiguration;
+    }
+
+    /**
+     * @todo Create the configuration class to the xml printer
+     * @todo use the configuration class of the xml printer
+     */
+    public function getConfiguration()
+    {
+        return $this->objConfiguration;
+    }
 }
 ?>

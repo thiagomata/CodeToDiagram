@@ -18,6 +18,22 @@ interface UmlSequenceDiagramPrinterInterface
 	 */
 	public static function getInstance();	
 
+    /**
+     * Set the configuration of the printer
+     * 
+     * @param UmlSequenceDiagramPrinterConfigurationInterface $objConfiguration
+     * @return UmlSequenceDiagramPrinterInterface me
+     */
+    public  function setConfiguration( UmlSequenceDiagramPrinterConfigurationInterface $objConfiguration );
+
+    /**
+     * Get the configuration of the printer
+     *
+     * @return UmlSequenceDiagramPrinterConfigurationInterface
+     */
+    public  function getConfiguration();
+
+
 	/**
 	 * Perfom the print process
 	 *  

@@ -49,16 +49,22 @@
     height: codetodiagram:actor_header_height;
     float: left;
 }
+.sequenceDiagram .head .actor .logo
+{
+    height: codetodiagram:actor_logo_percent_height;
+    width: 100%;
+}
 .sequenceDiagram .head .actor .name
 {
-    background-color: #DDDDFF;
+    background-color: rgb( 100 , 100 , 230 );
+    color: rgb( 255 , 193, 143 );
     margin-left: codetodiagram:actor_logo_border;
     margin-right: codetodiagram:actor_logo_border;
     width: codetodiagram:actor_logo_width;
-    height: 50%;
+    height: codetodiagram:actor_box_percent_height;
     float: left;
     border-style: solid;
-    border-color: blue;
+    border-color: orange;
     border-width: 1px;
 }
 .sequenceDiagram .line.body .slice
@@ -75,7 +81,10 @@
 .sequenceDiagram .line.body .slice .actor
 {
     width: 5%;
-    background-color: blue;
+    /*background-color: blue;*/
+    background-image: url( "codetodiagram:public_path/images/degrade.png" );
+    background-repeat: repeat-y;
+    background-position: center center;
     float: left;
     height: 100%;
 }
@@ -134,6 +143,10 @@
 {
     width: 100%;
 }
+.sequenceDiagram .line.body:hover .call .message
+{
+    border-color: orange;
+}
 .sequenceDiagram .line.body .call .message
 {
     border-width: 0px;
@@ -173,7 +186,8 @@
 {
     background-position: left center;
 }
-.row.call.regular
+.row.call.regular ,
+.row.call.regular.start.short
 {
     background-image: url( "codetodiagram:public_path/images/row_call.gif" );
 }
@@ -199,9 +213,14 @@
 {
     background-image: url( "codetodiagram:public_path/images/row_return_back.gif" );
 }
-.row.call.recursive
+.row.call.regular.short.recursive.start
 {
     background-image: url( "codetodiagram:public_path/images/row_call_back.gif" );
+    background-position: left center;
+}
+.row.return.regular.short.recursive.start
+{
+    background-image: url( "codetodiagram:public_path/images/row_return.gif" );
     background-position: left center;
 }
 .row.large ,
@@ -209,7 +228,8 @@
 .row.call.large.middle ,
 .row.return.large.middle ,
 .row.call.reverse.end ,
-.row.call.regular.start 
+.row.call.regular.start ,
+.row.return.regular.large.start 
 {
     background-image: none;
 }
