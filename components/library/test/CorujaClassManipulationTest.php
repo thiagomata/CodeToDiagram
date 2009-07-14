@@ -1,7 +1,7 @@
 <?php
 require_once 'PHPUnit/Framework.php';
 
-require_once '../_start.php';
+require_once dirname( __FILE__ ).'/../../../_start.php';
 
 /**
  * Test class for CorujaClassManipulation.

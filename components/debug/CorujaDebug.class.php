@@ -262,7 +262,7 @@ class CorujaDebug
 		if( $boolExit )
 		{
 			print "<br /><font color=\"#700000\" size=\"4\"><b>D I E</b></font>";
-			throw new CorujaException( var_export( $mixExpression , 1 )  );
+			//throw new CorujaException( var_export( $mixExpression , 1 )  );
 		}
 	}
 
