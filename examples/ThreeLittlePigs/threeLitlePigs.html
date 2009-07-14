@@ -11,10 +11,16 @@
         <title> Code to Diagram - Sequence Diagram </title>
 		<style type="text/css">
             /*<![CDATA[*/
-              /**/.sequenceDiagram
+              /**/.diagram_box
+{
+    width: 100%;
+    overflow: auto;
+}
+.sequenceDiagram
 {
     float: left;
     width: 2000px;
+    overflow: auto;
 }
 .sequenceDiagram *
 {
@@ -70,7 +76,7 @@
 .sequenceDiagram .head .actor .name
 {
     background-color: rgb( 100 , 100 , 230 );
-    color: rgb( 255 , 193, 143 );
+    color: white;
     margin-left: 28px;
     margin-right: 28px;
     width: 165px;
@@ -94,12 +100,16 @@
 .sequenceDiagram .line.body .slice .actor
 {
     width: 5%;
-    /*background-color: blue;*/
-    background-image: url( "../../public//images/degrade.png" );
+    background-color: #EEEEFF;
     background-repeat: repeat-y;
     background-position: center center;
     float: left;
     height: 100%;
+}
+.sequenceDiagram .line.body .slice .actor.start,
+.sequenceDiagram .line.body .slice .actor.after1
+{
+    background-image: url( "../../public//images/degrade.png" );
 }
 .sequenceDiagram .line.body .slice.final .actor
 {
@@ -256,13 +266,14 @@
 	</head>
 	<body lang="en-US">
         <!-- diagram -->
-<div class='sequenceDiagram'>
-    <style type="text/css">
-        /*<![CDATA[*/
-            
-        /*]]>*/
-    </style>
-    <!-- actors -->
+<div class="diagram_box">
+    <div class='sequenceDiagram'>
+        <style type="text/css">
+            /*<![CDATA[*/
+                
+            /*]]>*/
+        </style>
+        <!-- actors -->
 <div class="line head">
     <!-- actor -->
 <div class="actor user " >
@@ -348,7 +359,7 @@
 <!-- end actor -->
 </div>
 <!-- end actors -->
-    <!-- messages -->
+        <!-- messages -->
 <div class="line body">
     <div class="message_header">
         &nbsp;
@@ -10677,7 +10688,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages -->
-    <div class="detail"><ol>
+        <div class="detail"><ol>
 <li><div class="message" id="div_message_1">
 <a name="message_1"><span class="detail_actor from">user</span> create new <span class="detail_actor to">History(1)</span></a>
 <div class="values" >
@@ -11174,6 +11185,7 @@
 </div></div></li>
 </ol></div>
 
+    </div>
 </div>
 <!-- end diagram -->
     </body>
