@@ -1,13 +1,7 @@
-.diagram_box
-{
-    width: 100%;
-    overflow: auto;
-}
 .sequenceDiagram
 {
     float: left;
     width: codetodiagram:body_width;
-    overflow: auto;
 }
 .sequenceDiagram *
 {
