@@ -132,8 +132,14 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
     {
         if( $this->getConfiguration()->getEmbeded() )
         {
-            return $this->getStyle();
+            $strStyle = $this->getStyle();
         }
+        else
+        {
+            $strStyle = "";
+        }
+        $strStyle = str_replace( "\r", '', $strStyle );
+        return implode( "'+\n'" , explode( "\n" , $strStyle ) );
     }
     
     /**
@@ -272,11 +278,11 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
         if( $objStereotype->getDefault() )
         {
-            $strImage = '<img src="' . $this->getConfiguration()->getPublicFolderPath() . 'images/' . $objStereotype->getName() . '.gif"/>';
+            $strImage = '<img alt="' . $objActor->getStereotype()->getName() . '" src="' . $this->getConfiguration()->getPublicFolderPath() . 'images/' . $objStereotype->getName() . '.gif"/>';
         }
         else
         {
-            $strImage = '<img src="' . $objStereotype->getImage() . '"/>';
+            $strImage = '<img alt="' . $objActor->getStereotype()->getName() . '"  src="' . $objStereotype->getImage() . '"/>';
         }
 
         $arrReplace = array();
@@ -459,11 +465,15 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
         $arrValues = $objMessage->getValues();
         $strValueCollection = '';
-        foreach( $arrValues as $objValue )
+        if( sizeof( $arrValues ) > 0 )
         {
-            $strValueCollection .= $this->getValue( $objValue , $objMessage );
+            foreach( $arrValues as $objValue )
+            {
+                $strValueCollection .= $this->getValue( $objValue , $objMessage );
+            }
+            $strValueCollection = "<ul>" . $strValueCollection . "</ul>";
         }
-        
+
         $arrReplace = array();
         $arrReplace[ '<codetodiagram:value_collection/>' ] = $strValueCollection;
 

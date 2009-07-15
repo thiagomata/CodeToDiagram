@@ -24,7 +24,6 @@
 {
     float: left;
     width: codetodiagram:slice_width;
-    /*height: codetodiagram:slice_height;*/
     text-align: center;
     height: 10%;
 }
@@ -136,18 +135,22 @@
 {
     text-decoration: none;
 }
-.line
+.sequenceDiagram .line
 {
     display: block;
     float: left;
     width: 100%;
     height: 100%;
 }
-.slice , .row , .actor
+.sequenceDiagram .slice , .sequenceDiagram .row , .sequenceDiagram .actor
 {
     width: 100%;
 }
 .sequenceDiagram .line.body:hover .call .message
+{
+    border-color: orange;
+}
+.sequenceDiagram .line.body:hover .return .message
 {
     border-color: orange;
 }
@@ -172,72 +175,99 @@
     border-bottom-width: 1px;
     border-color: black;
 }
-.row
+.sequenceDiagram .row
 {
     float: left;
     display: block;
     width: 95%;
     overflow: hidden;
 }
-.call , .return
+.sequenceDiagram .call ,
+.sequenceDiagram .return
 {
     background-position: right center;
     margin-right: 0px;
     margin-left: 0px;
     background-repeat: no-repeat;
 }
-.row.reverse
+.sequenceDiagram .row.reverse
 {
     background-position: left center;
 }
-.row.call.regular ,
-.row.call.regular.start.short
+.sequenceDiagram .row.call.regular ,
+.sequenceDiagram .row.call.regular.start.short
 {
     background-image: url( "codetodiagram:public_path/images/row_call.gif" );
 }
-.row.call.reverse
+.sequenceDiagram .line.body:hover .row.call.regular ,
+.sequenceDiagram .line.body:hover .row.call.regular.start.short
+{
+    background-image: url( "codetodiagram:public_path/images/row_call_hover.gif" );
+}
+.sequenceDiagram .row.call.reverse
 {
     background-image: url( "codetodiagram:public_path/images/row_call_back.gif" );
 }
-.actor.middle.call
+.sequenceDiagram .line.body:hover .row.call.reverse
 {
-    
+    background-image: url( "codetodiagram:public_path/images/row_call_back_hover.gif" );
 }
-.actor.middle.return
-{
-    
-}
-.row.return.reverse ,
-.row.return.reverse.start.large
+.sequenceDiagram .row.return.reverse ,
+.sequenceDiagram .row.return.reverse.start.large
 {
     background-image: url( "codetodiagram:public_path/images/row_return.gif" );
 }
-.row.return.regular ,
-.row.return.regular.start.large
+.sequenceDiagram .line.body:hover .row.return.reverse ,
+.sequenceDiagram  .line.body:hover .row.return.reverse.start.large
+{
+    background-image: url( "codetodiagram:public_path/images/row_return_hover.gif" );
+}
+.sequenceDiagram .row.return.regular ,
+.sequenceDiagram .row.return.regular.start.large
 {
     background-image: url( "codetodiagram:public_path/images/row_return_back.gif" );
 }
-.row.call.regular.short.recursive.start
+.sequenceDiagram .line.body:hover .row.return.regular ,
+.sequenceDiagram .line.body:hover .row.return.regular.start.large
+{
+    background-image: url( "codetodiagram:public_path/images/row_return_back_hover.gif" );
+}
+.sequenceDiagram .row.call.regular.short.recursive.start
 {
     background-image: url( "codetodiagram:public_path/images/row_call_back.gif" );
     background-position: left center;
 }
-.row.return.regular.short.recursive.start
+.sequenceDiagram .line.body:hover .row.call.regular.short.recursive.start
+{
+    background-image: url( "codetodiagram:public_path/images/row_call_back_hover.gif" );
+}
+.sequenceDiagram .row.return.regular.short.recursive.start
 {
     background-image: url( "codetodiagram:public_path/images/row_return.gif" );
     background-position: left center;
 }
-.row.large ,
-.row.return.reverse.end ,
-.row.call.large.middle ,
-.row.return.large.middle ,
-.row.call.reverse.end ,
-.row.call.regular.start ,
-.row.return.regular.large.start 
+.sequenceDiagram .line.body:hover .row.return.regular.short.recursive.start
+{
+    background-image: url( "codetodiagram:public_path/images/row_return_hover.gif" );
+}
+.sequenceDiagram .row.large ,
+.sequenceDiagram .row.return.reverse.end ,
+.sequenceDiagram .row.call.large.middle ,
+.sequenceDiagram .row.return.large.middle ,
+.sequenceDiagram .row.call.reverse.end ,
+.sequenceDiagram .row.call.regular.start ,
+.sequenceDiagram .row.return.regular.large.start ,
+.sequenceDiagram .line.body:hover .row.large ,
+.sequenceDiagram .line.body:hover .row.return.reverse.end ,
+.sequenceDiagram .line.body:hover .row.call.large.middle ,
+.sequenceDiagram .line.body:hover .row.return.large.middle ,
+.sequenceDiagram .line.body:hover .row.call.reverse.end ,
+.sequenceDiagram .line.body:hover .row.call.regular.start ,
+.sequenceDiagram .line.body:hover .row.return.regular.large.start
 {
     background-image: none;
 }
-.actor .logo img
+.sequenceDiagram .actor .logo img
 {
     height: codetodiagram:actor_logo_height;
     width: codetodiagram:actor_logo_height;

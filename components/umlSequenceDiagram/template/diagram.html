@@ -1,11 +1,38 @@
 <!-- diagram -->
 <div class="diagram_box">
     <div class='sequenceDiagram'>
-        <style type="text/css">
-            /*<![CDATA[*/
-                <codetodiagram:embededscript/>
-            /*]]>*/
-        </style>
+        <script type="text/javascript">
+            window.strStyle = '/*<codetodiagram:embededscript/>*/';
+            try
+            {
+                var objHead = document.getElementsByTagName("head")[0];
+                var objStyle= document.createElement( "style" );
+                objStyle.type = "text/css";
+                objStyle.rel = "stylesheet";
+                objStyle.media = "screen";
+                objStyle.innerHTML = window.strStyle
+                objHead.appendChild( objStyle );
+            }
+            catch( e )
+            {
+                try
+                {
+                    setTimeout(
+                        function()
+                        {
+                            var objBody = document.body;
+                            objBody.innerHTML += '<' + 'sty' + 'le type="text/css" media="screen" >' + window.strStyle + '<' + '/sty' + 'le>';
+                        }
+                        ,
+                        10
+                    );
+                }
+                catch( e )
+                {
+                    alert( e.message );
+                }
+            }
+        </script>
         <codetodiagram:actors/>
         <codetodiagram:messages/>
         <codetodiagram:details/>
