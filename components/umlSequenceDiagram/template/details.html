@@ -1,0 +1,38 @@
+<script type="text/javascript">
+    function showHideTab( objButton )
+    {
+        var objTab = objButton.parentNode.parentNode;
+        var arrChilds = objTab.childNodes;
+        var arrDiv = Array();
+        for( var intCountChild in arrChilds )
+        {
+            var objChild = arrChilds[ intCountChild ];
+            if( objChild.tagName == "DIV" )
+            {
+                arrDiv.push( objChild );
+            }
+        }
+
+        var objContent = arrDiv[ 1 ];
+        if( objContent.style.display == "none" )
+        {
+            objContent.style.display = "block";
+        }
+        else
+        {
+            objContent.style.display = "none";
+        }
+    }
+</script>
+<div class="tab">
+    <div class="button_bar">
+        <input type="button" name="Details" value="Details" onclick="javascript:showHideTab( this )"/>
+    </div>
+    <div class="detail_tab">
+        <div class="detail">
+            <ol>
+                <codetodiagram:message_values/>
+            </ol>
+        </div>
+    </div>
+</div>

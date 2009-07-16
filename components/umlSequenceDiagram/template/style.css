@@ -95,11 +95,40 @@
 {
     width: 10%;
 }
+.sequenceDiagram .detail
+{
+    width: 100%;
+    float: left;
+    border-color: rgb( 200 , 200 ,255 );
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb( 240, 240 , 240 );
+}
 .sequenceDiagram .detail li
 {
+    display:block;
+    width: 80%;
     float: left;
-    width: 100%;
-
+    background-color: white;
+    border-style: solid;
+    border-color: #DDDDFF;
+    border-width: 1px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.sequenceDiagram .detail li div.message
+{
+    list-style-position: inside;
+    display:list-item;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 80%;
+    float: left;
+    clear: right;
+}
+.sequenceDiagram .detail ol
+{
+    list-style-position: outside;
 }
 .sequenceDiagram .line.body
 {
@@ -271,4 +300,15 @@
 {
     height: codetodiagram:actor_logo_height;
     width: codetodiagram:actor_logo_height;
+}
+.tab
+{
+    float: left;
+    width: 100%;
+    padding-top: 40px;
+}
+.button_bar input
+{
+    font-size: 11px;
+    background-color: #EEEEFF;  
 }

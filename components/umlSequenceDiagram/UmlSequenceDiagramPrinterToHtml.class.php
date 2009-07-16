@@ -405,6 +405,10 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
         $arrReplace = array();
         $arrReplace[ '<codetodiagram:message_collection/>' ] = $strResult;
+        $arrReplace[ '<codetodiagram:message_title/>' ] = $this->getMessageValues( $objMessage , false );
+        $arrReplace[ 'codetodiagram:message_click' ] = "window.location = '#message_" . $objMessage->getPosition() . "'";
+
+
 
         return $this->getTemplate( "messages.html" , $arrReplace );
     }
@@ -480,71 +484,119 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $this->getTemplate( "line_values.html" , $arrReplace );
     }
 
+    public function getMessageValues( UmlSequenceDiagramMessage $objMessage , $booHtmlTags = false )
+    {
+        if( $booHtmlTags )
+        {
+            $strResult = '<li><div class="message" id="div_message_' . $objMessage->getPosition() . '">' . "\n";
+        }
+        else
+        {
+            $strResult = '';
+        }
+
+        $strText = html_entity_decode( $objMessage->getText() );
+
+        switch( $strText )
+        {
+            case '<<create>>':
+            {
+                if( $booHtmlTags )
+                {
+                    $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() . '</span> create new ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>';
+                }
+                else
+                {
+                    $strText = $objMessage->getActorFrom()->getName() . ' create new ' . $objMessage->getActorTo()->getName();
+                }
+                break;
+            }
+            case '<<destroy>>':
+            {
+                if( $booHtmlTags )
+                {
+                    $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() . '</span>' .  ' destroy ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>';
+                }
+                else
+                {
+                    $strText = $objMessage->getActorFrom()->getName();
+                }
+                break;
+            }
+            default:
+            {
+                if( $objMessage->getType() == 'call' )
+                {
+                    if( $booHtmlTags )
+                    {
+                        $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() .  '</span>' .  ' ' . $objMessage->getType() . ' ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>' .  '-&gt;' . self::getMessageText( $objMessage );
+                    }
+                    else
+                    {
+                        $strText = $objMessage->getActorFrom()->getName() .  ' ' . $objMessage->getType() . ' ' . $objMessage->getActorTo()->getName() . '-&gt;' . $objMessage->getText();
+                    }
+                }
+                else
+                {
+                    if( $booHtmlTags )
+                    {
+                        $strText = '<span class="detail_actor from">' . $objMessage->getActorTo()->getName() .  '</span>' .  ' receive from ' . '<span class="detail_actor to">' . $objMessage->getActorFrom()->getName() .  '</span>' .  '-&gt;' . $objMessage->getText();
+                    }
+                    else
+                    {
+                        $strText = $objMessage->getActorTo()->getName() . ' receive from ' . $objMessage->getActorFrom()->getName() .  '-&gt;' . $objMessage->getText();
+                    }
+                }
+                break;
+            }
+        }
+
+        if( $booHtmlTags )
+        {
+            $strResult .= '<a name="message_' . $objMessage->getPosition() . '">' . $strText . '</a>' . "\n";
+            $arrValues = $objMessage->getValues();
+
+
+            $strResult .= '<div class="values" >' . "\n";
+            foreach( $arrValues as $intValueId => $objValue )
+            {
+                if( $objMessage->getType() != 'return' )
+                {
+                    $strResult .= '<strong> $' . $objValue->getName() . '</strong>' .  "\n";
+//                  $strResult .= '<a class="noLink" name="message_' . $intMessageId . '_param_' . $intValueId . '" ><strong> $' . $objValue->getName() . '</strong> </a>' .  "\n";
+                }
+                else
+                {
+                    $strResult .= '<strong> ' . $objValue->getName() . ' </strong>' . "\n";
+                }
+                $strResult .= '   <div>' .  self::getVar( $objValue->getValue() ). '</div>' . "\n";
+            }
+
+            $strResult .= '</div></div></li>' . "\n";
+        }
+        else
+        {
+            $strResult .= $strText;
+        }
+
+        return $strResult;
+    }
+
     public function getDetails()
     {
-        $strHtml = '';
-        $strHtml .= '<div class="detail"><ol>' . "\n";
-
+        $strMessageValues = '';
         $arrMessages = $this->objUmlSequenceDiagram->getMessages();
         foreach( $arrMessages as $objMessage )
         {
             /** 
              * @var $objMessage UmlSequenceDiagramMessage
              **/
-            $strHtml .= '<li><div class="message" id="div_message_' . $objMessage->getPosition() . '">' . "\n";
-
-            $strText = html_entity_decode( $objMessage->getText() );
-
-            switch( $strText )
-            {
-                case '<<create>>':
-                {
-                    $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() . '</span> create new ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>';
-                    break;
-                }
-                case '<<destroy>>':
-                {
-                    $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() . '</span>' .  ' destroy ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>';
-                    break;
-                }
-                default:
-                {
-                    if( $objMessage->getType() == 'call' )
-                    {
-                        $strText = '<span class="detail_actor from">' . $objMessage->getActorFrom()->getName() .  '</span>' .  ' ' . $objMessage->getType() . ' ' . '<span class="detail_actor to">' . $objMessage->getActorTo()->getName() .  '</span>' .  '-&gt;' . self::getMessageText( $objMessage );
-                    }
-                    else
-                    {
-                        $strText = '<span class="detail_actor from">' . $objMessage->getActorTo()->getName() .  '</span>' .  ' receive from ' . '<span class="detail_actor to">' . $objMessage->getActorFrom()->getName() .  '</span>' .  '-&gt;' . $objMessage->getText();
-                    }
-                    break;
-                }
-            }
-
-            $strHtml .= '<a name="message_' . $objMessage->getPosition() . '">' . $strText . '</a>' . "\n";
-            $arrValues = $objMessage->getValues();
-
-
-            $strHtml .= '<div class="values" >' . "\n";
-            foreach( $arrValues as $intValueId => $objValue )
-            {
-                if( $objMessage->getType() != 'return' )
-                {
-                    $strHtml .= '<strong> $' . $objValue->getName() . '</strong>' .  "\n";
-//                    $strHtml .= '<a class="noLink" name="message_' . $intMessageId . '_param_' . $intValueId . '" ><strong> $' . $objValue->getName() . '</strong> </a>' .  "\n";
-                }
-                else
-                {
-                    $strHtml .= '<strong> ' . $objValue->getName() . ' </strong>' . "\n";
-                }
-                $strHtml .= '   <div>' .  self::getVar( $objValue->getValue() ). '</div>' . "\n";
-            }
-
-            $strHtml .= '</div></div></li>' . "\n";
+            $strMessageValues .= $this->getMessageValues( $objMessage , true);
         }
 
-        $strHtml .= '</ol></div>' . "\n";
-        return $strHtml;
+        $arrReplace = array();
+        $arrReplace[ '<codetodiagram:message_values/>' ] = $strMessageValues;
+        return $this->getTemplate( "details.html" , $arrReplace );
     }
 
         private static function getVar( $mixVar )
