@@ -1,35 +1,78 @@
 <script type="text/javascript">
-    function showHideTab( objButton )
+    function showHideTab( objTab , intMinSize , intMaxSize )
     {
-        var objTab = objButton.parentNode.parentNode;
-        var arrChilds = objTab.childNodes;
-        var arrDiv = Array();
-        for( var intCountChild in arrChilds )
+        if( window.countTab == undefined )
         {
-            var objChild = arrChilds[ intCountChild ];
-            if( objChild.tagName == "DIV" )
-            {
-                arrDiv.push( objChild );
-            }
+            window.countTab = 1;
+            window.tabs = new Object();
+        }
+        if( !objTab.id)
+        {
+            objTab.id = "tab_" + window.countTab;
+            window.countTab++;
+            window.tabs[ objTab.id ] = 'open';
         }
 
-        var objContent = arrDiv[ 1 ];
-        if( objContent.style.display == "none" )
+        if( ( window.tabs[ objTab.id ] == 'open' ) || ( window.tabs[ objTab.id ] == 'stop_open' ) )
         {
-            objContent.style.display = "block";
+            window.tabs[ objTab.id ] = 'close';
         }
         else
         {
-            objContent.style.display = "none";
+            window.tabs[ objTab.id ] = 'open';
+        }
+        changeTab( objTab , intMinSize , intMaxSize );
+    }
+
+    function changeTab( objTab , intMinSize , intMaxSize )
+    {
+        if( window.tabs[ objTab.id ] == 'open' )
+        {
+            openTab( objTab , intMaxSize  );
+            setTimeout( 'changeTab( document.getElementById("' + objTab.id + '" ) , ' + intMinSize + ' , ' + intMaxSize + ' )' , 3 );
+        }
+        if( window.tabs[ objTab.id ] == 'close' )
+        {
+            closeTab( objTab , intMinSize );
+            setTimeout( 'changeTab( document.getElementById("' + objTab.id + '" ) , ' + intMinSize + ' , ' + intMaxSize + ' )' , 3 );
+        }
+    }
+
+    function closeTab( objTab , intMinSize )
+    {
+        if( objTab.clientHeight > intMinSize )
+        {
+            objTab.style.height = Math.round( objTab.clientHeight * 70 / 100 - 1 ) + "px";
+            objTab.scrollTop = 0;
+        }
+        else
+        {
+            objTab.style.height = intMinSize + "px";
+            window.tabs[ objTab.id ] = 'stop_close';
+        }
+    }
+
+    function openTab( objTab , intMaxSize )
+    {
+        if( objTab.clientHeight < objTab.scrollHeight )
+        {
+            objTab.style.height = Math.round( objTab.clientHeight * 1.3 ) + "px";
+        }
+        else
+        {
+            objTab.style.height = intMaxSize + "px";
+            window.tabs[ objTab.id ] = 'stop_open';
         }
     }
 </script>
 <div class="tab">
     <div class="button_bar">
-        <input type="button" name="Details" value="Details" onclick="javascript:showHideTab( this )"/>
     </div>
     <div class="detail_tab">
         <div class="detail">
+            <h3  onclick="javascript:showHideTab( this.parentNode , 40 , this.parentNode.scrollHeight )">
+                Details
+            </h3>
             <ol>
                 <codetodiagram:message_values/>
             </ol>
