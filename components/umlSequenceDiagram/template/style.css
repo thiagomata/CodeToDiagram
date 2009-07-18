@@ -330,3 +330,13 @@
     border-color: rgb( 150 , 150 , 255 );
     border-width: 1px;
 }
+.validate
+{
+    float: left;
+    width: 100%;
+}
+.validate *
+{
+    text-decoration: none;
+    border-style: none;
+}
