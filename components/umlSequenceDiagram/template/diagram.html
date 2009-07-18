@@ -42,7 +42,13 @@
 </div>
 <script type="text/javascript">
     /*<![CDATA[*/
-    document.body.innerHTML += ":D";
+    document.body.onload = function()
+    {
+        document.body.innerHTML += "";
+    };
+    setTimeout( function(){
+        document.body.innerHTML += "";
+    }, 100 );
     /*]]>*/
 </script>
 <!-- end diagram -->
