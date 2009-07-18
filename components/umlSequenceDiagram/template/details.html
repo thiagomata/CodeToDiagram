@@ -1,4 +1,5 @@
 <script type="text/javascript">
+/*<![CDATA[*/
     function showHideTab( objTab , intMinSize , intMaxSize )
     {
         if( window.countTab == undefined )
@@ -13,6 +14,7 @@
             window.tabs[ objTab.id ] = 'open';
         }
 
+        objTab.className = "detail";
         if( ( window.tabs[ objTab.id ] == 'open' ) || ( window.tabs[ objTab.id ] == 'stop_open' ) )
         {
             window.tabs[ objTab.id ] = 'close';
@@ -42,12 +44,14 @@
     {
         if( objTab.clientHeight > intMinSize )
         {
+            objTab.className = "detail closing";
             objTab.style.height = Math.round( objTab.clientHeight * 70 / 100 - 1 ) + "px";
             objTab.scrollTop = 0;
         }
         else
         {
             objTab.style.height = intMinSize + "px";
+            objTab.className = "detail closed";
             window.tabs[ objTab.id ] = 'stop_close';
         }
     }
@@ -56,14 +60,17 @@
     {
         if( objTab.clientHeight < objTab.scrollHeight )
         {
+            objTab.className = "detail opening";
             objTab.style.height = Math.round( objTab.clientHeight * 1.3 ) + "px";
         }
         else
         {
-            objTab.style.height = intMaxSize + "px";
+            objTab.style.height = Math.round( objTab.clientHeight ) + "px";
             window.tabs[ objTab.id ] = 'stop_open';
+            objTab.className = "detail opened";
         }
     }
+/*]]>*/
 </script>
 <div class="tab">
     <div class="button_bar">

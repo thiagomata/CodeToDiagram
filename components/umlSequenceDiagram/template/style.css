@@ -107,6 +107,10 @@
     margin: 20px;
     cursor:pointer;
 }
+.sequenceDiagram .detail.closed ol
+{
+    display: none;
+}
 .sequenceDiagram .detail li
 {
     display:block;
