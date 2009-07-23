@@ -84,6 +84,24 @@ class UmlSequenceDiagramMessage
     protected $objUmlSequenceDiagram;
 
     /**
+     * UmlSequenceDiagramNote Collection
+     * with the notes what should be before
+     * the message
+     *
+     * @var UmlSequenceDiagramNote[]
+     */
+    protected $arrNotesBefore = array();
+
+    /**
+     * UmlSequenceDiagramNote Collection
+     * with the notes what should be after
+     * the message
+     *
+     * @var UmlSequenceDiagramNote[]
+     */
+    protected $arrNotesAfter = array();
+
+    /**
      * Set the text of the message
      *
      * @see UmlSequenceDiagramMessage::getText()
@@ -312,10 +330,87 @@ class UmlSequenceDiagramMessage
      * @see UmlSequenceDiagramMessage::getValues()
      * @see UmlSequenceDiagramValue
      * @param UmlSequenceDiagramValue $objValue
+     * @return UmlSequenceDiagramMessage me
      */
     public function addValue( UmlSequenceDiagramValue $objValue )
     {
         $this->arrValues[] = $objValue;
+        return $this;
+    }
+
+    /**
+     * Add a note before the message
+     *
+     * @param UmlSequenceDiagramNote $objNote
+     * @return UmlSequenceDiagramMessage me
+     */
+    public function addNoteBefore( UmlSequenceDiagramNote $objNote )
+    {
+        $this->arrNotesBefore[] = $objNote;
+        return $this;
+    }
+
+    /**
+     * Set the notes what should be placed before the message
+     *
+     * @param array $arrNotesBefore
+     * @return UmlSequenceDiagramMessage me
+     */
+    public function setNotesBefore( array $arrNotesBefore )
+    {
+        foreach( $arrNotesBefore as $objNote )
+        {
+            $this->addNoteBefore( $objNote );
+        }
+        return $this;
+    }
+
+    /**
+     * Get the notes what should be placed before the message
+     *
+     * @return UmlSequenceDiagramNote[]
+     */
+    public function getNotesBefore()
+    {
+        return $this->arrNotesBefore;
+    }
+
+
+    /**
+     * Add a note after the message
+     *
+     * @param UmlSequenceDiagramNote $objNote
+     * @return UmlSequenceDiagramMessage me
+     */
+    public function addNoteAfter( UmlSequenceDiagramNote $objNote )
+    {
+        $this->arrNotesAfter[] = $objNote;
+        return $this;
+    }
+
+    /**
+     * Set the notes what should be placed after the message
+     *
+     * @param array $arrNotesAfter
+     * @return UmlSequenceDiagramMessage me
+     */
+    public function setNotesAfter( array $arrNotesAfter )
+    {
+        foreach( $arrNotesAfter as $objNote )
+        {
+            $this->addNoteAfter( $objNote );
+        }
+        return $this;
+    }
+
+    /**
+     * Get the notes what should be placed after the message
+     *
+     * @return UmlSequenceDiagramNote[]
+     */
+    public function getNotesAfter()
+    {
+        return $this->arrNotesAfter;
     }
 
     /**

@@ -53,6 +53,9 @@ class UmlSequenceDiagramActor
      */
     protected $strClassName;
 
+    /**
+     * Set the default type of the actor
+     */
     public function __construct()
     {
         $this->setType( "system" );
