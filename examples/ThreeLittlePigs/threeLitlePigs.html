@@ -11,16 +11,10 @@
         <title> Code to Diagram - Sequence Diagram </title>
 		<style type="text/css">
             /*<![CDATA[*/
-              /**/.diagram_box
-{
-    width: 100%;
-    overflow: auto;
-}
-.sequenceDiagram
+              /**/.sequenceDiagram
 {
     float: left;
     width: 2000px;
-    overflow: auto;
 }
 .sequenceDiagram *
 {
@@ -43,7 +37,6 @@
 {
     float: left;
     width: 442px;
-    /*height: codetodiagram:slice_height;*/
     text-align: center;
     height: 10%;
 }
@@ -115,11 +108,46 @@
 {
     width: 10%;
 }
+.sequenceDiagram .detail
+{
+    width: 100%;
+    float: left;
+    border-color: rgb( 200 , 200 ,255 );
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb( 240, 240 , 240 );
+    overflow: hidden;
+    margin: 20px;
+    cursor:pointer;
+}
+.sequenceDiagram .detail.closed ol
+{
+    display: none;
+}
 .sequenceDiagram .detail li
 {
+    display:block;
+    width: 80%;
     float: left;
-    width: 100%;
-
+    background-color: white;
+    border-style: solid;
+    border-color: #DDDDFF;
+    border-width: 1px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.sequenceDiagram .detail li div.message
+{
+    list-style-position: inside;
+    display:list-item;
+    padding: 5px;
+    width: 80%;
+    float: left;
+    clear: right;
+}
+.sequenceDiagram .detail ol
+{
+    list-style-position: outside;
 }
 .sequenceDiagram .line.body
 {
@@ -155,18 +183,22 @@
 {
     text-decoration: none;
 }
-.line
+.sequenceDiagram .line
 {
     display: block;
     float: left;
     width: 100%;
     height: 100%;
 }
-.slice , .row , .actor
+.sequenceDiagram .slice , .sequenceDiagram .row , .sequenceDiagram .actor
 {
     width: 100%;
 }
 .sequenceDiagram .line.body:hover .call .message
+{
+    border-color: orange;
+}
+.sequenceDiagram .line.body:hover .return .message
 {
     border-color: orange;
 }
@@ -191,75 +223,135 @@
     border-bottom-width: 1px;
     border-color: black;
 }
-.row
+.sequenceDiagram .row
 {
     float: left;
     display: block;
     width: 95%;
     overflow: hidden;
 }
-.call , .return
+.sequenceDiagram .call ,
+.sequenceDiagram .return
 {
     background-position: right center;
     margin-right: 0px;
     margin-left: 0px;
     background-repeat: no-repeat;
 }
-.row.reverse
+.sequenceDiagram .row.reverse
 {
     background-position: left center;
 }
-.row.call.regular ,
-.row.call.regular.start.short
+.sequenceDiagram .row.call.regular ,
+.sequenceDiagram .row.call.regular.start.short
 {
     background-image: url( "../../public//images/row_call.gif" );
 }
-.row.call.reverse
+.sequenceDiagram .line.body:hover .row.call.regular ,
+.sequenceDiagram .line.body:hover .row.call.regular.start.short
+{
+    background-image: url( "../../public//images/row_call_hover.gif" );
+}
+.sequenceDiagram .row.call.reverse
 {
     background-image: url( "../../public//images/row_call_back.gif" );
 }
-.actor.middle.call
+.sequenceDiagram .line.body:hover .row.call.reverse
 {
-    
+    background-image: url( "../../public//images/row_call_back_hover.gif" );
 }
-.actor.middle.return
-{
-    
-}
-.row.return.reverse ,
-.row.return.reverse.start.large
+.sequenceDiagram .row.return.reverse ,
+.sequenceDiagram .row.return.reverse.start.large
 {
     background-image: url( "../../public//images/row_return.gif" );
 }
-.row.return.regular ,
-.row.return.regular.start.large
+.sequenceDiagram .line.body:hover .row.return.reverse ,
+.sequenceDiagram  .line.body:hover .row.return.reverse.start.large
+{
+    background-image: url( "../../public//images/row_return_hover.gif" );
+}
+.sequenceDiagram .row.return.regular ,
+.sequenceDiagram .row.return.regular.start.large
 {
     background-image: url( "../../public//images/row_return_back.gif" );
 }
-.row.call.regular.short.recursive.start
+.sequenceDiagram .line.body:hover .row.return.regular ,
+.sequenceDiagram .line.body:hover .row.return.regular.start.large
+{
+    background-image: url( "../../public//images/row_return_back_hover.gif" );
+}
+.sequenceDiagram .row.call.regular.short.recursive.start
 {
     background-image: url( "../../public//images/row_call_back.gif" );
     background-position: left center;
 }
-.row.return.regular.short.recursive.start
+.sequenceDiagram .line.body:hover .row.call.regular.short.recursive.start
+{
+    background-image: url( "../../public//images/row_call_back_hover.gif" );
+}
+.sequenceDiagram .row.return.regular.short.recursive.start
 {
     background-image: url( "../../public//images/row_return.gif" );
     background-position: left center;
 }
-.row.large ,
-.row.return.reverse.end ,
-.row.call.large.middle ,
-.row.return.large.middle ,
-.row.call.reverse.end ,
-.row.call.regular.start ,
-.row.return.regular.large.start 
+.sequenceDiagram .line.body:hover .row.return.regular.short.recursive.start
+{
+    background-image: url( "../../public//images/row_return_hover.gif" );
+}
+.sequenceDiagram .row.large ,
+.sequenceDiagram .row.return.reverse.end ,
+.sequenceDiagram .row.call.large.middle ,
+.sequenceDiagram .row.return.large.middle ,
+.sequenceDiagram .row.call.reverse.end ,
+.sequenceDiagram .row.call.regular.start ,
+.sequenceDiagram .row.return.regular.large.start ,
+.sequenceDiagram .line.body:hover .row.large ,
+.sequenceDiagram .line.body:hover .row.return.reverse.end ,
+.sequenceDiagram .line.body:hover .row.call.large.middle ,
+.sequenceDiagram .line.body:hover .row.return.large.middle ,
+.sequenceDiagram .line.body:hover .row.call.reverse.end ,
+.sequenceDiagram .line.body:hover .row.call.regular.start ,
+.sequenceDiagram .line.body:hover .row.return.regular.large.start
 {
     background-image: none;
 }
-.actor .logo img
+.sequenceDiagram .actor .logo img
 {
     height: 61px;
     width: 61px;
+}
+.tab
+{
+    float: left;
+    width: 100%;
+    padding-top: 40px;
+}
+.button_bar input
+{
+    font-size: 11px;
+    background-color: #EEEEFF;  
+}
+.tab h3
+{
+    padding: 3px;
+    font-size: 13px;
+    margin: 5px;
+    background-color: rgb( 250 , 250 , 255 );
+    font-family: cursive;
+    border-style: solid;
+    color: rgb( 50 , 50 , 155 );
+    border-color: rgb( 150 , 150 , 255 );
+    border-width: 1px;
+}
+.validate
+{
+    float: left;
+    width: 100%;
+}
+.validate *
+{
+    text-decoration: none;
+    border-style: none;
 }/**/
             /*]]>*/
 		</style>
@@ -268,17 +360,46 @@
         <!-- diagram -->
 <div class="diagram_box">
     <div class='sequenceDiagram'>
-        <style type="text/css">
+        <script type="text/javascript">
             /*<![CDATA[*/
-                
+            window.strStyle = '/**/';
+            try
+            {
+                var objHead = document.getElementsByTagName("head")[0];
+                var objStyle= document.createElement( "style" );
+                objStyle.type = "text/css";
+                objStyle.rel = "stylesheet";
+                objStyle.media = "screen";
+                objStyle.innerHTML = window.strStyle
+                objHead.appendChild( objStyle );
+            }
+            catch( e )
+            {
+                try
+                {
+                    setTimeout(
+                        function()
+                        {
+                            var objBody = document.body;
+                            objBody.innerHTML += '<' + 'sty' + 'le type="text/css" media="screen" >' + window.strStyle + '<' + '/sty' + 'le>';
+                        }
+                        ,
+                        10
+                    );
+                }
+                catch( e )
+                {
+                    alert( e.message );
+                }
+            }
             /*]]>*/
-        </style>
+        </script>
         <!-- actors -->
 <div class="line head">
     <!-- actor -->
 <div class="actor user " >
     <div class="logo">
-        <img src="../../public/images/user.gif"/>
+        <img alt="user" src="../../public/images/user.gif"/>
     </div>
     <div class="name">
         <span title="user">user</span>
@@ -287,7 +408,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor boundary " >
     <div class="logo">
-        <img src="../../public/images/boundary.gif"/>
+        <img alt="boundary" src="../../public/images/boundary.gif"/>
     </div>
     <div class="name">
         <span title="History(1)">History(1)</span>
@@ -296,7 +417,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor controller " >
     <div class="logo">
-        <img src="../../public/images/controller.gif"/>
+        <img alt="controller" src="../../public/images/controller.gif"/>
     </div>
     <div class="name">
         <span title="LittlePig(1)">LittlePig(1)</span>
@@ -305,7 +426,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor controller " >
     <div class="logo">
-        <img src="../../public/images/controller.gif"/>
+        <img alt="controller" src="../../public/images/controller.gif"/>
     </div>
     <div class="name">
         <span title="LittlePig(2)">LittlePig(2)</span>
@@ -314,7 +435,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor controller " >
     <div class="logo">
-        <img src="../../public/images/controller.gif"/>
+        <img alt="controller" src="../../public/images/controller.gif"/>
     </div>
     <div class="name">
         <span title="LittlePig(3)">LittlePig(3)</span>
@@ -323,7 +444,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor entity " >
     <div class="logo">
-        <img src="../../public/images/entity.gif"/>
+        <img alt="entity" src="../../public/images/entity.gif"/>
     </div>
     <div class="name">
         <span title="House(1)">House(1)</span>
@@ -332,7 +453,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor entity " >
     <div class="logo">
-        <img src="../../public/images/entity.gif"/>
+        <img alt="entity" src="../../public/images/entity.gif"/>
     </div>
     <div class="name">
         <span title="House(2)">House(2)</span>
@@ -341,7 +462,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor entity " >
     <div class="logo">
-        <img src="../../public/images/entity.gif"/>
+        <img alt="entity" src="../../public/images/entity.gif"/>
     </div>
     <div class="name">
         <span title="House(3)">House(3)</span>
@@ -350,7 +471,7 @@
 <!-- end actor --><!-- actor -->
 <div class="actor user " >
     <div class="logo">
-        <img src="../../public/images/user.gif"/>
+        <img alt="user" src="../../public/images/user.gif"/>
     </div>
     <div class="name">
         <span title="Wolf(1)">Wolf(1)</span>
@@ -360,7 +481,138 @@
 </div>
 <!-- end actors -->
         <!-- messages -->
-<div class="line body">
+<div class="line body" title="Once upon a time" onclick="javascript:">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row codetodiagram:message_type codetodiagram:reverse codetodiagram:large codetodiagram:recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_codetodiagram:message_id" class="noLink">
+                    weeeeeeeeeeeeeeeeee
+                    <strong><codetodiagram:message_position/></strong>.
+                    <codetodiagram:message_text/>
+                </a>
+            </span>
+            </>
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="user create new History(1)" onclick="javascript:window.location = '#message_1'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -381,9 +633,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -496,7 +746,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) create new LittlePig(1)" onclick="javascript:window.location = '#message_2'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -530,9 +780,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -632,7 +880,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) create new LittlePig(2)" onclick="javascript:window.location = '#message_3'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -666,9 +914,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -768,7 +1014,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) create new LittlePig(3)" onclick="javascript:window.location = '#message_4'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -802,9 +1048,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -904,7 +1148,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call LittlePig(1)-&gt;buildHouse( $strType )" onclick="javascript:window.location = '#message_5'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -938,8 +1182,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strType
@@ -955,8 +1198,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -1056,7 +1298,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(1) create new House(1)" onclick="javascript:window.location = '#message_6'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1103,9 +1345,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -1192,7 +1432,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(1) call House(1)-&gt;setType( $strType )" onclick="javascript:window.location = '#message_7'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1239,8 +1479,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strType
@@ -1256,8 +1495,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -1344,7 +1582,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(1) receive from House(1)-&gt;setType( $strType )" onclick="javascript:window.location = '#message_8'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1391,8 +1629,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -1408,8 +1645,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -1496,7 +1732,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(1) call House(1)-&gt;setPig( $objPig )" onclick="javascript:window.location = '#message_9'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1543,8 +1779,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objPig
@@ -1560,8 +1795,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -1648,7 +1882,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(1) receive from House(1)-&gt;setPig( $objPig )" onclick="javascript:window.location = '#message_10'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1695,8 +1929,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -1712,8 +1945,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -1800,7 +2032,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) receive from LittlePig(1)-&gt;buildHouse( $strType )" onclick="javascript:window.location = '#message_11'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1834,8 +2066,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -1851,8 +2082,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -1952,7 +2182,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call LittlePig(2)-&gt;buildHouse( $strType )" onclick="javascript:window.location = '#message_12'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -1986,8 +2216,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strType
@@ -2003,8 +2232,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -2104,7 +2332,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(2) create new House(2)" onclick="javascript:window.location = '#message_13'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -2164,9 +2392,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -2240,7 +2466,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(2) call House(2)-&gt;setType( $strType )" onclick="javascript:window.location = '#message_14'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -2300,8 +2526,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strType
@@ -2317,8 +2542,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -2392,7 +2616,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(2) receive from House(2)-&gt;setType( $strType )" onclick="javascript:window.location = '#message_15'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -2452,8 +2676,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -2469,8 +2692,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -2544,7 +2766,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(2) call House(2)-&gt;setPig( $objPig )" onclick="javascript:window.location = '#message_16'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -2604,8 +2826,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objPig
@@ -2621,8 +2842,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -2696,7 +2916,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(2) receive from House(2)-&gt;setPig( $objPig )" onclick="javascript:window.location = '#message_17'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -2756,8 +2976,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -2773,8 +2992,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -2848,7 +3066,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) receive from LittlePig(2)-&gt;buildHouse( $strType )" onclick="javascript:window.location = '#message_18'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -2882,8 +3100,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -2899,8 +3116,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -3000,7 +3216,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call LittlePig(3)-&gt;buildHouse( $strType )" onclick="javascript:window.location = '#message_19'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3034,8 +3250,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strType
@@ -3051,8 +3266,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -3152,7 +3366,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) create new House(3)" onclick="javascript:window.location = '#message_20'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3225,9 +3439,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -3288,7 +3500,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) call House(3)-&gt;setType( $strType )" onclick="javascript:window.location = '#message_21'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3361,8 +3573,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strType
@@ -3378,8 +3589,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -3440,7 +3650,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) receive from House(3)-&gt;setType( $strType )" onclick="javascript:window.location = '#message_22'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3513,8 +3723,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -3530,8 +3739,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -3592,7 +3800,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) call House(3)-&gt;setPig( $objPig )" onclick="javascript:window.location = '#message_23'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3665,8 +3873,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objPig
@@ -3682,8 +3889,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -3744,7 +3950,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) receive from House(3)-&gt;setPig( $objPig )" onclick="javascript:window.location = '#message_24'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3817,8 +4023,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -3834,8 +4039,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -3896,7 +4100,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) receive from LittlePig(3)-&gt;buildHouse( $strType )" onclick="javascript:window.location = '#message_25'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -3930,8 +4134,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -3947,8 +4150,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -4048,7 +4250,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) create new Wolf(1)" onclick="javascript:window.location = '#message_26'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4082,9 +4284,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -4184,7 +4384,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call LittlePig(1)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_27'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4218,9 +4418,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -4320,7 +4518,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) receive from LittlePig(1)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_28'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4354,8 +4552,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -4371,8 +4568,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -4472,7 +4668,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_29'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4506,8 +4702,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objHouse
@@ -4523,8 +4718,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -4624,7 +4818,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call House(1)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_30'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4710,8 +4904,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objWolf
@@ -4727,8 +4920,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -4776,7 +4968,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(1) call House(1)-&gt;getType(  )" onclick="javascript:window.location = '#message_31'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4862,9 +5054,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -4912,7 +5102,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(1) receive from House(1)-&gt;getType(  )" onclick="javascript:window.location = '#message_32'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4998,8 +5188,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -5015,8 +5204,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -5064,7 +5252,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(1) call House(1)-&gt;colapse(  )" onclick="javascript:window.location = '#message_33'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5150,9 +5338,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -5200,7 +5386,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(1) receive from House(1)-&gt;colapse(  )" onclick="javascript:window.location = '#message_34'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5286,8 +5472,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -5303,8 +5488,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -5352,7 +5536,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(1) call House(1)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_35'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5438,9 +5622,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -5488,7 +5670,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(1) receive from House(1)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_36'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5574,8 +5756,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -5591,8 +5772,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -5640,7 +5820,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) receive from House(1)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_37'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5726,8 +5906,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -5743,8 +5922,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -5792,7 +5970,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call House(1)-&gt;getPig(  )" onclick="javascript:window.location = '#message_38'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5878,9 +6056,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -5928,7 +6104,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) receive from House(1)-&gt;getPig(  )" onclick="javascript:window.location = '#message_39'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6014,8 +6190,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -6031,8 +6206,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -6080,7 +6254,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call LittlePig(1)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_40'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6127,9 +6301,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -6216,7 +6388,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call LittlePig(1)-&gt;isEaten(  )" onclick="javascript:window.location = '#message_41'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6263,9 +6435,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -6352,7 +6522,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call LittlePig(2)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_42'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6386,9 +6556,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -6488,7 +6656,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) receive from LittlePig(2)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_43'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6522,8 +6690,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -6539,8 +6706,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -6640,7 +6806,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_44'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6674,8 +6840,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objHouse
@@ -6691,8 +6856,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -6792,7 +6956,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call House(2)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_45'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6891,8 +7055,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objWolf
@@ -6908,8 +7071,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -6944,7 +7106,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(2) call House(2)-&gt;getType(  )" onclick="javascript:window.location = '#message_46'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7043,9 +7205,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -7080,7 +7240,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(2) receive from House(2)-&gt;getType(  )" onclick="javascript:window.location = '#message_47'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7179,8 +7339,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -7196,8 +7355,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -7232,7 +7390,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(2) call House(2)-&gt;colapse(  )" onclick="javascript:window.location = '#message_48'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7331,9 +7489,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -7368,7 +7524,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(2) receive from House(2)-&gt;colapse(  )" onclick="javascript:window.location = '#message_49'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7467,8 +7623,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -7484,8 +7639,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -7520,7 +7674,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(2) call House(2)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_50'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7619,9 +7773,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -7656,7 +7808,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(2) receive from House(2)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_51'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7755,8 +7907,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -7772,8 +7923,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -7808,7 +7958,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) receive from House(2)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_52'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7907,8 +8057,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -7924,8 +8073,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -7960,7 +8108,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call House(2)-&gt;getPig(  )" onclick="javascript:window.location = '#message_53'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8059,9 +8207,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -8096,7 +8242,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) receive from House(2)-&gt;getPig(  )" onclick="javascript:window.location = '#message_54'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8195,8 +8341,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -8212,8 +8357,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -8248,7 +8392,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call LittlePig(2)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_55'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8308,9 +8452,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -8384,7 +8526,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call LittlePig(2)-&gt;isEaten(  )" onclick="javascript:window.location = '#message_56'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8444,9 +8586,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -8520,7 +8660,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call LittlePig(3)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_57'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8554,9 +8694,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -8656,7 +8794,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) receive from LittlePig(3)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_58'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8690,8 +8828,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -8707,8 +8844,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -8808,7 +8944,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_59'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8842,8 +8978,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objHouse
@@ -8859,8 +8994,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -8960,7 +9094,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="Wolf(1) call House(3)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_60'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9072,8 +9206,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objWolf
@@ -9089,8 +9222,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -9112,7 +9244,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(3) call House(3)-&gt;getType(  )" onclick="javascript:window.location = '#message_61'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9224,9 +9356,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -9248,7 +9378,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(3) receive from House(3)-&gt;getType(  )" onclick="javascript:window.location = '#message_62'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9360,8 +9490,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -9377,8 +9506,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -9400,7 +9528,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(3) call House(3)-&gt;getPig(  )" onclick="javascript:window.location = '#message_63'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9512,9 +9640,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -9536,7 +9662,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(3) receive from House(3)-&gt;getPig(  )" onclick="javascript:window.location = '#message_64'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9648,8 +9774,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -9665,8 +9790,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -9688,7 +9812,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(3) call LittlePig(3)-&gt;wakeUpBy( $objWolf )" onclick="javascript:window.location = '#message_65'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9761,8 +9885,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $objWolf
@@ -9778,8 +9901,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -9840,7 +9962,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) call Wolf(1)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_66'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9913,9 +10035,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -9976,7 +10096,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) call LittlePig(3)-&gt;happyEverAfter(  )" onclick="javascript:window.location = '#message_67'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10049,9 +10169,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -10112,7 +10230,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) call LittlePig(3)-&gt;say( $strText )" onclick="javascript:window.location = '#message_68'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10185,8 +10303,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             $strText
@@ -10202,8 +10319,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -10264,7 +10380,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="LittlePig(3) receive from LittlePig(3)-&gt;say( $strText )" onclick="javascript:window.location = '#message_69'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10337,8 +10453,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        <!-- value -->
+    <ul><!-- value -->
 <li>
     <strong>
             return
@@ -10354,8 +10469,7 @@
 </code>
     </div>
 </li>
-<!-- end value -->
-    </ul>
+<!-- end value --></ul>
 </div>
 <!-- end line values -->
         </div>
@@ -10416,7 +10530,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="House(3) call House(3)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_70'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10528,9 +10642,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -10552,7 +10664,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body">
+<div class="line body" title="user" onclick="javascript:window.location = '#message_71'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10573,9 +10685,7 @@
             </span>
             <!-- line values -->
 <div class="parameters">
-    <ul>
-        
-    </ul>
+    
 </div>
 <!-- end line values -->
         </div>
@@ -10688,8 +10798,90 @@
 <!-- end line after -->
 </div>
 <!-- end messages -->
-        <div class="detail"><ol>
-<li><div class="message" id="div_message_1">
+        <script type="text/javascript">
+/*<![CDATA[*/
+    function showHideTab( objTab , intMinSize , intMaxSize )
+    {
+        if( window.countTab == undefined )
+        {
+            window.countTab = 1;
+            window.tabs = new Object();
+        }
+        if( !objTab.id)
+        {
+            objTab.id = "tab_" + window.countTab;
+            window.countTab++;
+            window.tabs[ objTab.id ] = 'open';
+        }
+
+        objTab.className = "detail";
+        if( ( window.tabs[ objTab.id ] == 'open' ) || ( window.tabs[ objTab.id ] == 'stop_open' ) )
+        {
+            window.tabs[ objTab.id ] = 'close';
+        }
+        else
+        {
+            window.tabs[ objTab.id ] = 'open';
+        }
+        changeTab( objTab , intMinSize , intMaxSize );
+    }
+
+    function changeTab( objTab , intMinSize , intMaxSize )
+    {
+        if( window.tabs[ objTab.id ] == 'open' )
+        {
+            openTab( objTab , intMaxSize  );
+            setTimeout( 'changeTab( document.getElementById("' + objTab.id + '" ) , ' + intMinSize + ' , ' + intMaxSize + ' )' , 3 );
+        }
+        if( window.tabs[ objTab.id ] == 'close' )
+        {
+            closeTab( objTab , intMinSize );
+            setTimeout( 'changeTab( document.getElementById("' + objTab.id + '" ) , ' + intMinSize + ' , ' + intMaxSize + ' )' , 3 );
+        }
+    }
+
+    function closeTab( objTab , intMinSize )
+    {
+        if( objTab.clientHeight > intMinSize )
+        {
+            objTab.className = "detail closing";
+            objTab.style.height = Math.round( objTab.clientHeight * 70 / 100 - 1 ) + "px";
+            objTab.scrollTop = 0;
+        }
+        else
+        {
+            objTab.style.height = intMinSize + "px";
+            objTab.className = "detail closed";
+            window.tabs[ objTab.id ] = 'stop_close';
+        }
+    }
+
+    function openTab( objTab , intMaxSize )
+    {
+        if( objTab.clientHeight < objTab.scrollHeight )
+        {
+            objTab.className = "detail opening";
+            objTab.style.height = Math.round( objTab.clientHeight * 1.3 ) + "px";
+        }
+        else
+        {
+            objTab.style.height = Math.round( objTab.clientHeight ) + "px";
+            window.tabs[ objTab.id ] = 'stop_open';
+            objTab.className = "detail opened";
+        }
+    }
+/*]]>*/
+</script>
+<div class="tab">
+    <div class="button_bar">
+    </div>
+    <div class="detail_tab">
+        <div class="detail">
+            <h3  onclick="javascript:showHideTab( this.parentNode , 40 , this.parentNode.scrollHeight )">
+                Details
+            </h3>
+            <ol>
+                <li><div class="message" id="div_message_1">
 <a name="message_1"><span class="detail_actor from">user</span> create new <span class="detail_actor to">History(1)</span></a>
 <div class="values" >
 </div></div></li>
@@ -11183,11 +11375,41 @@
 <a name="message_71"><span class="detail_actor from">user</span> destroy <span class="detail_actor to">History(1)</span></a>
 <div class="values" >
 </div></div></li>
-</ol></div>
 
+            </ol>
+        </div>
     </div>
 </div>
+    </div>
+</div>
+<script type="text/javascript">
+    /*<![CDATA[*/
+    document.body.onload = function()
+    {
+        document.body.innerHTML += "";
+    };
+    setTimeout( function(){
+        document.body.innerHTML += "";
+    }, 100 );
+    /*]]>*/
+</script>
 <!-- end diagram -->
+        <div class="validate">
+            <p>
+                <a href="http://validator.w3.org/check?uri=referer">
+                    <img
+                    src="http://www.w3.org/Icons/valid-xhtml10-blue"
+                    alt="Valid XHTML 1.0 Transitional" height="31" width="88" />
+                </a>
+            </p>
+            <p>
+                <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                    <img style="border:0;width:88px;height:31px"
+                    src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                    alt="Valid CSS!" />
+                </a>
+            </p>
+        </div>
     </body>
 </html>
 <!-- end page -->

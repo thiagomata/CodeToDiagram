@@ -70,6 +70,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      */
     protected $objConfiguration;
 
+    protected $objActualMessage;
+
     /**
      * Set the code instrumentation receiver configuration
      * 
@@ -340,6 +342,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
 
             // append the message  //
             $this->objUmlSequence->addMessage( $objMessage );
+            $this->objActualMessage = $objMessage;
             $this->arrMessages[] 	= $objMessage;
         }
         
@@ -431,6 +434,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
             // append the message  //
             $this->objUmlSequence->addMessage( $objMessage );
             $objMessage->setTimeEnd( microtime( true ) );
+            $this->objActualMessage = $objMessage;
         }
         return $this;
     }
@@ -500,6 +504,27 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
     public function perform()
     {
         return $this->getUmlSequenceDiagram();
+    }
+
+    /**
+     * Get the actual actor
+     *
+     *
+     * @return UmlSequenceDiagramActor
+     */
+    public function getActualActor()
+    {
+        return current( $this->arrStack );
+    }
+
+    /**
+     * Get the actual message 
+     *
+     * @return UmlSequenceDiagramMessage
+     */
+    public function getActualMessage()
+    {
+        return ( $this->objActualMessage );
     }
 }
 

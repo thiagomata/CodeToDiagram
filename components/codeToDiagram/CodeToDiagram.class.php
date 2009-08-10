@@ -1155,10 +1155,36 @@ class CodeToDiagram
 		$this->setCallerPath( CorujaFileManipulation::getPathOfFile( $strCallerFile ) );
 	}
 
-    public function __call( $strMethod , $arrArguments )
-    {
-        throw new CodeToDiagramException( "unknow method " . $strMethod . " in " . get_class( $this ) );
-    }
+        /**
+         * Add a note into the diagram
+         *
+         * @param string $strNoteContent
+         * @param boolean $booAfter
+         * @return UmlSequenceDiagramNote
+         */
+        public function addNote( $strNoteContent , $booAfter = true )
+        {
+            $objNote = new UmlSequenceDiagramNote();
+            $objNote->setContent( $strNoteContent );
+            $objMessage = CodeInstrumentationReceiver::getInstance()->getActualMessage();
+            $objActor =  CodeInstrumentationReceiver::getInstance()->getActualActor();
+            $objNote->setActor( $objActor );
+            
+            if( $booAfter )
+            {
+                $objMessage->addNoteAfter($objNote);
+            }
+            else
+            {
+                $objMessage->addNoteBefore( $objNote );
+            }
+            return $objNote;
+        }
+
+        public function __call( $strMethod , $arrArguments )
+        {
+            throw new CodeToDiagramException( "unknow method " . $strMethod . " in " . get_class( $this ) );
+        }
 }
 
 ?>

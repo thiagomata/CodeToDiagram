@@ -272,6 +272,14 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return "*/" . $this->getTemplate( "style.css" , $arrReplace ) . "/*";
     }
 
+    protected function makeBase64File( $strFile , $strMime )
+    {
+        $strContent = file_get_contents( $strFile );
+        $strBase64  = base64_encode( $strContent );
+        return ('data:' . $strMime . ';base64,' . $strBase64 );
+
+    }
+
     protected function getActor( UmlSequenceDiagramActor $objActor )
     {
         $objStereotype = $objActor->getStereotype();
@@ -279,6 +287,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         if( $objStereotype->getDefault() )
         {
             $strImage = '<img alt="' . $objActor->getStereotype()->getName() . '" src="' . $this->getConfiguration()->getPublicFolderPath() . 'images/' . $objStereotype->getName() . '.gif"/>';
+            //$strImage = '<img alt="' . $objActor->getStereotype()->getName() . '" src="' . $this->makeBase64File( $this->getConfiguration()->getPublicPath() . 'images/' . $objStereotype->getName() . '.gif' , "image/gif" ) . '"/>';
         }
         else
         {
@@ -321,6 +330,20 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      */
     protected function getMessage( UmlSequenceDiagramMessage $objMessage )
     {
+        $strResult = '';
+        $strNotesBefore = '';
+
+        $arrNotes = $objMessage->getNotesBefore();
+        foreach( $arrNotes as $objNote )
+        {
+            $strNotesBefore .= $this->getNote( $objNote , false );
+        }
+        $arrNotes = $objMessage->getNotesAfter();
+        foreach( $arrNotes as $objNote )
+        {
+            $strNotesBefore .= $this->getNote( $objNote , true );
+        }
+
         if( $objMessage->isReverse() )
         {
             $intStart = $objMessage->getActorTo()->getPosition();
@@ -350,8 +373,6 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "codetodiagram:actor_from" ] = "actor" . $intStart;
         $arrReplace[ "codetodiagram:message_dif" ] = "dif" . ( $intStart - $intEnd );
         $arrReplace[ "<codetodiagram:message_values/>" ] = $this->getValues( $objMessage );
-
-        $strResult = '';
 
         while( $objActorActual = array_shift( $arrActors ) )
         {
@@ -410,7 +431,66 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
 
 
-        return $this->getTemplate( "messages.html" , $arrReplace );
+        $strMessages = $this->getTemplate( "messages.html" , $arrReplace );
+        $strMessages = $strNotesBefore . $strMessages;
+        return $strMessages;
+    }
+
+    protected function getNote( UmlSequenceDiagramNote $objNote , $booAfter = true )
+    {
+        $arrActors = $objNote->getActor()->getUmlSequenceDiagram()->getActors();
+        $intPosition = $objNote->getActor()->getPosition();
+        $strResult = "";
+
+        foreach( $arrActors as $objActor )
+        {
+            $arrReplace = array();
+
+            $strFinal = ( $objActor->getPosition() == sizeof( $arrActors ) ) ? "final" : "regular";
+
+            $arrReplace[ "codetodiagram:message_final" ] = $strFinal;
+            $arrReplace[ "codetodiagram:actoractual_name" ] = $objActor->getName();
+            $arrReplace[ "codetodiagram:message_dif" ] = 0;
+            $arrReplace[ "codetodiagram:message_values" ] = "";
+            
+            /**
+             * @var $objActor UmlSequenceDiagramActor
+             */
+
+            if( $objActor->getPosition() < $intPosition )
+            {
+                $strResult .= $this->getTemplate( "line_before.html" , $arrReplace );
+            }
+            elseif( $objActor->getPosition() == $intPosition )
+            {
+                $arrReplace[ "<codetodiagram:message_text/>" ] = $objNote->getContent();
+                $strResult .=  $this->getTemplate( "line_note.html" , $arrReplace );
+            }
+            elseif( $objActor->getPosition()  > $intPosition )
+            {
+                // after line //
+                $strResult .=  $this->getTemplate( "line_after.html" , $arrReplace );
+            }
+            else
+            {
+                $strMessage = '';
+                $strMessage .= ' Invalid Position ' . "\n" ;
+                $strMessage .= ' Actual Actor ' . $objActorActual->getPosition() ;
+                $strMessage .= ' Message Start ' . $intStart ;
+                $strMessage .= ' Message End' . $intEnd ;
+                throw new Exception( $strMessage );
+            }
+        }
+
+        $arrReplace = array();
+        $arrReplace[ '<codetodiagram:message_collection/>' ] = $strResult;
+        $arrReplace[ '<codetodiagram:message_title/>' ] = $objNote->getContent();
+        $arrReplace[ 'codetodiagram:message_click' ] = "";
+
+        //return $strResult;
+        $strReturn = $this->getTemplate( "messages.html" , $arrReplace );
+//        CorujaDebug::debug( $strReturn , 1 );
+        return $strReturn;
     }
 
     /**
