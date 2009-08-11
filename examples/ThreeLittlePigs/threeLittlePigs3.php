@@ -29,7 +29,11 @@ CodeToDiagram::getInstance()->getConfiguration()
         ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
         ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
 ;
+CodeToDiagram::getInstance()->getConfiguration()->getGatekeeperMethods()->getForbiddenMatch()->addItemRegularExpression( "^set*|^get*");
 
+
+CodeToDiagram::getInstance()->getPrinterConfiguration()->setWidth( 1300 );
+CodeToDiagram::getInstance()->getPrinterConfiguration()->setPercentFont( 20 );
 
 // 3. load the necessary classes
 require_once( 'Wolf.class.php' );

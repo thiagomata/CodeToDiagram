@@ -72,6 +72,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
 
     protected $objActualMessage;
 
+    protected $objActualActor;
+    
     /**
      * Set the code instrumentation receiver configuration
      * 
@@ -278,6 +280,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         
         // get the actor what the message is bring from  //
         $objActorFrom = current( $this->arrStack );
+        //$objActorFrom = $this->arrStack[0];
         if( $objActorFrom  === false )
         {
             return $this;
@@ -347,6 +350,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         }
         
         array_unshift( $this->arrStack , $objActorTo );
+
+        $this->objActualActor = $objActorFrom;
         return $this;
     }
 
@@ -393,9 +398,11 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         }
                 
         // get the actor what the message is bring from //
+        reset( $this->arrStack );
         $objActorFrom = array_shift( $this->arrStack );
         
         // get the actor what the message is bring to //
+        //$objActorTo = $this->arrStack[0];
         $objActorTo = current( $this->arrStack );
 
         $boolCreateMessage = true;
@@ -436,6 +443,8 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
             $objMessage->setTimeEnd( microtime( true ) );
             $this->objActualMessage = $objMessage;
         }
+        $this->objActualActor = $objActorTo;
+        
         return $this;
     }
 
@@ -514,7 +523,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
      */
     public function getActualActor()
     {
-        return current( $this->arrStack );
+        return $this->objActualActor;
     }
 
     /**

@@ -12,21 +12,21 @@
  */
 class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterface
 {
-	/**
-	 * Singleton of the UmlSequenceDiagramPrinterToHtml
-	 *
-	 * @see UmlSequenceDiagramPrinterInterface::$objInstance
-	 * @var UmlSequenceDiagramPrinterToHtml
-	 */
-	protected static $objInstance;
+    /**
+     * Singleton of the UmlSequenceDiagramPrinterToHtml
+     *
+     * @see UmlSequenceDiagramPrinterInterface::$objInstance
+     * @var UmlSequenceDiagramPrinterToHtml
+     */
+    protected static $objInstance;
 
-	/**
-	 * Uml Sequence Diagram object what will be print
-	 *
-	 * @see UmlSequenceDiagramPrinterInterface->objUmlSequenceDiagram
-	 * @var UmlSequenceDiagram
-	 */
-	protected $objUmlSequenceDiagram;
+    /**
+     * Uml Sequence Diagram object what will be print
+     *
+     * @see UmlSequenceDiagramPrinterInterface->objUmlSequenceDiagram
+     * @var UmlSequenceDiagram
+     */
+    protected $objUmlSequenceDiagram;
 
     /**
      * Configuration of this printer
@@ -332,6 +332,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
     {
         $strResult = '';
         $strNotesBefore = '';
+        $strNotesAfter = '';
 
         $arrNotes = $objMessage->getNotesBefore();
         foreach( $arrNotes as $objNote )
@@ -341,7 +342,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrNotes = $objMessage->getNotesAfter();
         foreach( $arrNotes as $objNote )
         {
-            $strNotesBefore .= $this->getNote( $objNote , true );
+            $strNotesAfter .= $this->getNote( $objNote , true );
         }
 
         if( $objMessage->isReverse() )
@@ -432,7 +433,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
 
         $strMessages = $this->getTemplate( "messages.html" , $arrReplace );
-        $strMessages = $strNotesBefore . $strMessages;
+        $strMessages = $strNotesBefore . $strMessages . $strNotesAfter;
         return $strMessages;
     }
 
@@ -440,6 +441,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
     {
         $arrActors = $objNote->getActor()->getUmlSequenceDiagram()->getActors();
         $intPosition = $objNote->getActor()->getPosition();
+
         $strResult = "";
 
         foreach( $arrActors as $objActor )

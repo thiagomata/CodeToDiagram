@@ -38,11 +38,11 @@ class History
         $objPig2->buildHouse('Stick');
         $objPig3->buildHouse('Brick');
 
-        CodeToDiagram::getInstance()->addNote( "Until, one day" );
 
+        CodeToDiagram::getInstance()->addNote( "One night the big bad wolf," );
         $objWolf = new Wolf();
-        CodeToDiagram::getInstance()->addNote( "A Wolf show up" );
-        
+
+        $objWolf->say( "Let me in, Let me in, little pig or I'll huff and I'll puff and I'll blow your house in!" );
         $objWolf->blowIt( $objPig1->getHouse() );
         $objWolf->blowIt( $objPig2->getHouse() );
         $objWolf->blowIt( $objPig3->getHouse() );
