@@ -20,6 +20,22 @@
 {
     display: none;
 }
+.sequenceDiagram .message:hover .parameters
+{
+    display: block;
+    background-color: white;
+    border-style: solid;
+    border-color: #DDDDFF;
+    border-width: 1px;
+    float: left;
+    position: absolute;
+    overflow: hidden;
+}
+.sequenceDiagram .message .parameters *
+{
+    height: 100px;
+    width: 100px;
+}
 .sequenceDiagram .head .slice
 {
     float: left;
@@ -165,6 +181,24 @@
     text-align: center;
     width: 99%;
     height: 50%;
+}
+.sequenceDiagram .line.body .row .parameters
+{
+    width: auto;
+    height:auto;
+    text-align: left;
+}
+.sequenceDiagram .line.body .row .parameters *
+{
+    width: auto;
+    height:auto;
+    text-align: left;
+}
+.varexport
+{
+    width:auto;
+    height:auto;
+    float: left;
 }
 .sequenceDiagram .line.body .message a
 {

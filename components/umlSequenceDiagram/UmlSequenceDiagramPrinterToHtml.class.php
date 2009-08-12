@@ -533,7 +533,14 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ '<codetodiagram:attribute_name/>' ] = $objValue->getName() ;
         $arrReplace[ '<codetodiagram:attribute_type/>' ] = $strType;
         $arrReplace[ '<codetodiagram:attribute_class/>' ] = $strClass;
-        $arrReplace[ '<codetodiagram:attribute_varexport/>' ] = $this->getVar( $objValue->getValue() );
+        if( $objValue->getValue()  !== null )
+        {
+            $arrReplace[ '<codetodiagram:attribute_varexport/>' ] = $this->getVar( $objValue->getValue() );
+        }
+        else
+        {
+            $arrReplace[ '<codetodiagram:attribute_varexport/>' ] = "";
+        }
 
         return $this->getTemplate( "value.html" , $arrReplace );
     }
@@ -638,10 +645,10 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             $strResult .= '<a name="message_' . $objMessage->getPosition() . '">' . $strText . '</a>' . "\n";
             $arrValues = $objMessage->getValues();
 
-
             $strResult .= '<div class="values" >' . "\n";
             foreach( $arrValues as $intValueId => $objValue )
             {
+
                 if( $objMessage->getType() != 'return' )
                 {
                     $strResult .= '<strong> $' . $objValue->getName() . '</strong>' .  "\n";
@@ -681,8 +688,12 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $this->getTemplate( "details.html" , $arrReplace );
     }
 
-        private static function getVar( $mixVar )
+    private static function getVar( $mixVar )
     {
+        if( $mixVar == null )
+        {
+            return "";
+        }
         $strHtml = highlight_string( '<?php ' .
             self::removeRecursiveProblem(
                     $mixVar
