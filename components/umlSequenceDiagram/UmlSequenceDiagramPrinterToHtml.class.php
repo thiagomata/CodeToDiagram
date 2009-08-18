@@ -35,20 +35,20 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
      */
     protected $objConfiguration;
 
-	/**
-	 * Return the singleton of the UmlSequenceDiagramPrinterToHtml
-	 *
-	 * @see UmlSequenceDiagramPrinterInterface::getInstance
-	 * @return UmlSequenceDiagramPrinterToHtml
-	 */
-	public static function getInstance()
-	{
-		if( self::$objInstance == null )
-		{
-			self::$objInstance = new UmlSequenceDiagramPrinterToHtml();
-		}
-		return self::$objInstance;
-	}
+    /**
+     * Return the singleton of the UmlSequenceDiagramPrinterToHtml
+     *
+     * @see UmlSequenceDiagramPrinterInterface::getInstance
+     * @return UmlSequenceDiagramPrinterToHtml
+     */
+    public static function getInstance()
+    {
+        if( self::$objInstance == null )
+        {
+            self::$objInstance = new UmlSequenceDiagramPrinterToHtml();
+        }
+        return self::$objInstance;
+    }
 
     public function __construct()
     {
@@ -77,18 +77,18 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $this->objConfiguration;
     }
 
-	/**
-	 * Perfom the print process
-	 *
-	 * @see UmlSequenceDiagramPrinterInterface::perform( UmlSequenceDiagram )
-	 * @param UmlSequenceDiagram $objUmlSequenceDiagram
-	 * @return string
-	 */
-	public function perform( UmlSequenceDiagram $objUmlSequenceDiagram )
-	{
-		$this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
-		return $this->getPage();
-	}
+    /**
+     * Perfom the print process
+     *
+     * @see UmlSequenceDiagramPrinterInterface::perform( UmlSequenceDiagram )
+     * @param UmlSequenceDiagram $objUmlSequenceDiagram
+     * @return string
+     */
+    public function perform( UmlSequenceDiagram $objUmlSequenceDiagram )
+    {
+        $this->objUmlSequenceDiagram = $objUmlSequenceDiagram;
+        return $this->getPage();
+    }
 
     /**
      * Get the header of the html printer type
@@ -453,7 +453,10 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             $arrReplace[ "codetodiagram:message_final" ] = $strFinal;
             $arrReplace[ "codetodiagram:actoractual_name" ] = $objActor->getName();
             $arrReplace[ "codetodiagram:message_dif" ] = 0;
-            $arrReplace[ "codetodiagram:message_values" ] = "";
+            $arrReplace[ "codetodiagram:message_type" ] = "";
+            $arrReplace[ "codetodiagram:reverse" ] = "";
+            $arrReplace[ "codetodiagram:large" ] = "";
+            $arrReplace[ "codetodiagram:recursive" ] = "";
             
             /**
              * @var $objActor UmlSequenceDiagramActor
@@ -465,7 +468,18 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             }
             elseif( $objActor->getPosition() == $intPosition )
             {
-                $arrReplace[ "<codetodiagram:message_text/>" ] = $objNote->getContent();
+                $strContent = $objNote->getContent();
+                $intMaxSize = 30;
+                if( strlen( $strContent ) > $intMaxSize )
+                {
+                    $strShortContent = substr( $strContent , 0 , $intMaxSize - strlen( "..." ) ) . "...";   
+                }
+                else
+                {
+                        $strShortContent = $strContent;
+                }
+                $arrReplace[ "<codetodiagram:message_text/>" ] = $strShortContent;
+                $arrReplace[ "codetodiagram:message_values" ] = $strContent;
                 $strResult .=  $this->getTemplate( "line_note.html" , $arrReplace );
             }
             elseif( $objActor->getPosition()  > $intPosition )
@@ -486,7 +500,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
 
         $arrReplace = array();
         $arrReplace[ '<codetodiagram:message_collection/>' ] = $strResult;
-        $arrReplace[ '<codetodiagram:message_title/>' ] = $objNote->getContent();
+        $arrReplace[ '<codetodiagram:message_title/>' ] = "";
         $arrReplace[ 'codetodiagram:message_click' ] = "";
 
         //return $strResult;
@@ -782,7 +796,7 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 {
                     $arrSearch[] = $objReflectedParameter->getCode();
                     $arrReplace[] = $objReflectedParameter->getCode();
-    //	            $arrReplace[] = '<a class="noLink" href="#message_' . $intMessageId . '_param_' . $intPos . '">' . $objReflectedParameter->getCode() . '</a>';
+    //                $arrReplace[] = '<a class="noLink" href="#message_' . $intMessageId . '_param_' . $intPos . '">' . $objReflectedParameter->getCode() . '</a>';
                 }
                 $strText = str_replace( $arrSearch , $arrReplace , htmlentities( $strText ) );
             }

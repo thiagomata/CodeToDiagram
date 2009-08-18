@@ -187,6 +187,7 @@
     width: auto;
     height:auto;
     text-align: left;
+    opacity:0.9;
 }
 .sequenceDiagram .line.body .row .parameters *
 {
