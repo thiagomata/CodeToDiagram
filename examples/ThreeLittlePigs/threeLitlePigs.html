@@ -33,6 +33,22 @@
 {
     display: none;
 }
+.sequenceDiagram .message:hover .parameters
+{
+    display: block;
+    background-color: white;
+    border-style: solid;
+    border-color: #DDDDFF;
+    border-width: 1px;
+    float: left;
+    position: absolute;
+    overflow: hidden;
+}
+.sequenceDiagram .message .parameters *
+{
+    height: 100px;
+    width: 100px;
+}
 .sequenceDiagram .head .slice
 {
     float: left;
@@ -178,6 +194,25 @@
     text-align: center;
     width: 99%;
     height: 50%;
+}
+.sequenceDiagram .line.body .row .parameters
+{
+    width: auto;
+    height:auto;
+    text-align: left;
+    opacity:0.9;
+}
+.sequenceDiagram .line.body .row .parameters *
+{
+    width: auto;
+    height:auto;
+    text-align: left;
+}
+.varexport
+{
+    width:auto;
+    height:auto;
+    float: left;
 }
 .sequenceDiagram .line.body .message a
 {
@@ -481,137 +516,6 @@
 </div>
 <!-- end actors -->
         <!-- messages -->
-<div class="line body" title="Once upon a time" onclick="javascript:">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row codetodiagram:message_type codetodiagram:reverse codetodiagram:large codetodiagram:recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_codetodiagram:message_id" class="noLink">
-                    weeeeeeeeeeeeeeeeee
-                    <strong><codetodiagram:message_position/></strong>.
-                    <codetodiagram:message_text/>
-                </a>
-            </span>
-            </>
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after0 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
 <div class="line body" title="user create new History(1)" onclick="javascript:window.location = '#message_1'">
     <div class="message_header">
         &nbsp;
@@ -733,6 +637,270 @@
 <!-- end line after --><div class="slice final">
     <!-- line after -->
     <div class="actor after8 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="Once upon a time" onclick="javascript:">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row codetodiagram:message_type codetodiagram:reverse codetodiagram:large codetodiagram:recursive start ">
+        <div class="message"  
+             title="Once upon a time"
+             style="background-color: #DDDDDD; height:35%; overflow: hidden; margin: 5%; margin-right: 5%;width:auto;border-style:dashed;border-width:1px;padding:2%">
+            Once upon a time
+            
+            <div class="parameters">
+                Once upon a time
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end line start -->
+<div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="Three Little Pigs into a Wood" onclick="javascript:">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row codetodiagram:message_type codetodiagram:reverse codetodiagram:large codetodiagram:recursive start ">
+        <div class="message"  
+             title="Three Little Pigs into a Wood"
+             style="background-color: #DDDDDD; height:35%; overflow: hidden; margin: 5%; margin-right: 5%;width:auto;border-style:dashed;border-width:1px;padding:2%">
+            Three Little Pigs into a Wood
+            
+            <div class="parameters">
+                Three Little Pigs into a Wood
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end line start -->
+<div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after0 ">
         <div class="name">
             <span title="Wolf(1)">&nbsp;</span>
         </div>
@@ -4250,6 +4418,138 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
+<div class="line body" title="One night the big bad wolf," onclick="javascript:">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row codetodiagram:message_type codetodiagram:reverse codetodiagram:large codetodiagram:recursive start ">
+        <div class="message"  
+             title="One night the big bad wolf,"
+             style="background-color: #DDDDDD; height:35%; overflow: hidden; margin: 5%; margin-right: 5%;width:auto;border-style:dashed;border-width:1px;padding:2%">
+            One night the big bad wolf,
+            
+            <div class="parameters">
+                One night the big bad wolf,
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end line start -->
+<div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after0 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
 <div class="line body" title="History(1) create new Wolf(1)" onclick="javascript:window.location = '#message_26'">
     <div class="message_header">
         &nbsp;
@@ -4384,7 +4684,307 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) call LittlePig(1)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_27'">
+<div class="line body" title="History(1) call Wolf(1)-&gt;say( $strText )" onclick="javascript:window.location = '#message_27'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular large  start ">
+        <div class="message">
+            <span>
+                <a href="#message_27" class="noLink">
+                    <strong>27</strong>.
+                    say( $strText )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            $strText
+    </strong>
+    <span>
+            string
+            
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #DD0000">'Let&nbsp;me&nbsp;in,&nbsp;Let&nbsp;me&nbsp;in,&nbsp;little&nbsp;pig&nbsp;or&nbsp;I\'ll&nbsp;huff&nbsp;and&nbsp;I\'ll&nbsp;puff&nbsp;and&nbsp;I\'ll&nbsp;blow&nbsp;your&nbsp;house&nbsp;in!'</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle call">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle call">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle call">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle call">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle call">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><div class="slice regular">
+    <!-- line end -->
+    <div class="actor end codetodiagram:actoractual_type">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular end ">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line end --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after1 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="History(1) receive from Wolf(1)-&gt;say( $strText )" onclick="javascript:window.location = '#message_28'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse large  start ">
+        <div class="message">
+            <span>
+                <a href="#message_28" class="noLink">
+                    <strong>28</strong>.
+                    say( $strText )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            return
+    </strong>
+    <span>
+            object
+            Wolf
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle return">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle return">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle return">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle return">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle return">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><div class="slice regular">
+    <!-- line end -->
+    <div class="actor end codetodiagram:actoractual_type">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return reverse end ">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line end --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after1 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="History(1) call LittlePig(1)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_29'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4411,8 +5011,8 @@
     <div class="row call regular short  start ">
         <div class="message">
             <span>
-                <a href="#message_27" class="noLink">
-                    <strong>27</strong>.
+                <a href="#message_29" class="noLink">
+                    <strong>29</strong>.
                     getHouse(  )
                 </a>
             </span>
@@ -4518,7 +5118,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) receive from LittlePig(1)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_28'">
+<div class="line body" title="History(1) receive from LittlePig(1)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_30'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4545,8 +5145,8 @@
     <div class="row return reverse short  start ">
         <div class="message">
             <span>
-                <a href="#message_28" class="noLink">
-                    <strong>28</strong>.
+                <a href="#message_30" class="noLink">
+                    <strong>30</strong>.
                     getHouse(  )
                 </a>
             </span>
@@ -4668,7 +5268,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_29'">
+<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_31'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4695,8 +5295,8 @@
     <div class="row call regular large  start ">
         <div class="message">
             <span>
-                <a href="#message_29" class="noLink">
-                    <strong>29</strong>.
+                <a href="#message_31" class="noLink">
+                    <strong>31</strong>.
                     blowIt( $objHouse )
                 </a>
             </span>
@@ -4818,7 +5418,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call House(1)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_30'">
+<div class="line body" title="Wolf(1) call House(1)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_32'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -4897,8 +5497,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_30" class="noLink">
-                    <strong>30</strong>.
+                <a href="#message_32" class="noLink">
+                    <strong>32</strong>.
                     getBlowBy( $objWolf )
                 </a>
             </span>
@@ -4968,291 +5568,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(1) call House(1)-&gt;getType(  )" onclick="javascript:window.location = '#message_31'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call regular short recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_31" class="noLink">
-                    <strong>31</strong>.
-                    getType(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after2 ">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after3 ">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after4 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="House(1) receive from House(1)-&gt;getType(  )" onclick="javascript:window.location = '#message_32'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular short recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_32" class="noLink">
-                    <strong>32</strong>.
-                    getType(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    <ul><!-- value -->
-<li>
-    <strong>
-            return
-    </strong>
-    <span>
-            string
-            
-    </span>
-    <div class="varexport">
-        <code><span style="color: #000000">
-<span style="color: #DD0000">'Straw'</span>
-</span>
-</code>
-    </div>
-</li>
-<!-- end value --></ul>
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after2 ">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after3 ">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after4 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="House(1) call House(1)-&gt;colapse(  )" onclick="javascript:window.location = '#message_33'">
+<div class="line body" title="House(1) call House(1)-&gt;getType(  )" onclick="javascript:window.location = '#message_33'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5333,7 +5649,7 @@
             <span>
                 <a href="#message_33" class="noLink">
                     <strong>33</strong>.
-                    colapse(  )
+                    getType(  )
                 </a>
             </span>
             <!-- line values -->
@@ -5386,7 +5702,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(1) receive from House(1)-&gt;colapse(  )" onclick="javascript:window.location = '#message_34'">
+<div class="line body" title="House(1) receive from House(1)-&gt;getType(  )" onclick="javascript:window.location = '#message_34'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5467,7 +5783,7 @@
             <span>
                 <a href="#message_34" class="noLink">
                     <strong>34</strong>.
-                    colapse(  )
+                    getType(  )
                 </a>
             </span>
             <!-- line values -->
@@ -5478,12 +5794,12 @@
             return
     </strong>
     <span>
-            object
-            House
+            string
+            
     </span>
     <div class="varexport">
         <code><span style="color: #000000">
-<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+<span style="color: #DD0000">'Straw'</span>
 </span>
 </code>
     </div>
@@ -5536,7 +5852,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(1) call House(1)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_35'">
+<div class="line body" title="House(1) call House(1)-&gt;colapse(  )" onclick="javascript:window.location = '#message_35'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5617,7 +5933,7 @@
             <span>
                 <a href="#message_35" class="noLink">
                     <strong>35</strong>.
-                    isColapsed(  )
+                    colapse(  )
                 </a>
             </span>
             <!-- line values -->
@@ -5670,7 +5986,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(1) receive from House(1)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_36'">
+<div class="line body" title="House(1) receive from House(1)-&gt;colapse(  )" onclick="javascript:window.location = '#message_36'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -5751,6 +6067,290 @@
             <span>
                 <a href="#message_36" class="noLink">
                     <strong>36</strong>.
+                    colapse(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            return
+    </strong>
+    <span>
+            object
+            House
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Straw'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after2 ">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after3 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after4 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="House(1) call House(1)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_37'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular short recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_37" class="noLink">
+                    <strong>37</strong>.
+                    isColapsed(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after2 ">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after3 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after4 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="House(1) receive from House(1)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_38'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular short recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_38" class="noLink">
+                    <strong>38</strong>.
                     isColapsed(  )
                 </a>
             </span>
@@ -5820,291 +6420,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) receive from House(1)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_37'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular large  start ">
-        <div class="message">
-            <span>
-                <a href="#message_37" class="noLink">
-                    <strong>37</strong>.
-                    getBlowBy( $objWolf )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    <ul><!-- value -->
-<li>
-    <strong>
-            return
-    </strong>
-    <span>
-            boolean
-            
-    </span>
-    <div class="varexport">
-        <code><span style="color: #000000">
-<span style="color: #0000BB">true</span>
-</span>
-</code>
-    </div>
-</li>
-<!-- end value --></ul>
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><!-- line inside -->
-<div class="slice regular">
-    <div class="actor middle return">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular large middle">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line inside --><div class="slice regular">
-    <!-- line end -->
-    <div class="actor end codetodiagram:actoractual_type">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular end ">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line end --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after1 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call House(1)-&gt;getPig(  )" onclick="javascript:window.location = '#message_38'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call reverse large  start ">
-        <div class="message">
-            <span>
-                <a href="#message_38" class="noLink">
-                    <strong>38</strong>.
-                    getPig(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><!-- line inside -->
-<div class="slice regular">
-    <div class="actor middle call">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call reverse large middle">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line inside --><div class="slice regular">
-    <!-- line end -->
-    <div class="actor end codetodiagram:actoractual_type">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call reverse end ">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line end --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after1 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) receive from House(1)-&gt;getPig(  )" onclick="javascript:window.location = '#message_39'">
+<div class="line body" title="Wolf(1) receive from House(1)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_39'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6185,6 +6501,290 @@
             <span>
                 <a href="#message_39" class="noLink">
                     <strong>39</strong>.
+                    getBlowBy( $objWolf )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            return
+    </strong>
+    <span>
+            boolean
+            
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle return">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><div class="slice regular">
+    <!-- line end -->
+    <div class="actor end codetodiagram:actoractual_type">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular end ">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line end --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after1 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="Wolf(1) call House(1)-&gt;getPig(  )" onclick="javascript:window.location = '#message_40'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call reverse large  start ">
+        <div class="message">
+            <span>
+                <a href="#message_40" class="noLink">
+                    <strong>40</strong>.
+                    getPig(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><!-- line inside -->
+<div class="slice regular">
+    <div class="actor middle call">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call reverse large middle">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line inside --><div class="slice regular">
+    <!-- line end -->
+    <div class="actor end codetodiagram:actoractual_type">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call reverse end ">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line end --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after1 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="Wolf(1) receive from House(1)-&gt;getPig(  )" onclick="javascript:window.location = '#message_41'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular large  start ">
+        <div class="message">
+            <span>
+                <a href="#message_41" class="noLink">
+                    <strong>41</strong>.
                     getPig(  )
                 </a>
             </span>
@@ -6254,7 +6854,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call LittlePig(1)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_40'">
+<div class="line body" title="Wolf(1) call LittlePig(1)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_42'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6294,8 +6894,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_40" class="noLink">
-                    <strong>40</strong>.
+                <a href="#message_42" class="noLink">
+                    <strong>42</strong>.
                     isKilled(  )
                 </a>
             </span>
@@ -6388,7 +6988,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call LittlePig(1)-&gt;isEaten(  )" onclick="javascript:window.location = '#message_41'">
+<div class="line body" title="Wolf(1) call LittlePig(1)-&gt;isEaten(  )" onclick="javascript:window.location = '#message_43'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6428,8 +7028,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_41" class="noLink">
-                    <strong>41</strong>.
+                <a href="#message_43" class="noLink">
+                    <strong>43</strong>.
                     isEaten(  )
                 </a>
             </span>
@@ -6522,7 +7122,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) call LittlePig(2)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_42'">
+<div class="line body" title="History(1) call LittlePig(2)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_44'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6549,8 +7149,8 @@
     <div class="row call regular large  start ">
         <div class="message">
             <span>
-                <a href="#message_42" class="noLink">
-                    <strong>42</strong>.
+                <a href="#message_44" class="noLink">
+                    <strong>44</strong>.
                     getHouse(  )
                 </a>
             </span>
@@ -6656,7 +7256,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) receive from LittlePig(2)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_43'">
+<div class="line body" title="History(1) receive from LittlePig(2)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_45'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6683,8 +7283,8 @@
     <div class="row return reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_43" class="noLink">
-                    <strong>43</strong>.
+                <a href="#message_45" class="noLink">
+                    <strong>45</strong>.
                     getHouse(  )
                 </a>
             </span>
@@ -6806,7 +7406,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_44'">
+<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_46'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -6833,8 +7433,8 @@
     <div class="row call regular large  start ">
         <div class="message">
             <span>
-                <a href="#message_44" class="noLink">
-                    <strong>44</strong>.
+                <a href="#message_46" class="noLink">
+                    <strong>46</strong>.
                     blowIt( $objHouse )
                 </a>
             </span>
@@ -6956,7 +7556,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call House(2)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_45'">
+<div class="line body" title="Wolf(1) call House(2)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_47'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7048,8 +7648,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_45" class="noLink">
-                    <strong>45</strong>.
+                <a href="#message_47" class="noLink">
+                    <strong>47</strong>.
                     getBlowBy( $objWolf )
                 </a>
             </span>
@@ -7106,291 +7706,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(2) call House(2)-&gt;getType(  )" onclick="javascript:window.location = '#message_46'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call regular short recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_46" class="noLink">
-                    <strong>46</strong>.
-                    getType(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after2 ">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after3 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="House(2) receive from House(2)-&gt;getType(  )" onclick="javascript:window.location = '#message_47'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular short recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_47" class="noLink">
-                    <strong>47</strong>.
-                    getType(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    <ul><!-- value -->
-<li>
-    <strong>
-            return
-    </strong>
-    <span>
-            string
-            
-    </span>
-    <div class="varexport">
-        <code><span style="color: #000000">
-<span style="color: #DD0000">'Stick'</span>
-</span>
-</code>
-    </div>
-</li>
-<!-- end value --></ul>
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line after -->
-    <div class="actor after2 ">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after3 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="House(2) call House(2)-&gt;colapse(  )" onclick="javascript:window.location = '#message_48'">
+<div class="line body" title="House(2) call House(2)-&gt;getType(  )" onclick="javascript:window.location = '#message_48'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7484,7 +7800,7 @@
             <span>
                 <a href="#message_48" class="noLink">
                     <strong>48</strong>.
-                    colapse(  )
+                    getType(  )
                 </a>
             </span>
             <!-- line values -->
@@ -7524,7 +7840,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(2) receive from House(2)-&gt;colapse(  )" onclick="javascript:window.location = '#message_49'">
+<div class="line body" title="House(2) receive from House(2)-&gt;getType(  )" onclick="javascript:window.location = '#message_49'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7618,7 +7934,7 @@
             <span>
                 <a href="#message_49" class="noLink">
                     <strong>49</strong>.
-                    colapse(  )
+                    getType(  )
                 </a>
             </span>
             <!-- line values -->
@@ -7629,12 +7945,12 @@
             return
     </strong>
     <span>
-            object
-            House
+            string
+            
     </span>
     <div class="varexport">
         <code><span style="color: #000000">
-<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+<span style="color: #DD0000">'Stick'</span>
 </span>
 </code>
     </div>
@@ -7674,7 +7990,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(2) call House(2)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_50'">
+<div class="line body" title="House(2) call House(2)-&gt;colapse(  )" onclick="javascript:window.location = '#message_50'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7768,7 +8084,7 @@
             <span>
                 <a href="#message_50" class="noLink">
                     <strong>50</strong>.
-                    isColapsed(  )
+                    colapse(  )
                 </a>
             </span>
             <!-- line values -->
@@ -7808,7 +8124,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(2) receive from House(2)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_51'">
+<div class="line body" title="House(2) receive from House(2)-&gt;colapse(  )" onclick="javascript:window.location = '#message_51'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -7902,6 +8218,290 @@
             <span>
                 <a href="#message_51" class="noLink">
                     <strong>51</strong>.
+                    colapse(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            return
+    </strong>
+    <span>
+            object
+            House
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #0000BB">House</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strType'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'Stick'</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objPig'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;<br />&nbsp;&nbsp;</span><span style="color: #0000BB">LittlePig</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'strName'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">NULL</span><span style="color: #007700">,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'objHouse'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'*recursive*'</span><span style="color: #007700">,<br />&nbsp;&nbsp;)),<br />&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'booIsColapsed'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">,<br />))</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after2 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after3 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="House(2) call House(2)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_52'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular short recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_52" class="noLink">
+                    <strong>52</strong>.
+                    isColapsed(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line after -->
+    <div class="actor after2 ">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after3 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="House(2) receive from House(2)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_53'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular short recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_53" class="noLink">
+                    <strong>53</strong>.
                     isColapsed(  )
                 </a>
             </span>
@@ -7958,291 +8558,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) receive from House(2)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_52'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular large  start ">
-        <div class="message">
-            <span>
-                <a href="#message_52" class="noLink">
-                    <strong>52</strong>.
-                    getBlowBy( $objWolf )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    <ul><!-- value -->
-<li>
-    <strong>
-            return
-    </strong>
-    <span>
-            boolean
-            
-    </span>
-    <div class="varexport">
-        <code><span style="color: #000000">
-<span style="color: #0000BB">true</span>
-</span>
-</code>
-    </div>
-</li>
-<!-- end value --></ul>
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line end -->
-    <div class="actor end codetodiagram:actoractual_type">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular end ">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line end --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after1 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call House(2)-&gt;getPig(  )" onclick="javascript:window.location = '#message_53'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call reverse large  start ">
-        <div class="message">
-            <span>
-                <a href="#message_53" class="noLink">
-                    <strong>53</strong>.
-                    getPig(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice regular">
-    <!-- line end -->
-    <div class="actor end codetodiagram:actoractual_type">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call reverse end ">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line end --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after1 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) receive from House(2)-&gt;getPig(  )" onclick="javascript:window.location = '#message_54'">
+<div class="line body" title="Wolf(1) receive from House(2)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_54'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8336,6 +8652,290 @@
             <span>
                 <a href="#message_54" class="noLink">
                     <strong>54</strong>.
+                    getBlowBy( $objWolf )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            return
+    </strong>
+    <span>
+            boolean
+            
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line end -->
+    <div class="actor end codetodiagram:actoractual_type">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular end ">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line end --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after1 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="Wolf(1) call House(2)-&gt;getPig(  )" onclick="javascript:window.location = '#message_55'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call reverse large  start ">
+        <div class="message">
+            <span>
+                <a href="#message_55" class="noLink">
+                    <strong>55</strong>.
+                    getPig(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice regular">
+    <!-- line end -->
+    <div class="actor end codetodiagram:actoractual_type">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call reverse end ">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line end --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after1 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="Wolf(1) receive from House(2)-&gt;getPig(  )" onclick="javascript:window.location = '#message_56'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular large  start ">
+        <div class="message">
+            <span>
+                <a href="#message_56" class="noLink">
+                    <strong>56</strong>.
                     getPig(  )
                 </a>
             </span>
@@ -8392,7 +8992,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call LittlePig(2)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_55'">
+<div class="line body" title="Wolf(1) call LittlePig(2)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_57'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8445,8 +9045,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_55" class="noLink">
-                    <strong>55</strong>.
+                <a href="#message_57" class="noLink">
+                    <strong>57</strong>.
                     isKilled(  )
                 </a>
             </span>
@@ -8526,7 +9126,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call LittlePig(2)-&gt;isEaten(  )" onclick="javascript:window.location = '#message_56'">
+<div class="line body" title="Wolf(1) call LittlePig(2)-&gt;isEaten(  )" onclick="javascript:window.location = '#message_58'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8579,8 +9179,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_56" class="noLink">
-                    <strong>56</strong>.
+                <a href="#message_58" class="noLink">
+                    <strong>58</strong>.
                     isEaten(  )
                 </a>
             </span>
@@ -8660,7 +9260,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) call LittlePig(3)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_57'">
+<div class="line body" title="History(1) call LittlePig(3)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_59'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8687,8 +9287,8 @@
     <div class="row call regular large  start ">
         <div class="message">
             <span>
-                <a href="#message_57" class="noLink">
-                    <strong>57</strong>.
+                <a href="#message_59" class="noLink">
+                    <strong>59</strong>.
                     getHouse(  )
                 </a>
             </span>
@@ -8794,7 +9394,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) receive from LittlePig(3)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_58'">
+<div class="line body" title="History(1) receive from LittlePig(3)-&gt;getHouse(  )" onclick="javascript:window.location = '#message_60'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8821,8 +9421,8 @@
     <div class="row return reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_58" class="noLink">
-                    <strong>58</strong>.
+                <a href="#message_60" class="noLink">
+                    <strong>60</strong>.
                     getHouse(  )
                 </a>
             </span>
@@ -8944,7 +9544,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_59'">
+<div class="line body" title="History(1) call Wolf(1)-&gt;blowIt( $objHouse )" onclick="javascript:window.location = '#message_61'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -8971,8 +9571,8 @@
     <div class="row call regular large  start ">
         <div class="message">
             <span>
-                <a href="#message_59" class="noLink">
-                    <strong>59</strong>.
+                <a href="#message_61" class="noLink">
+                    <strong>61</strong>.
                     blowIt( $objHouse )
                 </a>
             </span>
@@ -9094,7 +9694,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="Wolf(1) call House(3)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_60'">
+<div class="line body" title="Wolf(1) call House(3)-&gt;getBlowBy( $objWolf )" onclick="javascript:window.location = '#message_62'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9199,8 +9799,8 @@
     <div class="row call reverse short  start ">
         <div class="message">
             <span>
-                <a href="#message_60" class="noLink">
-                    <strong>60</strong>.
+                <a href="#message_62" class="noLink">
+                    <strong>62</strong>.
                     getBlowBy( $objWolf )
                 </a>
             </span>
@@ -9244,291 +9844,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(3) call House(3)-&gt;getType(  )" onclick="javascript:window.location = '#message_61'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row call regular short recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_61" class="noLink">
-                    <strong>61</strong>.
-                    getType(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after2 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="House(3) receive from House(3)-&gt;getType(  )" onclick="javascript:window.location = '#message_62'">
-    <div class="message_header">
-        &nbsp;
-    </div>
-    <div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="user">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="History(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="LittlePig(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><div class="slice regular">
-    <!-- line before -->
-    <div class="actor">
-        <div class="name">
-            <span title="House(2)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line before --><!-- line start -->
-<div class="slice regular">
-    <div class="actor start">
-        <div class="name">
-            <span title="House(3)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row return regular short recursive start ">
-        <div class="message">
-            <span>
-                <a href="#message_62" class="noLink">
-                    <strong>62</strong>.
-                    getType(  )
-                </a>
-            </span>
-            <!-- line values -->
-<div class="parameters">
-    <ul><!-- value -->
-<li>
-    <strong>
-            return
-    </strong>
-    <span>
-            string
-            
-    </span>
-    <div class="varexport">
-        <code><span style="color: #000000">
-<span style="color: #DD0000">'Brick'</span>
-</span>
-</code>
-    </div>
-</li>
-<!-- end value --></ul>
-</div>
-<!-- end line values -->
-        </div>
-    </div>
-</div>
-<!-- end line start --><div class="slice final">
-    <!-- line after -->
-    <div class="actor after2 ">
-        <div class="name">
-            <span title="Wolf(1)">&nbsp;</span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="message">
-            <span>&nbsp;</span>
-        </div>
-    </div>
-</div>
-<!-- end line after -->
-</div>
-<!-- end messages --><!-- messages -->
-<div class="line body" title="House(3) call House(3)-&gt;getPig(  )" onclick="javascript:window.location = '#message_63'">
+<div class="line body" title="House(3) call House(3)-&gt;getType(  )" onclick="javascript:window.location = '#message_63'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9635,7 +9951,7 @@
             <span>
                 <a href="#message_63" class="noLink">
                     <strong>63</strong>.
-                    getPig(  )
+                    getType(  )
                 </a>
             </span>
             <!-- line values -->
@@ -9662,7 +9978,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(3) receive from House(3)-&gt;getPig(  )" onclick="javascript:window.location = '#message_64'">
+<div class="line body" title="House(3) receive from House(3)-&gt;getType(  )" onclick="javascript:window.location = '#message_64'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9769,6 +10085,290 @@
             <span>
                 <a href="#message_64" class="noLink">
                     <strong>64</strong>.
+                    getType(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    <ul><!-- value -->
+<li>
+    <strong>
+            return
+    </strong>
+    <span>
+            string
+            
+    </span>
+    <div class="varexport">
+        <code><span style="color: #000000">
+<span style="color: #DD0000">'Brick'</span>
+</span>
+</code>
+    </div>
+</li>
+<!-- end value --></ul>
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after2 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="House(3) call House(3)-&gt;getPig(  )" onclick="javascript:window.location = '#message_65'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row call regular short recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_65" class="noLink">
+                    <strong>65</strong>.
+                    getPig(  )
+                </a>
+            </span>
+            <!-- line values -->
+<div class="parameters">
+    
+</div>
+<!-- end line values -->
+        </div>
+    </div>
+</div>
+<!-- end line start --><div class="slice final">
+    <!-- line after -->
+    <div class="actor after2 ">
+        <div class="name">
+            <span title="Wolf(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line after -->
+</div>
+<!-- end messages --><!-- messages -->
+<div class="line body" title="House(3) receive from House(3)-&gt;getPig(  )" onclick="javascript:window.location = '#message_66'">
+    <div class="message_header">
+        &nbsp;
+    </div>
+    <div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="user">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="History(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="LittlePig(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(1)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><div class="slice regular">
+    <!-- line before -->
+    <div class="actor">
+        <div class="name">
+            <span title="House(2)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="message">
+            <span>&nbsp;</span>
+        </div>
+    </div>
+</div>
+<!-- end line before --><!-- line start -->
+<div class="slice regular">
+    <div class="actor start">
+        <div class="name">
+            <span title="House(3)">&nbsp;</span>
+        </div>
+    </div>
+    <div class="row return regular short recursive start ">
+        <div class="message">
+            <span>
+                <a href="#message_66" class="noLink">
+                    <strong>66</strong>.
                     getPig(  )
                 </a>
             </span>
@@ -9812,7 +10412,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(3) call LittlePig(3)-&gt;wakeUpBy( $objWolf )" onclick="javascript:window.location = '#message_65'">
+<div class="line body" title="House(3) call LittlePig(3)-&gt;wakeUpBy( $objWolf )" onclick="javascript:window.location = '#message_67'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -9878,8 +10478,8 @@
     <div class="row call reverse large  start ">
         <div class="message">
             <span>
-                <a href="#message_65" class="noLink">
-                    <strong>65</strong>.
+                <a href="#message_67" class="noLink">
+                    <strong>67</strong>.
                     wakeUpBy( $objWolf )
                 </a>
             </span>
@@ -9962,7 +10562,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="LittlePig(3) call Wolf(1)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_66'">
+<div class="line body" title="LittlePig(3) call Wolf(1)-&gt;isKilled(  )" onclick="javascript:window.location = '#message_68'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10028,8 +10628,8 @@
     <div class="row call regular large  start ">
         <div class="message">
             <span>
-                <a href="#message_66" class="noLink">
-                    <strong>66</strong>.
+                <a href="#message_68" class="noLink">
+                    <strong>68</strong>.
                     isKilled(  )
                 </a>
             </span>
@@ -10096,7 +10696,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="LittlePig(3) call LittlePig(3)-&gt;happyEverAfter(  )" onclick="javascript:window.location = '#message_67'">
+<div class="line body" title="LittlePig(3) call LittlePig(3)-&gt;happyEverAfter(  )" onclick="javascript:window.location = '#message_69'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10162,8 +10762,8 @@
     <div class="row call regular short recursive start ">
         <div class="message">
             <span>
-                <a href="#message_67" class="noLink">
-                    <strong>67</strong>.
+                <a href="#message_69" class="noLink">
+                    <strong>69</strong>.
                     happyEverAfter(  )
                 </a>
             </span>
@@ -10230,7 +10830,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="LittlePig(3) call LittlePig(3)-&gt;say( $strText )" onclick="javascript:window.location = '#message_68'">
+<div class="line body" title="LittlePig(3) call LittlePig(3)-&gt;say( $strText )" onclick="javascript:window.location = '#message_70'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10296,8 +10896,8 @@
     <div class="row call regular short recursive start ">
         <div class="message">
             <span>
-                <a href="#message_68" class="noLink">
-                    <strong>68</strong>.
+                <a href="#message_70" class="noLink">
+                    <strong>70</strong>.
                     say( $strText )
                 </a>
             </span>
@@ -10380,7 +10980,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="LittlePig(3) receive from LittlePig(3)-&gt;say( $strText )" onclick="javascript:window.location = '#message_69'">
+<div class="line body" title="LittlePig(3) receive from LittlePig(3)-&gt;say( $strText )" onclick="javascript:window.location = '#message_71'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10446,8 +11046,8 @@
     <div class="row return regular short recursive start ">
         <div class="message">
             <span>
-                <a href="#message_69" class="noLink">
-                    <strong>69</strong>.
+                <a href="#message_71" class="noLink">
+                    <strong>71</strong>.
                     say( $strText )
                 </a>
             </span>
@@ -10530,7 +11130,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="House(3) call House(3)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_70'">
+<div class="line body" title="House(3) call House(3)-&gt;isColapsed(  )" onclick="javascript:window.location = '#message_72'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10635,8 +11235,8 @@
     <div class="row call regular short recursive start ">
         <div class="message">
             <span>
-                <a href="#message_70" class="noLink">
-                    <strong>70</strong>.
+                <a href="#message_72" class="noLink">
+                    <strong>72</strong>.
                     isColapsed(  )
                 </a>
             </span>
@@ -10664,7 +11264,7 @@
 <!-- end line after -->
 </div>
 <!-- end messages --><!-- messages -->
-<div class="line body" title="user" onclick="javascript:window.location = '#message_71'">
+<div class="line body" title="user" onclick="javascript:window.location = '#message_73'">
     <div class="message_header">
         &nbsp;
     </div>
@@ -10678,8 +11278,8 @@
     <div class="row call regular short  start ">
         <div class="message">
             <span>
-                <a href="#message_71" class="noLink">
-                    <strong>71</strong>.
+                <a href="#message_73" class="noLink">
+                    <strong>73</strong>.
                     &lt;&lt;destroy&gt;&gt;
                 </a>
             </span>
@@ -11076,11 +11676,29 @@
 <div class="values" >
 </div></div></li>
 <li><div class="message" id="div_message_27">
-<a name="message_27"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(1)</span>-&gt;getHouse(  )</a>
+<a name="message_27"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;say( $strText )</a>
 <div class="values" >
+<strong> $strText</strong>
+   <div><code><span style="color: #000000">
+<span style="color: #DD0000">'Let&nbsp;me&nbsp;in,&nbsp;Let&nbsp;me&nbsp;in,&nbsp;little&nbsp;pig&nbsp;or&nbsp;I\'ll&nbsp;huff&nbsp;and&nbsp;I\'ll&nbsp;puff&nbsp;and&nbsp;I\'ll&nbsp;blow&nbsp;your&nbsp;house&nbsp;in!'</span>
+</span>
+</code></div>
 </div></div></li>
 <li><div class="message" id="div_message_28">
-<a name="message_28"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(1)</span>-&gt;getHouse(  )</a>
+<a name="message_28"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">Wolf(1)</span>-&gt;say( $strText )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">Wolf</span><span style="color: #007700">::</span><span style="color: #0000BB">__set_state</span><span style="color: #007700">(array(<br />))</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_29">
+<a name="message_29"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(1)</span>-&gt;getHouse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_30">
+<a name="message_30"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(1)</span>-&gt;getHouse(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11088,8 +11706,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_29">
-<a name="message_29"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;blowIt( $objHouse )</a>
+<li><div class="message" id="div_message_31">
+<a name="message_31"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;blowIt( $objHouse )</a>
 <div class="values" >
 <strong> $objHouse</strong>
    <div><code><span style="color: #000000">
@@ -11097,8 +11715,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_30">
-<a name="message_30"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;getBlowBy( $objWolf )</a>
+<li><div class="message" id="div_message_32">
+<a name="message_32"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;getBlowBy( $objWolf )</a>
 <div class="values" >
 <strong> $objWolf</strong>
    <div><code><span style="color: #000000">
@@ -11106,12 +11724,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_31">
-<a name="message_31"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;getType(  )</a>
+<li><div class="message" id="div_message_33">
+<a name="message_33"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;getType(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_32">
-<a name="message_32"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;getType(  )</a>
+<li><div class="message" id="div_message_34">
+<a name="message_34"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;getType(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11119,12 +11737,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_33">
-<a name="message_33"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;colapse(  )</a>
+<li><div class="message" id="div_message_35">
+<a name="message_35"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;colapse(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_34">
-<a name="message_34"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;colapse(  )</a>
+<li><div class="message" id="div_message_36">
+<a name="message_36"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;colapse(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11132,34 +11750,34 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_35">
-<a name="message_35"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;isColapsed(  )</a>
-<div class="values" >
-</div></div></li>
-<li><div class="message" id="div_message_36">
-<a name="message_36"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;isColapsed(  )</a>
-<div class="values" >
-<strong> return </strong>
-   <div><code><span style="color: #000000">
-<span style="color: #0000BB">true</span>
-</span>
-</code></div>
-</div></div></li>
 <li><div class="message" id="div_message_37">
-<a name="message_37"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;getBlowBy( $objWolf )</a>
+<a name="message_37"><span class="detail_actor from">House(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;isColapsed(  )</a>
 <div class="values" >
-<strong> return </strong>
-   <div><code><span style="color: #000000">
-<span style="color: #0000BB">true</span>
-</span>
-</code></div>
 </div></div></li>
 <li><div class="message" id="div_message_38">
-<a name="message_38"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;getPig(  )</a>
+<a name="message_38"><span class="detail_actor from">House(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;isColapsed(  )</a>
 <div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
 </div></div></li>
 <li><div class="message" id="div_message_39">
-<a name="message_39"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;getPig(  )</a>
+<a name="message_39"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;getBlowBy( $objWolf )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_40">
+<a name="message_40"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(1)</span>-&gt;getPig(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_41">
+<a name="message_41"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(1)</span>-&gt;getPig(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11167,20 +11785,20 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_40">
-<a name="message_40"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(1)</span>-&gt;isKilled(  )</a>
-<div class="values" >
-</div></div></li>
-<li><div class="message" id="div_message_41">
-<a name="message_41"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(1)</span>-&gt;isEaten(  )</a>
-<div class="values" >
-</div></div></li>
 <li><div class="message" id="div_message_42">
-<a name="message_42"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(2)</span>-&gt;getHouse(  )</a>
+<a name="message_42"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(1)</span>-&gt;isKilled(  )</a>
 <div class="values" >
 </div></div></li>
 <li><div class="message" id="div_message_43">
-<a name="message_43"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(2)</span>-&gt;getHouse(  )</a>
+<a name="message_43"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(1)</span>-&gt;isEaten(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_44">
+<a name="message_44"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(2)</span>-&gt;getHouse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_45">
+<a name="message_45"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(2)</span>-&gt;getHouse(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11188,8 +11806,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_44">
-<a name="message_44"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;blowIt( $objHouse )</a>
+<li><div class="message" id="div_message_46">
+<a name="message_46"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;blowIt( $objHouse )</a>
 <div class="values" >
 <strong> $objHouse</strong>
    <div><code><span style="color: #000000">
@@ -11197,8 +11815,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_45">
-<a name="message_45"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(2)</span>-&gt;getBlowBy( $objWolf )</a>
+<li><div class="message" id="div_message_47">
+<a name="message_47"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(2)</span>-&gt;getBlowBy( $objWolf )</a>
 <div class="values" >
 <strong> $objWolf</strong>
    <div><code><span style="color: #000000">
@@ -11206,12 +11824,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_46">
-<a name="message_46"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>-&gt;getType(  )</a>
+<li><div class="message" id="div_message_48">
+<a name="message_48"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>-&gt;getType(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_47">
-<a name="message_47"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;getType(  )</a>
+<li><div class="message" id="div_message_49">
+<a name="message_49"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;getType(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11219,12 +11837,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_48">
-<a name="message_48"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>-&gt;colapse(  )</a>
+<li><div class="message" id="div_message_50">
+<a name="message_50"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>-&gt;colapse(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_49">
-<a name="message_49"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;colapse(  )</a>
+<li><div class="message" id="div_message_51">
+<a name="message_51"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;colapse(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11232,34 +11850,34 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_50">
-<a name="message_50"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>-&gt;isColapsed(  )</a>
-<div class="values" >
-</div></div></li>
-<li><div class="message" id="div_message_51">
-<a name="message_51"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;isColapsed(  )</a>
-<div class="values" >
-<strong> return </strong>
-   <div><code><span style="color: #000000">
-<span style="color: #0000BB">true</span>
-</span>
-</code></div>
-</div></div></li>
 <li><div class="message" id="div_message_52">
-<a name="message_52"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;getBlowBy( $objWolf )</a>
+<a name="message_52"><span class="detail_actor from">House(2)</span> call <span class="detail_actor to">House(2)</span>-&gt;isColapsed(  )</a>
 <div class="values" >
-<strong> return </strong>
-   <div><code><span style="color: #000000">
-<span style="color: #0000BB">true</span>
-</span>
-</code></div>
 </div></div></li>
 <li><div class="message" id="div_message_53">
-<a name="message_53"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(2)</span>-&gt;getPig(  )</a>
+<a name="message_53"><span class="detail_actor from">House(2)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;isColapsed(  )</a>
 <div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
 </div></div></li>
 <li><div class="message" id="div_message_54">
-<a name="message_54"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;getPig(  )</a>
+<a name="message_54"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;getBlowBy( $objWolf )</a>
+<div class="values" >
+<strong> return </strong>
+   <div><code><span style="color: #000000">
+<span style="color: #0000BB">true</span>
+</span>
+</code></div>
+</div></div></li>
+<li><div class="message" id="div_message_55">
+<a name="message_55"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(2)</span>-&gt;getPig(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_56">
+<a name="message_56"><span class="detail_actor from">Wolf(1)</span> receive from <span class="detail_actor to">House(2)</span>-&gt;getPig(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11267,20 +11885,20 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_55">
-<a name="message_55"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(2)</span>-&gt;isKilled(  )</a>
-<div class="values" >
-</div></div></li>
-<li><div class="message" id="div_message_56">
-<a name="message_56"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(2)</span>-&gt;isEaten(  )</a>
-<div class="values" >
-</div></div></li>
 <li><div class="message" id="div_message_57">
-<a name="message_57"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;getHouse(  )</a>
+<a name="message_57"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(2)</span>-&gt;isKilled(  )</a>
 <div class="values" >
 </div></div></li>
 <li><div class="message" id="div_message_58">
-<a name="message_58"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(3)</span>-&gt;getHouse(  )</a>
+<a name="message_58"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">LittlePig(2)</span>-&gt;isEaten(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_59">
+<a name="message_59"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;getHouse(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_60">
+<a name="message_60"><span class="detail_actor from">History(1)</span> receive from <span class="detail_actor to">LittlePig(3)</span>-&gt;getHouse(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11288,8 +11906,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_59">
-<a name="message_59"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;blowIt( $objHouse )</a>
+<li><div class="message" id="div_message_61">
+<a name="message_61"><span class="detail_actor from">History(1)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;blowIt( $objHouse )</a>
 <div class="values" >
 <strong> $objHouse</strong>
    <div><code><span style="color: #000000">
@@ -11297,8 +11915,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_60">
-<a name="message_60"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(3)</span>-&gt;getBlowBy( $objWolf )</a>
+<li><div class="message" id="div_message_62">
+<a name="message_62"><span class="detail_actor from">Wolf(1)</span> call <span class="detail_actor to">House(3)</span>-&gt;getBlowBy( $objWolf )</a>
 <div class="values" >
 <strong> $objWolf</strong>
    <div><code><span style="color: #000000">
@@ -11306,12 +11924,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_61">
-<a name="message_61"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>-&gt;getType(  )</a>
+<li><div class="message" id="div_message_63">
+<a name="message_63"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>-&gt;getType(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_62">
-<a name="message_62"><span class="detail_actor from">House(3)</span> receive from <span class="detail_actor to">House(3)</span>-&gt;getType(  )</a>
+<li><div class="message" id="div_message_64">
+<a name="message_64"><span class="detail_actor from">House(3)</span> receive from <span class="detail_actor to">House(3)</span>-&gt;getType(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11319,12 +11937,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_63">
-<a name="message_63"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>-&gt;getPig(  )</a>
+<li><div class="message" id="div_message_65">
+<a name="message_65"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>-&gt;getPig(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_64">
-<a name="message_64"><span class="detail_actor from">House(3)</span> receive from <span class="detail_actor to">House(3)</span>-&gt;getPig(  )</a>
+<li><div class="message" id="div_message_66">
+<a name="message_66"><span class="detail_actor from">House(3)</span> receive from <span class="detail_actor to">House(3)</span>-&gt;getPig(  )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11332,8 +11950,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_65">
-<a name="message_65"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;wakeUpBy( $objWolf )</a>
+<li><div class="message" id="div_message_67">
+<a name="message_67"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;wakeUpBy( $objWolf )</a>
 <div class="values" >
 <strong> $objWolf</strong>
    <div><code><span style="color: #000000">
@@ -11341,16 +11959,16 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_66">
-<a name="message_66"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;isKilled(  )</a>
-<div class="values" >
-</div></div></li>
-<li><div class="message" id="div_message_67">
-<a name="message_67"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;happyEverAfter(  )</a>
-<div class="values" >
-</div></div></li>
 <li><div class="message" id="div_message_68">
-<a name="message_68"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;say( $strText )</a>
+<a name="message_68"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">Wolf(1)</span>-&gt;isKilled(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_69">
+<a name="message_69"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;happyEverAfter(  )</a>
+<div class="values" >
+</div></div></li>
+<li><div class="message" id="div_message_70">
+<a name="message_70"><span class="detail_actor from">LittlePig(3)</span> call <span class="detail_actor to">LittlePig(3)</span>-&gt;say( $strText )</a>
 <div class="values" >
 <strong> $strText</strong>
    <div><code><span style="color: #000000">
@@ -11358,8 +11976,8 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_69">
-<a name="message_69"><span class="detail_actor from">LittlePig(3)</span> receive from <span class="detail_actor to">LittlePig(3)</span>-&gt;say( $strText )</a>
+<li><div class="message" id="div_message_71">
+<a name="message_71"><span class="detail_actor from">LittlePig(3)</span> receive from <span class="detail_actor to">LittlePig(3)</span>-&gt;say( $strText )</a>
 <div class="values" >
 <strong> return </strong>
    <div><code><span style="color: #000000">
@@ -11367,12 +11985,12 @@
 </span>
 </code></div>
 </div></div></li>
-<li><div class="message" id="div_message_70">
-<a name="message_70"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>-&gt;isColapsed(  )</a>
+<li><div class="message" id="div_message_72">
+<a name="message_72"><span class="detail_actor from">House(3)</span> call <span class="detail_actor to">House(3)</span>-&gt;isColapsed(  )</a>
 <div class="values" >
 </div></div></li>
-<li><div class="message" id="div_message_71">
-<a name="message_71"><span class="detail_actor from">user</span> destroy <span class="detail_actor to">History(1)</span></a>
+<li><div class="message" id="div_message_73">
+<a name="message_73"><span class="detail_actor from">user</span> destroy <span class="detail_actor to">History(1)</span></a>
 <div class="values" >
 </div></div></li>
 

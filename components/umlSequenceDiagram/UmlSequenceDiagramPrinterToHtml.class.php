@@ -437,6 +437,13 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         return $strMessages;
     }
 
+    /**
+     * Get the html of a note element
+     *
+     * @param UmlSequenceDiagramNote $objNote
+     * @param boolean $booAfter
+     * @return string
+     */
     protected function getNote( UmlSequenceDiagramNote $objNote , $booAfter = true )
     {
         $arrActors = $objNote->getActor()->getUmlSequenceDiagram()->getActors();

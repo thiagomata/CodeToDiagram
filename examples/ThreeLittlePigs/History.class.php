@@ -28,7 +28,7 @@ class History
     {
         CodeToDiagram::getInstance()->addNote( "Once upon a time" );
 
-        CodeToDiagram::getInstance()->addNote( "Three Little Pigs into a Wood" );
+        CodeToDiagram::getInstance()->addNote( "Three Little Pigs who lives into a beautiful Wood" );
 
         $objPig1 = new LittlePig();
         $objPig2 = new LittlePig();
