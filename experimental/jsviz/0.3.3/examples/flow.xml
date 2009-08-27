@@ -1,0 +1,68 @@
+<flow name="x" root="true">
+    <states>
+	<state name="start" start="true"/>
+	<state name="em construcao"/>
+	<state name="tramitacao mec"/>
+	<state name="tramitacao inep"/>
+	<state name="cancelado"/>
+	<state name="arquivamento sugerido"/>
+	<state name="arquivado"/>
+	<state name="reabertura sugerida"/>
+	<state name="reaberto"/>
+	<state name="avaliado"/>
+	<state name="concluido"/>
+	<state name="com pendencias"/>
+	<state name="sem pendencias"/>
+	<state name="end" end="true"/>
+    </states>
+    <connections>
+	    <from state="start">
+		<to state="em construcao"/>
+	    </from>
+	    <from state="em construcao">
+		<to state="tramitacao mec"/>
+		<to state="com pendencias"/>
+	    </from>
+	    <from state="tramitacao mec">
+		<to state="arquivado"/>
+		<to state="concluido"/>
+		<to state="cancelado"/>
+		<to state="tramitacao inep"/>
+	    </from>
+	    <from state="tramitacao inep">
+		<to state="avaliado"/>
+		<to state="com pendencias"/>
+		<to state="arquivamento sugerido"/>
+	    </from>
+	    <from state="com pendencias">
+		<to state="arquivamento sugerido"/>
+		<to state="sem pendencias"/>
+	    </from>
+            <from state="sem pendencias">
+		<to state="tramitacao mec"/>
+		<to state="tramitacao inep"/>
+            </from>
+	    <from state="arquivamento sugerido">
+		<to state="arquivado"/>
+	    </from>
+            <from state="concluido">
+                <to state="end"/>
+            </from>
+            <from state="cancelado">
+                <to state="end"/>
+            </from>
+            <from state="avaliado">
+                <to state="tramitacao mec"/>
+            </from>
+            <from state="arquivado">
+                <to state="reabertura sugerida"/>
+            </from>
+            <from state="reabertura sugerida">
+                <to state="arquivado"/>
+                <to state="reaberto"/>
+            </from>
+            <from state="reaberto">
+                <to state="tramitacao mec"/>
+            </from>
+    </connections>
+</flow>

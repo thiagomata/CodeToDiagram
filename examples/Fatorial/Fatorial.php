@@ -17,6 +17,9 @@ class Fatorial
     /**
      * calc the fatorial of the value received
      *
+     * @assert( 0 ) == 1
+     * @assert( 2 ) == 2
+     * @assert( 4 ) == 24
      * @param integer $n
      * @return integer
      */

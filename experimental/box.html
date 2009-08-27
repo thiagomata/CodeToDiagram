@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Box2DJS - Physics Engine for JavaScript</title>
+
+		<!--=============================-->
+		<!-- Copy this part to your app. -->
+		<!-- START                       -->
+		<!--=============================-->
+		<!-- libs -->
+		<!--[if IE]><script type="text/javascript" src="lib/excanvas.js"></script><![endif]-->
+    <script src="box_files/prototype-1.js"></script>
+
+		<!-- box2djs -->
+    <script src="box_files/b2Settings.js"></script>
+    <script src="box_files/b2Vec2.js"></script>
+    <script src="box_files/b2Mat22.js"></script>
+    <script src="box_files/b2Math.js"></script>
+    <script src="box_files/b2AABB.js"></script>
+    <script src="box_files/b2Bound.js"></script>
+    <script src="box_files/b2BoundValues.js"></script>
+    <script src="box_files/b2Pair.js"></script>
+    <script src="box_files/b2PairCallback.js"></script>
+    <script src="box_files/b2BufferedPair.js"></script>
+    <script src="box_files/b2PairManager.js"></script>
+    <script src="box_files/b2BroadPhase.js"></script>
+    <script src="box_files/b2Collision.js"></script>
+    <script src="box_files/Features.js"></script>
+    <script src="box_files/b2ContactID.js"></script>
+    <script src="box_files/b2ContactPoint.js"></script>
+    <script src="box_files/b2Distance.js"></script>
+    <script src="box_files/b2Manifold.js"></script>
+    <script src="box_files/b2OBB.js"></script>
+    <script src="box_files/b2Proxy.js"></script>
+    <script src="box_files/ClipVertex.js"></script>
+    <script src="box_files/b2Shape.js"></script>
+    <script src="box_files/b2ShapeDef.js"></script>
+    <script src="box_files/b2BoxDef.js"></script>
+    <script src="box_files/b2CircleDef.js"></script>
+    <script src="box_files/b2CircleShape.js"></script>
+    <script src="box_files/b2MassData.js"></script>
+    <script src="box_files/b2PolyDef.js"></script>
+    <script src="box_files/b2PolyShape.js"></script>
+    <script src="box_files/b2Body.js"></script>
+    <script src="box_files/b2BodyDef.js"></script>
+    <script src="box_files/b2CollisionFilter.js"></script>
+    <script src="box_files/b2Island.js"></script>
+    <script src="box_files/b2TimeStep.js"></script>
+    <script src="box_files/b2ContactNode.js"></script>
+    <script src="box_files/b2Contact.js"></script>
+    <script src="box_files/b2ContactConstraint.js"></script>
+    <script src="box_files/b2ContactConstraintPoint.js"></script>
+    <script src="box_files/b2ContactRegister.js"></script>
+    <script src="box_files/b2ContactSolver.js"></script>
+    <script src="box_files/b2CircleContact.js"></script>
+    <script src="box_files/b2Conservative.js"></script>
+    <script src="box_files/b2NullContact.js"></script>
+    <script src="box_files/b2PolyAndCircleContact.js"></script>
+    <script src="box_files/b2PolyContact.js"></script>
+    <script src="box_files/b2ContactManager.js"></script>
+    <script src="box_files/b2World.js"></script>
+    <script src="box_files/b2WorldListener.js"></script>
+    <script src="box_files/b2JointNode.js"></script>
+    <script src="box_files/b2Joint.js"></script>
+    <script src="box_files/b2JointDef.js"></script>
+    <script src="box_files/b2DistanceJoint.js"></script>
+    <script src="box_files/b2DistanceJointDef.js"></script>
+    <script src="box_files/b2Jacobian.js"></script>
+    <script src="box_files/b2GearJoint.js"></script>
+    <script src="box_files/b2GearJointDef.js"></script>
+    <script src="box_files/b2MouseJoint.js"></script>
+    <script src="box_files/b2MouseJointDef.js"></script>
+    <script src="box_files/b2PrismaticJoint.js"></script>
+    <script src="box_files/b2PrismaticJointDef.js"></script>
+    <script src="box_files/b2PulleyJoint.js"></script>
+    <script src="box_files/b2PulleyJointDef.js"></script>
+    <script src="box_files/b2RevoluteJoint.js"></script>
+    <script src="box_files/b2RevoluteJointDef.js"></script>
+		<!--=============================-->
+		<!-- Copy this part to your app. -->
+		<!-- END                         -->
+		<!--=============================-->
+
+		<!-- demos -->
+    <script src="box_files/draw_world.js"></script>
+    <script src="box_files/demo_base.js"></script>
+    <script src="box_files/top.js"></script>
+    <script src="box_files/stack.js"></script>
+    <script src="box_files/compound.js"></script>
+    <script src="box_files/pendulum.js"></script>
+    <script src="box_files/crank.js"></script>
+    <script src="box_files/demos.js"></script>
+
+    <script src="box_files/prettify.js"></script>
+		<link href="box_files/prettify.css" rel="stylesheet" type="text/css">
+		<script>Event.observe(window, 'load', function() {prettyPrint()});</script>
+
+		<link href="box_files/distant-planet.css" rel="stylesheet" type="text/css">
+		<link href="box_files/box2d.css" rel="stylesheet" type="text/css">
+  </head><body>
+<div id="CONTAINER">
+	<div id="HEADER">
+		<h1>Box2D<br><b>JS</b></h1>
+	</div>
+  <div id="NAVIGATION">
+		<div class="Nav">
+			<span class="links">
+				<a href="http://sourceforge.net/projects/box2d-js/">Home</a>
+				- <a href="http://sourceforge.net/project/showfiles.php?group_id=227549">Download</a>
+				- <a href="#about">About</a>
+				- <a href="#howto">Howto</a>
+				- <a href="#links">Links</a>
+				- <a href="#contact">Contact</a>
+			</span>
+		</div>
+  </div>
+  <div id="BODYBOX">
+  	<div class="LEFT"></div>
+    <div class="MIDDLE">
+    <canvas id="canvas" width="500" height="300" style="top: 260px; left: 125px;"></canvas>
+		<div id="spacer"> </div>
+		<p style="text-align: center;">
+			<span class="key">Left-click</span> to create an object.
+			<span class="key">Right-click</span> to show next example.
+		</p>
+
+		<a name="about"></a>
+		<h1>What's this</h1>
+		<p>
+		Box2DJS is a JavaScript port of <a href="http://www.box2d.org/">Box2D Physics Engine</a>.
+		To tell the truth, this is converted from <a href="http://box2dflash.sourceforge.net/">Box2DFlashAS3</a>_1.4.3.1 in an automatic manner.
+		(The reason why not Box2DFlashAS3_2.0.0 based is simply because I overlooked the renewal.)
+		</p>
+
+		<a name="howto"></a>
+		<h1>How to use</h1>
+		<ol>
+			<li>
+				<a href="http://sourceforge.net/project/showfiles.php?group_id=227549">Download a zip file</a> and extract it.
+			</li>
+			<li>
+				Copy js/ and lib/ directories from the extracted directory to your app directory.
+			</li>
+			<li>
+Copy script tags in the header part of index.html in the extacted
+directory to your html file where you want to simulate physics. <p class="note"> Because this libray does not have a lazy-loading
+system now, you should load all classes before starting your
+simulation. To make things worse, each library has a bit complecated
+dependency each other so that loading libraries in wrong order may
+cause a fatal error. To avoid such a trouble, it is strongly recomended
+to copy the header part of this file or `index.html' including the
+downloaded zip file. </p>
+			</li>
+			<li>
+				Utilizing Box2D APIs, simulate the newton world as you like.
+				<p class="note">
+					The Box2DJS APIs are completely same as those of Box2DFlashAS3. Please refer <a href="http://www.kyucon.com/doc/box2d/">information about it</a>.
+				</p>
+			</li>
+		</ol>
+
+		<h2>Sample code</h2>
+		<h3>Create a world</h3>
+		<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> worldAABB </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> b2AABB</span><span class="pun">();</span><span class="pln"><br>worldAABB</span><span class="pun">.</span><span class="pln">minVertex</span><span class="pun">.</span><span class="typ">Set</span><span class="pun">(-</span><span class="lit">1000</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="lit">1000</span><span class="pun">);</span><span class="pln"><br>worldAABB</span><span class="pun">.</span><span class="pln">maxVertex</span><span class="pun">.</span><span class="typ">Set</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000</span><span class="pun">);</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> gravity </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> b2Vec2</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">300</span><span class="pun">);</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> doSleep </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> world </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> b2World</span><span class="pun">(</span><span class="pln">worldAABB</span><span class="pun">,</span><span class="pln"> gravity</span><span class="pun">,</span><span class="pln"> doSleep</span><span class="pun">);</span><span class="pln"> </span></pre>
+
+		<h3>Create a circle body</h3>
+		<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> circleSd </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> b2CircleDef</span><span class="pun">();</span><span class="pln"><br>circleSd</span><span class="pun">.</span><span class="pln">density </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1.0</span><span class="pun">;</span><span class="pln"><br>circleSd</span><span class="pun">.</span><span class="pln">radius </span><span class="pun">=</span><span class="pln"> </span><span class="lit">20</span><span class="pun">;</span><span class="pln"><br>circleSd</span><span class="pun">.</span><span class="pln">restitution </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1.0</span><span class="pun">;</span><span class="pln"><br>circleSd</span><span class="pun">.</span><span class="pln">friction </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> circleBd </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> b2BodyDef</span><span class="pun">();</span><span class="pln"><br>circleBd</span><span class="pun">.</span><span class="typ">AddShape</span><span class="pun">(</span><span class="pln">circleSd</span><span class="pun">);</span><span class="pln"><br>circleBd</span><span class="pun">.</span><span class="pln">position</span><span class="pun">.</span><span class="typ">Set</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">);</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> circleBody </span><span class="pun">=</span><span class="pln"> world</span><span class="pun">.</span><span class="typ">CreateBody</span><span class="pun">(</span><span class="pln">circleBd</span><span class="pun">);</span></pre>
+
+		<h3>Create a revolute joint</h3>
+		<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> jointDef </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> b2RevoluteJointDef</span><span class="pun">();</span><span class="pln"><br>jointDef</span><span class="pun">.</span><span class="pln">anchorPoint</span><span class="pun">.</span><span class="typ">Set</span><span class="pun">(</span><span class="lit">250</span><span class="pun">,</span><span class="pln"> </span><span class="lit">200</span><span class="pun">);</span><span class="pln"><br>jointDef</span><span class="pun">.</span><span class="pln">body1 </span><span class="pun">=</span><span class="pln"> world</span><span class="pun">.</span><span class="typ">GetGroundBody</span><span class="pun">();</span><span class="pln"><br>jointDef</span><span class="pun">.</span><span class="pln">body2 </span><span class="pun">=</span><span class="pln"> circleBody</span><span class="pun">;</span><span class="pln"><br>world</span><span class="pun">.</span><span class="typ">CreateJoint</span><span class="pun">(</span><span class="pln">jointDef</span><span class="pun">);</span></pre>
+
+		<h3>Step a world</h3>
+		<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> timeStep </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1.0</span><span class="pun">/</span><span class="lit">60</span><span class="pun">;</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> iteration </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"><br>world</span><span class="pun">.</span><span class="typ">Step</span><span class="pun">(</span><span class="pln">timeStep</span><span class="pun">,</span><span class="pln"> iteration</span><span class="pun">);</span></pre>
+
+		<h3>Repeat stepping (for instance)</h3>
+		<pre class="prettyprint"><span class="kwd">var</span><span class="pln"> ctx</span><span class="pun">;</span><span class="pln"><br></span><span class="kwd">var</span><span class="pln"> canvasWidth</span><span class="pun">;</span><span class="pln"> <br></span><span class="kwd">var</span><span class="pln"> canvasHeight</span><span class="pun">;</span><span class="pln"> <br></span><span class="kwd">function</span><span class="pln"> step</span><span class="pun">(</span><span class="pln">cnt</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; world</span><span class="pun">.</span><span class="typ">Step</span><span class="pun">(</span><span class="lit">1.0</span><span class="pun">/</span><span class="lit">60</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln"><br>&nbsp; ctx</span><span class="pun">.</span><span class="pln">clearRect</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> canvasWidth</span><span class="pun">,</span><span class="pln"> canvasHeight</span><span class="pun">);</span><span class="pln"><br>&nbsp; drawWorld</span><span class="pun">(</span><span class="pln">world</span><span class="pun">,</span><span class="pln"> ctx</span><span class="pun">);</span><span class="pln"> </span><span class="com">// see demos/draw_world.js</span><span class="pln"><br>&nbsp; setTimeout</span><span class="pun">(</span><span class="str">'step('</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="pun">(</span><span class="pln">cnt </span><span class="pun">||</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">')'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">);</span><span class="pln"><br></span><span class="pun">}</span><span class="pln"><br></span><span class="typ">Event</span><span class="pun">.</span><span class="pln">observe</span><span class="pun">(</span><span class="pln">window</span><span class="pun">,</span><span class="pln"> </span><span class="str">'load'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"><br>&nbsp; setupWorld</span><span class="pun">(</span><span class="pln">world</span><span class="pun">);</span><span class="pln"> </span><span class="com">// as you like</span><span class="pln"><br>&nbsp; ctx </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'canvas'</span><span class="pun">).</span><span class="pln">getContext</span><span class="pun">(</span><span class="str">'2d'</span><span class="pun">);</span><span class="pln"><br>&nbsp; </span><span class="kwd">var</span><span class="pln"> canvasElm </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'canvas'</span><span class="pun">);</span><span class="pln"><br>&nbsp; canvasWidth </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">canvasElm</span><span class="pun">.</span><span class="pln">width</span><span class="pun">);</span><span class="pln"><br>&nbsp; canvasHeight </span><span class="pun">=</span><span class="pln"> parseInt</span><span class="pun">(</span><span class="pln">canvasElm</span><span class="pun">.</span><span class="pln">height</span><span class="pun">);</span><span class="pln"><br>&nbsp; step</span><span class="pun">();</span><span class="pln"><br></span><span class="pun">});</span></pre>
+
+		<a name="dependencies"></a>
+		<h1>Dependencies</h1>
+		<ul>
+			<li><a href="http://www.prototypejs.org/">prototype.js</a></li>
+			<li><a href="http://sourceforge.net/projects/iecanvas">IECanvas</a> (when you use a canvas tag to display the result of your physics simulation)</li>
+		</ul>
+
+		<a name="links"></a>
+		<h1>Links</h1>
+		<ul>
+			<li><a href="http://sourceforge.net/projects/box2d-js/">Project Page (SF)</a></li>
+			<li><a href="http://sourceforge.net/project/showfiles.php?group_id=227549">Download Page (SF)</a></li>
+			<li><a href="http://www.box2d.org/">Box2D</a></li>
+			<li><a href="http://box2dflash.sourceforge.net/">Box2DFlashAS3</a></li>
+			<li><a href="http://www.kyucon.com/doc/box2d/">API Doc (Box2DFlashAS3)</a></li>
+		</ul>
+
+		<a name="contact"></a>
+		<h1>Contact</h1>
+		<p>
+		If you have some requests or find any bugs, please tell me about them.<br>
+		</p><div class="contact">
+		E-mail: andyjpn _at_ gmail _dot_ com<br>
+		Blog: <a href="http://d.hatena.ne.jp/technohippy/">http://d.hatena.ne.jp/technohippy/</a> (written in Japanese)
+		</div>
+		
+
+    </div>
+    <div class="RIGHT"></div>
+    <div id="FOOTER">
+   	  <div class="footertext"><span class="links">©Copyright 2008 ANDO Yasushi - <a href="http://www.rankrover.com/">Website Design &amp; SEO by RankRover</a></span></div>
+    </div>
+  </div>
+</div>
+</body></html>

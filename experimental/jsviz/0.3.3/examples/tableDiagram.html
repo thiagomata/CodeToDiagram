@@ -1,0 +1,471 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+	.element , .element *
+{
+	font-size: 9px;
+	background-color: rgb( 240,240,240);
+}
+            .element
+            {
+                border-color: blue;
+                border-style: solid;
+                border-width: 1px;
+                float: left;
+            }
+            .element .methods, .element .attributes
+            {
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+            }
+            .element .method
+            {
+            }
+            .element .methods .method div ,
+            .element .attributes .attribute div
+            {
+                display: inline-block;
+            }
+            .element .visibility
+            {
+                text-align: center;
+                display: inline-block;
+                width: 20px;
+            }
+            .element .header
+            {
+                background-color: #DDDDFF;
+                text-align: center;
+                border-color: black;
+                border-style: solid;
+                border-width: 1px;
+            }
+            .element .name
+            {
+                font-weight: bold;
+            }
+		</style>
+		<title>JSViz Force Directed Layout: Random Circuit</title>
+
+		<!--
+			Licensed under the Apache License, Version 2.0 (the "License");
+			you may not use this file except in compliance with the License.
+ 			You may obtain a copy of the License at
+
+				http://www.apache.org/licenses/LICENSE-2.0
+
+ 			Unless required by applicable law or agreed to in writing, software
+ 			distributed under the License is distributed on an "AS IS" BASIS,
+ 			WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ 			See the License for the specific language governing permissions and
+ 			limitations under the License.
+
+ 			Author: Kyle Scholz      http://kylescholz.com/
+ 			Copyright: 2006-2007
+ 		-->
+
+		<!-- JSViz Libraries -->
+		<script type="text/javascript" language="JavaScript" src="../physics/ParticleModel.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../physics/Magnet.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../physics/Spring.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../physics/Particle.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../physics/RungeKuttaIntegrator.js"></script>
+
+		<script type="text/javascript" language="JavaScript" src="../layout/graph/ForceDirectedLayout.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../layout/view/HTMLGraphView.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../layout/view/SVGGraphView.js"></script>
+
+		<script type="text/javascript" language="JavaScript" src="../util/Timer.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../util/EventHandler.js"></script>
+
+		<script type="text/javascript" language="JavaScript" src="../io/DataGraph.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../io/HTTP.js"></script>
+		<script type="text/javascript" language="JavaScript" src="../io/XmlTreeEntityMachineLoader.js"></script>
+
+		<script type="text/javascript" language="JavaScript">
+
+
+/* Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Author: Kyle Scholz      http://kylescholz.com/
+ * Copyright: 2006-2007
+ */
+
+/**
+ * Seed DataGraph with contents of an XML tree structure.
+ *
+ * @author Kyle Scholz
+ *
+ * @version 0.3
+ */
+var XmlTreeEntityMachineLoader = function( dataGraph ) {
+	this.http = new HTTP();
+	this.subscribers = new Array();
+	this.dataGraph = dataGraph;
+}
+
+/*
+ * @param {Object} subscriber
+ */
+XmlTreeEntityMachineLoader.prototype.subscribe = function( subscriber ) {
+	this.subscribers.push(subscriber);
+}
+
+/*
+ *
+ */
+XmlTreeEntityMachineLoader.prototype.notify = function() {
+	for( var i=0; i<this.subscribers.length; i++ ) {
+		this.subscribers[i].notify();
+	}
+}
+
+/*
+ * Fetch XML data for processing
+ */
+XmlTreeEntityMachineLoader.prototype.load = function( url ) {
+	this.http.get( url, this, this.handle );
+}
+
+/*
+ * Process XML data in DataGraph.
+ *
+ * @param {XMLHTTPRequest} request
+ */
+XmlTreeEntityMachineLoader.prototype.handle = function( request ) {
+	var xmlDoc = request.responseXML;
+	var entities = xmlDoc.getElementsByTagName("entities")[0];
+	var connections = xmlDoc.getElementsByTagName("connections")[0];
+
+	// Add Entities
+	this.loadEntities( entities );
+	this.loadConnections( connections );
+	this.notify();
+}
+
+XmlTreeEntityMachineLoader.prototype.getNodeByName = function( nodeName ) {
+	for( var i=0, l=this.dataGraph.nodes.length; i<l; i++ ){
+		var objNode = this.dataGraph.nodes[ i ];
+		if ( objNode.name == nodeName )
+		{
+			return objNode;
+		}
+	}
+	return null;
+}
+
+/*
+ * @param {Object} Entities
+ */
+XmlTreeEntityMachineLoader.prototype.loadEntities = function( entities ) {
+	var childNodes = entities.childNodes;
+	for( var i=0, l=childNodes.length; i<l; i++ ){
+	if( childNodes[i].nodeName == "entity" )
+	{
+			var node = new DataGraphNode();
+			for( var j=0, la=childNodes[i].attributes.length; j<la; j++ ) {
+				node[childNodes[i].attributes[j].name]=childNodes[i].attributes[j].value;
+			}
+
+			this.loadMethods( childNodes[i].getElementsByTagName( "methods" )[0].childNodes , node );
+			this.loadAttributes( childNodes[i].getElementsByTagName( "attributes" )[0].childNodes , node );
+
+
+                        node.color = "blue";
+			this.dataGraph.addNode( node );
+
+		}
+	}
+}
+
+/*
+ * @param {Object} connections
+ */
+XmlTreeEntityMachineLoader.prototype.loadConnections = function( connections ) {
+	var childNodes = connections.childNodes;
+	for( var i=0, l=childNodes.length; i<l; i++ ){
+		if( childNodes[i].nodeName == "from" ) {
+			var objFrom = childNodes[i];
+			var objNodeFrom = this.getNodeByName( objFrom.getAttribute("entity") );
+
+			var toChildList = objFrom.childNodes;
+
+			for( var j=0, k=toChildList.length; j<k; j++ ){
+				if( toChildList[j].nodeName == "to" ) {
+					var objTo = toChildList[j];
+					var objNodeTo = this.getNodeByName( objTo.getAttribute("entity") );
+					this.dataGraph.addEdge( objNodeFrom, objNodeTo );
+				}
+			}
+		}
+	}
+}
+
+/*
+ * @param {Object} connections
+ */
+XmlTreeEntityMachineLoader.prototype.loadMethods = function( childNodes, dataNode ) {
+
+	dataNode.methods = Array();
+
+	for( var i=0, l=childNodes.length; i<l; i++ ){
+		if( childNodes[i].nodeName == "method" ) {
+			var objNodeMethod = childNodes[i];
+			this.loadMethod( objNodeMethod, dataNode );
+		}
+	}
+}
+
+/*
+ * @param {Object} connections
+ */
+XmlTreeEntityMachineLoader.prototype.loadAttributes = function( childNodes, dataNode ) {
+	
+	dataNode.attributes = Array();
+
+	for( var i=0, l=childNodes.length; i<l; i++ ){
+		if( childNodes[i].nodeName == "attribute" ) {
+			var objNodeAttribute = childNodes[i];
+			this.loadAttribute( objNodeAttribute, dataNode );
+		}
+	}
+}
+
+XmlTreeEntityMachineLoader.prototype.loadMethod = function( objNodeMethod, dataNode ) {
+
+	var objMethod = new Object();
+	objMethod.parameters = Array();
+	objMethod.result = null;
+
+	for( var i=0, l=objNodeMethod.attributes.length; i<l; i++ ) {
+		objMethod[objNodeMethod.attributes[i].name] =
+		objNodeMethod.attributes[i].value;
+	}
+        
+	var arrChildList = objNodeMethod.childNodes;
+
+	for( var j=0, k=arrChildList.length; j<k; j++ ){
+		var objParameterNode = arrChildList[j];
+		if( objParameterNode.nodeName == "parameter" ) {
+			this.loadParameter( objParameterNode , objMethod );
+		}
+	}
+
+	dataNode.methods.push( objMethod );
+}
+
+XmlTreeEntityMachineLoader.prototype.loadAttribute = function( objNodeAttribute, dataNode ) {
+
+	var objAttribute = new Object();
+
+	for( var i=0, l=objNodeAttribute.attributes.length; i<l; i++ ) {
+		objAttribute[objNodeAttribute.attributes[i].name] =
+		objNodeAttribute.attributes[i].value;
+	}
+
+	dataNode.attributes.push( objAttribute );
+}
+
+XmlTreeEntityMachineLoader.prototype.loadParameter = function( objNodeParameter, objMethod ) {
+	var objParameter = new Object();
+
+	for( var i=0, l=objNodeParameter.attributes.length; i<l; i++ ) {
+		objParameter[objNodeParameter.attributes[m].name] = 
+		objNodeParameter.attributes[m].value;
+	}
+
+	objMethod.parameters.push( objParameter );
+
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+			function init() {
+
+				/* 1) Create a new SnowflakeLayout.
+				 *
+				 * If you're going to place the graph in an HTML Element, other
+				 * the <body>, remember that it must have a known size and
+				 * position (via element.offsetWidth, element.offsetHeight,
+				 * element.offsetTop, element.offsetLeft).
+				 */
+				var layout = new ForceDirectedLayout( document.body, true );
+
+				layout.config._default = {
+					model: function( dataNode ) {
+						return {
+							mass: 10
+						}
+					},
+					view: function( dataNode, modelNode ) {
+						if ( layout.svg ) {
+							var nodeElement = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+							nodeElement.setAttribute('stroke', '#888888');
+							nodeElement.setAttribute('stroke-width', '.25px');
+							nodeElement.setAttribute('fill', dataNode.color);
+							nodeElement.setAttribute('r', 10 + 'px');
+							nodeElement.onmousedown =  new EventHandler( layout, layout.handleMouseDownEvent, modelNode.id )
+							return nodeElement;
+						} else {
+                                                        if(!window.temp)
+                                                        window.temp = dataNode;
+							var nodeElement = document.createElement( 'div' );
+							nodeElement.style.position = "absolute";
+							var strHtml = ''+
+'        <div class="element">'+
+'            <div class="header">'+
+'                <span>'+
+'                    <a name="Conta">'+
+'                        '+ dataNode.name +
+'                    </a>'+
+'                </span>'+
+'            </div>'+
+'            <div class="content">'+
+'                <div class="attributes">'+
+'';
+
+                  for( var iAttr = 0; iAttr < dataNode.attributes.length ; iAttr++ )
+                  {
+                        var objAttr = dataNode.attributes[ iAttr ];
+
+//                    alert( dataNode.attributes.length );
+                        strHtml  = strHtml + '' +
+'                    <div class="attribute">'+
+'                        <div class="visibility">'+
+'                            #'+
+'                        </div>'+
+'                        <span class="name">'+
+'                            '+ objAttr.name +
+'                        </span>'+
+'                        <span class="type">'+
+'                            :'+
+'                            <a href="#Usuario">'+
+'                                '+ objAttr.type +
+'                            </a>'+
+'                        </span>'+
+'                    </div>'
+                  }
+
+                        strHtml = strHtml + '' +
+'               </div>'+
+'                <div class="methods">'+
+'';
+
+                  for( var iMethod= 0; iMethod < dataNode.methods.length ; iMethod++ )
+                  {
+                        var objMethod = dataNode.methods[ iMethod ];
+                        strHtml = strHtml + '' +
+'                    <div class="method">'+
+'                        <span class="visibility">'+
+'                            +'+
+'                        </span>'+
+'                        <span class="name">'+
+'                            '+ objMethod.name +
+'                        </span>'+
+'                        <div class="parameters">'+
+'                            ('+
+'                            <div class="parameter">'+
+'                                <span class="type">'+
+'                                    <a href="#Usuario">'+
+'                                        Usuario'+
+'                                    </a>'+
+'                                </span>'+
+'                                <span class="name">'+
+'                                    objUsuario'+
+'                                </span>'+
+'                            </div>'+
+'                            )'+
+'                        </div>'+
+'                    </div>';
+                  }
+                        strHtml = strHtml + '' +
+'                </div>'+
+'            </div>'+
+'        </div>'+
+'';
+                                                        nodeElement.innerHTML = strHtml;
+							nodeElement.onmousedown =  new EventHandler( layout, layout.handleMouseDownEvent, modelNode.id )
+							return nodeElement;
+						}
+					}
+				}
+
+        		layout.forces.spring._default = function( nodeA, nodeB, isParentChild ) {
+					return {
+						springConstant: 1.2,
+						dampingConstant: 1.2,
+						restLength: 180
+					}
+				}
+
+        		layout.forces.magnet = function() {
+					return {
+						magnetConstant: -4000,
+						minimumDistance: 4
+					}
+				}
+
+
+
+				/* 3) Override the default edge properties builder.
+				 *
+				 * @return DOMElement
+				 */
+
+				layout.viewEdgeBuilder = function( dataNodeSrc, dataNodeDest ) {
+					if ( this.svg ) {
+						return {
+							'stroke': dataNodeSrc.color,
+							'stroke-width': '2px',
+							'stroke-dasharray': '2,4'
+						}
+					} else {
+						return {
+							'pixelColor': 'green',
+							'pixelEndColor': 'blue',
+							'pixelWidth': '2px',
+							'pixelHeight': '2px',
+							'pixels': 35
+						}
+					}
+				}
+
+				/* 4) Load up some stuff by hand
+				 *
+				 */
+				var loader = new XmlTreeEntityMachineLoader( layout.dataGraph );
+				loader.load( "tables.xml" );
+
+
+				/* 5) Control the addition of nodes and edges with a timer.
+				 *
+				 * This enables the graph to start organizng as data is loaded.
+				 * Use a larger tick time for smoother animation, but slower
+				 * build time.
+				 */
+				var buildTimer = new Timer( 10 );
+				buildTimer.subscribe( layout );
+				buildTimer.start();
+			}
+		</script>
+
+		<style type="text/css">
+			body { margin: 0; padding: 0; }
+		</style>
+	</head>
+	<body onload="init()"><div id="debug" style="position:absolute"></div></body>
+</html>

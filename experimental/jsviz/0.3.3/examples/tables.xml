@@ -1,0 +1,108 @@
+<flow>
+    <entities>
+	<entity name="pessoa">
+		<attributes>
+			<attribute visibility="protected" name="objNome" type="string"/>
+		</attributes>
+		<methods>
+			<method visibility="public" name="setNome">
+				<parameters>
+					<parameter name="strNome" type="string" />			
+				</parameters>			
+			</method>
+			<method visibility="public" name="getNome">
+				<return type="string"/>
+			</method>
+		</methods>
+	</entity>
+	<entity name="familia">
+		<attributes>
+			<attribute visibility="protected" name="arrPessoas" type="Pessoa[]"/>
+		</attributes>
+		<methods>
+			<method visibility="public" name="setPessoas()">
+				<parameters>
+					<parameter name="Pessoa[]" type="string" />			
+				</parameters>			
+			</method>
+			<method visibility="public" name="getPessoas">
+				<return type="Pessoa[]"/>
+			</method>
+			<method visibility="public" name="addPessoa">
+				<parameters>
+					<parameter name="objPessosa" type="Pessoa"/>
+				</parameters>
+			</method>
+		</methods>
+	</entity>
+	<entity name="casa">
+		<attributes>
+			<attribute visibility="protected" name="objFamilia" type="Familia"/>
+		</attributes>
+		<methods>
+			<method visibility="public" name="setFamilia">
+				<parameters>
+					<parameter name="objFamilia" type="Familia" />			
+				</parameters>			
+			</method>
+			<method visibility="public" name="getFamilia">
+				<return type="string"/>
+			</method>
+		</methods>
+	</entity>
+	<entity name="usuario">
+		<attributes>
+			<attribute visibility="protected" name="objPessoa" type="Pessoa"/>
+		</attributes>
+		<methods>
+			<method visibility="public" name="setPessoa()">
+				<parameters>
+					<parameter name="Pessoa" type="string" />			
+				</parameters>			
+			</method>
+			<method visibility="public" name="getPessoa">
+				<return type="Pessoa"/>
+			</method>
+		</methods>
+	</entity>
+	<entity name="cachorro">
+		<attributes>
+			<attribute visibility="protected" name="objNome" type="string"/>
+		</attributes>
+		<methods>
+			<method visibility="public" name="setNome">
+				<parameters>
+					<parameter name="strNome" type="string" />			
+				</parameters>			
+			</method>
+			<method visibility="public" name="getNome">
+				<return type="string"/>
+			</method>
+		</methods>
+	</entity>
+	<entity name="periquito">
+		<attributes>
+			<attribute visibility="protected" name="objNome" type="string"/>
+		</attributes>
+		<methods>
+			<method visibility="public" name="setNome">
+				<parameters>
+					<parameter name="strNome" type="string" />			
+				</parameters>			
+			</method>
+			<method visibility="public" name="getNome">
+				<return type="string"/>
+			</method>
+		</methods>
+	</entity>
+    </entities>
+    <connections>
+	    <from entity="familia">
+		<to entity="pessoa"/>
+		<to entity="casa"/>
+	    </from>
+	    <from entity="usuario">
+		<to entity="pessoa"/>
+	    </from>
+    </connections>
+</flow>

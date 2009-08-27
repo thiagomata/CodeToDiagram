@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+			.box  , .box span
+			{
+				text-align: center;
+				vertical-align: middle;
+				width: 80px;
+				height: 80px;
+				display: table-cell;
+				font-size: 10px;
+			}
+		</style>
+		<title>JSViz Force Directed Layout: Random Circuit</title>
+
+		<!--	
+			Licensed under the Apache License, Version 2.0 (the "License");
+			you may not use this file except in compliance with the License.
+ 			You may obtain a copy of the License at
+ 
+				http://www.apache.org/licenses/LICENSE-2.0
+
+ 			Unless required by applicable law or agreed to in writing, software
+ 			distributed under the License is distributed on an "AS IS" BASIS,
+ 			WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ 			See the License for the specific language governing permissions and
+ 			limitations under the License.
+
+ 			Author: Kyle Scholz      http://kylescholz.com/
+ 			Copyright: 2006-2007
+ 		-->
+		
+		<!-- JSViz Libraries -->
+		<script language="JavaScript" src="../physics/ParticleModel.js"></script>
+		<script language="JavaScript" src="../physics/Magnet.js"></script>
+		<script language="JavaScript" src="../physics/Spring.js"></script>
+		<script language="JavaScript" src="../physics/Particle.js"></script>
+		<script language="JavaScript" src="../physics/RungeKuttaIntegrator.js"></script>
+		
+		<script language="JavaScript" src="../layout/graph/ForceDirectedLayout.js"></script>
+		<script language="JavaScript" src="../layout/view/HTMLGraphView.js"></script>
+		<script language="JavaScript" src="../layout/view/SVGGraphView.js"></script>
+
+		<script language="JavaScript" src="../util/Timer.js"></script>
+		<script language="JavaScript" src="../util/EventHandler.js"></script>
+
+		<script language="JavaScript" src="../io/DataGraph.js"></script>
+		<script language="JavaScript" src="../io/HTTP.js"></script>
+		<script language="JavaScript" src="../io/XmlTreeStateMachineLoader.js"></script>
+
+		<script language="JavaScript">
+
+
+/* Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *     
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * 
+ * Author: Kyle Scholz      http://kylescholz.com/
+ * Copyright: 2006-2007
+ */
+
+/**
+ * Seed DataGraph with contents of an XML tree structure.
+ * 
+ * @author Kyle Scholz
+ * 
+ * @version 0.3
+ */
+var XmlTreeStateMachineLoader = function( dataGraph ) {
+	this.http = new HTTP();
+	this.subscribers = new Array();
+	this.dataGraph = dataGraph;
+}
+
+/*
+ * @param {Object} subscriber
+ */
+XmlTreeStateMachineLoader.prototype.subscribe = function( subscriber ) {
+	this.subscribers.push(subscriber);	
+}
+
+/*
+ * 
+ */
+XmlTreeStateMachineLoader.prototype.notify = function() {
+	for( var i=0; i<this.subscribers.length; i++ ) {
+		this.subscribers[i].notify();
+	}
+}
+
+/*
+ * Fetch XML data for processing
+ */
+XmlTreeStateMachineLoader.prototype.load = function( url ) {
+	this.http.get( url, this, this.handle );
+}
+	
+/*
+ * Process XML data in DataGraph.
+ * 
+ * @param {XMLHTTPRequest} request
+ */
+XmlTreeStateMachineLoader.prototype.handle = function( request ) {
+	var xmlDoc = request.responseXML;
+	var states = xmlDoc.getElementsByTagName("states")[0];
+	var connections = xmlDoc.getElementsByTagName("connections")[0];
+
+	// Add states
+	this.loadStates( states );
+	this.loadConnections( connections );
+	this.notify();
+}
+
+XmlTreeStateMachineLoader.prototype.getNodeByName = function( nodeName ) {
+	for( var i=0, l=this.dataGraph.nodes.length; i<l; i++ ){
+		var objNode = this.dataGraph.nodes[ i ];
+		if ( objNode.name == nodeName )
+		{
+			return objNode;
+		}
+	}
+	return null;
+}
+
+/*
+ * @param {Object} states
+ */
+XmlTreeStateMachineLoader.prototype.loadStates = function( states ) {
+	var childNodes = states.childNodes;
+	for( var i=0, l=childNodes.length; i<l; i++ ){
+	if( childNodes[i].nodeName == "state" ) 
+	{
+			var node = new DataGraphNode();
+			for( var j=0, la=childNodes[i].attributes.length; j<la; j++ ) {
+				node[childNodes[i].attributes[j].name]=childNodes[i].attributes[j].value;
+			}
+                        node.color = "blue";
+                        node.color = "blue";
+			this.dataGraph.addNode( node );
+			
+		}
+	}
+}
+
+/*
+ * @param {Object} connections
+ */
+XmlTreeStateMachineLoader.prototype.loadConnections = function( connections ) {
+	var childNodes = connections.childNodes;
+	for( var i=0, l=childNodes.length; i<l; i++ ){
+		if( childNodes[i].nodeName == "from" ) {
+			var objFrom = childNodes[i];
+			var objNodeFrom = this.getNodeByName( objFrom.getAttribute("state") );
+
+			var toChildList = objFrom.childNodes;
+
+			for( var j=0, k=toChildList.length; j<k; j++ ){
+				if( toChildList[j].nodeName == "to" ) {
+					var objTo = toChildList[j];
+					var objNodeTo = this.getNodeByName( objTo.getAttribute("state") );
+					this.dataGraph.addEdge( objNodeFrom, objNodeTo );							
+				}
+			}
+		}
+	}
+}
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+			function init() {
+
+				/* 1) Create a new SnowflakeLayout.
+				 * 
+				 * If you're going to place the graph in an HTML Element, other
+				 * the <body>, remember that it must have a known size and
+				 * position (via element.offsetWidth, element.offsetHeight,
+				 * element.offsetTop, element.offsetLeft).
+				 */
+				var layout = new ForceDirectedLayout( document.body, true );
+				
+				layout.config._default = {
+					model: function( dataNode ) {
+						return {
+							mass: 2.85
+						}
+					},
+					view: function( dataNode, modelNode ) {
+						if ( layout.svg ) {
+							var nodeElement = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+							nodeElement.setAttribute('stroke', '#888888');
+							nodeElement.setAttribute('stroke-width', '.25px');
+							nodeElement.setAttribute('fill', dataNode.color);
+							nodeElement.setAttribute('r', 10 + 'px');
+							nodeElement.onmousedown =  new EventHandler( layout, layout.handleMouseDownEvent, modelNode.id )
+							return nodeElement;
+						} else {
+							var nodeElement = document.createElement( 'div' );
+							nodeElement.style.position = "absolute";
+
+                                                        if( dataNode.start)
+                                                        {
+                                                            nodeElement.style.backgroundImage = "url(start.gif)";
+                                                            nodeElement.style.width = "30px";
+                                                            nodeElement.style.height = "30px";
+                                                        }
+                                                        else if( dataNode.end)
+                                                        {
+                                                            nodeElement.style.backgroundImage = "url(end.gif)";
+                                                            nodeElement.style.width = "30px";
+                                                            nodeElement.style.height = "30px";
+                                                        }
+                                                        else
+                                                        {
+//							var color = dataNode.color.replace( "#", "" );
+                                                            nodeElement.style.backgroundImage = "url(ball.gif)";
+                                                            nodeElement.style.width = "80px";
+                                                            nodeElement.style.height = "80px";
+                                                        }
+                                                        nodeElement.style.backgroundRepeat = "no-repeat";
+							nodeElement.innerHTML = '<div class="box"><div>' + dataNode.name  + '</div></div>';//'<img width="1" height="1">';
+							nodeElement.onmousedown =  new EventHandler( layout, layout.handleMouseDownEvent, modelNode.id )
+							return nodeElement;
+						}
+					}
+				}
+
+        		layout.forces.spring._default = function( nodeA, nodeB, isParentChild ) {
+					return {
+						springConstant: 0.2,
+						dampingConstant: 0.2,
+						restLength: 60
+					}
+				}
+				
+        		layout.forces.magnet = function() {
+					return {
+						magnetConstant: -44000,
+						minimumDistance: 40
+					}
+				}
+
+				
+
+				/* 3) Override the default edge properties builder.
+				 * 
+				 * @return DOMElement
+				 */ 
+
+				layout.viewEdgeBuilder = function( dataNodeSrc, dataNodeDest ) {
+					if ( this.svg ) {
+						return {
+							'stroke': dataNodeSrc.color,
+							'stroke-width': '2px',
+							'stroke-dasharray': '2,4'
+						}
+					} else {
+						return {
+							'pixelColor': 'green',
+							'pixelEndColor': 'blue',
+							'pixelWidth': '2px',
+							'pixelHeight': '2px',
+							'pixels': 35
+						}
+					}
+				}
+
+				/* 4) Load up some stuff by hand
+				 * 
+				 */
+				var loader = new XmlTreeStateMachineLoader( layout.dataGraph );
+				loader.load( "flow.xml" );
+
+
+				/* 5) Control the addition of nodes and edges with a timer.
+				 * 
+				 * This enables the graph to start organizng as data is loaded.
+				 * Use a larger tick time for smoother animation, but slower
+				 * build time.
+				 */
+				var buildTimer = new Timer( 150 );
+				buildTimer.subscribe( layout );
+				buildTimer.start();
+			}
+		</script>
+		
+		<style type="text/css">
+			body { margin: 0; padding: 0; }
+		</style>
+	</head>
+	<body onload="init()"><div id="debug" style="position:absolute"></div></body>
+</html>
