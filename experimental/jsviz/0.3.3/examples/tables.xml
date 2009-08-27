@@ -100,6 +100,8 @@
 	    <from entity="familia">
 		<to entity="pessoa"/>
 		<to entity="casa"/>
+		<to entity="cachorro"/>
+		<to entity="periquito"/>
 	    </from>
 	    <from entity="usuario">
 		<to entity="pessoa"/>
