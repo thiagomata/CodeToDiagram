@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Contoh Organizational Chart</title>
+	<script type="text/javascript" src="ECOTree.js"></script>
+	<link rel="stylesheet" type="text/css" href="ECOTree.css"></link>
+
+	<xml:namespace ns="urn:schemas-microsoft-com:vml" prefix="v"/>
+		<style>v\:*{ behavior:url(#default#VML);}</style> 			
+		<style>
+			.copy {
+				font-family : "Verdana";				
+				font-size : 10px;
+				color : #CCCCCC;
+			}
+		</style>
+	<script type="text/javascript">
+	
+	//deklarasi variabel
+	var tree = null;
+	
+	//function untuk membuat tree
+	function CreateTree(){
+
+				//config standar dalam membuat tree
+				tree = new ECOTree('t','contoh');						
+				tree.config.iRootOrientation = ECOTree.RO_TOP;
+				tree.config.defaultNodeWidth = 150;
+				tree.config.defaultNodeHeight = 100;
+				tree.config.iSubtreeSeparation = 20;
+				tree.config.iSiblingSeparation = 10;
+				tree.config.useTarget = false;
+				tree.config.nodeFill = ECOTree.NF_GRADIENT;
+				tree.config.colorStyle = ECOTree.CS_LEVEL;
+				tree.config.levelColors = ["#966E00","#BC9400","#D9B100","#FFD700"];
+				tree.config.levelBorderColors = ["#FFD700","#D9B100","#BC9400","#966E00"];
+				tree.config.nodeColor = "#FFD700";
+				tree.config.nodeBorderColor = "#FFD700";
+				tree.config.linkColor = "#FFD700";
+				//akhir config
+
+				//script untuk menambah node
+				tree.add(1,-1,"Kebutuhan Manusia");
+
+				//node dengan induk yang ber-id = 1 
+				tree.add(2,1,"Sandang");
+				tree.add(3,1,"Pangan");
+				tree.add(4,1,"Papan");
+				
+				//node dengan induk yang ber-id  = 2
+				tree.add(5,2,"Baju");
+				tree.add(6,2,"Jaket");
+				tree.add(7,2,"Celana");
+				
+				//node dengan induk yang ber-id = 3
+				tree.add(8,3,"Makanan");
+				tree.add(9,3,"Minuman");
+				
+				//node dengan induk yang ber-id = 4
+				tree.add(10,4,"Rumah");
+				tree.UpdateTree();
+				//akhir script penambahan node
+}
+	
+	</script>
+</head>
+<body onLoad = "CreateTree();">
+	<h3>Contoh Organizational Chart</h3>
+
+	<div id = "contoh">
+	</div>
+
+
+</body>
+
+</html>

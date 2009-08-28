@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<requirement  kind="functional" risk="50" priority="auto" name="Project Target" description="Create a great and flexible PHP Framework">
+	<requirement  kind="functional" risk="50" name="Easy to Install" description="">
+		<requirement type="detail"  kind="functional" risk="50" name="Work without path fill" description="">
+		</requirement>
+		<requirement type="detail"  kind="functional" risk="50" name="Must be Multi Plataform" description="">
+		</requirement>
+	</requirement>
+	<requirement  kind="functional" risk="50" name="Easy to be Used" description="">
+		<requirement type="detail"  kind="functional" risk="50" name="Easy to be Learn" description="">
+			<requirement type="derive"  kind="functional" risk="50" name="Template Html Like" description="">
+				<component type="derive"  kind="functional" risk="50" name="Template Component" description="">
+				</component>
+				<component type="derive"  kind="functional" risk="50" name="Xml2Php Component" description="">
+				</component>
+				<component type="derive"  kind="functional" risk="50" name="Cache Component" description="">
+				</component>
+			</requirement>
+			<component type="derive"  kind="functional" risk="50" name="Autoload Component" description="">
+			</component>
+		</requirement>
+		<requirement type="detail"  kind="functional" risk="50" name="Having tutorials and Modeling" description="">
+		</requirement>
+	</requirement>
+	<requirement  kind="functional" risk="50" name="Fast Execution" description="">
+		<component type="derive"  kind="functional" risk="50" name="Autoload Component" description="">
+		</component>
+		<component type="derive"  kind="functional" risk="50" name="Component Manager" description="">
+		</component>
+		<component type="derive"  kind="functional" risk="50" name="Cache Component" description="">
+		</component>
+	</requirement>
+	<requirement  kind="functional" risk="50" name="Easy to be Scalable" description="">
+	</requirement>
+	<requirement  kind="functional" risk="50" name="Reusable Components" description="">
+	</requirement>
+	<requirement  kind="functional" risk="50" name="Trustable" description="">
+	</requirement>
+</requirement>

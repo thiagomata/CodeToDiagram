@@ -616,7 +616,7 @@ class CodeToDiagram
 	*/
 	public function start()
 	{
-        ob_start();
+                ob_start();
 		if( $this->getStarted() )
 		{
 			return $this;
@@ -745,8 +745,6 @@ class CodeToDiagram
 				case self::OUTPUT_TYPE_SCREEN:
 				{
 					$objPrinter->getHeader();
-                    ob_flush();
-                    flush();
 					print $strDiagram;
 					break;
 				}
