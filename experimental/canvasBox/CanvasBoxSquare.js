@@ -37,6 +37,26 @@ Object.extend( CanvasBoxSquare.prototype,
         this.y1 = this.y + ( this.side / 2 );
         this.width = this.x1 - this.x0;
         this.height = this.y1 - this.y0;
+        if( this.x < 0 )
+        {
+            //this.x = 0;
+            this.dx = -this.dx;
+        }
+        if( this.x1 > this.objBox.width )
+        {
+            //this.x = this.objBox.width;
+            this.dx = -this.dx;
+        }
+        if( this.y < 0 )
+        {
+            //this.y = 0;
+            this.dy = -this.dy;
+        }
+        if( this.y1 > this.objBox.height )
+        {
+            //this.y = this.objBox.height;
+            this.dy = -this.dy;
+        }
     },
 
     draw: function draw()
@@ -79,7 +99,15 @@ Object.extend( CanvasBoxSquare.prototype,
 
     onClick: function onClick( event )
     {
-        this.dx = 1;
-        this.dy = 1;
+        if( this.dx == 0)
+        {
+            this.dx = 1;
+            this.dy = 1;
+        }
+        else
+        {
+            this.dx = 0;
+            this.dy = 0;
+        }
     }
 });

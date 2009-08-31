@@ -110,8 +110,10 @@ CanvasBox.prototype =
      * @param idCanvasHtmlElement string
      * @throws CanvasBoxException
      */
-    initialize: function initialize( idCanvasHtmlElement )
+    initialize: function initialize( idCanvasHtmlElement , intWidth, intHeight )
     {
+        this.width = intWidth;
+        this.height = intHeight;
         this.id = CanvasBox.Static.arrInstances.length;
         CanvasBox.Static.arrInstances[ this.id ] = this;
 
@@ -120,9 +122,8 @@ CanvasBox.prototype =
         {
             throw new CanvasBoxException( "Invalid canvas html element id [" + idCanvasHtmlElement + "]" );
         }
-        this.objCanvasHtml.width = this.width;
-        this.objCanvasHtml.height = this.heigh;
-        //this.objCanvasHtml.addEventListener( 'mousemove' , this.onMouseMove );
+        this.objCanvasHtml.setAttribute( "width" , this.width + "px" );
+        this.objCanvasHtml.setAttribute( "height" , this.height + "px" );
         this.objCanvasHtml.setAttribute( "onmousemove",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' );
         this.objCanvasHtml.setAttribute( "onclick",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onClick( event )' );
         this.play();
@@ -154,6 +155,7 @@ CanvasBox.prototype =
      */
     clear: function clear()
     {
+        //document.title = ( this.objCanvasHtml.id );
         var objContext = this.getContext();
         objContext.clearRect( 0, 0, this.width, this.height );
     },
@@ -219,20 +221,9 @@ CanvasBox.prototype =
 
     onClick: function onClick( event )
     {
-        this.refreshMousePosition( event );
-        var objElement = null;
-        for( var i = 0, l = this.arrElements.length; i < l; ++i )
+        if( this.objElementOver != null )
         {
-            objElement = this.arrElements[ i ];
-            if( objElement.isInside( this.mouseX , this.mouseY ) )
-            {
-                this.objElementOver = objElement;
-                i = l;
-            }
-        }
-        if( objElement != null )
-        {
-            objElement.onClick( event );
+            this.objElementOver.onClick( event );
         }
     },
 

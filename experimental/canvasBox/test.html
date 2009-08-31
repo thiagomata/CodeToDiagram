@@ -11,25 +11,23 @@ and open the template in the editor.
     <script src="CanvasBox.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxElement.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxSquare.js" type="text/javascript" charset="utf-8"></script>
+      <style>
+          *
+          {
+              padding: 0;
+              margin: 0;
+              border: none;
+          }
+      </style>
   </head>
-  <style>
-      *
-      {
-          padding: 0;
-          margin: 0;
-          border: none;
-      }
-  </style>
   <body>
     <canvas id="abc">
     </canvas>
     <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBox( "abc" );
-        objBox.width = 200;
-        objBox.height = 200;
+        var objBox = new CanvasBox( "abc" , 200 , 200 );
         var objSquare = new CanvasBoxSquare();
         objSquare.x = 10;
-        objSquare.y = 10;
+        objSquare.y = 50;
         objSquare.side = 10;
         objBox.addElement( objSquare );
         objBox.draw();
