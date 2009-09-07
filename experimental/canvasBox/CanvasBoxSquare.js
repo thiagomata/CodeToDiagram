@@ -15,48 +15,39 @@ Object.extend( CanvasBoxSquare.prototype,
     y1: 0,
 
     dy: 0,
-    
+
     width: 0,
 
     height: 0,
 
     color: "rgb(200,200,255)",
 
-    init: function init()
-    {
+    objBehavior: null,
 
-    },
+    objContext: null,
+
+    intMass: 1,
+
+    intMagnetism: 20,
 
     refresh: function refresh()
     {
-        this.x += this.dx;
-        this.y += this.dy;
         this.x0 = this.x - ( this.side / 2 );
         this.x1 = this.x + ( this.side / 2 );
         this.y0 = this.y - ( this.side / 2 );
         this.y1 = this.y + ( this.side / 2 );
-        this.width = this.x1 - this.x0;
-        this.height = this.y1 - this.y0;
-        if( this.x < 0 )
+        /*
+        if( this.x0 < 0 )
         {
-            //this.x = 0;
-            this.dx = -this.dx;
+            this.x0 = 0;
         }
-        if( this.x1 > this.objBox.width )
+        if( this.y0 < 0 )
         {
-            //this.x = this.objBox.width;
-            this.dx = -this.dx;
+            this.y0 = 0;
         }
-        if( this.y < 0 )
-        {
-            //this.y = 0;
-            this.dy = -this.dy;
-        }
-        if( this.y1 > this.objBox.height )
-        {
-            //this.y = this.objBox.height;
-            this.dy = -this.dy;
-        }
+        */
+        this.width = this.side;
+        this.height = this.side;
     },
 
     draw: function draw()
@@ -84,30 +75,6 @@ Object.extend( CanvasBoxSquare.prototype,
         else
         {
             return false;
-        }
-    },
-
-    onMouseOver: function onMouseOver( event )
-    {
-        this.color = "red";
-    },
-
-    onMouseOut: function onMouseOut( event )
-    {
-        this.color = "green";
-    },
-
-    onClick: function onClick( event )
-    {
-        if( this.dx == 0)
-        {
-            this.dx = 1;
-            this.dy = 1;
-        }
-        else
-        {
-            this.dx = 0;
-            this.dy = 0;
         }
     }
 });

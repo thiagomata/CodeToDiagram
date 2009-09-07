@@ -9,8 +9,11 @@ and open the template in the editor.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="prototype.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBox.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxDefaultBehavior.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxElement.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxSquare.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxGravityBehavior.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxMagneticBehavior.js" type="text/javascript" charset="utf-8"></script>
       <style>
           *
           {
@@ -18,19 +21,37 @@ and open the template in the editor.
               margin: 0;
               border: none;
           }
+          canvas
+          {
+              border-style: solid;
+              border-color: black;
+              border-width: 1px;
+          }
       </style>
   </head>
   <body>
     <canvas id="abc">
     </canvas>
     <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBox( "abc" , 200 , 200 );
-        var objSquare = new CanvasBoxSquare();
-        objSquare.x = 10;
-        objSquare.y = 50;
-        objSquare.side = 10;
-        objBox.addElement( objSquare );
-        objBox.draw();
+        var objBox = new CanvasBox( "abc" , 500 , 500 );
+        window.box = objBox;
+        function addSquare( color )
+        {
+            var objSquare = new CanvasBoxSquare();
+            objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
+            objSquare.x = Math.random() *  window.box.width ;
+            objSquare.y = Math.random() * window.box.height ;
+            objSquare.side = 50;
+            if( color )
+            {
+                objSquare.color = color;
+            }
+            window.box.addElement( objSquare );
+        }
+        addSquare();
+        addSquare( "red" );
+        addSquare( "green" );
     </script>
+    <input value="Add Square" onclick="addSquare()" type="button"/>
   </body>
 </html>

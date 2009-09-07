@@ -83,7 +83,13 @@ CanvasBox.prototype =
      * Interval of Image Refreshing
      * @type integer
      */
-    intInterval: 10,
+    intIntervalDraw: 50,
+
+    /**
+     * Interval of Objects Timers
+     * @type integer
+     */
+    intIntervalTimer: 50,
 
     /**
      * Control if the refreshing is active or not
@@ -100,7 +106,9 @@ CanvasBox.prototype =
      * Mouse Y position
      */
     mouseY: 0,
-    
+
+    booOnDraw: false,
+
     /**
      * Initialize the Canvas Box
      *
@@ -126,6 +134,9 @@ CanvasBox.prototype =
         this.objCanvasHtml.setAttribute( "height" , this.height + "px" );
         this.objCanvasHtml.setAttribute( "onmousemove",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' );
         this.objCanvasHtml.setAttribute( "onclick",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onClick( event )' );
+        this.objCanvasHtml.setAttribute( "ondblclick",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDblClick( event )' );
+        this.objCanvasHtml.setAttribute( "onmouseup",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseUp( event )' );
+        this.objCanvasHtml.setAttribute( "onmousedown",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseDown( event )' );
         this.play();
     },
 
@@ -165,12 +176,27 @@ CanvasBox.prototype =
      */
     draw: function draw()
     {
+        this.booOnDraw = true;
+
         this.clear();
 
         for( var i = 0, l = this.arrElements.length; i < l; ++i )
         {
             var objElement = this.arrElements[ i ];
             objElement.draw();
+        }
+        this.booOnDraw = false;
+    },
+
+    /**
+     * Draw all the elements into the CanvasBox
+     */
+    onTimerElements: function onTimerElements()
+    {
+        for( var i = 0, l = this.arrElements.length; i < l; ++i )
+        {
+            var objElement = this.arrElements[ i ];
+            objElement.onTimer();
         }
     },
 
@@ -180,7 +206,8 @@ CanvasBox.prototype =
     play: function play()
     {
         this.booActive = true;
-        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').refresh()' , this.intInterval );
+        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onTimer()' , this.intIntervalTimer );
+        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDraw()' , this.intIntervalDraw );
     },
 
     /**
@@ -197,14 +224,34 @@ CanvasBox.prototype =
      * - Draw the elements
      * - Call the next timer if should
      */
-    refresh: function refresh()
+    onTimer: function onTimer()
     {
         if( this.booActive == false )
         {
             return false;
         }
-        this.draw();
-        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').refresh()' , this.intInterval );
+        this.onTimerElements();
+        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onTimer()' , this.intIntervalTimer );
+        return true;
+    },
+
+    /**
+     * Refresh the Canvas Box
+     *
+     * - Draw the elements
+     * - Call the next timer if should
+     */
+    onDraw: function onDraw()
+    {
+        if( this.booActive == false )
+        {
+            return false;
+        }
+        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDraw()' , this.intIntervalDraw );
+        if( !this.booOnDraw )
+        {
+            this.draw();
+        }
         return true;
     },
 
@@ -221,16 +268,13 @@ CanvasBox.prototype =
 
     onClick: function onClick( event )
     {
-        if( this.objElementOver != null )
-        {
-            this.objElementOver.onClick( event );
-        }
     },
 
     onMouseMove: function onMouseMove( event )
     {
         var objElementOver = null;
         this.refreshMousePosition( event );
+
         for( var i = 0, l = this.arrElements.length; i < l; ++i )
         {
             var objElement = this.arrElements[ i ];
@@ -248,9 +292,48 @@ CanvasBox.prototype =
             }
             if( objElementOver != null )
             {
+                this.objCanvasHtml.style.cursor = "pointer";
                 objElementOver.onMouseOver( event );
+            }
+            else
+            {
+                this.objCanvasHtml.style.cursor = "default";
             }
             this.objElementOver = objElementOver;
         }
+        if( this.objElementSelected != null )
+        {
+            this.objElementSelected.onDrag( event );
+        }
+    },
+
+    onMouseUp: function onMouseUp( event )
+    {
+        if( this.objElementSelected != null )
+        {
+            this.objElementSelected.onDrop( event);
+        }
+        this.objElementSelected = null;
+    },
+
+    onMouseDown: function onMouseDown( event )
+    {
+        this.objElementSelected = this.objElementOver;
+    },
+
+    onClick: function onClick( event )
+    {
+        if( this.objElementOver != null )
+        {
+            this.objElementOver.onClick( event );
+        }
+    },
+    
+    onDblClick: function onDblClick( event )
+    {
+        if( this.objElementOver != null )
+        {
+            this.objElementOver.onDblClick( event );
+        }        
     }
 };
