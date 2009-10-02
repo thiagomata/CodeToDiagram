@@ -1,8 +1,12 @@
-
-var CanvasBoxElement = Class.create();
-CanvasBoxElement.prototype =
+var CanvasBoxConnector = Class.create();
+Object.extend( CanvasBoxConnector.prototype, CanvasBoxElement.prototype);
+Object.extend( CanvasBoxConnector.prototype,
 {
     objBox: null,
+
+    objElementFrom: null,
+
+    objElementTo: null,
 
     x: 0,
 
@@ -12,9 +16,11 @@ CanvasBoxElement.prototype =
 
     objContext: null,
 
-    initialize: function initialize()
+    initialize: function initialize( objElementFrom , objElementTo )
     {
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.objElementFrom = objElementFrom;
+        this.objElementTo = objElementTo;
+        return this.objBehavior = new CanvasBoxDefaultBehavior( this );
     },
 
     refresh: function refresh()
@@ -72,8 +78,8 @@ CanvasBoxElement.prototype =
         return this.objBehavior.onTimer( event );
     },
 
-    getForce: function getForce( objBoxElement )
+    getForce: function getForce( objElement )
     {
-        return this.objBehavior.getForce( objBoxElement );
+        return this.objBehavior.getForce( objElement );
     }
-}
+});

@@ -1,6 +1,6 @@
 
-var CanvasBoxDefaultBehavior = Class.create();
-CanvasBoxDefaultBehavior.prototype =
+var CanvasBoxDefaultConnectorBehavior = Class.create();
+CanvasBoxDefaultConnectorBehavior.prototype =
 {
     objBox: null,
 
@@ -61,7 +61,6 @@ CanvasBoxDefaultBehavior.prototype =
 
     getForce: function getForce( objElement )
     {
-        objVector = Array();
-        return objVector;
+        return null;
     }
 }

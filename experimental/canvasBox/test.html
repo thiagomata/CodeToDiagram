@@ -14,6 +14,10 @@ and open the template in the editor.
     <script src="CanvasBoxSquare.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxGravityBehavior.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxMagneticBehavior.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxDefaultConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxConnector.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxMagneticConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxLine.js" type="text/javascript" charset="utf-8"></script>
       <style>
           *
           {
@@ -33,7 +37,7 @@ and open the template in the editor.
     <canvas id="abc">
     </canvas>
     <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBox( "abc" , 500 , 500 );
+        var objBox = new CanvasBox( "abc" ,500 , 500 );
         window.box = objBox;
         function addSquare( color )
         {
@@ -47,11 +51,73 @@ and open the template in the editor.
                 objSquare.color = color;
             }
             window.box.addElement( objSquare );
+            return objSquare;
+        }
+        function addLine( objFrom , objTo , color )
+        {
+            var objLine = new CanvasBoxLine( objFrom , objTo );
+            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+            objLine.x =  Math.random() *  window.box.width ;
+            objLine.y =  Math.random() *  window.box.width ;;
+            objLine.side = 5;
+            if( color )
+            {
+                objLine.color = color;
+            }
+            window.box.addElement( objLine );
+            return objLine;
+        }
+        function cloneLine( objLineOriginal )
+        {
+            var objLine = new CanvasBoxLine( objLineOriginal , objLineOriginal.objElementTo );
+            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+            objLine.x =  Math.random() *  window.box.width ;
+            objLine.y =  Math.random() *  window.box.width ;;
+            objLine.side = 5;
+            if( objLineOriginal.color )
+            {
+                objLine.color = objLineOriginal.color;
+            }
+            window.box.addElement( objLine );
+            objLineOriginal.objElementTo = objLine;
+            objLine.objElementFrom = objLineOriginal;
+            if( objLineOriginal.objElementFrom )
+            {
+                objLineOriginal.objElementFrom.objElementTo = objLineOriginal;
+            }
+            if( objLineOriginal.objElemenTo )
+            {
+                objLineOriginal.objElemenTo.objElementFrom = objLineOriginal;
+            }
+            if( objLine.objElementFrom )
+            {
+                objLine.objElementFrom.objElementTo = objLine;
+            }
+            if( objLine.objElementTo )
+            {
+                objLine.objElementTo.objElementFrom = objLine;
+            }
+            return objLine;
         }
         addSquare();
-        addSquare( "red" );
-        addSquare( "green" );
+        var objRed = addSquare( "red" );
+        var objGreen = addSquare( "green" );
+        var objYellow = addSquare( "yellow" );
+        var objBlue = addSquare( "blue" );
+
+        var objLine = addLine( objRed , objGreen , "blue" );
+        var objLine = addLine( objYellow , objBlue , "red" );
+        var objLine = addLine( objYellow , objGreen , "red" );
+        var objLine = addLine( objBlue , objRed , "red" );
+
+        var objNewLine = cloneLine( objLine );
+        objNewLine.color = "yellow";
+        var objLine = cloneLine( objLine );
+        objLine.color = "black";
+
+        window.objLine = objLine;
     </script>
     <input value="Add Square" onclick="addSquare()" type="button"/>
+    <input value="Add Dot Line" onclick="cloneLine( window.objLine )" type="button"/>
   </body>
 </html>

@@ -54,7 +54,8 @@ Object.extend( CanvasBoxSquare.prototype,
     {
         this.refresh();
         this.objContext.fillStyle = this.color;
-        this.objContext.fillRect( this.x0 , this.y0 , this.width , this.height );
+        this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+                                  Math.round( this.width ) , Math.round( this.height ) );
     },
 
     isInside: function isInside( mouseX , mouseY )

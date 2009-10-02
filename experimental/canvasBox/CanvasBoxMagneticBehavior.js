@@ -9,40 +9,47 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
     initialize: function initialize( objBoxElement )
     {
         this.objBoxElement = objBoxElement;
+        if( !this.objBoxElement.intMass )
+        {
+            this.objBoxElement.intMass = 1;
+        }
+        if( !this.objBoxElement.intMagnetism )
+        {
+            this.objBoxElement.intMagnetism = 1;
+        }
         this.refresh();
     },
 
-    move: function move()
+    repelsWalls: function repelsWalls( arrVectors )
     {
-        this.refresh();
-        if( this.fixed || this.dragdrop )
-        { 
-            return;
-        }
-        
-        var arrVectors = Array();
         var objVector;
-
         objVector = Array();
+
         objVector[ "dx" ] = -1 * ( this.objBoxElement.x );
         objVector[ "dy" ] = 0;
         arrVectors.push( objVector );
-        
+
         objVector = Array();
         objVector[ "dx" ] = 1 * ( this.objBoxElement.objBox.width - this.objBoxElement.x );
         objVector[ "dy" ] = 0;
         arrVectors.push( objVector );
-        
+
         objVector = Array();
         objVector[ "dx" ] = 0;
         objVector[ "dy" ] = -1 * ( this.objBoxElement.y );
         arrVectors.push( objVector );
-        
+
         objVector = Array();
         objVector[ "dx" ] = 0;
         objVector[ "dy" ] = 1 * ( this.objBoxElement.objBox.height - this.objBoxElement.y );
-        arrVectors.push( objVector );        
+        arrVectors.push( objVector );
 
+        return arrVectors;
+
+    },
+
+    repelsElements: function repelsElements( arrVectors )
+    {
         var arrElements = this.objBoxElement.objBox.arrElements;
         var intQtdElements = arrElements.length;
         for( var intElement = 0; intElement < intQtdElements ; ++intElement )
@@ -50,24 +57,19 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
             var objElement = arrElements[ intElement ];
             if( objElement != this.objBoxElement )
             {
-                objVector = Array();
-                var intDirectionX = ( objElement.x < this.objBoxElement.x ) ? 1 : -1;
-                var intDirectionY = ( objElement.y < this.objBoxElement.y ) ? 1 : -1;
-                var intDifX = objElement.x - this.objBoxElement.x;
-                var intDifY = objElement.y - this.objBoxElement.y;
-                var dblDist = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
-                var dblForceX = this.objBoxElement.objBox.width / ( dblDist );
-                var dblForceY = this.objBoxElement.objBox.height / ( dblDist );
-                objVector[ "dx" ] =  objElement.intMagnetism * intDirectionX * dblForceX / objElement.intMass;
-                objVector[ "dy" ] =  objElement.intMagnetism * intDirectionY * dblForceY / objElement.intMass;
-                arrVectors.push( objVector );
+                var objVector = Array();
+                objVector = objElement.getForce( this.objBoxElement );
+                if( objVector !=  null )
+                {
+                    arrVectors.push( objVector );
+                }
             }
         }
-        this.getVectors( arrVectors );    
-        
-        this.objBoxElement.x += this.objBoxElement.dx;
-        this.objBoxElement.y += this.objBoxElement.dy;    
-        
+        return arrVectors;
+    },
+
+    keepOnLimits: function keepOnLimits()
+    {
         if( this.objBoxElement.x0 < 0 )
         {
             this.objBoxElement.x = (this.objBoxElement.width / 2);
@@ -88,6 +90,25 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
             this.objBoxElement.y = this.objBoxElement.objBox.height - ( this.objBoxElement.height / 2 );
             this.objBoxElement.dy = 0;
         }
+    },
+
+    move: function move()
+    {
+        this.refresh();
+        if( this.fixed || this.dragdrop )
+        { 
+            return;
+        }
+        
+        var arrVectors = Array();
+        arrVectors = this.repelsWalls( arrVectors );
+        arrVectors = this.repelsElements( arrVectors );
+
+        this.getVectors( arrVectors );
+
+        this.objBoxElement.x += this.objBoxElement.dx;
+        this.objBoxElement.y += this.objBoxElement.dy;
+        this.keepOnLimits();
        this.refresh();
     },
 
@@ -139,5 +160,25 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         this.objBoxElement.dx = dx;
         this.objBoxElement.dy = dy;
         this.refresh();
-    }        
+    },
+
+    getForce: function getForce( objElement )
+    {
+        var objVector = Array();
+        
+        var intDirectionX = ( objElement.x < this.objBoxElement.x ) ? -1 : 1;
+        var intDirectionY = ( objElement.y < this.objBoxElement.y ) ? -1 : 1;
+
+        var intDifX = objElement.x - this.objBoxElement.x;
+        var intDifY = objElement.y - this.objBoxElement.y;
+        var dblDist = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
+
+        var dblForceX = this.objBoxElement.objBox.width / ( dblDist );
+        var dblForceY = this.objBoxElement.objBox.height / ( dblDist );
+
+        objVector[ "dx" ] =  this.objBoxElement.intMagnetism * intDirectionX * dblForceX / this.objBoxElement.intMass;
+        objVector[ "dy" ] =  this.objBoxElement.intMagnetism * intDirectionY * dblForceY / this.objBoxElement.intMass;
+        
+        return objVector;
+    }
 });
