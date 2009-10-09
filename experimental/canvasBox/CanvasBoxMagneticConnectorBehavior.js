@@ -6,11 +6,11 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     dragdrop: false,
 
-    connectorForce: 500,
+    connectorForce: 1500,
 
-    connectorPullForce: 500,
+    connectorPullForce: 1500,
 
-    connectorInteraction: 0,
+    connectorInteraction: 0.01,
     
     initialize: function initialize( objBoxElement )
     {
@@ -20,6 +20,7 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     repelsWalls: function repelsWalls( arrVectors )
     {
+        return arrVectors;
         var objVector;
         objVector = Array();
 
@@ -233,8 +234,6 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
                 intDirectionY *= -1;
             }
 
-            objVector[ "dx" ] =  objElement.intMagnetism * intDirectionX * dblForceX / objElement.intMass;
-            objVector[ "dy" ] =  objElement.intMagnetism * intDirectionY * dblForceY / objElement.intMass;
             objVector[ "dx" ] =  this.connectorPullForce * dblForceX * dblForceX * intDirectionX ;
             objVector[ "dy" ] =  this.connectorPullForce * dblForceY * dblForceY *intDirectionY;
         }
@@ -256,6 +255,44 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
             objVector[ "dy" ] =  this.objBoxElement.intMagnetism * intDirectionY * dblForceY / this.objBoxElement.intMass;
         }
 
+        this.cloneCheck( objVector );
+
         return objVector;
+    },
+
+    cloneCheck: function cloneCheck( objVector )
+    {
+        var objElementFrom = this.objBoxElement.objElementFrom;
+        var objElementTo =  this.objBoxElement.objElementTo;
+        var intDifX;
+        var intDifY;
+        
+        intDifX = objElementFrom.x - this.objBoxElement.x;
+        intDifY = objElementFrom.y - this.objBoxElement.y;
+        var dblDistFrom = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
+
+        intDifX = objElementTo.x - this.objBoxElement.x;
+        intDifY = objElementTo.y - this.objBoxElement.y;
+        var dblDistTo = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
+
+        var intMinDist = 70;
+
+        if( ( dblDistFrom < intMinDist ) || ( dblDistTo < intMinDist ) )
+        {
+            return;
+        }
+
+        if( ( Math.round( this.objBoxElement.dx ) != 0 ) || ( Math.round( this.objBoxElement.dy ) != 0 ) )
+        {
+            return;
+        }
+
+        var dblForce = ( abs( objVector[ "dx" ] ) + abs( objVector[ "dy" ] ) ) / 2;
+        var intMaxForce = 3;
+
+        if( dblForce > intMaxForce )
+        {
+            this.objBoxElement.clone();
+        }
     }
 });

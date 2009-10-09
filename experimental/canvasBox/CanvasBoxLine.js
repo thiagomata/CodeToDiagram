@@ -26,9 +26,9 @@ Object.extend( CanvasBoxLine.prototype,
 
     objContext: null,
 
-    intMass: 1,
+    intMass: 3,
 
-    intMagnetism: 1,
+    intMagnetism: 2,
 
     refresh: function refresh()
     {
@@ -89,17 +89,16 @@ Object.extend( CanvasBoxLine.prototype,
         }
     },
 
-    duplicate: function duplicate()
+    cloneLine: function cloneLine()
     {
-        var objLine = new CanvasBoxLine( this.objElementFrom, this.objElementTo );
-        objLine.color = this.color;
-        objLine.x =  Math.random() *  this.objBox.width;
-        objLine.y =  Math.random() *  this.objBox.height;
-        objLine.x0 = 0;
-        objLine.y0 = 0;
-        objLine.x1 = 0;
-        objLine.y1 = 0;
-        objLine.side = this.side;
-        this.objBox.addElement( objLine );
+        var objLine = new CanvasBoxLine( this , this.objElementTo );
+        this.cloneConnector( objLine );
+        return objLine;
+    },
+
+    clone: function clone( objConnector )
+    {
+        return this.cloneLine( objConnector );
     }
+
 });

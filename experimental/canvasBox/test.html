@@ -7,13 +7,8 @@ and open the template in the editor.
   <head>
     <title>Testing the Box</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="prototype.js" type="text/javascript" charset="utf-8"></script>
-    <script src="CanvasBox.js" type="text/javascript" charset="utf-8"></script>
-    <script src="CanvasBoxDefaultBehavior.js" type="text/javascript" charset="utf-8"></script>
-    <script src="CanvasBoxElement.js" type="text/javascript" charset="utf-8"></script>
-    <script src="CanvasBoxSquare.js" type="text/javascript" charset="utf-8"></script>
-    <script src="CanvasBoxGravityBehavior.js" type="text/javascript" charset="utf-8"></script>
-    <script src="CanvasBoxMagneticBehavior.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../phpjs/php.js" type="text/javascript" charset="utf-8"></script>
+    <script src="_start.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxDefaultConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxConnector.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxMagneticConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
@@ -69,35 +64,7 @@ and open the template in the editor.
         }
         function cloneLine( objLineOriginal )
         {
-            var objLine = new CanvasBoxLine( objLineOriginal , objLineOriginal.objElementTo );
-            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-            objLine.x =  Math.random() *  window.box.width ;
-            objLine.y =  Math.random() *  window.box.width ;;
-            objLine.side = 5;
-            if( objLineOriginal.color )
-            {
-                objLine.color = objLineOriginal.color;
-            }
-            window.box.addElement( objLine );
-            objLineOriginal.objElementTo = objLine;
-            objLine.objElementFrom = objLineOriginal;
-            if( objLineOriginal.objElementFrom )
-            {
-                objLineOriginal.objElementFrom.objElementTo = objLineOriginal;
-            }
-            if( objLineOriginal.objElemenTo )
-            {
-                objLineOriginal.objElemenTo.objElementFrom = objLineOriginal;
-            }
-            if( objLine.objElementFrom )
-            {
-                objLine.objElementFrom.objElementTo = objLine;
-            }
-            if( objLine.objElementTo )
-            {
-                objLine.objElementTo.objElementFrom = objLine;
-            }
-            return objLine;
+            return objLineOriginal.cloneLine();
         }
         addSquare();
         var objRed = addSquare( "red" );
@@ -109,11 +76,6 @@ and open the template in the editor.
         var objLine = addLine( objYellow , objBlue , "red" );
         var objLine = addLine( objYellow , objGreen , "red" );
         var objLine = addLine( objBlue , objRed , "red" );
-
-        var objNewLine = cloneLine( objLine );
-        objNewLine.color = "yellow";
-        var objLine = cloneLine( objLine );
-        objLine.color = "black";
 
         window.objLine = objLine;
     </script>

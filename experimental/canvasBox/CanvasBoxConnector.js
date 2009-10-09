@@ -12,6 +12,10 @@ Object.extend( CanvasBoxConnector.prototype,
 
     y: 0,
 
+    dx: 3,
+
+    dy: 3,
+    
     objBehavior: null,
 
     objContext: null,
@@ -81,5 +85,51 @@ Object.extend( CanvasBoxConnector.prototype,
     getForce: function getForce( objElement )
     {
         return this.objBehavior.getForce( objElement );
+    },
+
+    cloneConnector: function cloneConnector( objConnector )
+    {
+        if( !objConnector )
+        {
+            objConnector = new CanvasBoxConnector( this , this.objElementTo );
+        }
+        else
+        {
+            objConnector.initialize( this , this.objElementTo );
+        }
+        
+        objConnector.objBehavior = new CanvasBoxMagneticConnectorBehavior( objConnector );
+        objConnector.x =  this.x;
+        objConnector.y =  this.y;
+        objConnector.side = 5;
+        if( this.color )
+        {
+            objConnector.color = this.color;
+        }
+        this.objBox.addElement( objConnector );
+        this.objElementTo = objConnector;
+        objConnector.objElementFrom = this;
+        if( this.objElementFrom )
+        {
+            this.objElementFrom.objElementTo = this;
+        }
+        if( this.objElemenTo )
+        {
+            this.objElemenTo.objElementFrom = this;
+        }
+        if( objConnector.objElementFrom )
+        {
+            objConnector.objElementFrom.objElementTo = objConnector;
+        }
+        if( objConnector.objElementTo )
+        {
+            objConnector.objElementTo.objElementFrom = objConnector;
+        }
+        return objConnector;
+    },
+
+    clone: function clone( objConnector )
+    {
+        return this.cloneConnector( objConnector );
     }
 });
