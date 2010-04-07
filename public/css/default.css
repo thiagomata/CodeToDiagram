@@ -28,8 +28,23 @@
             .duasColunas
             {
                 float: left;
-                width: 49%;
+                width: 47%;
+                padding: 1%;
             }
+            .comColunas
+            {
+                float: left;
+                width: 100%;
+            }
+            #pig_small , #flow_codetodiagram, #mvc_codetodiagram
+            {
+                border-style:none;
+                width: 90%;
+                border-color: white;
+                border-width: 0px;
+            }
+
+
             .diagram_flow
             {
                 text-align: center;
@@ -45,6 +60,7 @@
                 border-style: solid;
                 border-color: black;
                 border-width: 1px;
+                overflow: hidden;
             }
             .php *
             {
