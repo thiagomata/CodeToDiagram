@@ -149,11 +149,11 @@ background: url(./../images/actor.gif) no-repeat left 20px;
 /* Menu */
 
 #menu {
-	width: 100%;
+	width: 90%;
 	height: 49px;
 	margin: 0 auto;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 5%;
+	margin-right: 5%;
 	padding: 0;
 }
 
@@ -170,7 +170,7 @@ background: url(./../images/actor.gif) no-repeat left 20px;
 
 #menu a {
 	display: block;
-	width: 90px;
+	width: 75px;
 	height: 33px;
 	padding-top: 16px;
 	text-decoration: none;
