@@ -36,8 +36,7 @@ and open the template in the editor.
         window.box = objBox;
         function addSquare( color )
         {
-            var objSquare = new CanvasBoxSquare();
-            objSquare.side = 50;
+            var objSquare = new CanvasBoxClass();
             objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
             objSquare.x = Math.random() *  window.box.width ;
             objSquare.y = Math.random() * window.box.height ;

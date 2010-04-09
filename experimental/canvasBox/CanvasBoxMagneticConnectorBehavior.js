@@ -6,11 +6,11 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     dragdrop: false,
 
-    connectorForce: 1500,
+    connectorForce: 5500,
 
     connectorPullForce: 1500,
 
-    connectorInteraction: 0.01,
+    connectorInteraction: 0.08,
     
     initialize: function initialize( objBoxElement )
     {
@@ -146,15 +146,27 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     onMouseOver: function onMouseOver( event )
     {
+        if( this.objBoxElement.drawMouseOver )
+        {
+            this.objBoxElement.drawMouseOver( event );
+        }
     },
 
     onMouseOut: function onMouseOut( event )
     {
+        if( this.objBoxElement.drawMouseOut )
+        {
+            this.objBoxElement.drawMouseOut( event );
+        }
     },
 
     onDblClick: function onDblClick( event )
     {
         this.fixed = !this.fixed;
+        if( this.objBoxElement.drawFixed )
+        {
+            this.objBoxElement.drawFixed( this.fixed );
+        }
     },
 
     onDrag: function onDrag( event )

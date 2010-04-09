@@ -119,15 +119,27 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
 
     onMouseOver: function onMouseOver( event )
     {
+        if( this.objBoxElement.drawMouseOver )
+        {
+            this.objBoxElement.drawMouseOver( event );
+        }
     },
 
     onMouseOut: function onMouseOut( event )
     {
+        if( this.objBoxElement.drawMouseOut )
+        {
+            this.objBoxElement.drawMouseOut( event );
+        }
     },
 
     onDblClick: function onDblClick( event )
     {
         this.fixed = !this.fixed;
+        if( this.objBoxElement.drawFixed )
+        {
+            this.objBoxElement.drawFixed( this.fixed );
+        }
     },
 
     onDrag: function onDrag( event )
@@ -137,11 +149,21 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         this.objBoxElement.dy = this.objBoxElement.objBox.mouseY - this.objBoxElement.y;
         this.objBoxElement.x = this.objBoxElement.objBox.mouseX;
         this.objBoxElement.y = this.objBoxElement.objBox.mouseY;
+
+        if( this.objBoxElement.drawDrag )
+        {
+                this.objBoxElement.drawDrag();
+        }
     },
 
     onDrop: function onDrop( event )
     {
         this.dragdrop = false;
+
+        if( this.objBoxElement.drawDrop )
+        {
+            this.objBoxElement.drawDrop();
+        }
     },
     
     getVectors: function getVectors( arrVectors )

@@ -1,8 +1,8 @@
-var CanvasBoxSquare = Class.create();
-Object.extend( CanvasBoxSquare.prototype, CanvasBoxElement.prototype);
-Object.extend( CanvasBoxSquare.prototype,
+var CanvasBoxClass = Class.create();
+Object.extend( CanvasBoxClass.prototype, CanvasBoxElement.prototype);
+Object.extend( CanvasBoxClass.prototype,
 {
-    side: 6,
+    side: 100,
 
     x0: 0,
 
@@ -34,13 +34,16 @@ Object.extend( CanvasBoxSquare.prototype,
 
     intMagnetism: 40,
 
+    strClassName: "noop",
+
+    arrParams: Array( "#strName string","#intAge integer"),
+
     refresh: function refresh()
     {
         this.x0 = this.x - ( this.side / 2 );
         this.x1 = this.x + ( this.side / 2 );
         this.y0 = this.y - ( this.side / 2 );
         this.y1 = this.y + ( this.side / 2 );
-        /*
         if( this.x0 < 0 )
         {
             this.x0 = 0;
@@ -49,7 +52,6 @@ Object.extend( CanvasBoxSquare.prototype,
         {
             this.y0 = 0;
         }
-        */
         this.width = this.side;
         this.height = this.side;
     },
@@ -64,6 +66,12 @@ Object.extend( CanvasBoxSquare.prototype,
         this.objContext.lineWidth = this.borderWidth;
         this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( this.height ) );
+        this.objContext.strokeText( this.strClassName, this.x0 + 10 , this.y0 + 10 );
+
+        for( var i = 0 ; i < this.arrParams.length; ++i )
+        {
+            this.objContext.strokeText( this.arrParams[ i ], this.x0 + 10 , this.y0 + 10 + ( i + 2 ) * 10 );
+        }
     },
 
     drawMouseOver: function drawMouseOver( event )

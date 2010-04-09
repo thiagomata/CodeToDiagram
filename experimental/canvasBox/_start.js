@@ -9,3 +9,4 @@ require_once( "CanvasBoxDefaultConnectorBehavior.js" );
 require_once( "CanvasBoxConnector.js" );
 require_once( "CanvasBoxMagneticConnectorBehavior.js" );
 require_once( "CanvasBoxLine.js" );
+require_once( "CanvasBoxClass.js" );

@@ -180,7 +180,9 @@ CanvasBox.prototype =
 
         this.clear();
 
-        for( var i = 0, l = this.arrElements.length; i < l; ++i )
+        var l = this.arrElements.length;
+
+        for( var i = l - 1; i > 0; --i )
         {
             var objElement = this.arrElements[ i ];
             objElement.draw();

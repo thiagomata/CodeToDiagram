@@ -2,7 +2,7 @@ var CanvasBoxLine = Class.create();
 Object.extend( CanvasBoxLine.prototype, CanvasBoxConnector.prototype);
 Object.extend( CanvasBoxLine.prototype,
 {
-    side: 2,
+    side: 3,
 
     x0: 0,
 
@@ -20,15 +20,19 @@ Object.extend( CanvasBoxLine.prototype,
 
     height: 0,
 
-    color: "rgb(200,200,255)",
+    color: "rgb( 100, 100, 100 )",
 
+    borderColor: "rgb( 200, 200, 200 )",
+
+    borderWidth: 1,
+    
     objBehavior: null,
 
     objContext: null,
 
-    intMass: 3,
+    intMass: 4,
 
-    intMagnetism: 2,
+    intMagnetism: 5,
 
     refresh: function refresh()
     {
@@ -56,15 +60,20 @@ Object.extend( CanvasBoxLine.prototype,
         this.objContext.save();
         this.objContext.beginPath();
         this.objContext.fillStyle = this.color;
-        //this.objContext.fillRect( this.x0 , this.y0 , this.width , this.height );
         this.objContext.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
-        this.objContext.strokeStyle = this.color;
         this.objContext.fill();
+        this.objContext.strokeStyle = this.borderColor;
+        this.objContext.lineWidth = this.borderWidth;
         this.objContext.moveTo( this.x , this.y );
         this.objContext.lineTo( this.objElementFrom.x , this.objElementFrom.y );
         this.objContext.moveTo( this.x , this.y );
         this.objContext.lineTo( this.objElementTo.x , this.objElementTo.y );
         this.objContext.stroke();
+        this.objContext.restore();
+        this.objContext.moveTo( this.x , this.y );
+        this.objContext.fillStyle = this.color;
+        this.objContext.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
+        this.objContext.fill();
         this.objContext.restore();
     },
 
@@ -99,6 +108,41 @@ Object.extend( CanvasBoxLine.prototype,
     clone: function clone( objConnector )
     {
         return this.cloneLine( objConnector );
+    },
+
+    drawMouseOver: function drawMouseOver( event )
+    {
+        if( !this.defaultSide )
+        {
+            this.defaultSide = this.side;
+        }
+        this.side = 6;
+    },
+
+    drawFixed: function drawFixed( boolFixed )
+    {
+        if( !this.defaultColor )
+        {
+             this.defaultColor = this.color;
+        }
+        
+        if( boolFixed )
+        {
+            this.color = "rgb( 100 , 100 , 200 )";
+            this.borderWidth *= 3;
+            this.side = this.defaultSide;
+        }
+        else
+        {
+            this.color = this.defaultColor;
+            this.borderWidth /= 3;
+            this.side = this.defaultSide;
+        }
+    },
+
+    drawMouseOut: function drawMouseOut( event )
+    {
+        this.side = this.defaultSide;
     }
 
 });

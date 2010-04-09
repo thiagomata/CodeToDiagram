@@ -101,11 +101,10 @@ Object.extend( CanvasBoxConnector.prototype,
         objConnector.objBehavior = new CanvasBoxMagneticConnectorBehavior( objConnector );
         objConnector.x =  this.x;
         objConnector.y =  this.y;
-        objConnector.side = 5;
-        if( this.color )
-        {
-            objConnector.color = this.color;
-        }
+        objConnector.side = this.defaultSide ? this.defaultSide : this.side;
+        objConnector.color = this.defaultColor ? this.defaultColor : this.color;
+        objConnector.borderColor = this.defaultBorderColor ? this.defaultBorderColor : this.borderColor;
+        objConnector.borderWidth = this.defaultBorderWidth ? this.defaultBorderWidth : this.borderWidth;
         this.objBox.addElement( objConnector );
         this.objElementTo = objConnector;
         objConnector.objElementFrom = this;
