@@ -30,9 +30,11 @@ Object.extend( CanvasBoxLine.prototype,
 
     objContext: null,
 
-    intMass: 4,
+    intMass: 1,
 
-    intMagnetism: 5,
+    intMagnetism: 2,
+
+    intWallRepelsForce: 10,
 
     refresh: function refresh()
     {

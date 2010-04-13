@@ -6,11 +6,13 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     dragdrop: false,
 
-    connectorForce: 5500,
+    connectorForce: 1500,
 
     connectorPullForce: 1500,
 
-    connectorInteraction: 0.08,
+    connectorInteraction: 0.01,
+
+    intMaxForce: 13,
     
     initialize: function initialize( objBoxElement )
     {
@@ -24,23 +26,23 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
         var objVector;
         objVector = Array();
 
-        objVector[ "dx" ] = -1 * this.connectorInteraction *  ( this.objBoxElement.x );
+        objVector[ "dx" ] = -1 * this.connectorInteraction *  ( this.objBoxElement.x ) * this.objBoxElement.intWallRepelsForce;
         objVector[ "dy" ] = 0;
         arrVectors.push( objVector );
 
         objVector = Array();
-        objVector[ "dx" ] = 1 * this.connectorInteraction *  ( this.objBoxElement.objBox.width - this.objBoxElement.x );
+        objVector[ "dx" ] = 1 * this.connectorInteraction *  ( this.objBoxElement.objBox.width - this.objBoxElement.x ) * this.objBoxElement.intWallRepelsForce;
         objVector[ "dy" ] = 0;
         arrVectors.push( objVector );
 
         objVector = Array();
         objVector[ "dx" ] = 0;
-        objVector[ "dy" ] = -1 * this.connectorInteraction *  ( this.objBoxElement.y );
+        objVector[ "dy" ] = -1 * this.connectorInteraction *  ( this.objBoxElement.y ) * this.objBoxElement.intWallRepelsForce;
         arrVectors.push( objVector );
 
         objVector = Array();
         objVector[ "dx" ] = 0;
-        objVector[ "dy" ] = 1 * this.connectorInteraction * ( this.objBoxElement.objBox.height - this.objBoxElement.y );
+        objVector[ "dy" ] = 1 * this.connectorInteraction * ( this.objBoxElement.objBox.height - this.objBoxElement.y ) * this.objBoxElement.intWallRepelsForce;
         arrVectors.push( objVector );
 
         return arrVectors;
@@ -102,22 +104,22 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
         if( this.objBoxElement.x0 < 0 )
         {
             this.objBoxElement.x = (this.objBoxElement.width / 2);
-            this.objBoxElement.dx = 0;
+            this.objBoxElement.dx = 100;
         }
         if( this.objBoxElement.x1 > this.objBoxElement.objBox.width )
         {
             this.objBoxElement.x = this.objBoxElement.objBox.width - ( this.objBoxElement.width / 2 );
-            this.objBoxElement.dx = 0;
+            this.objBoxElement.dx = -100;
         }
         if( this.objBoxElement.y0 < 0 )
         {
             this.objBoxElement.y = (this.objBoxElement.height / 2);
-            this.objBoxElement.dy = 0;
+            this.objBoxElement.dy = 100;
         }
         if( this.objBoxElement.y1 > this.objBoxElement.objBox.height )
         {
             this.objBoxElement.y = this.objBoxElement.objBox.height - ( this.objBoxElement.height / 2 );
-            this.objBoxElement.dy = 0;
+            this.objBoxElement.dy = -100;
         }
     },
     
@@ -279,13 +281,15 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
         var intDifX;
         var intDifY;
         
-        intDifX = objElementFrom.x - this.objBoxElement.x;
-        intDifY = objElementFrom.y - this.objBoxElement.y;
-        var dblDistFrom = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
 
         intDifX = objElementTo.x - this.objBoxElement.x;
         intDifY = objElementTo.y - this.objBoxElement.y;
         var dblDistTo = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
+
+        intDifX = objElementFrom.x - this.objBoxElement.x;
+        intDifY = objElementFrom.y - this.objBoxElement.y;
+        
+        var dblDistFrom = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
 
         var intMinDist = 70;
 
@@ -300,7 +304,7 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
         }
 
         var dblForce = ( abs( objVector[ "dx" ] ) + abs( objVector[ "dy" ] ) ) / 2;
-        var intMaxForce = 3;
+        var intMaxForce = this.intMaxForce;
 
         if( dblForce > intMaxForce )
         {

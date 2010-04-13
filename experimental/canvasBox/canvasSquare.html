@@ -32,11 +32,12 @@ and open the template in the editor.
     <canvas id="abc">
     </canvas>
     <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBox( "abc" , 1200 , 800 );
+        var objBox = new CanvasBox( "abc" , 800 , 800 );
         window.box = objBox;
         function addSquare( color )
         {
-            var objSquare = new CanvasBoxClass();
+            var objSquare = new CanvasBoxSquare();
+            objSquare.side = 50;
             objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
             objSquare.x = Math.random() *  window.box.width ;
             objSquare.y = Math.random() * window.box.height ;
@@ -51,8 +52,8 @@ and open the template in the editor.
         {
             var objLine = new CanvasBoxLine( objFrom , objTo );
             objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-            objLine.x =  ( objFrom.x + objTo.x  ) / 2
-            objLine.y =  ( objFrom.y + objTo.y  ) / 2
+            objLine.x =  Math.random() *  window.box.width ;
+            objLine.y =  Math.random() *  window.box.width ;;
 //            objLine.side = 5;
             if( color )
             {
@@ -70,8 +71,6 @@ and open the template in the editor.
         var objGreen = addSquare(  );
         var objYellow = addSquare(  );
         var objBlue = addSquare( );
-        var objBlue1 = addSquare( );
-        var objBlue2 = addSquare( );
 
         var objLine = addLine( objRed , objGreen );
         var objLine = addLine( objYellow , objBlue );

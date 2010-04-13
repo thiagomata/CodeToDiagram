@@ -329,6 +329,7 @@ CanvasBox.prototype =
         {
             this.objElementOver.onClick( event );
         }
+        this.onBoxClick( event );
     },
     
     onDblClick: function onDblClick( event )
@@ -336,6 +337,17 @@ CanvasBox.prototype =
         if( this.objElementOver != null )
         {
             this.objElementOver.onDblClick( event );
-        }        
+        }
+        this.onBoxDblClick( event );
+    },
+
+    onBoxClick: function onBoxClick( event )
+    {
+
+    },
+
+    onBoxDblClick: function onBoxDblClick( event )
+    {
+
     }
 };

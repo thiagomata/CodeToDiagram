@@ -34,6 +34,8 @@ Object.extend( CanvasBoxSquare.prototype,
 
     intMagnetism: 40,
 
+    intWallRepelsForce: 1,
+    
     refresh: function refresh()
     {
         this.x0 = this.x - ( this.side / 2 );
