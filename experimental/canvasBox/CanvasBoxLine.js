@@ -32,9 +32,9 @@ Object.extend( CanvasBoxLine.prototype,
 
     intMass: 1,
 
-    intMagnetism: 2,
+    intMagnetism: 0.2,
 
-    intWallRepelsForce: 10,
+    intWallRepelsForce: 1,
 
     strClassName: "CanvasBoxLine",
     

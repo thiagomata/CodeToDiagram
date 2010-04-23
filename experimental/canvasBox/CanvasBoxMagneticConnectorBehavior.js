@@ -10,13 +10,13 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     connectorPullForce: 150,
 
-    connectorInteraction: 0.03,
+    connectorInteraction: 0.001,
 
     intMaxForce: 250,
 
     intDirectionChangeLoss: 2000,
     
-    intEscapeForce: 20,
+    intEscapeForce: 10,
     
 
     strClassName: "CanvasBoxMagneticConnectorBehavior",
