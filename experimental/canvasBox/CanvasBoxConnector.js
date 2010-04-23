@@ -1,6 +1,5 @@
 var CanvasBoxConnector = Class.create();
-Object.extend( CanvasBoxConnector.prototype, CanvasBoxElement.prototype);
-Object.extend( CanvasBoxConnector.prototype,
+CanvasBoxConnector.prototype =
 {
     objBox: null,
 
@@ -12,6 +11,8 @@ Object.extend( CanvasBoxConnector.prototype,
 
     y: 0,
 
+    z: 0,
+    
     dx: 3,
 
     dy: 3,
@@ -20,11 +21,48 @@ Object.extend( CanvasBoxConnector.prototype,
 
     objContext: null,
 
+    strClassName: "CanvasBoxConnector",
+    
+    isConnector: true,
+
+    booShowMenu: false,
+
+    objMenu: null,
+    
+    toSerialize: function toSerialize()
+    {
+        var objResult = new Object();
+        objResult.x = this.x;
+        objResult.y = this.y;
+        objResult.dx = this.dx;
+        objResult.dy = this.dy;
+        objResult.objElementFrom = this.objBox.arrElements.indexOf( this.objElementFrom );
+        objResult.objElementTo = this.objBox.arrElements.indexOf( this.objElementTo );
+        objResult.strClassName = this.strClassName;
+        return objResult;
+    },
+      
+    loadMenu: function loadMenu()
+    {
+        this.objMenu = new CanvasBoxMenu();
+        this.objMenu.objParent = this;
+        this.objMenu.arrMenuItens = ({
+            0:{
+                name: "clone connector",
+                event: function( objParent ){
+                    objParent.copy();
+                }
+            }
+        });
+    },
+      
     initialize: function initialize( objElementFrom , objElementTo )
     {
         this.objElementFrom = objElementFrom;
         this.objElementTo = objElementTo;
-        return this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+
+
     },
 
     refresh: function refresh()
@@ -82,6 +120,21 @@ Object.extend( CanvasBoxConnector.prototype,
         return this.objBehavior.onTimer( event );
     },
 
+    onContextMenu: function onContextMenu( event )
+    {
+        this.objBox.booShowMenu = !this.objBox.booShowMenu;
+        if( this.objBox.booShowMenu )
+        {
+            this.loadMenu();
+            this.objMenu.intMenuX = this.objBox.mouseX;
+            this.objMenu.intMenuY = this.objBox.mouseY;
+            this.objMenu.objContext = this.objContext;
+            this.objMenu.strActualMenuItem = null;
+            this.objBox.objMenuSelected = this.objMenu;
+        }
+        return false;
+    },
+    
     getForce: function getForce( objElement )
     {
         return this.objBehavior.getForce( objElement );
@@ -98,7 +151,7 @@ Object.extend( CanvasBoxConnector.prototype,
             objConnector.initialize( this , this.objElementTo );
         }
         
-        objConnector.objBehavior = new CanvasBoxMagneticConnectorBehavior( objConnector );
+        objConnector.objBehavior = new window[ this.objBehavior.strClassName ]( objConnector );
         objConnector.x =  this.x;
         objConnector.y =  this.y;
         objConnector.side = this.defaultSide ? this.defaultSide : this.side;
@@ -130,5 +183,59 @@ Object.extend( CanvasBoxConnector.prototype,
     clone: function clone( objConnector )
     {
         return this.cloneConnector( objConnector );
-    }
-});
+    },
+    
+    onDelete: function onDelete()
+    {
+        if( this.objElementFrom.isConnector )
+        {
+            this.objElementFrom.objElementTo = this.objElementTo;
+        }
+        if( this.objElementTo.isConnector )
+        {
+            this.objElementTo.objElementFrom = this.objElementFrom;
+        }
+    },
+    
+    deleteCascade: function deleteCascade()
+    {
+        this.deleteCascadeFrom();
+        this.deleteCascadeTo();
+        this.objBox.deleteElement( this , false );
+    },
+    
+    deleteCascadeTo: function deleteCascadeTo()
+    {
+        if( is_object( this.objElementTo ) && this.objElementTo.isConnector )
+        {
+            if( this.objElementTo.getId() != -1 )
+            {
+                this.objElementTo.deleteCascadeTo();
+            }
+            this.objBox.deleteElement( this.objElementTo , false );
+        }
+    },
+    
+    deleteCascadeFrom: function deleteCascadeFrom()
+    {
+        if( is_object( this.objElementFrom ) && this.objElementFrom.isConnector )
+        {
+            if( this.objElementFrom.getId() != -1 )
+            {
+                this.objElementFrom.deleteCascadeFrom();
+            }
+            this.objBox.deleteElement( this.objElementFrom , false );
+        }
+    },
+  
+    copy: function copy()
+    {
+        objConnector = new window[ this.strClassName ]();
+        this.clone( objConnector );
+    },
+    
+    getId: function getId()
+    {
+        return this.objBox.arrElements.indexOf( this );
+    }    
+};

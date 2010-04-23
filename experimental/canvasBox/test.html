@@ -9,6 +9,9 @@ and open the template in the editor.
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <script src="../phpjs/php.js" type="text/javascript" charset="utf-8"></script>
     <script src="_start.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBox.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxClass.js" type="text/javascript" charset="utf-8"></script>
+    <script src="CanvasBoxMenu.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxDefaultConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxConnector.js" type="text/javascript" charset="utf-8"></script>
     <script src="CanvasBoxMagneticConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
@@ -26,61 +29,72 @@ and open the template in the editor.
               border-color: black;
               border-width: 1px;
           }
+          #abc
+          {
+            margin-left:0px;
+            margin-top:0px;
+          }
       </style>
   </head>
   <body>
-    <canvas id="abc">
-    </canvas>
-    <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBox( "abc" , 1200 , 800 );
-        window.box = objBox;
-        function addSquare( color )
-        {
-            var objSquare = new CanvasBoxClass();
-            objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
-            objSquare.x = Math.random() *  window.box.width ;
-            objSquare.y = Math.random() * window.box.height ;
-            if( color )
-            {
-                objSquare.color = color;
-            }
-            window.box.addElement( objSquare );
-            return objSquare;
-        }
-        function addLine( objFrom , objTo , color )
-        {
-            var objLine = new CanvasBoxLine( objFrom , objTo );
-            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-            objLine.x =  ( objFrom.x + objTo.x  ) / 2
-            objLine.y =  ( objFrom.y + objTo.y  ) / 2
-//            objLine.side = 5;
-            if( color )
-            {
-                objLine.color = color;
-            }
-            window.box.addElement( objLine );
-            return objLine;
-        }
-        function cloneLine( objLineOriginal )
-        {
-            return objLineOriginal.cloneLine();
-        }
-        addSquare();
-        var objRed = addSquare(  );
-        var objGreen = addSquare(  );
-        var objYellow = addSquare(  );
-        var objBlue = addSquare( );
-        var objBlue1 = addSquare( );
-        var objBlue2 = addSquare( );
+    <div id="tool">
+        <div id="codeMode">
+            
+        </div>
+        <div id="graphMode">
+            <canvas id="abc" >
+            </canvas>
+            <script type="text/javascript" charset="utf-8">
+                var objBox = new CanvasBox( "abc" , document.body.clientWidth - 10, document.body.clientHeight - 10  );
+                window.box = objBox;
+                function addClass( color )
+                {
+                    var objClass = new CanvasBoxClass();
+                    objClass.objBehavior = new CanvasBoxMagneticBehavior( objClass );
+                    //objClass.objBehavior = new CanvasBoxDefaultBehavior( objClass );
+                    objClass.x = Math.random() *  window.box.width ;
+                    objClass.y = Math.random() * window.box.height ;
+                    if( color )
+                    {
+                        objClass.color = color;
+                    }
+                    window.box.addElement( objClass );
+                    return objClass;
+                }
+                function addLine( objFrom , objTo , color )
+                {
+                    var objLine = new CanvasBoxLine( objFrom , objTo );
+                    objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                    //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
+                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
+                    if( color )
+                    {
+                        objLine.color = color;
+                    }
+                    window.box.addElement( objLine );
+                    return objLine;
+                }
+                function cloneLine( objLineOriginal )
+                {
+                    return objLineOriginal.cloneLine();
+                }
+                addClass();
+                //var objRed = addClass(  );
+                //var objGreen = addClass(  );
+                //var objYellow = addClass(  );
+                //var objBlue = addClass( );
+                //var objBlue1 = addClass( );
+                //var objBlue2 = addClass( );
 
-        var objLine = addLine( objRed , objGreen );
-        var objLine = addLine( objYellow , objBlue );
-        var objLine = addLine( objYellow , objGreen );
-        var objLine = addLine( objBlue , objRed  );
+                //var objLine = addLine( objRed , objGreen );
+                //var objLine = addLine( objYellow , objBlue );
+                //var objLine = addLine( objYellow , objGreen );
+                //var objLine = addLine( objBlue , objRed  );
 
-        window.objLine = objLine;
-    </script>
-    <input value="Add Square" onclick="addSquare()" type="button"/>
-    <input value="Add Dot Line" onclick="cloneLine( window.objLine )" type="button"/>
+                //window.objLine = objLine;
+            </script>
+        </div>
+    </div>
   </body>
 </html>

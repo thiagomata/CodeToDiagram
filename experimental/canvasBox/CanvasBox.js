@@ -1,4 +1,4 @@
-/**
+    /**
  * Canvas Box it is a canvas element what can be append and remove elements.
  *
  * It elements can be selected and clicked and interact each other.
@@ -109,6 +109,45 @@ CanvasBox.prototype =
 
     booOnDraw: false,
 
+
+    booOnTimer: false,
+
+    /**
+     * Javascript constant of right button click
+     */
+    intRightButtonClick: 2,
+    
+    strClassName: "CanvasBox",
+
+    intFps: 0,
+
+    intLastFps: 0,
+    
+    booCountFps: false,
+
+    backgroundColor: "white",
+    
+    booShowMenu: false,
+
+    objMenu: null,
+
+    objMenuSelected: null,
+    
+    toSerialize: function toSerialize()
+    {
+        var objResult = new Object();
+        objResult.x = this.x;
+        objResult.y = this.y;
+        objResult.width = this.width;
+        objResult.height = this.height;
+        objResult.objCanvasHtml = this.objCanvasHtml;
+        objResult.intIntervalDraw = this.intIntervalDraw;
+        objResult.booActive = this.booActive;
+        objResult.booOnDraw = this.booOnDraw;
+        objResult.arrElements = this.arrElements;
+        return objResult;        
+    },
+    
     /**
      * Initialize the Canvas Box
      *
@@ -130,13 +169,46 @@ CanvasBox.prototype =
         {
             throw new CanvasBoxException( "Invalid canvas html element id [" + idCanvasHtmlElement + "]" );
         }
-        this.objCanvasHtml.setAttribute( "width" , this.width + "px" );
+        this.objCanvasHtml.setAttribute( "width" ,  this.width  + "px" );
         this.objCanvasHtml.setAttribute( "height" , this.height + "px" );
-        this.objCanvasHtml.setAttribute( "onmousemove",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' );
-        this.objCanvasHtml.setAttribute( "onclick",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onClick( event )' );
-        this.objCanvasHtml.setAttribute( "ondblclick",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDblClick( event )' );
-        this.objCanvasHtml.setAttribute( "onmouseup",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseUp( event )' );
-        this.objCanvasHtml.setAttribute( "onmousedown",  'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseDown( event )' );
+        this.objCanvasHtml.setAttribute( "onmousemove",   ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' ) );
+        this.objCanvasHtml.setAttribute( "onclick",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onClick( event )' ) );
+        this.objCanvasHtml.setAttribute( "ondblclick",    ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDblClick( event )' ) );
+        this.objCanvasHtml.setAttribute( "onmouseup",     ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseUp( event )' ) );
+        this.objCanvasHtml.setAttribute( "onmousedown",   ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseDown( event )' ) );
+        this.objCanvasHtml.setAttribute( "oncontextmenu", ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onContextMenu( event )' ) );
+        this.objCanvasHtml.setAttribute( "onKeyup",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onKeyUp( event )' ) );
+        this.objCanvasHtml.setAttribute( "contentEditable" , "true");
+        this.objCanvasHtml.contentEditable = true;
+
+        this.objMenu = new CanvasBoxMenu();
+        this.objMenu.objParent = this;
+        this.objMenu.objContext = this.getContext();
+        this.objMenu.arrMenuItens = ({
+            0:{
+                name: "create class",
+                event: function( objParent ){
+
+                    var objClass = new CanvasBoxClass();
+                    objClass.objBehavior = new CanvasBoxMagneticBehavior( objClass );
+                    objClass.x = objParent.mouseX;
+                    objClass.y = objParent.mouseY;
+                    objParent.addElement( objClass );
+                }
+            },
+            1:{
+                name: "create square",
+                event: function( objParent ){
+                    
+                    var objSquare = new CanvasBoxSquare();
+                    objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
+                    objSquare.x = objParent.mouseX;
+                    objSquare.y = objParent.mouseY;
+                    objParent.addElement( objSquare );
+                }
+            }
+        });
+        this.objMenuSelected = null;
         this.play();
     },
 
@@ -166,7 +238,6 @@ CanvasBox.prototype =
      */
     clear: function clear()
     {
-        //document.title = ( this.objCanvasHtml.id );
         var objContext = this.getContext();
         objContext.clearRect( 0, 0, this.width, this.height );
     },
@@ -180,13 +251,56 @@ CanvasBox.prototype =
 
         this.clear();
 
-        var l = this.arrElements.length;
+        var arrZIndexElements = Array();
+        var arrZIndex = Array();
+        var objElement;
+        var i;
 
-        for( var i = l - 1; i > 0; --i )
+        /**
+         * Create one array to each layer into the z dimension
+         */
+        for( i = 0 ; i < this.arrElements.length; ++i )
         {
-            var objElement = this.arrElements[ i ];
-            objElement.draw();
+            objElement = this.arrElements[ i ];
+            if( Object.isUndefined( arrZIndexElements[ objElement.z ] ) )
+            {
+                arrZIndexElements[ objElement.z ] = Array();
+                arrZIndex.push( objElement.z );
+            }
+            arrZIndexElements[ objElement.z ].push( objElement );
         }
+        /**
+         * Order layers by the z dimension
+         */
+        arrZIndex = sort( arrZIndex );
+        
+        /**
+         * Draw Elements each z dimension layer of time
+         */
+        for( var intElement = 0; intElement < arrZIndex.length; ++intElement )
+        {
+            var z = arrZIndex[ intElement ];
+            for( i = 0 ; i < arrZIndexElements[ z ].length; ++i )
+            {
+                objElement = arrZIndexElements[ z ][ i ];
+                if( is_object( objElement ) )
+                {
+                    objElement.draw();
+                }
+            }
+        }
+            
+        objElement = null;
+        arrZIndexElements = null;
+
+        if( this.booShowMenu )
+        {
+            this.objMenuSelected.mouseX = this.mouseX;
+            this.objMenuSelected.mouseY = this.mouseY;
+            this.objMenuSelected.draw();
+            
+        }        
+        
         this.booOnDraw = false;
     },
 
@@ -195,11 +309,15 @@ CanvasBox.prototype =
      */
     onTimerElements: function onTimerElements()
     {
+        this.booOnTimer = true;
+
         for( var i = 0, l = this.arrElements.length; i < l; ++i )
         {
             var objElement = this.arrElements[ i ];
             objElement.onTimer();
         }
+
+        this.booOnTimer = false;
     },
 
     /**
@@ -208,8 +326,9 @@ CanvasBox.prototype =
     play: function play()
     {
         this.booActive = true;
-        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onTimer()' , this.intIntervalTimer );
-        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDraw()' , this.intIntervalDraw );
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onDraw()' , this.intIntervalDraw );
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onCountFps()' , 1000 );
     },
 
     /**
@@ -232,9 +351,24 @@ CanvasBox.prototype =
         {
             return false;
         }
-        this.onTimerElements();
-        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onTimer()' , this.intIntervalTimer );
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
+        if( !this.booOnTimer )
+        {
+            this.onTimerElements();
+        }
         return true;
+    },
+
+    onCountFps: function onCountFps()
+    {
+        this.intLastFps = this.intFps;
+        document.title = this.intLastFps;
+        this.intFps = 0;
+        if( ! this.booCountFps )
+        {
+            return false;
+        }
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onCountFps()' , 1000 );
     },
 
     /**
@@ -249,10 +383,11 @@ CanvasBox.prototype =
         {
             return false;
         }
-        setTimeout( 'CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDraw()' , this.intIntervalDraw );
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onDraw()' , this.intIntervalDraw );
         if( !this.booOnDraw )
         {
             this.draw();
+            this.intFps++;
         }
         return true;
     },
@@ -264,14 +399,10 @@ CanvasBox.prototype =
      */
     refreshMousePosition: function refreshMousePosition( event )
     {
-      this.mouseX = event.clientX ;//- this.objCanvasHtml.offset().left;
-      this.mouseY = event.clientY ;//- this.objCanvasHtml.offset().top;
+      this.mouseX = event.clientX - this.objCanvasHtml.offsetLeft + document.body.scrollLeft;
+      this.mouseY = event.clientY - this.objCanvasHtml.offsetTop + document.body.scrollTop;
     },
-
-    onClick: function onClick( event )
-    {
-    },
-
+    
     onMouseMove: function onMouseMove( event )
     {
         var objElementOver = null;
@@ -320,16 +451,42 @@ CanvasBox.prototype =
 
     onMouseDown: function onMouseDown( event )
     {
+        if( event.button == this.intRightButtonClick )
+        {
+            if( is_object( this.objElementOver ) )
+            {
+//                this.objElementOver.onContextMenu( event );
+            }
+            else
+            {
+//                this.onBoxRightClick( event );
+            }
+        }
         this.objElementSelected = this.objElementOver;
+        return false;
     },
 
     onClick: function onClick( event )
     {
+        if( this.booShowMenu )
+        {
+            this.objMenuSelected.onClick( event );
+            this.booShowMenu = false;
+            return false;
+        }
+        
         if( this.objElementOver != null )
         {
+            this.objElementClicked = this.objElementOver;
             this.objElementOver.onClick( event );
         }
-        this.onBoxClick( event );
+        else
+        {
+            this.objElementClicked = null;
+            this.onBoxClick( event );
+        }
+        this.objCanvasHtml.focus();
+        return false;
     },
     
     onDblClick: function onDblClick( event )
@@ -338,16 +495,155 @@ CanvasBox.prototype =
         {
             this.objElementOver.onDblClick( event );
         }
-        this.onBoxDblClick( event );
+        else
+        {
+            this.onBoxDblClick( event );
+        }
     },
 
+    onBoxRightClick: function onBoxRightClick( event )
+    {
+        return false;
+    },
+
+    onContextMenu: function onContextMenu( event )
+    {
+        if( this.objElementOver != null )
+        {
+            this.objElementOver.onContextMenu( event );
+        }
+        else
+        {
+            this.onBoxContextMenu( event );
+        }
+        return false;
+    },
+
+    onBoxContextMenu: function onBoxContextMenu( event )
+    {
+        this.booShowMenu = !this.booShowMenu;
+        if( this.booShowMenu )
+        {
+            this.objMenuSelected = this.objMenu;
+            this.objMenuSelected.intMenuX = this.mouseX;
+            this.objMenuSelected.intMenuY = this.mouseY;
+            this.objMenuSelected.strActualMenuItem = null;
+        }
+
+    },
+    
     onBoxClick: function onBoxClick( event )
     {
-
+        if( this.booShowMenu )
+        {
+            this.objMenuSelected.onClick( event );
+            this.booShowMenu = false;
+        }
     },
 
     onBoxDblClick: function onBoxDblClick( event )
     {
 
-    }
+    },
+    
+    onKeyUp: function onKeyUp( event )
+    {
+        document.title = event.keyCode;
+        switch( event.keyCode )
+        {
+            case 46: // delete
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.deleteElement( this.objElementClicked );
+                }
+                break;
+            }
+            case 38: // up
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.goUp();
+                }
+                break;
+            }
+            case 40: // down
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.goDown();
+                }
+                break;
+            }
+            case 39: // =>
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.goRight();
+                }
+                break;
+            }
+            case 37: // <=
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.goLeft();
+                }
+                break;
+            }
+            case 32: // SPACE
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.fixed = !this.objElementClicked.fixed;
+                    this.objElementClicked.drawFixed( this.objElementClicked.fixed );
+                }
+                break;
+            }
+            case 113: // F2
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.rename();
+                }
+                break;
+            }
+            case 45: // INSERT
+            {
+                if( this.objElementClicked !== null )
+                {
+                    this.objElementClicked.copy();
+                }                
+                break;
+            }
+        }
+        return false;
+    },
+    
+    deleteElement: function deleteElement( objElement , booCallOnDelete )
+    {
+        if( Object.isUndefined( booCallOnDelete ) )
+        {
+            booCallOnDelete = true;
+        }
+        
+        if( booCallOnDelete )
+        {
+            this.objElementClicked.onDelete();
+        }
+        
+        var intId = this.arrElements.indexOf( objElement );
+        if( intId != -1 )
+        {
+            this.arrElements.splice( intId  , 1 );
+        }
+        if ( this.arrElements.length > 0 )
+        {
+            this.objElementClicked = this.arrElements[ 0 ];
+        }
+        else
+        {
+            this.objElementClicked = null;
+        }
+    },
 };

@@ -1,4 +1,5 @@
 require_once( "prototype.js" );
+require_once( "CanvasBoxMenu.js" );
 require_once( "CanvasBox.js" );
 require_once( "CanvasBoxDefaultBehavior.js" );
 require_once( "CanvasBoxElement.js" );
@@ -10,3 +11,4 @@ require_once( "CanvasBoxConnector.js" );
 require_once( "CanvasBoxMagneticConnectorBehavior.js" );
 require_once( "CanvasBoxLine.js" );
 require_once( "CanvasBoxClass.js" );
+require_once( "CanvasExportXml.js" );

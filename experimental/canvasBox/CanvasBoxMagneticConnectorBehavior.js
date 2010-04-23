@@ -8,12 +8,44 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     connectorForce: 1500,
 
-    connectorPullForce: 1500,
+    connectorPullForce: 150,
 
-    connectorInteraction: 0.01,
+    connectorInteraction: 0.03,
 
-    intMaxForce: 13,
+    intMaxForce: 250,
+
+    intDirectionChangeLoss: 2000,
     
+    intEscapeForce: 20,
+    
+
+    strClassName: "CanvasBoxMagneticConnectorBehavior",
+    
+    toSerialize: function toSerialize()
+    {
+        var objResult = Array();
+        objResult.x = this.x;
+        objResult.y = this.y;
+        objResult.width = this.width;
+        objResult.height = this.height;
+        objResult.x0 = this.x0;
+        objResult.x1 = this.x1;
+        objResult.y0 = this.y0;
+        objResult.y1 = this.y1;
+        objResult.dx = this.dx;
+        objResult.dy = this.dy;
+        objResult.color = this.color;
+        objResult.borderColor = this.borderColor;
+        objResult.borderWidth = this.borderWidth;
+        objResult.intMass = this.intMass;
+        objResult.intMagnetism = this.intMagnetism;
+        objResult.arrMethods = this.arrMethods;
+        objResult.intWallRepelsForce = this.intWallRepelsForce;
+        objResult.strClassName = this.strClassName;
+        
+        return objResult;
+    },
+        
     initialize: function initialize( objBoxElement )
     {
         this.objBoxElement = objBoxElement;
@@ -70,8 +102,12 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
         objVector[ "dx" ] =  this.connectorForce * (intDirectionX / dblForceX) / this.objBoxElement.intMass * this.objBoxElement.intMagnetism;
         objVector[ "dy" ] =  this.connectorForce  * (intDirectionY / dblForceY) / this.objBoxElement.intMass * this.objBoxElement.intMagnetism;
+        
+        var dblDirectionChange = objVector[ "dx" ] + objVector[ "dy" ];
+        
+        objVector[ "dx" ] += ( Math.random( dblDirectionChange ) - ( dblDirectionChange / 2 ) ) / this.intDirectionChangeLoss;
+        objVector[ "dy" ] += ( Math.random( dblDirectionChange ) - ( dblDirectionChange / 2 ) ) / this.intDirectionChangeLoss;
         arrVectors.push( objVector );
-
         return arrVectors;
 
     },
@@ -104,22 +140,22 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
         if( this.objBoxElement.x0 < 0 )
         {
             this.objBoxElement.x = (this.objBoxElement.width / 2);
-            this.objBoxElement.dx = 100;
+            this.objBoxElement.dx = this.intEscapeForce;
         }
         if( this.objBoxElement.x1 > this.objBoxElement.objBox.width )
         {
             this.objBoxElement.x = this.objBoxElement.objBox.width - ( this.objBoxElement.width / 2 );
-            this.objBoxElement.dx = -100;
+            this.objBoxElement.dx = -this.intEscapeForce;
         }
         if( this.objBoxElement.y0 < 0 )
         {
             this.objBoxElement.y = (this.objBoxElement.height / 2);
-            this.objBoxElement.dy = 100;
+            this.objBoxElement.dy = this.intEscapeForce;
         }
         if( this.objBoxElement.y1 > this.objBoxElement.objBox.height )
         {
             this.objBoxElement.y = this.objBoxElement.objBox.height - ( this.objBoxElement.height / 2 );
-            this.objBoxElement.dy = -100;
+            this.objBoxElement.dy = -this.intEscapeForce;
         }
     },
     
@@ -236,7 +272,7 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
             dblForceX = ( dblDistX ) / objElement.objBox.width;
             dblForceY = ( dblDistY ) / objElement.objBox.height;
-
+/*
             if( dblForceX < 0.02 )
             {
                 dblForceX *= 10;
@@ -247,8 +283,8 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
                 dblForceY *= 10;
                 intDirectionY *= -1;
             }
-
-            objVector[ "dx" ] =  this.connectorPullForce * dblForceX * dblForceX * intDirectionX ;
+*/
+            objVector[ "dx" ] =  this.connectorPullForce * dblForceX * dblForceX * intDirectionX;
             objVector[ "dy" ] =  this.connectorPullForce * dblForceY * dblForceY *intDirectionY;
         }
         else
@@ -265,8 +301,10 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
             dblForceX = this.objBoxElement.objBox.width / ( dblDist );
             dblForceY = this.objBoxElement.objBox.height / ( dblDist );
 
-            objVector[ "dx" ] =  this.objBoxElement.intMagnetism * intDirectionX * dblForceX / this.objBoxElement.intMass;
-            objVector[ "dy" ] =  this.objBoxElement.intMagnetism * intDirectionY * dblForceY / this.objBoxElement.intMass;
+//            objVector[ "dx" ] =  this.objBoxElement.intMagnetism * intDirectionX * dblForceX * this.objBoxElement.intMass / objElement.intMass ;
+//            objVector[ "dy" ] =  this.objBoxElement.intMagnetism * intDirectionY * dblForceY * this.objBoxElement.intMass / objElement.intMass ;
+            objVector[ "dx" ] =  this.objBoxElement.intMagnetism * intDirectionX * dblForceX * objElement.intMass / this.objBoxElement.intMass ;
+            objVector[ "dy" ] =  this.objBoxElement.intMagnetism * intDirectionY * dblForceY * objElement.intMass / this.objBoxElement.intMass ;
         }
 
         this.cloneCheck( objVector );

@@ -2,7 +2,7 @@ var CanvasBoxSquare = Class.create();
 Object.extend( CanvasBoxSquare.prototype, CanvasBoxElement.prototype);
 Object.extend( CanvasBoxSquare.prototype,
 {
-    side: 6,
+    side: 26,
 
     x0: 0,
 
@@ -16,6 +16,8 @@ Object.extend( CanvasBoxSquare.prototype,
 
     dy: 0,
 
+    z: 2,
+    
     width: 0,
 
     height: 0,
@@ -36,6 +38,32 @@ Object.extend( CanvasBoxSquare.prototype,
 
     intWallRepelsForce: 1,
     
+    strClassName: "CanvasBoxSquare",
+    
+    toSerialize: function toSerialize()
+    {
+        var objResult = new Object();
+        objResult.x = this.x;
+        objResult.y = this.y;
+        objResult.width = this.width;
+        objResult.height = this.height;
+        objResult.x0 = this.x0;
+        objResult.x1 = this.x1;
+        objResult.y0 = this.y0;
+        objResult.y1 = this.y1;
+        objResult.dx = this.dx;
+        objResult.dy = this.dy;
+        objResult.color = this.color;
+        objResult.borderColor = this.borderColor;
+        objResult.side = this.side;
+        objResult.borderWidth = this.borderWidth;
+        objResult.intMagnetism = this.intMagnetism;
+        objResult.intWallRepelsForce = this.intWallRepelsForce;
+        objResult.strClassName = this.strClassName;
+        
+        return objResult;
+    },
+        
     refresh: function refresh()
     {
         this.x0 = this.x - ( this.side / 2 );
