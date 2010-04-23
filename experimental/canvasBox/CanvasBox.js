@@ -123,7 +123,7 @@ CanvasBox.prototype =
 
     intLastFps: 0,
     
-    booCountFps: false,
+    booCountFps: true,
 
     backgroundColor: "white",
     
@@ -548,7 +548,6 @@ CanvasBox.prototype =
     
     onKeyUp: function onKeyUp( event )
     {
-        document.title = event.keyCode;
         switch( event.keyCode )
         {
             case 46: // delete
