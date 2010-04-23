@@ -362,7 +362,7 @@ CanvasBox.prototype =
     onCountFps: function onCountFps()
     {
         this.intLastFps = this.intFps;
-        document.title = this.intLastFps;
+        document.title = "FPS: " + this.intLastFps;
         this.intFps = 0;
         if( ! this.booCountFps )
         {
