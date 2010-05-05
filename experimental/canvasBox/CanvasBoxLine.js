@@ -24,6 +24,8 @@ Object.extend( CanvasBoxLine.prototype,
 
     borderColor: "rgb( 200, 200, 220 )",
 
+    lineStyle: "rgb( 200, 200, 220 )",
+    
     borderWidth: 1,
     
     objBehavior: null,
@@ -87,25 +89,16 @@ Object.extend( CanvasBoxLine.prototype,
 
     drawConnectorFrom: function drawConnectorFrom( objPointer , intSide )
     {
-        this.objContext.beginPath();
+    /*
         this.objContext.fillStyle = this.objBox.backgroundColor;
-        this.objContext.strokeStyle = 0;
-        this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI  , true );
-        this.objContext.fill();
-        this.objContext.fillStyle = "rgb( 230, 230, 250) ";
         this.objContext.beginPath();
-        this.objContext.moveTo(-10, 15);
-        this.objContext.lineTo(10, 15);
-        this.objContext.lineTo(0, 0);
-        this.objContext.lineTo(-10, 15);
+        this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
         this.objContext.fill();
-        this.objContext.strokeStyle = "rgb( 70, 70, 70)";
-        this.objContext.moveTo(-10, 15);
-        this.objContext.lineTo(10, 15);
-        this.objContext.lineTo(0, 0);
-        this.objContext.lineTo(-10, 15);
-        this.objContext.stroke();
+        this.objContext.moveTo(  - intSide / 2  , - intSide / 2 );
+        this.objContext.fillStyle = "blue";
+        this.objContext.fillRect( - intSide / 2  , - intSide / 2 , intSide , intSide );
         this.objContext.strokeText( objPointer.degree, 20 , 20 );
+    */
     },
     
     createConnectorTo: function createConnectorTo()
@@ -133,13 +126,16 @@ Object.extend( CanvasBoxLine.prototype,
 
     drawConnectorTo: function drawConnectorTo( objPointer , intSide )
     {
+    /*
         this.objContext.fillStyle = this.objBox.backgroundColor;
         this.objContext.beginPath();
         this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
         this.objContext.fill();
         this.objContext.moveTo(  - intSide / 2  , - intSide / 2 );
+        this.objContext.fillStyle = "orange";
         this.objContext.fillRect( - intSide / 2  , - intSide / 2 , intSide , intSide );
         this.objContext.strokeText( objPointer.degree, 20 , 20 );
+    */
     },
     
     refresh: function refresh()
@@ -162,6 +158,12 @@ Object.extend( CanvasBoxLine.prototype,
         this.height = this.side;
     },
 
+    drawLine: function drawLine( intXfrom, intYfrom, intXto, intYto )
+    {
+            this.objContext.moveTo( intXfrom , intYfrom );
+            this.objContext.lineTo( intXto , intYto );
+    },
+    
     draw: function draw()
     {
         this.refresh();
@@ -181,12 +183,10 @@ Object.extend( CanvasBoxLine.prototype,
                 this.objContext.stroke();
             }
             
-            this.objContext.strokeStyle = this.borderColor;
+            this.objContext.strokeStyle = this.lineStyle;
             this.objContext.lineWidth = this.borderWidth;
-            this.objContext.moveTo( this.x , this.y );
-            this.objContext.lineTo( this.objElementFrom.x , this.objElementFrom.y );
-            this.objContext.moveTo( this.x , this.y );
-            this.objContext.lineTo( this.objElementTo.x , this.objElementTo.y );
+            this.drawLine( this.x , this.y , this.objElementFrom.x , this.objElementFrom.y );
+            this.drawLine( this.x , this.y , this.objElementTo.x , this.objElementTo.y );
             this.objContext.stroke();
         this.objContext.restore();
         this.objContext.save();

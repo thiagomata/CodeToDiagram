@@ -83,13 +83,13 @@ CanvasBox.prototype =
      * Interval of Image Refreshing
      * @type integer
      */
-    intIntervalDraw: 50,
+    intIntervalDraw: 150,
 
     /**
      * Interval of Objects Timers
      * @type integer
      */
-    intIntervalTimer: 50,
+    intIntervalTimer: 150,
 
     /**
      * Control if the refreshing is active or not

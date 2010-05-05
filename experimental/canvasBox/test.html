@@ -45,8 +45,8 @@ and open the template in the editor.
             <canvas id="abc" >
             </canvas>
             <script type="text/javascript" charset="utf-8">
-                var objBox = new CanvasBox( "abc" , document.body.clientWidth - 10, document.body.clientHeight - 10  );
-                window.box = objBox;
+                window.box = new CanvasBox( "abc" , document.body.clientWidth - 10, document.body.clientHeight - 10  );
+                //window.box = objBox;
                 function addClass( color )
                 {
                     var objClass = new CanvasBoxClass();

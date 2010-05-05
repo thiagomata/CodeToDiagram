@@ -76,7 +76,7 @@ Object.extend( CanvasBoxClass.prototype,
 
                     var objFrom = objClass;
                     var objTo = objParent;
-                    var objLine = new CanvasBoxLine( objFrom , objTo );
+                    var objLine = new CanvasBoxGeneralization( objFrom , objTo );
                     switch( objParent.objBehavior.strClassName )
                     {
                         case "CanvasBoxMagneticBehavior":
@@ -110,7 +110,143 @@ Object.extend( CanvasBoxClass.prototype,
 
                     var objFrom = objParent;
                     var objTo = objClass;
-                    var objLine = new CanvasBoxLine( objFrom , objTo );
+                    var objLine = new CanvasBoxGeneralization( objFrom , objTo );
+                    switch( objParent.objBehavior.strClassName )
+                    {
+                        case "CanvasBoxMagneticBehavior":
+                        {
+                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                            break;
+                        }
+                        case "CanvasBoxDefaultBehavior":
+                        default:
+                        {
+                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                            break;
+                        }
+
+                    }
+                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
+                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
+                    objParent.objBox.addElement( objLine );
+
+                }
+            },
+            2:{
+                name: "create association class",
+                event: function( objParent ){
+
+                    var objClass = new CanvasBoxClass();
+                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
+                    objClass.x = objParent.objBox.mouseX + 100;
+                    objClass.y = objParent.objBox.mouseY + 100;
+                    objParent.objBox.addElement( objClass );
+
+                    var objFrom = objParent;
+                    var objTo = objClass;
+                    var objLine = new CanvasBoxAssociation( objFrom , objTo );
+                    switch( objParent.objBehavior.strClassName )
+                    {
+                        case "CanvasBoxMagneticBehavior":
+                        {
+                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                            break;
+                        }
+                        case "CanvasBoxDefaultBehavior":
+                        default:
+                        {
+                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                            break;
+                        }
+
+                    }
+                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
+                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
+                    objParent.objBox.addElement( objLine );
+
+                }
+            },
+            3:{
+                name: "create aggregation class",
+                event: function( objParent ){
+
+                    var objClass = new CanvasBoxClass();
+                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
+                    objClass.x = objParent.objBox.mouseX + 100;
+                    objClass.y = objParent.objBox.mouseY + 100;
+                    objParent.objBox.addElement( objClass );
+
+                    var objFrom = objParent;
+                    var objTo = objClass;
+                    var objLine = new CanvasBoxAggregation( objFrom , objTo );
+                    switch( objParent.objBehavior.strClassName )
+                    {
+                        case "CanvasBoxMagneticBehavior":
+                        {
+                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                            break;
+                        }
+                        case "CanvasBoxDefaultBehavior":
+                        default:
+                        {
+                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                            break;
+                        }
+
+                    }
+                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
+                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
+                    objParent.objBox.addElement( objLine );
+
+                }
+            },
+            4:{
+                name: "create composition class",
+                event: function( objParent ){
+
+                    var objClass = new CanvasBoxClass();
+                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
+                    objClass.x = objParent.objBox.mouseX + 100;
+                    objClass.y = objParent.objBox.mouseY + 100;
+                    objParent.objBox.addElement( objClass );
+
+                    var objFrom = objParent;
+                    var objTo = objClass;
+                    var objLine = new CanvasBoxComposition( objFrom , objTo );
+                    switch( objParent.objBehavior.strClassName )
+                    {
+                        case "CanvasBoxMagneticBehavior":
+                        {
+                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                            break;
+                        }
+                        case "CanvasBoxDefaultBehavior":
+                        default:
+                        {
+                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                            break;
+                        }
+
+                    }
+                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
+                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
+                    objParent.objBox.addElement( objLine );
+
+                }
+            },
+            5:{
+                name: "create dependecy class",
+                event: function( objParent ){
+
+                    var objClass = new CanvasBoxClass();
+                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
+                    objClass.x = objParent.objBox.mouseX + 100;
+                    objClass.y = objParent.objBox.mouseY + 100;
+                    objParent.objBox.addElement( objClass );
+
+                    var objFrom = objParent;
+                    var objTo = objClass;
+                    var objLine = new CanvasBoxDependency( objFrom , objTo );
                     switch( objParent.objBehavior.strClassName )
                     {
                         case "CanvasBoxMagneticBehavior":
