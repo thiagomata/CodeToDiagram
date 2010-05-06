@@ -34,9 +34,9 @@ Object.extend( CanvasBoxSquare.prototype,
 
     intMass: 1,
 
-    intMagnetism: 40,
+    intMagnetism: 4,
 
-    intWallRepelsForce: 1,
+    intWallRepelsForce: 0.51,
     
     strClassName: "CanvasBoxSquare",
     

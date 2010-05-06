@@ -31,7 +31,8 @@ Object.extend( CanvasBoxDependency.prototype,
 
 
     drawConnectorTo: function drawConnectorTo( objPointer , intSide )
-    {
+    {            
+        this.drawBackgroundCircle( intSide );
         this.objContext.beginPath();
         this.objContext.strokeStyle = "rgb( 70, 70, 70)";
         this.drawArrowTo( intSide );

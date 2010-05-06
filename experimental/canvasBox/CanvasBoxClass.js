@@ -475,7 +475,7 @@ Object.extend( CanvasBoxClass.prototype,
     {
         this.fixed = true;
         this.drawFixed( this.fixed );
-        this.y -= 10;
+        this.y += 10;
     },
     
     goLeft: function goLeft()

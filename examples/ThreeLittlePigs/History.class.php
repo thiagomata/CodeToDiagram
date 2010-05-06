@@ -26,9 +26,13 @@ class History
 {
     public function __construct()
     {
-        CodeToDiagram::getInstance()->addNote( "Once upon a time" );
+        if( class_exists( "CodeToDiagram" ) ) 
+        {
+            CodeToDiagram::getInstance()->addNote( "Once upon a time" );
 
-        CodeToDiagram::getInstance()->addNote( "Three Little Pigs who lives into a beautiful Wood" );
+            CodeToDiagram::getInstance()->addNote( "Three Little Pigs who lives into a beautiful Wood" );
+            
+        }
 
         $objPig1 = new LittlePig();
         $objPig2 = new LittlePig();
@@ -39,7 +43,10 @@ class History
         $objPig3->buildHouse('Brick');
 
 
-        CodeToDiagram::getInstance()->addNote( "One night the big bad wolf," );
+        if( class_exists( "CodeToDiagram" ) ) 
+        {
+            CodeToDiagram::getInstance()->addNote( "One night the big bad wolf," );
+            }
         $objWolf = new Wolf();
 
         $objWolf->say( "Let me in, Let me in, little pig or I'll huff and I'll puff and I'll blow your house in!" );

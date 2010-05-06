@@ -23,7 +23,12 @@ require_once( '../../public/codetodiagram.php' );
 // 2. start the code to diagram
 CodeToDiagram::getInstance()->start();
 
-// 3. require once the necessary classes~
+// 3. require once the necessary classes
+
+ini_set( "xdebug.collect_params" , "4" );
+
+//xdebug_start_trace( "xdebug.txt" );
+
 require_once( "Fatorial.php" );
 
 // 4. start the class service

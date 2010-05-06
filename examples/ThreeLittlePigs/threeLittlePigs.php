@@ -14,6 +14,7 @@
  * 4. start the history
  */
 
+/*
 // 1. require once the code to diagram started
 require_once( '../../public/codetodiagram.php' );
 
@@ -25,6 +26,7 @@ CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
     ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
     ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
 ;
+*/
 
 // 3. load the necessary classes
 require_once( 'Wolf.class.php' );

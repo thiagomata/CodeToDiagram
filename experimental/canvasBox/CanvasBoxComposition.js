@@ -45,16 +45,4 @@ Object.extend( CanvasBoxComposition.prototype,
         this.objContext.stroke();
         this.objContext.strokeText( objPointer.degree, 20 , 20 );
     },
-
-    drawConnectorTo: function drawConnectorTo( objPointer , intSide )
-    {
-        this.objContext.fillStyle = this.objBox.backgroundColor;
-        this.objContext.beginPath();
-        this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
-        this.objContext.fill();
-        this.objContext.moveTo(  - intSide / 2  , - intSide / 2 );
-        this.objContext.fillStyle = "orange";
-        this.objContext.fillRect( - intSide / 2  , - intSide / 2 , intSide , intSide );
-        this.objContext.strokeText( objPointer.degree, 20 , 20 );
-    }
 });
