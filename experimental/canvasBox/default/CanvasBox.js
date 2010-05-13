@@ -104,7 +104,7 @@ CanvasBox.Static.filterResults = function filterResults( intWin, intDocel, intBo
 	return intBody && (!intresult || (intresult > intBody)) ? intBody : intresult;
 };
 
-CanvasBox.prototype = 
+CanvasBox.prototype =
 {
     x: 0,
 
@@ -189,23 +189,23 @@ CanvasBox.prototype =
      * Javascript constant of right button click
      */
     intRightButtonClick: 2,
-    
+
     strClassName: "CanvasBox",
 
     intFps: 0,
 
     intLastFps: 0,
-    
+
     booCountFps: true,
 
     backgroundColor: "white",
-    
+
     booShowMenu: false,
 
     objMenu: null,
 
     objMenuSelected: null,
-    
+
     toSerialize: function toSerialize()
     {
         var objResult = new Object();
@@ -218,7 +218,7 @@ CanvasBox.prototype =
         objResult.booActive = this.booActive;
         objResult.booOnDraw = this.booOnDraw;
         objResult.arrElements = this.arrElements;
-        return objResult;        
+        return objResult;
     },
 
     getPosition: function getPosition()
@@ -258,7 +258,7 @@ CanvasBox.prototype =
     initialize: function initialize( idCanvasHtmlElement , intWidth, intHeight )
     {
         this.width = intWidth;
-        this.height = intHeight;        
+        this.height = intHeight;
         this.id = CanvasBox.Static.arrInstances.length;
         CanvasBox.Static.arrInstances[ this.id ] = this;
 
@@ -299,7 +299,7 @@ CanvasBox.prototype =
             1:{
                 name: "create square",
                 event: function( objParent ){
-                    
+
                     var objSquare = new CanvasBoxSquare();
                     objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
                     objSquare.x = objParent.mouseX;
@@ -373,7 +373,7 @@ CanvasBox.prototype =
          * Order layers by the z dimension
          */
         arrZIndex = sort( arrZIndex );
-        
+
         /**
          * Draw Elements each z dimension layer of time
          */
@@ -389,7 +389,7 @@ CanvasBox.prototype =
                 }
             }
         }
-            
+
         objElement = null;
         arrZIndexElements = null;
 
@@ -398,9 +398,9 @@ CanvasBox.prototype =
             this.objMenuSelected.mouseX = this.mouseX;
             this.objMenuSelected.mouseY = this.mouseY;
             this.objMenuSelected.draw();
-            
-        }        
-        
+
+        }
+
         this.booOnDraw = false;
     },
 
@@ -502,7 +502,7 @@ CanvasBox.prototype =
       this.mouseX = event.clientX - this.x + CanvasBox.Static.scrollLeft();
       this.mouseY = event.clientY - this.y + CanvasBox.Static.scrollTop();
     },
-    
+
     onMouseMove: function onMouseMove( event )
     {
         var objElementOver = null;
@@ -570,11 +570,10 @@ CanvasBox.prototype =
     {
         if( this.booShowMenu )
         {
-            this.objMenuSelected.onClick( event );
-            this.booShowMenu = false;
+            this.booShowMenu = this.objMenuSelected.onClick( event );
             return false;
         }
-        
+
         if( this.objElementOver != null )
         {
             this.objElementClicked = this.objElementOver;
@@ -588,7 +587,7 @@ CanvasBox.prototype =
         this.objCanvasHtml.focus();
         return false;
     },
-    
+
     onDblClick: function onDblClick( event )
     {
         if( this.objElementOver != null )
@@ -631,13 +630,12 @@ CanvasBox.prototype =
         }
 
     },
-    
+
     onBoxClick: function onBoxClick( event )
     {
         if( this.booShowMenu )
         {
-            this.objMenuSelected.onClick( event );
-            this.booShowMenu = false;
+            this.booShowMenu = this.objMenuSelected.onClick( event );
         }
     },
 
@@ -645,7 +643,7 @@ CanvasBox.prototype =
     {
 
     },
-    
+
     onKeyUp: function onKeyUp( event )
     {
         switch( event.keyCode )
@@ -712,25 +710,25 @@ CanvasBox.prototype =
                 if( this.objElementClicked !== null )
                 {
                     this.objElementClicked.copy();
-                }                
+                }
                 break;
             }
         }
         return false;
     },
-    
+
     deleteElement: function deleteElement( objElement , booCallOnDelete )
     {
         if( Object.isUndefined( booCallOnDelete ) )
         {
             booCallOnDelete = true;
         }
-        
+
         if( booCallOnDelete )
         {
             this.objElementClicked.onDelete();
         }
-        
+
         var intId = this.arrElements.indexOf( objElement );
         if( intId != -1 )
         {

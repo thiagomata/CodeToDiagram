@@ -1,0 +1,34 @@
+New menu recursive feature, removing old files
+--Esta linha, e as abaixo, serão ignoradas--
+
+D    experimental/canvasBox/prototype.js
+D    experimental/canvasBox/CanvasBoxClass.js
+D    experimental/canvasBox/CanvasBoxMagneticBehavior.js
+D    experimental/canvasBox/classDiagram.xlm
+M    experimental/canvasBox/classDiagram/CanvasBoxClass.js
+D    experimental/canvasBox/CanvasBoxGeneralization.js
+D    experimental/canvasBox/CanvasBoxAssociation.js
+D    experimental/canvasBox/canvasSquare.html
+D    experimental/canvasBox/CanvasBox.js
+D    experimental/canvasBox/CanvasBoxDefaultConnectorBehavior.js
+D    experimental/canvasBox/CanvasBoxMagneticConnectorBehavior.js
+D    experimental/canvasBox/test2.html
+D    experimental/canvasBox/CanvasBoxLine.js
+D    experimental/canvasBox/_start.js
+D    experimental/canvasBox/CanvasBoxElement.js
+D    experimental/canvasBox/CanvasBoxConnector.js
+D    experimental/canvasBox/CanvasBoxSquare.js
+D    experimental/canvasBox/test.html
+D    experimental/canvasBox/CanvasBoxComposition.js
+D    experimental/canvasBox/CanvasBoxDefaultBehavior.js
+D    experimental/canvasBox/CanvasBoxMenu.js
+M    experimental/canvasBox/default/CanvasBox.js
+M    experimental/canvasBox/default/CanvasBoxMenu.js
+D    experimental/canvasBox/CanvasBoxGravityBehavior.js
+D    experimental/canvasBox/classDiagram.xml
+D    experimental/canvasBox/row.png
+M    experimental/canvasBox/classDiagram.html
+D    experimental/canvasBox/CanvasBoxDependency.js
+D    experimental/canvasBox/temp.xml
+D    experimental/canvasBox/CanvasBoxAggregation.js
+D    experimental/canvasBox/CanvasExportXml.js

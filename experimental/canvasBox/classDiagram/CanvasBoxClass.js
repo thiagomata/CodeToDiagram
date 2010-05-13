@@ -1,5 +1,49 @@
 var CanvasBoxClass = Class.create();
 Object.extend( CanvasBoxClass.prototype, CanvasBoxElement.prototype);
+CanvasBoxClass.Static = new Object();
+CanvasBoxClass.Static.createRelation =  function createRelation( objElement , booFrom, strLineClass )
+{
+	var objNewElement = new CanvasBoxClass();
+	objNewElement.objBehavior = new window[ objElement.objBehavior.strClassName ]( objNewElement );
+	objNewElement.x = objElement.objBox.mouseX + 100;
+	objNewElement.y = objElement.objBox.mouseY + 100;
+	objElement.objBox.addElement( objNewElement );
+
+	var objFrom;
+	var objTo;
+
+	if( booFrom )
+	{
+		objFrom = objElement;
+		objTo = objNewElement;
+	}
+	else
+	{
+		objTo= objElement;
+	    objFrom = objNewElement;
+	}
+
+	var objLine = new window[ strLineClass ]( objFrom , objTo );
+	switch( objElement.objBehavior.strClassName )
+	{
+		case "CanvasBoxMagneticBehavior":
+		{
+			objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+			break;
+		}
+		case "CanvasBoxDefaultBehavior":
+		default:
+		{
+			objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+			break;
+		}
+
+	}
+	objLine.x =  ( objFrom.x + objTo.x  ) / 2;
+	objLine.y =  ( objFrom.y + objTo.y  ) / 2;
+	objElement.objBox.addElement( objLine );
+};
+
 Object.extend( CanvasBoxClass.prototype,
 {
     width: 150,
@@ -17,15 +61,15 @@ Object.extend( CanvasBoxClass.prototype,
     y1: 0,
 
     dy: 0,
-    
+
     z: 3,
 
     headerColor: "rgb( 202 , 229, 251 )",
 
     borderColor: "rgb(10,10,10)",
 
-    borderWidth: 1,
-    
+    borderWidth: "0.5",
+
     objBehavior: null,
 
     objContext: null,
@@ -63,209 +107,149 @@ Object.extend( CanvasBoxClass.prototype,
 
         this.objMenu = new CanvasBoxMenu();
         this.objMenu.objParent = this;
-        this.objMenu.arrMenuItens = ({
-            0:{
-                name: "create parent class",
-                event: function( objParent ){
-
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
-                    objClass.x = objParent.objBox.mouseX + 100;
-                    objClass.y = objParent.objBox.mouseY + 100;
-                    objParent.objBox.addElement( objClass );
-
-                    var objFrom = objClass;
-                    var objTo = objParent;
-                    var objLine = new CanvasBoxGeneralization( objFrom , objTo );
-                    switch( objParent.objBehavior.strClassName )
+        this.objMenu.arrMenuItens = (
+        {
+            0:
+            {
+                name: "create class >",
+                event: function( objElement )
+                {
+                    objElement.objMenu.arrActualMenuItens = (
                     {
-                        case "CanvasBoxMagneticBehavior":
+                        0:
                         {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                            break;
-                        }
-                        case "CanvasBoxDefaultBehavior":
-                        default:
+                            name: "create parent class",
+                            event: function( objElement )
+                            {
+                                CanvasBoxClass.Static.createRelation( objElement, false, "CanvasBoxGeneralization" );
+                            }
+                        },
+                        1:
                         {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                            break;
+                            name: "create child class",
+                            event: function( objElement )
+                            {
+                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxGeneralization" );
+                            }
+                        },
+                        2:
+                        {
+                            name: "create association class",
+                            event: function( objElement )
+                            {
+                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxAssociation" );
+                            }
+                        },
+                        3:
+                        {
+                            name: "create aggregation class",
+                            event: function( objElement )
+                            {
+                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxAggregation" );
+                            }
+                        },
+                        4:
+                        {
+                            name: "create composition class",
+                            event: function( objElement )
+                            {
+                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxComposition" );
+                            }
+                        },
+                        5:
+                        {
+                            name: "create dependecy class",
+                            event: function( objElement )
+                            {
+                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxDependency" );
+                            }
                         }
-
-                    }
-                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
-                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
-                    objParent.objBox.addElement( objLine );
-
+                    });
+                    return true;
                 }
             },
-            1:{
-                name: "create child class",
-                event: function( objParent ){
-
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
-                    objClass.x = objParent.objBox.mouseX + 100;
-                    objClass.y = objParent.objBox.mouseY + 100;
-                    objParent.objBox.addElement( objClass );
-
-                    var objFrom = objParent;
-                    var objTo = objClass;
-                    var objLine = new CanvasBoxGeneralization( objFrom , objTo );
-                    switch( objParent.objBehavior.strClassName )
+            1:
+            {
+                name: "attributes >",
+                event: function( objElement )
+                {
+                    objElement.objMenu.arrActualMenuItens = (
                     {
-                        case "CanvasBoxMagneticBehavior":
+                        0:
                         {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                            break;
-                        }
-                        case "CanvasBoxDefaultBehavior":
-                        default:
+                            name: "add attribute",
+                            event: function( objElement )
+                            {
+                                var strNewAttribute = prompt( "Inform the new attribute." );
+                                objElement.arrAttributes.push( strNewAttribute );
+                            }
+                        },
+                        1:
                         {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                            break;
+                            name: "remove attribute >",
+                            event: function( objElement )
+                            {
+                                var arrAttributesRemoveMenu = new Object();
+                                for( var intAttribute = 0 ; intAttribute < objElement.arrAttributes.length ; ++intAttribute )
+                                {
+                                    arrAttributesRemoveMenu[ intAttribute ] =
+                                    {
+                                            name: objElement.arrAttributes[ intAttribute ],
+                                            intPosition: intAttribute,
+                                            event: function( objElement , me )
+                                            {
+                                                objElement.arrAttributes.splice( me.intPosition  , 1 );
+                                            }
+                                    };
+                                }
+                                objElement.objMenu.arrActualMenuItens = arrAttributesRemoveMenu;
+                                return ( objElement.arrAttributes.length > 0 );
+                            }
                         }
-
-                    }
-                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
-                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
-                    objParent.objBox.addElement( objLine );
-
+                    });
+                    return true;
                 }
             },
-            2:{
-                name: "create association class",
-                event: function( objParent ){
-
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
-                    objClass.x = objParent.objBox.mouseX + 100;
-                    objClass.y = objParent.objBox.mouseY + 100;
-                    objParent.objBox.addElement( objClass );
-
-                    var objFrom = objParent;
-                    var objTo = objClass;
-                    var objLine = new CanvasBoxAssociation( objFrom , objTo );
-                    switch( objParent.objBehavior.strClassName )
+            2:
+            {
+                name: "methods >",
+                event: function( objElement )
+                {
+                    objElement.objMenu.arrActualMenuItens = (
                     {
-                        case "CanvasBoxMagneticBehavior":
+                        0:
                         {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                            break;
-                        }
-                        case "CanvasBoxDefaultBehavior":
-                        default:
+                            name: "add method",
+                            event: function( objElement )
+                            {
+                                var strNewAttribute = prompt( "Inform the new attribute." );
+                                objElement.arrAttributes.push( strNewAttribute );
+                            }
+                        },
+                        1:
                         {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                            break;
+                            name: "remove method >",
+                            event: function( objElement )
+                            {
+                                var arrMethodsRemoveMenu = new Object();
+                                for( var intMethod = 0 ; intMethod < objElement.arrMethods.length ; ++intMethod )
+                                {
+                                    arrMethodsRemoveMenu[ intMethod ] =
+                                    {
+                                            name: objElement.arrMethods[ intMethod ],
+                                            intPosition: intMethod,
+                                            event: function( objElement , me )
+                                            {
+                                                objElement.arrMethods.splice( me.intPosition  , 1 );
+                                            }
+                                    };
+                                }
+                                objElement.objMenu.arrActualMenuItens = arrMethodsRemoveMenu;
+                                return ( objElement.arrAttributes.length > 0 );
+                            }
                         }
-
-                    }
-                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
-                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
-                    objParent.objBox.addElement( objLine );
-
-                }
-            },
-            3:{
-                name: "create aggregation class",
-                event: function( objParent ){
-
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
-                    objClass.x = objParent.objBox.mouseX + 100;
-                    objClass.y = objParent.objBox.mouseY + 100;
-                    objParent.objBox.addElement( objClass );
-
-                    var objFrom = objParent;
-                    var objTo = objClass;
-                    var objLine = new CanvasBoxAggregation( objFrom , objTo );
-                    switch( objParent.objBehavior.strClassName )
-                    {
-                        case "CanvasBoxMagneticBehavior":
-                        {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                            break;
-                        }
-                        case "CanvasBoxDefaultBehavior":
-                        default:
-                        {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                            break;
-                        }
-
-                    }
-                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
-                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
-                    objParent.objBox.addElement( objLine );
-
-                }
-            },
-            4:{
-                name: "create composition class",
-                event: function( objParent ){
-
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
-                    objClass.x = objParent.objBox.mouseX + 100;
-                    objClass.y = objParent.objBox.mouseY + 100;
-                    objParent.objBox.addElement( objClass );
-
-                    var objFrom = objParent;
-                    var objTo = objClass;
-                    var objLine = new CanvasBoxComposition( objFrom , objTo );
-                    switch( objParent.objBehavior.strClassName )
-                    {
-                        case "CanvasBoxMagneticBehavior":
-                        {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                            break;
-                        }
-                        case "CanvasBoxDefaultBehavior":
-                        default:
-                        {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                            break;
-                        }
-
-                    }
-                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
-                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
-                    objParent.objBox.addElement( objLine );
-
-                }
-            },
-            5:{
-                name: "create dependecy class",
-                event: function( objParent ){
-
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
-                    objClass.x = objParent.objBox.mouseX + 100;
-                    objClass.y = objParent.objBox.mouseY + 100;
-                    objParent.objBox.addElement( objClass );
-
-                    var objFrom = objParent;
-                    var objTo = objClass;
-                    var objLine = new CanvasBoxDependency( objFrom , objTo );
-                    switch( objParent.objBehavior.strClassName )
-                    {
-                        case "CanvasBoxMagneticBehavior":
-                        {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                            break;
-                        }
-                        case "CanvasBoxDefaultBehavior":
-                        default:
-                        {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                            break;
-                        }
-
-                    }
-                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
-                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
-                    objParent.objBox.addElement( objLine );
-
+                    });
+                    return true;
                 }
             }
         });
@@ -295,7 +279,7 @@ Object.extend( CanvasBoxClass.prototype,
         objResult.strClassName = this.strClassName;
         return objResult;
     },
-    
+
     refresh: function refresh()
     {
         this.x0 = this.x - ( this.width / 2 );
@@ -318,7 +302,7 @@ Object.extend( CanvasBoxClass.prototype,
              * Draw External Border
              */
             this.objContext.strokeStyle = 'rgb( 200 , 200 , 250 )';
-            this.objContext.lineWidth = 1;        
+            this.objContext.lineWidth = 1;
             this.objContext.strokeRect( Math.round( this.x0 ) - 10 , Math.round( this.y0 ) - 10,
                                   Math.round( this.width ) + 20 , Math.round( this.height ) + 20 );
         }
@@ -329,29 +313,29 @@ Object.extend( CanvasBoxClass.prototype,
         this.objContext.fillStyle = this.fillColor;
         this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-                         
+
         /**
          * Class Header
-         */                                  
+         */
         this.objContext.fillStyle = this.headerColor;
         this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , intHeaderHeigth );
         this.objContext.strokeStyle = this.borderColor;
-        this.objContext.lineWidth = 1;        
+        this.objContext.lineWidth = 1;
         this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( intHeaderHeigth ) );
-                                  
+
         this.objContext.fillStyle = this.fillColor;
         this.objContext.strokeStyle = this.borderColor;
         this.objContext.lineWidth = this.borderWidth;
         this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-                                  
+
         this.objContext.strokeText( this.strClassElementName  , this.x0 + 10 , this.y0 + 10 );
-        
+
         var intAttributesStart = intHeaderHeigth + 20;
         var intAttributesEnd = intAttributesStart + this.arrAttributes.length * 10;
-        
+
         this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( intAttributesEnd ) );
 
@@ -366,7 +350,7 @@ Object.extend( CanvasBoxClass.prototype,
 
         this.objContext.strokeRect( Math.round( this.x0 ) , this.y0 + intMethodsStart ,
                                   Math.round( this.width ) , Math.round( this.height ) - intMethodsStart );
-        
+
         for( i = 0 ; i < this.arrMethods.length; ++i )
         {
             this.objContext.strokeText( this.arrMethods[ i ], this.x0 + 10 ,  this.y0 + intMethodsStart + ( i ) * 10 + 20 );
@@ -413,7 +397,7 @@ Object.extend( CanvasBoxClass.prototype,
     drawFixed: function drawFixed( boolFixed )
     {
         this.fixed = boolFixed;
-        
+
         if( boolFixed )
         {
             this.headerColor = this.fixedColor;
@@ -423,7 +407,7 @@ Object.extend( CanvasBoxClass.prototype,
             this.headerColor = this.mouseOver ? this.overColor : this.defaultHeaderColor;
         }
     },
-    
+
     isInside: function isInside( mouseX , mouseY )
     {
         this.refresh();
@@ -470,21 +454,21 @@ Object.extend( CanvasBoxClass.prototype,
         this.drawFixed( this.fixed );
         this.y -= 10;
     },
-    
+
     goDown: function goDown()
     {
         this.fixed = true;
         this.drawFixed( this.fixed );
         this.y += 10;
     },
-    
+
     goLeft: function goLeft()
     {
         this.fixed = true;
         this.drawFixed( this.fixed );
         this.x -= 10;
     },
-    
+
     goRight: function goRight()
     {
         this.fixed = true;

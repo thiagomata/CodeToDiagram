@@ -1,7 +1,0 @@
-<classdiagram>
-    <layout width="1200" height="800">
-    <classes>
-        <classElement x="786" y="151" width="150" height="150" color="rgb(200,200,200)" borderColor="rgb( 250 , 250, 255 )" >
-        </classElement>
-    </classes>
-</classdiagram>

@@ -29,6 +29,8 @@ CanvasBoxMenu.prototype =
 
     arrMenuItens: Array(),
 
+    arrActualMenuItens: Array(),
+
     strActualMenuItem: null,
 
     mouseX: 0,
@@ -41,15 +43,20 @@ CanvasBoxMenu.prototype =
 
     initialize: function initialize()
     {
-
+        this.arrActualMenuItens = this.arrMenuItens;
     },
-    
+
     draw: function draw()
     {
-//        alert( 'rodando o draw do menu' );
+        if( this.arrActualMenuItens == null || this.arrActualMenuItens.length == 0 )
+        {
+            this.arrActualMenuItens = this.arrMenuItens;
+        }
+
         this.strActualMenuItem = null;
 
-        var arrMenuKeys = array_keys( this.arrMenuItens );
+        var arrMenuKeys = array_keys( this.arrActualMenuItens );
+        document.title = arrMenuKeys;
         this.intMenuHeight = this.intMenuItemHeight * ( arrMenuKeys.length - 1 );
 
         this.objContext.strokeStyle = this.menuBorderColor;
@@ -96,11 +103,14 @@ CanvasBoxMenu.prototype =
                 intMenuItemX , intMenuItemY, this.intMenuWidth , this.intMenuItemHeight
             );
 
-            this.objContext.fillStyle = this.menuItemTextColor;
+            this.objContext.fillStyle = 
+                this.arrActualMenuItens[ arrMenuKeys[ i ] ].backgroundColor ?
+                this.arrActualMenuItens[ arrMenuKeys[ i ] ].backgroundColor :
+                this.menuItemTextColor;
             this.objContext.lineWidth = 0.9;
             this.objContext.font = "10px Times New Roman";
             this.objContext.fillText(
-                this.arrMenuItens[ arrMenuKeys[ i ] ].name ,
+                this.arrActualMenuItens[ arrMenuKeys[ i ] ].name ,
                 this.intMenuItemXBorder +  intMenuItemX ,
                 Math.round( intMenuItemY +   this.intMenuItemHeight / 2 )
             );
@@ -110,15 +120,21 @@ CanvasBoxMenu.prototype =
 
     onClick: function onClick( event )
     {
+        booReturn = false;
         if( this.strActualMenuItem != null )
         {
-            var funcEvent = this.arrMenuItens[ this.strActualMenuItem ].event;
+            var funcEvent = this.arrActualMenuItens[ this.strActualMenuItem ].event;
             if( ! Object.isUndefined( funcEvent ) && Object.isFunction( funcEvent ) )
             {
-                funcEvent( this.objParent );
+                booReturn = funcEvent( this.objParent  , this.arrActualMenuItens[ this.strActualMenuItem ] );
             }
         }
-        this.strActualMenuItem = null;
+        if( booReturn != true )
+        {
+            this.strActualMenuItem = null;
+            this.arrActualMenuItens = this.arrMenuItens;
+        };
+        return booReturn;
     }
 }
 
