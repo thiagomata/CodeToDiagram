@@ -1,0 +1,8 @@
+The diagram describes the image automatically generated from the XML example to represent the
+MVC Model View Controller architecture.
+Each Layer is painted as an lifetime and it's logo changes as the stereotype informed
+into the XML.
+The user lifetime has an stereotype of actor what is draw as stickman.
+The view lifetime has an stereotype of boundary what is draw as a vertical line followed by a circle.
+The controller lifetime has an stereotype of controller what is draw as a circle with a row representing a loop.
+The model lifetime has an stereoptye of the entity what is draw as a circle over a horizontal line.

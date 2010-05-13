@@ -1,0 +1,132 @@
+            form label
+            {
+                display: block;
+                width: 100%;
+            }
+            form textarea
+            {                width: 100%;
+                height: 400px;
+            }
+            .intro
+            {
+                width: 90%;
+                text-align:justify;
+            }
+            .sequenceDiagram
+            {
+                border-color: #DDDDDD;
+                border-style: solid;
+                border-width: 1px;
+                float: left;
+            }
+            iframe
+            {
+                width: 100%;
+                height: 800px;
+                border-style: none;
+            }
+            .duasColunas
+            {
+                float: left;
+                width: 47%;
+                padding: 1%;
+            }
+            .comColunas
+            {
+                float: left;
+                width: 100%;
+            }
+            #pig_small , #flow_codetodiagram, #mvc_codetodiagram
+            {
+                border-style:none;
+                width: 90%;
+                border-color: white;
+                border-width: 0px;
+            }
+
+
+            .diagram_flow
+            {
+                text-align: center;
+                width:50%;
+                float:left;
+            }
+            img
+            {
+                border-style:none;
+            }
+            .php
+            {
+                border-style: solid;
+                border-color: black;
+                border-width: 1px;
+                overflow: hidden;
+            }
+            .php *
+            {
+                font-family: monospace;
+            }
+            .php p
+            {
+                background-color: rgb( 240 , 240, 240 );
+                padding: 2px;
+                margin: 0px;
+            }
+            .php span
+            {
+                padding: 0px;
+                margin: 0px;
+            }
+            .php .tag
+            {
+                color: black;
+                font-weight: bold;
+            }
+            .php .function , .php .method
+            {
+                color: green;
+            }
+            .php .string
+            {
+                color: orange;
+            }
+            .php .new
+            {
+                color: blue;
+            }
+            .php .parenthesis
+            {
+                color: red;
+            }
+            .start_tag
+            {
+                color:olive;
+            }
+            .name_tag
+            {
+                color:olive;
+            }
+            .out_tag
+            {
+
+            }
+            .inside_tag
+            {
+                color:black;
+            }
+            .next_tag
+            {
+                color:navy;
+            }
+            .value_tag
+            {
+                color:red;
+            }
+            .none_tag
+            {
+                display:none;
+            }
+            .xml
+            {
+                white-space: pre;
+            }

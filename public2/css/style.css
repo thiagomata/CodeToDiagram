@@ -249,14 +249,14 @@ background: url(./../images/actor.gif) no-repeat left 20px;
 	font-weight: bold;
 }
 
-.post .meta .date {
+.post .meta .subtopic {
 	float: left;
 	height: 24px;
 	padding: 3px 15px;
 	color: #4A81DE;
 }
 
-.post .meta .posted {
+.post .meta .topic {
 	float: right;
 	height: 24px;
 	padding: 3px 15px;
@@ -272,6 +272,7 @@ background: url(./../images/actor.gif) no-repeat left 20px;
 	padding: 0px 0px 20px 0px;
 	padding-bottom: 20px;
 	text-align: justify;
+        width: 100%;
 }
 
 .links {
@@ -390,7 +391,43 @@ background: url(./../images/actor.gif) no-repeat left 20px;
 	color: #5389E0;
 }
 
-.meta .date a {
+.meta .subtopic a {
 	color: #5389E0;
+}
+.centered
+{
+    text-align: center
+}
+.floatimage , .floatdescription
+{
+    border-width: 0px;
+    border-style: none;
+    float: left;
+}
+.entry, .meta, .title
+{
+    float:left;
+    width: 100%;
+}
+#canvasBox
+{
+    border-color: blue;
+    border-style: solid;
+    border-width: 1px;
+}
+#editXml
+{
+    display: none;
+}
+.myXml
+{
+    cursor: pointer;
+}
+#textAreaXml
+{
+    width: 700px;
+    height: 300px;
+    overflow: auto;
+    font-size: 12px;
 }
 }
