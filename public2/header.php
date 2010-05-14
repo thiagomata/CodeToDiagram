@@ -50,7 +50,7 @@ if( !isset( $strPageItem ) )
                     <li
                     <?php print ( $strPageItem == "Project" ) ? 'class="current_page_item"' : "" ?>
                     >
-                        <a href="#">Project</a>
+                        <a href="index.php">Project</a>
                     </li>
                     <li
                     <?php print ( $strPageItem == "Sequence" ) ? 'class="current_page_item"' : "" ?>

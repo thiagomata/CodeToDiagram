@@ -96,9 +96,84 @@ require_once( "header.php" )
                 the continuous modifications and losing a lot of utility to enable the understanding of the current version of
                 the project without the need to consult the source code.
             </p>
-            <p class="centered">
-                <img src="./images/codetodiagram.png" alt="components communications image"/>
-            </p>
+            <div class="centered">
+    <canvas id="abc">
+    </canvas>
+    <script type="text/javascript" charset="utf-8">
+        var objBox = new CanvasBox( "abc" , 400 , 500 );
+        window.box = objBox;
+        function addStateElement( color )
+        {
+            var objStateElement = new CanvasBoxState();
+            objStateElement.objBehavior = new CanvasBoxMagneticBehavior( objStateElement );
+            objStateElement.x = 0;//Math.random() *  window.box.width ;
+            objStateElement.y = 0;//Math.random() * window.box.height ;
+            objStateElement.fixed = true;
+            objStateElement.fillColor = "orange";
+            objStateElement.fixedColor = "orange";
+            objStateElement.drawFixed( true );
+            if( color )
+            {
+                objStateElement.fillColor = color;
+                objStateElement.fixedColor = color;
+                objStateElement.defaultColor = color;
+            }
+            window.box.addElement( objStateElement );
+            return objStateElement;
+        }
+        function addLine( objFrom , objTo , color )
+        {
+            var objLine = new CanvasBoxDependency( objFrom , objTo );
+            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+            //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+            objLine.x =  ( objFrom.x + objTo.x  ) / 2
+            objLine.y =  ( objFrom.y + objTo.y  ) / 2
+            if( color )
+            {
+                objLine.color = color;
+            }
+            window.box.addElement( objLine );
+            return objLine;
+        }
+        var objFactoryFromXml = addStateElement(  );
+        objFactoryFromXml.strStateName = "Factory From Xml";
+        objFactoryFromXml.x = 70;
+        objFactoryFromXml.y = 80;
+
+        var objFactoryFromCode = addStateElement(  );
+        objFactoryFromCode.strStateName = "Factory From Code";
+        objFactoryFromCode.x = 330;
+        objFactoryFromCode.y = 80;
+
+        var objDiagram = addStateElement( "rgb(200,200,230)" );
+        objDiagram.strStateName = "Uml Diagram";
+        objDiagram.x = 200;
+        objDiagram.y = 200;
+
+        var objPrinterHtml = addStateElement( );
+        objPrinterHtml.strStateName = "Printer Html";
+        objPrinterHtml.x = 100;
+        objPrinterHtml.y = 350;
+
+        var objPrinterXml = addStateElement( );
+        objPrinterXml.strStateName = "Printer Xml";
+        objPrinterXml.x = 200;
+        objPrinterXml.y = 400;
+
+        var objPrinterPng = addStateElement( );
+        objPrinterPng.strStateName = "Printer Png";
+        objPrinterPng.x = 300;
+        objPrinterPng.y = 350;
+
+        var objLine = addLine( objFactoryFromXml , objDiagram );
+        var objLine = addLine( objFactoryFromCode , objDiagram );
+        var objLine = addLine( objDiagram , objPrinterHtml );
+        var objLine = addLine( objDiagram , objPrinterXml  );
+        var objLine = addLine( objDiagram , objPrinterPng  );
+
+        window.objLine = objLine;
+    </script>
+            </div>
         </div>
         <p class="meta">
             <span class="subtopic">Code Instrumentation</span>
