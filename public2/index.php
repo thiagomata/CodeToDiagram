@@ -96,7 +96,7 @@ require_once( "header.php" )
                 the continuous modifications and losing a lot of utility to enable the understanding of the current version of
                 the project without the need to consult the source code.
             </p>
-            <div class="centered">
+            <div>
     <canvas id="abc">
     </canvas>
     <script type="text/javascript" charset="utf-8">
