@@ -28,11 +28,11 @@ Object.extend( CanvasBoxState.prototype,
 
     objContext: null,
 
-    intMass: 5,
+    intMass: 1,
 
-    intMagnetism: 35,
+    intMagnetism: 15,
 
-    strStateName: "noop",
+    strStateName: "state",
 
     fillColor: "rgb( 232 , 232, 255  )",
 
@@ -72,7 +72,7 @@ Object.extend( CanvasBoxState.prototype,
 
                     var objFrom = objClass;
                     var objTo = objParent;
-                    var objLine = new CanvasBoxDependency( objFrom , objTo );
+                    var objLine = new CanvasBoxStateLink( objFrom , objTo );
                     switch( objParent.objBehavior.strClassName )
                     {
                         case "CanvasBoxMagneticBehavior":
@@ -106,7 +106,7 @@ Object.extend( CanvasBoxState.prototype,
 
                     var objFrom = objParent;
                     var objTo = objClass;
-                    var objLine = new CanvasBoxDependency( objFrom , objTo );
+                    var objLine = new CanvasBoxStateLink( objFrom , objTo );
                     switch( objParent.objBehavior.strClassName )
                     {
                         case "CanvasBoxMagneticBehavior":
