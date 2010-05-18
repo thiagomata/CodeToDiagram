@@ -57,6 +57,13 @@ CanvasBoxDefaultConnectorBehavior.prototype =
 
     onTimer: function onTimer()
     {
+        this.move();
+    },
+
+    move: function move()
+    {
+        this.objBoxElement.x = ( this.objBoxElement.objElementFrom.x + this.objBoxElement.objElementTo.x ) / 2;
+        this.objBoxElement.y = ( this.objBoxElement.objElementFrom.y + this.objBoxElement.objElementTo.y ) / 2;
     },
 
     getForce: function getForce( objElement )

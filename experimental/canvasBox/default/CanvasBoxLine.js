@@ -98,6 +98,7 @@ Object.extend( CanvasBoxLine.prototype,
         this.objContext.beginPath();
         this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
         this.objContext.fill();
+        this.objContext.closePath();
     },
     
     createConnectorTo: function createConnectorTo()
@@ -178,6 +179,7 @@ Object.extend( CanvasBoxLine.prototype,
             this.drawLine( this.x , this.y , this.objElementFrom.x , this.objElementFrom.y );
             this.drawLine( this.x , this.y , this.objElementTo.x , this.objElementTo.y );
             this.objContext.stroke();
+            this.objContext.closePath();
         this.objContext.restore();
         this.objContext.save();
         
@@ -187,6 +189,7 @@ Object.extend( CanvasBoxLine.prototype,
             this.objContext.beginPath();
             this.objContext.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
             this.objContext.fill();
+            this.objContext.closePath();
 
         this.z = 1;
         
@@ -264,11 +267,11 @@ Object.extend( CanvasBoxLine.prototype,
     {
         if( !this.defaultColor )
         {
-             this.defaultColor = this.color;
-        }
-        
-        if( boolFixed )
-        {
+                this.defaultColor = this.color;
+            }
+            
+            if( boolFixed )
+            {
             this.color = "rgb( 100 , 100 , 200 )";
             this.borderWidth *= 3;
             this.side = this.defaultSide;

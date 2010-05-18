@@ -19,10 +19,20 @@ Object.extend( CanvasBoxGravityBehavior.prototype,
         { 
             return;
         }
-        this.objBoxElement.dy += 0.1;
-        
+       var booLast = this.repelsElements();
+       
+        if( booLast )
+        {
+            if( this.objBoxElement.y1 + this.objBoxElement.dy * 2 < this.objBoxElement.objBox.height )
+            {
+                this.objBoxElement.dy += 0.1;
+            }
+        }
+
         this.objBoxElement.x += this.objBoxElement.dx;
         this.objBoxElement.y += this.objBoxElement.dy;
+        this.objBoxElement.dx *= 0.99;
+        this.objBoxElement.dy *= 0.99;
 
         if( this.objBoxElement.x0 < 0 )
         {
@@ -45,6 +55,73 @@ Object.extend( CanvasBoxGravityBehavior.prototype,
             this.objBoxElement.dy = -this.objBoxElement.dy + 1;
         }
        this.refresh();
+    },
+
+    repelsElements: function repelsElements( arrVectors )
+    {
+        var arrElements = this.objBoxElement.objBox.arrElements;
+        var intQtdElements = arrElements.length;
+
+        var intMyTop    = this.objBoxElement.y - ( this.objBoxElement.height / 2 );
+        var intMyBottom = this.objBoxElement.y + ( this.objBoxElement.height / 2 );
+        var intMyRight  = this.objBoxElement.x + ( this.objBoxElement.width  / 2 );
+        var intMyLeft   = this.objBoxElement.x - ( this.objBoxElement.width  / 2 );
+
+        var booLast = true;
+        for( var intElement = 0; intElement < intQtdElements ; ++intElement )
+        {
+            var objElement = arrElements[ intElement ];
+            if( !objElement.isConnector && objElement != this.objBoxElement )
+            {
+                if  (
+                        (
+                            ( ( objElement.x + ( objElement.width  / 2 ) ) > intMyLeft   )
+                            &&
+                            ( ( objElement.x + ( objElement.width  / 2 ) ) < intMyRight  )
+                            &&
+                            ( ( objElement.y + ( objElement.height / 2 ) ) > intMyTop    )
+                            &&
+                            ( ( objElement.y + ( objElement.height / 2 ) ) < intMyBottom )
+                        )
+                        ||
+                        (
+                            ( ( objElement.x - ( objElement.width  / 2 ) ) > intMyLeft   )
+                            &&
+                            ( ( objElement.x - ( objElement.width  / 2 ) ) < intMyRight  )
+                            &&
+                            ( ( objElement.y + ( objElement.height / 2 ) ) > intMyTop    )
+                            &&
+                            ( ( objElement.y + ( objElement.height / 2 ) ) < intMyBottom )
+                        )
+                        ||
+                        (
+                            ( ( objElement.x + ( objElement.width  / 2 ) ) > intMyLeft   )
+                            &&
+                            ( ( objElement.x + ( objElement.width  / 2 ) ) < intMyRight  )
+                            &&
+                            ( ( objElement.y - ( objElement.height / 2 ) ) > intMyTop    )
+                            &&
+                            ( ( objElement.y - ( objElement.height / 2 ) ) < intMyBottom )
+                        )
+                        ||
+                        (
+                            ( ( objElement.x - ( objElement.width  / 2 ) ) > intMyLeft   )
+                            &&
+                            ( ( objElement.x - ( objElement.width  / 2 ) ) < intMyRight  )
+                            &&
+                            ( ( objElement.y - ( objElement.height / 2 ) ) > intMyTop    )
+                            &&
+                            ( ( objElement.y - ( objElement.height / 2 ) ) < intMyBottom )
+                        )
+                    )
+                {
+                    this.objBoxElement.dx *= -0.9;
+                    this.objBoxElement.dy *= -0.9;
+                    booLast = booLast && ( this.objBoxElement.y > objElement.y );
+                }
+            }
+        }
+        return booLast;
     },
 
     onTimer: function onTimer()

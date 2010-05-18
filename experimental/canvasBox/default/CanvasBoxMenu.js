@@ -21,15 +21,13 @@ CanvasBoxMenu.prototype =
 
     intMenuY: 0,
 
-    intMenuItemXBorder: 10,
+    intMenuItemXBorder: 30,
 
     intMenuItemHeight: 20,
 
     intMenuWidth: 100,
 
     arrMenuItens: Array(),
-
-    arrActualMenuItens: Array(),
 
     strActualMenuItem: null,
 
@@ -41,22 +39,17 @@ CanvasBoxMenu.prototype =
 
     objParent: null,
 
+    objOpenChildMenu: null,
+    
     initialize: function initialize()
     {
-        this.arrActualMenuItens = this.arrMenuItens;
     },
 
     draw: function draw()
     {
-        if( this.arrActualMenuItens == null || this.arrActualMenuItens.length == 0 )
-        {
-            this.arrActualMenuItens = this.arrMenuItens;
-        }
-
         this.strActualMenuItem = null;
 
-        var arrMenuKeys = array_keys( this.arrActualMenuItens );
-        document.title = arrMenuKeys;
+        var arrMenuKeys = array_keys( this.arrMenuItens );
         this.intMenuHeight = this.intMenuItemHeight * ( arrMenuKeys.length - 1 );
 
         this.objContext.strokeStyle = this.menuBorderColor;
@@ -104,37 +97,68 @@ CanvasBoxMenu.prototype =
             );
 
             this.objContext.fillStyle = 
-                this.arrActualMenuItens[ arrMenuKeys[ i ] ].backgroundColor ?
-                this.arrActualMenuItens[ arrMenuKeys[ i ] ].backgroundColor :
-                this.menuItemTextColor;
+            this.arrMenuItens[ arrMenuKeys[ i ] ].backgroundColor ?
+            this.arrMenuItens[ arrMenuKeys[ i ] ].backgroundColor :
+            this.menuItemTextColor;
             this.objContext.lineWidth = 0.9;
             this.objContext.font = "10px Times New Roman";
-            this.objContext.fillText(
-                this.arrActualMenuItens[ arrMenuKeys[ i ] ].name ,
+            this.objContext.fillText
+            (
+                this.arrMenuItens[ arrMenuKeys[ i ] ].name ,
                 this.intMenuItemXBorder +  intMenuItemX ,
                 Math.round( intMenuItemY +   this.intMenuItemHeight / 2 )
             );
 
         }
+
+        if( this.objOpenChildMenu != null )
+        {
+            this.objOpenChildMenu.mouseX = this.mouseX;
+            this.objOpenChildMenu.mouseY = this.mouseY;
+            this.objOpenChildMenu.draw();
+        }
     },
 
     onClick: function onClick( event )
     {
-        booReturn = false;
+        var booReturn = false;
         if( this.strActualMenuItem != null )
         {
-            var funcEvent = this.arrActualMenuItens[ this.strActualMenuItem ].event;
+            var funcEvent = this.arrMenuItens[ this.strActualMenuItem ].event;
             if( ! Object.isUndefined( funcEvent ) && Object.isFunction( funcEvent ) )
             {
-                booReturn = funcEvent( this.objParent  , this.arrActualMenuItens[ this.strActualMenuItem ] );
+                this.arrMenuItens[ this.strActualMenuItem ].key = this.strActualMenuItem;
+                booReturn = funcEvent( this.objParent  , this.arrMenuItens[ this.strActualMenuItem ] , this );
             }
         }
+
+        if( booReturn == false && this.objOpenChildMenu != null )
+        {
+            this.objOpenChildMenu.mouseX = this.mouseX;
+            this.objOpenChildMenu.mouseY = this.mouseY;
+            booReturn = this.objOpenChildMenu.onClick( event );
+        }
+
         if( booReturn != true )
         {
             this.strActualMenuItem = null;
-            this.arrActualMenuItens = this.arrMenuItens;
-        };
+            this.objOpenChildMenu = null;
+        }
+        
         return booReturn;
+    },
+
+    createChildMenu: function createChildMenu( objMenuItem , arrMenuItens )
+    {
+        var objChildMenu = new CanvasBoxMenu();
+        objChildMenu.objContext = this.objContext;
+        objChildMenu.intMenuWidth = this.intMenuWidth;
+        objChildMenu.intMenuX = this.intMenuX + this.intMenuWidth;
+        objChildMenu.intMenuY = this.intMenuY + this.intMenuItemHeight * objMenuItem.key;
+        objChildMenu.arrMenuItens = arrMenuItens;
+        objChildMenu.objParent = this.objParent;
+        this.objOpenChildMenu = objChildMenu;
+        return true;
     }
 }
 
