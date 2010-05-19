@@ -74,9 +74,9 @@ Object.extend( CanvasBoxClass.prototype,
 
     objContext: null,
 
-    intMass: 5,
+    intMass: 2,
 
-    intMagnetism: 35,
+    intMagnetism: 20,
 
     strClassElementName: "noop",
 
@@ -112,9 +112,9 @@ Object.extend( CanvasBoxClass.prototype,
             0:
             {
                 name: "create class >",
-                event: function( objElement )
+                event: function( objElement , me , objMenu )
                 {
-                    objElement.objMenu.arrActualMenuItens = (
+                    objMenu.createChildMenu( me ,
                     {
                         0:
                         {
@@ -171,9 +171,9 @@ Object.extend( CanvasBoxClass.prototype,
             1:
             {
                 name: "attributes >",
-                event: function( objElement )
+                event: function( objElement , me , objMenu )
                 {
-                    objElement.objMenu.arrActualMenuItens = (
+                    objMenu.createChildMenu( me ,
                     {
                         0:
                         {
@@ -213,9 +213,9 @@ Object.extend( CanvasBoxClass.prototype,
             2:
             {
                 name: "methods >",
-                event: function( objElement )
+                event: function( objElement , me , objMenu )
                 {
-                    objElement.objMenu.arrActualMenuItens = (
+                    objMenu.createChildMenu( me ,
                     {
                         0:
                         {
