@@ -187,7 +187,7 @@ Object.extend( CanvasBoxClass.prototype,
                         1:
                         {
                             name: "remove attribute >",
-                            event: function( objElement )
+                            event: function( objElement , me , objMenu )
                             {
                                 var arrAttributesRemoveMenu = new Object();
                                 for( var intAttribute = 0 ; intAttribute < objElement.arrAttributes.length ; ++intAttribute )
@@ -202,7 +202,7 @@ Object.extend( CanvasBoxClass.prototype,
                                             }
                                     };
                                 }
-                                objElement.objMenu.arrActualMenuItens = arrAttributesRemoveMenu;
+                                objMenu.createChildMenu( me , arrAttributesRemoveMenu );
                                 return ( objElement.arrAttributes.length > 0 );
                             }
                         }
@@ -229,7 +229,7 @@ Object.extend( CanvasBoxClass.prototype,
                         1:
                         {
                             name: "remove method >",
-                            event: function( objElement )
+                            event: function( objElement , me , objMenu )
                             {
                                 var arrMethodsRemoveMenu = new Object();
                                 for( var intMethod = 0 ; intMethod < objElement.arrMethods.length ; ++intMethod )
@@ -244,7 +244,7 @@ Object.extend( CanvasBoxClass.prototype,
                                             }
                                     };
                                 }
-                                objElement.objMenu.arrActualMenuItens = arrMethodsRemoveMenu;
+                                objMenu.createChildMenu( me , arrMethodsRemoveMenu );
                                 return ( objElement.arrAttributes.length > 0 );
                             }
                         }
