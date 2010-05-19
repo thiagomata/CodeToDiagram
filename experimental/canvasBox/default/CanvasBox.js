@@ -1,48 +1,57 @@
 /**
-    * Canvas Box it is a canvas element what can be append and remove elements.
-    *
-    * It elements can be selected and clicked and interact each other.
-    *
-    * @package myBox
-    */
-
+ * Canvas Box it is a canvas element where the user can be append and remove elements.
+ *
+ * It elements can be selected and clicked and interact each other.
+ *
+ * @package myBox
+ */
 
 /**
-    * Exception of Canvas Box Component
-    *
-    * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
-    */
+ * Exception of Canvas Box Component
+ *
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ */
 window.CanvasBoxException = window.Error;
 
 /**
-    * Sand Box to the Canvas Elements
-    *
-    * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
-    */
+ * Sand Box to the Canvas Elements
+ *
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ */
 var CanvasBox = Class.create();
 
 /**
-    * Static Vars
-    */
+ * Static Vars
+ */
 CanvasBox.Static = new Object();
+
 /**
-    * Static Array with the
-    * Instances of the Canvas Box
-    */
+ * Static Array with the
+ * Instances of the Canvas Box
+ */
 CanvasBox.Static.arrInstances = Array();
+
+/**
+ * getCanvasBoxById
+ * 
+ * Get instance of canvas box by it's id
+ * 
+ * @param integer id
+ */
 CanvasBox.Static.getCanvasBoxById = function getCanvasBoxById( id )
 {
-        return CanvasBox.Static.arrInstances[ id ];
+    return CanvasBox.Static.arrInstances[ id ];
 };
 
 /**
-    * Get the client width fixing browsers missing standarts
-    *
-    * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
-    */
+ * Get the client width fixing browsers missing standarts
+ *
+ * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
+ */
 CanvasBox.Static.clientWidth = function clientWidth()
 {
-        return CanvasBox.Static.filterResults (
+    return CanvasBox.Static.filterResults 
+    (
         window.innerWidth ? window.innerWidth : 0,
         document.documentElement ? document.documentElement.clientWidth : 0,
         document.body ? document.body.clientWidth : 0
@@ -50,13 +59,14 @@ CanvasBox.Static.clientWidth = function clientWidth()
 };
 
 /**
-    * Get the client height fixing browsers missing standarts
-    *
-    * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
-    */
+ * Get the client height fixing browsers missing standarts
+ *
+ * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
+ */
 CanvasBox.Static.clientHeight = function clientHeight()
 {
-        return CanvasBox.Static.filterResults (
+    return CanvasBox.Static.filterResults 
+    (
         window.innerHeight ? window.innerHeight : 0,
         document.documentElement ? document.documentElement.clientHeight : 0,
         document.body ? document.body.clientHeight : 0
@@ -64,13 +74,14 @@ CanvasBox.Static.clientHeight = function clientHeight()
 };
 
 /**
-    * Get the scroll left fixing browsers missing standarts
-    *
-    * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
-    */
+ * Get the scroll left fixing browsers missing standarts
+ *
+ * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
+ */
 CanvasBox.Static.scrollLeft = function scrollLeft()
 {
-        return CanvasBox.Static.filterResults (
+    return CanvasBox.Static.filterResults
+    (
         window.pageXOffset ? window.pageXOffset : 0,
         document.documentElement ? document.documentElement.scrollLeft : 0,
         document.body ? document.body.scrollLeft : 0
@@ -78,13 +89,14 @@ CanvasBox.Static.scrollLeft = function scrollLeft()
 };
 
 /**
-    * Get the scroll Top fixing browsers missing standarts
-    *
-    * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
-    */
+ * Get the scroll Top fixing browsers missing standarts
+ *
+ * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
+ */
 CanvasBox.Static.scrollTop= function scrollTop()
 {
-        return CanvasBox.Static.filterResults (
+    return CanvasBox.Static.filterResults 
+    (
         window.pageYOffset ? window.pageYOffset : 0,
         document.documentElement ? document.documentElement.scrollTop : 0,
         document.body ? document.body.scrollTop : 0
@@ -92,120 +104,167 @@ CanvasBox.Static.scrollTop= function scrollTop()
 };
 
 /**
-    * browsers workaround for missing standarts
-    *
-    * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
-    */
-CanvasBox.Static.filterResults = function filterResults( intWin, intDocel, intBody )
-{
-        var intresult = intWin ? intWin : 0;
-        if (intDocel && (!intresult || (intresult > intDocel)))
+ * browsers workaround for missing standarts
+ * @link http://www.softcomplex.com/docs/get_window_size_and_scrollbar_position.html
+ */
+CanvasBox.Static.filterResults = function filterResults(intWin, intDocel, intBody){
+    var intresult = intWin ? intWin : 0;
+    if (intDocel && (!intresult || (intresult > intDocel))) 
+    {
         intresult = intDocel;
+    }
     return intBody && (!intresult || (intresult > intBody)) ? intBody : intresult;
 };
 
 CanvasBox.prototype =
 {
+    /**
+     * Position x of the Canvas Box Element relative to the page
+     * @type integer
+     */
     x: 0,
-
+    
+    /**
+     * Position y of the Canvas Box Element relative to the page
+     * @type integer
+     */
     y: 0,
 
     /**
-        * Id of the Box, to deal with many canvas box into the same page
-        *
-        */
-        id: null,
+     * Id of the Box, to deal with many canvas box into the same page
+     * @type integer
+     */
+    id: null,
 
     /**
-        * Width of the Sand Box
-        * @type integer
-        */
-        width: 400,
+     * Width of the Sand Box
+     * @type integer
+     */
+    width: 400,
 
     /**
-        *Height of the Sand Box
-        *@type integer
-        */
-        height: 400,
+     *Height of the Sand Box
+     *@type integer
+     */
+    height: 400,
 
     /**
-        * Html Canvas Box Element
-        * @type Canvas
-        */
-        objCanvasHtml: null,
+     * Html Canvas Box Element
+     * @type Canvas
+     */
+    objCanvasHtml: null,
 
     /**
-        * Collection of Elements inside the Box
-        * @type CanvasBoxElement[]
-        */
-        arrElements: Array(),
+     * Collection of Elements inside the Box
+     * @type CanvasBoxElement[]
+     */
+    arrElements: Array(),
 
     /**
-        * CanvasBoxElement Over
-        * @type CanvasBoxElement
-        */
-        objElementOver: null,
+     * CanvasBoxElement Over
+     * @type CanvasBoxElement
+     */
+    objElementOver: null,
 
     /**
-        * CanvasBoxElement Clicked
-        * @type CanvasBoxElement
-        */
-        objElementClicked: null,
+     * CanvasBoxElement Clicked
+     * @type CanvasBoxElement
+     */
+    objElementClicked: null,
 
     /**
-        * Interval of Image Refreshing
-        * @type integer
-        */
-        intIntervalDraw: 1,
+     * Interval of Image Refreshing
+     * @type integer
+     */
+    intIntervalDraw: 2,
 
     /**
-        * Interval of Objects Timers
-        * @type integer
-        */
-        intIntervalTimer: 1,
+     * Interval of Objects Timers
+     * @type integer
+     */
+    intIntervalTimer: 2,
 
     /**
-        * Control if the refreshing is active or not
-        * @type boolean
-        */
-        booActive: false,
-
+     * Control if the refreshing is active or not
+     * @type boolean
+     */
+    booActive: false,
+    
     /**
-        * Mouse X position
-        */
-        mouseX: 0,
-
+     * Mouse X position relative to canvas box
+     * @integer
+     */
+    mouseX: 0,
+    
     /**
-        * Mouse Y position
-        */
-        mouseY: 0,
-
+     * Mouse Y position relative to canvas box
+     * @integer
+     */
+    mouseY: 0,
+    
+    /**
+     * Flag of control if the canvas box is drawing right now
+     * @type boolean
+     */
     booOnDraw: false,
 
-
+    /**
+     * Flag of control if the canvas box is moving right now
+     */
     booOnTimer: false,
 
     /**
-        * Javascript constant of right button click
-        */
-        intRightButtonClick: 2,
+     * Javascript constant of right button click
+     */
+    intRightButtonClick: 2,
 
+    /**
+     * Class Name of the Canvas Box
+     * @type string
+     */
     strClassName: "CanvasBox",
 
+    /**
+     * Frames per Second Counter
+     * @type integer
+     */
     intFps: 0,
 
+    /**
+     * Frames per Second Last Result
+     * @type integer
+     */
     intLastFps: 0,
 
+    /**
+     * Flag that controls if the FPS counter is active
+     */
     booCountFps: true,
 
+    /**
+     * Background Color of the Canvas Box
+     */
     backgroundColor: "white",
 
+    /**
+     * Flag that controls if the menu is showing
+     */
     booShowMenu: false,
 
+    /**
+     * Native Menu element of the Canvas Box
+     */
     objMenu: null,
 
+    /**
+     * Actual Menu Element of the Canvas
+     */
     objMenuSelected: null,
 
+    /**
+     * Serialized result that describe the CanvasBox Object
+     * @return Object
+     */
     toSerialize: function toSerialize()
     {
         var objResult = new Object();
@@ -221,7 +280,14 @@ CanvasBox.prototype =
         return objResult;
     },
 
-
+    /**
+     * Method that defined the Native Menu of the Canvas Box.
+     * 
+     * This menu will be see when the user right click into some
+     * empty area of the canvas box 
+     * 
+     * @return CanvasBox
+     */
     defineMenu: function defineMenu()
     {
         this.objMenu = new CanvasBoxMenu();
@@ -252,8 +318,15 @@ CanvasBox.prototype =
             }
         });
         this.objMenuSelected = null;
+		return this;
     },
 
+    /**
+     * Calculates the absolute position of the canvas box object based
+     * on the position of the parents objects
+     * 
+     * @return CanvasBox
+     */
     getPosition: function getPosition()
     {
         var x = this.objCanvasHtml.offsetLeft;
@@ -277,31 +350,35 @@ CanvasBox.prototype =
 
         this.x = x;
         this.y = y;
+		
+		return this;
     },
 
     /**
-        * Initialize the Canvas Box
-        *
-        * - Validate the canvas html element
-        * - set the width and the height into the canvas html element
-        *
-        * @param idCanvasHtmlElement string
-        * @throws CanvasBoxException
-        */
-        initialize: function initialize( idCanvasHtmlElement , intWidth, intHeight )
-        {
+     * Initialize the Canvas Box
+     *
+     * - Validate the canvas html element
+     * - set the width and the height into the canvas html element
+     *
+     * @param idCanvasHtmlElement string
+     * @throws CanvasBoxException
+     * 
+     * @return CanvasBox
+     */
+    initialize: function initialize( idCanvasHtmlElement , intWidth, intHeight )
+    {
         this.width = intWidth;
         this.height = intHeight;
         this.id = CanvasBox.Static.arrInstances.length;
         CanvasBox.Static.arrInstances[ this.id ] = this;
-
+        
         this.objCanvasHtml = document.getElementById( idCanvasHtmlElement );
         if( this.objCanvasHtml == null )
         {
             throw new CanvasBoxException( "Invalid canvas html element id [" + idCanvasHtmlElement + "]" );
         }
         this.getPosition();
-
+        
         this.objCanvasHtml.setAttribute( "width" ,  this.width  + "px" );
         this.objCanvasHtml.setAttribute( "height" , this.height + "px" );
         this.objCanvasHtml.setAttribute( "onmousemove",   ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' ) );
@@ -315,43 +392,49 @@ CanvasBox.prototype =
         this.objCanvasHtml.contentEditable = true;
         this.defineMenu();
         this.play();
+		
+		return this;
     },
 
     /**
-        * Add a CanvasBoxElement intot he CanvasBox
-        *
-        * @param objElement CanvasBoxElement
-        */
-        addElement: function addElement( objElement )
-        {
+     * Add a CanvasBoxElement intot he CanvasBox
+     *
+     * @param objElement CanvasBoxElement
+     * @return void
+     */
+    addElement: function addElement( objElement )
+    {
         this.arrElements.push( objElement );
         objElement.objBox = this;
         objElement.objContext = this.getContext();
     },
 
     /**
-        * Get the Context of the Canvas Html Element
-        */
-        getContext: function getContext()
-        {
+     * Get the Context of the Canvas Html Element
+     * @return CanvasRenderingContext2D
+     */
+    getContext: function getContext()
+    {
         var objContext = this.objCanvasHtml.getContext( '2d' );
         return objContext;
     },
 
     /**
-        * Clear the image into the Canvas Html Element Context
-        */
-        clear: function clear()
-        {
+     * Clear the image into the Canvas Html Element Context
+     * @return void
+     */
+    clear: function clear()
+    {
         var objContext = this.getContext();
         objContext.clearRect( 0, 0, this.width, this.height );
     },
 
     /**
-        * Draw all the elements into the CanvasBox
-        */
-        draw: function draw()
-        {
+     * Draw all the elements into the CanvasBox
+     * @return void
+     */
+    draw: function draw()
+    {
         this.booOnDraw = true;
 
         this.clear();
@@ -362,10 +445,10 @@ CanvasBox.prototype =
         var i;
 
         /**
-            * Create one array to each layer into the z dimension
-            */
-            for( i = 0 ; i < this.arrElements.length; ++i )
-            {
+         * Create one array to each layer into the z dimension
+         */
+        for( i = 0 ; i < this.arrElements.length; ++i )
+        {
             objElement = this.arrElements[ i ];
             if( Object.isUndefined( arrZIndexElements[ objElement.z ] ) )
             {
@@ -374,16 +457,17 @@ CanvasBox.prototype =
             }
             arrZIndexElements[ objElement.z ].push( objElement );
         }
-        /**
-            * Order layers by the z dimension
-            */
-            arrZIndex = sort( arrZIndex );
 
         /**
-            * Draw Elements each z dimension layer of time
-            */
-            for( var intElement = 0; intElement < arrZIndex.length; ++intElement )
-            {
+         * Order layers by the z dimension
+         */
+        arrZIndex = sort( arrZIndex );
+
+        /**
+         * Draw Elements each z dimension layer of time
+         */
+        for( var intElement = 0; intElement < arrZIndex.length; ++intElement )
+        {
             var z = arrZIndex[ intElement ];
             for( i = 0 ; i < arrZIndexElements[ z ].length; ++i )
             {
@@ -403,17 +487,17 @@ CanvasBox.prototype =
             this.objMenuSelected.mouseX = this.mouseX;
             this.objMenuSelected.mouseY = this.mouseY;
             this.objMenuSelected.draw();
-
         }
 
         this.booOnDraw = false;
     },
 
     /**
-        * Draw all the elements into the CanvasBox
-        */
-        onTimerElements: function onTimerElements()
-        {
+     * Draw all the elements into the CanvasBox
+     * @return void
+     */
+    onTimerElements: function onTimerElements()
+    {
         this.booOnTimer = true;
 
         for( var i = 0, l = this.arrElements.length; i < l; ++i )
@@ -426,10 +510,11 @@ CanvasBox.prototype =
     },
 
     /**
-        * Active the auto refresh timer
-        */
-        play: function play()
-        {
+     * Active the auto refresh timer
+     * @return void
+     */
+    play: function play()
+    {
         this.booActive = true;
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onDraw()' , this.intIntervalDraw );
@@ -437,21 +522,23 @@ CanvasBox.prototype =
     },
 
     /**
-        * Stop the auto refresh timer
-        */
-        stop: function stop()
-        {
+     * Stop the auto refresh timer
+     * @return void
+     */
+    stop: function stop()
+    {
         this.booActive = false;
     },
 
     /**
-        * Refresh the Canvas Box
-        *
-        * - Draw the elements
-        * - Call the next timer if should
-        */
-        onTimer: function onTimer()
-        {
+     * Refresh the Canvas Box
+     *
+     * - Draw the elements
+     * - Call the next timer if should
+     * @return boolean
+     */
+    onTimer: function onTimer()
+    {
         if( this.booActive == false )
         {
             return false;
@@ -464,26 +551,30 @@ CanvasBox.prototype =
         return true;
     },
 
+    /**
+     * On show counter FPS
+     * @return void
+     */
     onCountFps: function onCountFps()
     {
         this.intLastFps = this.intFps;
         document.title = "FPS: " + this.intLastFps;
-            this.intFps = 0;
-            if( ! this.booCountFps )
-            {
+        this.intFps = 0;
+        if( ! this.booCountFps )
+        {
             return false;
         }
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onCountFps()' , 1000 );
     },
 
     /**
-        * Refresh the Canvas Box
-        *
-        * - Draw the elements
-        * - Call the next timer if should
-        */
-        onDraw: function onDraw()
-        {
+     * Refresh the Canvas Box
+     *
+     * - Draw the elements
+     * - Call the next timer if should
+     */
+    onDraw: function onDraw()
+    {
         if( this.booActive == false )
         {
             return false;
@@ -498,16 +589,22 @@ CanvasBox.prototype =
     },
 
     /**
-        * Refresh Mouse Position based on Event
-        *
-        * @param event Event
-        */
-        refreshMousePosition: function refreshMousePosition( event )
-        {
+     * Refresh Mouse Position based on Event
+     *
+     * @param event Event
+     */
+    refreshMousePosition: function refreshMousePosition( event )
+    {
         this.mouseX = event.clientX - this.x + CanvasBox.Static.scrollLeft();
         this.mouseY = event.clientY - this.y + CanvasBox.Static.scrollTop();
-        },
+    },
 
+    /**
+     * On Move Move over the Canvas Box
+     * Search if the Mouse is Over some Canvas Element
+     * 
+     * @param event event
+     */
     onMouseMove: function onMouseMove( event )
     {
         var objElementOver = null;
@@ -545,6 +642,13 @@ CanvasBox.prototype =
         }
     },
 
+    /**
+     * On Mouse Up Canvas Box Event
+     * 
+     * @see onMouseDown
+     * @see CanvasBoxElement::onDrop()
+     * @param Event event
+     */
     onMouseUp: function onMouseUp( event )
     {
         if( this.objElementSelected != null )
@@ -554,23 +658,22 @@ CanvasBox.prototype =
         this.objElementSelected = null;
     },
 
+    /**
+     * On Mouse Down Canvas Box Event
+     * 
+     * @param Event event
+     */
     onMouseDown: function onMouseDown( event )
     {
-        if( event.button == this.intRightButtonClick )
-        {
-            if( is_object( this.objElementOver ) )
-            {
-//                this.objElementOver.onContextMenu( event );
-            }
-            else
-            {
-//                this.onBoxRightClick( event );
-            }
-        }
         this.objElementSelected = this.objElementOver;
         return false;
     },
 
+    /**
+     * On Mouse Click Canvas Box Event
+     * 
+     * @param Event event
+     */
     onClick: function onClick( event )
     {
         if( this.booShowMenu )
@@ -593,6 +696,11 @@ CanvasBox.prototype =
         return false;
     },
 
+    /**
+     * On Double Click Canvas Box Event
+     * 
+     * @param Event event
+     */
     onDblClick: function onDblClick( event )
     {
         if( this.objElementOver != null )
@@ -605,11 +713,21 @@ CanvasBox.prototype =
         }
     },
 
+    /**
+     * On Right Click Canvas Box Event
+     * 
+     * @param Event event
+     */
     onBoxRightClick: function onBoxRightClick( event )
     {
         return false;
     },
 
+    /**
+     * On Context Menu Canvas Box Event
+     * 
+     * @param Event event
+     */
     onContextMenu: function onContextMenu( event )
     {
         if( this.objElementOver != null )
@@ -623,6 +741,10 @@ CanvasBox.prototype =
         return false;
     },
 
+    /**
+     * On Context Menu Clicked into a empty space of the Canvas Box
+     * @param Event event
+     */
     onBoxContextMenu: function onBoxContextMenu( event )
     {
         this.booShowMenu = !this.booShowMenu;
@@ -636,6 +758,11 @@ CanvasBox.prototype =
 
     },
 
+    /**
+     *  On Click into a empty space of the Canvas Box
+     * 
+     * @param Event event
+     */
     onBoxClick: function onBoxClick( event )
     {
         if( this.booShowMenu )
@@ -644,11 +771,21 @@ CanvasBox.prototype =
         }
     },
 
+    /**
+     * On Double click into a empty space of the Canvas Box
+     * 
+     * @param Event event
+     */
     onBoxDblClick: function onBoxDblClick( event )
     {
 
     },
 
+    /**
+     * On Key Up into the Canvas Box Element
+     * 
+     * @param Event event
+     */
     onKeyUp: function onKeyUp( event )
     {
         switch( event.keyCode )
@@ -722,6 +859,12 @@ CanvasBox.prototype =
         return false;
     },
 
+    /**
+     * Delete some element from the Canvas Box
+     * 
+     * @param CanvasBoxElement objElement
+     * @param boolean booCallOnDelete
+     */
     deleteElement: function deleteElement( objElement , booCallOnDelete )
     {
         if( Object.isUndefined( booCallOnDelete ) )

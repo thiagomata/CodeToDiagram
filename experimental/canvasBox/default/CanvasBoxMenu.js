@@ -21,11 +21,11 @@ CanvasBoxMenu.prototype =
 
     intMenuY: 0,
 
-    intMenuItemXBorder: 30,
+    intMenuItemXBorder: 3,
 
     intMenuItemHeight: 20,
 
-    intMenuWidth: 100,
+    intMenuWidth: 110,
 
     arrMenuItens: Array(),
 
@@ -153,9 +153,11 @@ CanvasBoxMenu.prototype =
         var objChildMenu = new CanvasBoxMenu();
         objChildMenu.objContext = this.objContext;
         objChildMenu.intMenuWidth = this.intMenuWidth;
-        objChildMenu.intMenuX = this.intMenuX + this.intMenuWidth;
+        objChildMenu.intMenuX = this.intMenuX + this.intMenuWidth + 1;
         objChildMenu.intMenuY = this.intMenuY + this.intMenuItemHeight * objMenuItem.key;
+		objChildMenu.intMenuItemXBorder = this.intMenuItemXBorder;
         objChildMenu.arrMenuItens = arrMenuItens;
+		objChildMenu.intMenuItemHeight = this.intMenuItemHeight;
         objChildMenu.objParent = this.objParent;
         this.objOpenChildMenu = objChildMenu;
         return true;

@@ -88,9 +88,9 @@ require_once( "header.php" );
                     Create and Remove Class Element
                 </li>
                 <li>
-                     F2 to Rename Class
-                </li>
-                <li>
+                        F2 to Rename Class
+                    </li>
+                    <li>
                     Drag Drop Class
                 </li>
                 <li>
@@ -145,7 +145,7 @@ require_once( "header.php" );
         <div class="entry">
             <p>
                 Because of the <a href="http://www.findmebyip.com/litmus#target-selector">Internet Explorer Limitiations</a>,
-                and of the decision of to make to make the web application in canvas, this application
+                and of the decision of to make the web application in canvas, this application
                 may not run into Internet Explorer. Exists some projects to make canvas work into Internet Explorer
                 but, make this workaround it is not proprity to our team.
             </p>

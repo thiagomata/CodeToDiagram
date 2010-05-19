@@ -1,34 +1,115 @@
+/**
+ * Canvas Box Connector
+ * 
+ * Canvas Box Connector is the element what create connections between
+ * Canvas Box Elements.
+ * 
+ * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
+ */
 var CanvasBoxConnector = Class.create();
 CanvasBoxConnector.prototype =
 {
+    /**
+     * Canvas Box owner of this object
+     * @type CanvasBox
+     */
     objBox: null,
 
+    /**
+     * Canvas Box Element that this connector is going from
+     * @type CanvasBoxElement
+     */
     objElementFrom: null,
 
+    /**
+     * Camvas Box Element that thi connector is going to
+     * @type CanvasBoxElement
+     */
     objElementTo: null,
 
+    /**
+     * Position X of the connector inside the Canvas Box
+     * @type integer
+     */
     x: 0,
 
+    /**
+     * Position Y of the connector inside the Canvas Box
+     * @type integer
+     */
     y: 0,
 
+    /**
+     * Position Z of the connector inside the Canvas Box
+     * @type integer
+     */
     z: 0,
     
+    /**
+     * Velocity into the X position
+     * @type integer
+     */
     dx: 3,
 
+    /**
+     * Veolocity into the Y position
+     * @type integer
+     */
     dy: 3,
     
+    /**
+     * Behavior of the Canvas Box Connector Element
+     * 
+     * @type CanvasBoxDefaultConnectorBehavior
+     */
     objBehavior: null,
 
+    /**
+     * Canvas 2D Context from the Canvas Box Container
+     * @type CanvasRenderingContext2D
+     */
     objContext: null,
 
+    /**
+     * Class name of the Canvas Box Connector
+     * @type string
+     */
     strClassName: "CanvasBoxConnector",
     
+	/**
+	 * Flag that make easy diff the connectors from the regular elements
+	 * without type cast ( slow in javascript )
+	 * @type boolean
+	 */
     isConnector: true,
 
+    /**
+     * Flag that controls if the relative menu is showing up
+     * @type boolean
+     */
     booShowMenu: false,
 
+    /**
+     * Relative menu from the connectors
+     * @type CanvasBoxMenu
+     */
     objMenu: null,
     
+    /**
+     * Flag of control if the Element is Fixed ( not moving )
+     */
+    fixed: false,
+    
+    /**
+     * Flag of control if Element is on DragDrop Event
+     * @type boolean
+     */
+    dragdrop: false,
+    
+    /**
+     * Create a serializable version of this object
+     * @return Object
+     */
     toSerialize: function toSerialize()
     {
         var objResult = new Object();
@@ -42,6 +123,10 @@ CanvasBoxConnector.prototype =
         return objResult;
     },
       
+    /**
+     * Load the Menu of Context of the Connector
+     * @return void
+     */
     loadMenu: function loadMenu()
     {
         this.objMenu = new CanvasBoxMenu();
@@ -55,71 +140,136 @@ CanvasBoxConnector.prototype =
             }
         });
     },
-      
+    
+    /**
+     * Initialize the Canvas Box Connector
+     * 
+     * @param CanvasBoxElement objElementFrom
+     * @param CanvasBoxElement objElementTo
+     * @return void
+     */
     initialize: function initialize( objElementFrom , objElementTo )
     {
         this.objElementFrom = objElementFrom;
         this.objElementTo = objElementTo;
         this.objBehavior = new CanvasBoxDefaultBehavior( this );
-
-
     },
 
+    /**
+     * Refresh the Canvas Box Connector, changing it's position if necessary
+     * @return void
+     */
     refresh: function refresh()
     {
         // to be overhide //
     },
 
+    /**
+     * Draw the Canvas Box Connector
+     * @return void
+     */
     draw: function draw()
     {
         // to be overhide //
     },
 
+    /**
+     * Mouse Over check
+     * @return boolean
+     */
     isInside: function isInside()
     {
         return false;
     },
 
+    /**
+     * On Connector Mouse Over Event
+     * 
+     * @param Event event
+     * @return boolean
+     */
     onMouseOver: function onMouseOver( event )
     {
         return this.objBehavior.onMouseOver( event );
     },
 
+    /**
+     * On Connector Mouse Out Event
+     * 
+     * @param Event event
+     * @return boolean
+     */
     onMouseOut: function onMouseOut( event )
     {
         return this.objBehavior.onMouseOut( event );
     },
 
+    /**
+     * On Connector Mouse Down Event
+     * 
+     * @param Event event
+     * @return boolean
+     */
     onMouseDown: function onMouseDown( event )
     {
         return this.objBehavior.onMouseDown( event );
     },
 
+    /**
+     * On Connector Mouse Click Event
+     * @param Event event
+     * @return boolean
+     */
     onClick: function onClick( event )
     {
         return this.objBehavior.onClick( event );
     },
 
+    /**
+     * On Connector Double Mouse Click Event
+     * @param Event event
+     * @return boolean
+     */
     onDblClick: function onDblClick( event )
     {
         return this.objBehavior.onDblClick( event );
     },
 
+    /**
+     * On Drag Event
+     * @param Event event
+     * @return boolean
+     */
     onDrag: function onDrag( event )
     {
         return this.objBehavior.onDrag( event );
     },
 
+    /**
+     * On Drop Event
+     * @param Event event
+     * @return boolean
+     */
     onDrop: function onDrop( event )
     {
         return this.objBehavior.onDrop( event );
     },
 
+    /**
+     * On Timer Event
+     * @param Event event
+     * @return boolean
+     */
     onTimer: function onTimer( event )
     {
         return this.objBehavior.onTimer( event );
     },
 
+    /**
+     * On Context Menu Event
+     * @param Event event
+     * @return boolean
+     */
     onContextMenu: function onContextMenu( event )
     {
         this.objBox.booShowMenu = !this.objBox.booShowMenu;
@@ -135,11 +285,22 @@ CanvasBoxConnector.prototype =
         return false;
     },
     
+    /**
+     * Get Force from Connector to some Element
+     *
+     * @param CanvasBoxElement
+     * @return Object
+     */
     getForce: function getForce( objElement )
     {
         return this.objBehavior.getForce( objElement );
     },
 
+    /**
+     * Clone Connetor
+     * @param CanvasBoxConnector
+     * @return CanvasBoxConnector
+     */
     cloneConnector: function cloneConnector( objConnector )
     {
         if( !objConnector )
@@ -180,11 +341,19 @@ CanvasBoxConnector.prototype =
         return objConnector;
     },
 
+    /**
+     * Clone Element
+     * @param CanvasBoxConnector
+     * @return CanvasBoxConnector
+     */
     clone: function clone( objConnector )
     {
         return this.cloneConnector( objConnector );
     },
-    
+
+    /**
+     * Event on Delete Element
+     */    
     onDelete: function onDelete()
     {
         if( this.objElementFrom.isConnector )
@@ -197,6 +366,9 @@ CanvasBoxConnector.prototype =
         }
     },
     
+    /**
+     * Recursive Action into delete event
+     */
     deleteCascade: function deleteCascade()
     {
         this.deleteCascadeFrom();
@@ -204,6 +376,9 @@ CanvasBoxConnector.prototype =
         this.objBox.deleteElement( this , false );
     },
     
+    /**
+     * Recursive Delete into the Element To Direction
+     */
     deleteCascadeTo: function deleteCascadeTo()
     {
         if( is_object( this.objElementTo ) && this.objElementTo.isConnector )
@@ -216,6 +391,9 @@ CanvasBoxConnector.prototype =
         }
     },
     
+    /**
+     * Recursive Delete into the Element From Direction
+     */
     deleteCascadeFrom: function deleteCascadeFrom()
     {
         if( is_object( this.objElementFrom ) && this.objElementFrom.isConnector )
@@ -228,14 +406,21 @@ CanvasBoxConnector.prototype =
         }
     },
   
+    /**
+     * Copy a Connector
+     */
     copy: function copy()
     {
         objConnector = new window[ this.strClassName ]();
         this.clone( objConnector );
     },
-    
+  
+    /**
+     * Get Id From Connector
+     * @return integer
+     */  
     getId: function getId()
     {
         return this.objBox.arrElements.indexOf( this );
-    }    
+    }
 };

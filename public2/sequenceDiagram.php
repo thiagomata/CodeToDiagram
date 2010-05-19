@@ -293,6 +293,7 @@ else
                     <script>
                         function refreshXml()
                         {
+                            document.getElementById( "refreshXml" ).target = "_self";
                             document.getElementById( "refreshXml" ).submit();
                         }
 
