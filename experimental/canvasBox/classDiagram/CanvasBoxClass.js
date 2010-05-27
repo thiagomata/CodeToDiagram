@@ -72,6 +72,10 @@ Object.extend( CanvasBoxClass.prototype,
 
     objBehavior: null,
 
+    /**
+     * Canvas 2D Context from the Canvas Box Container
+     * @type CanvasRenderingContext2D
+     */
     objContext: null,
 
     intMass: 2,
@@ -100,11 +104,12 @@ Object.extend( CanvasBoxClass.prototype,
 
     booMenu: false,
 
-    initialize: function initialize()
+    booMouseOver: false,
+
+    arrButtons: Array(),
+    
+    defineMenu: function defineMenu()
     {
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
-
-
         this.objMenu = new CanvasBoxMenu();
         this.objMenu.objParent = this;
         this.objMenu.arrMenuItens = (
@@ -252,8 +257,28 @@ Object.extend( CanvasBoxClass.prototype,
                     return true;
                 }
             }
-        });
+        });        
+    },
 
+    addButton: function addButton( objButton )
+    {
+        if( this.arrButtons.length > 0 )
+        {
+            var objLast = this.arrButtons[ this.arrButtons.length - 1 ];
+            objButton.objPreviousButton = objLast;
+        }
+        this.arrButtons.push( objButton );
+    },
+
+    initialize: function initialize()
+    {
+        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.defineMenu();
+        this.addButton( new CanvasBoxButton( this ) );
+        this.addButton( new CanvasBoxButton( this ) );
+        this.addButton( new CanvasBoxButton( this ) );
+        this.addButton( new CanvasBoxButton( this ) );
+        this.addButton( new CanvasBoxButton( this ) );
     },
 
     toSerialize: function toSerialize()
@@ -296,7 +321,7 @@ Object.extend( CanvasBoxClass.prototype,
 
         this.refresh();
 
-        if( this.mouseOver || this.objBox.objElementClicked == this )
+        if( this.booMouseOver || this.objBox.objElementClicked == this )
         {
             /**
              * Draw External Border
@@ -356,6 +381,12 @@ Object.extend( CanvasBoxClass.prototype,
             this.objContext.strokeText( this.arrMethods[ i ], this.x0 + 10 ,  this.y0 + intMethodsStart + ( i ) * 10 + 20 );
         }
 
+        for( i = 0 ; i <  this.arrButtons.length ; ++i )
+        {
+            var objButton = this.arrButtons[ i ];
+            objButton.draw();
+        }
+
     },
 
     drawMouseOver: function drawMouseOver( event )
@@ -365,7 +396,7 @@ Object.extend( CanvasBoxClass.prototype,
             this.defaultHeaderColor = this.headerColor;
         }
         this.headerColor = this.overColor;
-        this.mouseOver = true;
+        this.booMouseOver = true;
     },
 
     drawMouseOut: function drawMouseOut( event )
@@ -374,7 +405,7 @@ Object.extend( CanvasBoxClass.prototype,
         {
             this.headerColor = this.fixed ? this.fixedColor : this.defaultHeaderColor;
         }
-        this.mouseOver = false;
+        this.booMouseOver = false;
     },
 
     drawDrag: function drawDrag( event )
@@ -404,12 +435,13 @@ Object.extend( CanvasBoxClass.prototype,
         }
         else
         {
-            this.headerColor = this.mouseOver ? this.overColor : this.defaultHeaderColor;
+            this.headerColor = this.booMouseOver ? this.overColor : this.defaultHeaderColor;
         }
     },
 
     isInside: function isInside( mouseX , mouseY )
     {
+        var booResult = false;
         this.refresh();
         if  (
                 ( mouseX >= this.x0 )
@@ -421,12 +453,25 @@ Object.extend( CanvasBoxClass.prototype,
                 ( mouseY <= this.y1 )
             )
         {
-            return true;
+            booResult = true;
         }
-        else
+        
+        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
         {
-            return false;
+            var objButton = this.arrButtons[ i ];
+            if( !booResult )
+            {
+                if( objButton.isInside( mouseX , mouseY ) )
+                {
+                    booResult = true;
+                }
+            }
+            else
+            {
+                objButton.booMouseOver = false;
+            }
         }
+        return booResult;
     },
 
     onContextMenu: function onContextMenu( event )

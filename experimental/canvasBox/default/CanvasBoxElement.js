@@ -88,6 +88,12 @@ CanvasBoxElement.prototype =
     dragdrop: false,
     
     /**
+     * Visual Buttons to interact with the element without
+     * the menu use.
+     */
+    arrButtons: Array(),
+    
+    /**
      * Create a serializable version of this object
      * @return Object
      */

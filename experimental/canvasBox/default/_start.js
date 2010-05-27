@@ -4,6 +4,7 @@ require_once( "CanvasBox.js" );
 require_once( "CanvasBoxDefaultBehavior.js" );
 require_once( "CanvasBoxDefaultConnectorBehavior.js" );
 require_once( "CanvasBoxMenu.js" );
+require_once( "CanvasBoxButton.js" );
 require_once( "CanvasBoxElement.js" );
 require_once( "CanvasBoxConnector.js" );
 
