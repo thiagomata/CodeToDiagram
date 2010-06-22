@@ -62,16 +62,20 @@ if( !isset( $strPageItem ) )
                     >
                         <a href="classDiagram.php">Class</a>
                     </li>
+                    <!--
                     <li
                     <?php print ( $strPageItem == "Database" ) ? 'class="current_page_item"' : "" ?>
                     >
                         <a href="databaseDiagram.php">Database</a>
                     </li>
+                    -->
+                    <!--
                     <li
                     <?php print ( $strPageItem == "BPMN" ) ? 'class="current_page_item"' : "" ?>
                     >
                         <a href="bpmnDiagram.php">BPMN</a>
                     </li>
+                    -->
                     <li
                     <?php print ( $strPageItem == "Support" ) ? 'class="current_page_item"' : "" ?>
                     >
@@ -125,9 +129,11 @@ if( !isset( $strPageItem ) )
                                         <li><a href="sequenceDiagram.php#Sequence Diagram Web Editor">Sequence Diagram Web Editor</a></li>
                                         <li><a href="codeInstrumentation.php#PHP Code to Class Diagram">PHP Code to Class Diagram</a></li>
                                         <li><a href="classDiagram.php#Class Diagram Web Editor">Class Diagram Web Editor</a></li>
+                                        <!--
                                         <li><a href="databaseDiagram.php#Database Link to Database Modeling">Database Link to Database Modeling</a></li>
                                         <li><a href="databaseDiagram.php#Database Modeling Web Tool">Database Modeling Web Tool</a></li>
                                         <li><a href="bpmnDiagram.php#BPMN Web Editor">BPMN Web Editor</a></li>
+                                        -->
                                     </ul>
                                 </li>
                                 <li>

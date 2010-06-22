@@ -165,11 +165,12 @@ require_once( "header.php" )
         objPrinterPng.x = 300;
         objPrinterPng.y = 350;
 
-        var objLine = addLine( objFactoryFromXml , objDiagram );
-        var objLine = addLine( objFactoryFromCode , objDiagram );
-        var objLine = addLine( objDiagram , objPrinterHtml );
-        var objLine = addLine( objDiagram , objPrinterXml  );
-        var objLine = addLine( objDiagram , objPrinterPng  );
+        var objLine;
+        objLine = addLine( objFactoryFromXml , objDiagram );
+        objLine = addLine( objFactoryFromCode , objDiagram );
+        objLine = addLine( objDiagram , objPrinterHtml );
+        objLine = addLine( objDiagram , objPrinterXml  );
+        objLine = addLine( objDiagram , objPrinterPng  );
 
         window.objLine = objLine;
     </script>
@@ -217,7 +218,7 @@ require_once( "header.php" )
             </p>
         </div>
         <p class="meta">
-            <span class="subtopic"><a href=""sequenceDiagram.php">Sequence Diagram Web Editor Tool</a></span>
+            <span class="subtopic"><a href="sequenceDiagram.php" >Sequence Diagram Web Editor Tool</a></span>
             <span class="topic">Code to Diagram Tool Kit</span>
         </p>
         <div style="clear: both;">&nbsp;</div>

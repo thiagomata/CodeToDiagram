@@ -227,13 +227,8 @@ CanvasBoxButton.prototype =
         this.y = this.objElement.y - this.objElement.height/2 + this.intRelativeY;
     },
 
-    draw: function draw()
+    drawButton: function drawButton()
     {
-        if( !this.objElement.booMouseOver )
-        {
-             return;
-        }
-        this.refresh();
         this.objElement.objContext.fillStyle = ( this.booMouseOver ) ? "yellow" : "blue";
         this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
@@ -241,7 +236,17 @@ CanvasBoxButton.prototype =
         this.objElement.objContext.lineWidth = "blue";
         this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-        
+
+    },
+
+    draw: function draw()
+    {
+        if( !this.objElement.booMouseOver )
+        {
+             return;
+        }
+        this.refresh();
+        this.drawButton();
     },
 
     isInside: function isInside( mouseX , mouseY )
