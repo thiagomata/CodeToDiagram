@@ -255,7 +255,7 @@ CanvasBoxElement.prototype =
         for( i = 0 ; i < this.objBox.arrElements.length; ++i )
         {
             var objElementElement = this.objBox.arrElements[ i ];
-            if( is_object( objElementElement ) && objElementElement.isElement )
+            if( is_object( objElementElement ) )
             {
                 if( objElementElement.objElementFrom == this || objElementElement.objElementTo == this )
                 {

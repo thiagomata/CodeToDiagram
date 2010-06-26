@@ -79,91 +79,94 @@ require_once( "header.php" )
             <span class="topic">Code to Diagram Proposal</span>
         </p>
         <div style="clear: both;">&nbsp;</div>
-        <div class="entry">
-            <p>
-                This application proposal it is to provide ways to create UML diagrams based on PHP code execution or by web tools or
-                based on XML files making possible convert the result from each one tool to another.
-            </p>
-            <p>
-                So, external tools can create the XML Files what can be converted into diagrams and edited. PHP Code executions can
-                create XML files of diagrams what can be export to anothers applications. Diagrams can be created into the web
-                application exported to XML file what can be be read by some external application what can create code, for example.
-            </p>
-            <p>
-                In addition all design changes must be replicated in all the diagrams of the project and for all team members.
-                Therefore, keep all upsubtopicd diagrams will become an increasingly expensive activity until it becomes unfeasible.
-                The diagrams then become mere representations of how the project was originally designed without contemplating
-                the continuous modifications and losing a lot of utility to enable the understanding of the current version of
-                the project without the need to consult the source code.
-            </p>
-            <div>
-    <canvas id="abc">
-    </canvas>
-    <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBox( "abc" , 400 , 500 );
-        window.box = objBox;
-        function addStateElement( color )
-        {
-            var objStateElement = new CanvasBoxState();
-            objStateElement.objBehavior = new CanvasBoxMagneticBehavior( objStateElement );
-            objStateElement.x = 0;//Math.random() *  window.box.width ;
-            objStateElement.y = 0;//Math.random() * window.box.height ;
-            objStateElement.fixed = true;
-            objStateElement.fillColor = "orange";
-            objStateElement.fixedColor = "orange";
-            objStateElement.drawFixed( true );
-            if( color )
-            {
-                objStateElement.fillColor = color;
-                objStateElement.fixedColor = color;
-                objStateElement.defaultColor = color;
-            }
-            window.box.addElement( objStateElement );
-            return objStateElement;
-        }
-        function addLine( objFrom , objTo , color )
-        {
-            var objLine = new CanvasBoxDependency( objFrom , objTo );
-            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-            //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-            objLine.x =  ( objFrom.x + objTo.x  ) / 2
-            objLine.y =  ( objFrom.y + objTo.y  ) / 2
-            if( color )
-            {
-                objLine.color = color;
-            }
-            window.box.addElement( objLine );
-            return objLine;
-        }
-        var objFactoryFromXml = addStateElement(  );
-        objFactoryFromXml.strStateName = "Factory From Xml";
-        objFactoryFromXml.x = 70;
-        objFactoryFromXml.y = 80;
+        <div>
+            <div class="entry">
+                <p>
+                    This application proposal it is to provide ways to create UML diagrams based on PHP code execution or by web tools or
+                    based on XML files making possible convert the result from each one tool to another.
+                </p>
+            </div>
+            <canvas id="abc">
+            </canvas>
+            <div style="float:left; width: 40%; text-align: justify">
+                <p>
+                    So, external tools can create the XML Files what can be converted into diagrams and edited. PHP Code executions can
+                    create XML files of diagrams what can be export to anothers applications. Diagrams can be created into the web
+                    application exported to XML file what can be be read by some external application what can create code, for example.
+                </p>
+                <p >
+                    In addition all design changes must be replicated in all the diagrams of the project and for all team members.
+                    Therefore, keep all upsubtopicd diagrams will become an increasingly expensive activity until it becomes unfeasible.
+                    The diagrams then become mere representations of how the project was originally designed without contemplating
+                    the continuous modifications and losing a lot of utility to enable the understanding of the current version of
+                    the project without the need to consult the source code.
+                </p>
+            </div>
+            <script type="text/javascript" charset="utf-8">
+                var objBox = new CanvasBox( "abc" , 400 , 500 );
+                window.box = objBox;
+                function addStateElement( color )
+                {
+                    var objStateElement = new CanvasBoxState();
+                    objStateElement.objBehavior = new CanvasBoxMagneticBehavior( objStateElement );
+                    objStateElement.x = 0;//Math.random() *  window.box.width ;
+                    objStateElement.y = 0;//Math.random() * window.box.height ;
+                    objStateElement.fixed = true;
+                    objStateElement.fillColor = "orange";
+                    objStateElement.fixedColor = "orange";
+                    objStateElement.drawFixed( true );
+                    if( color )
+                    {
+                        objStateElement.fillColor = color;
+                        objStateElement.fixedColor = color;
+                        objStateElement.defaultColor = color;
+                    }
+                    window.box.addElement( objStateElement );
+                    return objStateElement;
+                }
+                function addLine( objFrom , objTo , color )
+                {
+                    var objLine = new CanvasBoxDependency( objFrom , objTo );
+                    objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                    //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                    objLine.x =  ( objFrom.x + objTo.x  ) / 2
+                    objLine.y =  ( objFrom.y + objTo.y  ) / 2
+                    if( color )
+                    {
+                        objLine.color = color;
+                    }
+                    window.box.addElement( objLine );
+                    return objLine;
+                }
+                var objFactoryFromXml = addStateElement(  );
+                objFactoryFromXml.strStateName = "Factory From Xml";
+                objFactoryFromXml.x = 70;
+                objFactoryFromXml.y = 80;
 
-        var objFactoryFromCode = addStateElement(  );
-        objFactoryFromCode.strStateName = "Factory From Code";
-        objFactoryFromCode.x = 330;
-        objFactoryFromCode.y = 80;
+                var objFactoryFromCode = addStateElement(  );
+                objFactoryFromCode.strStateName = "Factory From Code";
+                objFactoryFromCode.x = 330;
+                objFactoryFromCode.y = 80;
 
-        var objDiagram = addStateElement( "rgb(200,200,230)" );
-        objDiagram.strStateName = "Uml Diagram";
-        objDiagram.x = 200;
-        objDiagram.y = 200;
+                var objDiagram = addStateElement( "rgb(200,200,230)" );
+                objDiagram.strStateName = "Uml Diagram";
+                objDiagram.x = 200;
+                objDiagram.y = 200;
 
-        var objPrinterHtml = addStateElement( );
-        objPrinterHtml.strStateName = "Printer Html";
-        objPrinterHtml.x = 100;
-        objPrinterHtml.y = 350;
+                var objPrinterHtml = addStateElement( );
+                objPrinterHtml.strStateName = "Printer Html";
+                objPrinterHtml.x = 100;
+                objPrinterHtml.y = 350;
 
-        var objPrinterXml = addStateElement( );
-        objPrinterXml.strStateName = "Printer Xml";
-        objPrinterXml.x = 200;
-        objPrinterXml.y = 400;
+                var objPrinterXml = addStateElement( );
+                objPrinterXml.strStateName = "Printer Xml";
+                objPrinterXml.x = 200;
+                objPrinterXml.y = 400;
 
-        var objPrinterPng = addStateElement( );
-        objPrinterPng.strStateName = "Printer Png";
-        objPrinterPng.x = 300;
-        objPrinterPng.y = 350;
+                var objPrinterPng = addStateElement( );
+                objPrinterPng.strStateName = "Printer Png";
+                objPrinterPng.x = 300;
+                objPrinterPng.y = 350;
 
         var objLine;
         objLine = addLine( objFactoryFromXml , objDiagram );
@@ -172,9 +175,8 @@ require_once( "header.php" )
         objLine = addLine( objDiagram , objPrinterXml  );
         objLine = addLine( objDiagram , objPrinterPng  );
 
-        window.objLine = objLine;
-    </script>
-            </div>
+                window.objLine = objLine;
+            </script>
         </div>
         <p class="meta">
             <span class="subtopic">Code Instrumentation</span>
