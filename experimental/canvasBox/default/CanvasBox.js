@@ -173,6 +173,12 @@ CanvasBox.prototype =
     objElementClicked: null,
 
     /**
+     * CanvasBoxElement Selected
+     * @type CanvasBoxElement
+     */
+    objElementSelected: null,
+
+    /**
      * Interval of Image Refreshing
      * @type integer
      */

@@ -289,6 +289,11 @@ CanvasBoxElement.prototype =
         objElement.x = Math.random() *  this.objBox.width ;
         objElement.y = Math.random() * this.objBox.height ;
         this.objBox.addElement( objElement );    
+    },
+
+    select: function select()
+    {
+        this.objBox.objElementSelected = this;
     }
 };
 

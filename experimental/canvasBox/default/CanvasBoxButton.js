@@ -51,17 +51,22 @@ CanvasBoxButton.prototype =
     /**
      * Button Width
      */
-    width: 15,
+    width: 25,
 
     /**
      * Button Height
      */
-    height: 15,
+    height: 25,
 
     /**
      * Distance between the button and the element
      */
-    border: 10,
+    borderWidth: 10,
+
+    /**
+     * Distance between the button and the element
+     */
+    borderHeight: 3,
 
     /**
      * @var CanvasBoxButton
@@ -88,7 +93,7 @@ CanvasBoxButton.prototype =
     /**
      * Constructor of the Canvas Box Button
      *
-     * @param CanvasBoxElement
+     * @param objElement CanvasBoxElement
      * @return void
      */
     initialize: function initialize( objElement )
@@ -104,7 +109,7 @@ CanvasBoxButton.prototype =
             {
                 case "left":
                 {
-                    this.intRelativeX = -this.width -this.border;
+                    this.intRelativeX = -this.width -this.borderWidth;
                     break;
                 }
                 case "center":
@@ -114,7 +119,7 @@ CanvasBoxButton.prototype =
                 }
                 case "right":
                 {
-                    this.intRelativeX = this.objElement.width + this.border;
+                    this.intRelativeX = this.objElement.width + this.borderWidth;
                     break;
                 }
                 default:
@@ -127,7 +132,7 @@ CanvasBoxButton.prototype =
             {
                 case "top":
                 {
-                    this.intRelativeY = -this.height -this.border;
+                    this.intRelativeY = -this.height -this.borderHeight;
                     break;
                 }
                 case "middle":
@@ -137,7 +142,7 @@ CanvasBoxButton.prototype =
                 }
                 case "bottom":
                 {
-                    this.intRelativeY = this.objElement.height + this.border;
+                    this.intRelativeY = this.objElement.height + this.borderHeight;
                     break;
                 }
                 default:
@@ -158,7 +163,7 @@ CanvasBoxButton.prototype =
                     }
                     else
                     {
-                        this.intRelativeX = this.objPreviousButton.intRelativeX + this.objPreviousButton.width + this.objPreviousButton.border;
+                        this.intRelativeX = this.objPreviousButton.intRelativeX + this.objPreviousButton.width + this.objPreviousButton.borderWidth;
                     }
                     break;
                 }
@@ -175,7 +180,7 @@ CanvasBoxButton.prototype =
                     }
                     else
                     {
-                        this.intRelativeX = this.objPreviousButton.intRelativeX - this.width - this.border;
+                        this.intRelativeX = this.objPreviousButton.intRelativeX - this.width - this.borderWidth;
                     }
                     break;
                 }
@@ -191,28 +196,28 @@ CanvasBoxButton.prototype =
                 {
                     if( this.strPositionHorizontal == "center" )
                     {
-                        this.intRelativeY = this.objPreviousButton.intRelativeY - this.height - this.border;
+                        this.intRelativeY = this.objPreviousButton.intRelativeY - this.height - this.borderHeight;
                     }
                     else
                     {
-                        this.intRelativeY = -this.width - this.border;
+                        this.intRelativeY = -this.height - this.borderHeight;
                     }
                     break;
                 }
                 case "middle":
                 {
-                    this.intRelativeY = this.objPreviousButton.intRelativeY + this.height + this.border;
+                    this.intRelativeY = this.objPreviousButton.intRelativeY + this.height + this.borderHeight;
                     break;
                 }
                 case "bottom":
                 {
                     if( this.strPositionHorizontal == "center" )
                     {
-                        this.intRelativeY = this.objPreviousButton.intRelativeY + this.objPreviousButton.height + this.objPreviousButton.border;
+                        this.intRelativeY = this.objPreviousButton.intRelativeY + this.objPreviousButton.height + this.objPreviousButton.borderHeight;
                     }
                     else
                     {
-                        this.intRelativeY = this.objElement.height + this.border;
+                        this.intRelativeY = this.objElement.height + this.borderHeight;
                     }
                     break;
                 }
@@ -222,44 +227,100 @@ CanvasBoxButton.prototype =
                 }
             }
         }
-        document.title = this.intRelativeX;
         this.x = this.objElement.x - this.objElement.width/2 + this.intRelativeX;
         this.y = this.objElement.y - this.objElement.height/2 + this.intRelativeY;
     },
 
-    drawButton: function drawButton()
+    drawOut: function drawOut()
     {
-        this.objElement.objContext.fillStyle = ( this.booMouseOver ) ? "yellow" : "blue";
+        this.objElement.objContext.fillStyle = "rgb( 250 , 250 , 250 )";
         this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-        this.objElement.objContext.strokeStyle = "red";
-        this.objElement.objContext.lineWidth = "blue";
+        this.objElement.objContext.strokeStyle = "rgb( 100 , 100 , 100 )";
+        this.objElement.objContext.lineWidth = "1px";
         this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
+    },
 
+    drawOver: function drawOver()
+    {
+        this.objElement.objContext.fillStyle = 'rgb( 230 , 230 , 250 )';
+        this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
+                                  Math.round( this.width ) , Math.round( this.height ) );
+        this.objElement.objContext.strokeStyle = "blue";
+        this.objElement.objContext.lineWidth = "1px";
+        this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
+                                  Math.round( this.width ) , Math.round( this.height ) );
+    },
+
+    drawIcon: function drawIcon()
+    {
+        this.objElement.objContext.beginPath();
+        this.objElement.objContext.save();
+        this.objElement.objContext.strokeStyle = "rgb( 20, 20, 20)";
+        this.objElement.objContext.fillStyle = this.booMouseOver ? "rgb( 250, 250, 250)" : "rgb( 220, 220, 220)" ;
+        this.objElement.objContext.moveTo( this.x  , this.y + this.height  );
+        this.objElement.objContext.lineTo( this.x + 6 , this.y + this.height - 2 );
+        this.objElement.objContext.lineTo( this.x + 8 , this.y + this.height - 8 );
+        this.objElement.objContext.lineTo( this.x + 16 , this.y + this.height - 16 );
+        this.objElement.objContext.lineTo( this.x + 30 , this.y + this.height - 16 );
+        this.objElement.objContext.lineTo( this.x + 30 , this.y + this.height - 30 );
+        this.objElement.objContext.lineTo( this.x + 16 , this.y + this.height - 30 );
+        this.objElement.objContext.lineTo( this.x + 16 , this.y + this.height - 16 );
+        this.objElement.objContext.lineTo( this.x + 8 , this.y + this.height - 8 );
+        this.objElement.objContext.lineTo( this.x + 2 , this.y + this.height - 6 );
+        this.objElement.objContext.lineTo( this.x , this.y + this.height );
+        this.objElement.objContext.stroke();
+        this.objElement.objContext.fill();
+        this.objElement.objContext.restore();
+        this.objElement.objContext.closePath();
+    },
+
+    drawButton: function drawButton()
+    {
+        if( this.booMouseOver )
+        {
+            this.drawOver();
+        }
+        else
+        {
+            this.drawOut();
+        }
+        this.drawIcon();
     },
 
     draw: function draw()
     {
-        if( !this.objElement.booMouseOver )
-        {
-             return;
-        }
         this.refresh();
-        this.drawButton();
+        if ( this.objElement.booMouseOver )
+        {
+            this.drawButton();
+        }
+    },
+
+    onClick: function onClick( event )
+    {
+        return CanvasBoxClass.Static.createRelation( this.objElement , true, "CanvasBoxAggregation" );
+    },
+
+    onDrag: function onDrag( event )
+    {
+        var objElement = this.onClick( event );
+        objElement.select();
+        return objElement;
     },
 
     isInside: function isInside( mouseX , mouseY )
     {
         this.refresh();
         if  (
-                ( mouseX >= this.x - this.border / 2)
+                ( mouseX >= this.x - this.borderWidth / 2)
                 &&
-                ( mouseX <= this.x + this.width + this.border / 2)
+                ( mouseX <= this.x + this.width + this.borderWidth / 2)
                 &&
-                ( mouseY >= this.y - this.border / 2 )
+                ( mouseY >= this.y - this.borderHeight / 2 )
                 &&
-                ( mouseY <= this.y + this.width + this.border / 2)
+                ( mouseY <= this.y + this.height + this.borderHeight / 2)
             )
         {
             this.booMouseOver = true;

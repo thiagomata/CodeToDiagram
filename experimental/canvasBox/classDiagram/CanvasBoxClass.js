@@ -42,6 +42,7 @@ CanvasBoxClass.Static.createRelation =  function createRelation( objElement , bo
 	objLine.x =  ( objFrom.x + objTo.x  ) / 2;
 	objLine.y =  ( objFrom.y + objTo.y  ) / 2;
 	objElement.objBox.addElement( objLine );
+        return objNewElement;
 };
 
 Object.extend( CanvasBoxClass.prototype,
@@ -96,7 +97,7 @@ Object.extend( CanvasBoxClass.prototype,
 
     dragColor: "rgb( 200 , 200 , 250 )",
 
-    intWallRepelsForce: 0.5,
+    intWallRepelsForce: 0.2,
 
     strClassName: "CanvasBoxClass",
 
@@ -110,6 +111,7 @@ Object.extend( CanvasBoxClass.prototype,
     
     defineMenu: function defineMenu()
     {
+        this.arrButtons = Array();
         this.objMenu = new CanvasBoxMenu();
         this.objMenu.objParent = this;
         this.objMenu.arrMenuItens = (
@@ -274,11 +276,10 @@ Object.extend( CanvasBoxClass.prototype,
     {
         this.objBehavior = new CanvasBoxDefaultBehavior( this );
         this.defineMenu();
-        this.addButton( new CanvasBoxButton( this ) );
-        this.addButton( new CanvasBoxButton( this ) );
-        this.addButton( new CanvasBoxButton( this ) );
-        this.addButton( new CanvasBoxButton( this ) );
-        this.addButton( new CanvasBoxButton( this ) );
+        this.addButton( new CanvasBoxAggregationButton( this ) );
+        this.addButton( new CanvasBoxCompositionButton( this ) );
+        this.addButton( new CanvasBoxAssociationButton( this ) );
+        this.addButton( new CanvasBoxChildButton( this ) );
     },
 
     toSerialize: function toSerialize()
@@ -490,6 +491,15 @@ Object.extend( CanvasBoxClass.prototype,
 
     onClick: function onClick( event )
     {
+        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        {
+            var objButton = this.arrButtons[ i ];
+            if( objButton.booMouseOver )
+            {
+                return objButton.onClick( event );
+            }
+        }
+
        return this.objBehavior.onClick( event );
     },
 
@@ -528,5 +538,25 @@ Object.extend( CanvasBoxClass.prototype,
         {
             this.strClassElementName = strClassNewName;
         }
+    },
+
+
+    /**
+     * On Drag Event
+     * @param Event event
+     * @return boolean
+     */
+    onDrag: function onDrag( event )
+    {
+        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        {
+            var objButton = this.arrButtons[ i ];
+            if( objButton.booMouseOver )
+            {
+                return objButton.onDrag( event );
+            }
+        }
+
+        return this.objBehavior.onDrag( event );
     }
 });
