@@ -118,6 +118,7 @@ CanvasBox.Static.filterResults = function filterResults(intWin, intDocel, intBod
 
 CanvasBox.prototype =
 {
+intCounterChanged: 0,
     /**
      * Position x of the Canvas Box Element relative to the page
      * @type integer
@@ -173,22 +174,16 @@ CanvasBox.prototype =
     objElementClicked: null,
 
     /**
-     * CanvasBoxElement Selected
-     * @type CanvasBoxElement
-     */
-    objElementSelected: null,
-
-    /**
      * Interval of Image Refreshing
      * @type integer
      */
-    intIntervalDraw: 2,
+    intIntervalDraw: 0,
 
     /**
      * Interval of Objects Timers
      * @type integer
      */
-    intIntervalTimer: 2,
+    intIntervalTimer: 1,
 
     /**
      * Control if the refreshing is active or not
@@ -219,6 +214,10 @@ CanvasBox.prototype =
      */
     booOnTimer: false,
 
+    booChanged: true,
+    
+    booMouseOver: true,
+    
     /**
      * Javascript constant of right button click
      */
@@ -245,7 +244,7 @@ CanvasBox.prototype =
     /**
      * Flag that controls if the FPS counter is active
      */
-    booCountFps: true,
+    booCountFps: false,
 
     /**
      * Background Color of the Canvas Box
@@ -394,6 +393,8 @@ CanvasBox.prototype =
         this.objCanvasHtml.setAttribute( "onmousedown",   ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseDown( event )' ) );
         this.objCanvasHtml.setAttribute( "oncontextmenu", ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onContextMenu( event )' ) );
         this.objCanvasHtml.setAttribute( "onKeyup",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onKeyUp( event )' ) );
+        this.objCanvasHtml.setAttribute( "onMouseOut",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseOut( event )' ) );
+        this.objCanvasHtml.setAttribute( "onMouseOver",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseOver( event )' ) );
         this.objCanvasHtml.setAttribute( "contentEditable" , "true");
         this.objCanvasHtml.contentEditable = true;
         this.defineMenu();
@@ -441,6 +442,13 @@ CanvasBox.prototype =
      */
     draw: function draw()
     {
+        if( !this.booChanged )
+        {
+            this.intCounterStandyBy++;
+            return;
+        }
+        this.intCounterStandyBy = 0;
+
         this.booOnDraw = true;
 
         this.clear();
@@ -496,6 +504,7 @@ CanvasBox.prototype =
         }
 
         this.booOnDraw = false;
+        this.booChanged = false;
     },
 
     /**
@@ -521,6 +530,12 @@ CanvasBox.prototype =
      */
     play: function play()
     {
+        this.intCounterStandyBy = 0;
+        
+        if( this.booActive )
+        {
+            return;
+        }
         this.booActive = true;
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onDraw()' , this.intIntervalDraw );
@@ -549,7 +564,28 @@ CanvasBox.prototype =
         {
             return false;
         }
-        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
+        if( this.intCounterStandyBy < 10 )
+        {
+            setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
+        }
+        else
+        {
+            if( this.booMouseOver )
+            {
+                setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer * 2 );
+            }
+            else
+            {
+                this.intCounterStandyBy = 0;
+                this.stop();
+            }
+        }
+        
+        if( this.intCounterStandyBy > 10 )
+        {
+            this.intCounterStandyBy = 10;
+        }
+        
         if( !this.booOnTimer )
         {
             this.onTimerElements();
@@ -564,12 +600,12 @@ CanvasBox.prototype =
     onCountFps: function onCountFps()
     {
         this.intLastFps = this.intFps;
-        document.title = "FPS: " + this.intLastFps;
         this.intFps = 0;
         if( ! this.booCountFps )
         {
             return false;
         }
+        document.title = "FPS: " + this.intLastFps;
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onCountFps()' , 1000 );
     },
 
@@ -621,12 +657,14 @@ CanvasBox.prototype =
             var objElement = this.arrElements[ i ];
             if( objElement.isInside( this.mouseX , this.mouseY ) )
             {
+                this.change()
                 objElementOver = objElement;
                 i = l;
             }
         }
         if( this.objElementOver != objElementOver )
         {
+            this.change()
             if( this.objElementOver != null )
             {
                 this.objElementOver.onMouseOut( event );
@@ -644,6 +682,7 @@ CanvasBox.prototype =
         }
         if( this.objElementSelected != null )
         {
+            this.change()
             this.objElementSelected.onDrag( event );
         }
     },
@@ -657,8 +696,11 @@ CanvasBox.prototype =
      */
     onMouseUp: function onMouseUp( event )
     {
+        this.booMouseOver = true;
+        
         if( this.objElementSelected != null )
         {
+            this.change()
             this.objElementSelected.onDrop( event);
         }
         this.objElementSelected = null;
@@ -671,6 +713,8 @@ CanvasBox.prototype =
      */
     onMouseDown: function onMouseDown( event )
     {
+        this.booMouseOver = true;
+        this.change()
         this.objElementSelected = this.objElementOver;
         return false;
     },
@@ -682,6 +726,8 @@ CanvasBox.prototype =
      */
     onClick: function onClick( event )
     {
+        this.booMouseOver = true;
+        this.change()
         if( this.booShowMenu )
         {
             this.booShowMenu = this.objMenuSelected.onClick( event );
@@ -709,6 +755,8 @@ CanvasBox.prototype =
      */
     onDblClick: function onDblClick( event )
     {
+        this.booMouseOver = true;
+        this.change()
         if( this.objElementOver != null )
         {
             this.objElementOver.onDblClick( event );
@@ -726,6 +774,8 @@ CanvasBox.prototype =
      */
     onBoxRightClick: function onBoxRightClick( event )
     {
+        this.booMouseOver = true;
+        this.change()
         return false;
     },
 
@@ -736,6 +786,8 @@ CanvasBox.prototype =
      */
     onContextMenu: function onContextMenu( event )
     {
+        this.booMouseOver = true;
+        this.change()
         if( this.objElementOver != null )
         {
             this.objElementOver.onContextMenu( event );
@@ -753,6 +805,9 @@ CanvasBox.prototype =
      */
     onBoxContextMenu: function onBoxContextMenu( event )
     {
+        this.booMouseOver = true;
+        this.change()
+
         this.booShowMenu = !this.booShowMenu;
         if( this.booShowMenu )
         {
@@ -771,6 +826,8 @@ CanvasBox.prototype =
      */
     onBoxClick: function onBoxClick( event )
     {
+        this.booMouseOver = true;
+        this.change()
         if( this.booShowMenu )
         {
             this.booShowMenu = this.objMenuSelected.onClick( event );
@@ -784,7 +841,8 @@ CanvasBox.prototype =
      */
     onBoxDblClick: function onBoxDblClick( event )
     {
-
+        this.booMouseOver = true;
+        this.change()
     },
 
     /**
@@ -794,6 +852,8 @@ CanvasBox.prototype =
      */
     onKeyUp: function onKeyUp( event )
     {
+        this.change()
+        
         switch( event.keyCode )
         {
             case 46: // delete
@@ -873,6 +933,7 @@ CanvasBox.prototype =
      */
     deleteElement: function deleteElement( objElement , booCallOnDelete )
     {
+        this.change()
         if( Object.isUndefined( booCallOnDelete ) )
         {
             booCallOnDelete = true;
@@ -896,5 +957,23 @@ CanvasBox.prototype =
         {
             this.objElementClicked = null;
         }
+    },
+    
+    onMouseOver: function onMouseOver( event )
+    {
+        this.booMouseOver = true;
+        this.play();
+    },
+    
+    onMouseOut: function onMouseOut( event )
+    {
+        this.booMouseOver = false;
+    },
+    
+    change: function change()
+    {
+        this.play();
+        this.intCounterStandyBy = 0;
+        this.booChanged = true;
     }
 }

@@ -113,7 +113,6 @@ CanvasBoxDefaultBehavior.prototype =
 
     move: function move()
     {
-        this.refresh();
         if( this.fixed || this.dragdrop )
         {
             return;

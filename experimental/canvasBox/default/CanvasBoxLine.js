@@ -94,10 +94,13 @@ Object.extend( CanvasBoxLine.prototype,
     
     drawBackgroundCircle: function drawBackgroundCircle( intSide )
     {
+        return;
         this.objContext.fillStyle = this.objBox.backgroundColor;
+        this.objContext.lineWidth = 1;
         this.objContext.beginPath();
-        this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
-        this.objContext.fill();
+        //this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
+        this.objContext.fill()
+        this.objContext.stroke();
         this.objContext.closePath();
     },
     

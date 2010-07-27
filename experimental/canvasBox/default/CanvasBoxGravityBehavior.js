@@ -29,8 +29,17 @@ Object.extend( CanvasBoxGravityBehavior.prototype,
             }
         }
 
-        this.objBoxElement.x += this.objBoxElement.dx;
-        this.objBoxElement.y += this.objBoxElement.dy;
+        if(
+            ( Math.round( this.objBoxElement.dx ) !== 0 )
+            ||
+            ( Math.round( this.objBoxElement.dy ) !== 0 )
+        )
+        {
+            this.objBoxElement.objBox.booChanged = true;
+        }
+        
+        this.objBoxElement.x += Math.round( this.objBoxElement.dx );
+        this.objBoxElement.y += Math.round( this.objBoxElement.dy );
         this.objBoxElement.dx *= 0.99;
         this.objBoxElement.dy *= 0.99;
 
@@ -131,7 +140,6 @@ Object.extend( CanvasBoxGravityBehavior.prototype,
 
     onMouseOver: function onMouseOver( event )
     {
-        document.title = 'gravity';
         this.objBoxElement.color = "red";
     },
 

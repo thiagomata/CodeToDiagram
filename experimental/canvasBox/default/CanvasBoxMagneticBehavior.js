@@ -137,8 +137,14 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
 
         this.getVectors( arrVectors );
 
-        this.objBoxElement.x += this.objBoxElement.dx;
-        this.objBoxElement.y += this.objBoxElement.dy;
+        if(
+            Math.round(this.objBoxElement.dx) !== 0 && 
+            Math.round(this.objBoxElement.dy) !== 0)
+        {
+            this.objBoxElement.objBox.booChanged = true;
+            this.objBoxElement.x += this.objBoxElement.dx;
+            this.objBoxElement.y += this.objBoxElement.dy;
+        }
        this.refresh();
     },
 

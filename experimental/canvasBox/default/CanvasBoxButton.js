@@ -237,7 +237,7 @@ CanvasBoxButton.prototype =
         this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
         this.objElement.objContext.strokeStyle = "rgb( 100 , 100 , 100 )";
-        this.objElement.objContext.lineWidth = "1px";
+        this.objElement.objContext.lineWidth = 1;//1px";
         this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
     },
@@ -248,7 +248,7 @@ CanvasBoxButton.prototype =
         this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
         this.objElement.objContext.strokeStyle = "blue";
-        this.objElement.objContext.lineWidth = "1px";
+        this.objElement.objContext.lineWidth = 1;//1px";
         this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
     },
