@@ -156,13 +156,13 @@ CanvasBox.prototype =
      * Interval of Image Refreshing
      * @type integer
      */
-    intIntervalDraw: 150,
+    intIntervalDraw: 0,
 
     /**
      * Interval of Objects Timers
      * @type integer
      */
-    intIntervalTimer: 150,
+    intIntervalTimer: 100000000,
 
     /**
      * Control if the refreshing is active or not
@@ -402,6 +402,10 @@ CanvasBox.prototype =
         }
 
         this.booOnDraw = false;
+
+documentitlte = 123;
+//        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onDraw()' , this.intIntervalDraw );
+
     },
 
     /**
@@ -418,6 +422,9 @@ CanvasBox.prototype =
         }
 
         this.booOnTimer = false;
+
+        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + '].onTimer()' , this.intIntervalTimer );
+
     },
 
     /**
@@ -483,7 +490,6 @@ CanvasBox.prototype =
         {
             return false;
         }
-        setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onDraw()' , this.intIntervalDraw );
         if( !this.booOnDraw )
         {
             this.draw();
