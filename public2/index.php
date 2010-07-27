@@ -39,7 +39,7 @@ require_once( "header.php" )
         <div style="clear: both;">&nbsp;</div>
         <div class="entry">
             <p>
-                When the sequence diagram it is used to describe the features into the code level, as the
+                When the diagram it is used to describe the features into the code level, as the
                 interaction of objects, using methods, it is possible to plan how the classes will be. But,
                 as the code development evolves, been caused by the analysis fail or by requirement change,
                 the diagrams will losing the link with the reality losing consequently the descriptive function
@@ -58,14 +58,14 @@ require_once( "header.php" )
         <div style="clear: both;">&nbsp;</div>
         <div class="entry">
             <p>
-                When the Sequence Diagram it is created in the planing moment. It should be possible to created it without the
+                When the Diagram it is created in the planing moment. It should be possible to created it without the
                 code need. Many tools are able to create sequence diagrams but big part of them are not able to keep on sync all
                 the diagrams created to the team members, most of then are monoplataform,
                 not colaborative, without history of changes, close format file, etc.
             </p>
             <p>
                 In addition all design changes must be replicated in all the diagrams of the project and for all team members.
-                Therefore, keep all upsubtopicd diagrams will become an increasingly expensive activity until it becomes unfeasible.
+                Therefore, keep all update subtopic diagrams will become an increasingly expensive activity until it becomes unfeasible.
                 The diagrams then become mere representations of how the project was originally designed without contemplating
                 the continuous modifications and losing a lot of utility to enable the understanding of the current version of
                 the project without the need to consult the source code.
@@ -82,24 +82,24 @@ require_once( "header.php" )
         <div>
             <div class="entry">
                 <p>
-                    This application proposal it is to provide ways to create UML diagrams based on PHP code execution or by web tools or
-                    based on XML files making possible convert the result from each one tool to another.
+                    This application proposal it is to provide ways to create diagrams based on PHP code execution or by web tools or
+                    based on XML files / API making possible convert the result from each one tool to another.
                 </p>
             </div>
             <canvas id="abc">
             </canvas>
             <div style="float:left; width: 40%; text-align: justify">
                 <p>
-                    So, external tools can create the XML Files what can be converted into diagrams and edited. PHP Code executions can
+                    So, external tools can create the XML Files what can be converted into diagrams and edited. The diagram can be created by some API call. PHP Code executions can
                     create XML files of diagrams what can be export to anothers applications. Diagrams can be created into the web
                     application exported to XML file what can be be read by some external application what can create code, for example.
                 </p>
                 <p >
-                    In addition all design changes must be replicated in all the diagrams of the project and for all team members.
-                    Therefore, keep all upsubtopicd diagrams will become an increasingly expensive activity until it becomes unfeasible.
-                    The diagrams then become mere representations of how the project was originally designed without contemplating
-                    the continuous modifications and losing a lot of utility to enable the understanding of the current version of
-                    the project without the need to consult the source code.
+                    In addition all design changes will be automatically replicated in all the diagrams of some project and for all team members.
+                    Moreover, each change will be keeped into history, what can provide informations of who, when and why some change had to be done.
+                </p>
+                <p>
+                    When the implementation provided in the diagrams, become a reality, a new diagram can be formed from the execution of that code. This new diagram will remain faithful to the reality of running the code, contemplating your changes.
                 </p>
             </div>
             <script type="text/javascript" charset="utf-8">
@@ -127,7 +127,7 @@ require_once( "header.php" )
                 function addLine( objFrom , objTo , color )
                 {
                     var objLine = new CanvasBoxDependency( objFrom , objTo );
-                    objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                    objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
                     //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
                     objLine.x =  ( objFrom.x + objTo.x  ) / 2
                     objLine.y =  ( objFrom.y + objTo.y  ) / 2
