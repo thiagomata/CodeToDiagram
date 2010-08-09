@@ -244,7 +244,25 @@ CanvasBoxElement.prototype =
     {
         return this.objBehavior.getForce( objBoxElement );
     },
-    
+
+    getConnectors: function getConnectors()
+    {
+        var arrConnection = Array();
+        var i;
+        for( i = 0 ; i < this.objBox.arrElements.length; ++i )
+        {
+            var objElementElement = this.objBox.arrElements[ i ];
+            if( is_object( objElementElement ) )
+            {
+                if( objElementElement.objElementFrom == this || objElementElement.objElementTo == this )
+                {
+                    arrConnection.push( objElementElement );
+                }
+            }
+        }
+        return arrConnection;
+    },
+
     /**
      * Event on Delete Element
      */    
@@ -294,6 +312,10 @@ CanvasBoxElement.prototype =
     select: function select()
     {
         this.objBox.objElementSelected = this;
+    },
+
+    load: function load()
+    {
     }
 };
 

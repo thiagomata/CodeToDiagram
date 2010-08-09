@@ -118,7 +118,16 @@ CanvasBox.Static.filterResults = function filterResults(intWin, intDocel, intBod
 
 CanvasBox.prototype =
 {
-intCounterChanged: 0,
+    /**
+     * Zoom Distance
+     */
+    dblZoom: 1,
+
+    /**
+     * Counter of Stand By Frames
+     */
+    intCounterStandyBy: 0,
+
     /**
      * Position x of the Canvas Box Element relative to the page
      * @type integer
@@ -161,6 +170,13 @@ intCounterChanged: 0,
      */
     arrElements: Array(),
 
+    /**
+     * Collection of CanvasButtons of the Box
+     * 
+     * @type CanvasBoxButton[]
+     */
+    arrButtons: Array(),
+    
     /**
      * CanvasBoxElement Over
      * @type CanvasBoxElement
@@ -372,11 +388,11 @@ intCounterChanged: 0,
      */
     initialize: function initialize( idCanvasHtmlElement , intWidth, intHeight )
     {
-        this.width = intWidth;
-        this.height = intHeight;
+        this.width = intWidth / this.dblZoom;
+        this.height = intHeight / this.dblZoom;
         this.id = CanvasBox.Static.arrInstances.length;
         CanvasBox.Static.arrInstances[ this.id ] = this;
-        
+
         this.objCanvasHtml = document.getElementById( idCanvasHtmlElement );
         if( this.objCanvasHtml == null )
         {
@@ -384,8 +400,8 @@ intCounterChanged: 0,
         }
         this.getPosition();
         
-        this.objCanvasHtml.setAttribute( "width" ,  this.width  + "px" );
-        this.objCanvasHtml.setAttribute( "height" , this.height + "px" );
+        this.objCanvasHtml.setAttribute( "width" ,  intWidth  + "px" );
+        this.objCanvasHtml.setAttribute( "height" , intHeight + "px" );
         this.objCanvasHtml.setAttribute( "onmousemove",   ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' ) );
         this.objCanvasHtml.setAttribute( "onclick",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onClick( event )' ) );
         this.objCanvasHtml.setAttribute( "ondblclick",    ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDblClick( event )' ) );
@@ -399,7 +415,14 @@ intCounterChanged: 0,
         this.objCanvasHtml.contentEditable = true;
         this.defineMenu();
         this.play();
-		
+
+        var objButton;
+        this.objBox = this;
+        objButton = new CanvasBoxZoomInButton( this );
+        this.addButton( objButton );
+        objButton = new CanvasBoxZoomOutButton( this );
+        this.addButton( objButton );
+        
 		return this;
     },
 
@@ -414,6 +437,7 @@ intCounterChanged: 0,
         this.arrElements.push( objElement );
         objElement.objBox = this;
         objElement.objContext = this.getContext();
+        objElement.load();
     },
 
     /**
@@ -501,6 +525,13 @@ intCounterChanged: 0,
             this.objMenuSelected.mouseX = this.mouseX;
             this.objMenuSelected.mouseY = this.mouseY;
             this.objMenuSelected.draw();
+        }
+
+        for( i = 0 ; i < this.arrButtons.length; ++i )
+        {
+            var objButton = this.arrButtons[i];
+            objButton.refresh();
+            objButton.draw();
         }
 
         this.booOnDraw = false;
@@ -607,6 +638,7 @@ intCounterChanged: 0,
         }
         document.title = "FPS: " + this.intLastFps;
         setTimeout( 'CanvasBox.Static.arrInstances[ ' + this.id + ' ].onCountFps()' , 1000 );
+        return true;
     },
 
     /**
@@ -637,8 +669,8 @@ intCounterChanged: 0,
      */
     refreshMousePosition: function refreshMousePosition( event )
     {
-        this.mouseX = event.clientX - this.x + CanvasBox.Static.scrollLeft();
-        this.mouseY = event.clientY - this.y + CanvasBox.Static.scrollTop();
+        this.mouseX = ( event.clientX - this.x + CanvasBox.Static.scrollLeft() ) / this.dblZoom;
+        this.mouseY = ( event.clientY - this.y + CanvasBox.Static.scrollTop()  ) / this.dblZoom;
     },
 
     /**
@@ -685,6 +717,17 @@ intCounterChanged: 0,
             this.change()
             this.objElementSelected.onDrag( event );
         }
+
+        for( i = 0 ; i < this.arrButtons.length; ++i )
+        {
+            var objButton = this.arrButtons[i];
+            objButton.refresh();
+            if( objButton.booMouseOver !== objButton.isInside( this.mouseX , this.mouseY ) )
+            {
+                this.change();
+            }
+        }
+
     },
 
     /**
@@ -744,6 +787,17 @@ intCounterChanged: 0,
             this.objElementClicked = null;
             this.onBoxClick( event );
         }
+
+        for( i = 0 ; i < this.arrButtons.length; ++i )
+        {
+            var objButton = this.arrButtons[i];
+            objButton.refresh();
+            if( objButton.booMouseOver )
+            {
+                objButton.onClick();
+            }
+        }
+
         this.objCanvasHtml.focus();
         return false;
     },
@@ -941,7 +995,7 @@ intCounterChanged: 0,
 
         if( booCallOnDelete )
         {
-            this.objElementClicked.onDelete();
+            objElement.onDelete();
         }
 
         var intId = this.arrElements.indexOf( objElement );
@@ -975,5 +1029,187 @@ intCounterChanged: 0,
         this.play();
         this.intCounterStandyBy = 0;
         this.booChanged = true;
+    },
+
+    moveTo: function moveTo( intX , intY )
+    {
+        this.getContext().moveTo( 
+            Math.round( intX * this.dblZoom ),
+            Math.round( intY * this.dblZoom )
+        );
+    },
+
+    lineTo: function lineTo( intX , intY )
+    {
+        this.getContext().lineTo(
+            Math.round( intX * this.dblZoom ),
+            Math.round( intY * this.dblZoom )
+        );
+    },
+
+    arc: function arc( intX , intY, dblRadius , dblStartAngle , dblEndAngle, booClockwise)
+    {
+        this.getContext().arc(
+            Math.round( intX * this.dblZoom  ),
+            Math.round( intY * this.dblZoom  ),
+            dblRadius ,
+            dblStartAngle ,
+            dblEndAngle ,
+            booClockwise
+        );
+    },
+
+    saveContext: function saveContext()
+    {
+        this.getContext().save();
+    },
+
+    restoreContext: function restoreContext()
+    {
+        this.getContext().restore();
+    },
+
+    beginPath: function beginPath()
+    {
+        this.getContext().beginPath();
+    },
+
+    closePath: function closePath()
+    {
+        this.getContext().closePath();
+    },
+
+    setFillStyle: function setFillStyle( strFillStyle )
+    {
+       this.getContext().fillStyle = strFillStyle;
+    },
+
+    setStrokeStyle: function setStrokeStyle( intStrokeStyle )
+    {
+        this.getContext().strokeStyle = ( intStrokeStyle  * this.dblZoom );
+    },
+
+    setLineWidth: function setLineWidth( dblLineWidth )
+    {
+        this.getContext().lineWidth = ( dblLineWidth  * this.dblZoom );
+    },
+
+    fill: function fill()
+    {
+        this.getContext().fill();
+    },
+
+    stroke: function stroke()
+    {
+        this.getContext().stroke();
+    },
+
+    strokeText: function strokeText( strText , intPosX , intPosY )
+    {
+        this.getContext().strokeText(
+            strText ,
+            Math.round( intPosX * this.dblZoom ),
+            Math.round( intPosY * this.dblZoom )
+        );
+    },
+
+    fillText: function fillText( strText , intPosX , intPosY )
+    {
+        this.getContext().fillText(
+            strText ,
+            Math.round( intPosX * this.dblZoom ),
+            Math.round( intPosY * this.dblZoom )
+        );
+    },
+
+    strokeRect: function strokeRect( intX, intY, intWidth, intHeight )
+    {
+        this.getContext().strokeRect(
+            Math.round( intX        * this.dblZoom ),
+            Math.round( intY        * this.dblZoom ),
+            Math.round( intWidth    * this.dblZoom ),
+            Math.round( intHeight   * this.dblZoom )
+        );
+    },
+
+    fillRect: function fillRect( intX, intY, intWidth, intHeight )
+    {
+        this.getContext().fillRect(
+            Math.round( intX        * this.dblZoom ),
+            Math.round( intY        * this.dblZoom ),
+            Math.round( intWidth    * this.dblZoom ),
+            Math.round( intHeight   * this.dblZoom )
+        );
+    },
+
+    setShadowOffsetX: function setShadowOffsetX( intX )
+    {
+        this.getContext().shadowOffsetX = Math.round( intX * this.dblZoom );
+    },
+
+    setShadowOffsetY: function setShadowOffsetX( intY )
+    {
+        this.getContext().shadowOffsetY = Math.round( intY * this.dblZoom );
+    },
+
+    setShadowBlur: function shadowBlur( intBlur )
+    {
+        this.getContext().shadowBlur = intBlur;
+    },
+
+    setShadowColor: function setShadowColor( strColor )
+    {
+        this.getContext().shadowColor = strColor;
+    },
+
+    setFont: function setFont( strFontDescription )
+    {
+        var arrFontData = explode( " " , strFontDescription );
+        var strSize = arrFontData[0];
+        var strSizeNumber = strSize.substr( 0 , strSize.length - 2 );
+        var strSizeType = strSize.substr( strSize.length - 2 );
+        var dblSizeNumber = 1 * strSizeNumber;
+        dblSizeNumber = dblSizeNumber * this.dblZoom;
+        var strNewSizeNumber = dblSizeNumber + strSizeType;
+        arrFontData[0] = strNewSizeNumber;
+        strFontDescription = implode( " " , arrFontData );
+        this.getContext().font = strFontDescription;
+    },
+
+    translate: function translate( dblDegree , intDistance )
+    {
+        this.getContext().translate(
+            Math.round( dblDegree    * this.dblZoom ),
+            Math.round( intDistance  * this.dblZoom )
+        );
+    },
+
+    drawLine: function drawLine( intXfrom , intYfrom , intXto , intYto )
+    {
+        this.getContext().drawLine(
+            Math.round( intXfrom     * this.dblZoom ),
+            Math.round( intYfrom     * this.dblZoom ),
+            Math.round( intXto       * this.dblZoom ),
+            Math.round( intYto       * this.dblZoom )
+        )
+    },
+
+    rotate: function rotate( dblDegree )
+    {
+        this.getContext().rotate( dblDegree );
+    },
+
+    addButton: function addButton( objButton )
+    {
+        objButton.strPositionHorizontal = "right";
+        objButton.strPositionVertical = "top";
+        objButton.intPaddingLeft = -this.width / 2 + 50;
+        objButton.intPaddingTop = this.height / 2 + 100;
+        if( this.arrButtons.length > 0 )
+        {
+            var objLast = this.arrButtons[ this.arrButtons.length - 1 ];
+            objButton.objPreviousButton = objLast;
+        }
+        this.arrButtons.push( objButton );
     }
 }

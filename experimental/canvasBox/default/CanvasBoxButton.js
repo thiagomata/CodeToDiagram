@@ -8,6 +8,12 @@
 var CanvasBoxButton = Class.create();
 CanvasBoxButton.prototype =
 {
+    strTitle: "Default Button",
+
+    intPaddingTop: 0,
+    
+    intPaddingLeft: 0,
+
     /**
      * X Position of the Button relative to the element what it's belong to
      */
@@ -77,13 +83,6 @@ CanvasBoxButton.prototype =
      * @var CanvasBoxElement
      */
     objElement: null,
-
-
-    /**
-     * Canvas 2D Context from the Canvas Box Container
-     * @type CanvasRenderingContext2D
-     */
-    objContext: null,
 
     /**
      * Flag to control if the mouse is over the element
@@ -227,53 +226,68 @@ CanvasBoxButton.prototype =
                 }
             }
         }
-        this.x = this.objElement.x - this.objElement.width/2 + this.intRelativeX;
-        this.y = this.objElement.y - this.objElement.height/2 + this.intRelativeY;
+        this.x = this.objElement.x - this.objElement.width/2 + this.intRelativeX + this.intPaddingLeft;
+        this.y = this.objElement.y - this.objElement.height/2 + this.intRelativeY + this.intPaddingTop;
+        document.title = this.objElement.objBox.mouseX + ' ' + this.objElement.objBox.mouseY;
+        document.title += ' button ' + this.x + ' ' + this.y;
     },
 
     drawOut: function drawOut()
     {
-        this.objElement.objContext.fillStyle = "rgb( 250 , 250 , 250 )";
-        this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
+        this.objElement.objBox.setFillStyle( "rgb( 250 , 250 , 250 )" );
+        this.objElement.objBox.fillRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-        this.objElement.objContext.strokeStyle = "rgb( 100 , 100 , 100 )";
-        this.objElement.objContext.lineWidth = 1;//1px";
-        this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
+        this.objElement.objBox.setStrokeStyle( "rgb( 100 , 100 , 100 )" );
+        this.objElement.objBox.setLineWidth( 1 );//1px";
+        this.objElement.objBox.strokeRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
     },
 
     drawOver: function drawOver()
     {
-        this.objElement.objContext.fillStyle = 'rgb( 230 , 230 , 250 )';
-        this.objElement.objContext.fillRect( Math.round( this.x ) , Math.round( this.y ),
+        this.objElement.objBox.setFillStyle( 'rgb( 230 , 230 , 250 )' );
+        this.objElement.objBox.fillRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-        this.objElement.objContext.strokeStyle = "blue";
-        this.objElement.objContext.lineWidth = 1;//1px";
-        this.objElement.objContext.strokeRect( Math.round( this.x ) , Math.round( this.y ),
+        this.objElement.objBox.setStrokeStyle( "blue" );
+        this.objElement.objBox.setLineWidth( 1 );//1px";
+        this.objElement.objBox.strokeRect( Math.round( this.x ) , Math.round( this.y ),
                                   Math.round( this.width ) , Math.round( this.height ) );
     },
 
     drawIcon: function drawIcon()
     {
-        this.objElement.objContext.beginPath();
-        this.objElement.objContext.save();
-        this.objElement.objContext.strokeStyle = "rgb( 20, 20, 20)";
-        this.objElement.objContext.fillStyle = this.booMouseOver ? "rgb( 250, 250, 250)" : "rgb( 220, 220, 220)" ;
-        this.objElement.objContext.moveTo( this.x  , this.y + this.height  );
-        this.objElement.objContext.lineTo( this.x + 6 , this.y + this.height - 2 );
-        this.objElement.objContext.lineTo( this.x + 8 , this.y + this.height - 8 );
-        this.objElement.objContext.lineTo( this.x + 16 , this.y + this.height - 16 );
-        this.objElement.objContext.lineTo( this.x + 30 , this.y + this.height - 16 );
-        this.objElement.objContext.lineTo( this.x + 30 , this.y + this.height - 30 );
-        this.objElement.objContext.lineTo( this.x + 16 , this.y + this.height - 30 );
-        this.objElement.objContext.lineTo( this.x + 16 , this.y + this.height - 16 );
-        this.objElement.objContext.lineTo( this.x + 8 , this.y + this.height - 8 );
-        this.objElement.objContext.lineTo( this.x + 2 , this.y + this.height - 6 );
-        this.objElement.objContext.lineTo( this.x , this.y + this.height );
-        this.objElement.objContext.stroke();
-        this.objElement.objContext.fill();
-        this.objElement.objContext.restore();
-        this.objElement.objContext.closePath();
+        this.objElement.objBox.beginPath();
+        this.objElement.objBox.saveContext();
+        this.objElement.objBox.setStrokeStyle( "rgb( 20, 20, 20)" );
+        this.objElement.objBox.setFfillStyle( this.booMouseOver ? "rgb( 250, 250, 250)" : "rgb( 220, 220, 220)"  );
+        this.objElement.objBox.moveTo( this.x  , this.y + this.height  );
+        this.objElement.objBox.lineTo( this.x + 6 , this.y + this.height - 2 );
+        this.objElement.objBox.lineTo( this.x + 8 , this.y + this.height - 8 );
+        this.objElement.objBox.lineTo( this.x + 16 , this.y + this.height - 16 );
+        this.objElement.objBox.lineTo( this.x + 30 , this.y + this.height - 16 );
+        this.objElement.objBox.lineTo( this.x + 30 , this.y + this.height - 30 );
+        this.objElement.objBox.lineTo( this.x + 16 , this.y + this.height - 30 );
+        this.objElement.objBox.lineTo( this.x + 16 , this.y + this.height - 16 );
+        this.objElement.objBox.lineTo( this.x + 8 , this.y + this.height - 8 );
+        this.objElement.objBox.lineTo( this.x + 2 , this.y + this.height - 6 );
+        this.objElement.objBox.lineTo( this.x , this.y + this.height );
+        this.objElement.objBox.stroke();
+        this.objElement.objBox.fill();
+        this.objElement.objBox.restoreContext();
+        this.objElement.objBox.closePath();
+    },
+
+    drawTitle: function drawTitle()
+    {
+          this.objElement.objBox.saveContext();
+          this.objElement.objBox.setShadowOffsetX( 2 );
+          this.objElement.objBox.setShadowOffsetY( 2 );
+          this.objElement.objBox.setShadowBlur( 2 );
+          this.objElement.objBox.setShadowColor( "rgba(0, 0, 0, 0.5)" );
+          this.objElement.objBox.setFont( "20px Times New Roman" );
+          this.objElement.objBox.setFillStyle("rgb( 100 , 100, 100 )");
+          this.objElement.objBox.fillText( this.strTitle , this.x, this.y - 20 );
+          this.objElement.objBox.restoreContext();
     },
 
     drawButton: function drawButton()
@@ -295,6 +309,10 @@ CanvasBoxButton.prototype =
         if ( this.objElement.booMouseOver )
         {
             this.drawButton();
+            if( this.booMouseOver )
+            {
+                this.drawTitle();
+            }
         }
     },
 
@@ -306,6 +324,7 @@ CanvasBoxButton.prototype =
     onDrag: function onDrag( event )
     {
         var objElement = this.onClick( event );
+        objElement.intMass = 0;
         objElement.select();
         return objElement;
     },

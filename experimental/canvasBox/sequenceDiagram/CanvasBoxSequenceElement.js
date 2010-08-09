@@ -1,9 +1,9 @@
-var CanvasBoxClass = Class.create();
-Object.extend( CanvasBoxClass.prototype, CanvasBoxElement.prototype);
-CanvasBoxClass.Static = new Object();
-CanvasBoxClass.Static.createRelation =  function createRelation( objElement , booFrom, strLineClass )
+var CanvasBoxSequenceElement = Class.create();
+Object.extend( CanvasBoxSequenceElement.prototype, CanvasBoxElement.prototype);
+CanvasBoxSequenceElement.Static = new Object();
+CanvasBoxSequenceElement.Static.createRelation =  function createRelation( objElement , booFrom, strLineClass )
 {
-	var objNewElement = new CanvasBoxClass();
+	var objNewElement = new CanvasBoxSequenceElement();
 	objNewElement.objBehavior = new window[ objElement.objBehavior.strClassName ]( objNewElement );
 	objNewElement.x = objElement.objBox.mouseX + 100;
 	objNewElement.y = objElement.objBox.mouseY + 100;
@@ -42,9 +42,10 @@ CanvasBoxClass.Static.createRelation =  function createRelation( objElement , bo
 	objLine.x =  ( objFrom.x + objTo.x  ) / 2;
 	objLine.y =  ( objFrom.y + objTo.y  ) / 2;
 	objElement.objBox.addElement( objLine );
+        return objNewElement;
 };
 
-Object.extend( CanvasBoxClass.prototype,
+Object.extend( CanvasBoxSequenceElement.prototype,
 {
     width: 150,
 
@@ -72,17 +73,17 @@ Object.extend( CanvasBoxClass.prototype,
 
     objBehavior: null,
 
+    /**
+     * Canvas 2D Context from the Canvas Box Container
+     * @type CanvasRenderingContext2D
+     */
     objContext: null,
 
-    intMass: 5,
+    intMass: 2,
 
-    intMagnetism: 35,
+    intMagnetism: 20,
 
     strClassElementName: "noop",
-
-    arrAttributes: Array( "#strName: string","#intAge: integer"),
-
-    arrMethods: Array( "getName(): string","setName( string strName )"),
 
     fillColor: "rgb( 232 , 232, 255 )",
 
@@ -92,36 +93,38 @@ Object.extend( CanvasBoxClass.prototype,
 
     dragColor: "rgb( 200 , 200 , 250 )",
 
-    intWallRepelsForce: 0.5,
+    intWallRepelsForce: 0.2,
 
-    strClassName: "CanvasBoxClass",
+    strClassName: "CanvasBoxSequenceElement",
 
     objMenu: null,
 
     booMenu: false,
 
-    initialize: function initialize()
+    booMouseOver: false,
+
+    arrButtons: Array(),
+
+    defineMenu: function defineMenu()
     {
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
-
-
+        this.arrButtons = Array();
         this.objMenu = new CanvasBoxMenu();
         this.objMenu.objParent = this;
         this.objMenu.arrMenuItens = (
         {
             0:
             {
-                name: "create class >",
-                event: function( objElement )
+                name: "create user agent >",
+                event: function( objElement , me , objMenu )
                 {
-                    objElement.objMenu.arrActualMenuItens = (
+                    objMenu.createChildMenu( me ,
                     {
                         0:
                         {
                             name: "create parent class",
                             event: function( objElement )
                             {
-                                CanvasBoxClass.Static.createRelation( objElement, false, "CanvasBoxGeneralization" );
+                                CanvasBoxSequenceElement.Static.createRelation( objElement, false, "CanvasBoxGeneralization" );
                             }
                         },
                         1:
@@ -129,7 +132,7 @@ Object.extend( CanvasBoxClass.prototype,
                             name: "create child class",
                             event: function( objElement )
                             {
-                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxGeneralization" );
+                                CanvasBoxSequenceElement.Static.createRelation( objElement, true, "CanvasBoxGeneralization" );
                             }
                         },
                         2:
@@ -137,7 +140,7 @@ Object.extend( CanvasBoxClass.prototype,
                             name: "create association class",
                             event: function( objElement )
                             {
-                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxAssociation" );
+                                CanvasBoxSequenceElement.Static.createRelation( objElement, true, "CanvasBoxAssociation" );
                             }
                         },
                         3:
@@ -145,7 +148,7 @@ Object.extend( CanvasBoxClass.prototype,
                             name: "create aggregation class",
                             event: function( objElement )
                             {
-                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxAggregation" );
+                                CanvasBoxSequenceElement.Static.createRelation( objElement, true, "CanvasBoxAggregation" );
                             }
                         },
                         4:
@@ -153,7 +156,7 @@ Object.extend( CanvasBoxClass.prototype,
                             name: "create composition class",
                             event: function( objElement )
                             {
-                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxComposition" );
+                                CanvasBoxSequenceElement.Static.createRelation( objElement, true, "CanvasBoxComposition" );
                             }
                         },
                         5:
@@ -161,91 +164,7 @@ Object.extend( CanvasBoxClass.prototype,
                             name: "create dependecy class",
                             event: function( objElement )
                             {
-                                CanvasBoxClass.Static.createRelation( objElement, true, "CanvasBoxDependency" );
-                            }
-                        }
-                    });
-                    return true;
-                }
-            },
-            1:
-            {
-                name: "attributes >",
-                event: function( objElement )
-                {
-                    objElement.objMenu.arrActualMenuItens = (
-                    {
-                        0:
-                        {
-                            name: "add attribute",
-                            event: function( objElement )
-                            {
-                                var strNewAttribute = prompt( "Inform the new attribute." );
-                                objElement.arrAttributes.push( strNewAttribute );
-                            }
-                        },
-                        1:
-                        {
-                            name: "remove attribute >",
-                            event: function( objElement )
-                            {
-                                var arrAttributesRemoveMenu = new Object();
-                                for( var intAttribute = 0 ; intAttribute < objElement.arrAttributes.length ; ++intAttribute )
-                                {
-                                    arrAttributesRemoveMenu[ intAttribute ] =
-                                    {
-                                            name: objElement.arrAttributes[ intAttribute ],
-                                            intPosition: intAttribute,
-                                            event: function( objElement , me )
-                                            {
-                                                objElement.arrAttributes.splice( me.intPosition  , 1 );
-                                            }
-                                    };
-                                }
-                                objElement.objMenu.arrActualMenuItens = arrAttributesRemoveMenu;
-                                return ( objElement.arrAttributes.length > 0 );
-                            }
-                        }
-                    });
-                    return true;
-                }
-            },
-            2:
-            {
-                name: "methods >",
-                event: function( objElement )
-                {
-                    objElement.objMenu.arrActualMenuItens = (
-                    {
-                        0:
-                        {
-                            name: "add method",
-                            event: function( objElement )
-                            {
-                                var strNewAttribute = prompt( "Inform the new attribute." );
-                                objElement.arrAttributes.push( strNewAttribute );
-                            }
-                        },
-                        1:
-                        {
-                            name: "remove method >",
-                            event: function( objElement )
-                            {
-                                var arrMethodsRemoveMenu = new Object();
-                                for( var intMethod = 0 ; intMethod < objElement.arrMethods.length ; ++intMethod )
-                                {
-                                    arrMethodsRemoveMenu[ intMethod ] =
-                                    {
-                                            name: objElement.arrMethods[ intMethod ],
-                                            intPosition: intMethod,
-                                            event: function( objElement , me )
-                                            {
-                                                objElement.arrMethods.splice( me.intPosition  , 1 );
-                                            }
-                                    };
-                                }
-                                objElement.objMenu.arrActualMenuItens = arrMethodsRemoveMenu;
-                                return ( objElement.arrAttributes.length > 0 );
+                                CanvasBoxSequenceElement.Static.createRelation( objElement, true, "CanvasBoxDependency" );
                             }
                         }
                     });
@@ -253,7 +172,29 @@ Object.extend( CanvasBoxClass.prototype,
                 }
             }
         });
+    },
 
+    addButton: function addButton( objButton )
+    {
+        if( this.arrButtons.length > 0 )
+        {
+            var objLast = this.arrButtons[ this.arrButtons.length - 1 ];
+            objButton.objPreviousButton = objLast;
+        }
+        this.arrButtons.push( objButton );
+    },
+
+    initialize: function initialize( objBox )
+    {
+        this.objBox = objBox;
+        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.defineMenu();
+        /*
+        this.addButton( new CanvasBoxAggregationButton( this ) );
+        this.addButton( new CanvasBoxCompositionButton( this ) );
+        this.addButton( new CanvasBoxAssociationButton( this ) );
+        this.addButton( new CanvasBoxChildButton( this ) );
+        */
     },
 
     toSerialize: function toSerialize()
@@ -269,8 +210,6 @@ Object.extend( CanvasBoxClass.prototype,
         objResult.intMass = this.intMass;
         objResult.intMagnetism = this.intMagnetism;
         objResult.strClassName = this.strClassName;
-        objResult.arrAttributes = this.arrAttributes;
-        objResult.arrMethods = this.arrMethods;
         objResult.fillColor = this.fillColor;
         objResult.fixedColor = this.fixedColor;
         objResult.overColor = this.overColor;
@@ -282,6 +221,12 @@ Object.extend( CanvasBoxClass.prototype,
 
     refresh: function refresh()
     {
+        if( this.objBox )
+        {
+            this.height = this.objBox.height;
+            this.y = this.objBox.height / 2;
+        }
+        this.y0 = this.y + ( this.height / 2 );
         this.x0 = this.x - ( this.width / 2 );
         this.x1 = this.x + ( this.width / 2 );
         this.y0 = this.y - ( this.height / 2 );
@@ -291,28 +236,40 @@ Object.extend( CanvasBoxClass.prototype,
 
     draw: function draw()
     {
+
         var intHeaderHeigth = 18;
         var i;
 
         this.refresh();
 
-        if( this.mouseOver || this.objBox.objElementClicked == this )
+        if( this.booMouseOver )
         {
             /**
-             * Draw External Border
+             * Draw External Border Over
              */
             this.objContext.strokeStyle = 'rgb( 200 , 200 , 250 )';
             this.objContext.lineWidth = 1;
             this.objContext.strokeRect( Math.round( this.x0 ) - 10 , Math.round( this.y0 ) - 10,
                                   Math.round( this.width ) + 20 , Math.round( this.height ) + 20 );
         }
+        else if ( this.objBox.objElementClicked == this )
+        {
+            /**
+             * Draw External Border Clicked
+             */
+            this.objContext.strokeStyle = 'rgb( 200 , 250 , 200 )';
+            this.objContext.lineWidth = 1;
+            this.objContext.strokeRect( Math.round( this.x0 ) - 10 , Math.round( this.y0 ) - 10,
+                                  Math.round( this.width ) + 20 , Math.round( this.height ) + 20 );
+        }
+
 
         /**
          * Class Big Rect
          */
         this.objContext.fillStyle = this.fillColor;
         this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
-                                  Math.round( this.width ) , Math.round( this.height ) );
+                                  Math.round( this.width ) , 100 );
 
         /**
          * Class Header
@@ -320,6 +277,7 @@ Object.extend( CanvasBoxClass.prototype,
         this.objContext.fillStyle = this.headerColor;
         this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , intHeaderHeigth );
+
         this.objContext.strokeStyle = this.borderColor;
         this.objContext.lineWidth = 1;
         this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
@@ -329,31 +287,18 @@ Object.extend( CanvasBoxClass.prototype,
         this.objContext.strokeStyle = this.borderColor;
         this.objContext.lineWidth = this.borderWidth;
         this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
-                                  Math.round( this.width ) , Math.round( this.height ) );
+                                  Math.round( this.width ) , 100 );
 
         this.objContext.strokeText( this.strClassElementName  , this.x0 + 10 , this.y0 + 10 );
 
-        var intAttributesStart = intHeaderHeigth + 20;
-        var intAttributesEnd = intAttributesStart + this.arrAttributes.length * 10;
-
-        this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
-                                  Math.round( this.width ) , Math.round( intAttributesEnd ) );
+        this.objContext.fillRect( Math.round( this.x ) - 5 , 110 ,
+                                  10 , this.height - 120 );
 
 
-        for( i = 0 ; i < this.arrAttributes.length; ++i )
+        for( i = 0 ; i <  this.arrButtons.length ; ++i )
         {
-            this.objContext.lineWidth = 0.9;
-            this.objContext.strokeText( this.arrAttributes[ i ], this.x0 + 10 , this.y0 + intAttributesStart + ( i ) * 10 );
-        }
-
-        var intMethodsStart = intAttributesEnd;
-
-        this.objContext.strokeRect( Math.round( this.x0 ) , this.y0 + intMethodsStart ,
-                                  Math.round( this.width ) , Math.round( this.height ) - intMethodsStart );
-
-        for( i = 0 ; i < this.arrMethods.length; ++i )
-        {
-            this.objContext.strokeText( this.arrMethods[ i ], this.x0 + 10 ,  this.y0 + intMethodsStart + ( i ) * 10 + 20 );
+            var objButton = this.arrButtons[ i ];
+            objButton.draw();
         }
 
     },
@@ -365,7 +310,7 @@ Object.extend( CanvasBoxClass.prototype,
             this.defaultHeaderColor = this.headerColor;
         }
         this.headerColor = this.overColor;
-        this.mouseOver = true;
+        this.booMouseOver = true;
     },
 
     drawMouseOut: function drawMouseOut( event )
@@ -374,7 +319,7 @@ Object.extend( CanvasBoxClass.prototype,
         {
             this.headerColor = this.fixed ? this.fixedColor : this.defaultHeaderColor;
         }
-        this.mouseOver = false;
+        this.booMouseOver = false;
     },
 
     drawDrag: function drawDrag( event )
@@ -404,12 +349,13 @@ Object.extend( CanvasBoxClass.prototype,
         }
         else
         {
-            this.headerColor = this.mouseOver ? this.overColor : this.defaultHeaderColor;
+            this.headerColor = this.booMouseOver ? this.overColor : this.defaultHeaderColor;
         }
     },
 
     isInside: function isInside( mouseX , mouseY )
     {
+        var booResult = false;
         this.refresh();
         if  (
                 ( mouseX >= this.x0 )
@@ -421,12 +367,25 @@ Object.extend( CanvasBoxClass.prototype,
                 ( mouseY <= this.y1 )
             )
         {
-            return true;
+            booResult = true;
         }
-        else
+
+        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
         {
-            return false;
+            var objButton = this.arrButtons[ i ];
+            if( !booResult )
+            {
+                if( objButton.isInside( mouseX , mouseY ) )
+                {
+                    booResult = true;
+                }
+            }
+            else
+            {
+                objButton.booMouseOver = false;
+            }
         }
+        return booResult;
     },
 
     onContextMenu: function onContextMenu( event )
@@ -445,6 +404,15 @@ Object.extend( CanvasBoxClass.prototype,
 
     onClick: function onClick( event )
     {
+        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        {
+            var objButton = this.arrButtons[ i ];
+            if( objButton.booMouseOver )
+            {
+                return objButton.onClick( event );
+            }
+        }
+
        return this.objBehavior.onClick( event );
     },
 
@@ -483,5 +451,25 @@ Object.extend( CanvasBoxClass.prototype,
         {
             this.strClassElementName = strClassNewName;
         }
+    },
+
+
+    /**
+     * On Drag Event
+     * @param Event event
+     * @return boolean
+     */
+    onDrag: function onDrag( event )
+    {
+        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        {
+            var objButton = this.arrButtons[ i ];
+            if( objButton.booMouseOver )
+            {
+                return objButton.onDrag( event );
+            }
+        }
+
+        return this.objBehavior.onDrag( event );
     }
 });

@@ -30,7 +30,7 @@ Object.extend( CanvasBoxSquare.prototype,
     
     objBehavior: null,
 
-    objContext: null,
+    objBox: null,
 
     intMass: 1,
 
@@ -87,12 +87,12 @@ Object.extend( CanvasBoxSquare.prototype,
     draw: function draw()
     {
         this.refresh();
-        this.objContext.fillStyle = this.color;
-        this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+        this.objBox.setFillStyle( this.color );
+        this.objBox.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( this.height ) );
-        this.objContext.strokeStyle = this.borderColor;
-        this.objContext.lineWidth = this.borderWidth;
-        this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+        this.objBox.setStrokeStyle( this.borderColor );
+        this.objBox.lineWidth = this.borderWidth;
+        this.objBox.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( this.height ) );
     },
 

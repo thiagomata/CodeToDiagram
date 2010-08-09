@@ -83,8 +83,15 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     followElements: function followElements( arrVectors )
     {
-        var objVector;
-        objVector = Array();
+        var objVector = Array();
+        objVector[ "dx" ] = 0;
+        objVector[ "dy" ] = 0;
+
+        if( this.objBoxElement.intMass == 0 )
+        {
+            return objVector;
+        }
+
 
         var intMetaX = ( this.objBoxElement.objElementFrom.x + this.objBoxElement.objElementTo.x ) / 2;
         var intMetaY = ( this.objBoxElement.objElementFrom.y + this.objBoxElement.objElementTo.y ) / 2;
@@ -134,8 +141,12 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 
     keepOnLimits: function keepOnLimits()
     {
-        this.objBoxElement.x += this.objBoxElement.dx;
-        this.objBoxElement.y += this.objBoxElement.dy;
+        if( this.objBoxElement.dx !== 0 && this.objBoxElement.dy !== 0 )
+        {
+            this.objBoxElement.x += this.objBoxElement.dx;
+            this.objBoxElement.y += this.objBoxElement.dy;
+            this.objBoxElement.objBox.booChanged = true;
+        }
 
         if( this.objBoxElement.x0 < 0 )
         {

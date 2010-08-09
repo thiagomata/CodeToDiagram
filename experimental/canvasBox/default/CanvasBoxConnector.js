@@ -422,5 +422,11 @@ CanvasBoxConnector.prototype =
     getId: function getId()
     {
         return this.objBox.arrElements.indexOf( this );
+    },
+
+    load: function load()
+    {
+        
     }
+
 };

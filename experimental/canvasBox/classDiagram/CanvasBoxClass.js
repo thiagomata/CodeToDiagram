@@ -79,17 +79,17 @@ Object.extend( CanvasBoxClass.prototype,
      */
     objContext: null,
 
-    intMass: 2,
+    intMass: 1,
 
-    intMagnetism: 20,
+    intMagnetism: 15,
 
     strClassElementName: "noop",
 
-    arrAttributes: Array( "#strName: string","#intAge: integer"),
+    arrAttributes: null,
 
-    arrMethods: Array( "getName(): string","setName( string strName )"),
+    arrMethods: null,
 
-    fillColor: "rgb( 232 , 232, 255 )",
+    fillColor: "rgb( 242 , 242, 255 )",
 
     fixedColor: "rgb( 200, 100 ,100 )",
 
@@ -97,7 +97,7 @@ Object.extend( CanvasBoxClass.prototype,
 
     dragColor: "rgb( 200 , 200 , 250 )",
 
-    intWallRepelsForce: 0.2,
+    intWallRepelsForce: 1,
 
     strClassName: "CanvasBoxClass",
 
@@ -107,8 +107,10 @@ Object.extend( CanvasBoxClass.prototype,
 
     booMouseOver: false,
 
-    arrButtons: Array(),
-    
+    booDrag: false,
+
+    arrButtons: null,
+
     defineMenu: function defineMenu()
     {
         this.arrButtons = Array();
@@ -274,6 +276,9 @@ Object.extend( CanvasBoxClass.prototype,
 
     initialize: function initialize()
     {
+        this.arrAttributes = Array( "#strName: string","#intAge: integer");
+        this.arrMethods = Array( "getName(): string","setName( string strName )");
+        this.arrButtons = Array();
         this.objBehavior = new CanvasBoxDefaultBehavior( this );
         this.defineMenu();
         this.addButton( new CanvasBoxAggregationButton( this ) );
@@ -327,67 +332,76 @@ Object.extend( CanvasBoxClass.prototype,
             /**
              * Draw External Border
              */
-            this.objContext.strokeStyle = 'rgb( 200 , 200 , 250 )';
-            this.objContext.lineWidth = 1;
-            this.objContext.strokeRect( Math.round( this.x0 ) - 10 , Math.round( this.y0 ) - 10,
+            this.objBox.setStrokeStyle( 'rgb( 200 , 200 , 250 )' );
+            this.objBox.setLineWidth( 1 );
+            this.objBox.strokeRect( Math.round( this.x0 ) - 10 , Math.round( this.y0 ) - 10,
                                   Math.round( this.width ) + 20 , Math.round( this.height ) + 20 );
         }
 
         /**
          * Class Big Rect
          */
-        this.objContext.fillStyle = this.fillColor;
-        this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
-                                  Math.round( this.width ) , Math.round( this.height ) );
+        this.objBox.setFillStyle( this.fillColor );
+        this.objBox.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+                              Math.round( this.width ) , Math.round( this.height ) );
 
         /**
          * Class Header
          */
-        this.objContext.fillStyle = this.headerColor;
-        this.objContext.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+        this.objBox.setFillStyle( this.headerColor );
+        this.objBox.fillRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , intHeaderHeigth );
-        this.objContext.strokeStyle = this.borderColor;
-        this.objContext.lineWidth = 1;
-        this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+        this.objBox.setStrokeStyle( this.borderColor );
+        this.objBox.setLineWidth( 1 );
+        this.objBox.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
                                   Math.round( this.width ) , Math.round( intHeaderHeigth ) );
 
-        this.objContext.fillStyle = this.fillColor;
-        this.objContext.strokeStyle = this.borderColor;
-        this.objContext.lineWidth = this.borderWidth;
-        this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
-                                  Math.round( this.width ) , Math.round( this.height ) );
+        this.objBox.setFillStyle( this.fillColor );
+        this.objBox.setStrokeStyle( this.borderColor );
+        this.objBox.setLineWidth( this.borderWidth );
+        this.objBox.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+                                Math.round( this.width ) , Math.round( this.height ) );
 
-        this.objContext.strokeText( this.strClassElementName  , this.x0 + 10 , this.y0 + 10 );
+
+        this.objBox.setFont( "12px Times New Roman" );
+        this.objBox.setFillStyle("rgb( 40 , 40, 40 )");
+        this.objBox.fillText( this.strClassElementName + ' ' + this.intMass  , this.x0 + 10 , this.y0 + 10 );
 
         var intAttributesStart = intHeaderHeigth + 20;
         var intAttributesEnd = intAttributesStart + this.arrAttributes.length * 10;
 
-        this.objContext.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
-                                  Math.round( this.width ) , Math.round( intAttributesEnd ) );
+        this.objBox.strokeRect( Math.round( this.x0 ) , Math.round( this.y0 ),
+                                Math.round( this.width ) , Math.round( intAttributesEnd ) );
 
 
         for( i = 0 ; i < this.arrAttributes.length; ++i )
         {
-            this.objContext.lineWidth = 0.9;
-            this.objContext.strokeText( this.arrAttributes[ i ], this.x0 + 10 , this.y0 + intAttributesStart + ( i ) * 10 );
+            this.objBox.setFont( "10px Times New Roman" );
+            this.objBox.setFillStyle("rgb( 40 , 40, 40 )");
+            this.objBox.fillText( this.arrAttributes[ i ], this.x0 + 10 , this.y0 + intAttributesStart + ( i ) * 10 );
         }
 
         var intMethodsStart = intAttributesEnd;
 
-        this.objContext.strokeRect( Math.round( this.x0 ) , this.y0 + intMethodsStart ,
-                                  Math.round( this.width ) , Math.round( this.height ) - intMethodsStart );
+        this.objBox.strokeRect( Math.round( this.x0 ) , this.y0 + intMethodsStart ,
+                                Math.round( this.width ) , Math.round( this.height ) - intMethodsStart );
 
         for( i = 0 ; i < this.arrMethods.length; ++i )
         {
-            this.objContext.strokeText( this.arrMethods[ i ], this.x0 + 10 ,  this.y0 + intMethodsStart + ( i ) * 10 + 20 );
+            this.objBox.setFont( "10px Times New Roman" );
+            this.objBox.setFillStyle("rgb( 40 , 40, 40 )");
+            this.objBox.fillText( this.arrMethods[ i ], this.x0 + 10 ,  this.y0 + intMethodsStart + ( i ) * 10 + 20 );
         }
 
-        for( i = 0 ; i <  this.arrButtons.length ; ++i )
+
+        if( this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
         {
-            var objButton = this.arrButtons[ i ];
-            objButton.draw();
+            for( i = 0 ; i <  this.arrButtons.length ; ++i )
+            {
+                var objButton = this.arrButtons[ i ];
+                objButton.draw();
+            }
         }
-
     },
 
     drawMouseOver: function drawMouseOver( event )
@@ -457,21 +471,25 @@ Object.extend( CanvasBoxClass.prototype,
             booResult = true;
         }
         
-        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        if( this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
         {
-            var objButton = this.arrButtons[ i ];
-            if( !booResult )
+            for( var i = 0 ; i <  this.arrButtons.length ; ++i )
             {
-                if( objButton.isInside( mouseX , mouseY ) )
+                var objButton = this.arrButtons[ i ];
+                if( !booResult )
                 {
-                    booResult = true;
+                    if( objButton.isInside( mouseX , mouseY ) )
+                    {
+                        booResult = true;
+                    }
+                }
+                else
+                {
+                    objButton.booMouseOver = false;
                 }
             }
-            else
-            {
-                objButton.booMouseOver = false;
-            }
         }
+        
         return booResult;
     },
 
@@ -491,15 +509,18 @@ Object.extend( CanvasBoxClass.prototype,
 
     onClick: function onClick( event )
     {
-        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        if( !this.booDrag && this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
         {
-            var objButton = this.arrButtons[ i ];
-            if( objButton.booMouseOver )
+            for( var i = 0 ; i <  this.arrButtons.length ; ++i )
             {
-                return objButton.onClick( event );
+                var objButton = this.arrButtons[ i ];
+                if( objButton.booMouseOver )
+                {
+                    return objButton.onClick( event );
+                }
             }
         }
-
+        
        return this.objBehavior.onClick( event );
     },
 
@@ -548,15 +569,45 @@ Object.extend( CanvasBoxClass.prototype,
      */
     onDrag: function onDrag( event )
     {
-        for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+        this.booDrag = true;
+
+        if( this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
         {
-            var objButton = this.arrButtons[ i ];
-            if( objButton.booMouseOver )
+            for( var i = 0 ; i <  this.arrButtons.length ; ++i )
             {
-                return objButton.onDrag( event );
+                var objButton = this.arrButtons[ i ];
+                if( objButton.booMouseOver )
+                {
+                    return objButton.onDrag( event );
+                }
             }
         }
-
+        
         return this.objBehavior.onDrag( event );
+    },
+
+    onDrop: function onDrop( event )
+    {
+        this.booDrag = false;
+        
+        if( this.intMass == 0 )
+        {
+            var arrConnectors = this.getConnectors();
+            if( arrConnectors.length == 1 && ( this.objBox.objElementOver != this ) )
+            {
+                var objConnector = arrConnectors[0];
+                if( objConnector.objElementFrom == this )
+                {
+                    objConnector.objElementFrom = this.objBox.objElementOver;
+                }
+                if( objConnector.objElementTo == this )
+                {
+                    objConnector.objElementTo = this.objBox.objElementOver;
+                }
+                this.objBox.deleteElement( this );
+            }
+        }
+        this.intMass = 1;
+        return this.objBehavior.onDrop( event );
     }
 });

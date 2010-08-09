@@ -73,18 +73,18 @@ Object.extend( CanvasBoxLine.prototype,
         var dblReverseAngle = Math.PI * 2 - dblAngle;
         var intDistance = Math.abs( Math.cos( dblAngle ) ) * this.objElementFrom.height / 2 ;
         intDistance += Math.abs( Math.sin( dblAngle ) ) * this.objElementFrom.width / 2 ;
-        this.objContext.restore();
-        this.objContext.moveTo( objPointer.x , objPointer.y );
-        this.objContext.save();
-        this.objContext.translate( objPointer.x , objPointer.y );
-        this.objContext.rotate( dblReverseAngle );
-        this.objContext.translate(  
+        this.objBox.restoreContext();
+        this.objBox.moveTo( objPointer.x , objPointer.y );
+        this.objBox.saveContext();
+        this.objBox.translate( objPointer.x , objPointer.y );
+        this.objBox.rotate( dblReverseAngle );
+        this.objBox.translate(
             0
             , 
             intDistance
         );
         this.drawConnectorFrom( objPointer, intSide );
-        this.objContext.restore();
+        this.objBox.restoreContext();
     },
 
     drawConnectorFrom: function drawConnectorFrom( objPointer , intSide )
@@ -94,14 +94,6 @@ Object.extend( CanvasBoxLine.prototype,
     
     drawBackgroundCircle: function drawBackgroundCircle( intSide )
     {
-        return;
-        this.objContext.fillStyle = this.objBox.backgroundColor;
-        this.objContext.lineWidth = 1;
-        this.objContext.beginPath();
-        //this.objContext.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI , true );
-        this.objContext.fill()
-        this.objContext.stroke();
-        this.objContext.closePath();
     },
     
     createConnectorTo: function createConnectorTo()
@@ -113,18 +105,18 @@ Object.extend( CanvasBoxLine.prototype,
         var dblReverseAngle = Math.PI * 2 - dblAngle;
         var intDistance = Math.abs( Math.cos( dblAngle ) ) * this.objElementTo.height / 2 ;
         intDistance += Math.abs( Math.sin( dblAngle ) ) * this.objElementTo.width / 2 ;
-        this.objContext.restore();
-        this.objContext.moveTo( objPointer.x , objPointer.y );
-        this.objContext.save();
-        this.objContext.translate( objPointer.x , objPointer.y );
-        this.objContext.rotate( dblReverseAngle );
-        this.objContext.translate(  
+        this.objBox.restoreContext();
+        this.objBox.moveTo( objPointer.x , objPointer.y );
+        this.objBox.saveContext();
+        this.objBox.translate( objPointer.x , objPointer.y );
+        this.objBox.rotate( dblReverseAngle );
+        this.objBox.translate(
             0
             , 
             intDistance
         );
         this.drawConnectorTo( objPointer, intSide );
-        this.objContext.restore();
+        this.objBox.restoreContext();
     },
 
     drawConnectorTo: function drawConnectorTo( objPointer , intSide )
@@ -154,63 +146,63 @@ Object.extend( CanvasBoxLine.prototype,
 
     drawLine: function drawLine( intXfrom, intYfrom, intXto, intYto )
     {
-            this.objContext.moveTo( intXfrom , intYfrom );
-            this.objContext.lineTo( intXto , intYto );
+            this.objBox.moveTo( intXfrom , intYfrom );
+            this.objBox.lineTo( intXto , intYto );
     },
     
     draw: function draw()
     {
         this.refresh();
-        this.objContext.save();
+        this.objBox.saveContext();
         
-            this.objContext.fillStyle = this.color;
-            this.objContext.moveTo( this.x , this.y );
+            this.objBox.setFillStyle( this.color );
+            this.objBox.moveTo( this.x , this.y );
             
-            this.objContext.beginPath();
-            this.objContext.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
-            this.objContext.fill();
+            this.objBox.beginPath();
+            this.objBox.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
+            this.objBox.fill();
             
             if( this.mouseOver || this.objBox.objElementClicked == this )
             {
-                this.objContext.strokeStyle = this.borderColor;
-                this.objContext.arc( this.x , this.y , this.side * 2 , 0 ,  Math.PI * 2 , true );
-                this.objContext.stroke();
+                this.objBox.strokeStyle = this.borderColor;
+                this.objBox.arc( this.x , this.y , this.side * 2 , 0 ,  Math.PI * 2 , true );
+                this.objBox.stroke();
             }
             
-            this.objContext.strokeStyle = this.lineStyle;
-            this.objContext.lineWidth = this.borderWidth;
+            this.objBox.setStrokeStyle( this.lineStyle );
+            this.objBox.setLineWidth( this.borderWidth );
             this.drawLine( this.x , this.y , this.objElementFrom.x , this.objElementFrom.y );
             this.drawLine( this.x , this.y , this.objElementTo.x , this.objElementTo.y );
-            this.objContext.stroke();
-            this.objContext.closePath();
-        this.objContext.restore();
-        this.objContext.save();
+            this.objBox.stroke();
+            this.objBox.closePath();
+            this.objBox.restoreContext();
+            this.objBox.saveContext();
         
-            this.objContext.fillStyle = this.color;
-            this.objContext.moveTo( this.x , this.y );
+            this.objBox.setFillStyle( this.color );
+            this.objBox.moveTo( this.x , this.y );
             
-            this.objContext.beginPath();
-            this.objContext.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
-            this.objContext.fill();
-            this.objContext.closePath();
+            this.objBox.beginPath();
+            this.objBox.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
+            this.objBox.fill();
+            this.objBox.closePath();
 
         this.z = 1;
         
         if( this.objElementFrom.strClassName != this.strClassName )
         {
             this.createConnectorFrom();
-            this.objContext.fillStyle = this.color;
+            this.objBox.setFillStyle( this.color );
             this.z = 2;
         }
         
         if( this.objElementTo.strClassName != this.strClassName )
         {
             this.createConnectorTo();
-            this.objContext.fillStyle = this.color;
+            this.objBox.setFillStyle( this.color );
             this.z = 2;
         }
         
-        this.objContext.restore();
+        this.objBox.restoreContext();
     },
 
     findArrow: function findArrow( objBoxElement , intSide )

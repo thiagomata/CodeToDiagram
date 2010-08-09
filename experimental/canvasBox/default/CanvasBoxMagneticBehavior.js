@@ -7,7 +7,7 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
     
     intMargin: 20,
     
-    intEscapeForce: 10,
+    intEscapeForce: 120,
     
     dblCollisionForce: 1.5,
     
@@ -28,7 +28,7 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
     initialize: function initialize( objBoxElement )
     {
         this.objBoxElement = objBoxElement;
-        if( !this.objBoxElement.intMass )
+        if( !this.objBoxElement.intMass  )
         {
             this.objBoxElement.intMass = 1;
         }
@@ -61,6 +61,7 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         objVector = Array();
         objVector[ "dx" ] = 0;
         objVector[ "dy" ] = 1 * ( this.objBoxElement.objBox.height - this.objBoxElement.y1 ) * this.objBoxElement.intWallRepelsForce;
+
         arrVectors.push( objVector );
 
         return arrVectors;
@@ -122,6 +123,41 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         return arrVectors;
     },
 
+
+    keepOnLimits2: function keepOnLimits2()
+    {
+
+        var booChanged = false;
+        this.refresh();
+
+        if( this.objBoxElement.x0 < this.intMargin )
+        {
+            this.objBoxElement.x = Math.round( (this.objBoxElement.width / 2) );
+            this.objBoxElement.dx += this.intEscapeForce;
+            booChanged = true;
+        }
+        if( this.objBoxElement.x1 + this.intMargin > this.objBoxElement.objBox.width )
+        {
+            this.objBoxElement.x = Math.round( this.objBoxElement.objBox.width - ( this.objBoxElement.width / 2 ) );
+            this.objBoxElement.dx -= this.intEscapeForce;
+            booChanged = true;
+        }
+        if( this.objBoxElement.y0 < this.intMargin )
+        {
+            this.objBoxElement.y = Math.round( this.objBoxElement.height / 2);
+            this.objBoxElement.dy += this.intEscapeForce;
+            booChanged = true;
+        }
+        if( this.objBoxElement.y1 + this.intMargin > this.objBoxElement.objBox.height )
+        {
+            this.objBoxElement.y = Math.round( this.objBoxElement.objBox.height - ( this.objBoxElement.height / 2 ) );
+            this.objBoxElement.dy -= this.intEscapeForce;
+            booChanged = true;
+        }
+
+        return booChanged;
+    },
+
     move: function move()
     {
         this.refresh();
@@ -133,19 +169,36 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         var arrVectors = Array();
         arrVectors = this.repelsWalls( arrVectors );
         arrVectors = this.repelsElements( arrVectors );
-        arrVectors = this.keepOnLimits( arrVectors );
+//        arrVectors = this.keepOnLimits( arrVectors );
+
+
+        this.objBoxElement.dx = Math.round( this.objBoxElement.dx );
+        this.objBoxElement.dy = Math.round( this.objBoxElement.dy );
+
+        if( isNaN( this.objBoxElement.dx ) )
+        {
+            this.objBoxElement.dx = 0;
+        }
+
+        if( isNaN( this.objBoxElement.dy ) )
+        {
+            this.objBoxElement.dy = 0;
+        }
 
         this.getVectors( arrVectors );
-
-        if(
-            Math.round(this.objBoxElement.dx) !== 0 && 
-            Math.round(this.objBoxElement.dy) !== 0)
+        if( true )
         {
-            this.objBoxElement.objBox.booChanged = true;
-            this.objBoxElement.x += this.objBoxElement.dx;
-            this.objBoxElement.y += this.objBoxElement.dy;
+            if(
+                Math.round(this.objBoxElement.dx) !== 0 ||
+                Math.round(this.objBoxElement.dy) !== 0)
+            {
+                this.objBoxElement.objBox.booChanged = true;
+                this.objBoxElement.x = Math.round( this.objBoxElement.x + this.objBoxElement.dx );
+                this.objBoxElement.y = Math.round( this.objBoxElement.y + this.objBoxElement.dy );
+            }
         }
-       this.refresh();
+        this.keepOnLimits2();
+        this.refresh();
     },
 
     onTimer: function onTimer()
@@ -205,6 +258,13 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
     getVectors: function getVectors( arrVectors )
     {
     	var intQtdVectors = arrVectors.length;
+        if( arrVectors.length == 0 )
+        {
+            this.objBoxElement.dx = 0;
+            this.objBoxElement.dy = 0;
+            this.refresh();
+            return;
+        }
         var dblX = 0;
         var dblY = 0;
         for( var i = 0; i < intQtdVectors; ++i )
@@ -213,8 +273,8 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
             dblX += objVector.dx;
             dblY += objVector.dy;
         }
-        var dx = dblX / intQtdVectors;
-        var dy  = dblY / intQtdVectors;
+        var dx = Math.round( dblX / intQtdVectors );
+        var dy  = Math.round( dblY / intQtdVectors );
         this.objBoxElement.dx = dx;
         this.objBoxElement.dy = dy;
         this.refresh();
@@ -225,6 +285,11 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         var objVector = Array();
         objVector[ "dx" ] = 0;
         objVector[ "dy" ] = 0;
+
+        if( this.objBoxElement.intMass == 0 )
+        {
+            return objVector;
+        }
         
         var intDirectionX = ( objElement.x < this.objBoxElement.x ) ? -1 : 1;
         var intDirectionY = ( objElement.y < this.objBoxElement.y ) ? -1 : 1;
@@ -237,8 +302,19 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
 
         var dblDist = Math.sqrt( ( intDifX * intDifX ) + ( intDifY * intDifY ) );
 
-        var dblForceX = this.objBoxElement.objBox.width / ( dblDist );
-        var dblForceY = this.objBoxElement.objBox.height / ( dblDist );
+        var dblForceX;
+        var dblForceY;
+
+        if( dblDist > 1 )
+        {
+            dblForceX = this.objBoxElement.objBox.width / ( dblDist );
+            dblForceY = this.objBoxElement.objBox.height / ( dblDist );
+        }
+        else
+        {
+            dblForceX = 0;
+            dblForceY = 0;
+        }
 
         if (
             (
@@ -325,6 +401,8 @@ Object.extend( CanvasBoxMagneticBehavior.prototype,
         objVector[ "dx" ] += ( Math.random( dblDirectionChange ) - ( dblDirectionChange / 2 ) ) / this.intDirectionChangeLoss;
         objVector[ "dy" ] += ( Math.random( dblDirectionChange ) - ( dblDirectionChange / 2 ) ) / this.intDirectionChangeLoss;
          
+        objVector[ "dx" ] *= 4;
+        objVector[ "dy" ] *= 4;
         return objVector;
     }
 });

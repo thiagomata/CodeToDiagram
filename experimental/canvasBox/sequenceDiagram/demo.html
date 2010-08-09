@@ -20,9 +20,9 @@ and open the template in the editor.
         <script src="../../canvasBox/default/CanvasBoxMagneticConnectorBehavior.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../canvasBox/default/CanvasBoxMenu.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../canvasBox/default/CanvasBoxButton.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../canvasBox/default/CanvasBoxZoomInButton.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../canvasBox/default/CanvasBoxZoomOutButton.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../../canvasBox/classDiagram/CanvasBoxClass.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../canvasBox/sequenceDiagram/CanvasBoxSequenceDiagram.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../canvasBox/sequenceDiagram/CanvasBoxSequenceElement.js" type="text/javascript" charset="utf-8"></script>
+<!--
         <script src="../../canvasBox/classDiagram/CanvasBoxAggregation.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../canvasBox/classDiagram/CanvasBoxAggregationButton.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../canvasBox/classDiagram/CanvasBoxAssociation.js" type="text/javascript" charset="utf-8"></script>
@@ -35,6 +35,7 @@ and open the template in the editor.
         <script src="../../canvasBox/classDiagram/CanvasBoxChildButton.js" type="text/javascript" charset="utf-8"'></script>
         <script src="../../canvasBox/classDiagram/CanvasBoxSquare.js" type="text/javascript" charset="utf-8"></script>
         <script src="../../canvasBox/stateMachine/CanvasBoxState.js" type="text/javascript" charset="utf-8"'></script>
+-->
         <style>
             *
             {
@@ -64,15 +65,15 @@ and open the template in the editor.
             <canvas id="abc" >
             </canvas>
             <script type="text/javascript" charset="utf-8">
-                window.box = new CanvasBox( "abc" , document.body.clientWidth - 10, document.body.clientHeight - 10  );
+                window.box = new CanvasBoxSequenceDiagram( "abc" , document.body.clientWidth - 10, document.body.clientHeight - 10  );
                 //window.box = objBox;
                 function addClass( color )
                 {
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new CanvasBoxMagneticBehavior( objClass );
-                    //objClass.objBehavior = new CanvasBoxDefaultBehavior( objClass );
+                    var objClass = new CanvasBoxSequenceElement( window.box );
+                    //objClass.objBehavior = new CanvasBoxMagneticBehavior( objClass );
+                    objClass.objBehavior = new CanvasBoxDefaultBehavior( objClass );
                     objClass.x = Math.random() *  window.box.width ;
-                    objClass.y = Math.random() * window.box.height ;
+                    objClass.y = 0;
                     if( color )
                     {
                         objClass.color = color;
@@ -83,8 +84,8 @@ and open the template in the editor.
                 function addLine( objFrom , objTo , color )
                 {
                     var objLine = new CanvasBoxLine( objFrom , objTo );
-                    objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
-                    //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                    //objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                    objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
                     objLine.x =  ( objFrom.x + objTo.x  ) / 2
                     objLine.y =  ( objFrom.y + objTo.y  ) / 2
                     if( color )
@@ -98,7 +99,7 @@ and open the template in the editor.
                 {
                     return objLineOriginal.cloneLine();
                 }
-//                addClass();
+                addClass();
                 //var objRed = addClass(  );
                 //var objGreen = addClass(  );
                 //var objYellow = addClass(  );

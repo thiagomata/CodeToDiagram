@@ -1,17 +1,17 @@
-/*
+/* 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-var CanvasBoxAggregationButton = Class.create();
-Object.extend( CanvasBoxAggregationButton.prototype, CanvasBoxButton.prototype);
-Object.extend( CanvasBoxAggregationButton.prototype,
+var CanvasBoxZoomInButton = Class.create();
+Object.extend( CanvasBoxZoomInButton.prototype, CanvasBoxButton.prototype);
+Object.extend( CanvasBoxZoomInButton.prototype,
 {
-    strTitle: "Aggregation",
-
+    strTitle: "Zoom In",
+    
     width: 25,
 
     height: 25,
-
+    
     drawIcon: function drawIcon()
     {
         this.objElement.objBox.beginPath();
@@ -22,9 +22,7 @@ Object.extend( CanvasBoxAggregationButton.prototype,
         this.objElement.objBox.lineTo( this.x + 6 , this.y + this.height - 2 );
         this.objElement.objBox.lineTo( this.x + 8 , this.y + this.height - 8 );
         this.objElement.objBox.lineTo( this.x + 16 , this.y + this.height - 16 );
-        this.objElement.objBox.lineTo( this.x + 30 , this.y + this.height - 16 );
-        this.objElement.objBox.lineTo( this.x + 30 , this.y + this.height - 30 );
-        this.objElement.objBox.lineTo( this.x + 16 , this.y + this.height - 30 );
+        this.objElement.objBox.arc( this.x + 26 , this.y  , 15 , 0 ,  2* Math.PI  , true );
         this.objElement.objBox.lineTo( this.x + 16 , this.y + this.height - 16 );
         this.objElement.objBox.lineTo( this.x + 8 , this.y + this.height - 8 );
         this.objElement.objBox.lineTo( this.x + 2 , this.y + this.height - 6 );
@@ -37,7 +35,11 @@ Object.extend( CanvasBoxAggregationButton.prototype,
 
     onClick: function onClick( event )
     {
-        var objElement = CanvasBoxClass.Static.createRelation( this.objElement , true, "CanvasBoxAggregation" );
-        return objElement;
+       this.objElement.dblZoom += 0.1;
+    },
+
+    onDrag: function onDrag( event )
+    {
+        this.onClick( event );
     }
 });
