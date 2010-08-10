@@ -228,8 +228,6 @@ CanvasBoxButton.prototype =
         }
         this.x = this.objElement.x - this.objElement.width/2 + this.intRelativeX + this.intPaddingLeft;
         this.y = this.objElement.y - this.objElement.height/2 + this.intRelativeY + this.intPaddingTop;
-        document.title = this.objElement.objBox.mouseX + ' ' + this.objElement.objBox.mouseY;
-        document.title += ' button ' + this.x + ' ' + this.y;
     },
 
     drawOut: function drawOut()

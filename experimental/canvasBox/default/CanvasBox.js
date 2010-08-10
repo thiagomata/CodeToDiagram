@@ -669,8 +669,8 @@ CanvasBox.prototype =
      */
     refreshMousePosition: function refreshMousePosition( event )
     {
-        this.mouseX = ( event.clientX - this.x + CanvasBox.Static.scrollLeft() ) / this.dblZoom;
-        this.mouseY = ( event.clientY - this.y + CanvasBox.Static.scrollTop()  ) / this.dblZoom;
+        this.mouseX = ( event.clientX - this.x + CanvasBox.Static.scrollLeft() ) * this.dblZoom;
+        this.mouseY = ( event.clientY - this.y + CanvasBox.Static.scrollTop()  ) * this.dblZoom;
     },
 
     /**
@@ -722,7 +722,7 @@ CanvasBox.prototype =
         {
             var objButton = this.arrButtons[i];
             objButton.refresh();
-            if( objButton.booMouseOver !== objButton.isInside( this.mouseX , this.mouseY ) )
+            if( objButton.booMouseOver !== objButton.isInside( this.mouseX / this.dblZoom , this.mouseY /  this.dblZoom ) )
             {
                 this.change();
             }
@@ -1201,14 +1201,19 @@ CanvasBox.prototype =
 
     addButton: function addButton( objButton )
     {
-        objButton.strPositionHorizontal = "right";
-        objButton.strPositionVertical = "top";
-        objButton.intPaddingLeft = -this.width / 2 + 50;
-        objButton.intPaddingTop = this.height / 2 + 100;
+        objButton.intPaddingLeft = 0;
+        objButton.intPaddingTop = 0;
         if( this.arrButtons.length > 0 )
         {
+            objButton.strPositionHorizontal = "right";
+            objButton.strPositionVertical = "middle";
             var objLast = this.arrButtons[ this.arrButtons.length - 1 ];
             objButton.objPreviousButton = objLast;
+        }
+        else
+        {
+            objButton.strPositionHorizontal = "left";
+            objButton.strPositionVertical = "top";
         }
         this.arrButtons.push( objButton );
     }
