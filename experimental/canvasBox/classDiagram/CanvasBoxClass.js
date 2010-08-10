@@ -500,7 +500,7 @@ Object.extend( CanvasBoxClass.prototype,
         {
             this.objMenu.intMenuX = this.objBox.mouseX;
             this.objMenu.intMenuY = this.objBox.mouseY;
-            this.objMenu.objContext = this.objContext;
+            this.objMenu.objBox = this.objBox;
             this.objMenu.strActualMenuItem = null;
             this.objBox.objMenuSelected = this.objMenu;
         }

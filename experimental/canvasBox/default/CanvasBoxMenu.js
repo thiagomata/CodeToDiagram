@@ -35,7 +35,7 @@ CanvasBoxMenu.prototype =
 
     mouseY: 0,
 
-    objContext: null,
+    objBox: null,
 
     objParent: null,
 
@@ -52,14 +52,14 @@ CanvasBoxMenu.prototype =
         var arrMenuKeys = array_keys( this.arrMenuItens );
         this.intMenuHeight = this.intMenuItemHeight * ( arrMenuKeys.length - 1 );
 
-        this.objContext.strokeStyle = this.menuBorderColor;
-        this.objContext.lineWidth = this.menuBorderWidth;
-        this.objContext.strokeRect(
+        this.objBox.setStrokeStyle( this.menuBorderColor );
+        this.objBox.setLineWidth( this.menuBorderWidth );
+        this.objBox.strokeRect(
             this.intMenuX , this.intMenuY, this.intMenuWidth , this.intMenuHeight
         );
 
-        this.objContext.fillStyle = this.menuFillColor;
-        this.objContext.fillRect(
+        this.objBox.setFillStyle( this.menuFillColor );
+        this.objBox.fillRect(
             this.intMenuX , this.intMenuY, this.intMenuWidth , this.intMenuHeight
         );
 
@@ -68,9 +68,9 @@ CanvasBoxMenu.prototype =
             var intMenuItemX = this.intMenuX;
             var intMenuItemY = this.intMenuY + ( i ) * this.intMenuItemHeight;
 
-            this.objContext.strokeStyle = this.menuItemBorderColor;
-            this.objContext.lineWidth = this.menuItemBorderWidth;
-            this.objContext.strokeRect(
+            this.objBox.setStrokeStyle( this.menuItemBorderColor );
+            this.objBox.setLineWidth( this.menuItemBorderWidth );
+            this.objBox.strokeRect(
                 intMenuItemX , intMenuItemY , this.intMenuWidth , this.intMenuItemHeight
             );
 
@@ -84,25 +84,25 @@ CanvasBoxMenu.prototype =
                 ( this.mouseY < ( intMenuItemY + this.intMenuItemHeight ) )
             )
             {
-                this.objContext.fillStyle = this.menuSelectedItemFillColor;
+                this.objBox.setFillStyle( this.menuSelectedItemFillColor );
                 this.strActualMenuItem = arrMenuKeys[ i ];
             }
             else
             {
-                this.objContext.fillStyle = this.menuItemFillColor;
+                this.objBox.setFillStyle( this.menuItemFillColor );
             }
 
-            this.objContext.fillRect(
+            this.objBox.fillRect(
                 intMenuItemX , intMenuItemY, this.intMenuWidth , this.intMenuItemHeight
             );
 
-            this.objContext.fillStyle = 
+            this.objBox.setFillStyle(
             this.arrMenuItens[ arrMenuKeys[ i ] ].backgroundColor ?
             this.arrMenuItens[ arrMenuKeys[ i ] ].backgroundColor :
-            this.menuItemTextColor;
-            this.objContext.lineWidth = 0.9;
-            this.objContext.font = "10px Times New Roman";
-            this.objContext.fillText
+            this.menuItemTextColor );
+            this.objBox.setLineWidth( 0.9 );
+            this.objBox.setFont( "10px Times New Roman" );
+            this.objBox.fillText
             (
                 this.arrMenuItens[ arrMenuKeys[ i ] ].name ,
                 this.intMenuItemXBorder +  intMenuItemX ,
@@ -151,7 +151,7 @@ CanvasBoxMenu.prototype =
     createChildMenu: function createChildMenu( objMenuItem , arrMenuItens )
     {
         var objChildMenu = new CanvasBoxMenu();
-        objChildMenu.objContext = this.objContext;
+        objChildMenu.objBox = this.objBox;
         objChildMenu.intMenuWidth = this.intMenuWidth;
         objChildMenu.intMenuX = this.intMenuX + this.intMenuWidth + 1;
         objChildMenu.intMenuY = this.intMenuY + this.intMenuItemHeight * objMenuItem.key;

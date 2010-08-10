@@ -313,7 +313,7 @@ CanvasBox.prototype =
     {
         this.objMenu = new CanvasBoxMenu();
         this.objMenu.objParent = this;
-        this.objMenu.objContext = this.getContext();
+        this.objMenu.objBox = this;
         this.objMenu.arrMenuItens = ({
             0:{
                 name: "create class",
