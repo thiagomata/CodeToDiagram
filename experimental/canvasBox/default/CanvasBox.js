@@ -669,8 +669,8 @@ CanvasBox.prototype =
      */
     refreshMousePosition: function refreshMousePosition( event )
     {
-        this.mouseX = ( event.clientX - this.x + CanvasBox.Static.scrollLeft() ) * this.dblZoom;
-        this.mouseY = ( event.clientY - this.y + CanvasBox.Static.scrollTop()  ) * this.dblZoom;
+        this.mouseX = ( event.clientX - this.x + CanvasBox.Static.scrollLeft() ) / this.dblZoom;
+        this.mouseY = ( event.clientY - this.y + CanvasBox.Static.scrollTop()  ) / this.dblZoom;
     },
 
     /**
