@@ -722,7 +722,7 @@ CanvasBox.prototype =
         {
             var objButton = this.arrButtons[i];
             objButton.refresh();
-            if( objButton.booMouseOver !== objButton.isInside( this.mouseX / this.dblZoom , this.mouseY /  this.dblZoom ) )
+            if( objButton.booMouseOver !== objButton.isInside( this.mouseX * this.dblZoom , this.mouseY *  this.dblZoom ) )
             {
                 this.change();
             }
