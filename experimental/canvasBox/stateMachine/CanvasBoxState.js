@@ -42,7 +42,7 @@ Object.extend( CanvasBoxState.prototype,
 
     dragColor: "rgb( 200 , 200 , 250 )",
 
-    intWallRepelsForce: 0.5,
+    intWallRepelsForce: 1,
 
     strClassName: "CanvasBoxState",
 
@@ -280,7 +280,7 @@ Object.extend( CanvasBoxState.prototype,
         {
             this.objMenu.intMenuX = this.objBox.mouseX;
             this.objMenu.intMenuY = this.objBox.mouseY;
-            this.objMenu.objContext = this.objContext;
+            this.objMenu.objBox = this.objBox;
             this.objMenu.strActualMenuItem = null;
             this.objBox.objMenuSelected = this.objMenu;
         }

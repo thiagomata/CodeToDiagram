@@ -33,18 +33,31 @@ and open the template in the editor.
         <script src="../../canvasBox/stateMachine/CanvasBoxStateLink.js" type="text/javascript" charset="utf-8"></script>
         <!-- end state diagram -->
 
-           <style>
-          *
-          {
-              padding: 0;
-              margin: 0;
-              border: none;
-          }
+        <style>
+            *
+            {
+                padding: 0;
+                margin: 0;
+                border: none;
+            }
+            canvas
+            {
+                border-style: solid;
+                border-color: black;
+                border-width: 1px;
+            }
+            #abc
+            {
+                margin-left:0px;
+                margin-top:0px;
+            }
       </style>
   </head>
   <body>
-    <canvas id="abc">
-    </canvas>
+      <div>
+        <canvas id="abc">
+        </canvas>
+      </div>
   <form action="" method="post">
         <label for="behavior">
             <span> Behavior </span>
@@ -62,7 +75,7 @@ and open the template in the editor.
         </label>
     </form>
     <script type="text/javascript" charset="utf-8">
-        var objBox = new CanvasBoxStateDiagram( "abc" , 400 , 500 );
+        var objBox = new CanvasBox( "abc" , document.body.clientHeight * 0.7, document.body.clientHeight * 0.7  );
         window.box = objBox;
 
         function changeBehavior( objSelectElement )
@@ -111,6 +124,8 @@ and open the template in the editor.
                     {
                         objElement = window.box.arrElements[ i ];
                         objElement.fixed = false;
+                        objElement.dx = 0;
+                        objElement.dy = 0;
                         if( objElement.isConnector )
                         {
                             objElement.objBehavior = new CanvasBoxDefaultConnectorBehavior( objElement );

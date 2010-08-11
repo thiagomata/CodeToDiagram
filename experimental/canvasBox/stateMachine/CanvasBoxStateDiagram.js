@@ -7,7 +7,8 @@ Object.extend( CanvasBoxStateDiagram.prototype,
     {
         this.objMenu = new CanvasBoxMenu();
         this.objMenu.objParent = this;
-        this.objMenu.objContext = this.getContext();
+        this.objMenu.ojbBox = this;
+        this.objMenu.ojbParent = this;
         this.objMenu.arrMenuItens = ({
             0:{
                 name: "create state",

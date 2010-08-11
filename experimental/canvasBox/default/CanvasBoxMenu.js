@@ -102,6 +102,7 @@ CanvasBoxMenu.prototype =
             this.menuItemTextColor );
             this.objBox.setLineWidth( 0.9 );
             this.objBox.setFont( "10px Times New Roman" );
+            this.objBox.setTextAlign( "left" );
             this.objBox.fillText
             (
                 this.arrMenuItens[ arrMenuKeys[ i ] ].name ,
