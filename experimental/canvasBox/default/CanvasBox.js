@@ -1052,7 +1052,7 @@ CanvasBox.prototype =
         this.getContext().arc(
             Math.round( intX * this.dblZoom  ),
             Math.round( intY * this.dblZoom  ),
-            dblRadius ,
+            Math.round( dblRadius * this.dblZoom  ),
             dblStartAngle ,
             dblEndAngle ,
             booClockwise
@@ -1199,6 +1199,11 @@ CanvasBox.prototype =
         this.getContext().rotate( dblDegree );
     },
 
+    setTextAlign: function setTextAlign( strTextAling )
+    {
+        this.getContext().textAlign = strTextAling;
+    },
+    
     addButton: function addButton( objButton )
     {
         objButton.intPaddingLeft = 0;

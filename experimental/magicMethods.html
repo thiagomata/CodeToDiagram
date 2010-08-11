@@ -1,0 +1,22 @@
+<html>
+	<head>
+        <script src="./phpjs/php.js" type="text/javascript" charset="utf-8"></script> 
+        <script src="./canvasBox/default/prototype.js" type="text/javascript" charset="utf-8"></script> 
+ 		<script>
+			document.CodeToDiagram = function(){};
+			document.CodeToDiagram.__noSuchMethod__ = function noSuchMethod ( strMethodName, arrParams ) {
+                call_user_func_array( strMethodName , arrParams );
+			};
+			
+			function bola( a, b)
+			{
+				alert(a);
+				alert(b);
+			}
+			
+			document.CodeToDiagram.bola( 1 , 2 );
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

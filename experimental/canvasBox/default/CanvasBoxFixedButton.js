@@ -57,12 +57,12 @@ CanvasBoxFixedButton.prototype =
     /**
      * Button Width
      */
-    width: 25,
+    width: 55,
 
     /**
      * Button Height
      */
-    height: 25,
+    height: 55,
 
     /**
      * Distance between the button and the element
@@ -108,7 +108,7 @@ CanvasBoxFixedButton.prototype =
             {
                 case "left":
                 {
-                    this.intRelativeX = this.width + this.borderWidth;
+                    this.intRelativeX = 0;
                     break;
                 }
                 case "center":
@@ -131,7 +131,7 @@ CanvasBoxFixedButton.prototype =
             {
                 case "top":
                 {
-                    this.intRelativeY = this.height + this.borderHeight;
+                    this.intRelativeY = 0;
                     break;
                 }
                 case "middle":
@@ -232,7 +232,9 @@ CanvasBoxFixedButton.prototype =
 
     drawOut: function drawOut()
     {
+        this.objElement.getContext().save();
         this.objElement.getContext().fillStyle = ( "rgb( 250 , 250 , 250 )" );
+        this.objElement.getContext().globalAlpha = ( 0.1 );
         this.objElement.getContext().fillRect(
             Math.round( this.x ) ,
             Math.round( this.y ) ,
@@ -248,10 +250,13 @@ CanvasBoxFixedButton.prototype =
             Math.round( this.width ) ,
             Math.round( this.height )
         );
+        this.objElement.getContext().restore();
     },
 
     drawOver: function drawOver()
     {
+        this.objElement.getContext().save();
+        this.objElement.getContext().globalAlpha = ( 1 );
         this.objElement.getContext().fillStyle = ( 'rgb( 230 , 230 , 250 )' );
         this.objElement.getContext().fillRect(
             Math.round( this.x ) ,
@@ -267,6 +272,7 @@ CanvasBoxFixedButton.prototype =
             Math.round( this.width ) ,
             Math.round( this.height )
         );
+        this.objElement.getContext().restore();
     },
 
     drawIcon: function drawIcon()
@@ -298,10 +304,10 @@ CanvasBoxFixedButton.prototype =
           this.objElement.getContext().shadowOffsetX = ( 2 );
           this.objElement.getContext().shadowOffsetY = ( 2 );
           this.objElement.getContext().shadowBlur = ( 2 );
-          this.objElement.getContext().shadowColor = ( "rgba(0, 0, 0, 0.5)" );
+          this.objElement.getContext().shadowColor = ( "rgba(250, 250, 250, 0.8)" );
           this.objElement.getContext().font = ( "20px Times New Roman" );
           this.objElement.getContext().fillStyle = ("rgb( 100 , 100, 100 )");
-          this.objElement.getContext().fillText( this.strTitle , this.x + this.width + this.borderWidth , this.y + this.height/2 + this.borderHeight / 2 );
+          this.objElement.getContext().fillText( this.strTitle , this.x + this.width + this.borderWidth * 2 + 10 , this.y + this.height / 2 + this.borderHeight / 2 );
           this.objElement.getContext().restore();
     },
 
@@ -315,7 +321,7 @@ CanvasBoxFixedButton.prototype =
         {
             this.drawOut();
         }
-        this.drawIcon();
+        this.drawIcon( this.booMouseOver );
     },
 
     draw: function draw()

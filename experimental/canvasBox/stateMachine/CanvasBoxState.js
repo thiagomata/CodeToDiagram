@@ -178,28 +178,28 @@ Object.extend( CanvasBoxState.prototype,
             /**
              * Draw External Border
              */
-            this.objContext.strokeStyle = 'rgb( 200 , 200 , 250 )';
-            this.objContext.lineWidth = 1;        
-            this.objContext.beginPath();
-            this.objContext.arc( this.x , this.y , this.side + 10 , 0 ,  Math.PI * 2 , true );
-            this.objContext.stroke();
-            this.objContext.closePath();
+            this.objBox.setStrokeStyle( 'rgb( 200 , 200 , 250 )' );
+            this.objBox.setLineWidth( 1 );
+            this.objBox.beginPath();
+            this.objBox.arc( this.x , this.y , this.side + 10 , 0 ,  Math.PI * 2 , true );
+            this.objBox.stroke();
+            this.objBox.closePath();
         }
 
         /**
          * Class Big Rect
          */
-        this.objContext.strokeStyle = this.borderColor;
-        this.objContext.fillStyle = this.fillColor;
-        this.objContext.beginPath();
-        this.objContext.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
-        this.objContext.fill();
-        this.objContext.closePath();
+        this.objBox.setStrokeStyle( this.borderColor );
+        this.objBox.setFillStyle( this.fillColor );
+        this.objBox.beginPath();
+        this.objBox.arc( this.x , this.y , this.side , 0 ,  Math.PI * 2 , true );
+        this.objBox.fill();
+        this.objBox.closePath();
         
-        this.objContext.lineWidth = "0.5";
-        this.objContext.font = "10px Arial lighter";                 
-        this.objContext.textAlign = "center";                 
-        this.objContext.strokeText( this.strStateName  , this.x , this.y );
+        this.objBox.setLineWidth( "0.5" );
+        this.objBox.setFont( "10px Arial lighter" );
+        this.objBox.setTextAlign( "center" );
+        this.objBox.strokeText( this.strStateName  , this.x , this.y );
     },
 
     drawMouseOver: function drawMouseOver( event )

@@ -81,9 +81,14 @@ Object.extend( CanvasBoxZoomOutButton.prototype,
         }
         return this.objImg;
     },
-    drawIcon: function drawIcon()
+
+    drawIcon: function drawIcon( booMouveOver )
     {
+        this.objElement.getContext().save();
+        this.objElement.getContext().globalAlpha = ( booMouveOver ? 1 : 0.4 );
         this.objElement.getContext().drawImage( this.getImg() , this.x , this.y );
+        this.objElement.getContext().globalCompositeOperation = "darker";
+        this.objElement.getContext().restore();
     },
 
     onClick: function onClick( event )
