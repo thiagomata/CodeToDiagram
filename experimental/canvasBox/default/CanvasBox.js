@@ -1274,7 +1274,7 @@ CanvasBox.prototype =
             {
                 window.open( '../default/close.html' , 'saveWindow');
             } ,
-            1000
+            3000
         );
        document.body.removeChild( objNewForm );
     },
