@@ -1269,14 +1269,12 @@ CanvasBox.prototype =
        objNewForm.submit();
        this.play();
        this.booDrawBoxMenu = true;
-/*
        window.setTimeout( function()
             {
                 window.open( '../default/close.html' , 'saveWindow');
             } ,
-            3000
+            10000
         );
-*/
        document.body.removeChild( objNewForm );
     },
 
