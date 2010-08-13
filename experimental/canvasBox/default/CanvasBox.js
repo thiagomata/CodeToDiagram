@@ -1273,7 +1273,7 @@ CanvasBox.prototype =
             {
                 window.open( '../default/close.html' , 'saveWindow');
             } ,
-            10000
+            30000
         );
        document.body.removeChild( objNewForm );
     },
