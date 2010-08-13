@@ -1,6 +1,5 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Zoom out button of the canvas box diagram
  */
 var CanvasBoxZoomOutButton = Class.create();
 Object.extend( CanvasBoxZoomOutButton.prototype, CanvasBoxFixedButton.prototype);

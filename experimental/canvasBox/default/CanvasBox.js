@@ -233,6 +233,8 @@ CanvasBox.prototype =
     booChanged: true,
     
     booMouseOver: true,
+
+    booDrawBoxMenu: true,
     
     /**
      * Javascript constant of right button click
@@ -422,6 +424,10 @@ CanvasBox.prototype =
         this.addButton( objButton );
         objButton = new CanvasBoxZoomOutButton( this );
         this.addButton( objButton );
+        objButton = new CanvasBoxExportButton( this );
+        this.addButton( objButton );
+        objButton = new CanvasBoxSaveButton( this );
+        this.addButton( objButton );
         
 		return this;
     },
@@ -527,13 +533,16 @@ CanvasBox.prototype =
             this.objMenuSelected.draw();
         }
 
-        for( i = 0 ; i < this.arrButtons.length; ++i )
+        if( this.booDrawBoxMenu )
         {
-            var objButton = this.arrButtons[i];
-            objButton.refresh();
-            objButton.draw();
+            for( i = 0 ; i < this.arrButtons.length; ++i )
+            {
+                var objButton = this.arrButtons[i];
+                objButton.refresh();
+                objButton.draw();
+            }
         }
-
+        
         this.booOnDraw = false;
         this.booChanged = false;
     },
@@ -1221,5 +1230,57 @@ CanvasBox.prototype =
             objButton.strPositionVertical = "top";
         }
         this.arrButtons.push( objButton );
+    },
+
+    saveFile: function saveFile()
+    {
+       var objNewForm = document.createElement( "form" );
+       var objNewTextArea = document.createElement( "textarea" );
+       var objInputName = document.createElement( "input" );
+       var objInputImageType = document.createElement( "input" );
+
+       this.onMouseOut( null );
+       this.booDrawBoxMenu = false;
+       this.stop();
+       this.draw();
+       
+       var strDataURI = this.objCanvasHtml.toDataURL( "image/png" );
+       objNewForm.setAttribute( "action" , "../default/download.php" );
+       objNewForm.setAttribute( "method" , "post" );
+       objNewForm.setAttribute( "target" , "saveWindow" );
+
+       objNewTextArea.setAttribute( "name" , "base64Content" );
+       objNewTextArea.value = strDataURI;
+
+       objInputName.setAttribute( "type" , "text" );
+       objInputName.setAttribute( "name", "fileName" );
+       objInputName.value = "diagram.png";
+
+       objInputImageType.setAttribute( "type" , "text" );
+       objInputImageType.setAttribute( "name", "imageType" );
+       objInputImageType.value = "image/png";
+
+       objNewForm.appendChild( objNewTextArea );
+       objNewForm.appendChild( objInputName );
+       objNewForm.appendChild( objInputImageType );
+
+       document.body.appendChild( objNewForm );
+
+       objNewForm.submit();
+       this.play();
+       this.booDrawBoxMenu = true;
+
+       window.setTimeout( function()
+            {
+                window.open( '../default/close.html' , 'saveWindow');
+            } ,
+            1000
+        );
+       document.body.removeChild( objNewForm );
+    },
+
+    saveAsXml: function saveAsXml()
+    {
+        alert( "Feature in development. Try it tomorrow!");
     }
 }

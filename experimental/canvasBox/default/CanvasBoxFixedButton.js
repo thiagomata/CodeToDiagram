@@ -307,7 +307,8 @@ CanvasBoxFixedButton.prototype =
           this.objElement.getContext().shadowColor = ( "rgba(250, 250, 250, 0.8)" );
           this.objElement.getContext().font = ( "20px Times New Roman" );
           this.objElement.getContext().fillStyle = ("rgb( 100 , 100, 100 )");
-          this.objElement.getContext().fillText( this.strTitle , this.x + this.width + this.borderWidth * 2 + 10 , this.y + this.height / 2 + this.borderHeight / 2 );
+          this.objElement.getContext().textAlign = "left";
+          this.objElement.getContext().fillText( this.strTitle , this.x + this.width + this.borderWidth , this.y + this.height / 2 + this.borderHeight / 2 );
           this.objElement.getContext().restore();
     },
 

@@ -7,9 +7,10 @@
 	<body>
 <?php
 $strFile = @$_REQUEST[ 'file_selected' ];
+print $strFile;
 if( $strFile )
 { 
-	$strText = base64_encode( file_get_contents( "zoomOut.png" ) );
+	$strText = base64_encode( file_get_contents( $strFile ) );
 
 	$j = 0;
 	print "<pre>'";

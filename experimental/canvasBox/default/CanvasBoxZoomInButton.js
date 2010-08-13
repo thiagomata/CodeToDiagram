@@ -1,6 +1,5 @@
 /* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Zoom in button of the canvas box diagram
  */
 var CanvasBoxZoomInButton = Class.create();
 Object.extend( CanvasBoxZoomInButton.prototype, CanvasBoxFixedButton.prototype);

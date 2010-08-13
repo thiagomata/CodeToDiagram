@@ -365,7 +365,7 @@ Object.extend( CanvasBoxClass.prototype,
 
         this.objBox.setFont( "12px Times New Roman" );
         this.objBox.setFillStyle("rgb( 40 , 40, 40 )");
-        this.objBox.fillText( this.strClassElementName + ' ' + this.intMass  , this.x0 + 10 , this.y0 + 10 );
+        this.objBox.fillText( this.strClassElementName, this.x0 + 10 , this.y0 + 10 );
 
         var intAttributesStart = intHeaderHeigth + 20;
         var intAttributesEnd = intAttributesStart + this.arrAttributes.length * 10;
