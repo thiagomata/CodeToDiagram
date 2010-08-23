@@ -1,6 +1,8 @@
 var CanvasBoxMenu = Class.create();
 CanvasBoxMenu.prototype =
 {
+    strClassName: "CanvasBoxMenu",
+    
     menuBorderColor: "rgb( 100 , 100 , 200 )",
 
     menuBorderWidth: 1,
@@ -151,7 +153,7 @@ CanvasBoxMenu.prototype =
 
     createChildMenu: function createChildMenu( objMenuItem , arrMenuItens )
     {
-        var objChildMenu = new CanvasBoxMenu();
+        var objChildMenu = new autoload.newCanvasBoxMenu();
         objChildMenu.objBox = this.objBox;
         objChildMenu.intMenuWidth = this.intMenuWidth;
         objChildMenu.intMenuX = this.intMenuX + this.intMenuWidth + 1;

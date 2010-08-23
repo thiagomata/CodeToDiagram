@@ -1,5 +1,5 @@
 var CanvasBoxClassDiagram = Class.create();
-Object.extend( CanvasBoxClassDiagram.prototype, CanvasBox.prototype);
+Object.extend( CanvasBoxClassDiagram.prototype, window.autoload.loadCanvasBox().prototype);
 Object.extend( CanvasBoxClassDiagram.prototype,
 {
 

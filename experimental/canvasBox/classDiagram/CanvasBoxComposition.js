@@ -1,5 +1,5 @@
 var CanvasBoxComposition = Class.create();
-Object.extend( CanvasBoxComposition.prototype, CanvasBoxLine.prototype);
+Object.extend( CanvasBoxComposition.prototype, window.autoload.loadCanvasBoxLine().prototype);
 Object.extend( CanvasBoxComposition.prototype,
 {
     toSerialize: function toSerialize()

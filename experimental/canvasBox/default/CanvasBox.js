@@ -159,6 +159,18 @@ CanvasBox.prototype =
     height: 400,
 
     /**
+     * Width of the Sand Box
+     * @type integer
+     */
+    defaultWidth: 400,
+
+    /**
+     *Height of the Sand Box
+     *@type integer
+     */
+    defaultHeight: 400,
+
+    /**
      * Html Canvas Box Element
      * @type Canvas
      */
@@ -313,7 +325,7 @@ CanvasBox.prototype =
      */
     defineMenu: function defineMenu()
     {
-        this.objMenu = new CanvasBoxMenu();
+        this.objMenu = new autoload.newCanvasBoxMenu();
         this.objMenu.objParent = this;
         this.objMenu.objBox = this;
         this.objMenu.arrMenuItens = ({
@@ -321,8 +333,8 @@ CanvasBox.prototype =
                 name: "create class",
                 event: function( objParent ){
 
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new CanvasBoxMagneticBehavior( objClass );
+                    var objClass = new autoload.newCanvasBoxClass();
+                    objClass.objBehavior = new autoload.newCanvasBoxMagneticBehavior( objClass );
                     objClass.x = objParent.mouseX;
                     objClass.y = objParent.mouseY;
                     objParent.addElement( objClass );
@@ -332,8 +344,8 @@ CanvasBox.prototype =
                 name: "create square",
                 event: function( objParent ){
 
-                    var objSquare = new CanvasBoxSquare();
-                    objSquare.objBehavior = new CanvasBoxMagneticBehavior( objSquare );
+                    var objSquare = new autoload.newCanvasBoxSquare();
+                    objSquare.objBehavior = new autoload.newCanvasBoxMagneticBehavior( objSquare );
                     objSquare.x = objParent.mouseX;
                     objSquare.y = objParent.mouseY;
                     objParent.addElement( objSquare );
@@ -390,20 +402,22 @@ CanvasBox.prototype =
      */
     initialize: function initialize( idCanvasHtmlElement , intWidth, intHeight )
     {
-        this.width = intWidth / this.dblZoom;
-        this.height = intHeight / this.dblZoom;
+        this.defaultWidth = intWidth / this.dblZoom;
+        this.defaultHeight = intHeight / this.dblZoom;
+        this.width = this.defaultWidth / this.dblZoom;
+        this.height = this.defaultHeight / this.dblZoom;
         this.id = CanvasBox.Static.arrInstances.length;
         CanvasBox.Static.arrInstances[ this.id ] = this;
 
         this.objCanvasHtml = document.getElementById( idCanvasHtmlElement );
         if( this.objCanvasHtml == null )
         {
-            throw new CanvasBoxException( "Invalid canvas html element id [" + idCanvasHtmlElement + "]" );
+            throw new autoload.newCanvasBoxException( "Invalid canvas html element id [" + idCanvasHtmlElement + "]" );
         }
         this.getPosition();
         
-        this.objCanvasHtml.setAttribute( "width" ,  intWidth  + "px" );
-        this.objCanvasHtml.setAttribute( "height" , intHeight + "px" );
+        this.objCanvasHtml.setAttribute( "width" ,  this.defaultWidth  + "px" );
+        this.objCanvasHtml.setAttribute( "height" , this.defaultHeight + "px" );
         this.objCanvasHtml.setAttribute( "onmousemove",   ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onMouseMove( event )' ) );
         this.objCanvasHtml.setAttribute( "onclick",       ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onClick( event )' ) );
         this.objCanvasHtml.setAttribute( "ondblclick",    ( 'return CanvasBox.Static.getCanvasBoxById(' + this.id + ').onDblClick( event )' ) );
@@ -420,13 +434,13 @@ CanvasBox.prototype =
 
         var objButton;
         this.objBox = this;
-        objButton = new CanvasBoxZoomInButton( this );
+        objButton = new autoload.newCanvasBoxZoomInButton( this );
         this.addButton( objButton );
-        objButton = new CanvasBoxZoomOutButton( this );
+        objButton = new autoload.newCanvasBoxZoomOutButton( this );
         this.addButton( objButton );
-        objButton = new CanvasBoxExportButton( this );
+        objButton = new autoload.newCanvasBoxExportButton( this );
         this.addButton( objButton );
-        objButton = new CanvasBoxSaveButton( this );
+        objButton = new autoload.newCanvasBoxSaveButton( this );
         this.addButton( objButton );
         
 		return this;
@@ -874,6 +888,7 @@ CanvasBox.prototype =
         this.booShowMenu = !this.booShowMenu;
         if( this.booShowMenu )
         {
+            this.objMenu.objBox = this;
             this.objMenuSelected = this.objMenu;
             this.objMenuSelected.intMenuX = this.mouseX;
             this.objMenuSelected.intMenuY = this.mouseY;
@@ -1061,7 +1076,7 @@ CanvasBox.prototype =
         this.getContext().arc(
             Math.round( intX * this.dblZoom  ),
             Math.round( intY * this.dblZoom  ),
-            Math.round( dblRadius * this.dblZoom  ),
+            Math.abs( Math.round( dblRadius * this.dblZoom  ) ),
             dblStartAngle ,
             dblEndAngle ,
             booClockwise
@@ -1221,8 +1236,8 @@ CanvasBox.prototype =
         {
             objButton.strPositionHorizontal = "right";
             objButton.strPositionVertical = "middle";
-            var objLast = this.arrButtons[ this.arrButtons.length - 1 ];
-            objButton.objPreviousButton = objLast;
+            objButton.objPreviousButton = this.arrButtons[ this.arrButtons.length - 1 ];
+        
         }
         else
         {
@@ -1234,6 +1249,11 @@ CanvasBox.prototype =
 
     saveFile: function saveFile()
     {
+        this.objCanvasHtml.setAttribute( "width" ,  ( this.defaultWidth * 10 )  + "px" );
+        this.objCanvasHtml.setAttribute( "height" , ( this.defaultHeight * 10 ) + "px" );
+
+        this.dblZoom *= 10;
+        
        var objNewForm = document.createElement( "form" );
        var objNewTextArea = document.createElement( "textarea" );
        var objInputName = document.createElement( "input" );
@@ -1243,9 +1263,10 @@ CanvasBox.prototype =
        this.booDrawBoxMenu = false;
        this.stop();
        this.draw();
-       
+
        var strDataURI = this.objCanvasHtml.toDataURL( "image/png" );
-       objNewForm.setAttribute( "action" , "../default/download.php" );
+       var strDefaultFolder = window.autoload.getPathOfDefault();
+       objNewForm.setAttribute( "action" , strDefaultFolder + "/download.php" );
        objNewForm.setAttribute( "method" , "post" );
        objNewForm.setAttribute( "target" , "saveWindow" );
 
@@ -1276,6 +1297,9 @@ CanvasBox.prototype =
             30000
         );
        document.body.removeChild( objNewForm );
+        this.dblZoom /= 10;
+       this.objCanvasHtml.setAttribute( "width" ,  ( this.defaultWidth )  + "px" );
+       this.objCanvasHtml.setAttribute( "height" , ( this.defaultHeight ) + "px" );
     },
 
     saveAsXml: function saveAsXml()

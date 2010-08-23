@@ -1,5 +1,5 @@
 var CanvasBoxGeneralization = Class.create();
-Object.extend( CanvasBoxGeneralization.prototype, CanvasBoxLine.prototype);
+Object.extend( CanvasBoxGeneralization.prototype, window.autoload.loadCanvasBoxLine().prototype);
 Object.extend( CanvasBoxGeneralization.prototype,
 {
     toSerialize: function toSerialize()

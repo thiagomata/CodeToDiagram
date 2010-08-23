@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 var CanvasBoxSaveButton = Class.create();
-Object.extend( CanvasBoxSaveButton.prototype, CanvasBoxFixedButton.prototype);
+Object.extend( CanvasBoxSaveButton.prototype, window.autoload.loadCanvasBoxFixedButton().prototype);
 Object.extend( CanvasBoxSaveButton.prototype,
 {
     strTitle: "Save as Xml",

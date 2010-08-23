@@ -122,11 +122,11 @@ require_once( "header.php" );
                 <canvas id="canvasBox">
                 </canvas>
                 <script type="text/javascript" charset="utf-8">
-                    objBox = new CanvasBox( "canvasBox" ,
+                    objBox = new window.autoload.newCanvasBox( "canvasBox" ,
                     document.getElementById("box").clientWidth, 700     );
 
-                    var objClass = new CanvasBoxClass();
-                    objClass.objBehavior = new CanvasBoxMagneticBehavior( objClass );
+                    var objClass = new window.autoload.newCanvasBoxClass();
+                    objClass.objBehavior = new window.autoload.newCanvasBoxMagneticBehavior( objClass );
                     objClass.x = 100;
                     objClass.y = 100;
                     objClass.strClassElementName = "example";

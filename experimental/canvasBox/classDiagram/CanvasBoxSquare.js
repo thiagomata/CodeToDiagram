@@ -1,5 +1,5 @@
 var CanvasBoxSquare = Class.create();
-Object.extend( CanvasBoxSquare.prototype, CanvasBoxElement.prototype);
+Object.extend( CanvasBoxSquare.prototype, window.autoload.loadCanvasBoxElement().prototype);
 Object.extend( CanvasBoxSquare.prototype,
 {
     side: 26,

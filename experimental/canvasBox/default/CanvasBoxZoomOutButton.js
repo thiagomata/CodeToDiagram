@@ -2,7 +2,7 @@
  * Zoom out button of the canvas box diagram
  */
 var CanvasBoxZoomOutButton = Class.create();
-Object.extend( CanvasBoxZoomOutButton.prototype, CanvasBoxFixedButton.prototype);
+Object.extend( CanvasBoxZoomOutButton.prototype, window.autoload.loadCanvasBoxFixedButton().prototype);
 Object.extend( CanvasBoxZoomOutButton.prototype,
 {
     strTitle: "Zoom Out",
@@ -93,6 +93,8 @@ Object.extend( CanvasBoxZoomOutButton.prototype,
     onClick: function onClick( event )
     {
        this.objElement.dblZoom -= 0.1;
+       this.objElement.width  = this.objElement.defaultWidth  / this.objElement.dblZoom;
+       this.objElement.height = this.objElement.defaultHeight / this.objElement.dblZoom;
     },
 
     onDrag: function onDrag( event )

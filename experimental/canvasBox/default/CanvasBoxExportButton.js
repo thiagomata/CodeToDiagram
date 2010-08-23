@@ -1,5 +1,5 @@
 var CanvasBoxExportButton = Class.create();
-Object.extend( CanvasBoxExportButton.prototype, CanvasBoxFixedButton.prototype);
+Object.extend( CanvasBoxExportButton.prototype, autoload.loadCanvasBoxFixedButton().prototype);
 Object.extend( CanvasBoxExportButton.prototype,
 {
     strTitle: "Export as Image",

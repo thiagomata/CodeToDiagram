@@ -98,6 +98,12 @@ CanvasBoxFixedButton.prototype =
     initialize: function initialize( objElement )
     {
         this.objElement = objElement;
+        this.x = 0;
+        this.y = 0;
+        this.booMouseOver = false;
+        this.strPositionVertical = "top";
+        this.strPositionHorizontal = "right";
+        this.objPreviousButton = null;
     },
 
     refresh: function refresh()
@@ -322,7 +328,13 @@ CanvasBoxFixedButton.prototype =
         {
             this.drawOut();
         }
-        this.drawIcon( this.booMouseOver );
+        try{
+         this.drawIcon( this.booMouseOver , this.x , this.y  );
+        }
+        catch(e)
+        {
+        this.objElement.getContext().strokeText( this.strClassName , this.x , this.y );
+        }
     },
 
     draw: function draw()

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 var CanvasBoxAggregationButton = Class.create();
-Object.extend( CanvasBoxAggregationButton.prototype, CanvasBoxButton.prototype);
+Object.extend( CanvasBoxAggregationButton.prototype, window.autoload.loadCanvasBoxButton().prototype);
 Object.extend( CanvasBoxAggregationButton.prototype,
 {
     strTitle: "Aggregation",

@@ -88,7 +88,7 @@ require_once( "header.php" )
             </div>
             <canvas id="abc">
             </canvas>
-            <div style="float:left; width: 40%; text-align: justify">
+            <div style="float:left; width: 35%; text-align: justify">
                 <p>
                     So, external tools can create the XML Files what can be converted into diagrams and edited. The diagram can be created by some API call. PHP Code executions can
                     create XML files of diagrams what can be export to anothers applications. Diagrams can be created into the web
@@ -103,12 +103,12 @@ require_once( "header.php" )
                 </p>
             </div>
             <script type="text/javascript" charset="utf-8">
-                var objBox = new CanvasBox( "abc" , 400 , 500 );
+                var objBox = new window.autoload.newCanvasBoxStateDiagram( "abc" , document.body.clientWidth / 3 , 450 );
                 window.box = objBox;
                 function addStateElement( color )
                 {
-                    var objStateElement = new CanvasBoxState();
-                    objStateElement.objBehavior = new CanvasBoxMagneticBehavior( objStateElement );
+                    var objStateElement = new window.autoload.newCanvasBoxState();
+                    objStateElement.objBehavior = new window.autoload.newCanvasBoxMagneticBehavior( objStateElement );
                     objStateElement.x = 0;//Math.random() *  window.box.width ;
                     objStateElement.y = 0;//Math.random() * window.box.height ;
                     objStateElement.fixed = true;
@@ -126,9 +126,9 @@ require_once( "header.php" )
                 }
                 function addLine( objFrom , objTo , color )
                 {
-                    var objLine = new CanvasBoxDependency( objFrom , objTo );
-                    objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
-                    //objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                    var objLine = new window.autoload.newCanvasBoxDependency( objFrom , objTo );
+                    objLine.objBehavior = new window.autoload.newCanvasBoxDefaultConnectorBehavior( objLine );
+                    //objLine.objBehavior = new window.autoload.newCanvasBoxDefaultConnectorBehavior( objLine );
                     objLine.x =  ( objFrom.x + objTo.x  ) / 2
                     objLine.y =  ( objFrom.y + objTo.y  ) / 2
                     if( color )

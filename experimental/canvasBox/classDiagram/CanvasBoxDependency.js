@@ -1,5 +1,5 @@
 var CanvasBoxDependency = Class.create();
-Object.extend( CanvasBoxDependency.prototype, CanvasBoxLine.prototype);
+Object.extend( CanvasBoxDependency.prototype, window.autoload.loadCanvasBoxLine().prototype);
 Object.extend( CanvasBoxDependency.prototype,
 {
 

@@ -1,5 +1,5 @@
 var CanvasBoxLine = Class.create();
-Object.extend( CanvasBoxLine.prototype, CanvasBoxConnector.prototype);
+Object.extend( CanvasBoxLine.prototype, window.autoload.loadCanvasBoxConnector().prototype);
 Object.extend( CanvasBoxLine.prototype,
 {
     side: 3,
@@ -39,12 +39,14 @@ Object.extend( CanvasBoxLine.prototype,
     intWallRepelsForce: 1,
 
     strClassName: "CanvasBoxLine",
-    
+
+    intCloneCount: false,
+
     initialize: function initialize( objElementFrom , objElementTo )
     {
         this.objElementFrom = objElementFrom;
         this.objElementTo = objElementTo;
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.objBehavior = new autoload.newCanvasBoxDefaultBehavior( this );
     },
         
     toSerialize: function toSerialize()
@@ -235,18 +237,6 @@ Object.extend( CanvasBoxLine.prototype,
         {
             return false;
         }
-    },
-
-    cloneLine: function cloneLine()
-    {
-        var objLine = new CanvasBoxLine( this , this.objElementTo );
-        this.cloneConnector( objLine );
-        return objLine;
-    },
-
-    clone: function clone( objConnector )
-    {
-        return this.cloneLine( objConnector );
     },
 
     drawMouseOver: function drawMouseOver( event )

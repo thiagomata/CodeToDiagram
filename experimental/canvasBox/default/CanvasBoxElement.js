@@ -85,14 +85,20 @@ CanvasBoxElement.prototype =
      * Flag of control if Element is on DragDrop Event
      * @type boolean
      */
-    dragdrop: false,
-    
+    booDrag: false,
+
+    objMenu: null,
+
+    booMouseOver: false,
+
     /**
      * Visual Buttons to interact with the element without
      * the menu use.
      */
-    arrButtons: Array(),
-    
+    arrButtons: null,
+
+    intMass: 1,
+
     /**
      * Create a serializable version of this object
      * @return Object
@@ -106,12 +112,20 @@ CanvasBoxElement.prototype =
         return objResult;
     }, 
 
+    init: function init()
+    {
+        this.objBehavior = new autoload.newCanvasBoxDefaultBehavior( this );
+        this.arrButtons = Array();
+        this.booMouseOver = false;
+        this.fixed = false;
+    },
+    
     /**
      * Initialize the Canvas Box Element
      */
     initialize: function initialize()
     {
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.init();
     },
 
     /**
@@ -133,15 +147,6 @@ CanvasBoxElement.prototype =
     },
 
     /**
-     * Mouse Over check
-     * @return boolean
-     */
-    isInside: function isInside()
-    {
-        return false;
-    },
-
-    /**
      * On Element Mouse Over Event
      * 
      * @param Event event
@@ -149,6 +154,7 @@ CanvasBoxElement.prototype =
      */
     onMouseOver: function onMouseOver( event )
     {
+        this.booMouseOver = true;
         return this.objBehavior.onMouseOver( event );
     },
 
@@ -160,6 +166,7 @@ CanvasBoxElement.prototype =
      */
     onMouseOut: function onMouseOut( event )
     {
+        this.booMouseOver = false;
         return this.objBehavior.onMouseOut( event );
     },
 
@@ -179,9 +186,22 @@ CanvasBoxElement.prototype =
      * @param Event event
      * @return boolean
      */
+
     onClick: function onClick( event )
     {
-        return this.objBehavior.onClick( event );
+        if( !this.booDrag && this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
+        {
+            for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+            {
+                var objButton = this.arrButtons[ i ];
+                if( objButton.booMouseOver )
+                {
+                    return objButton.onClick( event );
+                }
+            }
+        }
+
+       return this.objBehavior.onClick( event );
     },
 
     /**
@@ -201,19 +221,48 @@ CanvasBoxElement.prototype =
      */
     onDrag: function onDrag( event )
     {
+        this.booDrag = true;
+
+        if( this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
+        {
+            for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+            {
+                var objButton = this.arrButtons[ i ];
+                if( objButton.booMouseOver )
+                {
+                    return objButton.onDrag( event );
+                }
+            }
+        }
+
         return this.objBehavior.onDrag( event );
     },
 
-    /**
-     * On Drop Event
-     * @param Event event
-     * @return boolean
-     */
     onDrop: function onDrop( event )
     {
+        this.booDrag = false;
+
+        if( this.intMass == 0 )
+        {
+            var arrConnectors = this.getConnectors();
+            if( arrConnectors.length == 1 && ( this.objBox.objElementOver != this ) )
+            {
+                var objConnector = arrConnectors[0];
+                if( objConnector.objElementFrom == this )
+                {
+                    objConnector.objElementFrom = this.objBox.objElementOver;
+                }
+                if( objConnector.objElementTo == this )
+                {
+                    objConnector.objElementTo = this.objBox.objElementOver;
+                }
+                this.objBox.deleteElement( this );
+            }
+        }
+        this.intMass = 1;
         return this.objBehavior.onDrop( event );
     },
-
+    
     /**
      * On Timer Event
      * @param Event event
@@ -229,8 +278,18 @@ CanvasBoxElement.prototype =
      * @param Event event
      * @return boolean
      */
+
     onContextMenu: function onContextMenu( event )
     {
+        this.objBox.booShowMenu = !this.objBox.booShowMenu;
+        if( this.objBox.booShowMenu )
+        {
+            this.objMenu.intMenuX = this.objBox.mouseX;
+            this.objMenu.intMenuY = this.objBox.mouseY;
+            this.objMenu.objBox = this.objBox;
+            this.objMenu.strActualMenuItem = null;
+            this.objBox.objMenuSelected = this.objMenu;
+        }
         return false;
     },
     
@@ -316,6 +375,93 @@ CanvasBoxElement.prototype =
 
     load: function load()
     {
+        if( this.objMenu !== null )
+        {
+            this.objMenu.objBox = this.objBox;
+        }
+    },
+
+    drawFixed: function drawFixed( boolFixed )
+    {
+        this.fixed = boolFixed;
+    },
+
+    goUp: function goUp()
+    {
+        this.drawFixed( true );
+        this.y -= 10;
+    },
+
+    goDown: function goDown()
+    {
+        this.drawFixed( true );
+        this.drawFixed( this.fixed );
+        this.y += 10;
+    },
+
+    goLeft: function goLeft()
+    {
+        this.drawFixed( true );
+        this.drawFixed( this.fixed );
+        this.x -= 10;
+    },
+
+    goRight: function goRight()
+    {
+        this.drawFixed( true );
+        this.drawFixed( this.fixed );
+        this.x += 10;
+    },
+
+    isInside: function isInside( mouseX , mouseY )
+    {
+        var booResult = false;
+        this.refresh();
+        if  (
+                ( mouseX >= this.x0 )
+                &&
+                ( mouseX <= this.x1 )
+                &&
+                ( mouseY >= this.y0 )
+                &&
+                ( mouseY <= this.y1 )
+            )
+        {
+            booResult = true;
+        }
+
+        if( this.intMass !== 0 && ( this.objBox.objElementSelected == null || this.objBox.objElementSelected == this ) )
+        {
+            for( var i = 0 ; i <  this.arrButtons.length ; ++i )
+            {
+                var objButton = this.arrButtons[ i ];
+                if( !booResult )
+                {
+                    if( objButton.isInside( mouseX , mouseY ) )
+                    {
+                        booResult = true;
+                    }
+                }
+                else
+                {
+                    objButton.booMouseOver = false;
+                }
+            }
+        }
+
+        return booResult;
+    },
+
+
+    addButton: function addButton( objButton )
+    {
+        if( this.arrButtons.length > 0 )
+        {
+            var objLast = this.arrButtons[ this.arrButtons.length - 1 ];
+            objButton.objPreviousButton = objLast;
+        }
+        this.arrButtons.push( objButton );
     }
+
 };
 

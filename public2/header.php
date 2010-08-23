@@ -35,7 +35,10 @@ if( !isset( $strPageItem ) )
             Code To Diagram - Automatic UML Diagrams from PHP Code Execution and Diagrams Web Editor
         </title>
         <script src="../experimental/phpjs/php.js" type="text/javascript" charset="utf-8"></script>
-        <?php require_once( "./box/classDiagram.php" )?>
+        <script src="../experimental/canvasBox/autoLoad/jsAutoLoad.js.php?deep=1&back=1" type="text/javascript" charset="utf-8"></script>
+        <script>
+                window.autoload.loadPrototype();
+        </script>
     </head>
     <body>
         <div id="wrapper">

@@ -129,7 +129,7 @@ CanvasBoxConnector.prototype =
      */
     loadMenu: function loadMenu()
     {
-        this.objMenu = new CanvasBoxMenu();
+        this.objMenu = new autoload.newCanvasBoxMenu();
         this.objMenu.objParent = this;
         this.objMenu.arrMenuItens = ({
             0:{
@@ -152,7 +152,7 @@ CanvasBoxConnector.prototype =
     {
         this.objElementFrom = objElementFrom;
         this.objElementTo = objElementTo;
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
+        this.objBehavior = new autoload.newCanvasBoxDefaultBehavior( this );
     },
 
     /**
@@ -295,24 +295,46 @@ CanvasBoxConnector.prototype =
     {
         return this.objBehavior.getForce( objElement );
     },
+    
+    clone: function clone( objConnector )
+    {
+        return this.cloneLine( objConnector );
+    },
+
+    cloneLine: function cloneLine()
+    {
+        var objLine;
+        this.intCloneCount++;
+        if( this.intCloneCount > 0 && this.intCloneCount % 2 == 0 )
+        {
+            objLine = new autoload.newCanvasBoxLine( this.objElementFrom , this );
+            this.cloneConnector( objLine , true );
+        }
+        else
+        {
+            objLine = new autoload.newCanvasBoxLine( this , this.objElementTo );
+            this.cloneConnector( objLine );
+        }
+        return objLine;
+    },
 
     /**
      * Clone Connetor
      * @param CanvasBoxConnector
      * @return CanvasBoxConnector
      */
-    cloneConnector: function cloneConnector( objConnector )
+    cloneConnector: function cloneConnector( objConnector , booReverse )
     {
         if( !objConnector )
         {
-            objConnector = new CanvasBoxConnector( this , this.objElementTo );
+            objConnector = new autoload.newCanvasBoxConnector( this , this.objElementTo );
         }
         else
         {
             objConnector.initialize( this , this.objElementTo );
         }
-        
-        objConnector.objBehavior = new window[ this.objBehavior.strClassName ]( objConnector );
+
+        objConnector.objBehavior = new window.autoload[ 'new' + this.objBehavior.strClassName ]( objConnector );
         objConnector.x =  this.x;
         objConnector.y =  this.y;
         objConnector.side = this.defaultSide ? this.defaultSide : this.side;
@@ -320,23 +342,48 @@ CanvasBoxConnector.prototype =
         objConnector.borderColor = this.defaultBorderColor ? this.defaultBorderColor : this.borderColor;
         objConnector.borderWidth = this.defaultBorderWidth ? this.defaultBorderWidth : this.borderWidth;
         this.objBox.addElement( objConnector );
-        this.objElementTo = objConnector;
-        objConnector.objElementFrom = this;
-        if( this.objElementFrom )
+        if( !booReverse )
         {
-            this.objElementFrom.objElementTo = this;
+            objConnector.objElementFrom = this;
+            this.objElementTo = objConnector;
+            if( this.objElementFrom )
+            {
+                this.objElementFrom.objElementTo = this;
+            }
+            if( this.objElementTo )
+            {
+                this.objElementTo.objElementFrom = this;
+            }
+            if( objConnector.objElementFrom )
+            {
+                objConnector.objElementFrom.objElementTo = objConnector;
+            }
+            if( objConnector.objElementTo )
+            {
+                objConnector.objElementTo.objElementFrom = objConnector;
+            }
         }
-        if( this.objElemenTo )
+        else
         {
-            this.objElemenTo.objElementFrom = this;
-        }
-        if( objConnector.objElementFrom )
-        {
-            objConnector.objElementFrom.objElementTo = objConnector;
-        }
-        if( objConnector.objElementTo )
-        {
-            objConnector.objElementTo.objElementFrom = objConnector;
+            objConnector.objElementFrom = this.objElementFrom;
+            objConnector.objElementTo = this;
+            this.objElementFrom = objConnector;
+            if( this.objElementTo )
+            {
+                this.objElementTo.objElementFrom = this;
+            }
+            if( this.objElementFrom )
+            {
+                this.objElementFrom.objElementTo = this;
+            }
+            if( objConnector.objElementTo )
+            {
+                objConnector.objElementTo.objElementFrom = objConnector;
+            }
+            if( objConnector.objElementFrom )
+            {
+                objConnector.objElementFrom.objElementTo = objConnector;
+            }
         }
         return objConnector;
     },

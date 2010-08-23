@@ -1,5 +1,5 @@
 var CanvasBoxAggregation = Class.create();
-Object.extend( CanvasBoxAggregation.prototype, CanvasBoxLine.prototype);
+Object.extend( CanvasBoxAggregation.prototype, window.autoload.loadCanvasBoxLine().prototype);
 Object.extend( CanvasBoxAggregation.prototype,
 {
     toSerialize: function toSerialize()

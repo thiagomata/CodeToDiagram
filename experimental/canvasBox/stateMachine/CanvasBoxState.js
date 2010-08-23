@@ -1,36 +1,18 @@
 var CanvasBoxState = Class.create();
-Object.extend( CanvasBoxState.prototype, CanvasBoxElement.prototype);
+Object.extend( CanvasBoxState.prototype, window.autoload.loadCanvasBoxElement().prototype);
 Object.extend( CanvasBoxState.prototype,
 {
-    width: 150,
+    width: 90,
 
-    height: 150,
+    height: 90,
 
-    x0: 0,
-
-    x1: 0,
-
-    dx: 0,
-
-    y0: 0,
-
-    y1: 0,
-
-    dy: 0,
-    
     z: 3,
 
     borderColor: "rgb(10,10,10)",
 
     borderWidth: 1,
     
-    objBehavior: null,
-
-    objContext: null,
-
-    intMass: 1,
-
-    intMagnetism: 15,
+    intMagnetism: 25,
 
     strStateName: "state",
 
@@ -42,29 +24,22 @@ Object.extend( CanvasBoxState.prototype,
 
     dragColor: "rgb( 200 , 200 , 250 )",
 
-    intWallRepelsForce: 1,
-
     strClassName: "CanvasBoxState",
 
-    objMenu: null,
-
-    booMenu: false,
-
     side: 45,
-    
+
     initialize: function initialize()
     {
-        this.objBehavior = new CanvasBoxDefaultBehavior( this );
-
-
-        this.objMenu = new CanvasBoxMenu();
-        this.objMenu.objParent = this;
+        this.init();
+        
+        this.objMenu = new autoload.newCanvasBoxMenu();
+        this.objMenu.objBox = this.objBox;
         this.objMenu.arrMenuItens = ({
             0:{
                 name: "create from state",
                 event: function( objParent ){
 
-                    var objClass = new CanvasBoxState();
+                    var objClass = new autoload.newCanvasBoxState();
                     objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
                     objClass.x = objParent.objBox.mouseX + 100;
                     objClass.y = objParent.objBox.mouseY + 100;
@@ -72,18 +47,18 @@ Object.extend( CanvasBoxState.prototype,
 
                     var objFrom = objClass;
                     var objTo = objParent;
-                    var objLine = new CanvasBoxStateLink( objFrom , objTo );
+                    var objLine = new autoload.newCanvasBoxStateLink( objFrom , objTo );
                     switch( objParent.objBehavior.strClassName )
                     {
                         case "CanvasBoxMagneticBehavior":
                         {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                            objLine.objBehavior = new autoload.newCanvasBoxMagneticConnectorBehavior( objLine );
                             break;
                         }
                         case "CanvasBoxDefaultBehavior":
                         default:
                         {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                            objLine.objBehavior = new autoload.newCanvasBoxDefaultConnectorBehavior( objLine );
                             break;
                         }
 
@@ -98,7 +73,7 @@ Object.extend( CanvasBoxState.prototype,
                 name: "create to state",
                 event: function( objParent ){
 
-                    var objClass = new CanvasBoxState();
+                    var objClass = new autoload.newCanvasBoxState();
                     objClass.objBehavior = new window[ objParent.objBehavior.strClassName ]( objClass );
                     objClass.x = objParent.objBox.mouseX + 100;
                     objClass.y = objParent.objBox.mouseY + 100;
@@ -106,18 +81,18 @@ Object.extend( CanvasBoxState.prototype,
 
                     var objFrom = objParent;
                     var objTo = objClass;
-                    var objLine = new CanvasBoxStateLink( objFrom , objTo );
+                    var objLine = new autoload.newCanvasBoxStateLink( objFrom , objTo );
                     switch( objParent.objBehavior.strClassName )
                     {
                         case "CanvasBoxMagneticBehavior":
                         {
-                            objLine.objBehavior = new CanvasBoxMagneticConnectorBehavior( objLine );
+                            objLine.objBehavior = new autoload.newCanvasBoxMagneticConnectorBehavior( objLine );
                             break;
                         }
                         case "CanvasBoxDefaultBehavior":
                         default:
                         {
-                            objLine.objBehavior = new CanvasBoxDefaultConnectorBehavior( objLine );
+                            objLine.objBehavior = new autoload.newCanvasBoxDefaultConnectorBehavior( objLine );
                             break;
                         }
 
@@ -209,7 +184,6 @@ Object.extend( CanvasBoxState.prototype,
             this.defaultColor = this.fillColor;
         }
         this.fillColor = this.overColor;
-        this.mouseOver = true;
     },
 
     drawMouseOut: function drawMouseOut( event )
@@ -218,7 +192,6 @@ Object.extend( CanvasBoxState.prototype,
         {
             this.fillColor = this.fixed ? this.fixedColor : this.defaultColor;
         }
-        this.mouseOver = false;
     },
 
     drawDrag: function drawDrag( event )
@@ -252,74 +225,6 @@ Object.extend( CanvasBoxState.prototype,
         }
     },
     
-    isInside: function isInside( mouseX , mouseY )
-    {
-        this.refresh();
-        if  (
-                ( mouseX >= this.x0 )
-                &&
-                ( mouseX <= this.x1 )
-                &&
-                ( mouseY >= this.y0 )
-                &&
-                ( mouseY <= this.y1 )
-            )
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    },
-
-    onContextMenu: function onContextMenu( event )
-    {
-        this.objBox.booShowMenu = !this.objBox.booShowMenu;
-        if( this.objBox.booShowMenu )
-        {
-            this.objMenu.intMenuX = this.objBox.mouseX;
-            this.objMenu.intMenuY = this.objBox.mouseY;
-            this.objMenu.objBox = this.objBox;
-            this.objMenu.strActualMenuItem = null;
-            this.objBox.objMenuSelected = this.objMenu;
-        }
-        return false;
-    },
-
-    onClick: function onClick( event )
-    {
-       return this.objBehavior.onClick( event );
-    },
-
-    goUp: function goUp()
-    {
-        this.fixed = true;
-        this.drawFixed( this.fixed );
-        this.y -= 10;
-    },
-    
-    goDown: function goDown()
-    {
-        this.fixed = true;
-        this.drawFixed( this.fixed );
-        this.y += 10;
-    },
-    
-    goLeft: function goLeft()
-    {
-        this.fixed = true;
-        this.drawFixed( this.fixed );
-        this.x -= 10;
-    },
-    
-    goRight: function goRight()
-    {
-        this.fixed = true;
-        this.drawFixed( this.fixed );
-        this.x += 10;
-    },
-
     rename: function rename()
     {
         var strClassNewName = prompt( "Inform the new name of the state." );

@@ -1,16 +1,14 @@
 var CanvasBoxMagneticConnectorBehavior = Class.create();
-Object.extend( CanvasBoxMagneticConnectorBehavior.prototype, CanvasBoxDefaultConnectorBehavior.prototype);
+Object.extend( CanvasBoxMagneticConnectorBehavior.prototype, window.autoload.loadCanvasBoxDefaultConnectorBehavior().prototype);
 Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
 {
-    fixed: false,
-
     dragdrop: false,
 
     connectorForce: 1500,
 
     connectorPullForce: 150,
 
-    connectorInteraction: 0.001,
+    connectorInteraction: 0.02,
 
     intMaxForce: 250,
 
@@ -173,7 +171,7 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
     move: function move()
     {
         this.refresh();
-        if( this.fixed || this.dragdrop )
+        if( this.objBoxElement.fixed || this.objBoxElement.booDrag )
         {
             return;
         }
@@ -187,51 +185,7 @@ Object.extend( CanvasBoxMagneticConnectorBehavior.prototype,
         this.keepOnLimits();
         this.refresh();
     },
-
-    onTimer: function onTimer()
-    {
-        this.move();
-    },
-
-    onMouseOver: function onMouseOver( event )
-    {
-        if( this.objBoxElement.drawMouseOver )
-        {
-            this.objBoxElement.drawMouseOver( event );
-        }
-    },
-
-    onMouseOut: function onMouseOut( event )
-    {
-        if( this.objBoxElement.drawMouseOut )
-        {
-            this.objBoxElement.drawMouseOut( event );
-        }
-    },
-
-    onDblClick: function onDblClick( event )
-    {
-        this.fixed = !this.fixed;
-        if( this.objBoxElement.drawFixed )
-        {
-            this.objBoxElement.drawFixed( this.fixed );
-        }
-    },
-
-    onDrag: function onDrag( event )
-    {
-        this.dragdrop = true;
-        this.objBoxElement.dx = this.objBoxElement.objBox.mouseX - this.objBoxElement.x;
-        this.objBoxElement.dy = this.objBoxElement.objBox.mouseY - this.objBoxElement.y;
-        this.objBoxElement.x = this.objBoxElement.objBox.mouseX;
-        this.objBoxElement.y = this.objBoxElement.objBox.mouseY;
-    },
-
-    onDrop: function onDrop( event )
-    {
-        this.dragdrop = false;
-    },
-
+    
     getVectors: function getVectors( arrVectors )
     {
     	var intQtdVectors = arrVectors.length;

@@ -1,5 +1,5 @@
 var CanvasBoxSequenceElement = Class.create();
-Object.extend( CanvasBoxSequenceElement.prototype, CanvasBoxElement.prototype);
+Object.extend( CanvasBoxSequenceElement.prototype, window.autoload.loadCanvasBoxElement().prototype);
 CanvasBoxSequenceElement.Static = new Object();
 CanvasBoxSequenceElement.Static.createRelation =  function createRelation( objElement , booFrom, strLineClass )
 {

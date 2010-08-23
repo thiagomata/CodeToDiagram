@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 var CanvasBoxChildButton = Class.create();
-Object.extend( CanvasBoxChildButton.prototype, CanvasBoxButton.prototype);
+Object.extend( CanvasBoxChildButton.prototype, window.autoload.loadCanvasBoxButton().prototype);
 Object.extend( CanvasBoxChildButton.prototype,
 {
     width: 25,

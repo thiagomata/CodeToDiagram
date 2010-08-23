@@ -1,5 +1,5 @@
 var CanvasBoxAssociation = Class.create();
-Object.extend( CanvasBoxAssociation.prototype, CanvasBoxLine.prototype);
+Object.extend( CanvasBoxAssociation.prototype, window.autoload.loadCanvasBoxLine().prototype);
 Object.extend( CanvasBoxAssociation.prototype,
 {
     toSerialize: function toSerialize()

@@ -2,7 +2,7 @@
  * Zoom in button of the canvas box diagram
  */
 var CanvasBoxZoomInButton = Class.create();
-Object.extend( CanvasBoxZoomInButton.prototype, CanvasBoxFixedButton.prototype);
+Object.extend( CanvasBoxZoomInButton.prototype, window.autoload.loadCanvasBoxFixedButton().prototype);
 Object.extend( CanvasBoxZoomInButton.prototype,
 {
     strTitle: "Zoom In",
@@ -77,11 +77,12 @@ Object.extend( CanvasBoxZoomInButton.prototype,
         return this.objImg;
     },
 
-    drawIcon: function drawIcon( booMouveOver )
+    drawIcon: function drawIcon( booMouveOver , x , y )
     {
+        var objImg = this.getImg();
         this.objElement.getContext().save();
         this.objElement.getContext().globalAlpha = ( booMouveOver ? 1 : 0.4 );
-        this.objElement.getContext().drawImage( this.getImg() , this.x , this.y );
+        this.objElement.getContext().drawImage( objImg , x , y );
         this.objElement.getContext().globalCompositeOperation = "darker";
         this.objElement.getContext().restore();
     },
@@ -89,6 +90,8 @@ Object.extend( CanvasBoxZoomInButton.prototype,
     onClick: function onClick( event )
     {
        this.objElement.dblZoom += 0.1;
+       this.objElement.width  = this.objElement.defaultWidth  / this.objElement.dblZoom;
+       this.objElement.height = this.objElement.defaultHeight / this.objElement.dblZoom;
     },
 
     onDrag: function onDrag( event )
