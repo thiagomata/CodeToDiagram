@@ -1,7 +1,10 @@
 <?php
-$strDir = __DIR__;
-print "/* __DIR__ $strDir*/";
+/**
+ * __dir__ dont work in production server
+ */
+$strDir = __FILE__;
 $arrDir = explode( "/" , $strDir );
+array_pop( $arrDir );
 array_pop( $arrDir );
 $intDeep = isset( $_REQUEST['deep'] ) ? $_REQUEST['deep'] : 0;
 $intBack = isset( $_REQUEST['back'] ) ? $_REQUEST['back'] : 0;
