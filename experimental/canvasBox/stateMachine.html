@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../phpjs/php.js" ></script>
+    <script type="text/javascript" src="./autoLoad/jsAutoLoad.js.php?deep=0"  ></script>
+    <script type="text/javascript" >
+        window.autoload.loadPrototype();
+    </script>
+        <style>
+            *
+            {
+                padding: 0;
+                margin: 0;
+                border: none;
+            }
+            canvas
+            {
+                border-style: solid;
+                border-color: black;
+                border-width: 1px;
+            }
+            #abc
+            {
+                margin-left:0px;
+                margin-top:0px;
+            }
+      </style>
+  </head>
+  <body>
+      <div>
+        <canvas id="abc">
+        </canvas>
+      </div>
+  <form action="" method="post">
+        <label for="behavior">
+            <span> Behavior </span>
+            <select name="behavior" onchange="changeBehavior(this)">
+                <option>
+                    Default
+                </option>
+                <option>
+                    Magnetic
+                </option>
+                <option>
+                    Gravity
+                </option>
+            </select>
+        </label>
+    </form>
+    <script type="text/javascript" charset="utf-8">
+        var objBox = new autoload.newCanvasBoxStateDiagram( "abc" , document.body.clientHeight * 0.7, document.body.clientHeight * 0.7  );
+        window.box = objBox;
+
+        function changeBehavior( objSelectElement )
+        {
+            var objElement;
+            var i;
+
+            switch( objSelectElement.value )
+            {
+                case "Default":
+                {
+                    for( i = 0 ; i < window.box.arrElements.length ; ++i )
+                    {
+                        objElement = window.box.arrElements[ i ];
+                        if( objElement.isConnector )
+                        {
+                            objElement.objBehavior = new autoload.newCanvasBoxDefaultConnectorBehavior( objElement );
+                        }
+                        else
+                        {
+                            objElement.objBehavior = new autoload.newCanvasBoxDefaultBehavior( objElement );
+                        }
+                    }
+                    break;
+                }
+                case "Magnetic":
+                {
+                    for( i = 0 ; i < window.box.arrElements.length ; ++i )
+                    {
+                        objElement = window.box.arrElements[ i ];
+                        //objElement.drawFixed( false );
+                        if( objElement.isConnector )
+                        {
+                            objElement.objBehavior = new autoload.newCanvasBoxMagneticConnectorBehavior( objElement );
+                        }
+                        else
+                        {
+                            objElement.objBehavior = new autoload.newCanvasBoxMagneticBehavior( objElement );
+                        }
+                    }
+                    break;
+                }
+                case "Gravity":
+                {
+                    for( i = 0 ; i < window.box.arrElements.length ; ++i )
+                    {
+                        objElement = window.box.arrElements[ i ];
+                        //objElement.drawFixed( false );
+                        objElement.dx = 0;
+                        objElement.dy = 0;
+                        if( objElement.isConnector )
+                        {
+                            objElement.objBehavior = new autoload.newCanvasBoxDefaultConnectorBehavior( objElement );
+                        }
+                        else
+                        {
+                            objElement.objBehavior = new autoload.newCanvasBoxGravityBehavior( objElement );
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        function addStateElement( color )
+        {
+            var objStateElement = new autoload.newCanvasBoxState();
+            objStateElement.objBehavior = new autoload.newCanvasBoxDefaultBehavior( objStateElement );
+            objStateElement.x = 0;
+            objStateElement.y = 0;
+            objStateElement.fillColor = "orange";
+            objStateElement.fixedColor = "orange";
+            objStateElement.drawFixed( false );
+            if( color )
+            {
+                objStateElement.fillColor = color;
+                objStateElement.fixedColor = color;
+                objStateElement.defaultColor = color;
+            }
+            window.box.addElement( objStateElement );
+            return objStateElement;
+        }
+        function addLine( objFrom , objTo , color )
+        {
+            var objLine = new autoload.newCanvasBoxStateLink( objFrom , objTo );
+            objLine.objBehavior = new autoload.newCanvasBoxDefaultConnectorBehavior( objLine );
+            objLine.x =  ( objFrom.x + objTo.x  ) / 2
+            objLine.y =  ( objFrom.y + objTo.y  ) / 2
+            if( color )
+            {
+                objLine.color = color;
+            }
+            window.box.addElement( objLine );
+            return objLine;
+        }
+        var objFactoryFromXml = addStateElement(  );
+        objFactoryFromXml.strStateName = "Factory From Xml";
+        objFactoryFromXml.x = 70;
+        objFactoryFromXml.y = 80;
+
+        var objFactoryFromCode = addStateElement(  );
+        objFactoryFromCode.strStateName = "Factory From Code";
+        objFactoryFromCode.x = 330;
+        objFactoryFromCode.y = 80;
+
+        var objDiagram = addStateElement( "rgb(200,200,230)" );
+        objDiagram.strStateName = "Uml Diagram";
+        objDiagram.x = 200;
+        objDiagram.y = 200;
+
+        var objPrinterHtml = addStateElement( );
+        objPrinterHtml.strStateName = "Printer Html";
+        objPrinterHtml.x = 100;
+        objPrinterHtml.y = 350;
+
+        var objPrinterXml = addStateElement( );
+        objPrinterXml.strStateName = "Printer Xml";
+        objPrinterXml.x = 200;
+        objPrinterXml.y = 400;
+
+        var objPrinterPng = addStateElement( );
+        objPrinterPng.strStateName = "Printer Png";
+        objPrinterPng.x = 300;
+        objPrinterPng.y = 350;
+
+        var objLine;
+
+        objLine = addLine( objFactoryFromXml , objDiagram );
+        objLine = addLine( objFactoryFromCode , objDiagram );
+        objLine = addLine( objDiagram , objPrinterHtml );
+        objLine = addLine( objDiagram , objPrinterXml  );
+        objLine = addLine( objDiagram , objPrinterPng  );
+
+        window.objLine = objLine;
+    </script>
+  </body>
+</html>
