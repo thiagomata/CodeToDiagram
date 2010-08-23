@@ -1,5 +1,6 @@
 <?php
 $strDir = __DIR__;
+print "/* __DIR__ $strDir*/";
 $arrDir = explode( "/" , $strDir );
 array_pop( $arrDir );
 $intDeep = isset( $_REQUEST['deep'] ) ? $_REQUEST['deep'] : 0;
@@ -10,11 +11,13 @@ while( $intDeep-- )
     array_pop( $arrDir );
 }
 $strDir = implode( "/" , $arrDir );
+print "/* strDir $strDir*/";
 for( $i = 0 ; $i < $intBack ; $i++ )
 {
     array_pop( $arrDir );
 }
 $strBack = implode( "/" , $arrDir );
+print "/* strBack $strBack*/";
 
 $arrFolders = array();
 $arrFiles = ( describe_folder( $strDir , $strBack , $arrFolders ) );
