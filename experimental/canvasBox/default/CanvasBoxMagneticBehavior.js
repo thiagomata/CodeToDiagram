@@ -2,7 +2,7 @@ var CanvasBoxMagneticBehavior = Class.create();
 Object.extend( CanvasBoxMagneticBehavior.prototype, window.autoload.loadCanvasBoxDefaultBehavior().prototype);
 Object.extend( CanvasBoxMagneticBehavior.prototype,
 {
-    intMagnetism: 50,
+    intMagnetism: 30,
 
     intWallRepelsForce: 0.01 ,
   

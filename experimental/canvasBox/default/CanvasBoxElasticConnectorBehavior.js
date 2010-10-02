@@ -12,9 +12,9 @@ CanvasBoxElasticConnectorBehavior.prototype =
 
     intYDistance: 0,
     
-    intElasticForce: 10,
+    intElasticForce: 1,
     
-    intIdealSize: 70,
+    intIdealSize: 30,
     
     initialize: function initialize( objBoxElement )
     {
@@ -128,7 +128,7 @@ CanvasBoxElasticConnectorBehavior.prototype =
             var dblDistance = Math.sqrt( dblDistanceX * dblDistanceX + dblDistanceY * dblDistanceY ); 
             
             objVector[ "dx" ] = this.intElasticForce * dblDistanceX * -( this.intIdealSize - dblDistance ) / this.intIdealSize;
-            objVector[ "dy" ] = this.intElasticForce * dblDistanceY * -( this.intIdealSize - dblDistance ) / this.intIdealSize; ;
+            objVector[ "dy" ] = this.intElasticForce * dblDistanceY * -( this.intIdealSize - dblDistance ) / this.intIdealSize;
             
         }
         return objVector;
