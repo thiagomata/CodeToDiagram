@@ -36,7 +36,7 @@ CanvasBox.Static.arrInstances = Array();
  * 
  * Get instance of canvas box by it's id
  * 
- * @param integer id
+ * @param id integer
  */
 CanvasBox.Static.getCanvasBoxById = function getCanvasBoxById( id )
 {
@@ -477,7 +477,12 @@ CanvasBox.prototype =
     clear: function clear()
     {
         var objContext = this.getContext();
-        objContext.clearRect( 0, 0, this.width, this.height );
+        objContext.clearRect( 
+            0,
+            0,
+            Math.max( this.width , this.defaultWidth ),
+            Math.max( this.height , this.defaultHeight )
+        );
     },
 
     /**
@@ -1249,10 +1254,15 @@ CanvasBox.prototype =
 
     saveFile: function saveFile()
     {
-        this.objCanvasHtml.setAttribute( "width" ,  ( this.defaultWidth * 10 )  + "px" );
-        this.objCanvasHtml.setAttribute( "height" , ( this.defaultHeight * 10 ) + "px" );
+        var dblProportion = this.defaultHeight / this.defaultWidth;
+        var intWidth = 1000;
+        var intHeight = Math.round( intWidth * dblProportion );
+        var dblOldZoom = this.dblZoom;
+        var dblNewZoom = intWidth / this.defaultWidth;
+        this.objCanvasHtml.setAttribute( "width" ,  ( intWidth )  + "px" );
+        this.objCanvasHtml.setAttribute( "height" , ( intHeight ) + "px" );
 
-        this.dblZoom *= 10;
+        this.dblZoom = dblNewZoom;
         
        var objNewForm = document.createElement( "form" );
        var objNewTextArea = document.createElement( "textarea" );
@@ -1297,7 +1307,7 @@ CanvasBox.prototype =
             30000
         );
        document.body.removeChild( objNewForm );
-        this.dblZoom /= 10;
+        this.dblZoom = dblOldZoom;
        this.objCanvasHtml.setAttribute( "width" ,  ( this.defaultWidth )  + "px" );
        this.objCanvasHtml.setAttribute( "height" , ( this.defaultHeight ) + "px" );
     },

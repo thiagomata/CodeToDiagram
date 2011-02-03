@@ -356,6 +356,12 @@ else
                 We welcome anyone with the patience and desire to make the
                 CSS changes need for it to work on Internet Explorer.
             </p>
+            <p>
+                The Sequence Diagram should migrate from HTML with CSS to Canvas Box
+                what the <a href="classDiagram.php">Class Diagram</a> already is using. This should make more easy
+                interaction events as drag and drop, save as image, etc. So big changes
+                are comming to the Sequence Diagram Web Editor.
+            </p>
         </div>
         <p class="meta">
             <span class="subtopic">Under Development</span>

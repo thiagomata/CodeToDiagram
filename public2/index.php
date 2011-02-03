@@ -103,7 +103,10 @@ require_once( "header.php" )
                 </p>
             </div>
             <script type="text/javascript" charset="utf-8">
-                var objBox = new window.autoload.newCanvasBoxStateDiagram( "abc" , document.body.clientWidth / 3 , 450 );
+                var intWidth = Math.round( document.body.clientWidth / 3 );
+                var intHeight = Math.round(  intWidth * 1.15 );
+                var dblProportion =  intWidth / 400;
+                var objBox = new window.autoload.newCanvasBoxStateDiagram( "abc" , intWidth , intHeight );
                 window.box = objBox;
                 function addStateElement( color )
                 {
@@ -140,33 +143,33 @@ require_once( "header.php" )
                 }
                 var objFactoryFromXml = addStateElement(  );
                 objFactoryFromXml.strStateName = "Factory From Xml";
-                objFactoryFromXml.x = 70;
-                objFactoryFromXml.y = 80;
+                objFactoryFromXml.x = 70 * dblProportion;
+                objFactoryFromXml.y = 80 * dblProportion;
 
                 var objFactoryFromCode = addStateElement(  );
                 objFactoryFromCode.strStateName = "Factory From Code";
-                objFactoryFromCode.x = 330;
-                objFactoryFromCode.y = 80;
+                objFactoryFromCode.x = 330 * dblProportion;
+                objFactoryFromCode.y = 80 * dblProportion;
 
                 var objDiagram = addStateElement( "rgb(200,200,230)" );
                 objDiagram.strStateName = "Uml Diagram";
-                objDiagram.x = 200;
-                objDiagram.y = 200;
+                objDiagram.x = 200 * dblProportion;
+                objDiagram.y = 200 * dblProportion;
 
                 var objPrinterHtml = addStateElement( );
                 objPrinterHtml.strStateName = "Printer Html";
-                objPrinterHtml.x = 100;
-                objPrinterHtml.y = 350;
+                objPrinterHtml.x = 100 * dblProportion;
+                objPrinterHtml.y = 350 * dblProportion;
 
                 var objPrinterXml = addStateElement( );
                 objPrinterXml.strStateName = "Printer Xml";
-                objPrinterXml.x = 200;
-                objPrinterXml.y = 400;
+                objPrinterXml.x = 200 * dblProportion;
+                objPrinterXml.y = 400 * dblProportion;
 
                 var objPrinterPng = addStateElement( );
                 objPrinterPng.strStateName = "Printer Png";
-                objPrinterPng.x = 300;
-                objPrinterPng.y = 350;
+                objPrinterPng.x = 300 * dblProportion;
+                objPrinterPng.y = 350 * dblProportion;
 
         var objLine;
         objLine = addLine( objFactoryFromXml , objDiagram );

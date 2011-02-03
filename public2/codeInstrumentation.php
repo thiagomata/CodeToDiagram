@@ -65,43 +65,15 @@ require_once( "header.php" )
                 to be saved as XML, as a jpeg image and as XMI UML file.
             </p>
             <p>
-                MISSING TEXT
+                With the recent changes into the PHP, as namespaces, the code instrumentation
+                need to be updated. Maybe this will take a big time because. Until then, try generate diagrams of projects what use this new
+                features probably will fail. Another option more
+                trustable, simple and fast it is the creation of diagrams based on the
+                results of the XDebug. That is the reason because the creation of diagrams
+                based on XDebug become one of the priority features.
             </p>
             <p>
-                If you have some special case, when any of the avaliable printers and factorys
-                solve your problem, everthing it is extremly well
-                <a href="http://www.thiagomata.com/codetodiagram/doc/dox/html/">doc</a>
-                to help
-                to you create new classes and append new features.
-            </p>
-            <p>
-                <strong>The Class Diagram generation still is in working progress</strong>. You can help to accelerate
-                it making a <a href="#donation">donation</a>.
-            </p>
-        </div>
-    </div>
-    <div class="post">
-        <p class="meta">
-            <span class="subtopic"><a name="PHP Code to Sequence Diagram" href="codeInstrumentation.php#PHP Code to Sequence Diagram">PHP Code to Sequence Diagram</a></span>
-            <span class="topic">Code Instrumentation</span>
-        </p>
-        <div style="clear: both;">&nbsp;</div>
-        <div class="entry">
-            <p>
-                MISSING TEXT
-            </p>
-            <p>
-                MISSING TEXT
-            </p>
-            <p>
-                If you have some special case, when any of the avaliable printers and factorys
-                solve your problem, everthing it is extremly well
-                <a href="http://www.thiagomata.com/codetodiagram/doc/dox/html/">doc</a>
-                to help
-                to you create new classes and append new features.
-            </p>
-            <p>
-                <strong>The Sequence Diagram generation still is in working progress</strong>. You can help to accelerate
+                <strong>The Diagram Generation With XDebug still is in working progress</strong>. You can help to accelerate
                 it making a <a href="#donation">donation</a>.
             </p>
         </div>

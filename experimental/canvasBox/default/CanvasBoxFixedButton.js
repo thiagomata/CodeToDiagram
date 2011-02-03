@@ -232,8 +232,8 @@ CanvasBoxFixedButton.prototype =
                 }
             }
         }
-        this.x = this.objElement.x + this.intRelativeX + this.intPaddingLeft;
-        this.y = this.objElement.y + this.intRelativeY + this.intPaddingTop;
+        this.x = this.intRelativeX + this.intPaddingLeft;
+        this.y = this.intRelativeY + this.intPaddingTop;
     },
 
     drawOut: function drawOut()

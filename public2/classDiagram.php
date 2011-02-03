@@ -81,7 +81,7 @@ require_once( "header.php" );
                 in this <a href="#classDiagramEditor.php">external example</a> or in the embedded example below.
             </p>
             <p>
-                Actual implemented features:
+                Already implemented features:
             </p>
             <ul>
                 <li>
@@ -122,13 +122,14 @@ require_once( "header.php" );
                 <canvas id="canvasBox">
                 </canvas>
                 <script type="text/javascript" charset="utf-8">
+                    intWidth = document.getElementById("box").clientWidth;
                     objBox = new window.autoload.newCanvasBox( "canvasBox" ,
-                    document.getElementById("box").clientWidth, 700     );
-
+                    intWidth , intWidth );
+                    window.objBox = objBox;
                     var objClass = new window.autoload.newCanvasBoxClass();
-                    objClass.objBehavior = new window.autoload.newCanvasBoxMagneticBehavior( objClass );
-                    objClass.x = 100;
-                    objClass.y = 100;
+                    objClass.objBehavior = new window.autoload.newCanvasBoxDefaultBehavior( objClass );
+                    objClass.x = Math.round( intWidth / 2 );
+                    objClass.y = Math.round( intWidth / 2 );
                     objClass.strClassElementName = "example";
                     objBox.addElement( objClass );
                 </script>
