@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence>
+	<actors>
+		<actor id="user"       type="user">User</actor>
+		<actor id="view"       type="boundary">:View</actor>
+		<actor id="controller" type="controller">:Controller</actor>
+		<actor id="model"      type="entity">:Model</actor>
+	</actors>
+	<messages>
+		<message type="call" from="user" to="view" text="request()"/>
+                <note position="left" actor="view" text="receive form data" /> 
+                <note position="right" actor="view" text="receive form data" /> 
+		<message type="call" from="view" to="controller" text="handleEvent()"/>
+                <note position="right" actor="controller" text="internal business" /> 
+		<message type="call" from="controller" to="model" text="queryInformation()"/>
+                <note position="left" actor="model" text="persist" /> 
+		<message type="call" from="controller" to="controller" text="doValidation()"/>
+		<message type="return" from="controller" to="view" text="updateView()"/>
+		<message type="return" from="view" to="user" text="notifyUser()"/>
+	</messages>
+</sequence>
