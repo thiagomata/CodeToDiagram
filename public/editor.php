@@ -190,6 +190,7 @@
 
                         wordWrap: true
                     });
+                    updateDiagram();
                 }
                 
                 if( document.addEventListener )
