@@ -46,8 +46,8 @@ and open the template in the editor.
                 function addClass( color )
                 {
                     var objClass = new autoload.newCanvasBoxClass();
-                    objClass.objBehavior = new autoload.newCanvasBoxMagneticBehavior( objClass );
-                    //objClass.objBehavior = new autoload.newCanvasBoxDefaultBehavior( objClass );
+                    //objClass.objBehavior = new autoload.newCanvasBoxMagneticBehavior( objClass );
+                    objClass.objBehavior = new autoload.newCanvasBoxDefaultBehavior( objClass );
                     objClass.x = Math.random() *  window.box.width ;
                     objClass.y = Math.random() * window.box.height ;
                     if( color )

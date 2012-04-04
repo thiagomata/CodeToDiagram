@@ -2,21 +2,21 @@ var CanvasBoxMagneticBehavior = Class.create();
 Object.extend( CanvasBoxMagneticBehavior.prototype, window.autoload.loadCanvasBoxDefaultBehavior().prototype);
 Object.extend( CanvasBoxMagneticBehavior.prototype,
 {
-    intMagnetism: 30,
+    intMagnetism: 1,
 
     intWallRepelsForce: 0.01 ,
   
     intDirectionChangeLoss: 5,
     
-    intMaxForce: 20,
+    intMaxForce: 10,
     
     intMargin: 20,
     
     intRepelling: 10,
 
-    intEscapeForce: 20,
+    intEscapeForce: 10,
     
-    dblCollisionForce: 0.05,
+    dblCollisionForce: 1,
     
     strClassName: "CanvasBoxMagneticBehavior",
 
