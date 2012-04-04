@@ -26,6 +26,11 @@ CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
     ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
 ;
 
+$objPrinter = new UmlSequenceDiagramPrinterConfigurationToHtml();
+$objPrinter->setZoom( 120 );
+$objPrinter->setWidth( 1800 );
+CodeToDiagram::getInstance()->setPrinterConfiguration( $objPrinter );
+
 // 3. load the necessary classes
 require_once( 'Wolf.class.php' );
 require_once( 'Pig.class.php' );

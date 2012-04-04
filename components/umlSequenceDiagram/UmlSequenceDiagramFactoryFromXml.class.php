@@ -145,43 +145,107 @@ class UmlSequenceDiagramFactoryFromXml implements UmlSequenceDiagramFactoryInter
     {
     	$arrMessages = $this->getUmlSequenceDiagram()->getMessages();
     	$arrActors = $this->getUmlSequenceDiagram()->getActors();
-
-    	foreach( $this->objXml->messages->message as $xmlMessage )
+        $objMessage = null;
+        $objNote = null;
+        
+        $objDomMessages = dom_import_simplexml( $this->objXml->messages );
+    	foreach( $objDomMessages->childNodes as $objDomMessage )
         {
-            $strFrom    = (string)$xmlMessage[ 'from' ];
-            $strTo      = (string)$xmlMessage[ 'to' ];
-            $strType    = (string) $xmlMessage[ 'type' ];
-            $strText = (string) $xmlMessage[ 'text' ];
-
-            $objMessage = new UmlSequenceDiagramMessage();
-            $objMessage->setType( $strType );
-            $objMessage->setText( $strText );
-
-           if( !array_key_exists( $strFrom , $arrActors ) )
+            if( ! $objDomMessage instanceof domElement )
             {
-                throw new Exception( ' Actor From ' . $strFrom . ' not Found ' );
+                continue;
             }
-            $objMessage->setActorFrom( $arrActors[ $strFrom ] );
-
-           if( !array_key_exists( $strTo , $arrActors ) )
+            $xmlMessage = simplexml_import_dom( $objDomMessage );
+            switch( $xmlMessage->getName() )
             {
-                throw new Exception( ' Actor To ' . $strTo . ' not Found ' );
+                case "message":
+                {
+                    $strFrom    = (string)$xmlMessage[ 'from' ];
+                    $strTo      = (string)$xmlMessage[ 'to' ];
+                    $strType    = (string) $xmlMessage[ 'type' ];
+                    $strText = (string) $xmlMessage[ 'text' ];
+
+                    $objMessage = new UmlSequenceDiagramMessage();
+                    $objMessage->setType( $strType );
+                    $objMessage->setText( $strText );
+
+                    if( !array_key_exists( $strFrom , $arrActors ) )
+                    {
+                        throw new Exception( ' Actor From ' . $strFrom . ' not Found ' );
+                    }
+                    $objMessage->setActorFrom( $arrActors[ $strFrom ] );
+
+                    if( !array_key_exists( $strTo , $arrActors ) )
+                    {
+                        throw new Exception( ' Actor To ' . $strTo . ' not Found ' );
+                    }
+                    $objMessage->setActorTo( $arrActors[ $strTo ] );
+
+                    if( isset( $xmlMessage->values->value ) )
+                    foreach( $xmlMessage->values->value as $xmlValue )
+                    {
+                        $strName = (string)$xmlValue['name'];
+                        $strValue = (string)$xmlValue['value'];
+                        $objValue = new UmlSequenceDiagramValue();
+                        $objValue->setName( $strName );
+                        $objValue->setValue( $strValue );
+
+                        $objMessage->addValue( $objValue );
+                    }
+
+                    if( $objNote !== null )
+                    {
+                        $objMessage->addNoteBefore( $objNote );
+                        $objNote = null;
+                    }
+                    
+                    $arrMessages[] = $objMessage;
+                    break;
+                }
+                case "note":
+                {            
+                    $strPosition    = strtolower( (string) $xmlMessage[ 'position' ] );
+                    $strActor       = (string) $xmlMessage[ 'actor' ];
+                    $strText        = (string) $xmlMessage[ 'text' ];
+                    
+                    $objNote = new UmlSequenceDiagramNote();
+                    $objNote->setContent( $strText );
+                    
+                    if( $strActor !== "" )
+                    {
+                        if( !array_key_exists( $strActor , $arrActors ) )
+                        {
+                            throw new Exception( ' Actor To ' . $strTo . ' not Found ' );
+                        }
+                        $objActor = $arrActors[ $strActor ];
+                        $objNote->setActor( $objActor );
+                    }
+
+                    $objNote->setContent( $strText );
+                    
+                    if( $strPosition == "left" )
+                    {
+                        $objNote->setLeft( true );
+                    }
+                    else
+                    {
+                        $objNote->setRight( true );
+                    }
+                    
+                    
+                    if( $objMessage !== null )
+                    {
+                        $objMessage->addNoteAfter( $objNote );
+                        $objNote = null;
+                    }
+                    break;
+                }
+                default:
+                {
+                    throw new Exception( "invalid tag " . $xmlMessage->getName()  . " into tag messages" );
+                    break;
+                }
             }
-            $objMessage->setActorTo( $arrActors[ $strTo ] );
-
-            if( isset( $xmlMessage->values->value ) )
-            foreach( $xmlMessage->values->value as $xmlValue )
-            {
-                $strName = (string)$xmlValue['name'];
-                $strValue = (string)$xmlValue['value'];
-                $objValue = new UmlSequenceDiagramValue();
-                $objValue->setName( $strName );
-                $objValue->setValue( $strValue );
-
-                $objMessage->addValue( $objValue );
-            }
-
-            $arrMessages[] = $objMessage;
         }
         $this->getUmlSequenceDiagram()->setMessages( $arrMessages );
     }

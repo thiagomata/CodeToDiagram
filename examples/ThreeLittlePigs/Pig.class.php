@@ -27,6 +27,10 @@ class LittlePig {
      */
     protected $objHouse;
 
+    public function __construct()
+    {
+        CodeToDiagram::getInstance()->addNote( "oinc" );        
+    }
     /**
      * The pig speak the received text
      * 
@@ -59,6 +63,7 @@ class LittlePig {
      */
     public function buildHouse( $strType )
     {
+        CodeToDiagram::getInstance()->addNote( "hammer time" );        
         $objHouse = new House();
         $objHouse->setType( $strType );
         $this->objHouse = $objHouse;

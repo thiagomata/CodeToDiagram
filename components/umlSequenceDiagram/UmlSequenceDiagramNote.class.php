@@ -41,7 +41,7 @@ class UmlSequenceDiagramNote
      *
      * @var boolean
      */
-    protected $booLeft = true;
+    protected $booLeft = false;
 
     /**
      * 
@@ -123,7 +123,7 @@ class UmlSequenceDiagramNote
      * @param boolean $booLeft
      * @return UmlSequenceDiagramNote
      */
-    public function setLeft( $booLeft )
+    public function setLeft( $booLeft = true )
     {
         $this->booLeft = (boolean)$booLeft;
         return $this;
@@ -145,7 +145,7 @@ class UmlSequenceDiagramNote
      * @param boolean $booRight
      * @return UmlSequenceDiagramNote
      */
-    public function setRight( $booRight )
+    public function setRight( $booRight = true )
     {
         $booRight = (boolean)$booRight;
         $booLeft = !$booRight;

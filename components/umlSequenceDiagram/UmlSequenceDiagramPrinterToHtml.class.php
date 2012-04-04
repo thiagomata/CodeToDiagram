@@ -374,6 +374,8 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrReplace[ "codetodiagram:actor_from" ] = "actor" . $intStart;
         $arrReplace[ "codetodiagram:message_dif" ] = "dif" . ( $intStart - $intEnd );
         $arrReplace[ "<codetodiagram:message_values/>" ] = $this->getValues( $objMessage );
+        $arrReplace[ "codetodiagram:regular_actor" ] = "";
+        $arrReplace[ "codetodiagram:active_actor" ] = "start";
 
         while( $objActorActual = array_shift( $arrActors ) )
         {
@@ -449,6 +451,10 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
         $arrActors = $objNote->getActor()->getUmlSequenceDiagram()->getActors();
         $intPosition = $objNote->getActor()->getPosition();
 
+        if( $objNote->getLeft() )
+        {
+            $intPosition--;
+        }
         $strResult = "";
 
         foreach( $arrActors as $objActor )
@@ -464,6 +470,8 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
             $arrReplace[ "codetodiagram:reverse" ] = "";
             $arrReplace[ "codetodiagram:large" ] = "";
             $arrReplace[ "codetodiagram:recursive" ] = "";
+            $arrReplace[ "codetodiagram:regular_actor" ] = "";
+            $arrReplace[ "codetodiagram:active_actor" ] = "start";
             
             /**
              * @var $objActor UmlSequenceDiagramActor
@@ -487,10 +495,21 @@ class UmlSequenceDiagramPrinterToHtml implements UmlSequenceDiagramPrinterInterf
                 }
                 $arrReplace[ "<codetodiagram:message_text/>" ] = $strShortContent;
                 $arrReplace[ "codetodiagram:message_values" ] = $strContent;
+                if( $objNote->getLeft() )
+                {
+                    $arrReplace[ "codetodiagram:regular_actor" ] = "";
+                    $arrReplace[ "codetodiagram:active_actor" ] = "";            
+                }
                 $strResult .=  $this->getTemplate( "line_note.html" , $arrReplace );
             }
             elseif( $objActor->getPosition()  > $intPosition )
             {
+                if( $objNote->getLeft() && ( ( $intPosition + 1 ) == $objActor->getPosition() ) )
+                {
+                    $arrReplace[ "codetodiagram:regular_actor" ] = "active start";
+                    $arrReplace[ "codetodiagram:active_actor" ] = "active start";
+                    $arrReplace[ "aftercodetodiagram:message_dif" ] = "";
+                }
                 // after line //
                 $strResult .=  $this->getTemplate( "line_after.html" , $arrReplace );
             }

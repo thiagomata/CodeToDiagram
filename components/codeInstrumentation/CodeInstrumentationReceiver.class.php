@@ -351,7 +351,7 @@ class CodeInstrumentationReceiver implements UmlSequenceDiagramFactoryInterface
         
         array_unshift( $this->arrStack , $objActorTo );
 
-        $this->objActualActor = $objActorFrom;
+        $this->objActualActor = $objActorTo;
         return $this;
     }
 

@@ -1163,10 +1163,10 @@ class CodeToDiagram
         public function addNote( $strNoteContent , $booAfter = true )
         {
             $objNote = new UmlSequenceDiagramNote();
-            $objNote->setContent( $strNoteContent );
             $objMessage = CodeInstrumentationReceiver::getInstance()->getActualMessage();
             $objActor =  CodeInstrumentationReceiver::getInstance()->getActualActor();
             $objNote->setActor( $objActor );
+            $objNote->setContent( $strNoteContent );
             
             if( $booAfter )
             {
