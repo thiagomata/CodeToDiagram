@@ -148,6 +148,20 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
         {
             /** @var $objMessage UmlSequenceDiagramMessage */
 
+            $objMessage = new UmlSequenceDiagramMessage();
+            
+            $arrNotes = $objMessage->getNotesBefore();
+            foreach( $arrNotes as $objNote )
+            {
+                /** @var $objNote UmlSequenceDiagramNote */
+                $strXmlMessages .= "\t\t";
+                $strXmlMessages .= "<note ";
+                $strXmlMessages .= 'position="' . $objNote->getLeft() ? 'left' : 'right' . '" ';
+                $strXmlMessages .= 'actor="' . $objNote->getActor() . '" ';
+                $strXmlMessages .= 'text="' . $objNote->getContent() . '" ';
+                $strXmlMessages .= '/>' . "\n";
+            }
+            
             $strXmlMessages .= "\t\t";
             $strXmlMessages .= "<message ";
             $strXmlMessages .= 'type="' . $objMessage->getType() . '" ';
@@ -173,9 +187,22 @@ class UmlSequenceDiagramPrinterToXml implements UmlSequenceDiagramPrinterInterfa
             $strXmlMessages .= "\t\t\t";
             $strXmlMessages .= "</values>\n";
 
+            $arrNotes = $objMessage->getNotesAfter();
+            foreach( $arrNotes as $objNote )
+            {
+                /** @var $objNote UmlSequenceDiagramNote */
+                $strXmlMessages .= "\t\t";
+                $strXmlMessages .= "<note ";
+                $strXmlMessages .= 'position="' . $objNote->getLeft() ? 'left' : 'right' . '" ';
+                $strXmlMessages .= 'actor="' . $objNote->getActor() . '" ';
+                $strXmlMessages .= 'text="' . $objNote->getContent() . '" ';
+                $strXmlMessages .= '/>' . "\n";
+            }
+            
             $strXmlMessages .= "\t\t";
             $strXmlMessages .= "</message>\n";
         }
+    	
         $strXmlMessages .= "\t</messages>\n";
         return $strXmlMessages;
     }

@@ -48,6 +48,7 @@ class UmlClassDiagramClassStereotype
     /**
      * array with the name of the default stereotypes
      *
+     * @link http://www.uml-diagrams.org/class-diagrams.html
      * @var string[]
      */
     protected static $arrDefaultStereotypes = array( 
@@ -59,7 +60,14 @@ class UmlClassDiagramClassStereotype
         'database' ,
         'abstract' , 
         'general' ,
-        'interface'
+        'interface' ,
+        'focus' ,
+        'auxiliary' ,
+        'type' ,
+        'utility' ,
+        'datatype' ,
+        'primitive' ,
+        'enumeration'
     );
 
     
@@ -90,7 +98,6 @@ class UmlClassDiagramClassStereotype
      */
     public static function getStereotypeByName( $strName )
     {
-        CorujaDebug::debug( self::$arrInstances  );
         if( !isset( self::$arrInstances[ $strName ] ) )
         {
             throw new UmlClassDiagramException( 'unknow uml Class diagram stereotype "' . $strName . '".');

@@ -23,7 +23,10 @@ if( $strXml == "" )
 $strXml =  html_entity_decode( $strXml );
 $strXml = stripslashes( $strXml );
 $objXmlClass = UmlClassDiagramFactoryFromXml::getInstance()->setXml( $strXml )->perform();
-print CorujaDebug::debug( $objXmlClass , true );
+//print CorujaDebug::debug( $objXmlClass );
+print CorujaDebug::debugXmlCode( 
+UmlClassDiagramPrinterToXml::getInstance()->perform( $objXmlClass )
+, true );
 
 $strTitle = CorujaArrayManipulation::getArrayField( $_REQUEST, "title" , 'Class Diagram' );
 $intFont = (integer)CorujaArrayManipulation::getArrayField( $_REQUEST , "font" , 40 );

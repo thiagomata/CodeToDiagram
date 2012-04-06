@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classdiagram>
     <classes>
-        <class id="person">Person</class>
-        <class id="student">Student</class>
-        <class id="professor">Professor</class>
-        <class id="address">Address</class>
+        <class id="person" name="Person"></class>
+        <class id="student" name="Student"></class>
+        <class id="professor" name="Professor"></class>
+        <class id="address" name="Address"></class>
     </classes>
     <connectors>
         <connector type="generalization" from="person" to="student" />

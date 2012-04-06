@@ -10,10 +10,10 @@
  */
 Loader::requireOnce( 'UmlClassDiagramException.class.php' , true );
 Loader::requireOnce( 'UmlClassDiagramFactoryInterface.interface.php' , true );
-//Loader::requireOnce( 'UmlClassDiagramPrinterInterface.interface.php' , true );
-//Loader::requireOnce( 'UmlClassDiagramPrinterConfigurationInterface.interface.php' , true );
+Loader::requireOnce( 'UmlClassDiagramPrinterInterface.interface.php' , true );
+Loader::requireOnce( 'UmlClassDiagramPrinterConfigurationInterface.interface.php' , true );
 Loader::requireOnce( 'UmlClassDiagramFactoryFromXml.class.php' , true );
-//Loader::requireOnce( 'UmlClassDiagramPrinterToXml.class.php' , true );
+Loader::requireOnce( 'UmlClassDiagramPrinterToXml.class.php' , true );
 //Loader::requireOnce( 'UmlClassDiagramPrinterConfigurationToHtml.class.php' , true );
 //Loader::requireOnce( 'UmlClassDiagramPrinterToHtml.class.php' , true );
 Loader::requireOnce( 'UmlClassDiagramClassStereotype.class.php' , true );

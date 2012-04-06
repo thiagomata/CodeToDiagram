@@ -124,13 +124,17 @@ class UmlClassDiagramFactoryFromXml implements UmlClassDiagramFactoryInterface
       	foreach( $this->objXml->classes->class as $xmlClass )
         {
             $strId      = (string)  $xmlClass['id'];
+            $strName    = (string)  $xmlClass[ 'name' ];
             $strType    = (string)  $xmlClass['type'];
             $intWidth   = (integer) $xmlClass['width'];
             $intHeight  = (integer) $xmlClass['height'];
             $intX       = (integer) $xmlClass['x'];
             $intY       = (integer) $xmlClass['y'];
-            $strName    = (string)  $xmlClass;
 
+            if( $strName == "" )
+            {
+                throw new UmlClassDiagramException( "Class Name cannot be null" );
+            }
             if( $strType != "" )
             {
                 $objClass->setType( $strType );
@@ -216,7 +220,7 @@ class UmlClassDiagramFactoryFromXml implements UmlClassDiagramFactoryInterface
                 case "note":
                 {            
                     $strPosition    = strtolower( (string) $xmlConnector[ 'position' ] );
-                    $strClass       = (string) $xmlConnector[ 'Class' ];
+                    $strClass       = (string) $xmlConnector[ 'class' ];
                     $strText        = (string) $xmlConnector[ 'text' ];
                     
                     $objNote = new UmlClassDiagramNote();

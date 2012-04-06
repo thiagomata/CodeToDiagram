@@ -102,6 +102,21 @@ class UmlClassDiagramConnector
     protected $arrNotesAfter = array();
 
     /**
+     * Name of Default Stereotype 
+     * 
+     * @var string
+     */
+    protected static $strDefaultStereotype = "association";
+    
+    /**
+     * Set the default type of the Class
+     */
+    public function __construct()
+    {
+        $this->setType( self::$strDefaultStereotype );
+    }
+    
+    /**
      * Set the text of the Connector
      *
      * @see UmlClassDiagramConnector::getText()
@@ -268,48 +283,53 @@ class UmlClassDiagramConnector
      *
      * @see UmlClassDiagramClass::setType( string )
      * @see UmlClassDiagramClass->objStereotype
+     * @throws UmlClassDiagramException
      * @return string
      */
     public function getType()
     {
-        return $this->objType->getName();
+        if( $this->objStereotype == null )
+        {
+            throw new UmlClassDiagramException( "Type of Diagram Connector is not defined" );
+        }
+        return $this->objStereotype->getName();
     }
 
     /**
      * Set the type of the Class
      *
      * @see UmlClassDiagramClass::getType()
-     * @see UmlClassDiagramClass->objType
+     * @see UmlClassDiagramClass->objStereotype
      * @return UmlClassDiagramClass
      * @throws UmlClassDiagramException
      */
     public function setType( $strType )
     {
-        $this->objType = UmlClassDiagramConnectorStereotype::getStereotypeByName( $strType );
+        $this->objStereotype = UmlClassDiagramConnectorStereotype::getStereotypeByName( $strType );
     }
 
     /**
      * Set the stereotype of the Class
      *
      * @see UmlClassDiagramClass::getStereotype()
-     * @see UmlClassDiagramClass->objType
+     * @see UmlClassDiagramClass->objStereotype
      * @return UmlClassDiagramConnectorStereotype
      */
     public function setStereotype( UmlClassDiagramConnectorStereotype $objStereotype )
     {
-        return $this->objType = $objStereotype;
+        return $this->objStereotype = $objStereotype;
     }
 
     /**
      * Get the stereotype of the Class
      *
      * @see UmlClassDiagramClass::setStereotype( UmlClassDiagramConnectorStereotype )
-     * @see UmlClassDiagramClass->objType
+     * @see UmlClassDiagramClass->objStereotype
      * @return UmlClassDiagramConnectorStereotype
      */
     public function getStereotype()
     {
-        return $this->objType;
+        return $this->objStereotype;
     }
     
     /**
