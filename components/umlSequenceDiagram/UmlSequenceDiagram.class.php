@@ -33,6 +33,12 @@ class UmlSequenceDiagram
      */
     protected $strOutput = "";
 
+    public function loadDefaultStereotypes()
+    {
+        UmlSequenceDiagramActorStereotype::loadDefaultStereotypes();
+        UmlSequenceDiagramMessageStereotype::loadDefaultStereotypes();
+    }
+    
     /**
      * Restart Uml Sequence Object.
      * Clean all the old actors and messages

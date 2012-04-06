@@ -20,10 +20,10 @@ CodeToDiagram::getInstance()->start();
 
 // 2. start the code to diagram
 CodeToDiagram::getInstance()->getConfiguration()->getMatchGroupStereotypes()
-    ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
-    ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
-    ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
-    ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
+    ->addItemName( "History"   , UmlSequenceDiagramActorStereotype::getStereotypeByName( "boundary" ) )
+    ->addItemName( "Wolf"      , UmlSequenceDiagramActorStereotype::getStereotypeByName( "user" ) )
+    ->addItemName( "LittlePig" , UmlSequenceDiagramActorStereotype::getStereotypeByName( "controller" ) )
+    ->addItemName( "House"     , UmlSequenceDiagramActorStereotype::getStereotypeByName( "entity" ) )
 ;
 
 $objPrinter = new UmlSequenceDiagramPrinterConfigurationToHtml();

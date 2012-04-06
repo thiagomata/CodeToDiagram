@@ -1,16 +1,16 @@
 <?php
 /**
- * UmlSequenceDiagramStereotype - Define the stereotypes of the uml sequence
+ * UmlClassDiagramStereotype - Define the stereotypes of the uml Class
  * diagram
  */
 
 /**
- * UmlSequenceDiagramStereotype define the stereotype of the actors into the
- * sequence diagram object
+ * UmlClassDiagramStereotype define the stereotype of the actors into the
+ * Class diagram object
  *
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  */
-class UmlSequenceDiagramStereotype
+class UmlClassDiagramStereotype
 {
     /**
      * Flag to control if the element it is a default
@@ -38,14 +38,14 @@ class UmlSequenceDiagramStereotype
     protected $strImage;
 
     /**
-     * Array of the instances of the UmlSequenceDiagramStereotype
+     * Array of the instances of the UmlClassDiagramStereotype
      * by the name
      * 
-     * @var UmlSequenceDiagramStereotype[]
+     * @var UmlClassDiagramStereotype[]
      */
     protected static $arrInstances = array();
 
-    public static function addStereotype( UmlSequenceDiagramStereotype $objStereotype )
+    public static function addStereotype( UmlClassDiagramStereotype $objStereotype )
     {
         self::$arrInstances[ $objStereotype->getName()  ] = $objStereotype;
         return $objStereotype;
@@ -55,13 +55,13 @@ class UmlSequenceDiagramStereotype
      * Get the stereotype instance by the name
      *
      * @param string $strName
-     * @return UmlSequenceDiagramStereotype
+     * @return UmlClassDiagramStereotype
      */
     public static function getStereotypeByName( $strName )
     {
         if( !isset( self::$arrInstances[ $strName ] ) )
         {
-            throw new UmlSequenceDiagramException( 'unknow uml sequence diagram stereotype ' . $strName );
+            throw new UmlClassDiagramException( 'unknow uml Class diagram stereotype ' . $strName );
         }
         return self::$arrInstances[ $strName  ];
     }
@@ -69,10 +69,10 @@ class UmlSequenceDiagramStereotype
     /**
      * Set if the stereotype it is default
      *
-     * @see UmlSequenceDiagramStereotype->boolDefault
-     * @see UmlSequenceDiagramStereotype::getDefault()
+     * @see UmlClassDiagramStereotype->boolDefault
+     * @see UmlClassDiagramStereotype::getDefault()
      * @param boolean $booDefault
-     * @return UmlSequenceDiagramStereotype
+     * @return UmlClassDiagramStereotype
      */
     public function setDefault( $booDefault )
     {
@@ -82,8 +82,8 @@ class UmlSequenceDiagramStereotype
 
     /**
      *
-     * @see UmlSequenceDiagramStereotype->boolDefault
-     * @see UmlSequenceDiagramStereotype::setDefault( boolean )
+     * @see UmlClassDiagramStereotype->boolDefault
+     * @see UmlClassDiagramStereotype::setDefault( boolean )
      * @return boolean $booDefault
      */
     public function getDefault()
@@ -93,10 +93,10 @@ class UmlSequenceDiagramStereotype
 
     /**
      *
-     * @see UmlSequenceDiagramStereotype->strName
-     * @see UmlSequenceDiagramStereotype::getName()
+     * @see UmlClassDiagramStereotype->strName
+     * @see UmlClassDiagramStereotype::getName()
      * @param string $strName
-     * @return UmlSequenceDiagramStereotype
+     * @return UmlClassDiagramStereotype
      */
     public function setName( $strName )
     {
@@ -107,8 +107,8 @@ class UmlSequenceDiagramStereotype
     /**
      * Get the name of the stereotype
      *
-     * @see UmlSequenceDiagramStereotype->strName
-     * @see UmlSequenceDiagramStereotype::setName( string )
+     * @see UmlClassDiagramStereotype->strName
+     * @see UmlClassDiagramStereotype::setName( string )
      * @return string
      */
     public function getName()
@@ -119,10 +119,10 @@ class UmlSequenceDiagramStereotype
     /**
      * Set the image file name
      *
-     * @see UmlSequenceDiagramStereotype->strImage
-     * @see UmlSequenceDiagramStereotype->getImage()
+     * @see UmlClassDiagramStereotype->strImage
+     * @see UmlClassDiagramStereotype->getImage()
      * @param string $strImage
-     * @return UmlSequenceDiagramStereotype
+     * @return UmlClassDiagramStereotype
      */
     public function setImage( $strImage )
     {
@@ -133,8 +133,8 @@ class UmlSequenceDiagramStereotype
     /**
      * Get the image file name
      *
-     * @see UmlSequenceDiagramStereotype->strImage
-     * @see UmlSequenceDiagramStereotype->setImage( string )
+     * @see UmlClassDiagramStereotype->strImage
+     * @see UmlClassDiagramStereotype->setImage( string )
      * @return string $strImage
      */
     public function getImage()

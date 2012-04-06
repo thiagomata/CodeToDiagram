@@ -35,7 +35,7 @@ class UmlSequenceDiagramActor
     /**
      * Type of the actor
      *
-     * @var UmlSequenceDiagramStereotype
+     * @var UmlSequenceDiagramActorStereotype
      */
     protected $objStereotype = null;
 
@@ -54,11 +54,18 @@ class UmlSequenceDiagramActor
     protected $strClassName;
 
     /**
+     * Name of Default Stereotype 
+     * 
+     * @var string
+     */
+    protected static $strDefaultStereotype = "system";
+    
+    /**
      * Set the default type of the actor
      */
     public function __construct()
     {
-        $this->setType( "system" );
+        $this->setType( self::$strDefaultStereotype );
     }
 
     /**
@@ -161,15 +168,15 @@ class UmlSequenceDiagramActor
      */
     public function setType( $strType )
     {
-        $this->objType = UmlSequenceDiagramStereotype::getStereotypeByName( $strType );
+        $this->objType = UmlSequenceDiagramActorStereotype::getStereotypeByName( $strType );
     }
 
     /**
      * Set the stereotype of the actor
      *
-     * @return UmlSequenceDiagramStereotype
+     * @return UmlSequenceDiagramActorStereotype
      */
-    public function setStereotype( UmlSequenceDiagramStereotype $objStereotype )
+    public function setStereotype( UmlSequenceDiagramActorStereotype $objStereotype )
     {
         return $this->objType = $objStereotype;
     }
@@ -177,7 +184,7 @@ class UmlSequenceDiagramActor
     /**
      * Get the stereotype of the actor
      *
-     * @return UmlSequenceDiagramStereotype
+     * @return UmlSequenceDiagramActorStereotype
      */
     public function getStereotype()
     {

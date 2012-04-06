@@ -27,11 +27,11 @@ class UmlSequenceDiagramMessage
     protected $strMethod = null;
 
     /**
-     * Type of the message ( call or return )
+     * Type of the actor
      *
-     * @var string
+     * @var UmlSequenceDiagramMessageStereotype
      */
-    protected $strType = null;
+    protected $objStereotype = null;
 
     /**
      * Actor what send the message
@@ -154,33 +154,48 @@ class UmlSequenceDiagramMessage
     }
 
     /**
-     * Set the type of the message
+     * Get the type of the actor
      *
-     * @see UmlSequenceDiagramMessage::getType()
-     * @see UmlSequenceDiagramMessage->strType
-     * @param string $strType
-     * @return UmlSequenceDiagramMessage me
-     */
-    public function setType( $strType )
-    {
-        if( !in_array( $strType, Array( 'call' , 'return' ) ) )
-        {
-            throw new Exception( "Invalid type of message " . $strType );
-        }
-        $this->strType = $strType;
-        return $this;
-    }
-
-    /**
-     * Get the type of the message
-     *
-     * @see UmlSequenceDiagramMessage::setType( string )
-     * @see UmlSequenceDiagramMessage->strType
+     * @see UmlSequenceDiagramActor::setType( string )
+     * @see UmlSequenceDiagramActor->objStereotype
      * @return string
      */
     public function getType()
     {
-        return $this->strType;
+        return $this->objType->getName();
+    }
+
+    /**
+     * Set the type of the actor
+     *
+     * @see UmlSequenceDiagramActor::getType()
+     * @see UmlSequenceDiagramActor->objType
+     * @return UmlSequenceDiagramActor
+     * @throws UmlSequenceDiagramException
+     */
+    public function setType( $strType )
+    {
+        $this->objType = UmlSequenceDiagramMessageStereotype::getStereotypeByName( $strType );
+    }
+
+    /**
+     * Set the stereotype of the actor
+     *
+     * @return UmlSequenceDiagramMessageStereotype
+     */
+    public function setStereotype( UmlSequenceDiagramMessageStereotype $objStereotype )
+    {
+        return $this->objType = $objStereotype;
+    }
+
+    /**
+     * Get the stereotype of the actor
+     *
+     * @return UmlSequenceDiagramMessageStereotype
+     */
+    public function getStereotype()
+    {
+        return $this->objType;
     }
 
     /**

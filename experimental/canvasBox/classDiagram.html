@@ -43,13 +43,21 @@ and open the template in the editor.
             <script type="text/javascript" charset="utf-8">
                 window.box = new autoload.newCanvasBox( "abc" , document.body.clientWidth - 10, document.body.clientHeight - 10  );
                 //window.box = objBox;
-                function addClass( color )
+                function addClass( color , booRandom )
                 {
                     var objClass = new autoload.newCanvasBoxClass();
                     //objClass.objBehavior = new autoload.newCanvasBoxMagneticBehavior( objClass );
                     objClass.objBehavior = new autoload.newCanvasBoxDefaultBehavior( objClass );
-                    objClass.x = Math.random() *  window.box.width ;
-                    objClass.y = Math.random() * window.box.height ;
+                    if( booRandom )
+                    {
+                        objClass.x = Math.random() *  window.box.width ;
+                        objClass.y = Math.random() * window.box.height ;
+                    }
+                    else
+                    {
+                        objClass.x = window.box.width / 2;
+                        objClass.y = window.box.height / 2;
+                    }
                     if( color )
                     {
                         objClass.color = color;
@@ -75,7 +83,7 @@ and open the template in the editor.
                 {
                     return objLineOriginal.cloneLine();
                 }
-                addClass();
+                addClass( false , false );
                 //var objRed = addClass(  );
                 //var objGreen = addClass(  );
                 //var objYellow = addClass(  );

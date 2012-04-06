@@ -264,7 +264,7 @@ class CodeInstrumentationReceiverConfiguration
         $this->setGatekeeperMethods( $objGatekeeperMethods );
 
         $objMatchGroupStereotypes = new MatchGroup();
-        $objDefaultStereotype = UmlSequenceDiagramStereotype::getStereotypeByName( "system" );
+        $objDefaultStereotype = UmlSequenceDiagramActorStereotype::getStereotypeByName( "system" );
         $objMatchGroupStereotypes->setNotFoundValue( $objDefaultStereotype );
         $this->setMatchGroupStereotypes( $objMatchGroupStereotypes );
     }

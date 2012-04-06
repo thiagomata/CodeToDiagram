@@ -24,10 +24,10 @@ CodeToDiagram::getInstance()->getConfiguration()
     ->setMergeSameClassObjects( true )
     ->setIgnoreNullReturns( true )
     ->getMatchGroupStereotypes()
-        ->addItemName( "History"   , UmlSequenceDiagramStereotype::getStereotypeByName( "boundary" ) )
-        ->addItemName( "Wolf"      , UmlSequenceDiagramStereotype::getStereotypeByName( "user" ) )
-        ->addItemName( "LittlePig" , UmlSequenceDiagramStereotype::getStereotypeByName( "controller" ) )
-        ->addItemName( "House"     , UmlSequenceDiagramStereotype::getStereotypeByName( "entity" ) )
+        ->addItemName( "History"   , UmlSequenceDiagramActorStereotype::getStereotypeByName( "boundary" ) )
+        ->addItemName( "Wolf"      , UmlSequenceDiagramActorStereotype::getStereotypeByName( "user" ) )
+        ->addItemName( "LittlePig" , UmlSequenceDiagramActorStereotype::getStereotypeByName( "controller" ) )
+        ->addItemName( "House"     , UmlSequenceDiagramActorStereotype::getStereotypeByName( "entity" ) )
 ;
 CodeToDiagram::getInstance()->getConfiguration()->getGatekeeperMethods()->getForbiddenMatch()->addItemRegularExpression( "^set*|^get*");
 

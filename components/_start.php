@@ -6,6 +6,7 @@ require_once( COMPONENTS_PATH . "loader/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "match/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "umlSequenceDiagram/_start.php" );
+Loader::requireOnce( COMPONENTS_PATH . "umlClassDiagram/_start.php" );
 //Loader::requireOnce( COMPONENTS_PATH . "backtrace/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "extendedReflection/_start.php" );
 Loader::requireOnce( COMPONENTS_PATH . "codeReflection/_start.php" );

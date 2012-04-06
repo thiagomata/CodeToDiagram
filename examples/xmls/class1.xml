@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classdiagram>
+    <classes>
+        <class id="person">Person</class>
+        <class id="student">Student</class>
+        <class id="professor">Professor</class>
+        <class id="address">Address</class>
+    </classes>
+    <connectors>
+        <connector type="generalization" from="person" to="student" />
+        <connector type="generalization" from="person" to="professor" />
+        <connector type="association" from="person" to="address" />
+    </connectors>
+</classdiagram>

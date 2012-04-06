@@ -713,17 +713,17 @@ Error: Problems running epstopdf. Check your TeX installation!
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:53: Warning: argument 'UmlSequenceDiagram' of command @param is not found in the argument list of UmlSequenceDiagramPrinterToXml::perform(UmlSequenceDiagram $objUmlSequenceDiagram)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramPrinterToXml.class.php:53: Warning: The following parameters of UmlSequenceDiagramPrinterToXml::perform(UmlSequenceDiagram $objUmlSequenceDiagram) are not documented:
   parameter 'objUmlSequenceDiagram'
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:54: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramStereotype::getStereotypeByName($strName)
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:54: Warning: The following parameters of UmlSequenceDiagramStereotype::getStereotypeByName($strName) are not documented:
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:54: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramActorStereotype::getStereotypeByName($strName)
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:54: Warning: The following parameters of UmlSequenceDiagramActorStereotype::getStereotypeByName($strName) are not documented:
   parameter 'strName'
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:69: Warning: argument 'boolean' of command @param is not found in the argument list of UmlSequenceDiagramStereotype::setDefault($booDefault)
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:69: Warning: The following parameters of UmlSequenceDiagramStereotype::setDefault($booDefault) are not documented:
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:69: Warning: argument 'boolean' of command @param is not found in the argument list of UmlSequenceDiagramActorStereotype::setDefault($booDefault)
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:69: Warning: The following parameters of UmlSequenceDiagramActorStereotype::setDefault($booDefault) are not documented:
   parameter 'booDefault'
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:119: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramStereotype::setImage($strImage)
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:119: Warning: The following parameters of UmlSequenceDiagramStereotype::setImage($strImage) are not documented:
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:119: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramActorStereotype::setImage($strImage)
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:119: Warning: The following parameters of UmlSequenceDiagramActorStereotype::setImage($strImage) are not documented:
   parameter 'strImage'
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:94: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramStereotype::setName($strName)
-/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramStereotype.class.php:94: Warning: The following parameters of UmlSequenceDiagramStereotype::setName($strName) are not documented:
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:94: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramActorStereotype::setName($strName)
+/var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramActorStereotype.class.php:94: Warning: The following parameters of UmlSequenceDiagramActorStereotype::setName($strName) are not documented:
   parameter 'strName'
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramValue.class.php:29: Warning: argument 'string' of command @param is not found in the argument list of UmlSequenceDiagramValue::setName($strName)
 /var/www/codetodiagram/components/umlSequenceDiagram/UmlSequenceDiagramValue.class.php:29: Warning: The following parameters of UmlSequenceDiagramValue::setName($strName) are not documented:
