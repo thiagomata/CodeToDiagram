@@ -33,7 +33,7 @@ Object.extend( CanvasBoxComposition.prototype,
     {
         this.objBox.beginPath();
         this.objBox.setFillStyle( this.objBox.backgroundColor );
-        this.objBox.setStrokeStyle( 0 );
+        this.objBox.setStrokeStyle( "rgb( 0, 0, 0)" );
         this.objBox.arc( 0 , 0 , intSide * 2 , 0 ,  Math.PI  , true );
         this.objBox.fill();
         this.objBox.setFillStyle( "rgb( 30, 30, 50)" );

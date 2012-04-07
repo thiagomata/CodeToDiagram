@@ -1113,9 +1113,10 @@ CanvasBox.prototype =
        this.getContext().fillStyle = strFillStyle;
     },
 
-    setStrokeStyle: function setStrokeStyle( intStrokeStyle )
+    setStrokeStyle: function setStrokeStyle( strStrokeStyle )
     {
-        this.getContext().strokeStyle = ( intStrokeStyle  * this.dblZoom );
+        document.title = strStrokeStyle;
+        this.getContext().strokeStyle = strStrokeStyle;
     },
 
     setLineWidth: function setLineWidth( dblLineWidth )
