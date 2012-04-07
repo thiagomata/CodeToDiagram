@@ -43,28 +43,28 @@ class UmlClassDiagramClass
      * 
      * @var integer
      */
-    protected $intX;
+    protected $intX = 0;
     
     /**
      * Position Y of the class element
      * 
      * @var integer
      */
-    protected $intY;
+    protected $intY = 0;
     
     /**
      * Width of the class element
      * 
      * @var integer
      */
-    protected $intWidth;
+    protected $intWidth = 200;
     
     /**
      * Height of the class element
      * 
      * @var integer
      */
-    protected $intHeight;
+    protected $intHeight = 200;
     
     /**
      * Name of the Class

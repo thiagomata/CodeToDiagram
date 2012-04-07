@@ -164,7 +164,7 @@
                         window.objXml = objXml;
                         var objDiagram = document.getElementById( "diagram" );
                         var objLink = document.getElementById( "link" );
-                        objDiagram.src = "sequence.php?zoom=100&xml=" + strContentDiagram;
+                        objDiagram.src = "class.php?zoom=100&xml=" + strContentDiagram;
                         objLink.href = objDiagram.src;
                         objLink.innerHTML = objDiagram.src;
                     }
@@ -215,7 +215,7 @@
         </div>
         <div class="content">
             <div class="leftbox">
-		<form><textarea onchange="javascript:updateDiagram()" id="code" name="code"><?php print file_get_contents( "sequence.xml" ) ?>    </textarea></form>
+		<form><textarea onchange="javascript:updateDiagram()" id="code" name="code"><?php print file_get_contents( "../examples/xmls/class1.xml" ) ?>    </textarea></form>
             </div>
             <div class="rightbox">
                 <iframe id="diagram"></iframe>

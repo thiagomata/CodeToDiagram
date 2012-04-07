@@ -123,29 +123,54 @@ class UmlClassDiagramFactoryFromXml implements UmlClassDiagramFactoryInterface
 
       	foreach( $this->objXml->classes->class as $xmlClass )
         {
-            $strId      = (string)  $xmlClass['id'];
-            $strName    = (string)  $xmlClass[ 'name' ];
-            $strType    = (string)  $xmlClass['type'];
-            $intWidth   = (integer) $xmlClass['width'];
-            $intHeight  = (integer) $xmlClass['height'];
-            $intX       = (integer) $xmlClass['x'];
-            $intY       = (integer) $xmlClass['y'];
-
-            if( $strName == "" )
+            $objClass = new UmlClassDiagramClass();
+            
+            foreach($xmlClass->attributes() as $strKey => $mixValue ) 
+            {
+                switch( $strKey )
+                {
+                    case  "name":
+                    {
+                        $objClass->setName( (string) $mixValue );
+                        break;   
+                    }
+                    case  "id":
+                    {
+                        $objClass->setId( (string) $mixValue );
+                        break;   
+                    }
+                    case  "type":
+                    {
+                        $objClass->setType( (string) $mixValue );
+                        break;   
+                    }
+                    case  "width":
+                    {
+                        $objClass->setWidth( (integer) $mixValue );
+                        break;   
+                    }
+                    case  "height":
+                    {
+                        $objClass->setHeight( (integer) $mixValue );
+                        break;   
+                    }
+                    case  "x":
+                    {
+                        $objClass->setX( (integer) $mixValue );
+                        break;   
+                    }
+                    case  "y":
+                    {
+                        $objClass->setY( (integer) $mixValue );
+                        break;   
+                    }
+                }
+            }
+            
+            if( $objClass->getName() == "" )
             {
                 throw new UmlClassDiagramException( "Class Name cannot be null" );
             }
-            if( $strType != "" )
-            {
-                $objClass->setType( $strType );
-            }
-            $objClass = new UmlClassDiagramClass();
-            $objClass->setId( $strId );
-            $objClass->setName( $strName );
-            $objClass->setX( $intX );
-            $objClass->setY( $intY );
-            $objClass->setWidth( $intWidth );
-            $objClass->setHeight( $intHeight );
             
             if( isset( $xmlClass->attributes ) && isset( $xmlClass->attributes->attribute ) )
             foreach( $xmlClass->attributes->attribute as $xmlAttribute )

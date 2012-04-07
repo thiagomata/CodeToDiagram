@@ -43,6 +43,6 @@ Object.extend( CanvasBoxGeneralization.prototype,
         this.objBox.setStrokeStyle("rgb( 70, 70, 70)" );
         this.drawArrowFrom( intSide );
         this.objBox.stroke();
-        this.objBox.strokeText( objPointer.degree, 20 , 20 );
+        //this.objBox.strokeText( objPointer.degree, 20 , 20 );
     } 
 });

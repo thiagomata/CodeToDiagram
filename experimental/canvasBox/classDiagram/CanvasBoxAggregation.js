@@ -43,6 +43,6 @@ Object.extend( CanvasBoxAggregation.prototype,
         this.objBox.setStrokeStyle( "rgb( 70, 70, 70)" );
         this.drawAggregationFrom( intSide );
         this.objBox.stroke();
-        this.objBox.strokeText( objPointer.degree, 20 , 20 );
+        //this.objBox.strokeText( objPointer.degree, 20 , 20 );
     }
 });

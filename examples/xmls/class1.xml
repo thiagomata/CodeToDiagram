@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classdiagram>
     <classes>
-        <class id="person" name="Person">
+        <class id="person" name="Person" x="800" y="400">
             <attributes>
                 <attribute name="name" type="string" value="jonh"/>
                 <attribute name="login" type="string" abstract="true"/>
@@ -22,17 +22,20 @@
                 </method>
             </methods>
         </class>
-        <class id="student" name="Student">
+        <class id="student" name="Student" height="100" x="400" y="100">
             <methods>
                 <method name="saygoodbye"/>
             </methods>
         </class>
-        <class id="professor" name="Professor">
+        <class id="professor" name="Professor" height="100" x="400" y="400">
+            <attributes>
+                <attribute name="area" type="string"/>
+            </attributes>
             <methods>
                 <method name="sayhello"/>
             </methods>
         </class>
-        <class id="address" name="Address"></class>
+        <class id="address" name="Address" width="100" height="40" x="800" y="100">></class>
     </classes>
     <connectors>
         <connector type="generalization" from="person" to="student" />

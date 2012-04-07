@@ -24,10 +24,11 @@ $strXml =  html_entity_decode( $strXml );
 $strXml = stripslashes( $strXml );
 $objXmlClass = UmlClassDiagramFactoryFromXml::getInstance()->setXml( $strXml )->perform();
 //print CorujaDebug::debug( $objXmlClass );
-print CorujaDebug::debugXmlCode( 
-UmlClassDiagramPrinterToXml::getInstance()->perform( $objXmlClass )
-, true );
-
+$objConfiguration = new UmlClassDiagramPrinterConfigurationToHtml();
+$objConfiguration->setPublicPath( "http://localhost/codetodiagram/codetodiagram/public/" );
+UmlClassDiagramPrinterToHtml::getInstance()->setConfiguration( $objConfiguration );
+print UmlClassDiagramPrinterToHtml::getInstance()->perform( $objXmlClass );
+exit();
 $strTitle = CorujaArrayManipulation::getArrayField( $_REQUEST, "title" , 'Class Diagram' );
 $intFont = (integer)CorujaArrayManipulation::getArrayField( $_REQUEST , "font" , 40 );
 $intZoom = (integer)CorujaArrayManipulation::getArrayField( $_REQUEST , "zoom" , 50 );

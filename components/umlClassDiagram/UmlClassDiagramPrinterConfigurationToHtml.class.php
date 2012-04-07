@@ -11,7 +11,7 @@
  * @author Thiago Henrique Ramos da Mata <thiago.henrique.mata@gmail.com>
  *
  */
-class UmlClassDiagramPrinterConfigurationToXml implements UmlClassDiagramPrinterConfigurationInterface
+class UmlClassDiagramPrinterConfigurationToHtml implements UmlClassDiagramPrinterConfigurationInterface
 {
     /**
      * public path of the code execution
@@ -71,6 +71,30 @@ class UmlClassDiagramPrinterConfigurationToXml implements UmlClassDiagramPrinter
      * @default true
      */
     protected $booShowDetails = true;
+    
+    protected static $strDefaultCanvasId = "canvasboxdiagram";
+    
+    protected $strCanvasId;
+    
+    public static function getDefaultCanvasId()
+    {
+        return self::$strDefaultCanvasId;
+    }
+    
+    public function __construct()
+    {
+        $this->strCanvasId = self::$strDefaultCanvasId;
+    }
+    
+    public function getCanvasId()
+    {
+        return $this->strCanvasId;
+    }
+    
+    public function setCanvasId( $strCanvasId )
+    {
+        $this->strCanvasId = $strCanvasId;
+    }
     
     /**
      * Set the public path of the code execution
