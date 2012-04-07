@@ -206,7 +206,7 @@
 	</head>
 	<body>
         <div class="header">
-            <h1> Code to Diagram - Sequence Diagram Editor </h1>
+            <h1> Code to Diagram - Class Diagram Editor </h1>
             <div class="buttons">
                 <a href="#" id="link">
                     #
