@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 var CanvasBoxAggregationButton = Class.create();
 Object.extend( CanvasBoxAggregationButton.prototype, window.autoload.loadCanvasBoxButton().prototype);
 Object.extend( CanvasBoxAggregationButton.prototype,

@@ -1,7 +1,3 @@
-/* 
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 var CanvasBoxCompositionButton = Class.create();
 Object.extend( CanvasBoxCompositionButton.prototype, window.autoload.loadCanvasBoxButton().prototype);
 Object.extend( CanvasBoxCompositionButton.prototype,

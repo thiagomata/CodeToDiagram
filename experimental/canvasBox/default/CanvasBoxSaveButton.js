@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 var CanvasBoxSaveButton = Class.create();
 Object.extend( CanvasBoxSaveButton.prototype, window.autoload.loadCanvasBoxFixedButton().prototype);
 Object.extend( CanvasBoxSaveButton.prototype,

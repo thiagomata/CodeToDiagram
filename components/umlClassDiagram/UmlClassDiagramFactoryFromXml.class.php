@@ -147,6 +147,159 @@ class UmlClassDiagramFactoryFromXml implements UmlClassDiagramFactoryInterface
             $objClass->setWidth( $intWidth );
             $objClass->setHeight( $intHeight );
             
+            if( isset( $xmlClass->attributes ) && isset( $xmlClass->attributes->attribute ) )
+            foreach( $xmlClass->attributes->attribute as $xmlAttribute )
+            {
+                $objAttribute = new UmlClassDiagramAttribute();
+                
+                foreach($xmlAttribute->attributes() as $strKey => $mixValue ) 
+                {
+                    switch( $strKey )
+                    {
+                        case  "name":
+                        {
+                            $objAttribute->setName( (string)$mixValue );
+                            break;   
+                        }
+                        case  "value":
+                        {
+                            $objAttribute->setValue( (string)$mixValue );
+                            break;   
+                        }
+                        case  "type":
+                        {
+                            $objAttribute->setType( (string)$mixValue );
+                            break;   
+                        }
+                        case  "visibility":
+                        {
+                            $objAttribute->setVisibility( (string)$mixValue );
+                            break;   
+                        }
+                        case  "final":
+                        {
+                            $booFinal = CorujaStringManipulation::strToBool( (string)$mixValue );
+                            $objAttribute->setFinal( $booFinal );
+                            break;   
+                        }
+                        case  "static":
+                        {
+                            $booStatic = CorujaStringManipulation::strToBool( (string)$mixValue );
+                            $objAttribute->setStatic( $booStatic );
+                            break;   
+                        }
+                        case  "abstract":
+                        {
+                            $booAbstract = CorujaStringManipulation::strToBool( (string)$mixValue );
+                            $objAttribute->setAbstract( $booAbstract );
+                            break;   
+                        }
+                        default:
+                        {
+                            throw new UmlClassDiagramException( 'unknow parameter description "'. $strKey . '".' );
+                        }
+                    }
+                }
+                    
+                if( $objAttribute->getName() == "" )
+                {
+                    throw new UmlClassDiagramException( 'Paramenter must have a name' );
+                }
+                $objClass->addAttribute( $objAttribute );
+
+            }
+              
+            if( isset( $xmlClass->methods) && isset( $xmlClass->methods->method ) )
+            foreach( $xmlClass->methods->method as $xmlMethod )
+            {
+                $objMethod = new UmlClassDiagramMethod();
+
+                foreach($xmlMethod->attributes() as $strKey => $mixValue ) 
+                {
+                    switch( $strKey )
+                    {
+                        case  "name":
+                        {
+                            $objMethod->setName( (string)$mixValue );
+                            break;   
+                        }
+                        case  "value":
+                        {
+                            $objMethod->setValue( (string)$mixValue );
+                            break;   
+                        }
+                        case  "type":
+                        {
+                            $objMethod->setType( (string)$mixValue );
+                            break;   
+                        }
+                        case  "visibility":
+                        {
+                            $objMethod->setVisibility( (string)$mixValue );
+                            break;   
+                        }
+                        case  "final":
+                        {
+                            $booFinal = CorujaStringManipulation::strToBool( (string)$mixValue );
+                            $objMethod->setFinal( $booFinal );
+                            break;   
+                        }
+                        case  "static":
+                        {
+                            $booStatic = CorujaStringManipulation::strToBool( (string)$mixValue );
+                            $objMethod->setStatic( $booStatic );
+                            break;   
+                        }
+                        case  "abstract":
+                        {
+                            $booAbstract = CorujaStringManipulation::strToBool( (string)$mixValue );
+                            $objMethod->setAbstract( $booAbstract );
+                            break;   
+                        }
+                        default:
+                        {
+                            throw new UmlClassDiagramException( 'unknow parameter description "'. $strKey . '".' );
+                        }
+                    }
+                }
+
+                if( $objMethod->getName() == "" )
+                {
+                    throw new UmlClassDiagramException( 'Paramenter must have a name' );
+                }
+                
+                if( isset( $xmlMethod->parameters ) && isset( $xmlMethod->parameters->parameter ) )
+                foreach( $xmlMethod->parameters->parameter as $xmlParameter )
+                {
+                    $objParameter = new UmlClassDiagramParameter();
+                
+                    foreach($xmlParameter->attributes() as $strKey => $mixValue ) 
+                    {
+                        switch( $strKey )
+                        {
+                            case  "name":
+                            {
+                                $objParameter->setName( (string)$mixValue );
+                                break;   
+                            }
+                            case  "value":
+                            {
+                                $objParameter->setValue( (string)$mixValue );
+                                break;   
+                            }
+                            case  "type":
+                            {
+                                $objParameter->setType( (string)$mixValue );
+                                break;   
+                            }
+                        }
+                    }
+                    
+                    $objMethod->addParameter( $objParameter );
+                }
+                
+                $objClass->addMethod( $objMethod );
+            }
             $arrClasses[ $objClass->getId() ] = $objClass;
         }
         $this->getUmlClassDiagram()->setClasses( $arrClasses );

@@ -73,8 +73,18 @@ class UmlClassDiagramClass
      */
     protected $strName;
 
+    /**
+     * Class Methods
+     * 
+     * @var UmlClassDiagramMethod[]
+     */
     protected $arrMethods = array();
-    
+
+    /**
+     * Class Attributes
+     * 
+     * @var UmlClassDiagramAttribute[]
+     */
     protected $arrAttribues = array();
     
     /**
@@ -337,14 +347,44 @@ class UmlClassDiagramClass
         $this->intHeight = $intHeight;
     }
     
+    /**
+     * Get the Class Methods
+     * 
+     * @return UmlClassDiagramAttribute[]
+     */
     public function getMethods()
     {
         return $this->arrMethods;
     }
     
+    /**
+     * Add one method to the class
+     * 
+     * @param UmlClassDiagramMethod $objMethod 
+     */
+    public function addMethod( UmlClassDiagramMethod $objMethod )
+    {
+        $this->arrMethods[] = $objMethod;
+    }
+    
+    /**
+     * Get the Class Attributes
+     * 
+     * @return UmlClassDiagramAttribute[]
+     */
     public function getAttributes()
     {
         return $this->arrAttribues;
+    }
+    
+    /**
+     * Add one attribute to the class
+     * 
+     * @param UmlClassDiagramAttribute $objAttribute 
+     */
+    public function addAttribute( UmlClassDiagramAttribute $objAttribute )
+    {
+        $this->arrAttribues[] = $objAttribute;
     }
 }
 ?>

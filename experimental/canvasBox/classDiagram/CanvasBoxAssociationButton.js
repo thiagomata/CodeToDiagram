@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 var CanvasBoxAssociationButton = Class.create();
 Object.extend( CanvasBoxAssociationButton.prototype, window.autoload.loadCanvasBoxButton().prototype);
 Object.extend( CanvasBoxAssociationButton.prototype,

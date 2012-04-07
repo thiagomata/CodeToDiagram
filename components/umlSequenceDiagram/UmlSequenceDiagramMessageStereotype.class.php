@@ -52,7 +52,7 @@ class UmlSequenceDiagramMessageStereotype
      */
     protected static $arrDefaultStereotypes = array( 
         'call' , 
-        'returnx'
+        'return'
     );
             
     /**

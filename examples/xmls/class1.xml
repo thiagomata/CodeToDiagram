@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classdiagram>
     <classes>
-        <class id="person" name="Person"></class>
-        <class id="student" name="Student"></class>
-        <class id="professor" name="Professor"></class>
+        <class id="person" name="Person">
+            <attributes>
+                <attribute name="name" type="string" value="jonh"/>
+                <attribute name="login" type="string" abstract="true"/>
+                <attribute name="id" visibility="private" type="integer" final="true"/>
+                <attribute name="code" visibility="private" type="integer" static="true"/>
+            </attributes>
+            <methods>
+                <method name="go">
+                    <parameters>
+                        <parameter name="id" type="integer" value="coisa" />
+                    </parameters>
+                </method>
+                <method name="back">
+                    <parameters>
+                        <parameter name="name" type="string" />
+                        <parameter name="telephone" type="integer" />
+                    </parameters>
+                </method>
+            </methods>
+        </class>
+        <class id="student" name="Student">
+            <methods>
+                <method name="saygoodbye"/>
+            </methods>
+        </class>
+        <class id="professor" name="Professor">
+            <methods>
+                <method name="sayhello"/>
+            </methods>
+        </class>
         <class id="address" name="Address"></class>
     </classes>
     <connectors>
