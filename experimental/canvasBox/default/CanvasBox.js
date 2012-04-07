@@ -1115,7 +1115,6 @@ CanvasBox.prototype =
 
     setStrokeStyle: function setStrokeStyle( strStrokeStyle )
     {
-        document.title = strStrokeStyle;
         this.getContext().strokeStyle = strStrokeStyle;
     },
 
