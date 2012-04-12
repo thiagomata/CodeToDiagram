@@ -1,0 +1,99 @@
+We create free, open-source web tools what can bring to your company productivity 
+creating automatic diagrams code based, providing a web plataform tool to create, 
+edit and share collaboratively diagrams, keeping the history controll, access 
+controll but still been easy to use and simple to be integrated with anothers 
+existing tools.
+
+This application proposal it is to provide ways to create diagrams based on PHP 
+code execution or by web tools or based on XML files / API making possible convert 
+the result from each one tool to another.
+
+So, external tools can create the XML Files what can be converted into diagrams 
+and edited. The diagram can be created by some API call. PHP Code executions can 
+create XML files of diagrams what can be export to anothers applications. 
+Diagrams can be created into the web application exported to XML file what can 
+be read by some external application what can create code, for example.
+
+In addition all design changes will be automatically replicated in all the diagrams 
+of some project and for all team members. Moreover, each change will be keeped into 
+history, what can provide informations of who, when and why some change had to be 
+done.
+
+When the implementation provided in the diagrams, become a reality, a new diagram 
+can be formed from the execution of that code. This new diagram will remain faithful 
+to the reality of running the code, contemplating your changes.
+
+*Sequence Diagram Xml Example*
+Look the generated diagram in
+http://www.replicantowl.com/codetodiagram/codetodiagram/public/editor.php
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence>
+    <actors>
+  	<actor id="user"       type="user">User</actor>
+		<actor id="view"       type="boundary">:View</actor>
+		<actor id="controller" type="controller">:Controller</actor>
+		<actor id="model"      type="entity">:Model</actor>
+	</actors>
+	<messages>
+		<message type="call" from="user" to="view" text="request()"/>
+                <note position="left" actor="view" text="receive form data" /> 
+                <note position="right" actor="view" text="receive form data" /> 
+		<message type="call" from="view" to="controller" text="handleEvent()"/>
+                <note position="right" actor="controller" text="internal business" /> 
+		<message type="call" from="controller" to="model" text="queryInformation()"/>
+                <note position="left" actor="model" text="persist" /> 
+		<message type="call" from="controller" to="controller" text="doValidation()"/>
+		<message type="return" from="controller" to="view" text="updateView()"/>
+		<message type="return" from="view" to="user" text="notifyUser()"/>
+	</messages>
+</sequence>    
+
+*Class Diagram Xml Example*
+Look the generated diagram in 
+http://www.replicantowl.com/codetodiagram/codetodiagram/public/classeditor.php
+<?xml version="1.0" encoding="UTF-8"?>
+<classdiagram>
+    <classes>
+        <class id="person" name="Person" x="800" y="400">
+            <attributes>
+                <attribute name="name" type="string" value="jonh"/>
+                <attribute name="login" type="string" abstract="true"/>
+                <attribute name="id" visibility="private" type="integer" final="true"/>
+                <attribute name="code" visibility="private" type="integer" static="true"/>
+            </attributes>
+            <methods>
+                <method name="go">
+                    <parameters>
+                        <parameter name="id" type="integer" value="coisa" />
+                    </parameters>
+                </method>
+                <method name="back">
+                    <parameters>
+                        <parameter name="name" type="string" />
+                        <parameter name="telephone" type="integer" />
+                    </parameters>
+                </method>
+            </methods>
+        </class>
+        <class id="student" name="Student" height="100" x="400" y="100">
+            <methods>
+                <method name="saygoodbye"/>
+            </methods>
+        </class>
+        <class id="professor" name="Professor" height="100" x="400" y="400">
+            <attributes>
+                <attribute name="area" type="string"/>
+            </attributes>
+            <methods>
+                <method name="sayhello"/>
+            </methods>
+        </class>
+        <class id="address" name="Address" width="100" height="40" x="800" y="100">></class>
+    </classes>
+    <connectors>
+        <connector type="generalization" from="person" to="student" />
+        <connector type="generalization" from="person" to="professor" />
+        <connector type="association" from="person" to="address" />
+    </connectors>
+</classdiagram>
+    
