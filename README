@@ -24,8 +24,6 @@ can be formed from the execution of that code. This new diagram will remain fait
 to the reality of running the code, contemplating your changes.
 
 *Sequence Diagram Xml Example*
-Look the generated diagram in
-http://www.replicantowl.com/codetodiagram/codetodiagram/public/editor.php
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence>
     <actors>
@@ -49,8 +47,6 @@ http://www.replicantowl.com/codetodiagram/codetodiagram/public/editor.php
 </sequence>    
 
 *Class Diagram Xml Example*
-Look the generated diagram in 
-http://www.replicantowl.com/codetodiagram/codetodiagram/public/classeditor.php
 <?xml version="1.0" encoding="UTF-8"?>
 <classdiagram>
     <classes>
